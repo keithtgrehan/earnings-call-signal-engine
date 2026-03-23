@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.2.0",
+  "audio_available": true,
+  "audio_features_available": true,
+  "audio_quality_ok": true,
+  "quality_gate": {
+    "quality_ok": true,
+    "suppression_recommended": false,
+    "snr_proxy_db": 44.2717,
+    "snr_proxy_ok": true,
+    "management_speech_duration_s": 362.4,
+    "enough_speech_duration_ok": true,
+    "usable_management_segments": 3,
+    "usable_answer_segments": 3,
+    "alignment_quality_ratio": 1.0,
+    "alignment_quality_ok": true
+  },
+  "audio_metadata": {
+    "path": "raw/audio/netflix_q1_2022_audio.wav",
+    "duration_s": 2598.986,
+    "sample_rate": 16000,
+    "frame_length_s": 0.03,
+    "hop_length_s": 0.01,
+    "silence_threshold_db": -35.0
+  },
+  "hesitation_overall": {
+    "score": 4.6667,
+    "level": "medium"
+  },
+  "hesitation_level": {
+    "score": 4.6667,
+    "level": "medium"
+  },
+  "pauses_before_answers": {
+    "median_ms": 380.0,
+    "level": "medium"
+  },
+  "prepared_baseline_audio_stability": {
+    "score": 0.0,
+    "level": "high"
+  },
+  "qa_hesitation_shift": {
+    "delta": 4.6667,
+    "prepared_mean": 0.0,
+    "q_and_a_mean": 4.6667,
+    "direction": "more_hesitant",
+    "level": "high"
+  },
+  "pause_pressure_delta": {
+    "delta": 2.2544,
+    "prepared_density": 0.0,
+    "q_and_a_density": 2.2544,
+    "level": "high",
+    "label": "more_paused_under_questions"
+  },
+  "answer_latency_pressure": {
+    "median_ms": 0.0,
+    "level": "low"
+  },
+  "audio_confidence_support": {
+    "level": "high",
+    "suppressed": false,
+    "reason": "usable answer-level audio support"
+  },
+  "support_mode": "model_backed",
+  "model_support": {
+    "available": true,
+    "mode": "model_backed",
+    "support_direction": "cautionary",
+    "calibrated_support_score": 0.3053,
+    "reliability_weight": 0.4991,
+    "hesitation_pressure": {
+      "predicted_label": "high",
+      "probability_means": {
+        "high": 0.5416,
+        "low": 0.2357,
+        "medium": 0.2227
+      }
+    },
+    "delivery_confidence": {
+      "predicted_label": "low",
+      "probability_means": {
+        "high": 0.2357,
+        "low": 0.5416,
+        "medium": 0.2227
+      }
+    }
+  },
+  "egemaps_v02_summary": {
+    "available": true,
+    "pitch_variability_mean": 0.1565,
+    "loudness_mean": 0.2628,
+    "loudness_variability_mean": 0.6623,
+    "spectral_flux_mean": 0.0983
+  },
+  "strongest_audio_evidence": [
+    {
+      "segment_id": 1,
+      "start_time_s": 48.16,
+      "end_time_s": 196.24,
+      "hesitation_label": "high",
+      "pause_before_answer_ms": 1060.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 2.4311,
+      "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
+    },
+    {
+      "segment_id": 3,
+      "start_time_s": 232.24,
+      "end_time_s": 433.0,
+      "hesitation_label": "high",
+      "pause_before_answer_ms": 380.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 2.2913,
+      "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
+    },
+    {
+      "segment_id": 5,
+      "start_time_s": 1284.2,
+      "end_time_s": 1323.4,
+      "hesitation_label": "medium",
+      "pause_before_answer_ms": 0.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 2.0408,
+      "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
+    }
+  ],
+  "most_hesitant_answers": [
+    {
+      "segment_id": 1,
+      "section": "q_and_a",
+      "speaker_role": "management",
+      "start_time_s": 48.16,
+      "end_time_s": 196.24,
+      "hesitation_label": "high",
+      "hesitation_score": 7,
+      "pause_before_answer_ms": 1060.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 2.4311,
+      "articulation_rate_wpm": 188.37,
+      "confidence_note": "usable audio segment",
+      "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
+    },
+    {
+      "segment_id": 3,
+      "section": "q_and_a",
+      "speaker_role": "management",
+      "start_time_s": 232.24,
+      "end_time_s": 433.0,
+      "hesitation_label": "high",
+      "hesitation_score": 5,
+      "pause_before_answer_ms": 380.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 2.2913,
+      "articulation_rate_wpm": 199.07,
+      "confidence_note": "usable audio segment",
+      "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
+    },
+    {
+      "segment_id": 5,
+      "section": "q_and_a",
+      "speaker_role": "management",
+      "start_time_s": 1284.2,
+      "end_time_s": 1323.4,
+      "hesitation_label": "medium",
+      "hesitation_score": 2,
+      "pause_before_answer_ms": 0.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 2.0408,
+      "articulation_rate_wpm": 209.51,
+      "confidence_note": "usable audio segment",
+      "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
+    }
+  ],
+  "low_confidence_segments": [],
+  "limitations": [],
+  "notes": [
+    "Audio hesitation combines pause-before-answer, answer latency, within-segment pause density, filler markers, articulation rate, and loudness dynamics.",
+    "These are observational timing proxies for review support, not mental-state or deception inference."
+  ]
+}

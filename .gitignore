@@ -14,6 +14,7 @@ build/
 *.mp3
 *.m4a
 .cache/
+data/demo_cases/netflix_q1_2022/raw/video/*.mp4
 
 # generated
 cache/

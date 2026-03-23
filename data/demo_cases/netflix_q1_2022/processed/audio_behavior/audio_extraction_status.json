@@ -1,0 +1,8 @@
+{
+  "status": "reused_existing_audio",
+  "audio_path": "raw/audio/netflix_q1_2022_audio.wav",
+  "audio_md5": "de92bfbbec306fb8e7f332128c878b24",
+  "duration_s": 2598.986,
+  "sample_rate_hz": 16000,
+  "channels": 1
+}

@@ -1,11 +1,16 @@
 {
-  "status": "mismatch",
+  "status": "verified",
   "expected_quarter": "Q1 2022",
-  "detected_quarter": "Q2 2022",
-  "quarter_consistent": false,
-  "video_filename": "video Netflix Q2 2022 Earnings Interview.mp4",
-  "video_md5": "6ce1e9aa2f3b2929b9cc779175fd2782",
-  "duration_s": 2590.256,
-  "intro_excerpt": "Good afternoon, and welcome to the Netflix Q2 2020 earnings interview. I'm Spencer Wong, VP of IR and corporate development. Joining me today are co-CEO Rehacings, co-CEO and Chief Content Officer Ted Serrandos, COO and Chief Product Officer Greg Peters and CFO Spencer Newman. Our interviewer this quarter is Doug Ameth from JPMorgan.",
-  "action": "Uploaded video was verified as a Q2 2022 earnings interview, so video and audio were not bundled into the Q1 2022 demo case."
+  "detected_quarter": "Q1 2022",
+  "quarter_consistent": true,
+  "video_filename": "netflix_q1_2022_video.mp4",
+  "video_md5": "578d5a95567259b36cd5c64ced4f1206",
+  "duration_s": 2598.986,
+  "intro_excerpt": "Good afternoon, and welcome to Netflix Q1 2020 earnings interview. I'm Spencer Wong, VP of IR and corporate development. Joining me today are COCO Reed Hastings, COCO and Chief Content Officer Ted Serrandos, COO and Chief Product Officer Greg Peters, and CFO Spence Newman. Our interviewer this quarter is dug in with from JP Morgan.",
+  "verification_basis": [
+    "intro_excerpt_contains_q1",
+    "intro_excerpt_matches_expected_speaker_lineup",
+    "year_token_noisy_in_asr_but_consistent_with_case_assets"
+  ],
+  "action": "Quarter-consistent video can be used for optional audio hooks."
 }

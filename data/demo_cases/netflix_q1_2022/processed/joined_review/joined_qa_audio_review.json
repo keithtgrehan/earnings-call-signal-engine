@@ -1,0 +1,141 @@
+{
+  "rows": [
+    {
+      "row_id": "qa_growth_headwinds_audio",
+      "qa_pair_id": 1,
+      "plain_english_label": "analyst pushback on growth slowdown",
+      "review_priority": "high",
+      "question_speaker": "Douglas Till Anmuth",
+      "answer_speakers": [
+        "Wilmot Reed Hastings",
+        "Spencer Adam Neumann"
+      ],
+      "analyst_question_excerpt": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have changed over the past fe...",
+      "management_answer_excerpt": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ...",
+      "question_time_range": "00:32-00:48",
+      "answer_time_range": "00:48-03:16",
+      "question_start_s": 32.28,
+      "question_end_s": 48.16,
+      "answer_start_s": 48.16,
+      "answer_end_s": 196.24,
+      "answer_start_delay_seconds": 0.0,
+      "pause_before_answer_ms": 1060.0,
+      "filler_count": 3,
+      "filler_density": 0.6897,
+      "restart_count": 2,
+      "transcript_hedge_markers": [
+        "i think",
+        "kind of",
+        "we think"
+      ],
+      "hesitation_score": 7,
+      "hesitation_label": "high",
+      "hesitation_flag": true,
+      "qa_shift_label": "weaker",
+      "qa_shift_delta": -0.8883,
+      "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
+      "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
+      "artifact_paths": [
+        "processed/qa_pairs/qa_pairs.json",
+        "processed/signals/qa_shift_summary.json",
+        "processed/audio_behavior/audio_behavior_segments.csv",
+        "processed/audio_behavior/audio_behavior_summary.json"
+      ],
+      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
+      "audio_support_mode": "supporting_only",
+      "source_artifact_path": "processed/audio_behavior/audio_behavior_segments.csv"
+    },
+    {
+      "row_id": "qa_paid_net_adds_miss_audio",
+      "qa_pair_id": 2,
+      "plain_english_label": "qualified explanation of the Q1 miss",
+      "review_priority": "high",
+      "question_speaker": "Douglas Till Anmuth",
+      "answer_speakers": [
+        "Spencer Adam Neumann",
+        "Gregory K. Peters"
+      ],
+      "analyst_question_excerpt": "Okay. So maybe just in terms of the recent trends, if we could talk about 1Q a little bit more. You lost 200,000 subscribers or gained 500,000 ex the Russia removal. Hoping you could perhaps parse out a little bit around some of those factors that you menti...",
+      "management_answer_excerpt": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e...",
+      "question_time_range": "03:18-03:52",
+      "answer_time_range": "03:52-07:13",
+      "question_start_s": 198.24,
+      "question_end_s": 232.24,
+      "answer_start_s": 232.24,
+      "answer_end_s": 433.0,
+      "answer_start_delay_seconds": 0.0,
+      "pause_before_answer_ms": 380.0,
+      "filler_count": 2,
+      "filler_density": 0.3215,
+      "restart_count": 5,
+      "transcript_hedge_markers": [
+        "maybe",
+        "probably",
+        "sort of",
+        "trying to",
+        "could"
+      ],
+      "hesitation_score": 5,
+      "hesitation_label": "high",
+      "hesitation_flag": true,
+      "qa_shift_label": "stronger",
+      "qa_shift_delta": 0.6291,
+      "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
+      "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+      "artifact_paths": [
+        "processed/qa_pairs/qa_pairs.json",
+        "processed/signals/qa_shift_summary.json",
+        "processed/audio_behavior/audio_behavior_segments.csv",
+        "processed/audio_behavior/audio_behavior_summary.json"
+      ],
+      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
+      "audio_support_mode": "supporting_only",
+      "source_artifact_path": "processed/audio_behavior/audio_behavior_segments.csv"
+    },
+    {
+      "row_id": "qa_ad_supported_option_audio",
+      "qa_pair_id": 12,
+      "plain_english_label": "hedged answer on the ad-supported option",
+      "review_priority": "high",
+      "question_speaker": "Douglas Till Anmuth",
+      "answer_speakers": [
+        "Wilmot Reed Hastings"
+      ],
+      "analyst_question_excerpt": "Got it. And is it fair to think that it would be something you would test in a few small markets to start out and then kind of move along?",
+      "management_answer_excerpt": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't think we have a lot of doubt that it works, that all those companies have figured it out. I'm sure we'll just get in and figure it out as opposed to test it and maybe do it or not d...",
+      "question_time_range": "21:12-21:24",
+      "answer_time_range": "21:24-22:03",
+      "question_start_s": 1271.64,
+      "question_end_s": 1284.2,
+      "answer_start_s": 1284.2,
+      "answer_end_s": 1323.4,
+      "answer_start_delay_seconds": 0.0,
+      "pause_before_answer_ms": 0.0,
+      "filler_count": 0,
+      "filler_density": 0.0,
+      "restart_count": 1,
+      "transcript_hedge_markers": [
+        "i think",
+        "maybe",
+        "probably",
+        "would"
+      ],
+      "hesitation_score": 2,
+      "hesitation_label": "medium",
+      "hesitation_flag": true,
+      "qa_shift_label": "stronger",
+      "qa_shift_delta": 1.1234,
+      "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
+      "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+      "artifact_paths": [
+        "processed/qa_pairs/qa_pairs.json",
+        "processed/signals/qa_shift_summary.json",
+        "processed/audio_behavior/audio_behavior_segments.csv",
+        "processed/audio_behavior/audio_behavior_summary.json"
+      ],
+      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
+      "audio_support_mode": "supporting_only",
+      "source_artifact_path": "processed/audio_behavior/audio_behavior_segments.csv"
+    }
+  ]
+}
