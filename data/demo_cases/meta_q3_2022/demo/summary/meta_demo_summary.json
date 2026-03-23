@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "meta_q3_2022",
+  "display_name": "Meta Q3 2022",
+  "quarter": "Q3 2022",
+  "quarter_consistency": {
+    "schema_version": "1.0.0",
+    "case_id": "meta_q3_2022",
+    "expected_case_quarter": "Q3 2022",
+    "main_transcript": {
+      "status": "verified",
+      "detected_quarter": "Q3 2022",
+      "filename": "meta_q3_2022_earnings_call_transcript.pdf",
+      "supporting_text": "Meta Platforms, Inc. (META) Third Quarter 2022 Results Conference Call October 26th, 2022"
+    },
+    "follow_up_transcript": {
+      "status": "verified",
+      "detected_quarter": "Q3 2022",
+      "filename": "meta_q3_2022_follow_up_call_transcript.pdf",
+      "supporting_text": "Meta Platforms, Inc. (META) Third Quarter 2022 Follow Up Call October 26th, 2022"
+    },
+    "results_release": {
+      "status": "verified",
+      "detected_quarter": "Q3 2022",
+      "filename": "meta_q3_2022_results_release.pdf",
+      "supporting_text": "Meta Reports Third Quarter 2022 Results"
+    },
+    "presentation": {
+      "status": "verified",
+      "detected_quarter": "Q3 2022",
+      "filename": "meta_q3_2022_earnings_presentation.pdf",
+      "supporting_text": "Meta Earnings Presentation Q3 2022"
+    },
+    "video": {
+      "status": "verified",
+      "expected_quarter": "Q3 2022",
+      "video_filename": "meta_q3_2022_video.mp4",
+      "video_md5": "ea9accacde7360c38ce1fe1cf457fbe3",
+      "video_path": "raw/video/meta_q3_2022_video.mp4",
+      "has_video_stream": true,
+      "has_audio_stream": true,
+      "duration_s": 3717.933,
+      "verification_basis": [
+        "asset path fixed to Meta Q3 2022 case",
+        "ffprobe readable",
+        "ffprobe audio stream present"
+      ],
+      "action": "Quarter-consistent local video is readable and can be used for optional bounded audio hooks."
+    },
+    "overall_status": "transcript_first_ready_media_available",
+    "action_taken": "Built the fixed Meta Q3 2022 transcript-first demo package from the earnings call transcript, follow-up transcript, results release, and presentation, with optional bounded audio support from a readable local Q3 video."
+  },
+  "transcript_first_status": "ready",
+  "audio_status": {
+    "status": "generated",
+    "reason": "Main-call video was readable, audio was extracted, and curated Q&A moments were matched to supporting audio.",
+    "video_path": "raw/video/meta_q3_2022_video.mp4",
+    "audio_path": "raw/audio/meta_q3_2022_audio.wav",
+    "audio_extraction_status": {
+      "status": "reused_existing_audio",
+      "audio_path": "raw/audio/meta_q3_2022_audio.wav",
+      "audio_md5": "7f8a2467f8fc9fe68c8645bfd4bbbba0",
+      "duration_s": 3717.979,
+      "sample_rate_hz": 16000,
+      "channels": 1
+    },
+    "audio_transcript_segments_path": "processed/audio_behavior/audio_transcript_segments.json",
+    "audio_aligned_qa_segments_path": "processed/audio_behavior/audio_aligned_qa_segments.csv",
+    "audio_behavior_summary_path": "processed/audio_behavior/audio_behavior_summary.json",
+    "audio_behavior_segments_path": "processed/audio_behavior/audio_behavior_segments.csv",
+    "audio_review_rows_path": "processed/audio_behavior/audio_review_rows.json",
+    "joined_qa_audio_review_path": "processed/joined_review/joined_qa_audio_review.json",
+    "usable_review_moments": 2,
+    "timing_mode": "curated_qa_match_only",
+    "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-video alignment.",
+    "video_verification": {
+      "status": "verified",
+      "expected_quarter": "Q3 2022",
+      "video_filename": "meta_q3_2022_video.mp4",
+      "video_md5": "ea9accacde7360c38ce1fe1cf457fbe3",
+      "video_path": "raw/video/meta_q3_2022_video.mp4",
+      "has_video_stream": true,
+      "has_audio_stream": true,
+      "duration_s": 3717.933,
+      "verification_basis": [
+        "asset path fixed to Meta Q3 2022 case",
+        "ffprobe readable",
+        "ffprobe audio stream present"
+      ],
+      "action": "Quarter-consistent local video is readable and can be used for optional bounded audio hooks."
+    }
+  },
+  "headline_counts": {
+    "guidance_rows": 46,
+    "uncertainty_rows": 12,
+    "analyst_skepticism_rows": 0,
+    "main_qa_pairs": 8,
+    "follow_up_qa_pairs": 25,
+    "evidence_rows": 8,
+    "audio_review_moments": 2
+  },
+  "review_scorecard": {},
+  "market_context": {
+    "schema_version": "1.0.0",
+    "case_id": "meta_q3_2022",
+    "company": "Meta Platforms",
+    "ticker": "META",
+    "quarter": "Q3 2022",
+    "event_date": "2022-10-26",
+    "key_extracted_signals": [
+      "revenue down 4%",
+      "operating margin down to 20%",
+      "2023 expense guidance remained elevated despite efficiency framing",
+      "Reels still carried a more than $500 million quarterly revenue headwind"
+    ],
+    "market_reaction_window": {
+      "start_date": "2022-10-26",
+      "end_date": "2022-10-27",
+      "reaction_direction": "negative",
+      "reaction_magnitude_pct": -24.6,
+      "start_price_usd": 129.82,
+      "end_price_usd": 97.94
+    },
+    "market_reaction_note": "Meta fell sharply the session after the release as investors reacted to weaker profitability, heavy 2023 spending expectations, and the lack of a cleaner near-term recovery story.",
+    "source": {
+      "label": "Stooq daily META prices and CNBC coverage of Meta's Oct. 27, 2022 selloff",
+      "pricing_url": "https://stooq.com/q/d/l/?s=meta.us&i=d",
+      "coverage_url": "https://www.cnbc.com/2022/10/27/meta-stock-plunges-on-earnings-miss-weak-fourth-quarter-forecast.html"
+    },
+    "caveat": "Contextual sanity-check evidence only. This does not validate prediction, causality, or trading value."
+  },
+  "top_summary_points": [
+    "The main earnings call transcript, follow-up transcript, results release, and presentation are quarter-consistent for Meta Q3 2022.",
+    "The transcript-first package surfaces macro pressure, Reels monetization headwinds, cost discipline language, and Reality Labs drag.",
+    "The follow-up transcript adds extra analyst pressure on weak spots without replacing the main call as the canonical spoken source.",
+    "Optional audio support is limited to a few curated main-call Q&A moments and remains supporting context only."
+  ],
+  "limitations": [
+    "This is a transcript-first deterministic review package, not a predictive or trading system.",
+    "Audio and video are supporting layers only; they do not override transcript-first extracted signals.",
+    "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-video alignment.",
+    "Market reaction context is a historical sanity-check panel, not predictive validation or a trading claim."
+  ]
+}

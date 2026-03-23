@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "meta_q3_2022",
+  "quarter": "Q3 2022",
+  "event_date": "2022-10-26",
+  "metrics": {
+    "revenue_billion_usd": "27.71",
+    "revenue_change_yoy": "4%",
+    "operating_income_billion_usd": "5.66",
+    "operating_income_change_yoy": "46%",
+    "operating_margin": "20%",
+    "diluted_eps_usd": "1.64",
+    "diluted_eps_change_yoy": "49%",
+    "q4_2022_revenue_guide_billion_usd": "30-32.5 billion",
+    "expense_guidance_2023_billion_usd": "96-101 billion",
+    "capex_guidance_2023_billion_usd": "34-39 billion"
+  },
+  "evidence": {
+    "headline_deterioration": "Family of Apps increased by 17% year-over-year and the average price per ad decreased by 18% year- over-year. \u2022 Revenue \u2013 Revenue was $27.71 billion, a decrease of 4% year-over-year, and an increase of 2% year- over-year on a constant currency basis. Had foreign exchange rates remained constant with the third quarter of 2021, revenue would have been $1.79 billion higher. \u2022 C...",
+    "expense_guidance": "consolidating our office facilities footprint that we expect to record in the fourth quarter of 2022. We anticipate our full-year 2023 total expenses will be in the range of $96-101 billion. This includes an estimated $2 billion in charges related to consolidating our office facilities footprint. We expect the slight majority of our 2023 expense dollar growth to be driven by...",
+    "capex_guidance": "billion, updated from our prior range of $30-34 billion . For 2023, we expect capital expenditures to be in the range of $34-39 billion , driven by our investments in data centers, servers, and network infrastructure. An increase in AI capacity is driving substantially all of our capital expenditure growth in 2023. Absent any changes to U.S. tax law, we expect our fourth qua...",
+    "efficiency_framing": "challenges on revenue, the fundamentals are there for a return to stronger revenue growth. We're approaching 2023 with a focus on prioritization and efficiency that will help us navigate the current environment and emerge an even stronger company.\" Third Quarter 2022 Financial Highlights Three Months Ended September 30, % Change In millions, except percentages and per share ...",
+    "reality_labs_framing": "consumer Quest headset later next year. Reality Labs expenses are included in our total expense guidance. We do anticipate that Reality Labs operating losses in 2023 will grow significantly year-over-year. Beyond 2023, we expect to pace Reality Labs investments such that we can achieve our goal of growing overall company operating income in the long run. We expect 2022 capit..."
+  }
+}

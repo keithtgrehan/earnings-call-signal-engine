@@ -1,0 +1,8 @@
+{
+  "status": "reused_existing_audio",
+  "audio_path": "raw/audio/meta_q3_2022_audio.wav",
+  "audio_md5": "7f8a2467f8fc9fe68c8645bfd4bbbba0",
+  "duration_s": 3717.979,
+  "sample_rate_hz": 16000,
+  "channels": 1
+}

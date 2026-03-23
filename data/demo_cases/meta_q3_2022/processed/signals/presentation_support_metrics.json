@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "meta_q3_2022",
+  "metrics": {
+    "reality_labs_revenue_millions_usd": "285",
+    "total_revenue_millions_usd": "27,714",
+    "family_of_apps_operating_income_millions_usd": "9,336",
+    "reality_labs_operating_loss_millions_usd": "3,672",
+    "total_income_from_operations_millions_usd": "5,664",
+    "operating_margin": "20%",
+    "q3_2022_capex_millions_usd": "9,518"
+  },
+  "evidence": {
+    "segment_results": "27,237 Other 168 198 192 176 155 215 218 192 Family of Apps Revenue 27,355 25,637 28,772 28,452 32,794 27,213 28,370 27,429 Reality Labs Revenue 717 534 305 558 877 695 452 285 Total Revenue $ 28,072 $ 26,171 $ 29,077 $ 29,010 $ 33,671 $ 27,908 $ 28,822 $ 27,714 Family of Apps Operating Income $ 14,874 $ 13,205 $ 14,799 $ 13,054 $ 15,889 $ 11,484 $ 11,164 $ 9,336 Reality Lab...",
+    "capital_expenditures": "development expenses for U.S. income tax purposes. Excluding this tax benefit, our diluted EPS would have been $0.31 lower. 8 Capital Expenditures In Millions Capital expenditures for periods presented were related to purchases of property and equipment, net and principal payments on finance leases. $4,544 $9,518 $13,703 $22,813 Q3'21 Q3'22 YTD 2021 YTD 2022 YTDQuarterly 9 2...",
+    "free_cash_flow_note": "$3.43 $3.14 $3.35 $3.21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22 Worldwide US & Canada Europe Asia-Pacific Rest of World 15 Appendix Free Cash Flow Reconciliation In Millions Free cash flow (FCF) is a non -GAAP financial measure that has limitations as an analytical tool, and you should not consider it in isolation or as a substitute for analysis of other GAAP financial measures, such ..."
+  }
+}

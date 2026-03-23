@@ -1,0 +1,264 @@
+{
+  "qa_pairs": [
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 1,
+      "question_speaker": "Michael Nathanson",
+      "question_text": "Hey, thank you. I have two. First is, on the call Mark talked a bit about messaging and commerce. And I just wanted to get an update on how you\u2019re thinking about commerce on the platform of Instagram and Facebook? There were some reports that perhaps there\u2019s been a change on strategies. Any update you can on platform commerce. And then Dave, I really appreciate the update on the Reels headwind. Can you help us at all quantify what happened the previous two quarters because I -- it\u2019s -- based on the math it\u2019s pretty bullish what you guys are reporting in potentially the next 12 months for this to be at least a tail -- a neutral to perhaps a tailwind down the road?",
+      "answer_speakers": [
+        "Susan Li",
+        "David Wehner"
+      ],
+      "answer_text": "Hi, it\u2019s Susan. I\u2019ll start on the commerce question and maybe and turn it over to Dave to talk about the Reels piece. We really, I think, think about commerce now in the context of sort of the big ecommerce and retail vertical and how that is a big part of our business and how are we best addressed to serve those advertisers. And also the dimension in which what can we do to sort of move as much of the data that used to be sort of third party transaction data into first party forms as possible. So a lot of work really is directed at addressing, I think, either or both of those things. One of the things that we have talked about this quarter is some of the new advertising tools that we\u2019ve rolled out, the Advantage+ suite of advertising tools. We\u2019ve started those in particular with the ecommerce and retail verticals, in particular the Advantage+ shopping tool that we\u2019ve launched, which basically enables advertisers to, A, easily access a lot of disparate features of our product and then, B, use sort of new machine learning on technology to basically automatically test and optimize ads at scale on behalf of advertisers without a ton of manual work on their part. So -- and that\u2019s actually something where we\u2019re seeing now growing interest from advertisers outside of the commerce and retail sales verticals also. But we\u2019re starting there. And then we talked about a lot of the ways that we are working to move, I think, more third party transaction data to first party forms, a lot of the sort of business messaging efforts, I think, have a lot of that too and that\u2019s another place that we\u2019re optimistic about growth going forward. Yes, Michael, I think just adding to what Susan is saying there, I do think that the business messaging and the WhatsApp business platform is a very interesting growth opportunity. Obviously the scale messaging revenue that we have today is click to messaging ads but we\u2019re really bullish on where paid messaging can go over the next several years. Commerce is going to be a component of that; it\u2019s not going to be the exclusive component of that. We expect that we\u2019re going to see a lot of successful adoption outside of the U.S. But WhatsApp is also growing -- it\u2019s -- we\u2019ve seen good growth of WhatsApp DAU in North America that, on percentage basis, was our fastest growing market. So we think that the business messaging platform is a really interesting opportunity and we\u2019re seeing growth there. On Reels, yes, that\u2019s -- we\u2019re super excited about Reels, we think it\u2019s doing quite well from an engagement point of view. We think we\u2019re, as Mark mentioned, growing market share on a time spent basis versus competition and that includes TikTok. So I think that\u2019s a good sign. It\u2019s incremental to time spent but there is some cannibalistic component. It\u2019s more cannibalistic on revenue because of the fact that we don\u2019t have very high ad loads in Reels. So it\u2019s a $500 million headwind that is coming down, but it's -- from prior quarters, but it is -- it remains a big headwind. But we're at a $3 billion run rate. That's growing. We expect the tailwind to decrease and we don't think it's to neutrality until 12 to 18 months from now, but we do think that that's -- is something that we are bullish on in the long run, as you mentioned."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 2,
+      "question_speaker": "Michael Nathanson",
+      "question_text": "Right, and Dave, like just to put a perspective on this, as your anniversary IDFA which is now neutral and behind you, closing the gap, the monetization here, and then at some point currency probably becomes less of a headwind you're looking at a '22 story that incrementally should get better each quarter as you go through these comp issues.",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "Yes, I mean, we think that that set up is favorable for '23, but we have been a little chastened by the macro climate, which in Q3 we saw the benefit of lapping IDFA, but we also saw kind of continued macro headwinds. We don't think we're the only ones facing those; we hear that from our peers. Our mix is such that we're getting some benefit in some verticals like travel and healthcare, but we're seeing challenges in places like commerce and games, but you see like things like app installs are generally under significant pressure. You see that from the app stores themselves kind of reporting that. So I think yes, we think the setup is good, but the overall kind of macro overlay has been challenging, so we're optimistic, but we'll want to see a few more cards turned over before we're going to be super bullish."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 3,
+      "question_speaker": "Michael Nathanson",
+      "question_text": "Got it, thank you. And best of luck to you.",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "Yes, thanks, Michael."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 4,
+      "question_speaker": "Tom Champion",
+      "question_text": "Thanks very much for taking the questions. Curious if you could just talk broadly about the competitive intensity in the industry right at the moment, just curious your perspective. And then seems like a lot of the issues right now is just a depressed environment for ads and macro, and curious if you feel like there is a playbook for managing that type of environment or a tactical message for your sales force in order to kind of mitigate that lower demand environment?",
+      "answer_speakers": [
+        "Susan Li",
+        "David Wehner",
+        "Susan Li",
+        "David Wehner"
+      ],
+      "answer_text": "Yes, so I think maybe I'll take the second question first, and then we'll come back to the first question. I think what we would point to is -- I mean, obviously I think we have seen, because of the Apple ATT changes, we have seen that some of the demand has shifted to lower parts of the funnel. But I think broadly speaking, we believe that we have incredibly wide reach across the platform. We've talked about the strong engagement that we saw this quarter, both on Facebook Blue and on Instagram and especially on Reels. And then we have ads products that are very performance oriented, even post-ATT. And we're continuing to invest in those products and make them better. I talked a little bit about the Advantage+ launch recently, which I think is a big step forward in making our ads tools easier to use, and I think on the sort of signals landscape of mitigations, I think that's a place where we've also invested a lot and developed tools that I think are really valuable to advertisers in the post-ATT world. And then we\u2019re continuing to invest in the medium and longer-term of first party ads formats and privacy-enhancing ad tech that I think will all be I think really sort of valuable ways for advertisers to reach the sort of broad range of people we have on our platform. So both in terms of region performance, I just think that we\u2019re still an extremely-attractive offering for advertisers. And on the competitive intensity question, I think obviously the tech industry broadly \u2013 the consumer tech industry broadly is very competitive, and we\u2019re focused on innovating the best possible consumer experiences for people. We do think based on the data that we\u2019re looking at that we are certainly gaining share in some areas with Reels in particular, and we feel really good about what we\u2019re seeing with our progress in Reels. Yes. And I think on the competitive front, I would point to the fact that we can invest in A.I. at scale. Yes. And we\u2019ve got an incredible reach with our platform. We've got engaged products and really footholds in places like short-from video that are very compelling. We can \u2013 we've got a lot of engagement and we\u2019ve got the ability to drive more engagement through recommended content through A.I. So you combine that with also our ability to use A.I. and machine learning to drive more performant ad products, like we\u2019re pushing with through our sales force with Advantage+. We think we\u2019ve got a good set of solutions combined with good impression growth. And so, over time we think that will set us up well for the future competitively."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 5,
+      "question_speaker": "Tom Champion",
+      "question_text": "Thank you.",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "Thanks, Tom."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 6,
+      "question_speaker": "Mark Kelly",
+      "question_text": "Great. Thank you very much. I just wanted to ask two more on the expense outlook for next year. The first one is more of a clarification. I think, Susan, you said that you were being conservative in terms of the operating assumption internally for planning next year. Can you clarify that a bit? Are you being conservative in your revenue outlook internally next year? And maybe your OpEx guide would have been bigger if we were in a better environment or are you suggesting that given the macro backdrop maybe you're starting a bit higher in terms of the expense outlook for next year and you're conservative on the margin side? Clarification there would be great. And then second, and Mark alluded to this kind of quickly in the call, but the Apple policy changes that I think the notes are available on Monday, I mean, I guess can you talk through is that baked into the expense outlook? And maybe can you give us some guide posts in terms of maybe how big Boosted posts are or something else to help us thinking through that impact? Thank you.",
+      "answer_speakers": [
+        "Susan Li",
+        "David Wehner"
+      ],
+      "answer_text": "Yes. So on your first question, I just -- I think I understood the framing. I think we\u2019re closer to the first scenario that you described where because of the sort of economic volatility we are being more conservative in the way that we think about building next year\u2019s expense plan. Historically when we have built budgets, we have considered the risks of under-investing also in addition to the way that we think about building a sort of financially-conservative budget and weighed those tradeoffs against each other. And this is a cycle where we have been more intentionally conservative in our approach. And then, Mark, specifically on boost, we\u2019re evaluating that impact, but we don't expect it to materially impact our guidance on both Q4 and 2023. We're obviously disappointed to see Apple kind of claiming a share of advertising revenue, and it's an important tool for small businesses, but this impacts a relatively small percentage of revenue for us. So, it's not going to impact our guidance on '23."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 7,
+      "question_speaker": "Mark Kelley",
+      "question_text": "OK, great. Thank you. And then, quickly, I guess, one quick follow-up. Sorry. Revenue would still be recognized on a gross basis? And then that 30 percent would come on \u2026",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "Sorry, with regards to -- with regards to Boost? With regards to Boost?"
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 8,
+      "question_speaker": "Mark Kelley",
+      "question_text": "Yes. Yes.",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "I think it's going to -- that it's unclear at this point. I think we'll have to look at all of the specifics of how it's being implemented. But again, it's, you know, it's not going to be a -- it's a relatively small percentage of revenue that it would impact. But, TBD on exactly how it will impact on a gross versus net basis or if it will impact more of COGS point of view. But we'll -- we can -- we'll probably have a better answer for you in Q4."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 9,
+      "question_speaker": "Mark Kelley",
+      "question_text": "Perfect. Thank you very much. And sorry I asked three. I appreciate it. Thank you.",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "That's OK, Mark."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 10,
+      "question_speaker": "Ross Sandler",
+      "question_text": "Hey, guys. Just a follow-up on the \u2026",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "Hey, Ross."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 11,
+      "question_speaker": "Ross Sandler",
+      "question_text": "How's it going? Good. All right. On like the topic of like the ad system improvement? So, I thought what you guys were trying to say at the beginning of the call was that you're actually seeing some pretty solid improvement in the ad system here in the third quarter, but that macro\u2019s kind of overshadowing some of that. And if we look at the growth rates constant currency, you\u2019re about the same neighborhood as YouTube and that includes lapping this IDFA hit, which one could argue, maybe you should be growing a little faster them. And then you've got the $9 billion like messaging ads run-rate that's coming in on like kind of new surfaces that you haven't really tapped into yet. So, I guess we aren't really seeing it yet in Feed ads. So, the question would be, when do we expect to see faster than industry growth in Feed ads? And can you just talk about, if my premise at the beginning was right, that you are currently seeing ad system improvements, could you just talk -- elaborate a little bit more on what's giving you that confidence, particularly with Feed ads? Thanks.",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "I'll take a crack. And then, Susan, you might want to add any color if you think it\u2019s appropriate. So, hey Ross, on the -- I think what we were trying to communicate in my commentary is that we, in terms of, year-over-year revenue growth, all else being equal on the macro front, let's say, we would have seen some acceleration in growth because we're lapping the IDFA changes that rolled out really largely in Q3 of last year. So, when you look at sort of the signals headwind on a year-over-year basis, we got -- we would have gotten some benefit from growth and that was offset by additional macro weakness that we're seeing just in the overall demand climate. Now, on top of that, yes we are making progress on improving our ad systems and launching new products like Advantage+ that are going to benefit our business in the long run, but the commentary there was really about -- specifically about the lapping effect of IDFA offset by macro weakness. So, hopefully, that gives you a little bit of color. And yes, there\u2019s a lot of secular \u2013 there\u2019s a lot of positive trends in the ads business such click to messaging ads, such as launching Advantage+, continuing to make progress on Reels monetization. So there\u2019s a lot of kind of positive underlying trend, but we\u2019re facing a tough macro climate, so hopefully those will read through much more strongly as the macro environment improves. And specifically everybody\u2019s got a little bit of different vertical mix in the digital ads business, so we tend to be heavier in places like commerce. And though we saw good growth in places like travel, that\u2019s a smaller vertical for us. So some of the bigger verticals have been more, I think, more challenged from a year-over-year growth rate. Just as we see a tough macro climate, we\u2019re still kind of coming off of I think the big kind of surge of online activity that benefited things like commerce and gaming. So I think that\u2019s the kind of the general setup that I would give for you on how things are looking. Good underlying \u2013 good underlying we think product growth, but \u2013 and a favorable lapping of the IDFA changes offset by these macro challenges."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 12,
+      "question_speaker": "Ross Sandler",
+      "question_text": "Thanks.",
+      "answer_speakers": [],
+      "answer_text": ""
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 13,
+      "question_speaker": "Alan Gould",
+      "question_text": "Yes. Thanks for taking the question. Dave, as you're focusing more on A.I., does that have any impact on your servers, the lifespan of the servers when you have to update all your datacenters?",
+      "answer_speakers": [
+        "David Wehner",
+        "Susan Li",
+        "David Wehner",
+        "Susan Li"
+      ],
+      "answer_text": "There\u2019s a couple different factors going on there, Alan. So it almost \u2013 I\u2019d kind of unpack the comments that I made on the call regarding the two factors that are driving this sort of high capital intensity right now. The first is building out these A.I. clusters. Those are sort of GPU-based systems, and those are relatively obviously new in our fleet, and those are to benefit things like Recommendations, Reels, and other \u2013 Advantage and other tools in our portfolio. And then separately we\u2019ve got \u2013 we\u2019ve been in a datacenter investment cycle to build more headroom in our datacenters. That\u2019s actually for our core compute, our CPU-based compute. Having more datacenter headroom will allow us to extend the life of servers overtime because we won't have to replace them due to power constraints. So that actually, part of that is to get more efficiency overtime out of the CPU-based server fleet, so you\u2019ve got a few different factors going on there. The GPU-based systems, those are kind of relatively new in the fleet, so they're not yet at the replacement cycle. But we do evaluate sort of what is the appropriate useful life for servers\u2026 Yes. \u2026 and make that adjustment as it makes sense for the business."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 14,
+      "question_speaker": "Alan Gould",
+      "question_text": "Thank you.",
+      "answer_speakers": [],
+      "answer_text": ""
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 15,
+      "question_speaker": "Rohit Kulkarni",
+      "question_text": "Oh hey, thank you. Just wondering philosophically-speaking would you \u2013 how are you thinking about OpEx versus CapEx as far as kind of using public cloud vendors? I know recently in the last 12 months you have been partnering with a couple of large ones, but as you look ahead in the next 12 to 24 months how would that kind of OpEx versus CapEx kind of shift overall?",
+      "answer_speakers": [
+        "David Wehner",
+        "Susan Li",
+        "David Wehner",
+        "Susan Li"
+      ],
+      "answer_text": "I mean, our use of public cloud vendors is very much on the margin. Minimal, yes. And we don\u2019t expect that to change materially. No plans on that changing materially. There are places where we\u2019ll leverage public cloud vendors at different times but it\u2019s the bulk of our compute. We\u2019re building our organic infrastructure."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 16,
+      "question_speaker": "Rohit Kulkarni",
+      "question_text": "OK. And if I could ask just the capabilities on AI, if you could call out with regards to video content creation? Where could we see that first as far as what you are trying to build from AI sort of content and creator economy is concerned?",
+      "answer_speakers": [
+        "Susan Li"
+      ],
+      "answer_text": "Yes, I mean our focus in the near term is really using AI to power better ranking across our platforms both on the ad side and we\u2019re -- and on the engagement side and we are seeing gains in both places in terms of more effective ads delivery models and also we talked, we gave the sort of specific example of the time spent increase on Reels on Facebook when we -- when we had a AI driven launch release there. So that\u2019s really where I would say that the current investments are targeted. I think we\u2019re probably much farther from a world where AI is creating content."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 17,
+      "question_speaker": "Rohit Kulkarni",
+      "question_text": "OK. Thank you.",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "Thanks, Rohit."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 18,
+      "question_speaker": "Craig Huber",
+      "question_text": "Yes, hi. I have two questions if I could. You guys have talked of your headcount at the end of next year being approximately the same as it was at the end of the third quarter. I assume we should think about the Reality Labs headcount there being up significantly but down on the Family of Apps? I think maybe if you could touch on that, if you could quantify it that\u2019d be even better of course. And then my last question is WhatsApp, maybe if you could just talk a little further about the long-term monetization opportunities there and when you think you might be able to see some significant revenues there? Thank you.",
+      "answer_speakers": [
+        "Susan Li",
+        "David Wehner",
+        "Susan Li"
+      ],
+      "answer_text": "Yes. We haven\u2019t broken out headcount between the segments. Having said that, what we\u2019ve shared about our headcount plans are that we expect headcount to be roughly flat at the end of next year and we are trying to redeploy heads generally towards the highest priority that Mark has outlined on this and prior calls. And you know, away from places that have been deprioritized. So the places where you would expect headcount to be growing are our monetization efforts broadly, Reels and the Discovery engine, community messaging, the Metaverse efforts, amongst others. So we are reallocating \u2013 we are reallocating heads towards those higher priorities where we can. On WhatsApp, we\u2019re clearly seeing good WhatsApp growth globally. We\u2019re \u2013 in terms of engagement we\u2019re actually seeing some good inroads in the North America market in terms of DAU. So, we\u2019re pleased there. Overall, we\u2019re focused on bringing more utility to the WhatsApp platform through the business messaging efforts. We know that both consumers like to connect with businesses via messaging. We\u2019ve seen that be a very good source of utility and value for consumers and also it\u2019s extremely valuable for businesses, and we\u2019re building more tools to the WhatsApp Business platform to enable that. So, that\u2019s sort of part of the additional focus there and we think that\u2019s a good revenue opportunity for WhatsApp over time. And I\u2019d just mention again that the click to WhatsApp ad run rate has just passed $1.5 billion and that\u2019s growing very significantly year over year. So, we\u2019re excited about that."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 19,
+      "question_speaker": "Craig Huber",
+      "question_text": "Great. Thank you.",
+      "answer_speakers": [],
+      "answer_text": ""
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 20,
+      "question_speaker": "Brian Fitzgerald",
+      "question_text": "Thanks, I wanted to follow up on something, Dave, you mentioned and you said \u201chey there's -- we think we can invest in AI at scale where competition can't.\u201d Maybe there's two parts to that, there's discovery and recommendation and ranking, you just talked to that, Susan. But is -- there might be another lever, and that's trust and safety, which -- and so my question is which is more leverage-able against competition? Do you think TikTok has a trust and safety problem in terms of you guys have been working this for a while, for a decade, using AI to weed out malfeasant content, so that's my first question. And I had one follow-up after that.",
+      "answer_speakers": [
+        "David Wehner",
+        "Susan Li",
+        "David Wehner"
+      ],
+      "answer_text": "I don\u2019t -- I mean, Brian, I just don't know enough about TikTok to speak to their... About TikTok, yes... ...ability to leverage their systems to weed out content, but obviously all platforms have a set of issues. I mean, TikTok's got its own set of issues broadly I'm sure on that front. And so, I think that's -- there's always a maturity curve in dealing with -- in dealing with this as you have impact on the world. So I'm sure there's learnings that they'll benefit from getting over time on this front, but obviously it's a big area of investment for us and we've used and leveraged AI there as well."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 21,
+      "question_speaker": "Brian Fitzgerald",
+      "question_text": "And then the second question quickly was just on Reality Labs, can you talk about the computational intensity of VR, realistic -- visually realistic VR or mixed reality, maybe in comparison to video and other content that you serve to users today and how you're thinking about infrastructure spend as VR, mixed reality usage begins to scale more meaningfully?",
+      "answer_speakers": [
+        "Susan Li",
+        "Deborah Crawford"
+      ],
+      "answer_text": "Yes, a very small portion of the 2023 CapEx budget is supporting Reality Labs, so really the overwhelming -- the lion's share of our CapEx investments are supporting the Family of Apps at this point. Great, Operator, we are going to take one last question."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 22,
+      "question_speaker": "Brian Fitzgerald",
+      "question_text": "Got it.",
+      "answer_speakers": [],
+      "answer_text": ""
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 23,
+      "question_speaker": "Deepak Mathivanan",
+      "question_text": "Great, thanks for taking the question. Dave, can you explain the rough math behind the $500 million quarterly headwind on the Reels side? I mean, adding the $3 billion run rate that you\u2019re currently at would kind of imply $5 billion revenue potential at time spent levels, but then you've said in the past that it accounts for about 20 percent of Instagram time growing 25 percent quarter to quarter last quarter. It feels like the $5 billion is low compared to 20 percent time spent. Anything you can add to kind of reconcile this math and maybe some color on how you calculate the $500 million?",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "Yes, I mean the -- obviously the -- what's going on is you're displacing engagement that would happen in other services that have higher monetization, and so you're taking some monetizable supply out of the market. Whenever we look at the net impact of shifting in supply or impressions, you'll always look at the auction effect, so that demand will rebalance into the system. And so even though you might have a larger gross effect from taking supply out of the system, that demand will basically flow through to other places and bid up prices. So it will -- some of that demand will drop out of the system as the prices go up from having less and fewer impressions to serve. So there's -- there's sort of auction dynamics that make the math, I think, a little bit more complicated than just a straightforward shift of supply."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 24,
+      "question_speaker": "Deepak Mathivanan",
+      "question_text": "Got it. OK, that's helpful \u2026",
+      "answer_speakers": [
+        "David Wehner"
+      ],
+      "answer_text": "So, what we're giving is a net impact."
+    },
+    {
+      "source_doc": "follow_up_transcript",
+      "qa_pair_id": 25,
+      "question_speaker": "Deepak Mathivanan",
+      "question_text": "Got it. OK. That explains. OK, that makes sense. And I can ask a quick one, on the headcount cadence for next year, should we expect it to be sort of like a flat from these levers, or is there going to be ebbs and flows? How should we think about that factored into the OpEx guide? And maybe you can provide additional color on things like compensation level, all those other factors that factor into it. Even something high-level would be helpful.",
+      "answer_speakers": [
+        "Susan Li",
+        "Deborah Crawford",
+        "David Wehner"
+      ],
+      "answer_text": "We're still working through the details of our budget right now and the implementation details for each area. So, we don't have any more detail to share on that right now. Great. So, thank you, everybody, for joining us today. We appreciate your time and we look forward to speaking with you again. Thank you."
+    }
+  ]
+}

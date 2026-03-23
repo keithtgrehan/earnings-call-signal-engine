@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.2.0",
+  "audio_available": true,
+  "audio_features_available": true,
+  "audio_quality_ok": true,
+  "quality_gate": {
+    "quality_ok": true,
+    "suppression_recommended": false,
+    "snr_proxy_db": 38.188,
+    "snr_proxy_ok": true,
+    "management_speech_duration_s": 455.67,
+    "enough_speech_duration_ok": true,
+    "usable_management_segments": 2,
+    "usable_answer_segments": 2,
+    "alignment_quality_ratio": 1.0,
+    "alignment_quality_ok": true
+  },
+  "audio_metadata": {
+    "path": "raw/audio/meta_q3_2022_audio.wav",
+    "duration_s": 3717.979,
+    "sample_rate": 16000,
+    "frame_length_s": 0.03,
+    "hop_length_s": 0.01,
+    "silence_threshold_db": -35.0
+  },
+  "hesitation_overall": {
+    "score": 5.0,
+    "level": "high"
+  },
+  "hesitation_level": {
+    "score": 5.0,
+    "level": "high"
+  },
+  "pauses_before_answers": {
+    "median_ms": 105.0,
+    "level": "low"
+  },
+  "prepared_baseline_audio_stability": {
+    "score": 0.0,
+    "level": "high"
+  },
+  "qa_hesitation_shift": {
+    "delta": 5.0,
+    "prepared_mean": 0.0,
+    "q_and_a_mean": 5.0,
+    "direction": "more_hesitant",
+    "level": "high"
+  },
+  "pause_pressure_delta": {
+    "delta": 1.4858,
+    "prepared_density": 0.0,
+    "q_and_a_density": 1.4858,
+    "level": "medium",
+    "label": "more_paused_under_questions"
+  },
+  "answer_latency_pressure": {
+    "median_ms": 0.0,
+    "level": "low"
+  },
+  "audio_confidence_support": {
+    "level": "high",
+    "suppressed": false,
+    "reason": "usable answer-level audio support"
+  },
+  "support_mode": "model_backed",
+  "model_support": {
+    "available": true,
+    "mode": "model_backed",
+    "support_direction": "cautionary",
+    "calibrated_support_score": 0.1649,
+    "reliability_weight": 0.4991,
+    "hesitation_pressure": {
+      "predicted_label": "high",
+      "probability_means": {
+        "high": 0.4708,
+        "low": 0.3056,
+        "medium": 0.2236
+      }
+    },
+    "delivery_confidence": {
+      "predicted_label": "low",
+      "probability_means": {
+        "high": 0.3056,
+        "low": 0.4708,
+        "medium": 0.2236
+      }
+    }
+  },
+  "egemaps_v02_summary": {
+    "available": true,
+    "pitch_variability_mean": 0.2079,
+    "loudness_mean": 0.47,
+    "loudness_variability_mean": 0.7827,
+    "spectral_flux_mean": 0.1638
+  },
+  "strongest_audio_evidence": [
+    {
+      "segment_id": 3,
+      "start_time_s": 1936.36,
+      "end_time_s": 2298.12,
+      "hesitation_label": "high",
+      "pause_before_answer_ms": 210.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 2.1285,
+      "text": "As Mark mentioned, we're on about a $3 billion run rate today, but Reels was still negative overall to revenue by about $500 million in t..."
+    },
+    {
+      "segment_id": 1,
+      "start_time_s": 1561.68,
+      "end_time_s": 1680.28,
+      "hesitation_label": "medium",
+      "pause_before_answer_ms": 0.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 0.8432,
+      "text": "mentioned in his script, we expect 2023 CapEx to be in the range of $34 billion to $39 billion, with our investments in AI driving all of..."
+    }
+  ],
+  "most_hesitant_answers": [
+    {
+      "segment_id": 3,
+      "section": "q_and_a",
+      "speaker_role": "management",
+      "start_time_s": 1936.36,
+      "end_time_s": 2298.12,
+      "hesitation_label": "high",
+      "hesitation_score": 7,
+      "pause_before_answer_ms": 210.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 2.1285,
+      "articulation_rate_wpm": 12.2,
+      "confidence_note": "usable audio segment",
+      "text": "As Mark mentioned, we're on about a $3 billion run rate today, but Reels was still negative overall to revenue by about $500 million in t..."
+    },
+    {
+      "segment_id": 1,
+      "section": "q_and_a",
+      "speaker_role": "management",
+      "start_time_s": 1561.68,
+      "end_time_s": 1680.28,
+      "hesitation_label": "medium",
+      "hesitation_score": 3,
+      "pause_before_answer_ms": 0.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 0.8432,
+      "articulation_rate_wpm": 34.04,
+      "confidence_note": "usable audio segment",
+      "text": "mentioned in his script, we expect 2023 CapEx to be in the range of $34 billion to $39 billion, with our investments in AI driving all of..."
+    }
+  ],
+  "low_confidence_segments": [],
+  "limitations": [],
+  "notes": [
+    "Audio hesitation combines pause-before-answer, answer latency, within-segment pause density, filler markers, articulation rate, and loudness dynamics.",
+    "These are observational timing proxies for review support, not mental-state or deception inference."
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "uncertainty_score_overall": {
+    "score": 17,
+    "level": "high"
+  },
+  "reassurance_score_management": {
+    "score": 1,
+    "level": "low"
+  },
+  "analyst_skepticism_score": {
+    "score": 0,
+    "level": "low"
+  },
+  "strongest_evidence": {
+    "uncertainty": [
+      {
+        "matched_phrase": "difficult to predict",
+        "strength": 5,
+        "text": "And while it's really hard for us to answer questions now that are like what is the eventual monetization efficiency going to be, it's really hard to predict that in advance."
+      },
+      {
+        "matched_phrase": "continue to monitor",
+        "strength": 2,
+        "text": "In addition, as noted on previous calls, we continue to monitor developments regarding the viability of transatlantic data transfers and their potential impact on our European operations."
+      }
+    ],
+    "reassurance": [
+      {
+        "matched_phrase": "encouraged by",
+        "strength": 1,
+        "text": "On the ads side, we're also continuing to roll out more AI and ML improvements in some of the new ads offerings, and we're encouraged by all of the early examples that we've seen."
+      }
+    ],
+    "analyst_skepticism": []
+  },
+  "notes": [
+    "Scores are deterministic phrase-weight totals, not model probabilities.",
+    "Analyst skepticism is only computed on question-like segments; management reassurance ignores question-like text.",
+    "Management language contains both caution and reassurance, so both evidence sets should be reviewed together."
+  ]
+}

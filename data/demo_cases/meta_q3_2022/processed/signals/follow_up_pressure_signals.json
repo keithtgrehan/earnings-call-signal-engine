@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "meta_q3_2022",
+  "rows": [
+    {
+      "row_id": "follow_up_reels_headwind_pressure",
+      "source": "follow_up_transcript",
+      "qa_pair_id": 1,
+      "question_speaker": "Michael Nathanson",
+      "question_excerpt": "Hey, thank you. I have two. First is, on the call Mark talked a bit about messaging and commerce. And I just wanted to get an update on how you\u2019re thinking about commerce on the platform of Instagram and Facebook? There were some reports that perhaps there\u2019...",
+      "answer_speakers": [
+        "Susan Li",
+        "David Wehner"
+      ],
+      "answer_excerpt": "component. It\u2019s more cannibalistic on revenue because of the fact that we don\u2019t have very high ad loads in Reels. So it\u2019s a $500 million headwind that is coming down, but it's -- from prior quarters, but it is -- it remains a big headwind. But we're at a $3 billion run rate. That's growing. We expect the tailwind to decrease and we don't think it's to neutrality until 12 to ...",
+      "plain_english_label": "analyst follow-up on Reels headwind",
+      "why_it_matters": "The follow-up call pushes management on how long the monetization headwind remains a real drag.",
+      "pressure_keywords_matched": 7
+    },
+    {
+      "row_id": "follow_up_macro_caution",
+      "source": "follow_up_transcript",
+      "qa_pair_id": 4,
+      "question_speaker": "Tom Champion",
+      "question_excerpt": "Thanks very much for taking the questions. Curious if you could just talk broadly about the competitive intensity in the industry right at the moment, just curious your perspective. And then seems like a lot of the issues right now is just a depressed envir...",
+      "answer_speakers": [
+        "Susan Li",
+        "David Wehner",
+        "Susan Li",
+        "David Wehner"
+      ],
+      "answer_excerpt": "Yes, so I think maybe I'll take the second question first, and then we'll come back to the first question. I think what we would point to is -- I mean, obviously I think we have seen, because of the Apple ATT changes, we have seen that some of the demand has shifted to lower parts of the funnel. But I think broadly speaking, we believe that we have incredibly wide reach acro...",
+      "plain_english_label": "management stayed cautious on macro",
+      "why_it_matters": "This is the clearest follow-up moment where management refuses to sound fully confident on recovery timing.",
+      "pressure_keywords_matched": 6
+    },
+    {
+      "row_id": "follow_up_competition_ads",
+      "source": "follow_up_transcript",
+      "qa_pair_id": 4,
+      "question_speaker": "Tom Champion",
+      "question_excerpt": "Thanks very much for taking the questions. Curious if you could just talk broadly about the competitive intensity in the industry right at the moment, just curious your perspective. And then seems like a lot of the issues right now is just a depressed envir...",
+      "answer_speakers": [
+        "Susan Li",
+        "David Wehner",
+        "Susan Li",
+        "David Wehner"
+      ],
+      "answer_excerpt": "Facebook Blue and on Instagram and especially on Reels. And then we have ads products that are very performance oriented, even post-ATT. And we're continuing to invest in those products and make them better. I talked a little bit about the Advantage+ launch recently, which I think is a big step forward in making our ads tools easier to use, and I think on the sort of signals...",
+      "plain_english_label": "follow-up pressure on competition and ad demand",
+      "why_it_matters": "This shows the follow-up transcript functioning as additional pressure testing rather than a separate narrative.",
+      "pressure_keywords_matched": 7
+    }
+  ]
+}

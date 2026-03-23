@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "status": "ok",
+  "prepared_remarks_vs_q_and_a": {
+    "label": "weaker",
+    "delta": -0.8857,
+    "prepared_mean": 0.9995,
+    "q_and_a_mean": 0.1138
+  },
+  "analyst_skepticism": {
+    "level": "low",
+    "score": 0
+  },
+  "management_answers_vs_prepared_uncertainty": {
+    "label": "more uncertain",
+    "delta": 14,
+    "prepared_score": 0,
+    "q_and_a_answer_score": 14
+  },
+  "early_vs_late_q_and_a": {
+    "label": "stronger",
+    "delta": 0.0649
+  },
+  "strongest_evidence": {
+    "skepticism": [],
+    "answer_uncertainty": [
+      {
+        "matched_phrase": "difficult to predict",
+        "strength": 5,
+        "text": "And while it's really hard for us to answer questions now that are like what is the eventual monetization efficiency going to be, it's really hard to predict that in advance."
+      },
+      {
+        "matched_phrase": "continue to monitor",
+        "strength": 2,
+        "text": "In addition, as noted on previous calls, we continue to monitor developments regarding the viability of transatlantic data transfers and their potential impact on our European operations."
+      }
+    ],
+    "qa_pairs": [
+      {
+        "qa_pair_id": 1,
+        "question_text": "will join Mark and Dave for the Q&A portion. Before we get started, I would like to take this opportunity to remind you that our remarks today will include forward\u2010looking statements. Actual results may differ materially from those contemplated by these forward\u2010looking statements. Factors that could cause these results to differ materially are set forth in today\u2019s press release, and in our quarterly report on form 10\u2010Q filed with the SEC. Any forward\u2010looking statements that we make on this call are based on assumptions as of today and we undertake no obligation to update these statements as a result of new information or future events. During this call we may present both GAAP and non\u2010GAAP financial measures. A reconciliation of GAAP to non\u2010GAAP measures is included in today\u2019s earnings press release.",
+        "answer_text": "The press release and an accompanying investor presentation are available on our website at investor.fb.com. And now, I\u2019d like to turn the call over to Mark.",
+        "answer_minus_question": 1.8534
+      },
+      {
+        "qa_pair_id": 10,
+        "question_text": "I think kind of summing up how investors are feeling right now is that there are just too many experimental bets versus proven bets on the core. And I'm curious if you can just add more color why you don't feel these are experimental. You feel like they pay off. There's obviously a lot of focus on the investment side. I think everyone would love to hear why you think this pays off.",
+        "answer_text": "Yes. Let me take at least part of that. I mean we're making a number of investments across the portfolio. Marne outlined some that we're making in the ad space. Obviously, the investments that we're making in product areas like Reels and the business messaging platform at WhatsApp are ones that we think will have a significant payoff for the -- in business, both in terms of engagement and monetization. So we're making a wide portfolio of bets. Still, the majority of our spending is directed towards our Family of Apps investment, and those are across both engagement and monetization, leveraging AI in many cases. And we're making good progress on those fronts and then leveraging as well what is today a fairly under-monetized resource in terms of our messaging platforms, building more scale around those as being a source of future revenue growth.",
+        "answer_minus_question": 1.6096
+      }
+    ]
+  },
+  "counts": {
+    "prepared_segments": 1,
+    "q_and_a_segments": 84,
+    "analyst_questions": 10,
+    "management_answers": 67
+  },
+  "notes": [
+    "Prepared remarks vs Q&A is a simple signed-score mean comparison over deterministic transcript chunks.",
+    "Management answer uncertainty compares deterministic hedging totals in prepared remarks versus Q&A answers."
+  ]
+}
