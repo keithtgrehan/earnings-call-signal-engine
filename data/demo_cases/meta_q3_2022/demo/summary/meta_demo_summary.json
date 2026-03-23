@@ -101,12 +101,11 @@
   },
   "review_scorecard": {},
   "market_context": {
-    "schema_version": "1.0.0",
     "case_id": "meta_q3_2022",
     "company": "Meta Platforms",
-    "ticker": "META",
     "quarter": "Q3 2022",
     "event_date": "2022-10-26",
+    "panel_title": "Market context around the Q3 2022 release window",
     "key_extracted_signals": [
       "revenue down 4%",
       "operating margin down to 20%",
@@ -123,9 +122,8 @@
     },
     "market_reaction_note": "Meta fell sharply the session after the release as investors reacted to weaker profitability, heavy 2023 spending expectations, and the lack of a cleaner near-term recovery story.",
     "source": {
-      "label": "Stooq daily META prices and CNBC coverage of Meta's Oct. 27, 2022 selloff",
-      "pricing_url": "https://stooq.com/q/d/l/?s=meta.us&i=d",
-      "coverage_url": "https://www.cnbc.com/2022/10/27/meta-stock-plunges-on-earnings-miss-weak-fourth-quarter-forecast.html"
+      "primary_url": "https://stooq.com/q/d/l/?s=meta.us&i=d",
+      "secondary_url": "https://www.cnbc.com/2022/10/27/meta-stock-plunges-on-earnings-miss-weak-fourth-quarter-forecast.html"
     },
     "caveat": "Contextual sanity-check evidence only. This does not validate prediction, causality, or trading value."
   },

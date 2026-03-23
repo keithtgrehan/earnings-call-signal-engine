@@ -16,6 +16,13 @@ from pypdf import PdfReader
 
 from earnings_call_sentiment import cli as cli_module
 from earnings_call_sentiment.audio.summary import write_audio_behavior_outputs
+from earnings_call_sentiment.demo_case_payloads import (
+    build_demo_fixture_index,
+    inject_market_context,
+    normalize_demo_evidence_rows,
+    normalize_demo_joined_audio_rows,
+    normalize_demo_market_context,
+)
 from earnings_call_sentiment.pipeline.run import (
     DEFAULT_SENTIMENT_MODEL_NAME,
     DEFAULT_SENTIMENT_MODEL_REVISION,
@@ -1362,7 +1369,10 @@ def build_audio_status(
         qa_shift_map=qa_shift_map,
     )
     write_json(paths["processed_audio_behavior"] / "audio_review_rows.json", {"rows": audio_review_rows})
-    write_json(paths["processed_joined_review"] / "joined_qa_audio_review.json", {"rows": audio_review_rows})
+    write_json(
+        paths["processed_joined_review"] / "joined_qa_audio_review.json",
+        {"rows": normalize_demo_joined_audio_rows(CASE_ID, audio_review_rows)},
+    )
     status = {
         "status": "generated",
         "reason": "Main-call video was readable, audio was extracted, and curated Q&A moments were matched to supporting audio.",
@@ -1959,7 +1969,8 @@ def build_demo_case(*, case_root: Path) -> dict[str, Path]:
         presentation_support=presentation_support,
         audio_review_rows=audio_review_rows,
     )
-    market_context = build_market_context_artifact()
+    evidence_rows = normalize_demo_evidence_rows(CASE_ID, evidence_rows)
+    market_context = normalize_demo_market_context(build_market_context_artifact())
     summary = build_demo_summary(
         case_root=case_root,
         quarter_consistency=quarter_consistency,
@@ -1969,12 +1980,22 @@ def build_demo_case(*, case_root: Path) -> dict[str, Path]:
         audio_status=audio_status,
         market_context=market_context,
     )
-    fixture = build_fixture(
+    summary = inject_market_context(summary, market_context)
+    fixture_source = build_fixture(
         quarter_consistency=quarter_consistency,
         evidence_rows=evidence_rows,
         summary=summary,
         audio_status=audio_status,
         market_context=market_context,
+    )
+    fixture = build_demo_fixture_index(
+        case_id=CASE_ID,
+        company="Meta Platforms",
+        quarter="Q3 2022",
+        case_status=fixture_source.get("case_status", quarter_consistency.get("overall_status", "ready")),
+        artifact_paths=fixture_source.get("artifact_paths", {}),
+        preview_row_ids=[row["row_id"] for row in evidence_rows[:6]],
+        notes=fixture_source.get("notes", []),
     )
     joined_review = {
         "case_id": CASE_ID,
