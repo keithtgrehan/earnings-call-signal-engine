@@ -1,0 +1,120 @@
+{
+  "rows": [
+    {
+      "row_id": "transcript_growth_headwinds",
+      "source": "transcript",
+      "section": "question_and_answer",
+      "speaker": "Wilmot Reed Hastings",
+      "speaker_role": "management",
+      "evidence_type": "management_framing",
+      "quote": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ...",
+      "clear_signal": "Management explicitly ties weaker acquisition to account sharing, market penetration, and competition.",
+      "remaining_ambiguity": "This is clear pressure framing, but not an explicit raised/maintained/lowered guidance action.",
+      "artifact_paths": [
+        "processed/signals/uncertainty_signals.csv",
+        "processed/signals/analyst_skepticism.csv",
+        "processed/signals/report.md"
+      ]
+    },
+    {
+      "row_id": "transcript_account_sharing_monetization",
+      "source": "transcript",
+      "section": "question_and_answer",
+      "speaker": "Wilmot Reed Hastings",
+      "speaker_role": "management",
+      "evidence_type": "monetization_narrative",
+      "quote": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ...",
+      "clear_signal": "Management frames account sharing as a real monetization lever rather than a minor side topic.",
+      "remaining_ambiguity": "The implementation path is iterative and timing is still qualified.",
+      "artifact_paths": [
+        "processed/signals/guidance.csv",
+        "processed/signals/behavioral_summary.json"
+      ]
+    },
+    {
+      "row_id": "transcript_ad_supported_option",
+      "source": "transcript",
+      "section": "question_and_answer",
+      "speaker": "Wilmot Reed Hastings",
+      "speaker_role": "management",
+      "evidence_type": "strategic_option",
+      "quote": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript...",
+      "clear_signal": "Reed Hastings explicitly opens the door to a lower-priced ad-supported plan.",
+      "remaining_ambiguity": "This is framed as an option under evaluation over the next 1 to 2 years, not a launched product.",
+      "artifact_paths": [
+        "processed/signals/guidance.csv",
+        "processed/signals/report.md"
+      ]
+    },
+    {
+      "row_id": "letter_growth_slowdown",
+      "source": "shareholder_letter",
+      "section": "shareholder_letter",
+      "speaker": "Netflix shareholder letter",
+      "speaker_role": "management_document",
+      "evidence_type": "growth_slowdown",
+      "quote": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar...",
+      "clear_signal": "The shareholder letter provides explicit management framing that supports the call narrative.",
+      "remaining_ambiguity": "The letter is still management-authored framing, not an external validation layer.",
+      "artifact_paths": [
+        "processed/signals/shareholder_letter_evidence.json"
+      ]
+    },
+    {
+      "row_id": "letter_account_sharing",
+      "source": "shareholder_letter",
+      "section": "shareholder_letter",
+      "speaker": "Netflix shareholder letter",
+      "speaker_role": "management_document",
+      "evidence_type": "account_sharing_and_monetization",
+      "quote": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar...",
+      "clear_signal": "The shareholder letter provides explicit management framing that supports the call narrative.",
+      "remaining_ambiguity": "The letter is still management-authored framing, not an external validation layer.",
+      "artifact_paths": [
+        "processed/signals/shareholder_letter_evidence.json"
+      ]
+    },
+    {
+      "row_id": "letter_headwinds",
+      "source": "shareholder_letter",
+      "section": "shareholder_letter",
+      "speaker": "Netflix shareholder letter",
+      "speaker_role": "management_document",
+      "evidence_type": "competitive_and_macro_headwinds",
+      "quote": "In the near term though, we\u2019re not growing revenue as fast as we\u2019d like. COVID clouded the picture bysignificantly increasing our growth in 2020, leading us to believe that most of our slowing growth in 2021was due to the COVID pull forward. Now, we believe there are four main inter-related factors at work. First, i...",
+      "clear_signal": "The shareholder letter provides explicit management framing that supports the call narrative.",
+      "remaining_ambiguity": "The letter is still management-authored framing, not an external validation layer.",
+      "artifact_paths": [
+        "processed/signals/shareholder_letter_evidence.json"
+      ]
+    },
+    {
+      "row_id": "letter_margin_framing",
+      "source": "shareholder_letter",
+      "section": "shareholder_letter",
+      "speaker": "Netflix shareholder letter",
+      "speaker_role": "management_document",
+      "evidence_type": "forward_margin_framing",
+      "quote": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar...",
+      "clear_signal": "The shareholder letter provides explicit management framing that supports the call narrative.",
+      "remaining_ambiguity": "The letter is still management-authored framing, not an external validation layer.",
+      "artifact_paths": [
+        "processed/signals/shareholder_letter_evidence.json"
+      ]
+    },
+    {
+      "row_id": "financial_context_q1_2022",
+      "source": "financials",
+      "section": "income_statement",
+      "speaker": "Netflix Q1 2022 financials",
+      "speaker_role": "financial_context",
+      "evidence_type": "headline_metrics",
+      "quote": "Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53.",
+      "clear_signal": "The uploaded financial files anchor the case to the March 31, 2022 quarter with concrete reported results.",
+      "remaining_ambiguity": "These figures provide context for the demo, not a standalone predictive signal.",
+      "artifact_paths": [
+        "processed/signals/financial_context_summary.json"
+      ]
+    }
+  ]
+}

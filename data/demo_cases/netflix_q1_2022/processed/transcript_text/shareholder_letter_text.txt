@@ -1,0 +1,256 @@
+April 19, 2022
+Fellow shareholders,
+Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households sharing accounts -combined with competition, is creating revenue growth headwinds. The big COVID boost to streamingobscured the picture until recently. While we work to reaccelerate our revenue growth - throughimprovements to our service and more effective monetization of multi-household sharing - we’ll beholding our operating margin at around 20%. Key to our success has been our ability to create amazingentertainment from all around the world, present it in highly personalized ways, and win more viewingthan our competitors. These are Netflix's core strengths and competitive advantages. Together with ourstrong profitability, we believe we have the foundation from which we can both significantly improve,and better monetize, our service longer term.
+Growth OutlookSince launching streaming in 2007, we’ve operated under the firm belief that internet-delivered, ondemand entertainment will supplant linear TV, and that this transition represents a once-in-a-generationopportunity to build a highly popular and profitable entertainment company. People love movies, TVshows and games; broadband and smart TV penetration continue to grow globally with more and moreconnected devices; and while hundreds of millions of homes pay for Netflix, well over half of the world’sbroadband homes don’t yet, representing huge future growth potential.
+1
+
+
+In the near term though, we’re not growing revenue as fast as we’d like. COVID clouded the picture bysignificantly increasing our growth in 2020, leading us to believe that most of our slowing growth in 2021was due to the COVID pull forward. Now, we believe there are four main inter-related factors at work.
+First, it’s increasingly clear that the pace of growthinto our underlying addressable market (broadbandhomes) is partly dependent on factors we don’t directly control, like the uptake of connected TVs (sincethe majority of our viewing is on TVs), the adoption of on-demand entertainment, and data costs. Webelieve these factors will keep improving over time, so that all broadband households will be potentialNetflix customers.
+Second, in addition to our 222m paying households,we estimate that Netflix is being shared with over100m additional households, including over 30m in the UCAN region. Account sharing as a percentage ofour paying membership hasn’t changed much over the years, but, coupled with the first factor, meansit’s harder to grow membership in many markets - an issue that was obscured by our COVID growth.
+Third, competition for viewing with linear TV as wellas YouTube, Amazon, and Hulu has been robust forthe last 15 years. However, over the last three years, as traditional entertainment companies realizedstreaming is the future, many new streaming services have also launched. While our US televisionviewing share, for example, has been steady to up according to Nielsen, we want to grow that sharefaster. Higher view share is an indicator of higher satisfaction, which supports higher retention andrevenue.
+Source: Nielsen. Note: Hulu and YouTube figures include their virtual MVPD services.
+Fourth, macro factors, including sluggish economicgrowth, increasing inflation, geopolitical events suchas Russia’s invasion of Ukraine, and some continued disruption from COVID are likely having an impact aswell.
+2
+
+
+Our plan is to reaccelerate our viewing and revenue growth by continuing to improve all aspects ofNetflix - in particular the quality of our programming and recommendations, which is what our membersvalue most. On the content side, we’re doubling down on story development and creative excellence,which we see reflected in big Q1’22 TV hits likeBridgerton(627 million hours viewed for season 2*, our
+1
+biggest English language series in our history) andInventing Anna(512m hours viewed) - both from ourextremely successful partnership with Shonda Rhimes - and films likeTinder Swindler(166m hoursviewed, our biggest documentary film ever released) andThe Adam Project(233m hours viewed), whichcome on the back of our Q4 hitsRed NoticeandDon’tLook Up. On the product side, we recentlylaunched “double thumbs up” so members can better express what they truly love versus simply like -enabling us to continue to improve our personalized recommendations and overall experience.
+This focus on continuous improvement has served us well over the past 25 years - from our big battlewith Blockbuster nearly 20 years ago through the launch and growth of streaming, to the switch fromlicensed second run TV series and films to original programming, and our development from a domesticbusiness with primarily English language content to a global entertainment service. It’s why we are nowthe largest subscription streaming service in the world on all key metrics: paid memberships,engagement, revenue and profit.
+Another focus is how best to monetize sharing - the 100M+ households using another household’saccount. This is a big opportunity as these households are already watching Netflix and enjoying ourservice. Sharing likely helped fuel our growth by getting more people using and enjoying Netflix. Andwe've always tried to make sharingwithina member’shousehold easy, with features like profiles andmultiple streams. While these have been very popular, they’ve created confusion about when and howNetflix can be shared with other households. So early last year we started testing different approaches tomonetize sharing and, in March, introduced two newpaid sharing features, where current membershave the choice to pay for additional households, in three markets in Latin America. There’s a broadrange of engagement when it comes to sharing households from high to occasional viewing. So while wewon’t be able to monetize all of it right now, we believe it’s a large short- to mid-term opportunity. As wework to monetize sharing, growth in ARM, revenue and viewing will become more important indicatorsof our success than membership growth.
+Over the longer term, much of our growth will come from outside the US. Traditionally, USentertainment companies have viewed “international” as an export market for US content. But we sawlong ago that great stories can be made anywhere and loved everywhere - dramatically broadening thepool of creators with whom we can work, increasing the variety of our programming and better servinglocal tastes. To support this, we’ve been building out capabilities like creative development,personalization, and language presentation/localization. Netflix is now producing films and TV in morethan 50 countries with a high degree of integration in the local entertainment ecosystem resulting in thecreation of blockbusters from every region. In fact, three out of our six most popular TV seasons of alltime are non-English language titles:Squid Game,La Casa de PapelPart 4 andAll Of Us Are Dead, which
+1 
+Hours viewed data is based on the first 28 days of release. For titles released less than 28 days (denoted with anasterisk), data is from launch date through April 17, 2022. As a reminder, we publish weekly our top titles based onhours viewed atNetflix Top 10.
+3
+
+
+launched in Q1’22 and has accumulated 561m hours viewed in its first four weeks. So an important focusis working to extend our lead in this area.
+Our goal is to sustain double digit revenue growth, increase operating income even faster (as we expandmargins) and generate growing positive free cash flow (FCF). During this period of slower revenuegrowth, assuming no material swings in foreign exchange (F/X), we aim to protect our profitability andmanage to a minimum operating margin roughly in line with current levels (i.e., this year’s 19-20%guidance). Once we’ve re-accelerated revenue growth, we’re committed to steadily growing ouroperating margin.
+Q1 Results and Q2 ForecastOur 10% revenue growth in Q1’22 was driven by an 8% year over year increase in average streaming paidmemberships and 2% year over year growth in ARM.Excluding a F/X impact of -$280 million, year over
+2
+year revenue and ARM growth were +14% and +6%, respectively. Operating income of $2.0 billion wasabove our beginning of quarter forecast of $1.8 billion due to lower than projected content expense. EPSof $3.53 vs. $3.75 a year ago included a $162 million non-cash unrealized gain from F/X remeasurementon our Euro denominated debt.
+Paid net additions were -0.2m compared against our guidance forecast of 2.5m and 4.0m in the samequarter a year ago. The suspension of our service in Russia and winding-down of all Russian paidmemberships resulted in a -0.7m impact on paid net adds; excluding this impact, paid net additionstotaled +0.5m. The main challenge for membership growth is continued soft acquisition across allregions. Retention was also slightly lower relative to our guidance forecast, although it remains at a veryhealthy level (we believe among the best in the industry). Recent price changes are largely trackingin-line with our expectations and remain significantly revenue positive.
+In EMEA (-0.3M paid net adds, or +0.4m excluding the Russia impact), we saw a slowdown in ourbusiness in Central and Eastern Europe in March, coinciding with Russia’s invasion of Ukraine. Paid netadditions in LATAM totaled -0.4M; similar to recent quarters, we believe a combination of forcesincluding macroeconomic weakness and our price changes (F/X neutral ARM grew 20% year over year)were a drag on our membership growth. UCAN paid net adds of -0.6M was largely the result of our pricechange which is tracking in-line with our expectations and is significantly revenue positive. We’re makinggood progress in APAC where we are seeing nice growth in a variety of markets including Japan, India,Philippines, Thailand and Taiwan.
+As a reminder, the quarterly guidance we provide is our actual internal forecast at the time we report.For Q2’22, we forecast paid net additions of -2.0m vs. +1.5m in the year ago quarter. Our forecastassumes our current trends persist (such as slow acquisition and the near term impact of price changes)plus typical seasonality (Q2 paid net adds are usually less than Q1 paid net adds). We project revenue togrow approximately 10% year over year in Q2, assuming roughly a mid-to-high single digit year over year
+2 
+ARM (Average Revenue per Membership) is defined as streaming revenue divided by the average number ofstreaming paid memberships divided by the number of months in the period. These figures do not include salestaxes or VAT.
+4
+
+
+increase in ARM on a F/X neutral basis. We still target a 19%-20% operating margin for the full year 2022,assuming no material swings in F/X rates from when we set this goal in January of 2022.
+Cash Flow and Capital StructureNet cash generated by operating activities in Q1 was $923 million vs. $777 million in the prior yearperiod. Free cash flow amounted to $802 million vs.$692 million. We continue to expect to be free cash
+3
+flow positive for the full year 2022 and beyond.
+During the quarter, we completed two acquisitions (leading visual effects companyScanlineand gamingstudioBoss Fight Entertainment), which had a -$125million impact on cash. We also announced ourpurchase of Helsinki-based gaming companyNext Games.We’ve completed the tender offer and expectto complete the transaction in the second half of 2022.
+We finished Q1 with gross debt of $14.6 billion after repaying $700 million of our senior notes. We’renow within the top end of our gross debt target range of $10-$15 billion. With cash of $6.0 billion, netdebt was $8.6 billion at the end of the quarter, equating to a 1.3x LTM leverage ratio. Given those uses
+4
+of cash and our minimum cash target, we didn’t engage in share repurchase activity during the quarter.
+Environmental, Social, and Governance (ESG)We recently published our2021 ESG Report(March 30,2022). We’ve made good progress on ourclimatecommitmentsannounced last year - reducing or avoidingmore than 14,000 metric tons of emissions in2021. This enabled us to reduce our Scope 1 and 2 footprint by more than 10% from what it otherwisewould have been and puts us on track to cut 45% of these emissions by 2030.
+We continue to develop our inclusion lens. In 2021, women made up 51.7% of our global workforce, up
+5
+from 48.7% in 2020. Half of our US workforce (50.5%) is made up of people from one or more historicallyexcluded ethnic and/or racial backgrounds, including Asian, Black, Hispanic or Latino, Middle Eastern,Native American, and Pacific Islander . That’s upfrom 46.8% in the previous year. The number of US
+6
+Black employees increased from 8.6% to 10.7% and Black leadership increased from 10.9% to 13.3%. Thenumber of US Hispanic or Latino employees increased from 7.9% to 8.6%, and US Hispanic or Latinoleadership grew slightly from 4.3% to 4.4%.
+As noted in our last investor letter and our2022preliminary proxy, the board has decided to recommendto shareholders that Netflix evolve to a more standard large cap company governance structure. At thisyear’s annual meeting in June, we’ll present proposals to declassify our board, remove supermajority
+6 
+Categories based on US reporting requirements.
+5 
+2020 numbers as of December 2020, and 2021 numbersas of December 2021.
+4 
+Defined as net debt divided by last twelve months(LTM) adjusted EBITDA (Net income before interest expenseand other income/expense, income taxes, depreciation and amortization of property, plant and equipment andfurther adjusted to exclude other non-cash charges).
+3 
+For a reconciliation of free cash flow to net cashprovided by (used in) operating activities, please refer to thereconciliation in tabular form on the attached unaudited financial statements and the footnotes thereto.
+5
+
+
+voting provisions in our charter and enable shareholders to call special meetings. We’ll also change thevoting standard for our directors to simple majority in uncontested elections.
+ReferenceFor quick reference, our eight most recent investor letters are:January 2022,October 2021,July 2021,April 2021,January 2021,October 2020,July 2020,April 2020.
+Regional Breakdown
+6
+
+
+April 19, 2022 Earnings Interview, 3pm PTOur video interview with Doug Anmuth of JPMorgan will be onyoutube/netflixirat 3pm PT today.Questions that investors would like to see asked should be sent to douglas.anmuth@jpmorgan.com.Reed Hastings, co-CEO, Ted Sarandos, co-CEO & Chief Content Officer, Greg Peters, COO & Chief ProductOfficer, Spence Neumann, CFO, and Spencer Wang, VP of IR/Corporate Development will all be on thevideo to answer Doug’s questions.
+IR Contact:Spencer WangVP, Finance/IR & Corporate Development408 809-5360
+PR Contact:Jonathan BingDirector, Corporate Communications818 643-0146
+Use of Non-GAAP MeasuresThis shareholder letter and its attachments include reference to the non-GAAP financial measures of freecash flow, last twelve months (“LTM”) leverage ratio, and adjusted EBITDA. Management believes thatfree cash flow, LTM leverage ratio and adjusted EBITDA are important liquidity metrics because theymeasure, during a given period, the amount of cash generated that is available to repay debt obligations,make strategic acquisitions and investments and for certain other activities like stock repurchases.However, these non-GAAP financial measures should be considered in addition to, not as a substitute foror superior to, net income, operating income, diluted earnings per share and net cash provided by (usedin) operating activities, or other financial measures prepared in accordance with GAAP. Reconciliation tothe GAAP equivalent of these non-GAAP measures are contained in tabular form on the attachedunaudited financial statements.
+Forward-Looking StatementsThis shareholder letter contains certain forward-looking statements within the meaning of the federalsecurities laws, including statements regarding our expected results for the fiscal quarter endingJune 30, 2022; adoption of internet entertainment and impact on growth; growth outlook and marketopportunity; account sharing; market penetration; competitive position; impact of price changes; futurecontent offerings; product enhancements; cash spend; debt; seasonality; timing of acquisitions;emissions commitments; evolution of our corporate governance structure; impact of foreign exchange;global streaming paid memberships, paid net additions, membership growth and retention; consolidatedrevenue, revenue growth, operating income, operating margin, net income, content amortization andearnings per share; and free cash flow. The forward-looking statements in this letter are subject to risksand uncertainties that could cause actual results and events to differ, including, without limitation: ourability to attract new members and retain existing members; our ability to compete effectively, includingfor consumer engagement with different modes of video entertainment; our ability to monetize sharing;impact of pricing changes; maintenance and expansion of device platforms for streaming; fluctuations inconsumer usage of our service; service disruptions; production risks; impact of the coronaviruspandemic; general market, economic, political and business conditions; and timing of content releases. A
+7
+
+
+detailed discussion of these and other risks and uncertainties that could cause actual results and eventsto differ materially from such forward-looking statements is included in our filings with the Securitiesand Exchange Commission, including our Annual Report on Form 10-K, filed with the Securities andExchange Commission (“SEC”) on January 27, 2022. The Company provides internal forecast numbers.Investors should anticipate that actual performance will vary from these forecast numbers based on risksand uncertainties discussed above and in our Annual Report on Form 10-K. We undertake no obligationto update forward-looking statements to reflect events or circumstances occurring after the date of thisshareholder letter.
+8
+
+
+Netflix,	Inc.	
+Consolidated	Statements	of	Operations	
+(unaudited)	
+(in	thousands,	except	per	share	data)	
+ 
+Three	Months	Ended
+March	31,
+2022
+December	31,
+2021
+March	31,
+2021
+Revenues $	 7,867,767	 $	 7,709,318	 $	 7,163,282	
+Cost	of	revenues 	 4,284,705	 	 5,239,575	 	 3,868,511	
+Marketing 	 555,978	 	 792,713	 	 512,512	
+Technology	and	development 	 657,530	 	 647,470	 	 525,207	
+General	and	administrative 	 397,928	 	 397,790	 	 297,196	
+Operating	income 	 1,971,626	 	 631,770	 	 1,959,856	
+Other	income	(expense):
+Interest	expense 	 (187,579)	 	 (189,429)	 	 (194,440)	 
+Interest	and	other	income 	 195,645	 	 108,512	 	 269,086	
+Income	before	income	taxes 	 1,979,692	 	 550,853	 	 2,034,502	
+Benefit	from	(provision	for)	income	taxes 	 (382,245)	 	 56,576	 	 (327,787)	 
+Net	income $	 1,597,447	 $	 607,429	 $	 1,706,715	
+Earnings	per	share:
+Basic $	 3.60	 $	 1.37	 $	 3.85	
+Diluted $	 3.53	 $	 1.33	 $	 3.75	
+Weighted-average	shares	of	common	stock	outstanding:
+Basic 	 444,146	 	 443,462	 	 443,224	
+Diluted 	 452,984	 	 455,795	 	 455,641	
+9
+
+Netflix,	Inc.	
+Consolidated	Balance	Sheets	
+(in	thousands)	
+	
+As	of
+March	31,
+2022
+December	31,
+2021
+(unaudited)
+Assets
+Current	assets:
+Cash	and	cash	equivalents $	 6,008,946	 $	 6,027,804	
+Other	current	assets 	 2,089,069	 	 2,042,021	
+Total	current	assets 	 8,098,015	 	 8,069,825	
+Content	assets,	net 	 31,191,920	 	 30,919,539	
+Property	and	equipment,	net 	 1,383,763	 	 1,323,453	
+Other	non-current	assets 	 4,657,206	 	 4,271,846	
+Total	assets $	 45,330,904	 $	 44,584,663	
+Liabilities	and	Stockholders'	Equity
+Current	liabilities:
+Current	content	liabilities $	 4,066,289	 $	 4,292,967	
+Accounts	payable 	 617,202	 	 837,483	
+Accrued	expenses	and	other	liabilities 	 1,817,117	 	 1,449,351	
+Deferred	revenue 	 1,239,048	 	 1,209,342	
+Short-term	debt 	 —	 	 699,823	
+Total	current	liabilities 	 7,739,656	 	 8,488,966	
+Non-current	content	liabilities 	 2,945,221	 	 3,094,213	
+Long-term	debt 	 14,534,561	 	 14,693,072	
+Other	non-current	liabilities 	 2,567,427	 	 2,459,164	
+Total	liabilities 	 27,786,865	 	 28,735,415	
+Stockholders'	equity:
+Common	stock 	 4,155,580	 	 4,024,561	
+Treasury	stock	at	cost 	 (824,190)	 	 (824,190)	 
+Accumulated	other	comprehensive	loss 	 (74,170)	 	 (40,495)	 
+Retained	earnings 	 14,286,819	 	 12,689,372	
+Total	stockholders'	equity 	 17,544,039	 	 15,849,248	
+Total	liabilities	and	stockholders'	equity $	 45,330,904	 $	 44,584,663	
+Supplemental	Information
+Total	streaming	content	obligations* $	 22,365,560	 $	 23,161,360	
+ 
+*	Total	streaming	content	obligations	are	comprised	of	content	liabilities	included	in	"Current	content	liabilities"	and	"Non-
+current	content	liabilities"	on	the	Consolidated	Balance	Sheets	and	obligations	that	are	not	reflected	on	the	Consolidated	
+Balance	Sheets	as	they	did	not	yet	meet	the	criteria	for	asset	recognition.
+10
+
+Netflix,	Inc.	
+Consolidated	Statements	of	Cash	Flows	
+(unaudited)	
+(in	thousands)
+Three	Months	Ended
+March	31,
+2022
+December	31,
+2021
+March	31,
+2021
+Cash	flows	from	operating	activities:
+Net	income $	 1,597,447	 $	 607,429	 $	 1,706,715	 
+Adjustments	to	reconcile	net	income	to	net	cash	provided	by	(used	in)	operating	activities:
+Additions	to	content	assets 	 (3,584,164)	 	 (5,654,639)	 	 (3,284,576)	 
+Change	in	content	liabilities 	 (347,149)	 	 840,392	 	 (266,040)	 
+Amortization	of	content	assets 	 3,166,365	 	 3,741,317	 	 2,719,196	 
+Depreciation	and	amortization	of	property,	equipment	and	intangibles 	 74,602	 	 63,984	 	 35,741	 
+Stock-based	compensation	expense 	 119,209	 	 99,329	 	 107,230	 
+Foreign	currency	remeasurement	gain	on	debt 	 (161,821)	 	 (103,917)	 	 (253,330)	 
+Other	non-cash	items 	 101,968	 	 93,806	 	 72,657	 
+Deferred	income	taxes 	 (68,906)	 	 (62,279)	 	 159,733	 
+Changes	in	operating	assets	and	liabilities:
+Other	current	assets 	 41,157	 	 (608)	 	 (221,555)	 
+Accounts	payable 	 (215,444)	 	 185,279	 	 (137,313)	 
+Accrued	expenses	and	other	liabilities 	 350,763	 	 (95,903)	 	 177,897	 
+Deferred	revenue 	 16,743	 	 26,710	 	 22,279	 
+Other	non-current	assets	and	liabilities 	 (167,931)	 	 (144,174)	 	 (61,368)	 
+Net	cash	provided	by	(used	in)	operating	activities 	 922,839	 	 (403,274)	 	 777,266	 
+Cash	flows	from	investing	activities:
+Purchases	of	property	and	equipment 	 (121,158)	 $	 (165,979)	 	 (81,001)	 
+Change	in	other	assets 	 —	 	 —	 	 (4,615)	 
+Acquisitions 	 (124,521)	 	 (788,349)	 	 —	 
+Net	cash	used	in	investing	activities 	 (245,679)	 	 (954,328)	 	 (85,616)	 
+Cash	flows	from	financing	activities:
+Repayments	of	debt 	 (700,000)	 	 —	 	 (500,000)	 
+Proceeds	from	issuance	of	common	stock 	 13,678	 	 88,149	 	 48,071	 
+Taxes	paid	related	to	net	share	settlement	of	equity	awards 	 —	 	 (224,168)	 	 —	 
+Net	cash	used	in	financing	activities 	 (686,322)	 	 (136,019)	 	 (451,929)	 
+Effect	of	exchange	rate	changes	on	cash,	cash	equivalents,	and	restricted	cash	 	 (11,448)	 $	 (4,236)	 	 (42,138)	 
+Net	increase	(decrease)	in	cash,	cash	equivalents,	and	restricted	cash 	 (20,610)	 	 (1,497,857)	 	 197,583	 
+Cash,	cash	equivalents	and	restricted	cash	at	beginning	of	period	 	 6,055,111	 	 7,552,968	 	 8,238,870	 
+Cash,	cash	equivalents	and	restricted	cash	at	end	of	period	 $	 6,034,501	 $	 6,055,111	 $	 8,436,453	 
+Three	Months	Ended
+March	31,
+2022
+December	31,
+2021
+March	31,
+2021
+Non-GAAP	free	cash	flow	reconciliation:
+Net	cash	provided	by	(used	in)	operating	activities $	 922,839	 $	 (403,274)	 $	 777,266	 
+Purchases	of	property	and	equipment 	 (121,158)	 	 (165,979)	 	 (81,001)	 
+Change	in	other	assets 	 —	 	 —	 	 (4,615)	 
+Non-GAAP	free	cash	flow $	 801,681	 $	 (569,253)	 $	 691,650	 
+11
+
+Netflix,	Inc.	
+Non-GAAP	Information
+(unaudited)	
+(in	thousands)	
+ 
+Three	Months	Ended
+Twelve	Months	
+Ended
+June	30,
+2021
+September	30,
+2021
+December	31,
+2021
+March	31,
+2022
+March	31,
+2022
+Non-GAAP	Adjusted	EBITDA	reconciliation:
+GAAP	net	income $	 1,353,013	 $	 1,449,071	 $	 607,429	 $	 1,597,447	 $	 5,006,960	
+Add:
+Other	expense	(income) 	 253,841	 	 94,294	 	 80,917	 	 (8,066)	 	 420,986	
+Provision	for	(benefit	from)	income	taxes 	 240,776	 	 211,888	 	 (56,576)	 	 382,245	 	 778,333	
+Depreciation	and	amortization	of	property,	
+equipment	and	intangibles 	 38,434	 	 70,253	 	 63,984	 	 74,602	 	 247,273	
+Stock-based	compensation	expense 	 101,583	 	 95,078	 	 99,329	 	 119,209	 	 415,199	
+Adjusted	EBITDA $	 1,987,647	 $	 1,920,584	 $	 795,083	 $	 2,165,437	 $	 6,868,751	
+As	of
+March	31,
+2022
+Non-GAAP	Leverage	Ratio	reconciliation:
+Total	debt $	 14,534,561	
+Add:	Debt	issuance	costs 	 88,629	
+Less:	Cash	and	cash	equivalents 	 (6,008,946)	 
+Net	debt $	 8,614,244	
+Leverage	Ratio	(Net	debt	/	LTM	Adjusted	EBITDA) 	 1.3	
+12

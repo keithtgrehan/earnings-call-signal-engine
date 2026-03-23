@@ -28,6 +28,7 @@ dependencies = [
   "rich",
   "matplotlib",
   "python-docx",
+  "pypdf",
 ]
 
 [project.optional-dependencies]

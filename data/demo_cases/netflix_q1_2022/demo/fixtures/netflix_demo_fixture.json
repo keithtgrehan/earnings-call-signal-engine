@@ -1,0 +1,175 @@
+{
+  "case_id": "netflix_q1_2022",
+  "display_name": "Netflix Q1 2022",
+  "quarter": "Q1 2022",
+  "case_status": "transcript_first_ready_video_skipped",
+  "quarter_consistency": {
+    "schema_version": "1.0.0",
+    "case_id": "netflix_q1_2022",
+    "expected_case_quarter": "Q1 2022",
+    "transcript": {
+      "status": "verified",
+      "detected_quarter": "Q1 2022",
+      "canonical_filename": "netflix_q1_2022_transcript.pdf",
+      "canonical_md5": "f102dd51e931f348a8d27e74e894f93b",
+      "supporting_text": "Netflix Q1 2022 Earnings Interview",
+      "mislabeled_duplicates": [
+        {
+          "filename": "Netflix-transcript Q2 2022",
+          "md5": "f102dd51e931f348a8d27e74e894f93b",
+          "same_as_canonical": true
+        }
+      ]
+    },
+    "shareholder_letter": {
+      "status": "verified",
+      "detected_quarter": "Q1 2022",
+      "filename": "netflix_q1_2022_shareholder_letter.pdf",
+      "supporting_text": "April 19, 2022 letter discussing slowing revenue growth and Q1 results."
+    },
+    "financials": {
+      "status": "verified",
+      "detected_quarter": "Q1 2022",
+      "workbook_filename": "netflix_q1_2022_financials.xlsx",
+      "income_statement_filename": "netflix_q1_2022_income_statement.csv",
+      "supporting_text": "Income statement latest quarter column ends at March 31, 2022."
+    },
+    "video": {
+      "status": "mismatch",
+      "expected_quarter": "Q1 2022",
+      "detected_quarter": "Q2 2022",
+      "quarter_consistent": false,
+      "video_filename": "video Netflix Q2 2022 Earnings Interview.mp4",
+      "video_md5": "6ce1e9aa2f3b2929b9cc779175fd2782",
+      "duration_s": 2590.256,
+      "intro_excerpt": "Good afternoon, and welcome to the Netflix Q2 2020 earnings interview. I'm Spencer Wong, VP of IR and corporate development. Joining me today are co-CEO Rehacings, co-CEO and Chief Content Officer Ted Serrandos, COO and Chief Product Officer Greg Peters and CFO Spencer Newman. Our interviewer this quarter is Doug Ameth from JPMorgan.",
+      "action": "Uploaded video was verified as a Q2 2022 earnings interview, so video and audio were not bundled into the Q1 2022 demo case."
+    },
+    "overall_status": "transcript_first_ready_video_skipped",
+    "action_taken": "Built the fixed Q1 2022 transcript-first demo case from transcript, shareholder letter, and financials. Skipped video/audio because the uploaded video verified as Q2."
+  },
+  "artifact_paths": {
+    "transcript_cleaned": "processed/transcript_text/transcript_cleaned.txt",
+    "transcript_sectioned": "processed/transcript_text/transcript_sectioned.json",
+    "qa_pairs": "processed/qa_pairs/qa_pairs.json",
+    "guidance": "processed/signals/guidance.csv",
+    "guidance_revision": "processed/signals/guidance_revision.csv",
+    "uncertainty": "processed/signals/uncertainty_signals.csv",
+    "analyst_skepticism": "processed/signals/analyst_skepticism.csv",
+    "qa_shift_summary": "processed/signals/qa_shift_summary.json",
+    "financial_context_summary": "processed/signals/financial_context_summary.json",
+    "shareholder_letter_evidence": "processed/signals/shareholder_letter_evidence.json",
+    "audio_status": "processed/audio_behavior/audio_status.json",
+    "quarter_consistency": "processed/joined_review/quarter_consistency.json"
+  },
+  "evidence_rows_preview": [
+    {
+      "row_id": "transcript_growth_headwinds",
+      "source": "transcript",
+      "section": "question_and_answer",
+      "speaker": "Wilmot Reed Hastings",
+      "speaker_role": "management",
+      "evidence_type": "management_framing",
+      "quote": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ...",
+      "clear_signal": "Management explicitly ties weaker acquisition to account sharing, market penetration, and competition.",
+      "remaining_ambiguity": "This is clear pressure framing, but not an explicit raised/maintained/lowered guidance action.",
+      "artifact_paths": [
+        "processed/signals/uncertainty_signals.csv",
+        "processed/signals/analyst_skepticism.csv",
+        "processed/signals/report.md"
+      ]
+    },
+    {
+      "row_id": "transcript_account_sharing_monetization",
+      "source": "transcript",
+      "section": "question_and_answer",
+      "speaker": "Wilmot Reed Hastings",
+      "speaker_role": "management",
+      "evidence_type": "monetization_narrative",
+      "quote": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ...",
+      "clear_signal": "Management frames account sharing as a real monetization lever rather than a minor side topic.",
+      "remaining_ambiguity": "The implementation path is iterative and timing is still qualified.",
+      "artifact_paths": [
+        "processed/signals/guidance.csv",
+        "processed/signals/behavioral_summary.json"
+      ]
+    },
+    {
+      "row_id": "transcript_ad_supported_option",
+      "source": "transcript",
+      "section": "question_and_answer",
+      "speaker": "Wilmot Reed Hastings",
+      "speaker_role": "management",
+      "evidence_type": "strategic_option",
+      "quote": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript...",
+      "clear_signal": "Reed Hastings explicitly opens the door to a lower-priced ad-supported plan.",
+      "remaining_ambiguity": "This is framed as an option under evaluation over the next 1 to 2 years, not a launched product.",
+      "artifact_paths": [
+        "processed/signals/guidance.csv",
+        "processed/signals/report.md"
+      ]
+    },
+    {
+      "row_id": "letter_growth_slowdown",
+      "source": "shareholder_letter",
+      "section": "shareholder_letter",
+      "speaker": "Netflix shareholder letter",
+      "speaker_role": "management_document",
+      "evidence_type": "growth_slowdown",
+      "quote": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar...",
+      "clear_signal": "The shareholder letter provides explicit management framing that supports the call narrative.",
+      "remaining_ambiguity": "The letter is still management-authored framing, not an external validation layer.",
+      "artifact_paths": [
+        "processed/signals/shareholder_letter_evidence.json"
+      ]
+    },
+    {
+      "row_id": "letter_account_sharing",
+      "source": "shareholder_letter",
+      "section": "shareholder_letter",
+      "speaker": "Netflix shareholder letter",
+      "speaker_role": "management_document",
+      "evidence_type": "account_sharing_and_monetization",
+      "quote": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar...",
+      "clear_signal": "The shareholder letter provides explicit management framing that supports the call narrative.",
+      "remaining_ambiguity": "The letter is still management-authored framing, not an external validation layer.",
+      "artifact_paths": [
+        "processed/signals/shareholder_letter_evidence.json"
+      ]
+    },
+    {
+      "row_id": "letter_headwinds",
+      "source": "shareholder_letter",
+      "section": "shareholder_letter",
+      "speaker": "Netflix shareholder letter",
+      "speaker_role": "management_document",
+      "evidence_type": "competitive_and_macro_headwinds",
+      "quote": "In the near term though, we\u2019re not growing revenue as fast as we\u2019d like. COVID clouded the picture bysignificantly increasing our growth in 2020, leading us to believe that most of our slowing growth in 2021was due to the COVID pull forward. Now, we believe there are four main inter-related factors at work. First, i...",
+      "clear_signal": "The shareholder letter provides explicit management framing that supports the call narrative.",
+      "remaining_ambiguity": "The letter is still management-authored framing, not an external validation layer.",
+      "artifact_paths": [
+        "processed/signals/shareholder_letter_evidence.json"
+      ]
+    }
+  ],
+  "audio_status": {
+    "status": "skipped",
+    "reason": "Uploaded video was verified as a Q2 2022 earnings interview, so video and audio were not bundled into the Q1 2022 demo case.",
+    "video_verification": {
+      "status": "mismatch",
+      "expected_quarter": "Q1 2022",
+      "detected_quarter": "Q2 2022",
+      "quarter_consistent": false,
+      "video_filename": "video Netflix Q2 2022 Earnings Interview.mp4",
+      "video_md5": "6ce1e9aa2f3b2929b9cc779175fd2782",
+      "duration_s": 2590.256,
+      "intro_excerpt": "Good afternoon, and welcome to the Netflix Q2 2020 earnings interview. I'm Spencer Wong, VP of IR and corporate development. Joining me today are co-CEO Rehacings, co-CEO and Chief Content Officer Ted Serrandos, COO and Chief Product Officer Greg Peters and CFO Spencer Newman. Our interviewer this quarter is Doug Ameth from JPMorgan.",
+      "action": "Uploaded video was verified as a Q2 2022 earnings interview, so video and audio were not bundled into the Q1 2022 demo case."
+    },
+    "expected_audio_target": "raw/audio/netflix_q1_2022_audio.wav"
+  },
+  "notes": [
+    "Transcript-first artifacts are the source of truth for this demo case.",
+    "Later UI work can consume this fixture directly without running the full live pipeline."
+  ]
+}

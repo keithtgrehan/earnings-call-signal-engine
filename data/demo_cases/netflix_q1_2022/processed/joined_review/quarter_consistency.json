@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "netflix_q1_2022",
+  "expected_case_quarter": "Q1 2022",
+  "transcript": {
+    "status": "verified",
+    "detected_quarter": "Q1 2022",
+    "canonical_filename": "netflix_q1_2022_transcript.pdf",
+    "canonical_md5": "f102dd51e931f348a8d27e74e894f93b",
+    "supporting_text": "Netflix Q1 2022 Earnings Interview",
+    "mislabeled_duplicates": [
+      {
+        "filename": "Netflix-transcript Q2 2022",
+        "md5": "f102dd51e931f348a8d27e74e894f93b",
+        "same_as_canonical": true
+      }
+    ]
+  },
+  "shareholder_letter": {
+    "status": "verified",
+    "detected_quarter": "Q1 2022",
+    "filename": "netflix_q1_2022_shareholder_letter.pdf",
+    "supporting_text": "April 19, 2022 letter discussing slowing revenue growth and Q1 results."
+  },
+  "financials": {
+    "status": "verified",
+    "detected_quarter": "Q1 2022",
+    "workbook_filename": "netflix_q1_2022_financials.xlsx",
+    "income_statement_filename": "netflix_q1_2022_income_statement.csv",
+    "supporting_text": "Income statement latest quarter column ends at March 31, 2022."
+  },
+  "video": {
+    "status": "mismatch",
+    "expected_quarter": "Q1 2022",
+    "detected_quarter": "Q2 2022",
+    "quarter_consistent": false,
+    "video_filename": "video Netflix Q2 2022 Earnings Interview.mp4",
+    "video_md5": "6ce1e9aa2f3b2929b9cc779175fd2782",
+    "duration_s": 2590.256,
+    "intro_excerpt": "Good afternoon, and welcome to the Netflix Q2 2020 earnings interview. I'm Spencer Wong, VP of IR and corporate development. Joining me today are co-CEO Rehacings, co-CEO and Chief Content Officer Ted Serrandos, COO and Chief Product Officer Greg Peters and CFO Spencer Newman. Our interviewer this quarter is Doug Ameth from JPMorgan.",
+    "action": "Uploaded video was verified as a Q2 2022 earnings interview, so video and audio were not bundled into the Q1 2022 demo case."
+  },
+  "overall_status": "transcript_first_ready_video_skipped",
+  "action_taken": "Built the fixed Q1 2022 transcript-first demo case from transcript, shareholder letter, and financials. Skipped video/audio because the uploaded video verified as Q2."
+}
