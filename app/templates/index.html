@@ -21,20 +21,15 @@
           <p class="hero-lede">{{ ui_meta.lede }}</p>
           <div class="hero-facts">
             <span>Deterministic artifacts stay canonical</span>
-            <span>Optional summary stays additive</span>
-            <span>Generated {{ generated_at }}</span>
+            <span>Demo cases load instantly</span>
+            <span>Normal uploads still available</span>
           </div>
         </div>
-        <div class="hero-aside panel surface-strong">
-          <div class="section-head compact no-margin">
-            <p class="eyebrow">Operating mode</p>
-            <h2>Transcript-first review</h2>
-          </div>
-          <ul class="bullet-list compact-list">
-            <li>YouTube, local media, document upload, or pasted transcript.</li>
-            <li>Guidance, revisions, tone shifts, plots, report, and metrics in one bundle.</li>
-            <li>Background jobs keep the browser responsive during long transcriptions.</li>
-          </ul>
+        <div class="hero-aside">
+          <p class="eyebrow">Why this shell exists</p>
+          <h2>Side-by-side evidence first</h2>
+          <p>The fixed Netflix and Meta cases are now presentation-ready inputs. This shell makes the raw source vs extracted signal experience obvious fast, while keeping ordinary uploads and YouTube review available.</p>
+          <div class="trust-pill">Evidence-backed review aid, not a trading system</div>
         </div>
       </section>
 
@@ -55,88 +50,121 @@
           <span class="status-pill {{ job.status }}">{{ job.status }}</span>
           {% if job.started_at %}<small>Started {{ job.started_at }}</small>{% endif %}
           {% if job.finished_at %}<small>Finished {{ job.finished_at }}</small>{% endif %}
-          {% if job.status in ['queued', 'running'] %}<small>Auto-refresh is active while the worker runs.</small>{% endif %}
+          {% if job.status in ['queued', 'running'] %}<small>Auto-refresh stays on while the deterministic job runs.</small>{% endif %}
         </div>
       </section>
       {% endif %}
 
-      <section class="workspace-layout">
-        <div class="main-stack">
-          <form class="panel intake-panel" method="post" action="{{ url_for('analyze') }}" enctype="multipart/form-data">
-            <div class="panel-topline">
-              <div class="section-head no-margin">
-                <p class="eyebrow">Review intake</p>
-                <h2>Start a run</h2>
-              </div>
-              <p class="panel-note">Core inputs stay visible. Advanced settings are collapsed by default.</p>
+      <section class="control-deck">
+        <form class="panel mode-panel" method="get" action="{{ current_path }}">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Mode switch</p>
+              <h2>Choose the working surface</h2>
             </div>
+            <span class="panel-caption">Demo mode is instant. Input mode preserves the live pipeline.</span>
+          </div>
+          <div class="mode-toggle">
+            <label class="mode-pill {% if view_mode == 'demo' %}is-active{% endif %}">
+              <input type="radio" name="mode" value="demo" {% if view_mode == 'demo' %}checked{% endif %}>
+              <span>Demo mode</span>
+              <small>Load fixed Netflix or Meta cases immediately.</small>
+            </label>
+            <label class="mode-pill {% if view_mode == 'input' %}is-active{% endif %}">
+              <input type="radio" name="mode" value="input" {% if view_mode == 'input' %}checked{% endif %}>
+              <span>Input mode</span>
+              <small>Run YouTube, local media, or transcript uploads.</small>
+            </label>
+          </div>
+          <div class="demo-picker">
+            <label>
+              <span>Fixed demo case</span>
+              <select name="demo_case">
+                {% for case in demo_cases %}
+                <option value="{{ case.case_id }}" {% if case.case_id == selected_demo_case %}selected{% endif %}>{{ case.label }}</option>
+                {% endfor %}
+              </select>
+            </label>
+            <button class="secondary-button" type="submit">Load case</button>
+          </div>
+        </form>
 
+        <form class="panel intake-panel {% if view_mode == 'demo' %}panel-muted{% endif %}" method="post" action="{{ url_for('analyze') }}" enctype="multipart/form-data">
+          <input type="hidden" name="selected_demo_case" value="{{ selected_demo_case }}">
+          <input type="hidden" name="view_mode" value="{{ view_mode }}">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Live input path</p>
+              <h2>Run a real upload or URL</h2>
+            </div>
+            <span class="panel-caption">The core deterministic workflow stays intact.</span>
+          </div>
+
+          <div class="input-grid">
             <section class="group-card">
-              <div class="section-head compact no-margin">
-                <p class="eyebrow">Input source</p>
-                <h3>Where the call comes from</h3>
-              </div>
+              <p class="eyebrow">Source mode</p>
               <div class="segment-grid segment-grid-3">
                 <label class="segment-card {% if form_state.source_mode == 'youtube' %}active{% endif %}">
                   <input type="radio" name="source_mode" value="youtube" {% if form_state.source_mode == 'youtube' %}checked{% endif %}>
-                  <span>YouTube</span>
+                  <span>YouTube input</span>
                   <small>Download, normalize, transcribe, score.</small>
                 </label>
                 <label class="segment-card {% if form_state.source_mode == 'media' %}active{% endif %}">
                   <input type="radio" name="source_mode" value="media" {% if form_state.source_mode == 'media' %}checked{% endif %}>
-                  <span>Local media</span>
-                  <small>Audio or video input.</small>
+                  <span>Audio or video upload</span>
+                  <small>Local audio or video review.</small>
                 </label>
                 <label class="segment-card {% if form_state.source_mode == 'document' %}active{% endif %}">
                   <input type="radio" name="source_mode" value="document" {% if form_state.source_mode == 'document' %}checked{% endif %}>
-                  <span>Document text</span>
+                  <span>Transcript upload</span>
                   <small>Document upload or pasted transcript.</small>
                 </label>
               </div>
             </section>
 
             <section class="group-card">
-              <div class="section-head compact no-margin">
-                <p class="eyebrow">Source material</p>
-                <h3>Provide the call input</h3>
-              </div>
+              <p class="eyebrow">Inputs</p>
               <div class="field-grid field-grid-2">
                 <label>
                   <span>YouTube URL</span>
                   <input type="url" name="youtube_url" value="{{ form_state.youtube_url }}" placeholder="https://www.youtube.com/watch?v=...">
                 </label>
                 <label>
-                  <span>Upload audio or video</span>
+                  <span>Audio or video upload</span>
                   <input type="file" name="media_file" accept="audio/*,video/*">
                 </label>
                 <label>
-                  <span>Upload document</span>
+                  <span>Transcript or document upload</span>
                   <input type="file" name="document_file" accept=".doc,.docx,.txt,.md,.csv,.json">
+                </label>
+                <label>
+                  <span>Symbol</span>
+                  <input type="text" name="symbol" value="{{ form_state.symbol }}">
                 </label>
                 <label class="span-all">
                   <span>Paste transcript text</span>
-                  <textarea name="document_text" rows="6" placeholder="Paste transcript text for a deterministic review run...">{{ form_state.document_text }}</textarea>
+                  <textarea name="document_text" rows="5" placeholder="Paste transcript text for a deterministic review run...">{{ form_state.document_text }}</textarea>
                 </label>
               </div>
             </section>
+          </div>
 
-            <section class="group-card compact-card">
-              <div class="section-head compact no-margin">
-                <p class="eyebrow">Core run settings</p>
-                <h3>Metadata and transcription mode</h3>
-              </div>
-              <div class="field-grid field-grid-3">
-                <label><span>Symbol</span><input type="text" name="symbol" value="{{ form_state.symbol }}"></label>
-                <label><span>Event timestamp</span><input type="text" name="event_dt" value="{{ form_state.event_dt }}"></label>
-                <label><span>Whisper model</span><input type="text" name="whisper_model" value="{{ form_state.whisper_model }}"></label>
-              </div>
-            </section>
+          <div class="compact-controls">
+            <label><span>Event timestamp</span><input type="text" name="event_dt" value="{{ form_state.event_dt }}"></label>
+            <label><span>Whisper model</span><input type="text" name="whisper_model" value="{{ form_state.whisper_model }}"></label>
+            <label><span>Device</span><input type="text" name="device" value="{{ form_state.device }}"></label>
+            <label><span>Compute type</span><input type="text" name="compute_type" value="{{ form_state.compute_type }}"></label>
+          </div>
 
-            <section class="group-card compact-card">
-              <div class="section-head compact no-margin">
-                <p class="eyebrow">Review mode</p>
-                <h3>Choose the output layer</h3>
+          <details class="advanced-panel">
+            <summary>
+              <div>
+                <p class="eyebrow">Advanced controls</p>
+                <strong>Runtime overrides, summary mode, and extra scoring knobs</strong>
               </div>
+              <span class="summary-chip">Collapsed</span>
+            </summary>
+            <div class="advanced-body">
               <div class="segment-grid segment-grid-2">
                 <label class="segment-card {% if form_state.analysis_mode == 'deterministic' %}active{% endif %}">
                   <input type="radio" name="analysis_mode" value="deterministic" {% if form_state.analysis_mode == 'deterministic' %}checked{% endif %}>
@@ -146,292 +174,547 @@
                 <label class="segment-card {% if form_state.analysis_mode == 'summary' %}active{% endif %}">
                   <input type="radio" name="analysis_mode" value="summary" {% if form_state.analysis_mode == 'summary' %}checked{% endif %}>
                   <span>Deterministic + LLM</span>
-                  <small>Add normalized narrative JSON, never replace source artifacts.</small>
+                  <small>Add optional narrative JSON without replacing source artifacts.</small>
                 </label>
               </div>
-            </section>
 
-            <details class="advanced-panel">
-              <summary>
-                <div>
-                  <p class="eyebrow">Advanced settings</p>
-                  <strong>Secondary controls, runtime overrides, and summary plumbing</strong>
-                </div>
-                <span class="summary-chip">Closed by default</span>
-              </summary>
-              <div class="advanced-body">
-                <div class="field-grid field-grid-3">
-                  <label><span>Audio format</span>
-                    <select name="audio_format">
-                      {% for option in ['wav', 'mp3', 'm4a'] %}
-                      <option value="{{ option }}" {% if form_state.audio_format == option %}selected{% endif %}>{{ option }}</option>
-                      {% endfor %}
-                    </select>
-                  </label>
-                  <label><span>Chunk seconds</span><input type="number" step="1" name="chunk_seconds" value="{{ form_state.chunk_seconds }}"></label>
-                  <label><span>Tone-change threshold</span><input type="number" step="0.1" name="tone_change_threshold" value="{{ form_state.tone_change_threshold }}"></label>
-                  <label><span>Device</span><input type="text" name="device" value="{{ form_state.device }}"></label>
-                  <label><span>Compute type</span><input type="text" name="compute_type" value="{{ form_state.compute_type }}"></label>
-                  <label><span>Question min chars</span><input type="number" step="1" name="min_chars" value="{{ form_state.min_chars }}"></label>
-                  <label class="span-two"><span>Sentiment model</span><input type="text" name="sentiment_model" value="{{ form_state.sentiment_model }}"></label>
-                  <label><span>Sentiment revision</span><input type="text" name="sentiment_revision" value="{{ form_state.sentiment_revision }}"></label>
-                  <label class="span-all"><span>Prior guidance.csv path</span><input type="text" name="prior_guidance_path" value="{{ form_state.prior_guidance_path }}" placeholder="Optional local path"></label>
-                </div>
+              <div class="field-grid field-grid-3">
+                <label><span>Audio format</span>
+                  <select name="audio_format">
+                    {% for option in ['wav', 'mp3', 'm4a'] %}
+                    <option value="{{ option }}" {% if form_state.audio_format == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                  </select>
+                </label>
+                <label><span>Chunk seconds</span><input type="number" step="1" name="chunk_seconds" value="{{ form_state.chunk_seconds }}"></label>
+                <label><span>Tone-change threshold</span><input type="number" step="0.1" name="tone_change_threshold" value="{{ form_state.tone_change_threshold }}"></label>
+                <label><span>Question min chars</span><input type="number" step="1" name="min_chars" value="{{ form_state.min_chars }}"></label>
+                <label class="span-two"><span>Sentiment model</span><input type="text" name="sentiment_model" value="{{ form_state.sentiment_model }}"></label>
+                <label><span>Sentiment revision</span><input type="text" name="sentiment_revision" value="{{ form_state.sentiment_revision }}"></label>
+                <label class="span-all"><span>Prior guidance.csv path</span><input type="text" name="prior_guidance_path" value="{{ form_state.prior_guidance_path }}" placeholder="Optional local path"></label>
+              </div>
 
-                <div class="toggle-row advanced-toggles">
-                  <label><input type="checkbox" name="question_shifts" {% if form_state.question_shifts %}checked{% endif %}> Question shifts</label>
-                  <label><input type="checkbox" name="vad" {% if form_state.vad %}checked{% endif %}> VAD</label>
-                  <label><input type="checkbox" name="verbose" {% if form_state.verbose %}checked{% endif %}> Verbose logs</label>
-                </div>
+              <div class="toggle-row advanced-toggles">
+                <label><input type="checkbox" name="question_shifts" {% if form_state.question_shifts %}checked{% endif %}> Question shifts</label>
+                <label><input type="checkbox" name="vad" {% if form_state.vad %}checked{% endif %}> VAD</label>
+                <label><input type="checkbox" name="verbose" {% if form_state.verbose %}checked{% endif %}> Verbose logs</label>
+              </div>
 
-                <div class="field-grid field-grid-2 compact-top">
-                  <label><span>Summary provider</span>
-                    <select name="summary_provider">
-                      {% for option in ['openai_compatible', 'none'] %}
-                      <option value="{{ option }}" {% if form_state.summary_provider == option %}selected{% endif %}>{{ option }}</option>
-                      {% endfor %}
-                    </select>
-                  </label>
-                  <label><span>Summary model</span><input type="text" name="summary_model" value="{{ form_state.summary_model }}"></label>
-                  <label><span>Summary base URL</span><input type="text" name="summary_base_url" value="{{ form_state.summary_base_url }}"></label>
-                  <label><span>API key env var</span><input type="text" name="summary_api_key_env" value="{{ form_state.summary_api_key_env }}"></label>
-                  <label><span>Summary timeout (s)</span><input type="number" step="1" name="summary_timeout_s" value="{{ form_state.summary_timeout_s }}"></label>
-                  <div class="note-card span-all compact-note">
-                    <strong>Suggested grounding prompt</strong>
-                    <pre>{{ suggested_prompt }}</pre>
-                  </div>
+              <div class="field-grid field-grid-2 compact-top">
+                <label><span>Summary provider</span>
+                  <select name="summary_provider">
+                    {% for option in ['openai_compatible', 'none'] %}
+                    <option value="{{ option }}" {% if form_state.summary_provider == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                  </select>
+                </label>
+                <label><span>Summary model</span><input type="text" name="summary_model" value="{{ form_state.summary_model }}"></label>
+                <label><span>Summary base URL</span><input type="text" name="summary_base_url" value="{{ form_state.summary_base_url }}"></label>
+                <label><span>API key env var</span><input type="text" name="summary_api_key_env" value="{{ form_state.summary_api_key_env }}"></label>
+                <label><span>Summary timeout (s)</span><input type="number" step="1" name="summary_timeout_s" value="{{ form_state.summary_timeout_s }}"></label>
+                <div class="note-card span-all compact-note">
+                  <strong>Grounding prompt</strong>
+                  <pre>{{ suggested_prompt }}</pre>
                 </div>
               </div>
-            </details>
-
-            <div class="action-bar">
-              <div class="action-copy">
-                <p class="eyebrow">Primary action</p>
-                <strong>Run the deterministic review workflow</strong>
-                <small>The output bundle will land in the local `outputs/ui_runs/` directory.</small>
-              </div>
-              <button class="primary-button" type="submit">Run review</button>
             </div>
-          </form>
+          </details>
 
-          <section class="panel dossier-panel">
-            <div class="panel-topline">
-              <div class="section-head no-margin">
-                <p class="eyebrow">Evidence dossier</p>
-                <h2>Artifacts and outputs</h2>
-              </div>
-              {% if result %}
-              <div class="summary-grid compact-summary-grid">
-                <div class="summary-card"><span>Run</span><strong>{{ result.run_id }}</strong></div>
-                <div class="summary-card"><span>Output directory</span><strong>{{ result.out_dir }}</strong></div>
-              </div>
-              {% endif %}
+          <div class="action-bar">
+            <div class="action-copy">
+              <p class="eyebrow">Run action</p>
+              <strong>Launch the deterministic review workflow</strong>
+              <small>Outputs land in `outputs/ui_runs/` and remain accessible from the history rail.</small>
             </div>
+            <button class="primary-button" type="submit">Run review</button>
+          </div>
+        </form>
+      </section>
 
-            {% if result %}
-            <div class="dossier-grid">
-              <div class="dossier-column dossier-column-main">
-                <section class="content-card review-guide-card">
-                  <h3>Start here</h3>
-                  <ol class="guide-list">
-                    <li>Read the report preview first for the top-line signal and run context.</li>
-                    <li>Check the guidance and revision tables next to see the extracted directional evidence.</li>
-                    <li>Use the transcript preview to confirm the exact wording behind any directional or unclear call.</li>
-                  </ol>
-                </section>
+      {% if view_mode == 'demo' and demo_case %}
+      <section class="summary-strip">
+        <article class="summary-tile primary-tile">
+          <span>Case</span>
+          <strong>{{ demo_case.company }}</strong>
+          <small>{{ demo_case.quarter }}</small>
+        </article>
+        <article class="summary-tile verdict-tile">
+          <span>One-line verdict</span>
+          <strong>{{ demo_case.verdict }}</strong>
+        </article>
+        <article class="summary-tile concerns-tile">
+          <span>Top 3 extracted concerns</span>
+          <div class="concern-row">
+            {% for concern in demo_case.top_concerns %}
+            <span class="mini-pill neutral">{{ concern }}</span>
+            {% endfor %}
+          </div>
+        </article>
+        <article class="summary-tile trust-tile">
+          <span>Trust statement</span>
+          <strong>{{ demo_case.trust_statement }}</strong>
+        </article>
+      </section>
 
-                {% if result.text.get('report.md') %}
-                <section class="content-card">
-                  <h3>Report preview</h3>
-                  <pre>{{ result.text['report.md'] }}</pre>
-                </section>
-                {% endif %}
-
-                {% if result.text.get('transcript.txt') %}
-                <section class="content-card transcript-card">
-                  <h3>Transcript preview</h3>
-                  <pre>{{ result.text['transcript.txt'] }}</pre>
-                </section>
-                {% endif %}
-
-                {% for table_name, rows in result.tables.items() %}
-                <section class="content-card">
-                  <h3>{{ table_name }}</h3>
-                  {% if rows %}
-                  <div class="table-wrap">
-                    <table>
-                      <thead>
-                        <tr>
-                          {% for key in rows[0].keys() %}
-                          <th>{{ key }}</th>
-                          {% endfor %}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {% for row in rows %}
-                        <tr>
-                          {% for value in row.values() %}
-                          <td>{{ value }}</td>
-                          {% endfor %}
-                        </tr>
-                        {% endfor %}
-                      </tbody>
-                    </table>
-                  </div>
-                  {% else %}
-                  <p class="muted-copy">No rows.</p>
-                  {% endif %}
-                </section>
-                {% endfor %}
-              </div>
-
-              <div class="dossier-column dossier-column-side">
-                {% if result.json.get('metrics.json') %}
-                <section class="content-card accent-card">
-                  <h3>Metrics snapshot</h3>
-                  <pre>{{ result.json['metrics.json'] | tojson(indent=2) }}</pre>
-                </section>
-                {% endif %}
-
-                {% if result.json.get('llm_summary.json') %}
-                <section class="content-card accent-card deep-accent">
-                  <h3>Optional summary</h3>
-                  <pre>{{ result.json['llm_summary.json'] | tojson(indent=2) }}</pre>
-                </section>
-                {% endif %}
-
-                {% if result.artifacts.get('sentiment_timeline.png') %}
-                <section class="content-card image-card">
-                  <h3>Sentiment timeline</h3>
-                  <img src="{{ url_for('serve_artifact', run_id=result.run_id, filename='sentiment_timeline.png') }}" alt="Sentiment timeline plot">
-                </section>
-                {% endif %}
-
-                {% if result.artifacts.get('question_shifts.png') %}
-                <section class="content-card image-card">
-                  <h3>Question shifts</h3>
-                  <img src="{{ url_for('serve_artifact', run_id=result.run_id, filename='question_shifts.png') }}" alt="Question shifts plot">
-                </section>
-                {% endif %}
-              </div>
-            </div>
-            {% else %}
-            <div class="empty-state compact-empty">
-              {% if job and job.status in ['queued', 'running'] %}
-              <p>The job is in flight. This dossier refreshes while deterministic artifacts are written.</p>
-              {% else %}
-              <h3>Suggested demo path</h3>
-              <ol class="guide-list">
-                <li>Pick one benchmark case from the right rail or paste a transcript excerpt into the form.</li>
-                <li>Run the deterministic review first so the core artifacts stay visible and auditable.</li>
-                <li>Use this dossier to walk through the report, guidance evidence, transcript, and metrics in order.</li>
-              </ol>
-              {% endif %}
-            </div>
-            {% endif %}
-          </section>
+      <section class="panel evidence-panel" data-evidence-panel>
+        <div class="panel-head evidence-head">
+          <div>
+            <p class="eyebrow">Core experience</p>
+            <h2>Raw source vs extracted signal</h2>
+          </div>
+          <div class="panel-summary">
+            <span>{{ demo_case.evidence_rows|length }} evidence rows</span>
+            <span>{{ demo_case.headline_counts.audio_review_moments or demo_case.joined_audio_rows|length }} curated audio moments</span>
+          </div>
         </div>
 
-        <aside class="sidebar-stack">
-          <section class="panel sidebar-panel">
-            <div class="section-head compact no-margin">
-              <p class="eyebrow">Recent local runs</p>
-              <h3>History</h3>
-            </div>
-            {% if recent_runs %}
-            <div class="history-list">
-              {% for row in recent_runs[:5] %}
-              <article class="history-row">
-                <div class="history-main">
-                  <strong>{{ row.symbol }}</strong>
-                  <small>{{ row.run_id[:10] }}…{{ row.run_id[-8:] }}</small>
-                </div>
-                <div class="history-meta">
-                  <small>{{ row.updated_at }}</small>
-                  <a href="{{ url_for('review_run', run_id=row.run_id) }}">Open</a>
-                </div>
-              </article>
-              {% endfor %}
-            </div>
-            {% if recent_runs|length > 5 %}
-            <p class="history-footnote">Showing latest 5 runs. Older runs remain in the local outputs directory.</p>
-            {% endif %}
-            {% else %}
-            <p class="muted-copy">No runs yet.</p>
-            {% endif %}
-          </section>
+        <div class="filter-toolbar">
+          <div class="filter-group">
+            <button class="filter-chip is-active" type="button" data-filter-group="category" data-filter-value="all">All</button>
+            <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="guidance-outlook">Guidance / outlook</button>
+            <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="hedging-caution">Hedging / caution</button>
+            <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="analyst-pressure">Analyst pressure</button>
+            <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="audio-supported">Audio-supported</button>
+            <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="financial-context">Financial context</button>
+          </div>
+          <div class="filter-group">
+            <button class="filter-chip is-active" type="button" data-filter-group="source" data-filter-value="all">All sources</button>
+            {% for source in demo_case.source_filters %}
+            <button class="filter-chip" type="button" data-filter-group="source" data-filter-value="{{ source.value }}">{{ source.label }}</button>
+            {% endfor %}
+          </div>
+          <div class="filter-group compact-group">
+            <button class="filter-chip is-active" type="button" data-filter-top-toggle="true">Top moments</button>
+            <span class="filter-count" data-filter-count></span>
+          </div>
+        </div>
 
-          <section class="panel sidebar-panel">
-            <div class="section-head compact no-margin">
-              <p class="eyebrow">Benchmark subset</p>
-              <h3>Strong current review cases</h3>
-            </div>
-            {% if benchmark_rows %}
-            <div class="stack-list dense-stack benchmark-list">
-              {% for row in benchmark_rows %}
-              <article class="stack-card dense-card benchmark-card">
-                <div class="stack-card-top">
-                  <strong>{{ row.call_id }}</strong>
-                  <span class="mini-pill {{ row.label }}">{{ row.label }}</span>
-                </div>
-                <p>{{ row.ticker }} · {{ row.quarter }} · {{ row.quality }}</p>
-                <small>{{ row.notes }}</small>
-                <a href="{{ row.source_url }}" target="_blank">Open source</a>
-              </article>
-              {% endfor %}
-            </div>
-            {% else %}
-            <p class="muted-copy">No benchmark subset loaded.</p>
-            {% endif %}
-          </section>
-
-          <section class="panel sidebar-panel emphasis-panel">
-            <div class="section-head compact no-margin">
-              <p class="eyebrow">{% if result %}Review bundle{% else %}Demo flow{% endif %}</p>
-              <h3>{% if result %}Current run outputs{% else %}What to show live{% endif %}</h3>
-            </div>
-            {% if result %}
-            <div class="mini-summary-grid">
-              <div class="summary-tile">
-                <span>Run</span>
-                <strong>{{ result.run_id }}</strong>
+        <div class="evidence-stack" data-evidence-list>
+          {% for row in demo_case.evidence_rows %}
+          <article
+            class="evidence-card"
+            data-tags="{{ row.categories|join(',') }}"
+            data-source="{{ row.source_type_slug }}"
+            data-top-moment="{{ 'true' if row.is_top_moment else 'false' }}"
+          >
+            <div class="evidence-card-head">
+              <div class="badge-row">
+                <span class="badge badge-source">{{ row.source_type_label }}</span>
+                <span class="badge badge-priority priority-{{ row.priority_class }}">{{ row.review_priority }}</span>
+                {% if row.has_audio_support %}
+                <span class="badge badge-audio">Audio-supported</span>
+                {% endif %}
               </div>
-              <div class="summary-tile">
-                <span>Artifacts</span>
-                <strong>{{ result.artifacts | length }}</strong>
+              {% if row.optional_timestamp %}
+              <span class="timestamp-pill">{{ row.optional_timestamp }}</span>
+              {% endif %}
+            </div>
+
+            <div class="evidence-sides">
+              <div class="evidence-side raw-side">
+                <p class="side-label">Raw source evidence</p>
+                <p class="source-meta">{{ row.source_section_or_speaker }}</p>
+                <blockquote>{{ row.source_excerpt }}</blockquote>
+              </div>
+
+              <div class="evidence-side signal-side">
+                <p class="side-label">Extracted signal</p>
+                <h3>{{ row.plain_english_label }}</h3>
+                <p class="signal-copy">{{ row.extracted_signal }}</p>
+                <p class="why-copy">{{ row.why_it_matters }}</p>
               </div>
             </div>
-            <div class="artifact-strip compact-strip">
-              {% for name, path in result.artifacts.items() %}
-              <a class="artifact-pill" href="{{ url_for('serve_artifact', run_id=result.run_id, filename=name) }}" target="_blank">{{ name }}</a>
-              {% endfor %}
-            </div>
-            {% if result.text.get('document_timing_note.txt') %}
-            <div class="note-card compact-note side-note">
-              <strong>Document timing note</strong>
-              <pre>{{ result.text['document_timing_note.txt'] }}</pre>
-            </div>
-            {% endif %}
-            <div class="note-card compact-note side-note">
-              <strong>Walkthrough order</strong>
-              <ol class="guide-list compact-guide">
-                <li>Report preview</li>
-                <li>Guidance and revision tables</li>
-                <li>Transcript evidence</li>
-                <li>Metrics and plots</li>
-              </ol>
-            </div>
-            {% else %}
-            <ol class="guide-list compact-guide">
-              <li>Choose a benchmark-style transcript or paste one directly into the form.</li>
-              <li>Run <strong>Deterministic only</strong> first to keep the source-of-truth artifacts visible.</li>
-              <li>In the dossier, show the report preview before diving into transcript evidence.</li>
-              <li>Use the benchmark subset as a quick set of review-worthy examples, not as a performance claim.</li>
-            </ol>
-            {% endif %}
-          </section>
-        </aside>
+
+            <details class="details-box">
+              <summary>Expand details</summary>
+              <div class="details-grid">
+                <div>
+                  <p class="details-label">Ambiguity note</p>
+                  <p>{{ row.ambiguity_note }}</p>
+                </div>
+                {% if row.audio_summary %}
+                <div>
+                  <p class="details-label">Audio support</p>
+                  <p>{{ row.audio_summary }}</p>
+                </div>
+                {% endif %}
+              </div>
+            </details>
+          </article>
+          {% endfor %}
+          <div class="empty-filter-state" data-evidence-empty hidden>No evidence rows match the current filters.</div>
+        </div>
       </section>
+
+      <section class="panel caution-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Management caution</p>
+            <h2>Q&A pressure and qualified language</h2>
+          </div>
+          <span class="panel-caption">This panel stays observational: direct analyst questions, cautious answers, and where the ambiguity remains.</span>
+        </div>
+        <div class="pressure-grid">
+          {% for row in demo_case.pressure_rows %}
+          <article class="pressure-card">
+            <div class="badge-row">
+              <span class="badge badge-source">{{ row.source_type_label }}</span>
+              <span class="badge badge-priority priority-{{ row.priority_class }}">{{ row.review_priority }}</span>
+              {% if row.has_audio_support %}
+              <span class="badge badge-audio">Audio-supported</span>
+              {% endif %}
+            </div>
+            <h3>{{ row.plain_english_label }}</h3>
+            <p class="pressure-excerpt">{{ row.source_excerpt }}</p>
+            <p class="pressure-why">{{ row.why_it_matters }}</p>
+            <p class="pressure-ambiguity">{{ row.ambiguity_note }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <details class="panel audio-drawer" {% if demo_case.joined_audio_rows %}open{% endif %}>
+        <summary>
+          <div>
+            <p class="eyebrow">Curated audio support</p>
+            <strong>Bounded text + audio moments</strong>
+          </div>
+          <span class="summary-chip">{{ demo_case.joined_audio_rows|length }} moments</span>
+        </summary>
+        <div class="audio-card-grid">
+          {% for row in demo_case.joined_audio_rows %}
+          <article class="audio-card">
+            <div class="audio-card-top">
+              <h3>{{ row.plain_english_label }}</h3>
+              <span class="badge badge-priority priority-{{ row.review_priority }}">{{ row.review_priority }}</span>
+            </div>
+            <div class="audio-time-row">
+              <span>Q: {{ row.question_time_range }}</span>
+              <span>A: {{ row.answer_time_range }}</span>
+            </div>
+            <p class="audio-section-label">Analyst question</p>
+            <p>{{ row.analyst_question_excerpt }}</p>
+            <p class="audio-section-label">Management answer</p>
+            <p>{{ row.management_answer_excerpt }}</p>
+            <p class="audio-section-label">Audio summary</p>
+            <p>{{ row.plain_english_audio_summary }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </details>
+
+      <section class="panel market-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Secondary context</p>
+            <h2>{{ demo_case.market_context.panel_title }}</h2>
+          </div>
+          <span class="panel-caption">Useful for a sanity-check panel, not the centerpiece.</span>
+        </div>
+        <div class="market-grid">
+          <div class="market-signals">
+            <h3>Key extracted signals</h3>
+            <ul class="bullet-list">
+              {% for item in demo_case.market_context.key_extracted_signals %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="market-reaction">
+            <h3>Market reaction note</h3>
+            <p>{{ demo_case.market_context.market_reaction_note }}</p>
+            <div class="market-window">
+              <span>{{ demo_case.market_context.market_reaction_window.start_date }}</span>
+              <strong>{{ demo_case.market_context.market_reaction_window.reaction_magnitude_pct }}%</strong>
+              <span>{{ demo_case.market_context.market_reaction_window.end_date }}</span>
+            </div>
+            <p class="market-caveat">{{ demo_case.market_context.caveat }}</p>
+            <div class="market-links">
+              {% if demo_case.market_context.source.primary_url %}
+              <a href="{{ demo_case.market_context.source.primary_url }}" target="_blank" rel="noreferrer">Primary source</a>
+              {% endif %}
+              {% if demo_case.market_context.source.secondary_url %}
+              <a href="{{ demo_case.market_context.source.secondary_url }}" target="_blank" rel="noreferrer">Secondary source</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <details class="panel debug-drawer">
+        <summary>
+          <div>
+            <p class="eyebrow">Advanced / debug</p>
+            <strong>Fixture notes, artifact links, and lower-level context</strong>
+          </div>
+          <span class="summary-chip">Hidden by default</span>
+        </summary>
+        <div class="debug-grid">
+          <section class="debug-card">
+            <h3>Artifact index</h3>
+            <ul class="artifact-list">
+              {% for item in demo_case.artifact_links %}
+              <li>
+                <a href="{{ url_for('serve_demo_case_artifact', case_id=demo_case.case_id, filename=item.url_path) }}" target="_blank">{{ item.label }}</a>
+                <small>{{ item.relative_path }}</small>
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+          <section class="debug-card">
+            <h3>Case notes</h3>
+            <ul class="bullet-list compact-list">
+              {% for note in demo_case.fixture.notes %}
+              <li>{{ note }}</li>
+              {% endfor %}
+            </ul>
+            <h3>Limitations</h3>
+            <ul class="bullet-list compact-list">
+              {% for item in demo_case.limitations %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        </div>
+      </details>
+      {% else %}
+      <section class="input-workspace">
+        <section class="summary-strip input-strip">
+          <article class="summary-tile primary-tile">
+            <span>Working mode</span>
+            <strong>Real input review</strong>
+            <small>YouTube, local media, or transcript upload</small>
+          </article>
+          {% if result %}
+          <article class="summary-tile">
+            <span>Run</span>
+            <strong>{{ result.run_id }}</strong>
+            <small>{{ result.out_dir }}</small>
+          </article>
+          <article class="summary-tile">
+            <span>Artifacts</span>
+            <strong>{{ result.artifacts | length }}</strong>
+            <small>Deterministic bundle ready</small>
+          </article>
+          {% else %}
+          <article class="summary-tile verdict-tile">
+            <span>Status</span>
+            <strong>Uploads are enabled. The fixed demo cases remain available one click away.</strong>
+          </article>
+          {% endif %}
+          <article class="summary-tile trust-tile">
+            <span>Trust statement</span>
+            <strong>Deterministic artifacts stay canonical.</strong>
+          </article>
+        </section>
+
+        <section class="workspace-layout">
+          <div class="main-stack">
+            <section class="panel dossier-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Live review bundle</p>
+                  <h2>{% if result %}Current run outputs{% else %}Run a file or URL to create a bundle{% endif %}</h2>
+                </div>
+                {% if result %}
+                <div class="panel-summary">
+                  <span>{{ result.run_id }}</span>
+                  <span>{{ result.artifacts | length }} artifacts</span>
+                </div>
+                {% endif %}
+              </div>
+
+              {% if result %}
+              <div class="dossier-grid">
+                <div class="dossier-column dossier-column-main">
+                  {% if result.text.get('report.md') %}
+                  <section class="content-card">
+                    <h3>Report preview</h3>
+                    <pre>{{ result.text['report.md'] }}</pre>
+                  </section>
+                  {% endif %}
+
+                  {% if result.text.get('transcript.txt') %}
+                  <section class="content-card transcript-card">
+                    <h3>Transcript preview</h3>
+                    <pre>{{ result.text['transcript.txt'] }}</pre>
+                  </section>
+                  {% endif %}
+
+                  {% for table_name, rows in result.tables.items() %}
+                  <section class="content-card">
+                    <h3>{{ table_name }}</h3>
+                    {% if rows %}
+                    <div class="table-wrap">
+                      <table>
+                        <thead>
+                          <tr>
+                            {% for key in rows[0].keys() %}
+                            <th>{{ key }}</th>
+                            {% endfor %}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for row in rows %}
+                          <tr>
+                            {% for value in row.values() %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                    {% else %}
+                    <p class="muted-copy">No rows.</p>
+                    {% endif %}
+                  </section>
+                  {% endfor %}
+                </div>
+
+                <div class="dossier-column dossier-column-side">
+                  {% if result.json.get('metrics.json') %}
+                  <section class="content-card accent-card">
+                    <h3>Metrics snapshot</h3>
+                    <pre>{{ result.json['metrics.json'] | tojson(indent=2) }}</pre>
+                  </section>
+                  {% endif %}
+                  {% if result.json.get('llm_summary.json') %}
+                  <section class="content-card accent-card deep-accent">
+                    <h3>Optional summary</h3>
+                    <pre>{{ result.json['llm_summary.json'] | tojson(indent=2) }}</pre>
+                  </section>
+                  {% endif %}
+                  <section class="content-card">
+                    <h3>Artifact links</h3>
+                    <div class="artifact-strip">
+                      {% for name, path in result.artifacts.items() %}
+                      <a class="artifact-pill" href="{{ url_for('serve_artifact', run_id=result.run_id, filename=name) }}" target="_blank">{{ name }}</a>
+                      {% endfor %}
+                    </div>
+                  </section>
+                </div>
+              </div>
+              {% else %}
+              <div class="empty-state">
+                <h3>Normal input mode is ready.</h3>
+                <p>Upload a transcript, audio/video file, or use a YouTube URL. The live result view keeps the current deterministic artifact bundle intact, while the frozen Netflix and Meta cases remain available in demo mode for the polished side-by-side walkthrough.</p>
+              </div>
+              {% endif %}
+            </section>
+          </div>
+
+          <aside class="sidebar-stack">
+            <section class="panel sidebar-panel">
+              <div class="section-head compact no-margin">
+                <p class="eyebrow">Recent local runs</p>
+                <h3>History</h3>
+              </div>
+              {% if recent_runs %}
+              <div class="history-list">
+                {% for row in recent_runs[:5] %}
+                <article class="history-row">
+                  <div class="history-main">
+                    <strong>{{ row.symbol }}</strong>
+                    <small>{{ row.run_id[:10] }}…{{ row.run_id[-8:] }}</small>
+                  </div>
+                  <div class="history-meta">
+                    <small>{{ row.updated_at }}</small>
+                    <a href="{{ url_for('review_run', run_id=row.run_id, mode='input', demo_case=selected_demo_case) }}">Open</a>
+                  </div>
+                </article>
+                {% endfor %}
+              </div>
+              {% else %}
+              <p class="muted-copy">No runs yet.</p>
+              {% endif %}
+            </section>
+
+            <section class="panel sidebar-panel">
+              <div class="section-head compact no-margin">
+                <p class="eyebrow">Demo cases</p>
+                <h3>Fast presentation path</h3>
+              </div>
+              <div class="stack-list dense-stack">
+                {% for case in demo_cases %}
+                <article class="stack-card dense-card">
+                  <strong>{{ case.label }}</strong>
+                  <small>Fixed demo package</small>
+                  <a href="{{ request.path }}?mode=demo&demo_case={{ case.case_id }}">Open</a>
+                </article>
+                {% endfor %}
+              </div>
+            </section>
+          </aside>
+        </section>
+      </section>
+      {% endif %}
     </main>
+
+    <script>
+      (function () {
+        const panel = document.querySelector('[data-evidence-panel]');
+        if (!panel) return;
+
+        const categoryButtons = panel.querySelectorAll('[data-filter-group="category"]');
+        const sourceButtons = panel.querySelectorAll('[data-filter-group="source"]');
+        const topToggle = panel.querySelector('[data-filter-top-toggle]');
+        const cards = panel.querySelectorAll('.evidence-card');
+        const emptyState = panel.querySelector('[data-evidence-empty]');
+        const countNode = panel.querySelector('[data-filter-count]');
+
+        let activeCategory = 'all';
+        let activeSource = 'all';
+        let topOnly = true;
+
+        function setActive(buttons, value) {
+          buttons.forEach((button) => {
+            button.classList.toggle('is-active', button.dataset.filterValue === value);
+          });
+        }
+
+        function applyFilters() {
+          let visibleCount = 0;
+          cards.forEach((card) => {
+            const tags = (card.dataset.tags || '').split(',').filter(Boolean);
+            const source = card.dataset.source || '';
+            const matchesCategory = activeCategory === 'all' || tags.includes(activeCategory);
+            const matchesSource = activeSource === 'all' || source === activeSource;
+            const matchesTop = !topOnly || card.dataset.topMoment === 'true';
+            const visible = matchesCategory && matchesSource && matchesTop;
+            card.hidden = !visible;
+            if (visible) visibleCount += 1;
+          });
+          if (countNode) countNode.textContent = `${visibleCount} visible`;
+          if (emptyState) emptyState.hidden = visibleCount !== 0;
+          if (topToggle) topToggle.classList.toggle('is-active', topOnly);
+        }
+
+        categoryButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            activeCategory = button.dataset.filterValue || 'all';
+            setActive(categoryButtons, activeCategory);
+            applyFilters();
+          });
+        });
+
+        sourceButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            activeSource = button.dataset.filterValue || 'all';
+            setActive(sourceButtons, activeSource);
+            applyFilters();
+          });
+        });
+
+        if (topToggle) {
+          topToggle.addEventListener('click', () => {
+            topOnly = !topOnly;
+            applyFilters();
+          });
+        }
+
+        applyFilters();
+      }());
+    </script>
   </body>
 </html>
