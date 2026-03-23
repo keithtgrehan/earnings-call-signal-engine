@@ -1,0 +1,392 @@
+investor.fb.com
+Meta Earnings Presentation Q3 2022
+
+Our revenue by user geography is geographically apportioned based on our estimation of the geographic location of our users w hen they perform a revenue -generating activity. This allocation differs from our revenue disaggregated by geography disclosure in o ur 
+condensed consolidated financial statements where revenue is geographically apportioned based on the addresses of our customers.
+Europe
+US & Canada
+Asia-Pacific
+Rest of World
+Advertising Revenue by User Geography
+In Millions
+$9,988 
+$13,150 $11,897 $13,366 $13,094 $15,062 
+$12,024 $12,788 $12,766 
+$5,051 
+$6,822 
+$6,373 
+$7,205 $6,821 
+$8,174 
+$6,364 $6,360 $5,707 
+$4,202 
+$4,703 
+$4,735 
+$5,152 $5,398 
+$6,183 
+$5,661 $5,835 $5,717 $1,980 
+$2,512 
+$2,434 
+$2,857 $2,963 
+$3,220 
+$2,949 $3,169 $3,047 
+$21,221 
+$27,187 
+$25,439 
+$28,580 $28,276 
+$32,639 
+$26,998 
+$28,152 $27,237 
+Q3'20 Q4'20 Q1'21 Q2'21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+2
+
+
+Our revenue by user geography is geographically apportioned based on our estimation of the geographic location of our users w hen they perform a revenue -generating activity. This allocation differs from our revenue disaggregated by geography disclosure in o ur 
+condensed consolidated financial statements where revenue is geographically apportioned based on the addresses of our customers.
+Europe
+US & Canada
+Asia-Pacific
+Rest of World
+Revenue by User Geography
+In Millions
+$10,137 
+$13,734 $12,405 $13,738 $13,613 $15,826 
+$12,671 $13,249 $13,035 
+$5,104 
+$7,011 
+$6,523 
+$7,270 $6,955 
+$8,357 
+$6,486 $6,452 $5,797 
+$4,230 
+$4,793 
+$4,789 
+$5,190 $5,461 
+$6,244 
+$5,759 $5,908 $5,782 
+$1,999 
+$2,534 
+$2,454 
+$2,879 $2,981 
+$3,244 
+$2,992 $3,213 $3,100 
+$21,470 
+$28,072 
+$26,171 
+$29,077 $29,010 
+$33,671 
+$27,908 $28,822 $27,714 
+Q3'20 Q4'20 Q1'21 Q2'21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+3
+
+
+Segment Results 
+In Millions
+Q4’20 Q1’21 Q2’21 Q3’21 Q4’21 Q1’22 Q2’22 Q3’22
+Advertising $ 27,187 $ 25,439 $ 28,580 $ 28,276 $ 32,639 $ 26,998 $     28,152 $ 27,237
+Other 168 198 192 176 155 215 218 192
+Family of Apps Revenue 27,355 25,637 28,772 28,452 32,794 27,213 28,370 27,429
+Reality Labs Revenue 717 534 305 558 877 695 452 285
+Total Revenue $ 28,072 $ 26,171 $ 29,077 $ 29,010 $ 33,671 $ 27,908 $     28,822 $ 27,714
+Family of Apps Operating Income $ 14,874 $ 13,205 $ 14,799 $ 13,054 $ 15,889 $ 11,484 $ 11,164 $ 9,336
+Reality Labs Operating (Loss) (2,099) (1,827) (2,432) (2,631) (3,304) (2,960) (2,806) (3,672)
+Total Income from Operations $ 12,775 $ 11,378 $ 12,367 $ 10,423 $ 12,585 $ 8,524 $ 8,358 $ 5,664
+Operating Margin 46% 43% 43% 36% 37% 31% 29% 20%
+Beginning in the fourth quarter of 2021, we report our financial results based on two reportable segments: Family of Apps ( FoA) and Reality Labs (RL). FoA includes Facebook, Instagram, Messenger, WhatsApp, and other services. RL includes augmented and virtual reality 
+related consumer hardware, software, and content. For comparative purposes, amounts in prior periods have been recast.
+4
+
+
+Expenses as a Percentage of Revenue
+20% 19% 20% 19% 20% 19% 22% 18% 21%
+22% 19% 20% 21% 22% 21%
+28%
+30%
+33%
+12%
+12% 11% 11% 12% 13%
+12% 12%
+14%
+8%
+6% 6% 7%
+10% 10%
+8% 10%
+12%
+Q3'20 Q4'20 Q1'21 Q2'21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+Research & 
+Development
+Cost of Revenue
+Marketing 
+& Sales
+General & 
+Administrative
+5
+
+
+Effective Tax Rate
+In Millions, Except for Percentages
+(1) Reflects a one -time income tax benefit of $913 million related to the effects of a tax election to capitalize and amortize certa in research and development expenses for U.S. income tax purposes. Excluding this tax benefit, our effective tax rate would h ave
+been 11 percentage points higher in Q3 2020.
+Q3’20(1) Q4’20 Q1’21 Q2’21 Q3’21 Q4’21 Q1’22 Q2’22 Q3’22
+Income before provision 
+for income taxes $ 8,133 $ 13,055 $ 11,503 $ 12,513 $ 10,565 $  12,702 $ 8,908 $ 8,186 $ 5,576
+Provision for income taxes 287 1,836 2,006 2,119 1,371 2,417 1,443 1,499 1,181
+Effective Tax Rate 4% 14% 17% 17% 13% 19% 16% 18% 21%
+6
+
+
+Net Income
+In Millions
+$7,846 
+$11,219 
+$9,497 
+$10,394 
+$9,194 
+$10,285 
+$7,465 
+$6,687 
+$4,395 
+Q3'20⁽¹⁾ Q4'20 Q1'21 Q2'21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+(1) Reflects a one -time income tax benefit of $913 million related to the effects of a tax election to capitalize and amortize certa in research and development expenses for U.S. income tax purposes.
+7
+
+
+Diluted Earnings Per Share
+$2.71 
+$3.88 
+$3.30 
+$3.61 
+$3.22 
+$3.67 
+$2.72 
+$2.46 
+$1.64 
+Q3'20⁽¹⁾ Q4'20 Q1'21 Q2'21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+(1) Reflects a one -time income tax benefit of $913 million related to the effects of a tax election to capitalize and amortize certa in research and development expenses for U.S. income tax purposes. Excluding this tax benefit, our diluted EPS would have 
+been $0.31 lower.
+8
+
+
+Capital Expenditures
+In Millions
+Capital expenditures for periods presented were related to purchases of property and equipment, net and principal payments on finance leases.
+$4,544 
+$9,518 
+$13,703 
+$22,813 
+Q3'21 Q3'22 YTD 2021 YTD 2022
+YTDQuarterly
+9
+
+
+2.54 2.60 2.72 2.76 2.81 2.82 2.87 2.88 2.93
+Q3'20 Q4'20 Q1'21 Q2'21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+Q3’20 Q4’20 Q1’21 Q2’21 Q3’21 Q4’21 Q1’22 Q2’22 Q3’22
+79% 79% 79% 79% 78% 79% 79% 79% 79%
+DAP/MAP
+We define a daily active person (DAP) as a registered and logged -in user of Facebook, Instagram, Messenger, and/or WhatsApp (col lectively, our "Family" of products) who visited at least one of these Family products through a mobile device application or using a web or mobile browser on a given day.
+The numbers for DAP do not include users on our other products unless they would otherwise qualify as DAP based on their othe r a ctivities on our Family products.
+We do not require people to use a common identifier or link their accounts to use multiple products in our Family, and theref ore must seek to attribute multiple user accounts within and across products to individual people. Our calculations of DAP rely u pon complex techniques, algorithms, and machine learning 
+models that seek to estimate the underlying number of unique people using one or more of these products, including by matchin g u ser accounts within an individual product and across multiple products when we believe they are attributable to a single pers on, and counting such group of accounts as one person. 
+As these techniques and models require significant judgment, are developed based on internal reviews of limited samples of us er accounts, and are calibrated against user survey data, there is necessarily some margin of error in our estimates. We view DA P, and DAP as a percentage of MAP, as measures of 
+engagement across our products. For additional information, see "Limitations of Key Metrics and Other Data" located in the Ap pen dix of this presentation. In the first quarter of 2021, we updated our Family metrics calculations to maintain calibration of ou r models against recent user survey data, and we estimate 
+such update contributed an aggregate of approximately 60 million DAP to our reported worldwide DAP in March 2021. In the thir d q uarter of 2022, we updated our Family metrics calculations to maintain calibration of our models against recent user survey d ata , and we estimate such update contributed an 
+aggregate of approximately 30 million DAP to our reported worldwide DAP in September 2022.
+Family Daily Active People (DAP)
+In Billions
+10
+
+
+3.21 3.30
+3.45 3.51 3.58 3.59 3.64 3.65 3.71
+Q3'20 Q4'20 Q1'21 Q2'21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+We define a monthly active person (MAP) as a registered and logged -in user of one or more Family products who visited at least o ne of these Family products through a mobile device application or using a web or mobile browser in the last 30 days as of th e d ate of measurement. The numbers for MAP do not 
+include users on our other products unless they would otherwise qualify as MAP based on their other activities on our Family pro ducts.
+We do not require people to use a common identifier or link their accounts to use multiple products in our Family, and theref ore must seek to attribute multiple user accounts within and across products to individual people. Our calculations of MAP rely u pon complex techniques, algorithms, and machine learning 
+models that seek to estimate the underlying number of unique people using one or more of these products, including by matchin g u ser accounts within an individual product and across multiple products when we believe they are attributable to a single pers on, and counting such group of accounts as one person. 
+As these techniques and models require significant judgment, are developed based on internal reviews of limited samples of us er accounts, and are calibrated against user survey data, there is necessarily some margin of error in our estimates. We view MA P a s a measure of the size of our global active community 
+of people using our products. For additional information, see "Limitations of Key Metrics and Other Data" located in the Appe ndi x of this presentation. In the first quarter of 2021, we updated our Family metrics calculations to maintain calibration of o ur models against recent user survey data, and we estimate 
+such update contributed an aggregate of approximately 70 million MAP to our reported worldwide MAP in March 2021. In the thir d q uarter of 2022, we updated our Family metrics calculations to maintain calibration of our models against recent user survey d ata , and we estimate such update contributed an 
+aggregate of approximately 40 million MAP to our reported worldwide MAP in September 2022.
+Family Monthly Active People (MAP)
+In Billions
+11
+
+
+$6.76 
+$8.62 
+$7.75 
+$8.36 $8.18 
+$9.39 
+$7.72 $7.91 $7.53 
+Q3'20 Q4'20 Q1'21 Q2'21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+We define average revenue per person (ARPP) as our total revenue during a given quarter, divided by the average of the number of MAP at the beginning and end of the quarter. While ARPP includes all sources of revenue, the number of MAP used in this calcu lation only 
+includes users of our Family products as described in the definition of MAP in the previous slide. 
+Family Average Revenue per Person (ARPP)
+12
+
+
+196 195 195 195 196 195 196 197 197
+305 308 309 307 308 309 307 303 303
+727 744 760 788 805 806 827 836 845
+593 598 613 618 622 619 629 631 638
+1,820 1,845 1,878 1,908 1,930 1,929 1,960 1,968 1,984 
+Q3'20 Q4'20 Q1'21 Q2'21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+DAUs/MAUs
+Q3’20 Q4’20 Q1’21 Q2’21 Q3’21 Q4’21 Q1’22 Q2’22 Q3’22
+66% 66% 66% 66% 66% 66% 67% 67% 67%
+Please see Meta's most recent quarterly or annual report filed with the SEC for definitions of user activity used to determin e t he number of our Facebook DAUs and MAUs. The numbers for DAUs and MAUs do not include users on Instagram, WhatsApp, or our ot her
+products unless they would otherwise qualify as DAUs or MAUs, respectively, based on their other activities on Facebook.
+Europe
+US & Canada
+Asia-Pacific
+Rest of World
+Facebook Daily Active Users (DAUs)
+In Millions
+13
+
+
+255 258 259 259 261 262 263 264 266
+413 419 423 420 423 427 418 407 408
+1,166 1,199 1,230 1,265 1,278 1,278 1,297 1,305 1,312 
+906 921 940 951 949 945 957 959 971
+2,740 2,797 2,853 2,895 2,910 2,912 2,936 2,934 2,958 
+Q3'20 Q4'20 Q1'21 Q2'21 Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+Please see Meta's most recent quarterly or annual report filed with the SEC for definitions of user activity used to determin e t he number of our Facebook DAUs and MAUs. The numbers for DAUs and MAUs do not include users on Instagram, WhatsApp, or our ot her
+products unless they would otherwise qualify as DAUs or MAUs, respectively, based on their other activities on Facebook.
+Europe
+US & Canada
+Asia-Pacific
+Rest of World
+Facebook Monthly Active Users (MAUs)
+In Millions
+14
+
+
+Facebook Average Revenue per User (ARPU)
+$10.00 $11.57 $9.54 $9.82 $9.41 
+Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+We define ARPU as our total revenue in a given geography during a given quarter, divided by the average of the number of MAUs in the geography at the beginning and end of the quarter. While ARPU includes all sources of revenue, the number of MAUs used in this 
+calculation only includes users of Facebook and Messenger as described in the definition of MAU in the previous slide.
+Our revenue by user geography is geographically apportioned based on our estimation of the geographic location of our users w hen they perform a revenue -generating activity. This allocation differs from our revenue disaggregated by geography disclosure in o ur 
+condensed consolidated financial statements where revenue is geographically apportioned based on the addresses of our customers.
+$52.34 $60.57 
+$48.29 $50.25 $49.13 
+Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+$16.50 
+$19.68 
+$15.35 $15.64 $14.23 
+Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+$4.30 
+$4.89 $4.47 $4.54 $4.42 
+Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+$3.14 $3.43 $3.14 $3.35 $3.21 
+Q3'21 Q4'21 Q1'22 Q2'22 Q3'22
+Worldwide US & Canada Europe
+Asia-Pacific Rest of World
+15
+
+
+Appendix
+
+Free Cash Flow Reconciliation
+In Millions
+Free cash flow (FCF) is a non -GAAP financial measure that has limitations as an analytical tool, and you should not consider it in isolation or as a substitute for analysis of other GAAP financial measures, such as net cash provided by operating activit ies. FCF 
+is not intended to represent our residual cash flow available for discretionary expenses. Some of the limitations of FCF are: (i) FCF does not reflect our future contractual commitments, and (ii) other companies in our industry present similarly titled 
+measures differently than we do, limiting their usefulness as comparative measures. 
+Q3’20 Q4’20 Q1’21 Q2’21 Q3’21 Q4’21 Q1’22 Q2’22 Q3’22
+Net cash provided by operating 
+activities $ 9,828 $ 14,040 $ 12,242 $ 13,246 $ 14,091 $ 18,104 $ 14,076 $ 12,197 $ 9,691
+Less: Purchases of property and 
+equipment, net 3,689 4,613 4,272 4,612 4,313 5,370 5,315 7,528 9,355
+Less: Principal payments 
+on finance leases 189 205 151 123 231 172 233 219 163
+Free cash flow $ 5,950 $ 9,222 $ 7,819 $ 8,511 $ 9,547 $ 12,562 $ 8,528 $ 4,450 $ 173
+17
+
+
+Limitations of Key Metrics and Other Data
+The numbers for our key metrics are calculated using internal company data based on the activity of user accounts. We have hi sto rically reported the numbers of our daily active users (DAUs), monthly 
+active users (MAUs), and average revenue per user (ARPU) (collectively, our "Facebook metrics") based on user activity only o n F acebook and Messenger and not on our other products. Beginning with 
+our fourth quarter 2019 earnings presentation, we also report our estimates of the numbers of our daily active people (DAP), mon thly active people (MAP), and average revenue per person (ARPP) 
+(collectively, our "Family metrics") based on the activity of users who visited at least one of Facebook, Instagram, Messenge r, and WhatsApp (collectively, our "Family" of products) during the applicable 
+period of measurement. We believe our Family metrics better reflect the size of our community and the fact that many people a re using more than one of our products. As a result, over time we intend 
+to report our Family metrics as key metrics in place of DAUs, MAUs, and ARPU.
+While these numbers are based on what we believe to be reasonable estimates of our user base for the applicable period of mea sur ement, there are inherent challenges in measuring usage of our 
+products across large online and mobile populations around the world. The methodologies used to measure these metrics require significant judgment and are also susceptible to algorithm or other 
+technical errors. In addition, we are continually seeking to improve our estimates of our user base, and such estimates may c han ge due to improvements or changes in our methodology. We regularly 
+review our processes for calculating these metrics, and from time to time we discover inaccuracies in our metrics or make adj ust ments to improve their accuracy, which can result in adjustments to our 
+historical metrics. Our ability to recalculate our historical metrics may be impacted by data limitations or other factors th at require us to apply different methodologies for such adjustments. We 
+generally do not intend to update previously disclosed Family metrics for any such inaccuracies or adjustments that are withi n t he error margins disclosed below.
+In addition, our Family metrics and Facebook metrics estimates will differ from estimates published by third parties due to d iff erences in methodology.
+Family Metrics
+Many people in our community have user accounts on more than one of our products, and some people have multiple user accounts within an individual product. Accordingly, for our Family metrics, we 
+do not seek to count the total number of user accounts across our products because we believe that would not reflect the actu al size of our community. Rather, our Family metrics represent our 
+estimates of the number of unique people using at least one of Facebook, Instagram, Messenger, and WhatsApp. We do not requir e p eople to use a common identifier or link their accounts to use 
+multiple products in our Family, and therefore must seek to attribute multiple user accounts within and across products to in div idual people. To calculate these metrics, we rely upon complex 
+techniques, algorithms and machine learning models that seek to count the individual people behind user accounts, including b y m atching multiple user accounts within an individual product and across 
+multiple products when we believe they are attributable to a single person, and counting such group of accounts as one person . These techniques and models require significant judgment, are subject to 
+data and other limitations discussed below, and inherently are subject to statistical variances and uncertainties. We estimat e the potential error in our Family metrics primarily based on user survey 
+data, which itself is subject to error as well. While we expect the error margin for our Family metrics to vary from period to p eriod, we estimate that such margin generally will be approximately 3% of 
+our worldwide MAP. At our scale, it is very difficult to attribute multiple user accounts within and across products to indiv idu al people, and it is possible that the actual numbers of unique people using 
+our products may vary significantly from our estimates, potentially beyond our estimated error margins. As a result, it is al so possible that our Family metrics may indicate changes or trends in user 
+numbers that do not match actual changes or trends.
+18
+
+
+Limitations of Key Metrics and Other Data
+To calculate our estimates of Family DAP and MAP, we currently use a series of machine learning models that are developed bas ed on internal reviews of limited samples of user accounts and calibrated 
+against user survey data. We apply significant judgment in designing these models and calculating these estimates. For exampl e, to match user accounts within individual products and across multiple 
+products, we use data signals such as similar device information, IP addresses, and user names. We also calibrate our models aga inst data from periodic user surveys of varying sizes and frequency 
+across our products, which are inherently subject to error. The timing and results of such user surveys have in the past cont rib uted, and may in the future contribute, to changes in our reported Family 
+metrics from period to period. In addition, our data limitations may affect our understanding of certain details of our business and increase the risk of error for our Family metrics estimates. Our 
+techniques and models rely on a variety of data signals from different products, and we rely on more limited data signals for some products compared to others. For example, as a result of limited 
+visibility into encrypted products, we have fewer data signals from WhatsApp user accounts and primarily rely on phone number s and device information to match WhatsApp user accounts with accounts 
+on our other products. Similarly, although Messenger Kids users are included in our Family metrics, we do not seek to match t hei r accounts with accounts on our other applications for purposes of 
+calculating DAP and MAP. Any loss of access to data signals we use in our process for calculating Family metrics, whether as a r esult of our own product decisions, actions by third -party browser or 
+mobile platforms, regulatory or legislative requirements, or other factors, also may impact the stability or accuracy of our rep orted Family metrics, as well as our ability to report these metrics at all. Our 
+estimates of Family metrics also may change as our methodologies evolve, including through the application of new data signal s or technologies, product changes, or other improvements in our user 
+surveys, algorithms, or machine learning that may improve our ability to match accounts within and across our products or oth erw ise evaluate the broad population of our users. In addition, such 
+evolution may allow us to identify previously undetected violating accounts (as defined below).
+We regularly evaluate our Family metrics to estimate the percentage of our MAP consisting solely of "violating" accounts. We def ine "violating" accounts as accounts which we believe are intended to be 
+used for purposes that violate our terms of service, including bots and spam. In the fourth quarter of 2021, we estimated tha t a pproximately 3% of our worldwide MAP consisted solely of violating 
+accounts. Such estimation is based on an internal review of a limited sample of accounts, and we apply significant judgment i n m aking this determination. For example, we look for account information 
+and behaviors associated with Facebook and Instagram accounts that appear to be inauthentic to the reviewers, but we have lim ite d visibility into WhatsApp user activity due to encryption. In addition, 
+if we believe an individual person has one or more violating accounts, we do not include such person in our violating account s e stimation as long as we believe they have one account that does not 
+constitute a violating account. From time to time, we disable certain user accounts, make product changes, or take other acti ons to reduce the number of violating accounts among our users, which may 
+also reduce our DAP and MAP estimates in a particular period. We intend to disclose our estimates of the percentage of our MA P consisting solely of violating accounts on an annual basis. Violating 
+accounts are very difficult to measure at our scale, and it is possible that the actual number of violating accounts may vary significantly from our estimates.
+The numbers of Family DAP and MAP discussed in this presentation, as well as ARPP, do not include users on our other products , unless they would otherwise qualify as DAP or MAP, respectively, based 
+on their other activities on our Family products.
+19
+
+
+Limitations of Key Metrics and Other Data
+Facebook Metrics
+We regularly evaluate our Facebook metrics to estimate the number of "duplicate" and "false" accounts among our MAUs. A dupli cat e account is one that a user maintains in addition to his or her 
+principal account. We divide "false" accounts into two categories: (1) user -misclassified accounts, where users have created per sonal profiles for a business, organization, or non -human entity such as a 
+pet (such entities are permitted on Facebook using a Page rather than a personal profile under our terms of service); and (2) violating accounts, which represent user profiles that we believe are 
+intended to be used for purposes that violate our terms of service, such as bots and spam. The estimates of duplicate and fal se accounts are based on an internal review of a limited sample of accounts, 
+and we apply significant judgment in making this determination. For example, to identify duplicate accounts we use data signa ls such as identical IP addresses and similar user names, and to identify 
+false accounts we look for names that appear to be fake or other behavior that appears inauthentic to the reviewers. Any loss of access to data signals we use in this process, whether as a result of our 
+own product decisions, actions by third -party browser or mobile platforms, regulatory or legislative requirements, or other fact ors, also may impact the stability or accuracy of our estimates of duplicate 
+and false accounts. Our estimates also may change as our methodologies evolve, including through the application of new data sig nals or technologies or product changes that may allow us to identify 
+previously undetected duplicate or false accounts and may improve our ability to evaluate a broader population of our users. Dup licate and false accounts are very difficult to measure at our scale, and 
+it is possible that the actual number of duplicate and false accounts may vary significantly from our estimates.
+In the fourth quarter of 2021, we estimated that duplicate accounts may have represented approximately 11% of our worldwide M AUs . We believe the percentage of duplicate accounts is meaningfully 
+higher in developing markets such as the Philippines and Vietnam, as compared to more developed markets. In the fourth quarte r of 2021, we estimated that false accounts may have represented 
+approximately 5% of our worldwide MAUs. Our estimation of false accounts can vary as a result of episodic spikes in the creat ion of such accounts, which we have seen originate more frequently in 
+specific countries such as Indonesia, Nigeria, and Vietnam. From time to time, we disable certain user accounts, make product changes, or take other actions to reduce the number of duplicate or false 
+accounts among our users, which may also reduce our DAU and MAU estimates in a particular period. We intend to disclose our e sti mates of the number of duplicate and false accounts among our MAUs 
+on an annual basis.
+The numbers of DAUs and MAUs discussed in this presentation, as well as ARPU, do not include users on Instagram, WhatsApp, or our other products, unless they would otherwise qualify as DAUs or 
+MAUs, respectively, based on their other activities on Facebook.
+User Geography
+Our data regarding the geographic location of our users is estimated based on a number of factors, such as the user’s IP addr ess and self -disclosed location. These factors may not always accurately 
+reflect the user’s actual location. For example, a user may appear to be accessing Facebook from the location of the proxy se rve r that the user connects to rather than from the user’s actual location. 
+The methodologies used to measure our metrics are also susceptible to algorithm or other technical errors, and our estimates for revenue by user location and revenue by user device are also affected 
+by these factors.
+20
+
+
+investor.fb.com
+Meta Earnings Presentation Q3 2022

@@ -1,0 +1,2751 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "netflix_q1_2022",
+  "audio_path": "raw/audio/netflix_q1_2022_audio.wav",
+  "audio_md5": "de92bfbbec306fb8e7f332128c878b24",
+  "transcription_model": "tiny",
+  "device": "cpu",
+  "compute_type": "int8",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 9.6,
+      "text": "Good afternoon, and welcome to Netflix Q1, 2020 earnings interview."
+    },
+    {
+      "start": 9.6,
+      "end": 12.44,
+      "text": "I'm Spencer Wong, VP of IR and corporate development."
+    },
+    {
+      "start": 12.44,
+      "end": 17.54,
+      "text": "Joining me today are COCO Reed Hastings, COCO and Chief Content Officer Ted Serrandos,"
+    },
+    {
+      "start": 17.54,
+      "end": 21.64,
+      "text": "COO and Chief Product Officer Greg Peters, and CFO Spence Newman."
+    },
+    {
+      "start": 21.64,
+      "end": 24.96,
+      "text": "Our interviewer this quarter is dug in with from JP Morgan."
+    },
+    {
+      "start": 24.96,
+      "end": 29.0,
+      "text": "As a reminder, we'll be making for looking statements and actual results may vary."
+    },
+    {
+      "start": 29.0,
+      "end": 32.28,
+      "text": "That dug, I'm going to turn it over you for the first question."
+    },
+    {
+      "start": 32.28,
+      "end": 34.08,
+      "text": "Great, thanks, Spencer."
+    },
+    {
+      "start": 34.08,
+      "end": 39.76,
+      "text": "So you're tone in the letter today, around competition, maturity, and macro factors"
+    },
+    {
+      "start": 39.76,
+      "end": 42.56,
+      "text": "is very different than it was three months ago."
+    },
+    {
+      "start": 42.56,
+      "end": 46.16,
+      "text": "I was hoping that you could start out by just walking us through how your views have changed"
+    },
+    {
+      "start": 46.16,
+      "end": 48.16,
+      "text": "over the past few months."
+    },
+    {
+      "start": 48.16,
+      "end": 52.6,
+      "text": "Yeah, Doug, I mean, I think our views are a little different, because our numbers are a little"
+    },
+    {
+      "start": 52.6,
+      "end": 53.6,
+      "text": "different."
+    },
+    {
+      "start": 53.6,
+      "end": 58.96,
+      "text": "If we had made our 2.5 million guidance, I think that was consistent with our"
+    },
+    {
+      "start": 59.0,
+      "end": 66.48,
+      "text": "thesis and the lower acquisition really forced us to kind of tease apart what's going on."
+    },
+    {
+      "start": 66.48,
+      "end": 71.96000000000001,
+      "text": "And as we put in the letter, COVID created a lot of noise and how to read the situation,"
+    },
+    {
+      "start": 71.96000000000001,
+      "end": 80.2,
+      "text": "boosted us a lot in 2020, and then in 2021, I think we thoughtfully said it was mostly"
+    },
+    {
+      "start": 80.2,
+      "end": 84.16,
+      "text": "pull forward, which was the logical conclusion."
+    },
+    {
+      "start": 84.16,
+      "end": 87.32,
+      "text": "But now coming in in 2022, that doesn't really hold."
+    },
+    {
+      "start": 87.36000000000001,
+      "end": 92.36000000000001,
+      "text": "So then pushing into it, we realized, you know, with all of the account sharing, which"
+    },
+    {
+      "start": 92.36000000000001,
+      "end": 94.88000000000001,
+      "text": "we've always had, that's not a new thing."
+    },
+    {
+      "start": 94.88000000000001,
+      "end": 99.4,
+      "text": "But when you add that up together, we're getting a pretty high market penetration, and"
+    },
+    {
+      "start": 99.4,
+      "end": 105.08000000000001,
+      "text": "that combined with the competition is really, you know, what we think is driving the lower"
+    },
+    {
+      "start": 105.08000000000001,
+      "end": 107.56,
+      "text": "acquisition of lower growth."
+    },
+    {
+      "start": 107.56,
+      "end": 111.0,
+      "text": "So on the two parts, we're working on how to monetize sharing."
+    },
+    {
+      "start": 111.0,
+      "end": 116.72000000000001,
+      "text": "You know, we've been thinking about that for a couple of years, but, you know, when we"
+    },
+    {
+      "start": 116.76,
+      "end": 122.67999999999999,
+      "text": "were growing fast, it wasn't the high priority to work on, and now we're working super"
+    },
+    {
+      "start": 122.67999999999999,
+      "end": 123.67999999999999,
+      "text": "hard on it."
+    },
+    {
+      "start": 123.67999999999999,
+      "end": 128.16,
+      "text": "And, you know, remember, these are over 100 million households that already are choosing"
+    },
+    {
+      "start": 128.16,
+      "end": 129.16,
+      "text": "to the UNEDFLIX."
+    },
+    {
+      "start": 129.16,
+      "end": 130.68,
+      "text": "They love the service."
+    },
+    {
+      "start": 130.68,
+      "end": 133.88,
+      "text": "We just got to get paid, you know, it's some degree for them."
+    },
+    {
+      "start": 133.88,
+      "end": 134.88,
+      "text": "So that's part of it."
+    },
+    {
+      "start": 134.88,
+      "end": 137.48,
+      "text": "And then too, it's really, you know, we got great competition."
+    },
+    {
+      "start": 137.48,
+      "end": 139.92,
+      "text": "They've got some very good shows and films out."
+    },
+    {
+      "start": 139.92,
+      "end": 141.96,
+      "text": "And what we got to do is take it up a notch."
+    },
+    {
+      "start": 141.96,
+      "end": 146.32,
+      "text": "And I'll tell you that we're all pretty, I know it's disappointing for investors, and it"
+    },
+    {
+      "start": 146.32,
+      "end": 147.56,
+      "text": "is for sure."
+    },
+    {
+      "start": 147.56,
+      "end": 152.32,
+      "text": "But internally, we're really geared up, and this is like our moment to shine."
+    },
+    {
+      "start": 152.32,
+      "end": 153.79999999999998,
+      "text": "This is when it all matters."
+    },
+    {
+      "start": 153.79999999999998,
+      "end": 159.32,
+      "text": "And we're super focused on achieving those objectives and getting back into our investors"
+    },
+    {
+      "start": 159.32,
+      "end": 160.32,
+      "text": "good graces."
+    },
+    {
+      "start": 160.32,
+      "end": 168.95999999999998,
+      "text": "You know, the only thing I may add read is just that we put a finer point on kind of elaborating"
+    },
+    {
+      "start": 168.95999999999998,
+      "end": 173.28,
+      "text": "on what we're seeing in terms of slowing growth and near-term slowing growth."
+    },
+    {
+      "start": 173.28,
+      "end": 177.84,
+      "text": "But the long-term addressable market, we believe, is unchanged in terms of all broadband"
+    },
+    {
+      "start": 177.84,
+      "end": 183.04,
+      "text": "households, it's just that we have a better sense that COVID clouded in terms of the near-term"
+    },
+    {
+      "start": 183.04,
+      "end": 186.92000000000002,
+      "text": "limitters to penetrate that growth and capture that market."
+    },
+    {
+      "start": 186.92000000000002,
+      "end": 190.36,
+      "text": "So that's one of the things that we put a finer point on this letter, but I just want"
+    },
+    {
+      "start": 190.36,
+      "end": 194.04,
+      "text": "to reinforce that that the core addressable market is still there."
+    },
+    {
+      "start": 194.04,
+      "end": 196.24,
+      "text": "And that's what we're still growing into, Doug."
+    },
+    {
+      "start": 196.24,
+      "end": 197.24,
+      "text": "OK."
+    },
+    {
+      "start": 197.24,
+      "end": 198.24,
+      "text": "Thanks."
+    },
+    {
+      "start": 198.24,
+      "end": 202.72,
+      "text": "So maybe just in terms of the recent trends, if we could talk about one queue a little bit"
+    },
+    {
+      "start": 202.76,
+      "end": 211.07999999999998,
+      "text": "more, you lost 200,000 subscribers or gain 500,000 x the Russia removal, I hope you"
+    },
+    {
+      "start": 211.07999999999998,
+      "end": 215.8,
+      "text": "perhaps parse out a little bit around some of those factors that you mentioned."
+    },
+    {
+      "start": 215.8,
+      "end": 221.48,
+      "text": "It sounds like acquisition like the at the top of the list and you've talked about that"
+    },
+    {
+      "start": 221.48,
+      "end": 225.36,
+      "text": "for a little while now, but I hope you could kind of isolate some of those factors."
+    },
+    {
+      "start": 225.36,
+      "end": 231.24,
+      "text": "And then talk to us about how that informs your two queue guide for a loss of two million"
+    },
+    {
+      "start": 231.28,
+      "end": 232.24,
+      "text": "subscribers."
+    },
+    {
+      "start": 232.24,
+      "end": 234.60000000000002,
+      "text": "We're all taking that and then others can fill in."
+    },
+    {
+      "start": 234.60000000000002,
+      "end": 240.20000000000002,
+      "text": "So as you said, Doug, we we guided to two and a half million paid net ads."
+    },
+    {
+      "start": 240.20000000000002,
+      "end": 244.56,
+      "text": "We delivered 0.5 million if you exclude Russia."
+    },
+    {
+      "start": 244.56,
+      "end": 250.36,
+      "text": "So there's really a 2 million miss in our queue one, actual versus guidance."
+    },
+    {
+      "start": 250.36,
+      "end": 256.52,
+      "text": "And what's really reflected there is acquisition growth was consistent with what we expected."
+    },
+    {
+      "start": 256.52,
+      "end": 260.84000000000003,
+      "text": "We were seeing that slow down when we did the guide and it played us as expected."
+    },
+    {
+      "start": 260.84000000000003,
+      "end": 266.6,
+      "text": "The difference is really some slight elevated churn throughout queue one."
+    },
+    {
+      "start": 266.6,
+      "end": 267.8,
+      "text": "This is pretty small."
+    },
+    {
+      "start": 267.8,
+      "end": 272.8,
+      "text": "So retention was still very good, but we're talking about it like 2 to 3 tenths of a percentage"
+    },
+    {
+      "start": 272.8,
+      "end": 277.08000000000004,
+      "text": "point, but on our big member base that has a pretty big flow through."
+    },
+    {
+      "start": 277.08000000000004,
+      "end": 279.84000000000003,
+      "text": "It's a combination of factors there."
+    },
+    {
+      "start": 279.84000000000003,
+      "end": 284.6,
+      "text": "We talk about interrelated factors in the letter, but one very directly that Russia's"
+    },
+    {
+      "start": 284.6,
+      "end": 288.52000000000004,
+      "text": "invasion of Ukraine had some spillover effect in other parts of the media."
+    },
+    {
+      "start": 288.52,
+      "end": 291.76,
+      "text": "We saw that in the central and eastern European countries where there was some elevated"
+    },
+    {
+      "start": 291.76,
+      "end": 292.76,
+      "text": "churn."
+    },
+    {
+      "start": 292.76,
+      "end": 296.96,
+      "text": "We also saw probably some a little bit more macro strain in some countries, some parts"
+    },
+    {
+      "start": 296.96,
+      "end": 297.96,
+      "text": "of the world."
+    },
+    {
+      "start": 297.96,
+      "end": 300.96,
+      "text": "Like Latin America, we mentioned that in the last call, but that was elevated."
+    },
+    {
+      "start": 300.96,
+      "end": 305.71999999999997,
+      "text": "Just a little bit more seasonality in the business, we suspect some of that is those macro"
+    },
+    {
+      "start": 305.71999999999997,
+      "end": 306.71999999999997,
+      "text": "factors."
+    },
+    {
+      "start": 306.71999999999997,
+      "end": 309.4,
+      "text": "We mentioned it maybe a little bit of competition on the margin as well."
+    },
+    {
+      "start": 309.4,
+      "end": 313.35999999999996,
+      "text": "So that's really what we saw in queue two, I'm sorry in queue one, and that's really"
+    },
+    {
+      "start": 313.35999999999996,
+      "end": 318.08,
+      "text": "what's reflected in queue two, which is sort of the continued trends we're seeing in"
+    },
+    {
+      "start": 318.08,
+      "end": 324.91999999999996,
+      "text": "acquisition and this, you know, that's slightly elevated churn to probably continue"
+    },
+    {
+      "start": 324.91999999999996,
+      "end": 325.91999999999996,
+      "text": "through the quarter."
+    },
+    {
+      "start": 325.91999999999996,
+      "end": 330.32,
+      "text": "It's just a softer seasonal quarter for us, typically, and that's what's reflected in"
+    },
+    {
+      "start": 330.32,
+      "end": 336.0,
+      "text": "the guide is a little bit of softer seasonality in the same, essentially the same acquisition"
+    },
+    {
+      "start": 336.0,
+      "end": 339.0,
+      "text": "and retention trends."
+    },
+    {
+      "start": 339.0,
+      "end": 341.71999999999997,
+      "text": "And maybe I could pick it up and talk about the first two factors."
+    },
+    {
+      "start": 341.71999999999997,
+      "end": 347.44,
+      "text": "You want to a little bit more detail on, and you know, we have this addressable market that's"
+    },
+    {
+      "start": 347.44,
+      "end": 350.8,
+      "text": "expanding over time in every country that we're operating, and that's a bunch of enabling"
+    },
+    {
+      "start": 350.8,
+      "end": 354.68,
+      "text": "factors like, you know, broadband and smart TVs."
+    },
+    {
+      "start": 354.68,
+      "end": 357.92,
+      "text": "And then in some countries that we're operating in, we've been operating long as like the"
+    },
+    {
+      "start": 357.92,
+      "end": 359.96,
+      "text": "U.S. is a great example."
+    },
+    {
+      "start": 359.96,
+      "end": 366.36,
+      "text": "We have really significant high penetration of viewers into that near-term market potential,"
+    },
+    {
+      "start": 366.36,
+      "end": 371.24,
+      "text": "and that was really boosted by sort of this growth that the beginning period of COVID"
+    },
+    {
+      "start": 371.24,
+      "end": 372.24,
+      "text": "and the lockdown."
+    },
+    {
+      "start": 372.24,
+      "end": 376.04,
+      "text": "Now, that's viewer penetration is made up of two groups."
+    },
+    {
+      "start": 376.04,
+      "end": 379.12,
+      "text": "One is a group that's paying us, which is great."
+    },
+    {
+      "start": 379.12,
+      "end": 384.08000000000004,
+      "text": "And then there is a group of viewers that are not paying us, and they're sharing someone"
+    },
+    {
+      "start": 384.08000000000004,
+      "end": 385.76000000000005,
+      "text": "else's account credential."
+    },
+    {
+      "start": 385.76000000000005,
+      "end": 389.76000000000005,
+      "text": "And we really see that second group is a tremendous opportunity, because they're clearly"
+    },
+    {
+      "start": 389.76000000000005,
+      "end": 390.76000000000005,
+      "text": "well qualified."
+    },
+    {
+      "start": 390.76000000000005,
+      "end": 393.0,
+      "text": "You know, they have everything they need to do to get to Netflix."
+    },
+    {
+      "start": 393.0,
+      "end": 396.64000000000004,
+      "text": "They know what the service is, they found, you know, titles that they want to watch."
+    },
+    {
+      "start": 396.64000000000004,
+      "end": 402.96000000000004,
+      "text": "And so now our job is really to better translate that viewing, and the value that those consumers"
+    },
+    {
+      "start": 402.96000000000004,
+      "end": 408.12000000000006,
+      "text": "are getting into revenue, and the principle way we've got of going after that is asking"
+    },
+    {
+      "start": 408.12000000000006,
+      "end": 414.56000000000006,
+      "text": "our members to pay a bit more to share the service with folks outside their home."
+    },
+    {
+      "start": 414.56000000000006,
+      "end": 418.16,
+      "text": "So if you've got a sister, let's say, that's living in a different city, you want to share"
+    },
+    {
+      "start": 418.16,
+      "end": 419.16,
+      "text": "Netflix with her."
+    },
+    {
+      "start": 419.16,
+      "end": 420.16,
+      "text": "That's great."
+    },
+    {
+      "start": 420.16,
+      "end": 424.48,
+      "text": "We're not trying to shut down that sharing, but we're going to ask you to pay a bit more"
+    },
+    {
+      "start": 424.48,
+      "end": 429.08000000000004,
+      "text": "to be able to share with her, and so that she gets the benefit and the value of the service."
+    },
+    {
+      "start": 429.08,
+      "end": 433.0,
+      "text": "But we also get the revenue associated with that viewing."
+    },
+    {
+      "start": 433.0,
+      "end": 436.52,
+      "text": "So maybe let's, let's follow up on that a little bit more, Greg, we'll come back to some"
+    },
+    {
+      "start": 436.52,
+      "end": 439.64,
+      "text": "of the more recent trends in a moment."
+    },
+    {
+      "start": 439.64,
+      "end": 445.2,
+      "text": "But I guess when we think about account sharing, and just, you know, curious about the early"
+    },
+    {
+      "start": 445.2,
+      "end": 451.08,
+      "text": "testing that you're doing, you think about Chile and Costa Rica and Peru, you know, I guess"
+    },
+    {
+      "start": 451.08,
+      "end": 454.71999999999997,
+      "text": "now it's pretty clear to see why it's the right time to do this in a bigger way."
+    },
+    {
+      "start": 454.72,
+      "end": 459.56,
+      "text": "But how do you think about rolling that out in the U.S. and what will the implementation"
+    },
+    {
+      "start": 459.56,
+      "end": 460.56,
+      "text": "actually look like?"
+    },
+    {
+      "start": 460.56,
+      "end": 466.04,
+      "text": "Yeah, I mean, first it's important to note that we're trying to find a balanced approach"
+    },
+    {
+      "start": 466.04,
+      "end": 471.64000000000004,
+      "text": "here, and we're trying to basically come up with a model that supports, you know, a customer"
+    },
+    {
+      "start": 471.64000000000004,
+      "end": 476.20000000000005,
+      "text": "centric approach, it still puts members and charts, it supports member choice, that delivers"
+    },
+    {
+      "start": 476.20000000000005,
+      "end": 480.08000000000004,
+      "text": "great and our rectangular value, it's sort of all of the options that we've got."
+    },
+    {
+      "start": 480.08,
+      "end": 486.4,
+      "text": "But also, very importantly, it allows us to bring in revenue for everyone who's viewing"
+    },
+    {
+      "start": 486.4,
+      "end": 490.44,
+      "text": "and who gets value from the entertainment that we're offering in, and obviously we're"
+    },
+    {
+      "start": 490.44,
+      "end": 495.03999999999996,
+      "text": "doing that so that we can invest then, you know, into a more great content and a better"
+    },
+    {
+      "start": 495.03999999999996,
+      "end": 497.15999999999997,
+      "text": "service for everyone."
+    },
+    {
+      "start": 497.15999999999997,
+      "end": 501.44,
+      "text": "So there's a bunch of factors that we're working through, that's why we've deployed the"
+    },
+    {
+      "start": 501.44,
+      "end": 502.44,
+      "text": "tests that we have."
+    },
+    {
+      "start": 502.44,
+      "end": 506.44,
+      "text": "And frankly, we've been working on this for, you know, about almost two years, you"
+    },
+    {
+      "start": 506.52,
+      "end": 510.4,
+      "text": "know, we about a year, a little bit over a year ago, we started doing some light test"
+    },
+    {
+      "start": 510.4,
+      "end": 515.08,
+      "text": "launches that we, you know, when formed our thinking and helped us build the mechanisms"
+    },
+    {
+      "start": 515.08,
+      "end": 516.08,
+      "text": "that we're deploying now."
+    },
+    {
+      "start": 516.08,
+      "end": 521.24,
+      "text": "We just did the first big country tests, but it'll take a while to work this out and"
+    },
+    {
+      "start": 521.24,
+      "end": 523.24,
+      "text": "to get that balance right."
+    },
+    {
+      "start": 523.24,
+      "end": 527.76,
+      "text": "And so just to set your expectations, you know, my belief is that, you know, we're going"
+    },
+    {
+      "start": 527.76,
+      "end": 533.0,
+      "text": "to go through a year or so of, you know, iterating and then deploying all of that so that"
+    },
+    {
+      "start": 533.0,
+      "end": 537.24,
+      "text": "we get that, you know, sort of that solution globally launched, including markets like"
+    },
+    {
+      "start": 537.24,
+      "end": 538.24,
+      "text": "the United States."
+    },
+    {
+      "start": 538.24,
+      "end": 539.24,
+      "text": "Okay."
+    },
+    {
+      "start": 539.24,
+      "end": 540.24,
+      "text": "That's helpful."
+    },
+    {
+      "start": 540.24,
+      "end": 545.8,
+      "text": "And maybe spend, just on that point, maybe if you could just walk through the accounting"
+    },
+    {
+      "start": 545.8,
+      "end": 549.8,
+      "text": "a little bit here and, and how do you think about the uplift, whether it more of it would"
+    },
+    {
+      "start": 549.8,
+      "end": 554.52,
+      "text": "come from arm or from subscribers over time?"
+    },
+    {
+      "start": 554.52,
+      "end": 556.88,
+      "text": "Yeah, that's great, Doug."
+    },
+    {
+      "start": 556.88,
+      "end": 561.8,
+      "text": "You kind of nailed it, which is, as you heard from Greg, we're, we're looking to monetize"
+    },
+    {
+      "start": 561.8000000000001,
+      "end": 564.72,
+      "text": "sharing and kind of meet our members where they are."
+    },
+    {
+      "start": 564.72,
+      "end": 570.9000000000001,
+      "text": "So, should expect that member numbers or subscriber numbers are sort of less relevant"
+    },
+    {
+      "start": 570.9000000000001,
+      "end": 575.2400000000001,
+      "text": "over time because these, maybe it may, and very likely show up in arms."
+    },
+    {
+      "start": 575.2400000000001,
+      "end": 581.7600000000001,
+      "text": "So, should think about it as engagement and average revenue, remember, probably increasingly"
+    },
+    {
+      "start": 581.7600000000001,
+      "end": 582.7600000000001,
+      "text": "important."
+    },
+    {
+      "start": 582.7600000000001,
+      "end": 586.3600000000001,
+      "text": "And then obviously revenue growth, which we've always said, we're trying to optimize both"
+    },
+    {
+      "start": 586.3600000000001,
+      "end": 591.7600000000001,
+      "text": "the near and long-term revenue growth to drive that, you know, positive flywheel of reinvestment"
+    },
+    {
+      "start": 591.76,
+      "end": 592.76,
+      "text": "in the business."
+    },
+    {
+      "start": 592.76,
+      "end": 598.12,
+      "text": "So, it's not that there isn't going to be a P times Q, they're still Q, but, but increasingly"
+    },
+    {
+      "start": 598.12,
+      "end": 602.4,
+      "text": "important is probably arm and engagement and revenue overall."
+    },
+    {
+      "start": 602.4,
+      "end": 603.4,
+      "text": "Yeah."
+    },
+    {
+      "start": 603.4,
+      "end": 609.16,
+      "text": "So, and, and just to clarify there, sub-accounts will not count as subscribers, they'll"
+    },
+    {
+      "start": 609.16,
+      "end": 610.16,
+      "text": "just write."
+    },
+    {
+      "start": 610.16,
+      "end": 611.16,
+      "text": "That's right."
+    },
+    {
+      "start": 611.16,
+      "end": 612.16,
+      "text": "That's right."
+    },
+    {
+      "start": 612.16,
+      "end": 614.16,
+      "text": "So, it's less distinctive of an individual household account."
+    },
+    {
+      "start": 614.16,
+      "end": 615.16,
+      "text": "Okay."
+    },
+    {
+      "start": 615.16,
+      "end": 620.16,
+      "text": "And then in the process, though, as some of those current shares outside the household, do"
+    },
+    {
+      "start": 620.16,
+      "end": 624.04,
+      "text": "not become sub-accounts, you'll pick up some of those subscribers separately."
+    },
+    {
+      "start": 624.04,
+      "end": 625.04,
+      "text": "That's right."
+    },
+    {
+      "start": 625.04,
+      "end": 629.36,
+      "text": "And as Greg said, we're still working through the ultimate solution here."
+    },
+    {
+      "start": 629.36,
+      "end": 635.28,
+      "text": "So, we don't exactly know how that's going to play out, but you should assume that there's"
+    },
+    {
+      "start": 635.28,
+      "end": 639.88,
+      "text": "going to have less, less importance on an individual household account number, and therefore,"
+    },
+    {
+      "start": 639.88,
+      "end": 643.6,
+      "text": "what's more important is revenue viewing engagement."
+    },
+    {
+      "start": 643.6,
+      "end": 644.6,
+      "text": "Yeah."
+    },
+    {
+      "start": 644.6,
+      "end": 645.6,
+      "text": "Oh, yeah."
+    },
+    {
+      "start": 645.6,
+      "end": 650.6,
+      "text": "So, viewing engagement overall revenue growth and arm as a, as a key metric."
+    },
+    {
+      "start": 650.6,
+      "end": 651.6,
+      "text": "Okay."
+    },
+    {
+      "start": 651.6,
+      "end": 655.84,
+      "text": "Let's go, let's go back to acquisition for a minute."
+    },
+    {
+      "start": 655.84,
+      "end": 659.9200000000001,
+      "text": "So, you noted is not returned to pre-COVID levels."
+    },
+    {
+      "start": 659.9200000000001,
+      "end": 666.8000000000001,
+      "text": "What are the ways that you can influence acquisition, you know, beyond account sharing, which"
+    },
+    {
+      "start": 666.8000000000001,
+      "end": 670.28,
+      "text": "we talked about, and then beyond, of course, just creating great content?"
+    },
+    {
+      "start": 671.28,
+      "end": 674.28,
+      "text": "It shouldn't mean that you don't care about that."
+    },
+    {
+      "start": 674.28,
+      "end": 676.76,
+      "text": "It shouldn't mean any more complicated than that, Doug."
+    },
+    {
+      "start": 676.76,
+      "end": 682.12,
+      "text": "Honestly, we've got to compete, and we've got to continue to improve on the core service,"
+    },
+    {
+      "start": 682.12,
+      "end": 687.68,
+      "text": "which is making TV series and films and now games that people really love."
+    },
+    {
+      "start": 687.68,
+      "end": 692.36,
+      "text": "That's what really focused on, and I think that that's the thing that I think we can"
+    },
+    {
+      "start": 692.36,
+      "end": 694.4,
+      "text": "continue to grow the business in."
+    },
+    {
+      "start": 694.4,
+      "end": 699.8,
+      "text": "Now, we talked about being highly penetrated in some of those core markets with users,"
+    },
+    {
+      "start": 699.8000000000001,
+      "end": 704.2400000000001,
+      "text": "which means that it's harder to get them to join Netflix, if they're already using Netflix."
+    },
+    {
+      "start": 704.2400000000001,
+      "end": 707.6400000000001,
+      "text": "So, we've got to figure out these different models that we're doing now to more effectively"
+    },
+    {
+      "start": 707.6400000000001,
+      "end": 712.7600000000001,
+      "text": "monetize that viewing, a spent set earlier, the engagement is really key."
+    },
+    {
+      "start": 712.7600000000001,
+      "end": 717.4000000000001,
+      "text": "As you see in the Nielsen data that we published in the letter, our engagement has been"
+    },
+    {
+      "start": 717.4000000000001,
+      "end": 723.2800000000001,
+      "text": "super healthy, even with this heightened levels of competition, our engagement, our viewing"
+    },
+    {
+      "start": 723.2800000000001,
+      "end": 729.48,
+      "text": "is being very, very steady, holding on to our market share in that in the space."
+    },
+    {
+      "start": 729.48,
+      "end": 734.12,
+      "text": "But on top of that in the quarter, while we were not happy with the top line subscriber"
+    },
+    {
+      "start": 734.12,
+      "end": 743.5600000000001,
+      "text": "growth, we definitely saw that the new season of Ozark, the inventing end of the atom"
+    },
+    {
+      "start": 743.5600000000001,
+      "end": 748.5600000000001,
+      "text": "project, and certainly the biggest of them all, the new season of Bridgetton, delivered"
+    },
+    {
+      "start": 748.5600000000001,
+      "end": 753.0,
+      "text": "exactly as expected, actually quite actually a little bit bigger that expected with fans."
+    },
+    {
+      "start": 753.0,
+      "end": 757.04,
+      "text": "Now, of course, we think we've got to do that, and we have to have an atom project in"
+    },
+    {
+      "start": 757.04,
+      "end": 760.8,
+      "text": "the Bridgetton every month, and to make sure that that's the expectation of the service"
+    },
+    {
+      "start": 760.8,
+      "end": 761.8,
+      "text": "constantly."
+    },
+    {
+      "start": 761.8,
+      "end": 768.64,
+      "text": "So, we're definitely feeling the higher levels of penetration in those markets of users,"
+    },
+    {
+      "start": 768.64,
+      "end": 772.88,
+      "text": "and we're definitely feeling a heightened level of competition for sure."
+    },
+    {
+      "start": 772.88,
+      "end": 777.12,
+      "text": "And so we've just got to continue to do what we're doing and improve each of those things."
+    },
+    {
+      "start": 777.12,
+      "end": 780.24,
+      "text": "Now, how do you improve content we've been doing this for a decade?"
+    },
+    {
+      "start": 780.24,
+      "end": 783.7199999999999,
+      "text": "Well, first of all, that's about 90 years, less time than all of our competitors have been"
+    },
+    {
+      "start": 783.8000000000001,
+      "end": 788.52,
+      "text": "added, but I look at things like things we've been doing over the last few years that we've"
+    },
+    {
+      "start": 788.52,
+      "end": 789.52,
+      "text": "been improving."
+    },
+    {
+      "start": 789.52,
+      "end": 794.48,
+      "text": "So, big movies, just a few years ago, we were struggling to out, monetize the market,"
+    },
+    {
+      "start": 794.48,
+      "end": 799.36,
+      "text": "on little art shows, and today we're releasing some of the most popular, most watch movies"
+    },
+    {
+      "start": 799.36,
+      "end": 803.84,
+      "text": "in the world, just over the last few months, things like don't look up and red notice"
+    },
+    {
+      "start": 803.84,
+      "end": 806.6,
+      "text": "in atom project as examples of that."
+    },
+    {
+      "start": 806.6,
+      "end": 810.72,
+      "text": "And that's just in a few years of improvement on one line of content."
+    },
+    {
+      "start": 810.72,
+      "end": 812.32,
+      "text": "Another is unscripted."
+    },
+    {
+      "start": 812.32,
+      "end": 817.96,
+      "text": "We made zero, unscripted, about three years ago, and today creating these big unscripted"
+    },
+    {
+      "start": 817.96,
+      "end": 824.44,
+      "text": "brands and growing original unscripted universes, like to hot to handle and ultimatum that's"
+    },
+    {
+      "start": 824.44,
+      "end": 828.0,
+      "text": "really popular right now around the world, selling sunset."
+    },
+    {
+      "start": 828.0,
+      "end": 831.6,
+      "text": "These are kind of large, growing, original unscripted universes."
+    },
+    {
+      "start": 831.6,
+      "end": 836.72,
+      "text": "So, we've come a long way from Ultimate Beast Master, my point is, and I think about things"
+    },
+    {
+      "start": 836.72,
+      "end": 839.0,
+      "text": "like our content in Korea."
+    },
+    {
+      "start": 839.0,
+      "end": 842.56,
+      "text": "Again, pretty new to the market, everybody knows about squid game."
+    },
+    {
+      "start": 842.56,
+      "end": 846.68,
+      "text": "It was probably the biggest show in the history of television."
+    },
+    {
+      "start": 846.68,
+      "end": 850.4,
+      "text": "And just a few years ago, we were producing no original content in Korea."
+    },
+    {
+      "start": 850.4,
+      "end": 856.12,
+      "text": "And while we all know about squid game, there's DP, and all of us are dead, and slew"
+    },
+    {
+      "start": 856.12,
+      "end": 860.6,
+      "text": "of original contents that are thrilling our members in South Korea and fans around the"
+    },
+    {
+      "start": 860.6,
+      "end": 861.6,
+      "text": "world."
+    },
+    {
+      "start": 861.6,
+      "end": 866.92,
+      "text": "So, we're continuing to improve constantly in getting those moments that can lead to something"
+    },
+    {
+      "start": 866.9200000000001,
+      "end": 870.1600000000001,
+      "text": "like a squid game or Bridgeton constantly."
+    },
+    {
+      "start": 870.1600000000001,
+      "end": 872.1600000000001,
+      "text": "Got it."
+    },
+    {
+      "start": 872.1600000000001,
+      "end": 873.1600000000001,
+      "text": "Okay."
+    },
+    {
+      "start": 873.1600000000001,
+      "end": 876.1600000000001,
+      "text": "I want to go to pricing just for a moment."
+    },
+    {
+      "start": 876.1600000000001,
+      "end": 880.48,
+      "text": "I mean, there's a lot of, you kind of have this confluence of trends basically that are"
+    },
+    {
+      "start": 880.48,
+      "end": 881.48,
+      "text": "taking place here."
+    },
+    {
+      "start": 881.48,
+      "end": 885.08,
+      "text": "But Greg, I was just hoping you could talk a little bit more about the recent pricing"
+    },
+    {
+      "start": 885.08,
+      "end": 886.08,
+      "text": "increases."
+    },
+    {
+      "start": 886.08,
+      "end": 893.8000000000001,
+      "text": "Primarily in the US, I know it's still early in the UK, but I guess to what, in fact, you"
+    },
+    {
+      "start": 893.8000000000001,
+      "end": 899.9200000000001,
+      "text": "did mention slightly elevated churn in one Q, I guess how much was that a factor?"
+    },
+    {
+      "start": 899.9200000000001,
+      "end": 903.6800000000001,
+      "text": "How is this price increase being received currently?"
+    },
+    {
+      "start": 903.6800000000001,
+      "end": 904.6800000000001,
+      "text": "Yeah."
+    },
+    {
+      "start": 904.6800000000001,
+      "end": 910.36,
+      "text": "So, top line is that the price changes is the last several price changes we've done are generally"
+    },
+    {
+      "start": 910.36,
+      "end": 914.08,
+      "text": "performing as we've seen the price changes over the last several years."
+    },
+    {
+      "start": 914.08,
+      "end": 917.72,
+      "text": "There's no sort of fundamental difference in performance."
+    },
+    {
+      "start": 917.72,
+      "end": 923.3600000000001,
+      "text": "First of all, these price changes are significantly revenue-accredive, so that's an important"
+    },
+    {
+      "start": 923.36,
+      "end": 925.5600000000001,
+      "text": "top level heuristic."
+    },
+    {
+      "start": 925.5600000000001,
+      "end": 934.96,
+      "text": "And we sometimes see a blip in churn, and some markets, we also see a marginal impact on acquisition."
+    },
+    {
+      "start": 934.96,
+      "end": 938.92,
+      "text": "Often these effects are transitory, so it's sort of a change effect and we move through"
+    },
+    {
+      "start": 938.92,
+      "end": 941.8000000000001,
+      "text": "it and when those folks back."
+    },
+    {
+      "start": 941.8000000000001,
+      "end": 946.6,
+      "text": "But I would say that the big takeaway is the vast majority of our members recognize that"
+    },
+    {
+      "start": 946.6,
+      "end": 950.36,
+      "text": "we're investing, you know, what they pay us and the incremental amount that we're asking"
+    },
+    {
+      "start": 950.36,
+      "end": 955.36,
+      "text": "then to pay us into more entertainment value back to them, back to our members, more"
+    },
+    {
+      "start": 955.36,
+      "end": 960.36,
+      "text": "great stories, bigger films, more variety of content, and higher quality of programming."
+    },
+    {
+      "start": 960.36,
+      "end": 966.6,
+      "text": "So we, you know, we generally plan to continue doing what we've been doing, but I would"
+    },
+    {
+      "start": 966.6,
+      "end": 971.5600000000001,
+      "text": "also say it's, you know, we're also working hard to ensure that we have a range of price"
+    },
+    {
+      "start": 971.5600000000001,
+      "end": 977.28,
+      "text": "points, you know, across a set of plans with different features that deliver on, you know,"
+    },
+    {
+      "start": 977.28,
+      "end": 982.36,
+      "text": "different consumer needs and consumer desires, while, you know, making sure and be very"
+    },
+    {
+      "start": 982.36,
+      "end": 987.88,
+      "text": "focused that we retain, you know, good accessibility to the service for a broad group of"
+    },
+    {
+      "start": 987.88,
+      "end": 991.1999999999999,
+      "text": "people in every country, we reserve at sort of that entry level."
+    },
+    {
+      "start": 991.1999999999999,
+      "end": 996.36,
+      "text": "So, you know, no major changes there and we're keeping sort of the plan that we've got in"
+    },
+    {
+      "start": 996.36,
+      "end": 997.36,
+      "text": "place."
+    },
+    {
+      "start": 997.88,
+      "end": 1002.92,
+      "text": "And then we're related, they just, oh, go ahead, Reed, sorry."
+    },
+    {
+      "start": 1002.92,
+      "end": 1008.12,
+      "text": "Related to that, you know, we, Greg Stone, great work on the price spread, and one way"
+    },
+    {
+      "start": 1008.12,
+      "end": 1014.0,
+      "text": "to increase the price spread is advertising on low-end plans and to have lower prices"
+    },
+    {
+      "start": 1014.0,
+      "end": 1019.2,
+      "text": "with advertising, and those who will follow Netflix know that I've been against the complexity"
+    },
+    {
+      "start": 1019.2,
+      "end": 1025.4,
+      "text": "of advertising in a big fan of the simplicity of subscription, but as much among a fan of"
+    },
+    {
+      "start": 1025.48,
+      "end": 1030.52,
+      "text": "that, I'm a bigger fan of consumer choice, and allowing consumers who would like to have"
+    },
+    {
+      "start": 1030.52,
+      "end": 1037.3600000000001,
+      "text": "a lower price and our advertising tolerant get what they want makes a lot of sense."
+    },
+    {
+      "start": 1037.3600000000001,
+      "end": 1040.44,
+      "text": "So that's something we're looking at now, we're trying to figure out over the next"
+    },
+    {
+      "start": 1040.44,
+      "end": 1047.72,
+      "text": "year or two, but think of us as quite open to offering even lower prices with advertising"
+    },
+    {
+      "start": 1047.72,
+      "end": 1052.0800000000002,
+      "text": "as a consumer choice, Spencer and a keep going."
+    },
+    {
+      "start": 1052.1599999999999,
+      "end": 1056.72,
+      "text": "My point was quite tactical, I'm sure ducks and a lot of facts on your point, but I just"
+    },
+    {
+      "start": 1056.72,
+      "end": 1061.6799999999998,
+      "text": "want to be really clear on the point on Q1 performance, and when I talked about slightly"
+    },
+    {
+      "start": 1061.6799999999998,
+      "end": 1066.6799999999998,
+      "text": "elevated churn relative to our expectations, that was not due to our price increases."
+    },
+    {
+      "start": 1066.6799999999998,
+      "end": 1071.8,
+      "text": "So the price increased to play it out, as Greg said, consistent with our expectations,"
+    },
+    {
+      "start": 1071.8,
+      "end": 1075.48,
+      "text": "we just saw some slight up-tick and seasonality for the other reasons I mentioned, some"
+    },
+    {
+      "start": 1075.48,
+      "end": 1079.96,
+      "text": "of the strain and central in Eastern Europe, some of that macros strain we saw, and maybe"
+    },
+    {
+      "start": 1080.04,
+      "end": 1083.24,
+      "text": "a little bit of competition on the margin."
+    },
+    {
+      "start": 1083.24,
+      "end": 1088.68,
+      "text": "Okay, read you, you pulled me forward to advertising, so I do want to get there, but it was"
+    },
+    {
+      "start": 1088.68,
+      "end": 1093.88,
+      "text": "a little further down the list, but one last point, just on pricing, given all these factors"
+    },
+    {
+      "start": 1093.88,
+      "end": 1100.44,
+      "text": "that you've talked about and written about in the letter, is there a change to your view on"
+    },
+    {
+      "start": 1100.44,
+      "end": 1104.28,
+      "text": "long-term pricing power?"
+    },
+    {
+      "start": 1104.28,
+      "end": 1108.1200000000001,
+      "text": "I would say, you know, our general view is unchanged, and again, we don't have an"
+    },
+    {
+      "start": 1108.1200000000001,
+      "end": 1111.88,
+      "text": "opportunity to not pre-order target, you know, in markets or whatever, we've been sort"
+    },
+    {
+      "start": 1111.88,
+      "end": 1117.88,
+      "text": "of finding our way through adding more value, you know, keeping that virtuous cycle going,"
+    },
+    {
+      "start": 1117.88,
+      "end": 1122.8400000000001,
+      "text": "that big spread that that read mentioned, and again, we're seeking ways to actually,"
+    },
+    {
+      "start": 1122.8400000000001,
+      "end": 1126.92,
+      "text": "you know, take that spread even wider, and that's why I think ads is an exciting opportunity"
+    },
+    {
+      "start": 1126.92,
+      "end": 1132.92,
+      "text": "for us that we want to explore more, but no fundamental shift in our thinking about how that"
+    },
+    {
+      "start": 1132.92,
+      "end": 1137.24,
+      "text": "process works, or the potential that we have in that."
+    },
+    {
+      "start": 1137.24,
+      "end": 1139.96,
+      "text": "Okay, thanks. All right, so let's shift to Anne."
+    },
+    {
+      "start": 1139.96,
+      "end": 1144.44,
+      "text": "And Doug, we would just add that that's those directly related to, you know, creating the"
+    },
+    {
+      "start": 1144.44,
+      "end": 1150.76,
+      "text": "content that people find to be incredibly valuable, and our long-term view of our ability to"
+    },
+    {
+      "start": 1150.76,
+      "end": 1157.08,
+      "text": "continue to do that is unchanged. And there's a long history of that across entertainment for"
+    },
+    {
+      "start": 1157.08,
+      "end": 1163.24,
+      "text": "decades, right, of, you know, people love film and TV and games content, and, you know, if we can"
+    },
+    {
+      "start": 1163.32,
+      "end": 1168.36,
+      "text": "continue to deliver that value, deliver that engagement, and there's a long history of people"
+    },
+    {
+      "start": 1168.36,
+      "end": 1173.48,
+      "text": "being willing to pay for it, and, and as Reed said, also advertiser, trying to reach those audiences."
+    },
+    {
+      "start": 1173.48,
+      "end": 1178.28,
+      "text": "So we believe we can kind of drive that value over time, and then monetize it, so long as we"
+    },
+    {
+      "start": 1178.28,
+      "end": 1185.24,
+      "text": "deliver on that entertainment value. Okay, so on, on advertising, I think it's certainly"
+    },
+    {
+      "start": 1185.24,
+      "end": 1191.24,
+      "text": "read, preserving this simplicity of the product has been very important, but I think you've also"
+    },
+    {
+      "start": 1191.24,
+      "end": 1195.88,
+      "text": "kind of talked a little bit about, at least in the past, perhaps not seeing the incremental profit"
+    },
+    {
+      "start": 1195.88,
+      "end": 1203.8,
+      "text": "potential, as well, in, in terms of a lower price ad-supported tier. Has, has that view changed?"
+    },
+    {
+      "start": 1204.6,
+      "end": 1211.4,
+      "text": "And, and I guess, if you were to, you know, pursue an, an ad-based model on a lower tier,"
+    },
+    {
+      "start": 1211.4,
+      "end": 1215.24,
+      "text": "how, how long would it take you to get there and kind of roll that out and what are the key"
+    },
+    {
+      "start": 1215.24,
+      "end": 1220.68,
+      "text": "things you need to do along the way? Yeah, it's not a short-term fix because,"
+    },
+    {
+      "start": 1221.0,
+      "end": 1226.44,
+      "text": "once you start offering a lower price plan with ads as an option, some consumers take it,"
+    },
+    {
+      "start": 1226.44,
+      "end": 1230.68,
+      "text": "and we've got a big install base that probably, you know, are quite happy where they are."
+    },
+    {
+      "start": 1230.68,
+      "end": 1235.4,
+      "text": "So think of it as it would phase in over a couple of years in terms of being material volume."
+    },
+    {
+      "start": 1236.04,
+      "end": 1241.72,
+      "text": "And in terms of the profit potential, definitely the online ad market has advanced,"
+    },
+    {
+      "start": 1242.6000000000001,
+      "end": 1248.2,
+      "text": "and now you don't have to incorporate all the information about people that you used to."
+    },
+    {
+      "start": 1248.2,
+      "end": 1254.6000000000001,
+      "text": "So, you know, we can be a straight publisher and have other people do all of the fancy ad-matching"
+    },
+    {
+      "start": 1254.6000000000001,
+      "end": 1260.6000000000001,
+      "text": "and integrate, you know, all the data about people. So we can stay out of that and really be focused"
+    },
+    {
+      "start": 1260.6000000000001,
+      "end": 1265.8,
+      "text": "on our members, creating, you know, that great experience, and then, you know, again,"
+    },
+    {
+      "start": 1265.8,
+      "end": 1271.64,
+      "text": "getting monetized in a first-class way by a range of different companies who offer that service."
+    },
+    {
+      "start": 1271.64,
+      "end": 1279.3200000000002,
+      "text": "Got it. And is it fair to think that it would be something you would test in a few small"
+    },
+    {
+      "start": 1279.3200000000002,
+      "end": 1284.2,
+      "text": "markets to start out and then kind of move along? You know, we're probably not that advanced,"
+    },
+    {
+      "start": 1284.2,
+      "end": 1288.76,
+      "text": "but no, I think, you know, it's pretty clear, you know, that it's working for Hulu,"
+    },
+    {
+      "start": 1289.4,
+      "end": 1293.3200000000002,
+      "text": "Disney's doing it, HBO did it. I don't think we have a lot of doubt that it works,"
+    },
+    {
+      "start": 1294.0400000000002,
+      "end": 1298.3600000000001,
+      "text": "you know, that all those companies have figured it out. I'm sure we'll just get in and figure it out,"
+    },
+    {
+      "start": 1298.5200000000002,
+      "end": 1303.16,
+      "text": "as opposed to test it, you know, and maybe do it or not do it. So, you know, I think we'll really"
+    },
+    {
+      "start": 1303.16,
+      "end": 1311.64,
+      "text": "get in, but again, it's a plan layer like it is at Hulu. So, if you still want the ad-free option,"
+    },
+    {
+      "start": 1312.3600000000001,
+      "end": 1317.0000000000002,
+      "text": "you'll be able to have that as a consumer. And if you'd rather, you know, pay a lower price"
+    },
+    {
+      "start": 1317.0000000000002,
+      "end": 1323.4,
+      "text": "and you're ad-tolerant, that's also work indicator to you also. Okay. Let's shift gears the"
+    },
+    {
+      "start": 1323.4,
+      "end": 1332.0400000000002,
+      "text": "content. Ted, the two-q-slaid includes a bunch of returning hit series, like Elite, Ozark,"
+    },
+    {
+      "start": 1332.0400000000002,
+      "end": 1338.3600000000001,
+      "text": "Stranger Things, umbrella Academy, how are you thinking about that slate in two-q, and maybe"
+    },
+    {
+      "start": 1338.3600000000001,
+      "end": 1345.0800000000002,
+      "text": "if you could also talk a little bit more about the back half as well? Yeah, so I, those,"
+    },
+    {
+      "start": 1345.0800000000002,
+      "end": 1351.16,
+      "text": "those, they're proven brands for us, of course, and going into the, I'll start with Stranger"
+    },
+    {
+      "start": 1351.24,
+      "end": 1355.8000000000002,
+      "text": "Things, because the new season of Stranger Things is a super-sized season,"
+    },
+    {
+      "start": 1355.8000000000002,
+      "end": 1360.6000000000001,
+      "text": "to why we cut it in half, each episode of the new season feels like a big feature film."
+    },
+    {
+      "start": 1360.6000000000001,
+      "end": 1366.0400000000002,
+      "text": "It's really phenomenal. We're super excited about how it's landing creatively, and how excited"
+    },
+    {
+      "start": 1366.0400000000002,
+      "end": 1371.0,
+      "text": "fans are for it. And I think that's going to be, you know, obviously, the big story coming"
+    },
+    {
+      "start": 1371.0,
+      "end": 1376.1200000000001,
+      "text": "up later in the quarter. The, the finale of Ozark, which is our, you know,"
+    },
+    {
+      "start": 1376.44,
+      "end": 1383.0800000000002,
+      "text": "an Emmy award winning fan favorite, the season three was a killer, and season four brings"
+    },
+    {
+      "start": 1383.0800000000002,
+      "end": 1387.72,
+      "text": "it home in a really incredible way. We're also wrapping up our longest running show, Grace,"
+    },
+    {
+      "start": 1387.72,
+      "end": 1392.92,
+      "text": "and Frankie, with an incredible final set of episodes coming up later this month."
+    },
+    {
+      "start": 1392.92,
+      "end": 1397.0800000000002,
+      "text": "They were excited about it. And the, and the see we've always said, we ran through,"
+    },
+    {
+      "start": 1397.0800000000002,
+      "end": 1403.5600000000002,
+      "text": "the Covid delays that had us backstack 2021. 2022 is not quite as backstacked, but it"
+    },
+    {
+      "start": 1403.56,
+      "end": 1408.8,
+      "text": "It does build throughout the year and it builds up to some of our big event films and"
+    },
+    {
+      "start": 1408.8,
+      "end": 1414.6799999999998,
+      "text": "Q4 that were really excited about like knives out to, gray man coming up before that, from"
+    },
+    {
+      "start": 1414.6799999999998,
+      "end": 1419.08,
+      "text": "the Russo brothers who we've paid a lot of great success with a really fantastic action"
+    },
+    {
+      "start": 1419.08,
+      "end": 1420.6399999999999,
+      "text": "movie that was Ryan Goslin."
+    },
+    {
+      "start": 1420.6399999999999,
+      "end": 1428.76,
+      "text": "So the seed, the upcoming slate in 22, we're confident is better and more impactful than"
+    },
+    {
+      "start": 1428.76,
+      "end": 1433.84,
+      "text": "21 and we think 23 will be better and better and more impactful than 22."
+    },
+    {
+      "start": 1433.84,
+      "end": 1439.36,
+      "text": "So the content flow has been fantastic and we're really excited about it."
+    },
+    {
+      "start": 1439.36,
+      "end": 1440.72,
+      "text": "And just the follow up on you, Matt."
+    },
+    {
+      "start": 1440.72,
+      "end": 1445.44,
+      "text": "I should say not forget, obviously not to forget our international content, Elite TACs in"
+    },
+    {
+      "start": 1445.44,
+      "end": 1449.44,
+      "text": "five, as you know, continues to really great run for us there."
+    },
+    {
+      "start": 1449.44,
+      "end": 1456.72,
+      "text": "We have a Korean version of money high is coming up, called Money High's Korea, it's really"
+    },
+    {
+      "start": 1456.8,
+      "end": 1461.84,
+      "text": "entirely new movie from Omar's side that take down from France, a great film from Germany,"
+    },
+    {
+      "start": 1461.84,
+      "end": 1468.52,
+      "text": "Alquite in the Western Front, on a great slate of new content from Japan, Kubey, and Verselove,"
+    },
+    {
+      "start": 1468.52,
+      "end": 1472.72,
+      "text": "they were really excited about the output from all of our international territories as well."
+    },
+    {
+      "start": 1472.72,
+      "end": 1479.24,
+      "text": "Ted, you mentioned splitting stranger things into the, into different parts and you've"
+    },
+    {
+      "start": 1479.24,
+      "end": 1483.16,
+      "text": "done that with a number of series, you know, over the last few years."
+    },
+    {
+      "start": 1483.8000000000002,
+      "end": 1487.96,
+      "text": "I guess as streaming proliferates, you know, it feels like there's this increasing debate"
+    },
+    {
+      "start": 1487.96,
+      "end": 1493.88,
+      "text": "around the value and stickiness of providing a full season of content all at once."
+    },
+    {
+      "start": 1493.88,
+      "end": 1497.68,
+      "text": "So just curious about how you're thinking has evolved here, you know, given that we"
+    },
+    {
+      "start": 1497.68,
+      "end": 1502.1200000000001,
+      "text": "are a seat more of these series kind of broken into two parts, essentially."
+    },
+    {
+      "start": 1502.1200000000001,
+      "end": 1508.2,
+      "text": "Yeah, splitting the seasons actually had a practical reason before, which was the COVID delays"
+    },
+    {
+      "start": 1508.2,
+      "end": 1511.48,
+      "text": "and all those projects that kind of led us to splitting some of the seasons."
+    },
+    {
+      "start": 1511.64,
+      "end": 1513.88,
+      "text": "But what we found is that fans kind of liked both."
+    },
+    {
+      "start": 1513.88,
+      "end": 1518.92,
+      "text": "So being able to split it gives them a really satisfying, binge experience for those"
+    },
+    {
+      "start": 1518.92,
+      "end": 1523.96,
+      "text": "people who want that really satisfying, long, binge experience and then being able to deliver"
+    },
+    {
+      "start": 1523.96,
+      "end": 1529.16,
+      "text": "a follow-up season in a few months versus, you know, in some cases, the new season of"
+    },
+    {
+      "start": 1529.16,
+      "end": 1533.56,
+      "text": "stranger things is coming nearly three years after, after they're out to the last one or"
+    },
+    {
+      "start": 1533.56,
+      "end": 1539.0,
+      "text": "more than two anyway. And so we're really being able to split the season when you can deliver"
+    },
+    {
+      "start": 1539.08,
+      "end": 1543.88,
+      "text": "both halves of it in a really high quality way, like in the case of Ozark had additional"
+    },
+    {
+      "start": 1543.88,
+      "end": 1549.56,
+      "text": "episodes. So with both experiences where we're really satisfying for the binger or the one"
+    },
+    {
+      "start": 1549.56,
+      "end": 1557.08,
+      "text": "at a time viewer as well. Okay. And we've also had great success in these kind of mini batches"
+    },
+    {
+      "start": 1557.08,
+      "end": 1563.4,
+      "text": "of our unscripted shows. So doing one to three episodes a week, every week has also been great"
+    },
+    {
+      "start": 1563.4,
+      "end": 1567.4,
+      "text": "and still true to the binger by giving them more than one episode to watch at a time."
+    },
+    {
+      "start": 1569.64,
+      "end": 1576.28,
+      "text": "You've talked about cash content spending of around $18 billion this year. In an"
+    },
+    {
+      "start": 1576.28,
+      "end": 1585.32,
+      "text": "period of slower subgrowth, are you more likely to pull back to manage costs or to lean into further"
+    },
+    {
+      "start": 1585.32,
+      "end": 1590.6,
+      "text": "differentiate the offering? Look, I think we've got to continue to invest in the content,"
+    },
+    {
+      "start": 1590.6,
+      "end": 1597.72,
+      "text": "both in the quality and the variety of the content. And our, our, we will continue to grow the"
+    },
+    {
+      "start": 1597.72,
+      "end": 1603.8,
+      "text": "content spend relative to prior years. And I think in general, we look at the, but most important"
+    },
+    {
+      "start": 1603.8,
+      "end": 1608.44,
+      "text": "though, and there is the impact of the slate. And we're very focused on making sure that that"
+    },
+    {
+      "start": 1608.44,
+      "end": 1613.56,
+      "text": "impact of the slate can take use to grow. We should be able to, you know, 10 years in now"
+    },
+    {
+      "start": 1613.96,
+      "end": 1619.8,
+      "text": "get more bang for that for our buck relative to what we've done ourselves and relative to the market."
+    },
+    {
+      "start": 1621.08,
+      "end": 1624.76,
+      "text": "Yeah. And Doug, Doug, to that point. Obviously, the revenue growth is slowed. We're going to be"
+    },
+    {
+      "start": 1624.76,
+      "end": 1628.68,
+      "text": "responsible in terms of how we manage the business. We talked about in the letter during this period"
+    },
+    {
+      "start": 1628.68,
+      "end": 1633.4,
+      "text": "of slower revenue growth. We're going to protect our operating margins, roughly in line with what we"
+    },
+    {
+      "start": 1633.4,
+      "end": 1639.72,
+      "text": "guided to for, for this year. So we're holding to our guidance for the full year, 22, but for, for that,"
+    },
+    {
+      "start": 1639.72,
+      "end": 1644.92,
+      "text": "you know, presumably for the next, you know, 18, 24 months, called the next two years. We're kind of"
+    },
+    {
+      "start": 1644.92,
+      "end": 1650.52,
+      "text": "operating to roughly that operating margin, which does mean that we're pulling back on some of our"
+    },
+    {
+      "start": 1650.52,
+      "end": 1657.16,
+      "text": "spend growth across both content and non-content spend. But still growing our spend and still investing"
+    },
+    {
+      "start": 1657.16,
+      "end": 1662.76,
+      "text": "aggressively into that long-term opportunity. But we're trying to be smart about it and prudent in"
+    },
+    {
+      "start": 1662.76,
+      "end": 1667.72,
+      "text": "terms of pulling back on some of that spend growth to reflect the realities of the revenue growth"
+    },
+    {
+      "start": 1667.72,
+      "end": 1674.6,
+      "text": "of the business. So just to clarify only, because you've been saying it for many years now,"
+    },
+    {
+      "start": 1675.5600000000002,
+      "end": 1681.8000000000002,
+      "text": "the 300 basis points kind of per year over a whole, a year period. Obviously, we were not going to"
+    },
+    {
+      "start": 1681.8000000000002,
+      "end": 1686.8400000000001,
+      "text": "see that this year, but it sounds like over the next couple of years, you're thinking more"
+    },
+    {
+      "start": 1686.8400000000001,
+      "end": 1693.2400000000002,
+      "text": "flat-ish, you know, until you get subscribers really growing in a bigger way. Well, you get revenue"
+    },
+    {
+      "start": 1693.2400000000002,
+      "end": 1697.2400000000002,
+      "text": "growth, again, planning a revenue engagement are going to be primary. We'll also get subscribers going"
+    },
+    {
+      "start": 1697.2400000000002,
+      "end": 1702.44,
+      "text": "so there will be subscriber growth, but primarily re-excelerating that revenue growth. We believe"
+    },
+    {
+      "start": 1702.44,
+      "end": 1707.24,
+      "text": "we have multiple levers to do that. We have high confidence in monetizing sharing as we talked"
+    },
+    {
+      "start": 1707.24,
+      "end": 1712.28,
+      "text": "about, you know, re-talked about things like, you know, perhaps adding in an advertising layer"
+    },
+    {
+      "start": 1713.0800000000002,
+      "end": 1717.3200000000002,
+      "text": "and obviously continuing to improve the service, growing engagement, grow revenue. So we have"
+    },
+    {
+      "start": 1717.3200000000002,
+      "end": 1723.72,
+      "text": "high confidence that we will accelerate revenue. When we do, we also have our commitment to continue"
+    },
+    {
+      "start": 1723.72,
+      "end": 1730.1200000000001,
+      "text": "to gradually grow our operating margins. But let's first get our revenue growth re-excelerated"
+    },
+    {
+      "start": 1730.1200000000001,
+      "end": 1735.3200000000002,
+      "text": "and then let's talk about the pace of that margin acceleration. And, and Spence, what does"
+    },
+    {
+      "start": 1735.3200000000002,
+      "end": 1741.88,
+      "text": "all of that mean for free cash flow kind of near term? And then over the next couple of years,"
+    },
+    {
+      "start": 1742.44,
+      "end": 1748.0400000000002,
+      "text": "I mean, 2022 is certainly looked at as like the first year of kind of sizeable and sustainable"
+    },
+    {
+      "start": 1748.8400000000001,
+      "end": 1753.96,
+      "text": "free cash flow. Yeah, and that continues. So we're, as I said, managing the business,"
+    },
+    {
+      "start": 1754.8400000000001,
+      "end": 1759.96,
+      "text": "prudently, you know, for all of our stakeholders will be positive free cash flow this year,"
+    },
+    {
+      "start": 1759.96,
+      "end": 1763.8,
+      "text": "consistent with our expectations going into the year and will continue to build on that in"
+    },
+    {
+      "start": 1763.8,
+      "end": 1767.24,
+      "text": "years going forward. So that's our expectation. That's what we're still planning towards."
+    },
+    {
+      "start": 1768.8400000000001,
+      "end": 1774.2,
+      "text": "I don't know, Spence, if you would add to that, maybe. No, I think you hit it right on the head,"
+    },
+    {
+      "start": 1774.2,
+      "end": 1783.0,
+      "text": "Spence. Okay. I wanted to talk about India a little bit. You cut prices significantly in"
+    },
+    {
+      "start": 1783.0,
+      "end": 1790.2,
+      "text": "December across across plans. But you certainly pointed out the cable in India is around $3 a"
+    },
+    {
+      "start": 1790.2,
+      "end": 1797.16,
+      "text": "month. Just curious what the response has been like. Do you still view those changes as as revenue"
+    },
+    {
+      "start": 1797.72,
+      "end": 1804.12,
+      "text": "accretive? And what are you seeing in terms of maybe early behavior from some of those incremental"
+    },
+    {
+      "start": 1804.12,
+      "end": 1810.04,
+      "text": "subscribers? Yeah, I would say to your last point, the incremental subscribers are largely"
+    },
+    {
+      "start": 1810.04,
+      "end": 1814.84,
+      "text": "behaving similar to the subscribers we've added over the last 12 months. So not a fundamental"
+    },
+    {
+      "start": 1814.84,
+      "end": 1820.28,
+      "text": "difference. And really, this was a bed in terms of long-term revenue maximization, which is"
+    },
+    {
+      "start": 1820.28,
+      "end": 1825.3999999999999,
+      "text": "sort of how we think about the top-level, the value-tory model we have for these things."
+    },
+    {
+      "start": 1826.2,
+      "end": 1832.28,
+      "text": "And it was stimulated specifically by the fact that Ted's team is doing some an incredible work"
+    },
+    {
+      "start": 1832.28,
+      "end": 1837.96,
+      "text": "on Indian content. We saw the slate there. And we're really excited about a bunch of titles"
+    },
+    {
+      "start": 1837.96,
+      "end": 1843.4,
+      "text": "that were coming down and thought there was an opportunity to broaden the audience that"
+    },
+    {
+      "start": 1843.4,
+      "end": 1849.0,
+      "text": "got to see those titles. And so we've seen that effect definitely take a hold where we have"
+    },
+    {
+      "start": 1849.0,
+      "end": 1856.44,
+      "text": "an additional bump in subscribers that will now get to see that content. And the bed is that those"
+    },
+    {
+      "start": 1856.44,
+      "end": 1863.08,
+      "text": "folks will enjoy those titles and that they will talk enthusiastically about those titles to"
+    },
+    {
+      "start": 1863.08,
+      "end": 1867.88,
+      "text": "their friends, their family, their co-workers, and that'll lead to another sort of"
+    },
+    {
+      "start": 1867.88,
+      "end": 1873.96,
+      "text": "positive momentum on the flywheel of signups. And Ted, can you can you elaborate a little bit more"
+    },
+    {
+      "start": 1873.96,
+      "end": 1879.5600000000002,
+      "text": "just on the content in India? And I guess what's how you're thinking about kind of overall products"
+    },
+    {
+      "start": 1879.5600000000002,
+      "end": 1886.8400000000001,
+      "text": "fit at this point in the market? Yeah, the product fit incorporates subscription prices as well"
+    },
+    {
+      "start": 1886.8400000000001,
+      "end": 1892.2800000000002,
+      "text": "and willingness in ability to pay. So we have seen a nice uptick in engagement in India. So"
+    },
+    {
+      "start": 1892.28,
+      "end": 1899.3999999999999,
+      "text": "we're definitely taking in the right direction. Okay. I want to talk about gaming a little bit."
+    },
+    {
+      "start": 1900.68,
+      "end": 1906.12,
+      "text": "I think read you've discussed it in the past as perhaps the next genre of content,"
+    },
+    {
+      "start": 1906.12,
+      "end": 1914.36,
+      "text": "beyond TV, and beyond film. Here is how you characterize your progress so far."
+    },
+    {
+      "start": 1916.36,
+      "end": 1922.2,
+      "text": "I'm really happy with what the team has built, you know, a big capacity to be able to"
+    },
+    {
+      "start": 1922.44,
+      "end": 1930.1200000000001,
+      "text": "provide our members with interactive and gaming experiences. We've had some nice successes"
+    },
+    {
+      "start": 1930.1200000000001,
+      "end": 1935.96,
+      "text": "which I'll have Greg talk about. So I think we're building capacity frankly faster than we did"
+    },
+    {
+      "start": 1935.96,
+      "end": 1941.88,
+      "text": "when we entered film. So that's very encouraging. So excited and you've seen, you know, we've been"
+    },
+    {
+      "start": 1941.88,
+      "end": 1949.16,
+      "text": "doing these small acquisitions to build up that know how and the creative chops to be able to"
+    },
+    {
+      "start": 1949.16,
+      "end": 1956.28,
+      "text": "make some really great games. Yeah, just to pick it up. Sorry, Doug. You want to. I'm sure it's"
+    },
+    {
+      "start": 1956.28,
+      "end": 1961.0800000000002,
+      "text": "where you're going. I was just going to ask what the kind of puts in takes are around owning versus"
+    },
+    {
+      "start": 1961.0800000000002,
+      "end": 1967.96,
+      "text": "licensing IP and what the appetite is for further M&A going forward. Sure, and you know, we're"
+    },
+    {
+      "start": 1967.96,
+      "end": 1974.2,
+      "text": "open to both models, but I would say we're very enthusiastic about building internal capacity."
+    },
+    {
+      "start": 1974.2,
+      "end": 1979.0,
+      "text": "And we're doing this both from sort of assembling it organically as well as through acquisition"
+    },
+    {
+      "start": 1979.64,
+      "end": 1984.76,
+      "text": "which is a key part of our strategy to to be able to build the capacity to produce the"
+    },
+    {
+      "start": 1984.76,
+      "end": 1989.96,
+      "text": "games titles that we think are really going to unlock value for our members. And we're learning"
+    },
+    {
+      "start": 1989.96,
+      "end": 1995.32,
+      "text": "more and more every day from the licensed titles that we've got, which is helpful. But, you know,"
+    },
+    {
+      "start": 1995.32,
+      "end": 1999.8,
+      "text": "you can sort of there's an early glimmer of where we're trying to head with this with the"
+    },
+    {
+      "start": 1999.8,
+      "end": 2006.52,
+      "text": "announcement we've just recently did with a launch of both a game and an animated series around the"
+    },
+    {
+      "start": 2006.52,
+      "end": 2011.16,
+      "text": "exploding kittens IP. I don't know if you're familiar with this card game, but it's a super fun"
+    },
+    {
+      "start": 2011.16,
+      "end": 2016.12,
+      "text": "physical card game that we're now going to bring to form in both an animated series in a game."
+    },
+    {
+      "start": 2016.12,
+      "end": 2022.52,
+      "text": "And, you know, we'll have some interplay between these two different modes for fans of that IP."
+    },
+    {
+      "start": 2022.52,
+      "end": 2028.52,
+      "text": "But that sort of, you know, an initial step on a long roadmap we have around thinking about"
+    },
+    {
+      "start": 2028.92,
+      "end": 2035.6399999999999,
+      "text": "how do we, you know, make the the film and series side and then the interactive games experience"
+    },
+    {
+      "start": 2035.64,
+      "end": 2040.68,
+      "text": "sort of the interplay between those be, you know, magnify the value that our members are"
+    },
+    {
+      "start": 2040.68,
+      "end": 2044.68,
+      "text": "getting from both. So it's like a one plus one equals three and then hopefully four and then five"
+    },
+    {
+      "start": 2044.68,
+      "end": 2049.88,
+      "text": "situations. That's sort of the multi-year vision that we've got behind it. And really it's the"
+    },
+    {
+      "start": 2049.88,
+      "end": 2054.28,
+      "text": "liver on that, you know, we think the internal development capacity is going to be key because we"
+    },
+    {
+      "start": 2054.28,
+      "end": 2060.6,
+      "text": "can obviously have those folks be very specifically focused on the opportunities that we see there."
+    },
+    {
+      "start": 2061.56,
+      "end": 2067.4,
+      "text": "And what are the, what are the benchmarks where milestones perhaps that you need to see around"
+    },
+    {
+      "start": 2067.4,
+      "end": 2074.2,
+      "text": "gaming to lean in even more here in terms of content budget? Or are there any metrics or numbers"
+    },
+    {
+      "start": 2074.2,
+      "end": 2079.96,
+      "text": "about that you can provide so far? I can certainly provide the framework that we're thinking about"
+    },
+    {
+      "start": 2079.96,
+      "end": 2084.92,
+      "text": "it and it's a, you know, it's a top level, you know, priority for us and we're very focused on it."
+    },
+    {
+      "start": 2084.92,
+      "end": 2091.0,
+      "text": "And so, you know, bottom line, we think about games and delivering value to members and reflecting"
+    },
+    {
+      "start": 2091.0,
+      "end": 2096.92,
+      "text": "that back into the business through both acquisition. So, you know, we're, we're aiming to have"
+    },
+    {
+      "start": 2096.92,
+      "end": 2102.12,
+      "text": "titles that land that, you know, create, you know, conversation and enthusiasm and buzz"
+    },
+    {
+      "start": 2102.12,
+      "end": 2107.0,
+      "text": "that drive more people to sign up for the service. And then obviously in a retention as well."
+    },
+    {
+      "start": 2107.0,
+      "end": 2111.64,
+      "text": "And, you know, engagement is that primary leading indicator that we have for retention and sort of"
+    },
+    {
+      "start": 2111.64,
+      "end": 2117.16,
+      "text": "value bill delivered. So, we're looking at both of those very, very carefully and similar to how"
+    },
+    {
+      "start": 2117.16,
+      "end": 2122.52,
+      "text": "we think about it on the film and series side. Obviously, we want to make sure the investment"
+    },
+    {
+      "start": 2122.52,
+      "end": 2127.24,
+      "text": "that we're making in any given title is sort of calibrated to that business value that we're"
+    },
+    {
+      "start": 2127.24,
+      "end": 2132.04,
+      "text": "getting out of it. So, we're, you know, building our understanding of how those metrics work together."
+    },
+    {
+      "start": 2132.04,
+      "end": 2136.2799999999997,
+      "text": "So, that we can have a good, you know, sort of fitness function around the work that we're doing"
+    },
+    {
+      "start": 2136.2799999999997,
+      "end": 2140.7599999999998,
+      "text": "and making sure that's delivering value. And that's really the, the, the go signs for us that we've"
+    },
+    {
+      "start": 2140.84,
+      "end": 2144.2000000000003,
+      "text": "got it figured out and we want to ramp and scale the investment."
+    },
+    {
+      "start": 2146.36,
+      "end": 2153.48,
+      "text": "Okay. Ted, Netflix shares are, are back to, you know, of course, back to pre-COVID levels,"
+    },
+    {
+      "start": 2153.48,
+      "end": 2157.88,
+      "text": "but they're also, you know, around the same level they were at, you know, nearly four years ago"
+    },
+    {
+      "start": 2157.88,
+      "end": 2165.8,
+      "text": "in, in 2018. So, but you could just talk about your ability to, to continue to hire great talent"
+    },
+    {
+      "start": 2165.8,
+      "end": 2171.0,
+      "text": "within the company. Okay. I think that when people look, they're, they're joined Netflix."
+    },
+    {
+      "start": 2171.0,
+      "end": 2177.96,
+      "text": "They join Netflix because they believe in this long-term vision of the, uh, move into, uh,"
+    },
+    {
+      "start": 2177.96,
+      "end": 2182.1200000000003,
+      "text": "way from linear television and kind of transactional movie business into a business that could"
+    },
+    {
+      "start": 2182.1200000000003,
+      "end": 2187.32,
+      "text": "be much more satisfying for consumers and deliver on the culture and deliver big audiences"
+    },
+    {
+      "start": 2187.32,
+      "end": 2192.6000000000004,
+      "text": "and really move the market. Now, one of the things I'd say is, by way of examples, what we can do"
+    },
+    {
+      "start": 2192.68,
+      "end": 2198.12,
+      "text": "around the world, um, our teams are on the ground, our creative executives, our business executives,"
+    },
+    {
+      "start": 2198.12,
+      "end": 2206.2799999999997,
+      "text": "around the ground all over the world, our much more empowered, um, they're much more collaborative,"
+    },
+    {
+      "start": 2206.2799999999997,
+      "end": 2211.48,
+      "text": "uh, and they're much more, um, risk tolerant than they're, they're counterparts over the world,"
+    },
+    {
+      "start": 2211.48,
+      "end": 2216.8399999999997,
+      "text": "which enables the creative and ecosystem for something like squid game over like a lupon,"
+    },
+    {
+      "start": 2217.56,
+      "end": 2224.84,
+      "text": "or lecocity papelty exist. And that is our ability to do that and to bring kind of, um,"
+    },
+    {
+      "start": 2224.84,
+      "end": 2231.2400000000002,
+      "text": "global notoriety to local, kind of local content players is unprecedented and it's pretty unrivaled"
+    },
+    {
+      "start": 2231.2400000000002,
+      "end": 2236.1200000000003,
+      "text": "at this point. So I think people look at that as something to be very exciting to be close to and"
+    },
+    {
+      "start": 2236.1200000000003,
+      "end": 2241.96,
+      "text": "at the long, long-term, so the long-term story is, um, the broadband household penetration."
+    },
+    {
+      "start": 2241.96,
+      "end": 2246.28,
+      "text": "We're going to get to those, to those houses. There's a long-term, uh, and a short-term"
+    },
+    {
+      "start": 2246.28,
+      "end": 2250.36,
+      "text": "and the short-term, you've got that, you know, uh, highly penetrated users and we're working"
+    },
+    {
+      "start": 2250.36,
+      "end": 2254.52,
+      "text": "through that right now. And in the long-term, we've got things like smart TV sales at a bunch"
+    },
+    {
+      "start": 2254.52,
+      "end": 2260.28,
+      "text": "of a macro factors that slow that down, uh, that we know that we all see that as temporary,"
+    },
+    {
+      "start": 2260.28,
+      "end": 2265.1600000000003,
+      "text": "including everyone who works at Netflix. So everyone really does see the long play. And I know"
+    },
+    {
+      "start": 2265.1600000000003,
+      "end": 2270.36,
+      "text": "I've been here for more than 20 years and have been through a couple of these and, uh, and yes,"
+    },
+    {
+      "start": 2270.36,
+      "end": 2274.28,
+      "text": "they don't feel great in the moment, but man, it feels great to come on the other side of it."
+    },
+    {
+      "start": 2274.28,
+      "end": 2278.84,
+      "text": "And I think everyone is, uh, knowing that that's going to come up and we'll come out on the other side"
+    },
+    {
+      "start": 2278.84,
+      "end": 2287.1600000000003,
+      "text": "of it. Though we have a time for two last questions, please. Okay. Um, I wanted to, uh, just"
+    },
+    {
+      "start": 2287.1600000000003,
+      "end": 2292.6000000000004,
+      "text": "back to content for a minute. Uh, you've driven a lot of attention to, to a formula one with, uh,"
+    },
+    {
+      "start": 2292.6000000000004,
+      "end": 2298.84,
+      "text": "with drive to survive. Um, given the success there, uh, you know, sports is obviously a frequent topic."
+    },
+    {
+      "start": 2298.84,
+      "end": 2304.2000000000003,
+      "text": "How are you thinking about sports? Um, you know, there's certainly more rumbling around doing"
+    },
+    {
+      "start": 2304.2000000000003,
+      "end": 2310.0400000000004,
+      "text": "things related to NFL, media and NFL films. Um, how, how are your, uh, uh, you know,"
+    },
+    {
+      "start": 2310.0400000000004,
+      "end": 2316.0400000000004,
+      "text": "how are your intention shifting perhaps you're at all? So, look, uh, we look, we expand our, uh,"
+    },
+    {
+      "start": 2316.0400000000004,
+      "end": 2322.6000000000004,
+      "text": "content protocols constantly. Uh, for us, I look at, um, the games is a great great example of adding"
+    },
+    {
+      "start": 2322.6000000000004,
+      "end": 2328.1200000000003,
+      "text": "something brand new to the surface, something new for our members to enjoy. Uh, we're going down"
+    },
+    {
+      "start": 2328.1200000000003,
+      "end": 2333.4800000000005,
+      "text": "the game path because I think it fits us really nicely. Our ability to tell stories and build worlds"
+    },
+    {
+      "start": 2333.56,
+      "end": 2337.72,
+      "text": "are very consistent with the, uh, our school, our, you know, existing skill setting culture."
+    },
+    {
+      "start": 2337.72,
+      "end": 2342.76,
+      "text": "And we think that we can build a big revenue and profit stream, uh, by adding games."
+    },
+    {
+      "start": 2342.76,
+      "end": 2347.4,
+      "text": "Uh, why, we're not quite so sure that you can add the big profit stream by adding sports."
+    },
+    {
+      "start": 2347.4,
+      "end": 2351.56,
+      "text": "Uh, other folks are trying it. We're going to, and we're, we're going, we've gone down this other path."
+    },
+    {
+      "start": 2351.56,
+      "end": 2356.2,
+      "text": "In the meantime, we're incredibly excited about, as you mentioned, the formula one drives us"
+    },
+    {
+      "start": 2356.2000000000003,
+      "end": 2362.2000000000003,
+      "text": "alive as an example of kind of sports adjacent programming, uh, that is, that our members really"
+    },
+    {
+      "start": 2362.2000000000003,
+      "end": 2367.32,
+      "text": "value. Uh, we've grown the sport tremendously. Uh, we're taking that bad in the world of tennis"
+    },
+    {
+      "start": 2367.32,
+      "end": 2372.1200000000003,
+      "text": "and golf and others coming up. And we also have an incredible sports documentary business that"
+    },
+    {
+      "start": 2372.1200000000003,
+      "end": 2376.6800000000003,
+      "text": "keeps growing. So, I'm not saying we'd never would do sports, but we'd have to see a path to"
+    },
+    {
+      "start": 2376.6800000000003,
+      "end": 2383.4,
+      "text": "growing a big revenue stream and a big profit stream with it. Okay. And then just to close out, uh,"
+    },
+    {
+      "start": 2383.48,
+      "end": 2389.48,
+      "text": "read, um, you've, you've created this very unique, very successful culture, uh, within the company"
+    },
+    {
+      "start": 2389.48,
+      "end": 2396.36,
+      "text": "over the past 20 plus years, um, has anything changed in your view just from a cultural perspective,"
+    },
+    {
+      "start": 2396.36,
+      "end": 2401.0,
+      "text": "uh, around either content acquisition or in some of the more operational functions."
+    },
+    {
+      "start": 2402.2000000000003,
+      "end": 2407.4,
+      "text": "Yeah, I mean, we changed every year. You know, hopefully for the better, um, we don't look at"
+    },
+    {
+      "start": 2407.4,
+      "end": 2412.36,
+      "text": "culture as some fixed thing. You know, we look at it as what's going to drive excellence, you know,"
+    },
+    {
+      "start": 2412.44,
+      "end": 2417.7200000000003,
+      "text": "the North Star is getting excellence. And so we've made a bunch of adjustments as we've expanded"
+    },
+    {
+      "start": 2417.7200000000003,
+      "end": 2423.6400000000003,
+      "text": "around the world. We've made adjustments as we've become more original content centric. Um, so we're"
+    },
+    {
+      "start": 2423.6400000000003,
+      "end": 2430.76,
+      "text": "always improving. And again, the goal is, uh, excellence. And then the culture is a tactic in that"
+    },
+    {
+      "start": 2430.76,
+      "end": 2438.04,
+      "text": "journey. Okay. Great. Thank you all. Great. Thank you. Did you want to close this out? Hey,"
+    },
+    {
+      "start": 2438.2,
+      "end": 2442.6,
+      "text": "guys, one thing before they close us out, just to have the tactical thing, one tactical thing"
+    },
+    {
+      "start": 2442.6,
+      "end": 2445.48,
+      "text": "that I should have mentioned earlier, Doug, I just want to make sure there's not a read through."
+    },
+    {
+      "start": 2445.48,
+      "end": 2451.48,
+      "text": "And we guide to negative 2 million paid net ads in Q2. We didn't talk about, you know, full year"
+    },
+    {
+      "start": 2451.48,
+      "end": 2455.16,
+      "text": "and how what we expect and we're not providing full-year guide and stuff. But I just want to make"
+    },
+    {
+      "start": 2455.16,
+      "end": 2460.04,
+      "text": "sure there's not a read through from negative 2 million paid net ads in Q2 that there's going to be a"
+    },
+    {
+      "start": 2460.04,
+      "end": 2464.92,
+      "text": "steady strip down of negative ads. We're not expecting our growth to reaccelerate or revenue"
+    },
+    {
+      "start": 2465.0,
+      "end": 2469.56,
+      "text": "growth to reaccelerate before the end of the year. But we will grow revenue. And there will be"
+    },
+    {
+      "start": 2469.56,
+      "end": 2473.4,
+      "text": "paid net ad growth. You know, as we get to the back after the year, Ted talked about the"
+    },
+    {
+      "start": 2473.4,
+      "end": 2477.96,
+      "text": "stronger slate. We get further away from some of the big price increases. We get into a stronger"
+    },
+    {
+      "start": 2477.96,
+      "end": 2481.8,
+      "text": "seasonal period. So I just want to make sure that that's understood as you think about the"
+    },
+    {
+      "start": 2481.8,
+      "end": 2485.64,
+      "text": "full year, even though we're not providing full-year guidance. Sorry, just we didn't get to it."
+    },
+    {
+      "start": 2485.64,
+      "end": 2494.04,
+      "text": "Thanks. Always good to provide that non-guidance guidance. Thanks. You know, when we, uh, look"
+    },
+    {
+      "start": 2494.04,
+      "end": 2499.88,
+      "text": "at the last 20 years, I like Ted mentioned, you know, we've gone through a lot of changes and we've"
+    },
+    {
+      "start": 2499.88,
+      "end": 2505.16,
+      "text": "always figured them out one by one. It's super exciting. We're going to figure this one out. We got a"
+    },
+    {
+      "start": 2505.16,
+      "end": 2511.48,
+      "text": "great team. We lead by a significant margin and streaming and streaming is continuing to grow"
+    },
+    {
+      "start": 2511.48,
+      "end": 2517.32,
+      "text": "around the world. So, you know, we have a bunch of opportunity to improve, but coming out the other"
+    },
+    {
+      "start": 2517.32,
+      "end": 2523.16,
+      "text": "side and pretty sure we'll look at this as really foundational in our continued journey."
+    },
+    {
+      "start": 2524.04,
+      "end": 2529.72,
+      "text": "Over to you, Ted. Yeah. That's well said, Rita. I would only, I would only add that, um, a reminder to"
+    },
+    {
+      "start": 2529.72,
+      "end": 2534.44,
+      "text": "folks is that as we keep talking about competition, to your reminder that we've always had"
+    },
+    {
+      "start": 2534.44,
+      "end": 2539.24,
+      "text": "really tough competition. And all of the players who can be with us today have been competing with"
+    },
+    {
+      "start": 2539.24,
+      "end": 2544.44,
+      "text": "us since our first day of streaming. Some had to head, uh, and some through their legacy business"
+    },
+    {
+      "start": 2544.44,
+      "end": 2548.7599999999998,
+      "text": "models and they're now migrating to be more head-to-head players, while they're struggling to"
+    },
+    {
+      "start": 2548.7599999999998,
+      "end": 2553.24,
+      "text": "manage their legacy businesses. So I really like the competitive position that we're in."
+    },
+    {
+      "start": 2553.6400000000003,
+      "end": 2558.84,
+      "text": "I love the competitive position that we are moving from relative than just a couple of years ago."
+    },
+    {
+      "start": 2559.4,
+      "end": 2565.1600000000003,
+      "text": "But in every metric that we measure success, engagement, revenue, subscribers, profit,"
+    },
+    {
+      "start": 2565.8,
+      "end": 2569.5600000000004,
+      "text": "all those ways that we're measuring. I think I like the competitive position that we're coming"
+    },
+    {
+      "start": 2569.5600000000004,
+      "end": 2574.76,
+      "text": "out of from. And I want to just assure everybody that everyone at Netflix shares that excitement"
+    },
+    {
+      "start": 2574.76,
+      "end": 2579.96,
+      "text": "to come out the other side of this part of the business. So with that, I just encourage you to"
+    },
+    {
+      "start": 2580.84,
+      "end": 2587.48,
+      "text": "enjoy the final episodes of our incredible show, Ozark, and our longest running comedy show,"
+    },
+    {
+      "start": 2587.48,
+      "end": 2592.12,
+      "text": "Grayson Frankie, coming up at the end of the month, and an incredible slate of films in series coming"
+    },
+    {
+      "start": 2592.12,
+      "end": 2595.88,
+      "text": "up in 2022. Thanks."
+    }
+  ]
+}

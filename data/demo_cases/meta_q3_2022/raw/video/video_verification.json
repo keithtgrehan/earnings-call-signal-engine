@@ -1,0 +1,16 @@
+{
+  "status": "verified",
+  "expected_quarter": "Q3 2022",
+  "video_filename": "meta_q3_2022_video.mp4",
+  "video_md5": "ea9accacde7360c38ce1fe1cf457fbe3",
+  "video_path": "raw/video/meta_q3_2022_video.mp4",
+  "has_video_stream": true,
+  "has_audio_stream": true,
+  "duration_s": 3717.933,
+  "verification_basis": [
+    "asset path fixed to Meta Q3 2022 case",
+    "ffprobe readable",
+    "ffprobe audio stream present"
+  ],
+  "action": "Quarter-consistent local video is readable and can be used for optional bounded audio hooks."
+}

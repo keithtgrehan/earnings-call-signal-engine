@@ -10,6 +10,7 @@ import pandas as pd
 from flask import Flask, abort, redirect, render_template, request, send_file, url_for
 from werkzeug.utils import secure_filename
 
+from earnings_call_sentiment.demo_case_loader import load_demo_case_catalog, load_demo_case_payload
 from earnings_call_sentiment.pipeline.run import (
     DEFAULT_SENTIMENT_MODEL_NAME,
     DEFAULT_SENTIMENT_MODEL_REVISION,
@@ -72,12 +73,20 @@ def create_review_app(
 
     @app.get("/")
     def index() -> str:
+        demo_cases = load_demo_case_catalog(resolved_repo)
+        selected_demo_case = _resolve_demo_case_id(request.args.get("demo_case"), demo_cases)
+        view_mode = _resolve_view_mode(request.args.get("mode"), has_result=False)
         return render_template(
             "index.html",
             form_state=_default_form_state(),
             suggested_prompt=DEFAULT_UI_PROMPT,
             result=None,
             job=None,
+            demo_cases=demo_cases,
+            selected_demo_case=selected_demo_case,
+            demo_case=load_demo_case_payload(resolved_repo, selected_demo_case) if selected_demo_case else None,
+            view_mode=view_mode,
+            current_path=request.path,
             benchmark_rows=_load_benchmark_subset(resolved_benchmark_root),
             recent_runs=_load_recent_runs(resolved_output_root),
             ui_meta=metadata,
@@ -88,6 +97,9 @@ def create_review_app(
     @app.post("/analyze")
     def analyze():
         form_state = _merge_form_state(request.form)
+        demo_cases = load_demo_case_catalog(resolved_repo)
+        selected_demo_case = _resolve_demo_case_id(request.form.get("selected_demo_case"), demo_cases)
+        view_mode = _resolve_view_mode(request.form.get("view_mode"), has_result=False)
         review_run = None
         try:
             review_run = prepare_review_run(
@@ -99,7 +111,15 @@ def create_review_app(
             job_payload = _prepare_job_payload(form_state, request, review_run)
             _register_job(review_run=review_run, form_state=form_state)
             _start_review_job(review_run=review_run, form_state=form_state, payload=job_payload)
-            return redirect(url_for("review_run", run_id=review_run.run_id), code=303)
+            return redirect(
+                url_for(
+                    "review_run",
+                    run_id=review_run.run_id,
+                    mode="input",
+                    demo_case=selected_demo_case,
+                ),
+                code=303,
+            )
         except Exception as exc:
             return render_template(
                 "index.html",
@@ -107,6 +127,11 @@ def create_review_app(
                 suggested_prompt=DEFAULT_UI_PROMPT,
                 result=None,
                 job=None,
+                demo_cases=demo_cases,
+                selected_demo_case=selected_demo_case,
+                demo_case=load_demo_case_payload(resolved_repo, selected_demo_case) if selected_demo_case else None,
+                view_mode=view_mode,
+                current_path=request.path,
                 benchmark_rows=_load_benchmark_subset(resolved_benchmark_root),
                 recent_runs=_load_recent_runs(resolved_output_root),
                 ui_meta=metadata,
@@ -116,6 +141,9 @@ def create_review_app(
 
     @app.get("/review/<run_id>")
     def review_run(run_id: str) -> str:
+        demo_cases = load_demo_case_catalog(resolved_repo)
+        selected_demo_case = _resolve_demo_case_id(request.args.get("demo_case"), demo_cases)
+        view_mode = _resolve_view_mode(request.args.get("mode"), has_result=True)
         job = _get_job(run_id)
         if job is None:
             # support viewing completed historical runs directly
@@ -133,6 +161,11 @@ def create_review_app(
                 suggested_prompt=DEFAULT_UI_PROMPT,
                 result=result,
                 job={"run_id": run_id, "status": "complete", "form_state": _default_form_state()},
+                demo_cases=demo_cases,
+                selected_demo_case=selected_demo_case,
+                demo_case=load_demo_case_payload(resolved_repo, selected_demo_case) if selected_demo_case else None,
+                view_mode=view_mode,
+                current_path=request.path,
                 benchmark_rows=_load_benchmark_subset(resolved_benchmark_root),
                 recent_runs=_load_recent_runs(resolved_output_root),
                 ui_meta=metadata,
@@ -148,6 +181,11 @@ def create_review_app(
             suggested_prompt=DEFAULT_UI_PROMPT,
             result=result,
             job=job,
+            demo_cases=demo_cases,
+            selected_demo_case=selected_demo_case,
+            demo_case=load_demo_case_payload(resolved_repo, selected_demo_case) if selected_demo_case else None,
+            view_mode=view_mode,
+            current_path=request.path,
             benchmark_rows=_load_benchmark_subset(resolved_benchmark_root),
             recent_runs=_load_recent_runs(resolved_output_root),
             ui_meta=metadata,
@@ -162,6 +200,18 @@ def create_review_app(
             abort(404)
         target = (run_dir / filename).resolve()
         if run_dir not in target.parents and target != run_dir:
+            abort(404)
+        if not target.exists() or not target.is_file():
+            abort(404)
+        return send_file(target)
+
+    @app.get("/demo-cases/<case_id>/<path:filename>")
+    def serve_demo_case_artifact(case_id: str, filename: str):
+        case_root = (resolved_repo / "data" / "demo_cases" / case_id).resolve()
+        if not case_root.exists() or not case_root.is_dir():
+            abort(404)
+        target = (case_root / filename).resolve()
+        if case_root not in target.parents and target != case_root:
             abort(404)
         if not target.exists() or not target.is_file():
             abort(404)
@@ -462,3 +512,15 @@ def _source_label(form_state: dict[str, Any]) -> str:
     if source_mode == "media":
         return form_state["symbol"] or "media"
     return form_state["symbol"] or "document"
+
+
+def _resolve_demo_case_id(requested_case_id: str | None, demo_cases: list[dict[str, str]]) -> str:
+    if requested_case_id and any(case["case_id"] == requested_case_id for case in demo_cases):
+        return requested_case_id
+    return demo_cases[0]["case_id"] if demo_cases else ""
+
+
+def _resolve_view_mode(requested_mode: str | None, *, has_result: bool) -> str:
+    if requested_mode in {"demo", "input"}:
+        return requested_mode
+    return "input" if has_result else "demo"

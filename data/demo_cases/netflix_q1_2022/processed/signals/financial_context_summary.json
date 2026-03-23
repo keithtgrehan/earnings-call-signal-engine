@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "statement": "Consolidated Statements of Operations",
+  "unit": "USD thousands except per-share data",
+  "quarter_end": "2022-03-31",
+  "metrics": {
+    "revenue_usd_thousands": 7867767.0,
+    "operating_income_usd_thousands": 1971626.0,
+    "net_income_usd_thousands": 1597447.0,
+    "diluted_eps": 3.53
+  }
+}

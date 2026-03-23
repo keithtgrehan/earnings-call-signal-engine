@@ -43,7 +43,36 @@ def test_site_app_index_renders() -> None:
         "Transcript-first AI tool for extracting structured signals from earnings call "
         "audio and video sources using NLP." in text
     )
+    assert "Raw source vs extracted signal" in text
+    assert "Netflix Q1 2022" in text
+    assert "Meta Platforms" in text
+    assert "Q3 2022" in text
+    assert "Run a real upload or URL" in text
+
+
+def test_site_app_input_mode_renders_history() -> None:
+    site_server = _load_app_module("site_server")
+    app = site_server.create_app()
+    client = app.test_client()
+
+    response = client.get("/?mode=input")
+
+    assert response.status_code == 200
+    text = response.get_data(as_text=True)
     assert "Recent local runs" in text
+    assert "Real input review" in text
+
+
+def test_site_app_serves_demo_case_artifact() -> None:
+    site_server = _load_app_module("site_server")
+    app = site_server.create_app()
+    client = app.test_client()
+
+    response = client.get("/demo-cases/netflix_q1_2022/demo/evidence_rows/netflix_q1_2022_evidence_rows.json")
+
+    assert response.status_code == 200
+    text = response.get_data(as_text=True)
+    assert "transcript_growth_headwinds" in text
 
 
 def test_review_app_document_post_uses_review_workflow(monkeypatch, tmp_path: Path) -> None:
@@ -111,7 +140,8 @@ def test_review_app_document_post_uses_review_workflow(monkeypatch, tmp_path: Pa
     )
 
     assert response.status_code == 303
-    assert response.headers["Location"].endswith("/review/demo-run")
+    assert response.headers["Location"].startswith("/review/demo-run")
+    assert "mode=input" in response.headers["Location"]
 
     review_response = client.get("/review/demo-run")
     assert review_response.status_code == 200

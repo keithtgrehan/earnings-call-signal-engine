@@ -1,0 +1,27 @@
+{
+  "case_id": "netflix_q1_2022",
+  "company": "Netflix",
+  "quarter": "Q1 2022",
+  "event_date": "2022-04-19",
+  "panel_title": "Market context around the Q1 2022 release window",
+  "key_extracted_signals": [
+    "slower paid net adds",
+    "qualified Q2 outlook pressure",
+    "account-sharing monetization narrative",
+    "ad-supported option discussed as a future path rather than a near-term launch"
+  ],
+  "market_reaction_window": {
+    "start_date": "2022-04-15",
+    "end_date": "2022-04-21",
+    "reaction_direction": "negative",
+    "reaction_magnitude_pct": -36.0,
+    "start_price_usd": 341.13,
+    "end_price_usd": 218.22
+  },
+  "market_reaction_note": "FactSet highlighted Netflix as a Q1 2022 example where a positive EPS surprise still coincided with a sharp negative stock reaction around the release window.",
+  "source": {
+    "primary_url": "https://advantage.factset.com/hubfs/Website/Resources%20Section/Research%20Desk/Earnings%20Insight/EarningsInsight_050622.pdf",
+    "secondary_url": null
+  },
+  "caveat": "Contextual sanity-check evidence only. This does not validate prediction, causality, or trading value."
+}

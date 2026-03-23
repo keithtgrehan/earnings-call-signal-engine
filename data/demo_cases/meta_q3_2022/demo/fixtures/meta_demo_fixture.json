@@ -1,0 +1,46 @@
+{
+  "case_id": "meta_q3_2022",
+  "company": "Meta Platforms",
+  "quarter": "Q3 2022",
+  "case_status": "transcript_first_ready_media_available",
+  "artifact_paths": {
+    "transcript_cleaned": "processed/transcript_text/transcript_cleaned.txt",
+    "transcript_sectioned": "processed/transcript_text/transcript_sectioned.json",
+    "follow_up_cleaned": "processed/follow_up_text/follow_up_cleaned.txt",
+    "follow_up_sectioned": "processed/follow_up_text/follow_up_sectioned.json",
+    "qa_pairs": "processed/qa_pairs/qa_pairs.json",
+    "follow_up_qa_pairs": "processed/qa_pairs/follow_up_qa_pairs.json",
+    "guidance": "processed/signals/guidance.csv",
+    "uncertainty": "processed/signals/uncertainty_signals.csv",
+    "qa_shift_summary": "processed/signals/qa_shift_summary.json",
+    "results_release_evidence": "processed/signals/results_release_evidence.json",
+    "presentation_support_metrics": "processed/signals/presentation_support_metrics.json",
+    "financial_context_summary": "processed/signals/financial_context_summary.json",
+    "follow_up_pressure_signals": "processed/signals/follow_up_pressure_signals.json",
+    "audio_status": "processed/audio_behavior/audio_status.json",
+    "audio_transcript_segments": "processed/audio_behavior/audio_transcript_segments.json",
+    "audio_aligned_qa_segments": "processed/audio_behavior/audio_aligned_qa_segments.csv",
+    "audio_behavior_summary": "processed/audio_behavior/audio_behavior_summary.json",
+    "audio_behavior_segments": "processed/audio_behavior/audio_behavior_segments.csv",
+    "audio_review_rows": "processed/audio_behavior/audio_review_rows.json",
+    "joined_qa_audio_review": "processed/joined_review/joined_qa_audio_review.json",
+    "quarter_consistency": "processed/joined_review/quarter_consistency.json",
+    "joined_review_moments": "processed/joined_review/joined_review_moments.json",
+    "market_context": "demo/summary/meta_q3_2022_market_context.json",
+    "evidence_rows": "demo/evidence_rows/meta_q3_2022_evidence_rows.json",
+    "summary": "demo/summary/meta_q3_2022_summary.json"
+  },
+  "preview_row_ids": [
+    "transcript_macro_ads_pressure",
+    "transcript_conservative_budget",
+    "transcript_reels_headwind",
+    "release_profitability_deterioration",
+    "release_expense_capex_guidance",
+    "presentation_reality_labs_drag"
+  ],
+  "notes": [
+    "Main-call transcript-first artifacts are the source of truth for this demo case.",
+    "The follow-up transcript is additional analyst-pressure context and does not replace the main call.",
+    "Later UI work can consume this fixture directly without running the full live pipeline."
+  ]
+}

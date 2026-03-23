@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "meta_q3_2022",
+  "expected_case_quarter": "Q3 2022",
+  "main_transcript": {
+    "status": "verified",
+    "detected_quarter": "Q3 2022",
+    "filename": "meta_q3_2022_earnings_call_transcript.pdf",
+    "supporting_text": "Meta Platforms, Inc. (META) Third Quarter 2022 Results Conference Call October 26th, 2022"
+  },
+  "follow_up_transcript": {
+    "status": "verified",
+    "detected_quarter": "Q3 2022",
+    "filename": "meta_q3_2022_follow_up_call_transcript.pdf",
+    "supporting_text": "Meta Platforms, Inc. (META) Third Quarter 2022 Follow Up Call October 26th, 2022"
+  },
+  "results_release": {
+    "status": "verified",
+    "detected_quarter": "Q3 2022",
+    "filename": "meta_q3_2022_results_release.pdf",
+    "supporting_text": "Meta Reports Third Quarter 2022 Results"
+  },
+  "presentation": {
+    "status": "verified",
+    "detected_quarter": "Q3 2022",
+    "filename": "meta_q3_2022_earnings_presentation.pdf",
+    "supporting_text": "Meta Earnings Presentation Q3 2022"
+  },
+  "video": {
+    "status": "verified",
+    "expected_quarter": "Q3 2022",
+    "video_filename": "meta_q3_2022_video.mp4",
+    "video_md5": "ea9accacde7360c38ce1fe1cf457fbe3",
+    "video_path": "raw/video/meta_q3_2022_video.mp4",
+    "has_video_stream": true,
+    "has_audio_stream": true,
+    "duration_s": 3717.933,
+    "verification_basis": [
+      "asset path fixed to Meta Q3 2022 case",
+      "ffprobe readable",
+      "ffprobe audio stream present"
+    ],
+    "action": "Quarter-consistent local video is readable and can be used for optional bounded audio hooks."
+  },
+  "overall_status": "transcript_first_ready_media_available",
+  "action_taken": "Built the fixed Meta Q3 2022 transcript-first demo package from the earnings call transcript, follow-up transcript, results release, and presentation, with optional bounded audio support from a readable local Q3 video."
+}

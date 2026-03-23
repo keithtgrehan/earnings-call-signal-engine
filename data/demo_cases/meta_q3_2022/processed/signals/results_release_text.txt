@@ -1,0 +1,369 @@
+Meta Reports Third Quarter 2022 Results
+MENLO PARK, Calif. – October 26, 2022  – Meta Platforms, Inc. (Nasdaq: META) today reported financial 
+results for the quarter ended September 30, 2022.
+"Our community continues to grow and I'm pleased with the strong engagement we're seeing driven by progress 
+on our discovery engine and products like Reels," said Mark Zuckerberg, Meta founder and CEO. "While we face 
+near-term challenges on revenue, the fundamentals are there for a return to stronger revenue growth. We're 
+approaching 2023 with a focus on prioritization and efficiency that will help us navigate the current environment 
+and emerge an even stronger company."
+Third Quarter 2022 Financial Highlights
+Three Months Ended September 30,
+% Change
+In millions, except percentages and per share amounts 2022 2021
+Revenue $ 27,714 $ 29,010 (4)%
+Costs and expenses  22,050  18,587 19%
+Income from operations $ 5,664 $ 10,423 (46)%
+Operating margin  20 %  36 %
+Provision for income taxes $ 1,181 $ 1,371 (14)%
+Effective tax rate  21 %  13 %
+Net income $ 4,395 $ 9,194 (52)%
+Diluted earnings per share (EPS) $ 1.64 $ 3.22 (49)%
+Third Quarter 2022 Operational and Other Financial Highlights
+• Family daily active people (DAP)  – DAP was 2.93 billion on average for September 2022, an increase 
+of 4% year-over-year.
+• Family monthly active people (MAP) – MAP was 3.71 billion as of September 30, 2022, an increase of 
+4% year-over-year.
+• Facebook daily active users (DAUs)  – DAUs were 1.98 billion  on average for September 2022 , an 
+increase of 3% year-over-year.
+• Facebook monthly active users (MAUs)  – MAUs were 2.96 billion  as of September 30, 2022 , an 
+increase of 2% year-over-year.
+• Ad impressions and price per ad – In the third quarter of 2022, ad impressions delivered across our 
+Family of Apps increased by 17% year-over-year and the average price per ad decreased by 18% year-
+over-year. 
+• Revenue – Revenue was $27.71 billion, a decrease of 4% year-over-year, and an increase of 2% year-
+over-year on a constant currency basis. Had foreign exchange rates remained constant with the third 
+quarter of 2021, revenue would have been $1.79 billion higher.
+• Costs and expenses – Total costs and expenses were $22.05 billion, an increase of 19% year-over-year. 
+This includes an impairment loss of $413 million for certain operating leases as part of our ongoing work 
+to align our office facilities footprint with our anticipated operating needs. 
+• Capital expenditures – Capital expenditures, including principal payments on finance leases, were 
+$9.52 billion for the third quarter of 2022.
+• Share repurchases – We repurchased $6.55 billion of our Class A common stock in the third quarter of 
+2022. As of September 30, 2022, we had $17.78 billion available and authorized for repurchases.
+• Cash, cash equivalents, and marketable securities  – Cash, cash equivalents, and marketable securities 
+were $41.78 billion as of September 30, 2022. 
+• Long-term debt – Long-term debt was $9.92 billion as of September 30, 2022.
+• Headcount – Headcount was 87,314 as of September 30, 2022, an increase of 28% year-over-year.
+1
+
+CFO Outlook Commentary 
+We expect fourth quarter 2022 total revenue to be in the range of $30-32.5 billion. Our guidance assumes foreign 
+currency will be an approximately 7% headwind  to year-over-year total revenue growth in the fourth quarter, 
+based on current exchange rates. 
+To provide some context on the approach we are taking towards setting our 2023 budget, we are making 
+significant changes across the board to operate more efficiently. We are holding some teams flat in terms of 
+headcount, shrinking others and investing headcount growth only in our highest priorities. As a result, we expect 
+headcount at the end of 2023 will be approximately in-line with third quarter 2022 levels.
+We have increased scrutiny on all areas of operating expenses. However, these moves follow a substantial 
+investment cycle so they will take time to play out in terms of our overall expense trajectory. Some steps, like the 
+ongoing rationalization of our office footprint, will lead to incremental costs in the near term. This should set us 
+up well for future years, when we expect to return to higher rates of revenue growth.
+We expect 2022 total expenses to be in the range of $85-87 billion, updated from our prior outlook of $85-88 
+billion. This includes an estimated $900 million in additional charges related to consolidating our office facilities 
+footprint that we expect to record in the fourth quarter of 2022. We anticipate our full-year 2023 total expenses 
+will be in the range of $96-101 billion. This includes an estimated $2 billion in charges related to consolidating 
+our office facilities footprint. 
+We expect the slight majority of our 2023 expense dollar growth to be driven by operating expenses, with the 
+remaining growth coming from cost of revenue. We expect the percentage growth rate of 2023 operating expenses 
+to decelerate meaningfully as we curtail non-headcount related expense growth and keep 2023 headcount roughly 
+flat with current levels. Conversely, our growth in cost of revenue is expected to accelerate, driven by 
+infrastructure-related expenses and, to a lesser extent, Reality Labs hardware costs driven by the launch of our 
+next generation of our consumer Quest headset later next year.
+Reality Labs expenses are included in our total expense guidance. We do anticipate that Reality Labs operating 
+losses in 2023 will  grow significantly year-over-year. Beyond 2023, we expect to pace Reality Labs investments 
+such that we can achieve our goal of growing overall company operating income in the long run.
+We expect 2022 capital expenditures, including principal payments on finance leases, to be in the range of $32-33 
+billion, updated from our prior range of $30-34 billion . For 2023, we expect capital expenditures to be in the 
+range of $34-39 billion , driven by our investments in data centers, servers, and network infrastructure. An 
+increase in AI capacity is driving substantially all of our capital expenditure growth in 2023. 
+Absent any changes to U.S. tax law, we expect our fourth quarter 2022 and our full-year 2023 tax rate to be 
+similar to the third quarter 2022 rate.
+In addition, as previously noted, we continue to monitor developments regarding the viability of transatlantic data 
+transfers and their potential impact on our European operations.
+2
+
+Webcast and Conference Call Information
+Meta will host a conference call to discuss the results at 2 p.m. PT / 5 p.m. ET today. The live webcast of Meta's 
+earnings conference call can be accessed at investor.fb.com, along with the earnings press release, financial tables, 
+and slide presentation. Meta uses the investor.fb.com and about.fb.com/news/ websites as well as Mark 
+Zuckerberg's Facebook Page (facebook.com/zuck) and Instagram account (instagram.com/zuck) as means of 
+disclosing material non-public information and for complying with its disclosure obligations under Regulation 
+FD. 
+Following the call, a replay will be available at the same website. A telephonic replay will be available for one 
+week following the conference call at +1 (800) 633-8284 or +1 (402) 977-9140, conference ID 22020741.
+Transcripts of conference calls with publishing equity research analysts held today will also be posted to 
+the investor.fb.com website.
+About Meta
+Meta builds technologies that help people connect, find communities, and grow businesses. When Facebook 
+launched in 2004, it changed the way people connect. Apps like Messenger, Instagram, and WhatsApp further 
+empowered billions around the world. Now, Meta is moving beyond 2D screens toward immersive experiences 
+like augmented and virtual reality to help build the next evolution in social technology.
+Contacts
+Investors: 
+Deborah Crawford
+investor@meta.com / investor.fb.com
+Press: 
+Ryan Moore
+press@meta.com / about.fb.com/news/
+3
+
+Forward-Looking Statements
+This press release contains forward-looking statements regarding our future business plans and expectations. 
+These forward-looking statements are only predictions and may differ materially from actual results due to a 
+variety of factors including: the impact of macroeconomic conditions on our business and financial results, 
+including as a result of the ongoing COVID-19 pandemic and geopolitical events; our ability to retain or increase 
+users and engagement levels; our reliance on advertising revenue; our dependency on data signals and mobile 
+operating systems, networks, and standards that we do not control; changes to the content or application of third-
+party policies that impact our advertising practices; risks associated with new products and changes to existing 
+products as well as other new business initiatives, including our metaverse efforts; our emphasis on community 
+growth and engagement and the user experience over short-term financial results; maintaining and enhancing our 
+brand and reputation; our ongoing privacy, safety, security, and content review efforts; competition; risks 
+associated with government actions that could restrict access to our products or impair our ability to sell 
+advertising in certain countries; litigation and government inquiries; privacy, legislative, and regulatory concerns 
+or developments; risks associated with acquisitions; security breaches; and our ability to manage our scale and 
+geographically-dispersed operations. These and other potential risks and uncertainties that could cause actual 
+results to differ from the results predicted are more fully detailed under the caption "Risk Factors" in our 
+Quarterly Report on Form 10-Q filed with the SEC on July 28, 2022, which is available on our Investor Relations 
+website at investor.fb.com and on the SEC website at www.sec.gov. Additional information will also be set forth 
+in our Quarterly Report on Form 10-Q for the quarter ended September 30, 2022. In addition, please note that the 
+date of this press release is October 26, 2022, and any forward-looking statements contained herein are based on 
+assumptions that we believe to be reasonable as of this date. We undertake no obligation to update these 
+statements as a result of new information or future events.
+Non-GAAP Financial Measures 
+To supplement our condensed consolidated financial statements, which are prepared and presented in accordance 
+with generally accepted accounting principles in the United States (GAAP), we use the following non-GAAP 
+financial measures: revenue excluding foreign exchange effect, advertising revenue excluding foreign exchange 
+effect, and free cash flow. The presentation of these financial measures is not intended to be considered in 
+isolation or as a substitute for, or superior to, financial information prepared and presented in accordance with 
+GAAP. Investors are cautioned that there are material limitations associated with the use of non-GAAP financial 
+measures as an analytical tool. In addition, these measures may be different from non-GAAP financial measures 
+used by other companies, limiting their usefulness for comparison purposes. We compensate for these limitations 
+by providing specific information regarding the GAAP amounts excluded from these non-GAAP financial 
+measures.
+We believe these non-GAAP financial measures provide investors with useful supplemental information about the 
+financial performance of our business, enable comparison of financial results between periods where certain items 
+may vary independent of business performance, and allow for greater transparency with respect to key metrics 
+used by management in operating our business. 
+We exclude the following items from our non-GAAP financial measures: 
+Foreign exchange effect on revenue . We translated revenue for the three and nine months  ended September 30, 
+2022 using the prior year's monthly exchange rates for our settlement or billing currencies other than the U.S. 
+dollar, which we believe is a useful metric that facilitates comparison to our historical performance.
+Purchases of property and equipment; Principal payments on finance leases.  We subtract both purchases of 
+property and equipment, net of proceeds and principal payments on finance leases in our calculation of free cash 
+flow because we believe that these two items collectively represent the amount of property and equipment we 
+need to procure to support our business, regardless of whether we procure such property or equipment with a 
+finance lease. We believe that this methodology can provide useful supplemental information to help investors 
+better understand underlying trends in our business. Free cash flow is not intended to represent our residual cash 
+flow available for discretionary expenditures. 
+For more information on our non-GAAP financial measures and a reconciliation of GAAP to non-GAAP 
+measures, please see the "Reconciliation of GAAP to Non-GAAP Results" table in this press release.
+4
+
+META PLATFORMS, INC.
+CONDENSED CONSOLIDATED STATEMENTS OF INCOME
+(In millions, except per share amounts)
+(Unaudited)
+Three Months Ended September 30, Nine Months Ended September 30,
+2022 2021 2022 2021
+Revenue $ 27,714 $ 29,010 $ 84,444 $ 84,258 
+Costs and expenses:  
+Cost of revenue  5,716  5,771  16,913  16,301 
+Research and development  9,170  6,316  25,567  17,609 
+Marketing and sales  3,780  3,554  10,688  9,656 
+General and administrative  3,384  2,946  8,731  6,524 
+Total costs and expenses  22,050  18,587  61,899  50,090 
+Income from operations  5,664  10,423  22,545  34,168 
+Interest and other income (expense), net  (88)  142  125  413 
+Income before provision for income taxes  5,576  10,565  22,670  34,581 
+Provision for income taxes  1,181  1,371  4,123  5,496 
+Net income $ 4,395 $ 9,194 $ 18,547 $ 29,085 
+Earnings per share attributable to Class A and Class 
+B common stockholders:
+Basic $ 1.64 $ 3.27 $ 6.86 $ 10.27 
+Diluted $ 1.64 $ 3.22 $ 6.82 $ 10.11 
+Weighted-average shares used to compute earnings 
+per share attributable to Class A and Class B 
+common stockholders:
+Basic  2,682  2,814  2,703  2,832 
+Diluted  2,687  2,859  2,718  2,876 
+Share-based compensation expense included in costs 
+and expenses:
+Cost of revenue $ 209 $ 147 $ 582 $ 428 
+Research and development  2,447  1,849  6,995  5,224 
+Marketing and sales  260  218  766  631 
+General and administrative  218  165  641  474 
+Total share-based compensation expense $ 3,134 $ 2,379 $ 8,984 $ 6,757 
+5
+
+META PLATFORMS, INC.
+CONDENSED CONSOLIDATED BALANCE SHEETS
+(In millions)
+(Unaudited)
+September 30, 2022 December 31, 2021
+Assets
+Current assets:
+Cash and cash equivalents $ 14,308 $ 16,601 
+Marketable securities  27,468  31,397 
+Accounts receivable, net  11,227  14,039 
+Prepaid expenses and other current assets  5,312  4,629 
+Total current assets  58,315  66,666 
+Non-marketable equity securities  6,528  6,775 
+Property and equipment, net  73,738  57,809 
+Operating lease right-of-use assets  13,641  12,155 
+Intangible assets, net  875  634 
+Goodwill  20,268  19,197 
+Other assets  5,529  2,751 
+Total assets $ 178,894 $ 165,987 
+Liabilities and stockholders' equity
+Current liabilities:
+Accounts payable $ 3,871 $ 4,083 
+Partners payable  975  1,052 
+Operating lease liabilities, current  1,291  1,127 
+Accrued expenses and other current liabilities  16,036  14,312 
+Deferred revenue and deposits  514  561 
+Total current liabilities  22,687  21,135 
+Operating lease liabilities, non-current  14,687  12,746 
+Long-term debt  9,922  — 
+Other liabilities  7,504  7,227 
+Total liabilities  54,800  41,108 
+Commitments and contingencies
+Stockholders' equity:
+Common stock and additional paid-in capital  62,092  55,811 
+Accumulated other comprehensive loss  (5,054)  (693) 
+Retained earnings  67,056  69,761 
+Total stockholders' equity  124,094  124,879 
+Total liabilities and stockholders' equity $ 178,894 $ 165,987 
+6
+
+META PLATFORMS, INC.
+CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS
+(In millions)
+(Unaudited)
+Three Months Ended 
+September 30,
+Nine Months Ended 
+September 30,
+2022 2021 2022 2021
+Cash flows from operating activities
+Net income $ 4,395 $ 9,194 $ 18,547 $ 29,085 
+Adjustments to reconcile net income to net cash provided by 
+operating activities:
+Depreciation and amortization  2,175  1,995  6,310  5,953 
+Share-based compensation  3,134  2,379  8,984  6,757 
+Deferred income taxes  (1,097)  (786)  (2,113)  (139) 
+Impairment related to leases and leasehold improvements  413  —  413  — 
+Other  104  (73)  71  (161) 
+Changes in assets and liabilities:
+Accounts receivable  (105)  (555)  1,930  (1,072) 
+Prepaid expenses and other current assets  (830)  (253)  (693)  (2,566) 
+Other assets  (27)  11  (160)  (184) 
+Accounts payable  (22)  694  (666)  560 
+Partners payable  20  (30)  (12)  (163) 
+Accrued expenses and other current liabilities  998  1,094  2,942  895 
+Deferred revenue and deposits  (7)  78  (35)  87 
+Other liabilities  540  343  446  527 
+Net cash provided by operating activities  9,691  14,091  35,964  39,579 
+Cash flows from investing activities
+Purchases of property and equipment  (9,375)  (4,345)  (22,388)  (13,290) 
+Proceeds relating to property and equipment  20  32  190  92 
+Purchases of marketable debt securities  (2,597)  (7,786)  (8,885)  (24,314) 
+Sales of marketable debt securities  1,620  8,993  9,333  15,331 
+Maturities of marketable debt securities  649  2,991  1,562  9,318 
+Acquisitions of businesses and intangible assets  (34)  (71)  (1,250)  (330) 
+Other investing activities  16  (144)  (1)  (206) 
+Net cash used in investing activities  (9,701)  (330)  (21,439)  (13,399) 
+Cash flows from financing activities
+Taxes paid related to net share settlement of equity awards  (1,011)  (1,576)  (2,938)  (4,007) 
+Repurchases of Class A common stock  (6,354)  (13,457)  (21,093)  (24,476) 
+Proceeds from issuance of long-term debt, net  9,921  —  9,921  — 
+Principal payments on finance leases  (163)  (231)  (615)  (505) 
+Net change in overdraft in cash pooling entities  (191)  11  (250)  15 
+Other financing activities  (55)  —  (101)  (13) 
+Net cash provided by (used in) financing activities  2,147  (15,253)  (15,076)  (28,986) 
+Effect of exchange rate changes on cash, cash equivalents, and 
+restricted cash  (364)  (215)  (1,063)  (344) 
+Net increase (decrease) in cash, cash equivalents, and restricted cash  1,773  (1,707)  (1,614)  (3,150) 
+Cash, cash equivalents, and restricted cash at beginning of the period  13,478  16,511  16,865  17,954 
+Cash, cash equivalents, and restricted cash at end of the period $ 15,251 $ 14,804 $ 15,251 $ 14,804 
+Reconciliation of cash, cash equivalents, and restricted cash to 
+the condensed consolidated balance sheets
+Cash and cash equivalents $ 14,308 $ 14,496 $ 14,308 $ 14,496 
+Restricted cash, included in prepaid expenses and other current 
+assets  232  195  232  195 
+Restricted cash, included in other assets  711  113  711  113 
+Total cash, cash equivalents, and restricted cash $ 15,251 $ 14,804 $ 15,251 $ 14,804 
+7
+
+META PLATFORMS, INC.
+CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS
+(In millions)
+(Unaudited)
+Three Months Ended 
+September 30,
+Nine Months Ended 
+September 30,
+2022 2021 2022 2021
+Supplemental cash flow data
+Cash paid for income taxes, net $ 2,006 $ 1,625 $ 4,647 $ 7,919 
+Non-cash investing and financing activities:
+Property and equipment in accounts payable and accrued 
+expenses and other current liabilities $ 4,130 $ 2,635 $ 4,130 $ 2,635 
+Acquisition of businesses in accrued expenses and other current 
+liabilities and other liabilities $ 294 $ 73 $ 294 $ 73 
+Other current assets through financing arrangement in accrued 
+expenses and other current liabilities $ 18 $ 491 $ 18 $ 491 
+Repurchases of Class A common stock in accrued expenses and 
+other current liabilities $ 265 $ 1,223 $ 265 $ 1,223 
+8
+
+Segment Results
+We report our financial results for our two reportable segments: Family of Apps (FoA) and Reality Labs (RL). 
+FoA includes Facebook, Instagram, Messenger, WhatsApp, and other services. RL includes augmented and 
+virtual reality related consumer hardware, software, and content.
+The following table presents our segment information of revenue and income (loss) from operations. For 
+comparative purposes, amounts in the prior period have been recast:
+Segment Information
+(In millions)
+(Unaudited)
+Three Months Ended 
+September 30,
+Nine Months Ended 
+September 30,
+2022 2021 2022 2021
+Revenue:
+Advertising $ 27,237 $ 28,276 $ 82,387 $ 82,294 
+Other revenue  192  176  624  567 
+Family of Apps  27,429  28,452  83,011  82,861 
+Reality Labs  285  558  1,433  1,397 
+Total revenue $ 27,714 $ 29,010 $ 84,444 $ 84,258 
+Income (loss) from operations:
+Family of Apps $ 9,336 $ 13,054 $ 31,983 $ 41,058 
+Reality Labs  (3,672)  (2,631)  (9,438)  (6,890) 
+Total income from operations $ 5,664 $ 10,423 $ 22,545 $ 34,168 
+9
+
+Reconciliation of GAAP to Non-GAAP Results
+(In millions, except percentages)
+(Unaudited)
+Three Months Ended 
+September 30,
+Nine Months Ended 
+September 30,
+2022 2021 2022 2021
+GAAP revenue $ 27,714 $ 29,010 $ 84,444 $ 84,258 
+Foreign exchange effect on 2022 revenue using 2021 rates  1,789  3,944 
+Revenue excluding foreign exchange effect $ 29,503 $ 88,388 
+GAAP revenue year-over-year change %  (4) %  — %
+Revenue excluding foreign exchange effect year-over-year change %  2%  5% 
+GAAP advertising revenue $ 27,237 $ 28,276 $ 82,387 $ 82,294 
+Foreign exchange effect on 2022 advertising revenue using 2021 
+rates  1,776  3,919 
+Advertising revenue excluding foreign exchange effect $ 29,013 $ 86,306 
+GAAP advertising revenue year-over-year change %  (4) %  — %
+Advertising revenue excluding foreign exchange effect year-over-
+year change %  3%  5% 
+Net cash provided by operating activities $ 9,691 $ 14,091 $ 35,964 $ 39,579 
+Purchases of property and equipment, net  (9,355)  (4,313)  (22,198)  (13,198) 
+Principal payments on finance leases  (163)  (231)  (615)  (505) 
+Free cash flow $ 173 $ 9,547 $ 13,151 $ 25,876 
+10

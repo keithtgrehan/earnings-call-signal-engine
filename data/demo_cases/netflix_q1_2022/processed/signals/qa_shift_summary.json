@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "status": "ok",
+  "prepared_remarks_vs_q_and_a": {
+    "label": "weaker",
+    "delta": -0.2514,
+    "prepared_mean": 0.424,
+    "q_and_a_mean": 0.1726
+  },
+  "analyst_skepticism": {
+    "level": "low",
+    "score": 0
+  },
+  "management_answers_vs_prepared_uncertainty": {
+    "label": "mixed",
+    "delta": -1,
+    "prepared_score": 7,
+    "q_and_a_answer_score": 6
+  },
+  "early_vs_late_q_and_a": {
+    "label": "stronger",
+    "delta": 0.1393
+  },
+  "strongest_evidence": {
+    "skepticism": [],
+    "answer_uncertainty": [
+      {
+        "matched_phrase": "modal uncertainty",
+        "strength": 1,
+        "text": "As a result, certain divisions of S&P Global may have information that is not available to other S&P Global divisions."
+      },
+      {
+        "matched_phrase": "modal uncertainty",
+        "strength": 1,
+        "text": "Look, I think that when people look to join Netflix, they join Netflix because they believe in this long- term vision of the move into away from the near television and kind of transactional movie business into a business that could be much more satisfying for consumers and deliver on the culture and deliver big audiences and really move the market."
+      }
+    ],
+    "qa_pairs": [
+      {
+        "qa_pair_id": 9,
+        "question_text": "Okay. So on advertising, I think, certainly, Reed, preserving the simplicity of the product has been very important. But I think you've also kind of talked a little bit about, at least in the past, perhaps not seeing the incremental profit potential as well in terms of the lower-priced ad-supported tier. Has that view changed? And I guess, if you were to pursue an ad-based model on the lower tier, how long would it take you to get there and kind of roll that out? And what are the key things you need to do along the way?",
+        "answer_text": "Yes. It's not a short-term fix because once you start offering a lower-priced plan with ads as an option, some consumers take it. And we've got a big installed base that probably are quite happy where they are. So think of it as it would phase in over a couple of years in terms of being material volume. And in terms of the profit potential, definitely, the online ad market has advanced. And now, you don't have to incorporate all the information about people that you used to. So we can be a straight publisher and have other people do all of the fancy ad-matching and integrate all the data about people. So we can stay out of that and really be focused on our members creating that great experience and then again, getting monetized in a first-class way by a range of different companies who offer that service.",
+        "answer_minus_question": 1.991
+      },
+      {
+        "qa_pair_id": 16,
+        "question_text": "And what are the benchmarks or milestones perhaps that you need to see around gaming to lean in even more here in terms of content budget? And are there any metrics or numbers that you can provide so far?",
+        "answer_text": "I can certainly provide the framework that we're thinking about it. And it's a top-level priority for us, and we're very focused on it. And so bottom line, we think about games and delivering value to members and reflecting that back into the business through both acquisitions. So we're aiming to have titles that land, that create conversation and enthusiasm and buzz, that drive more people to sign up for the service and then obviously in retention as well. Engagement is that primary leading indicator that we have for retention and sort of value delivered, so we're looking at both of those very, very carefully. And similar to how we think about it on the film and series side, obviously, we want to make sure that the investment that we're making in any given title is sort of calibrated to that business value that we're getting out of it.",
+        "answer_minus_question": 1.9644
+      }
+    ]
+  },
+  "counts": {
+    "prepared_segments": 11,
+    "q_and_a_segments": 85,
+    "analyst_questions": 20,
+    "management_answers": 65
+  },
+  "notes": [
+    "Prepared remarks vs Q&A is a simple signed-score mean comparison over deterministic transcript chunks.",
+    "Management answer uncertainty compares deterministic hedging totals in prepared remarks versus Q&A answers."
+  ]
+}

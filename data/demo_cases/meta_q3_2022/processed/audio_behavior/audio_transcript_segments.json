@@ -1,0 +1,3761 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "meta_q3_2022",
+  "audio_path": "raw/audio/meta_q3_2022_audio.wav",
+  "audio_md5": "7f8a2467f8fc9fe68c8645bfd4bbbba0",
+  "transcription_model": "tiny",
+  "device": "cpu",
+  "compute_type": "int8",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 1.0,
+      "text": "Thank you."
+    },
+    {
+      "start": 60.0,
+      "end": 81.64,
+      "text": "Good afternoon, my name is Martin, and I will be your conference operator today."
+    },
+    {
+      "start": 81.64,
+      "end": 85.8,
+      "text": "At this time, I would like to welcome everyone to the Metacert Quarter earnings conference"
+    },
+    {
+      "start": 85.8,
+      "end": 86.8,
+      "text": "call."
+    },
+    {
+      "start": 86.8,
+      "end": 90.52,
+      "text": "All lines have been placed on mute to prevent any background noise."
+    },
+    {
+      "start": 90.52,
+      "end": 94.03999999999999,
+      "text": "After the speakers' remarks, there will be a question and answer session."
+    },
+    {
+      "start": 94.03999999999999,
+      "end": 97.44,
+      "text": "If you would like to ask a question, please press the one, then the number four in your"
+    },
+    {
+      "start": 97.44,
+      "end": 99.39999999999999,
+      "text": "telephone keypad."
+    },
+    {
+      "start": 99.39999999999999,
+      "end": 100.88,
+      "text": "This call will be recorded."
+    },
+    {
+      "start": 100.88,
+      "end": 102.2,
+      "text": "Thank you very much."
+    },
+    {
+      "start": 102.2,
+      "end": 107.03999999999999,
+      "text": "Mr. Debra Crawford, Metacert Vice President of Investor Relations, you may begin."
+    },
+    {
+      "start": 107.03999999999999,
+      "end": 108.03999999999999,
+      "text": "Thank you."
+    },
+    {
+      "start": 108.03999999999999,
+      "end": 113.72,
+      "text": "Good afternoon, and welcome to Metacraft Forms 3rd Quarter 2022 earnings conference call."
+    },
+    {
+      "start": 113.72,
+      "end": 119.64,
+      "text": "Joining me today to discuss our results, our Mark Zuckerberg CEO and Dave Winner, CFO."
+    },
+    {
+      "start": 119.64,
+      "end": 125.6,
+      "text": "Susan Lee, VP of Finance, and our incoming CFO, and Marnelevine Chief Business Officer,"
+    },
+    {
+      "start": 125.6,
+      "end": 129.56,
+      "text": "are also on the call and will join Mark in Dave for the Q&A portion."
+    },
+    {
+      "start": 129.56,
+      "end": 133.07999999999998,
+      "text": "Before we get started, I would like to take this opportunity to remind you that our"
+    },
+    {
+      "start": 133.07999999999998,
+      "end": 136.48,
+      "text": "remarks today will include forward-looking statements."
+    },
+    {
+      "start": 136.48,
+      "end": 141.72,
+      "text": "Actual results may differ materially from those contemplated by these forward-looking statements."
+    },
+    {
+      "start": 141.72,
+      "end": 145.72,
+      "text": "Actors that could cause these results to differ materially are set forth in today's"
+    },
+    {
+      "start": 145.72,
+      "end": 150.72,
+      "text": "press release, and in our quarterly report on Form 10Q filed with the SEC."
+    },
+    {
+      "start": 150.72,
+      "end": 154.12,
+      "text": "Any forward-looking statements that we make on this call are based on assumptions as of"
+    },
+    {
+      "start": 154.12,
+      "end": 159.24,
+      "text": "today, and we undertake no obligation to update these statements as a result of new information"
+    },
+    {
+      "start": 159.24,
+      "end": 161.07999999999998,
+      "text": "or future events."
+    },
+    {
+      "start": 161.07999999999998,
+      "end": 164.72,
+      "text": "During this call, we may present both gap and non-gap financial measures."
+    },
+    {
+      "start": 164.72,
+      "end": 169.6,
+      "text": "A reconciliation of gap to non-gap measures is included in today's earnings press release."
+    },
+    {
+      "start": 169.6,
+      "end": 173.76,
+      "text": "The press release and in the accompanying investor presentation are available on our website"
+    },
+    {
+      "start": 173.76,
+      "end": 179.4,
+      "text": "at investor.fb.com, and now I'd like to turn the call over to Mark."
+    },
+    {
+      "start": 179.4,
+      "end": 181.76,
+      "text": "Hey everyone, thanks for joining today."
+    },
+    {
+      "start": 181.76,
+      "end": 184.64,
+      "text": "Our community continued to grow this quarter."
+    },
+    {
+      "start": 184.64,
+      "end": 190.6,
+      "text": "We now reach more than 3.7 billion people, monthly, across our family of apps."
+    },
+    {
+      "start": 190.6,
+      "end": 195.35999999999999,
+      "text": "And while we continue to navigate some challenging dynamics, a volatile macroeconomy, increasing"
+    },
+    {
+      "start": 195.36,
+      "end": 201.36,
+      "text": "competition, add signal loss, and growing costs from our long-term investments, I have"
+    },
+    {
+      "start": 201.36,
+      "end": 206.12,
+      "text": "to say that our product trends look better from what I see than some of the commentary"
+    },
+    {
+      "start": 206.12,
+      "end": 207.12,
+      "text": "I've seen suggests."
+    },
+    {
+      "start": 207.12,
+      "end": 212.20000000000002,
+      "text": "There's been a bunch of speculation about engagement on our apps, and what we're seeing"
+    },
+    {
+      "start": 212.20000000000002,
+      "end": 213.52,
+      "text": "is more positive."
+    },
+    {
+      "start": 213.52,
+      "end": 218.20000000000002,
+      "text": "On Facebook specifically, the number of people using the service each day is the highest"
+    },
+    {
+      "start": 218.20000000000002,
+      "end": 223.20000000000002,
+      "text": "it's ever been, nearly 2 billion, and engagement trends are strong."
+    },
+    {
+      "start": 223.20000000000002,
+      "end": 229.24,
+      "text": "Instagram has more than 2 billion monthly active, what's app has more than 2 billion daily"
+    },
+    {
+      "start": 229.24,
+      "end": 236.12,
+      "text": "active, also with the exciting trend that North America is now our fastest growing region."
+    },
+    {
+      "start": 236.12,
+      "end": 241.48000000000002,
+      "text": "Across the family, some apps may be saturated in some countries or some demographics, but"
+    },
+    {
+      "start": 241.48000000000002,
+      "end": 245.00000000000003,
+      "text": "overall our apps continue to grow from a large base."
+    },
+    {
+      "start": 245.00000000000003,
+      "end": 250.44000000000003,
+      "text": "We're also seeing engagement grow, especially strong growth in reels, and I'll share"
+    },
+    {
+      "start": 250.44,
+      "end": 254.07999999999998,
+      "text": "more details about that when I discuss our product priorities shortly."
+    },
+    {
+      "start": 254.07999999999998,
+      "end": 258.84,
+      "text": "In terms of our business, a total revenue grew slightly this quarter on a constant currency"
+    },
+    {
+      "start": 258.84,
+      "end": 259.84,
+      "text": "basis."
+    },
+    {
+      "start": 259.84,
+      "end": 264.04,
+      "text": "We're still behind where I think we should be, but we believe that we will return"
+    },
+    {
+      "start": 264.04,
+      "end": 267.04,
+      "text": "to healthier revenue growth trends next year."
+    },
+    {
+      "start": 267.04,
+      "end": 271.44,
+      "text": "That said, it's not clear that the economy has stabilized yet, so we're planning our"
+    },
+    {
+      "start": 271.44,
+      "end": 274.04,
+      "text": "budget somewhat more conservatively."
+    },
+    {
+      "start": 274.04,
+      "end": 279.48,
+      "text": "In 2023, we're going to focus our investments on a small number of high priority growth"
+    },
+    {
+      "start": 279.48,
+      "end": 280.48,
+      "text": "areas."
+    },
+    {
+      "start": 280.48,
+      "end": 284.88,
+      "text": "That means that some teams will grow meaningfully, but most other teams will stay flat"
+    },
+    {
+      "start": 284.88,
+      "end": 286.76000000000005,
+      "text": "or shrink over the next year."
+    },
+    {
+      "start": 286.76000000000005,
+      "end": 294.12,
+      "text": "In aggregate, we expect N-23 as either roughly the same size or even a slightly smaller"
+    },
+    {
+      "start": 294.12,
+      "end": 296.76,
+      "text": "organization than we are today."
+    },
+    {
+      "start": 296.76,
+      "end": 301.36,
+      "text": "Three of the primary areas we're going to focus on are our AI discovery engine that's"
+    },
+    {
+      "start": 301.36,
+      "end": 306.84000000000003,
+      "text": "powering reels and other recommendation experiences, our ads and business messaging platforms"
+    },
+    {
+      "start": 306.84000000000003,
+      "end": 309.84000000000003,
+      "text": "and our future vision for the metaverse."
+    },
+    {
+      "start": 309.84000000000003,
+      "end": 314.28000000000003,
+      "text": "The internal indications I've seen suggest we're doing leading work and are on the right"
+    },
+    {
+      "start": 314.28000000000003,
+      "end": 315.52000000000004,
+      "text": "track with these investments."
+    },
+    {
+      "start": 315.52000000000004,
+      "end": 319.92,
+      "text": "So I think that we should keep investing heavily in these areas."
+    },
+    {
+      "start": 319.92,
+      "end": 326.0,
+      "text": "As I've shared before, our goal is to grow family of apps operating income such that even"
+    },
+    {
+      "start": 326.0,
+      "end": 332.92,
+      "text": "with our AI infrastructure and reality labs investments, we can still meaningfully grow"
+    },
+    {
+      "start": 332.92,
+      "end": 337.04,
+      "text": "our overall company operating income in the long term."
+    },
+    {
+      "start": 337.04,
+      "end": 342.8,
+      "text": "Our current surge in CapEx is largely due to building out our AI infrastructure and we would"
+    },
+    {
+      "start": 342.8,
+      "end": 347.16,
+      "text": "expect CapEx to come down as a percent of revenue over the long term."
+    },
+    {
+      "start": 347.16,
+      "end": 354.04,
+      "text": "We expect reality labs expenses will increase meaningfully again in 2023 with the biggest"
+    },
+    {
+      "start": 354.04,
+      "end": 359.76000000000005,
+      "text": "drivers of that being the launch of the next generation of our consumer quest headset and"
+    },
+    {
+      "start": 359.76000000000005,
+      "end": 365.04,
+      "text": "hiring that has been done in 2022 but for which we're going to be paying the first"
+    },
+    {
+      "start": 365.04,
+      "end": 370.20000000000005,
+      "text": "full year of salaries next year."
+    },
+    {
+      "start": 370.20000000000005,
+      "end": 376.20000000000005,
+      "text": "More broadly, beyond 2023, we expect to pace reality labs investments to ensure that we"
+    },
+    {
+      "start": 376.20000000000005,
+      "end": 381.12,
+      "text": "can achieve our goal of growing overall company operating income."
+    },
+    {
+      "start": 381.12,
+      "end": 385.12,
+      "text": "Our capital allocation philosophy over the long term is to allocate a portion of the"
+    },
+    {
+      "start": 385.12,
+      "end": 390.76,
+      "text": "profits generated from the family of apps towards these future focused areas while enabling"
+    },
+    {
+      "start": 390.76,
+      "end": 394.32,
+      "text": "greater return of capital to shareholders."
+    },
+    {
+      "start": 394.32,
+      "end": 397.8,
+      "text": "All right, now I'd like to share some updates on the progress that we're seeing in these"
+    },
+    {
+      "start": 397.8,
+      "end": 399.6,
+      "text": "product areas."
+    },
+    {
+      "start": 399.6,
+      "end": 405.36,
+      "text": "Our AI discovery engine is playing an increasingly important role across our product, especially"
+    },
+    {
+      "start": 405.36,
+      "end": 410.2,
+      "text": "as advances enable us to recommend more interesting content from across our networks"
+    },
+    {
+      "start": 410.28,
+      "end": 411.56,
+      "text": "and feeds."
+    },
+    {
+      "start": 411.56,
+      "end": 415.71999999999997,
+      "text": "They used to be primarily driven just by the people in accounts you follow."
+    },
+    {
+      "start": 415.71999999999997,
+      "end": 420.56,
+      "text": "This of course includes Reals which continues to grow quickly across our apps, both in"
+    },
+    {
+      "start": 420.56,
+      "end": 422.56,
+      "text": "production and consumption."
+    },
+    {
+      "start": 422.56,
+      "end": 429.56,
+      "text": "There are now more than 140 billion Reals plays across Facebook and Instagram each day that's"
+    },
+    {
+      "start": 429.56,
+      "end": 432.91999999999996,
+      "text": "a 50% increase from six months ago."
+    },
+    {
+      "start": 432.91999999999996,
+      "end": 436.88,
+      "text": "Reals is incremental to time spent on our apps."
+    },
+    {
+      "start": 436.88,
+      "end": 441.28,
+      "text": "The trends look good here, and we believe that we're gaining time spent share on competitors"
+    },
+    {
+      "start": 441.28,
+      "end": 443.12,
+      "text": "like TikTok."
+    },
+    {
+      "start": 443.12,
+      "end": 447.68,
+      "text": "Over time, I expect a few things to set our products apart here."
+    },
+    {
+      "start": 447.68,
+      "end": 452.12,
+      "text": "First is that our discovery engine work allows us to recommend all types of content beyond"
+    },
+    {
+      "start": 452.12,
+      "end": 457.52,
+      "text": "Reals as well, including photos, text, links, communities, short and long form videos"
+    },
+    {
+      "start": 457.52,
+      "end": 459.12,
+      "text": "and more."
+    },
+    {
+      "start": 459.12,
+      "end": 464.96,
+      "text": "Second is that we can mix this content along posts from alongside post-mere family and"
+    },
+    {
+      "start": 464.96000000000004,
+      "end": 468.8,
+      "text": "friends, which can't be generated by AI alone."
+    },
+    {
+      "start": 468.8,
+      "end": 473.64000000000004,
+      "text": "Third is more social interactions moved to messaging, we're developing a flywheel between"
+    },
+    {
+      "start": 473.64000000000004,
+      "end": 477.84000000000003,
+      "text": "discovery and messaging that are going to make these apps stronger."
+    },
+    {
+      "start": 477.84000000000003,
+      "end": 484.00000000000006,
+      "text": "On Instagram alone, people already re-share Reals a 1 billion times a day through"
+    },
+    {
+      "start": 484.00000000000006,
+      "end": 485.68000000000006,
+      "text": "D&s."
+    },
+    {
+      "start": 485.68000000000006,
+      "end": 490.32000000000005,
+      "text": "Moving to monetization, I've discussed in the past how the growth of short-form video"
+    },
+    {
+      "start": 490.32000000000005,
+      "end": 494.92,
+      "text": "creates near-term challenges since Reals doesn't monetize the rate of feed"
+    },
+    {
+      "start": 494.96000000000004,
+      "end": 496.88,
+      "text": "or stories yet."
+    },
+    {
+      "start": 496.88,
+      "end": 502.16,
+      "text": "That means that as Reals grows, we're displacing revenue from higher monetizing surfaces."
+    },
+    {
+      "start": 502.16,
+      "end": 507.40000000000003,
+      "text": "I think this is clearly the right thing to do so we Reals can grow with the demand that"
+    },
+    {
+      "start": 507.40000000000003,
+      "end": 512.9200000000001,
+      "text": "we're saying, but closing this gap is also a high priority."
+    },
+    {
+      "start": 512.9200000000001,
+      "end": 518.6,
+      "text": "Even with the progress we've made, we're still choosing to take a more than $500 million"
+    },
+    {
+      "start": 518.6,
+      "end": 523.84,
+      "text": "quarterly revenue headwind with this shift, but we expect to get to a more neutral"
+    },
+    {
+      "start": 523.84,
+      "end": 529.44,
+      "text": "place over the next 10 or 12 to 18 months."
+    },
+    {
+      "start": 529.44,
+      "end": 533.64,
+      "text": "I mentioned last quarter that Instagram Reals had crossed a $1 billion annual revenue"
+    },
+    {
+      "start": 533.64,
+      "end": 534.64,
+      "text": "run rate."
+    },
+    {
+      "start": 534.64,
+      "end": 539.6,
+      "text": "We continue scaling monetization across both Instagram and Facebook and the combined"
+    },
+    {
+      "start": 539.6,
+      "end": 545.48,
+      "text": "to run rate across these apps is now $3 billion."
+    },
+    {
+      "start": 545.48,
+      "end": 551.08,
+      "text": "Under Reals, messaging is another major monetization opportunity, billions of people"
+    },
+    {
+      "start": 551.08,
+      "end": 555.32,
+      "text": "and millions of businesses use WhatsApp and Messenger every day, and we're confident that"
+    },
+    {
+      "start": 555.32,
+      "end": 559.44,
+      "text": "we can connect them in ways that create valuable experiences."
+    },
+    {
+      "start": 559.44,
+      "end": 564.84,
+      "text": "We started with Click to Messaging Ads, which left businesses run ads on Facebook and Instagram"
+    },
+    {
+      "start": 564.84,
+      "end": 569.4,
+      "text": "that started to run on Messenger, WhatsApp, or Instagram Direct, so they can communicate"
+    },
+    {
+      "start": 569.4,
+      "end": 571.32,
+      "text": "with customers directly."
+    },
+    {
+      "start": 571.32,
+      "end": 577.6800000000001,
+      "text": "This is one of our fastest growing ads products with a $9 billion annual run rate."
+    },
+    {
+      "start": 577.6800000000001,
+      "end": 582.6800000000001,
+      "text": "In this revenue is mostly on Click to Messenger today, since we started their first, but"
+    },
+    {
+      "start": 582.6800000000001,
+      "end": 589.24,
+      "text": "Click to WhatsApp just passed a $1.5 billion run rate and growing more than 80% year"
+    },
+    {
+      "start": 589.24,
+      "end": 590.96,
+      "text": "over year."
+    },
+    {
+      "start": 590.96,
+      "end": 595.6400000000001,
+      "text": "Paid messaging is another opportunity that we're starting to tap into, and it continues"
+    },
+    {
+      "start": 595.6400000000001,
+      "end": 598.96,
+      "text": "to grow quickly but from a smaller base."
+    },
+    {
+      "start": 598.96,
+      "end": 605.48,
+      "text": "We're putting the foundation in place now to scale this with key partnerships like Salesforce,"
+    },
+    {
+      "start": 605.48,
+      "end": 609.44,
+      "text": "which lets all businesses on their platform use WhatsApp as the main messaging service"
+    },
+    {
+      "start": 609.44,
+      "end": 615.2800000000001,
+      "text": "to answer customer questions, send updates, and sell directly in chat, and we also launched"
+    },
+    {
+      "start": 615.2800000000001,
+      "end": 620.64,
+      "text": "a Geomart on WhatsApp and India, and it's our first end-end shopping experience that shows"
+    },
+    {
+      "start": 620.64,
+      "end": 624.6800000000001,
+      "text": "the potential for chat-based commerce through messaging."
+    },
+    {
+      "start": 624.9200000000001,
+      "end": 629.8000000000001,
+      "text": "Between Click to Messaging and Paid Messaging, I'm confident that this is going to be"
+    },
+    {
+      "start": 629.8000000000001,
+      "end": 631.9200000000001,
+      "text": "a big opportunity."
+    },
+    {
+      "start": 631.9200000000001,
+      "end": 635.48,
+      "text": "The last area that I wanted to discuss today is the Metaverse."
+    },
+    {
+      "start": 635.48,
+      "end": 640.6400000000001,
+      "text": "We just had our Connect Conference and an announced Quest Pro, which we just started"
+    },
+    {
+      "start": 640.6400000000001,
+      "end": 641.6400000000001,
+      "text": "shipping."
+    },
+    {
+      "start": 641.6400000000001,
+      "end": 647.72,
+      "text": "It's our new high-end VR headset that delivers high-resolution mixed reality so you can blend"
+    },
+    {
+      "start": 647.72,
+      "end": 652.72,
+      "text": "to virtual objects into the physical environment around you, pretty amazing when you see"
+    },
+    {
+      "start": 652.72,
+      "end": 658.52,
+      "text": "it, and it's going to enable all kinds of new experiences and socializing, gaming,"
+    },
+    {
+      "start": 658.52,
+      "end": 663.6800000000001,
+      "text": "fitness, and work, and I'm really looking forward to seeing what people build with this"
+    },
+    {
+      "start": 663.6800000000001,
+      "end": 665.64,
+      "text": "new capability."
+    },
+    {
+      "start": 665.64,
+      "end": 669.24,
+      "text": "Work in the Metaverse is a big theme for Quest Pro."
+    },
+    {
+      "start": 669.24,
+      "end": 675.1600000000001,
+      "text": "There are 200 million people who get new PCs every year, mostly for work, and our goal"
+    },
+    {
+      "start": 675.1600000000001,
+      "end": 680.32,
+      "text": "for the Quest Pro line over the next several years is to enable more and more of these people"
+    },
+    {
+      "start": 680.32,
+      "end": 684.84,
+      "text": "to get their work done in virtual and mixed reality, eventually even better than they"
+    },
+    {
+      "start": 684.84,
+      "end": 687.0,
+      "text": "could on PCs."
+    },
+    {
+      "start": 687.0,
+      "end": 692.4000000000001,
+      "text": "And to deliver a great work and productivity experience, I'm excited about the partnerships"
+    },
+    {
+      "start": 692.4000000000001,
+      "end": 697.48,
+      "text": "that we announced with Microsoft bringing their suite of productivity and enterprise management"
+    },
+    {
+      "start": 697.48,
+      "end": 703.5200000000001,
+      "text": "services to Quest, Adobe, and Autodesk bringing their creative tools, Zoom bringing their"
+    },
+    {
+      "start": 703.5200000000001,
+      "end": 709.44,
+      "text": "communication platform, that Accenture, Building Solutions for Enterprises, and more."
+    },
+    {
+      "start": 709.44,
+      "end": 714.6400000000001,
+      "text": "There's still a long road ahead to build the next computing platform, but we are clearly"
+    },
+    {
+      "start": 714.6400000000001,
+      "end": 716.4000000000001,
+      "text": "doing leading work here."
+    },
+    {
+      "start": 716.4000000000001,
+      "end": 721.48,
+      "text": "This is a massive undertaking, and it's often going to take a few versions of each product"
+    },
+    {
+      "start": 721.48,
+      "end": 726.5200000000001,
+      "text": "before they become mainstream, but I think that our work here is going to be of historic"
+    },
+    {
+      "start": 726.5200000000001,
+      "end": 733.36,
+      "text": "importance and create the foundation for an entirely new way that we will interact with each"
+    },
+    {
+      "start": 733.36,
+      "end": 738.1600000000001,
+      "text": "other and blend technology into our lives, as well as the foundation for the long term"
+    },
+    {
+      "start": 738.16,
+      "end": 739.8399999999999,
+      "text": "of our business."
+    },
+    {
+      "start": 739.8399999999999,
+      "end": 745.5799999999999,
+      "text": "So between the AI discovery engine, our ads and business messaging platforms and our future"
+    },
+    {
+      "start": 745.5799999999999,
+      "end": 751.6,
+      "text": "vision for the metaverse, those are three of the areas that we're focused on."
+    },
+    {
+      "start": 751.6,
+      "end": 756.2199999999999,
+      "text": "I believe that the tougher prioritization, discipline, and efficiency that we are driving"
+    },
+    {
+      "start": 756.2199999999999,
+      "end": 761.8,
+      "text": "across the organization will help us navigate the current environment and emerge and even"
+    },
+    {
+      "start": 761.8,
+      "end": 762.8,
+      "text": "stronger company."
+    },
+    {
+      "start": 763.36,
+      "end": 769.0000000000001,
+      "text": "That is always a great fault ever in meta for your hard work, and to all of you for being"
+    },
+    {
+      "start": 769.0000000000001,
+      "end": 772.96,
+      "text": "on this journey with us and with that, I'm going to turn it over to Dave."
+    },
+    {
+      "start": 772.96,
+      "end": 775.72,
+      "text": "Thanks, Mark, and good afternoon, everyone."
+    },
+    {
+      "start": 775.72,
+      "end": 778.0000000000001,
+      "text": "Let's begin with our consolidated results."
+    },
+    {
+      "start": 778.0000000000001,
+      "end": 782.1600000000001,
+      "text": "All comparisons are on a year of your basis and less otherwise netted."
+    },
+    {
+      "start": 782.1600000000001,
+      "end": 789.7600000000001,
+      "text": "Q3 total revenue was $27.7 billion, down 4% are up 2% on a constant currency basis."
+    },
+    {
+      "start": 789.76,
+      "end": 793.76,
+      "text": "And foreign exchange rates remain constant with Q3 of last year total revenue would have"
+    },
+    {
+      "start": 793.76,
+      "end": 797.2,
+      "text": "been approximately $1.8 billion higher."
+    },
+    {
+      "start": 797.2,
+      "end": 803.2,
+      "text": "Q3 total expenses were $22.1 billion, up 19% compared to last year."
+    },
+    {
+      "start": 803.2,
+      "end": 808.24,
+      "text": "This includes a $413 million dollar impairment of certain operating leases as part of our"
+    },
+    {
+      "start": 808.24,
+      "end": 814.6,
+      "text": "ongoing work to align our office facilities footprint with our anticipated operating needs."
+    },
+    {
+      "start": 814.6,
+      "end": 819.9200000000001,
+      "text": "In terms of the specific line items, cost of revenue decreased 1% as a reduction in reality"
+    },
+    {
+      "start": 819.9200000000001,
+      "end": 825.8000000000001,
+      "text": "labs hardware costs was offset by growth in infrastructure and content related expenses."
+    },
+    {
+      "start": 825.8000000000001,
+      "end": 832.12,
+      "text": "R&D increased 45% mainly driven by hiring within our family of apps and reality lab segments"
+    },
+    {
+      "start": 832.12,
+      "end": 836.0400000000001,
+      "text": "as well as reality labs technology development costs."
+    },
+    {
+      "start": 836.0400000000001,
+      "end": 841.64,
+      "text": "Lastly, marketing and sales in G&A increased 6% and 15% respectively, mainly driven by"
+    },
+    {
+      "start": 841.64,
+      "end": 844.0,
+      "text": "headcount related costs."
+    },
+    {
+      "start": 844.0,
+      "end": 849.12,
+      "text": "Our pace of hiring slowed in the third quarter, consistent with our previously stated plans."
+    },
+    {
+      "start": 849.12,
+      "end": 855.86,
+      "text": "We added 3700 net new hires in Q3, down from our Q2 net additions of 5700, despite"
+    },
+    {
+      "start": 855.86,
+      "end": 859.28,
+      "text": "Q3 typically being a seasonally stronger hiring period."
+    },
+    {
+      "start": 859.28,
+      "end": 863.16,
+      "text": "We expect hiring to slow dramatically going forward and to hold headcount roughly flat"
+    },
+    {
+      "start": 863.16,
+      "end": 868.0,
+      "text": "next year relative to current levels, which I will cover in my outlook section."
+    },
+    {
+      "start": 868.0,
+      "end": 873.32,
+      "text": "Third quarter operating income was $5.7 billion representing a 20% operating margin."
+    },
+    {
+      "start": 873.32,
+      "end": 875.52,
+      "text": "Our tax rate was 21%."
+    },
+    {
+      "start": 875.52,
+      "end": 879.88,
+      "text": "Net income was $4.4 billion or a $1.64 per share."
+    },
+    {
+      "start": 879.88,
+      "end": 884.76,
+      "text": "Capital expenditures including principal payments on finance leases were $9.5 billion driven"
+    },
+    {
+      "start": 884.76,
+      "end": 889.44,
+      "text": "by investments in servers, data centers, and network infrastructure."
+    },
+    {
+      "start": 889.44,
+      "end": 892.16,
+      "text": "Pre-cashflow was $173 million."
+    },
+    {
+      "start": 892.16,
+      "end": 897.2,
+      "text": "We repurchased $6.5 billion of our class A common stock in the third quarter and completed"
+    },
+    {
+      "start": 897.2,
+      "end": 900.5600000000001,
+      "text": "an inaugural offering of $10 billion."
+    },
+    {
+      "start": 900.5600000000001,
+      "end": 905.76,
+      "text": "We ended the quarter with $41.8 billion in cash and marketable securities."
+    },
+    {
+      "start": 905.76,
+      "end": 910.0400000000001,
+      "text": "Moving now to our segment results, I'll begin with our family of apps segment."
+    },
+    {
+      "start": 910.0400000000001,
+      "end": 913.5600000000001,
+      "text": "Our community across the family of apps continues to grow."
+    },
+    {
+      "start": 913.5600000000001,
+      "end": 917.36,
+      "text": "We estimate that approximately 2.9 billion people used at least one of our family of apps"
+    },
+    {
+      "start": 917.36,
+      "end": 922.32,
+      "text": "on a daily basis in September, and that approximately 3.7 billion people used at least"
+    },
+    {
+      "start": 922.32,
+      "end": 924.5600000000001,
+      "text": "one on a monthly basis."
+    },
+    {
+      "start": 924.6400000000001,
+      "end": 928.44,
+      "text": "Facebook continues to grow globally and engagement remains strong."
+    },
+    {
+      "start": 928.44,
+      "end": 935.08,
+      "text": "Facebook daily active users were $1.98 billion, up 3% or 54 million compared to last year."
+    },
+    {
+      "start": 935.08,
+      "end": 942.44,
+      "text": "DAUs represented approximately 67% of the 2.96 billion monthly active users in September,"
+    },
+    {
+      "start": 942.44,
+      "end": 946.6400000000001,
+      "text": "MAU's grew 48 million or 2% compared to last year."
+    },
+    {
+      "start": 946.6400000000001,
+      "end": 952.5200000000001,
+      "text": "Q3 total family of apps revenue was $27.4 billion down 4%."
+    },
+    {
+      "start": 952.56,
+      "end": 960.56,
+      "text": "Q3 family of apps at revenue was $27.2 billion down 4% but up 3% on a constant currency basis."
+    },
+    {
+      "start": 960.56,
+      "end": 964.52,
+      "text": "Consistent with our expectations, the headwind to year over year growth from Apple's"
+    },
+    {
+      "start": 964.52,
+      "end": 972.36,
+      "text": "ATT changes diminished in Q3 as we lap the first full quarter post the launch of iOS 14.5."
+    },
+    {
+      "start": 972.36,
+      "end": 978.64,
+      "text": "However, this was offset by weak advertising demand, which we believe continues to be impacted"
+    },
+    {
+      "start": 978.64,
+      "end": 982.8,
+      "text": "by the uncertain and volatile macroeconomic landscape."
+    },
+    {
+      "start": 982.8,
+      "end": 988.56,
+      "text": "As a result, our Q3, constant currency growth rate was in line with our Q2 rate."
+    },
+    {
+      "start": 988.56,
+      "end": 992.48,
+      "text": "The healthcare and travel verticals were the largest positive contributors to growth in"
+    },
+    {
+      "start": 992.48,
+      "end": 993.48,
+      "text": "Q3."
+    },
+    {
+      "start": 993.48,
+      "end": 998.12,
+      "text": "However, this was offset by continued softness and other verticals, including online commerce,"
+    },
+    {
+      "start": 998.12,
+      "end": 1001.84,
+      "text": "gaming, financial services, and CPG."
+    },
+    {
+      "start": 1001.84,
+      "end": 1007.12,
+      "text": "On an advertiser-sized basis, revenue growth from large advertisers remains challenged,"
+    },
+    {
+      "start": 1007.12,
+      "end": 1011.96,
+      "text": "while we've seen more resilience among smaller advertisers."
+    },
+    {
+      "start": 1011.96,
+      "end": 1015.96,
+      "text": "Foreign currency was a significant headwind to advertising revenue growth in all international"
+    },
+    {
+      "start": 1015.96,
+      "end": 1016.96,
+      "text": "regions."
+    },
+    {
+      "start": 1016.96,
+      "end": 1021.72,
+      "text": "On a user geography basis, year over year ad revenue growth was strongest in Asia Pacific and"
+    },
+    {
+      "start": 1021.72,
+      "end": 1027.28,
+      "text": "rest of world at 6% and 3% respectively, with both regions continuing to benefit meaningfully"
+    },
+    {
+      "start": 1027.28,
+      "end": 1030.24,
+      "text": "from strong growth and click-to-messaging ads."
+    },
+    {
+      "start": 1030.24,
+      "end": 1035.44,
+      "text": "North America and Europe declined 3% and 16% respectively."
+    },
+    {
+      "start": 1035.44,
+      "end": 1041.04,
+      "text": "In Q3, the total ad number of ad impression served across our services increased 17%"
+    },
+    {
+      "start": 1041.04,
+      "end": 1044.72,
+      "text": "and the average price per ad decreased 18%."
+    },
+    {
+      "start": 1044.72,
+      "end": 1048.1200000000001,
+      "text": "Impression growth was driven by Asia Pacific and rest of world."
+    },
+    {
+      "start": 1048.1200000000001,
+      "end": 1052.28,
+      "text": "The year of year decline in pricing was primarily driven by strong impression growth, especially"
+    },
+    {
+      "start": 1052.28,
+      "end": 1057.88,
+      "text": "from lower monetizing services and regions, foreign currency depreciation and lower advertiser"
+    },
+    {
+      "start": 1057.88,
+      "end": 1059.88,
+      "text": "demand."
+    },
+    {
+      "start": 1059.88,
+      "end": 1065.48,
+      "text": "Only of apps other revenue was 192 million, up 9% driven by strong business messaging"
+    },
+    {
+      "start": 1065.48,
+      "end": 1072.0,
+      "text": "growth from our WhatsApp business platform, partially offset by decline in other line items."
+    },
+    {
+      "start": 1072.0,
+      "end": 1076.0400000000002,
+      "text": "We continue to direct the majority of our investments towards the development and operation"
+    },
+    {
+      "start": 1076.0400000000002,
+      "end": 1077.64,
+      "text": "of our family of apps."
+    },
+    {
+      "start": 1077.64,
+      "end": 1085.3200000000002,
+      "text": "In Q3, family of apps expenses were $18.1 billion, representing 82% of our overall expenses."
+    },
+    {
+      "start": 1085.32,
+      "end": 1091.32,
+      "text": "FO expenses grew 18% driven mostly by employee-related costs, infrastructure-related"
+    },
+    {
+      "start": 1091.32,
+      "end": 1095.2,
+      "text": "costs, and the impairment of certain operating leases for office facilities that we plan"
+    },
+    {
+      "start": 1095.2,
+      "end": 1097.24,
+      "text": "to exit."
+    },
+    {
+      "start": 1097.24,
+      "end": 1103.56,
+      "text": "Family of apps operating income was $9.3 billion, representing a 34% operating margin."
+    },
+    {
+      "start": 1103.56,
+      "end": 1110.12,
+      "text": "Within our reality lab segment, Q3 revenue was 285 million, down 49% due to lower quest"
+    },
+    {
+      "start": 1110.1200000000001,
+      "end": 1111.1200000000001,
+      "text": "sales."
+    },
+    {
+      "start": 1111.1200000000001,
+      "end": 1118.64,
+      "text": "Reality lab expenses were $4 billion, up 24% to primarily to employee-related costs and technology"
+    },
+    {
+      "start": 1118.64,
+      "end": 1120.64,
+      "text": "development expenses."
+    },
+    {
+      "start": 1120.64,
+      "end": 1126.8400000000001,
+      "text": "Reality Lab's operating loss was $3.7 billion, turning now to the outlook."
+    },
+    {
+      "start": 1126.8400000000001,
+      "end": 1132.88,
+      "text": "We expect fourth quarter total revenue to be in the range of 30 to 32.5 billion dollars."
+    },
+    {
+      "start": 1132.88,
+      "end": 1137.2800000000002,
+      "text": "Our guidance assumes foreign currency will be in approximately 7% headwind to your"
+    },
+    {
+      "start": 1137.28,
+      "end": 1143.12,
+      "text": "every year total revenue growth in the fourth quarter based on current exchange rates."
+    },
+    {
+      "start": 1143.12,
+      "end": 1146.72,
+      "text": "Before turning to the expense outlook, I wanted to provide some context on the approach"
+    },
+    {
+      "start": 1146.72,
+      "end": 1150.2,
+      "text": "we are taking towards setting our 2023 budget."
+    },
+    {
+      "start": 1150.2,
+      "end": 1154.16,
+      "text": "We are making significant changes across the board to operate more efficiently."
+    },
+    {
+      "start": 1154.16,
+      "end": 1157.84,
+      "text": "We are holding some teams' flat in terms of headcount, shrinking others, and investing"
+    },
+    {
+      "start": 1157.84,
+      "end": 1161.0,
+      "text": "headcount growth only in our highest priorities."
+    },
+    {
+      "start": 1161.0,
+      "end": 1166.16,
+      "text": "As a result, we expect headcount at the end of 2023 will be approximately in line with"
+    },
+    {
+      "start": 1166.16,
+      "end": 1168.92,
+      "text": "third quarter 2022 levels."
+    },
+    {
+      "start": 1168.92,
+      "end": 1172.24,
+      "text": "We have increased scrutiny on all areas of operating expenses."
+    },
+    {
+      "start": 1172.24,
+      "end": 1176.5600000000002,
+      "text": "However, these moves follow a substantial investment cycle, so they will take time to play"
+    },
+    {
+      "start": 1176.5600000000002,
+      "end": 1179.68,
+      "text": "out in terms of our overall expense trajectory."
+    },
+    {
+      "start": 1179.68,
+      "end": 1184.16,
+      "text": "Some steps, like the ongoing rationalization of our office footprint, will lead to incremental"
+    },
+    {
+      "start": 1184.16,
+      "end": 1186.24,
+      "text": "costs in the near term."
+    },
+    {
+      "start": 1186.24,
+      "end": 1190.28,
+      "text": "This should set us up well for future years when we expect to return to higher rates of revenue"
+    },
+    {
+      "start": 1190.28,
+      "end": 1192.48,
+      "text": "growth."
+    },
+    {
+      "start": 1192.48,
+      "end": 1197.32,
+      "text": "Coming out to this specific expense outlook for 22 and 23."
+    },
+    {
+      "start": 1197.32,
+      "end": 1202.88,
+      "text": "We expect 22 total expenses to be in the range of $85, $87 billion, updated from"
+    },
+    {
+      "start": 1202.88,
+      "end": 1206.48,
+      "text": "our prior outlook of $85 to $88 billion."
+    },
+    {
+      "start": 1206.48,
+      "end": 1212.48,
+      "text": "This includes an estimated $900 million in additional charges in Q4 related to consolidating"
+    },
+    {
+      "start": 1212.48,
+      "end": 1219.68,
+      "text": "our office facility's footprint that we expect to record in the fourth quarter of 2022."
+    },
+    {
+      "start": 1219.68,
+      "end": 1227.52,
+      "text": "We anticipate our full year 2023 total expenses will be in the range of $96 to $11 billion."
+    },
+    {
+      "start": 1227.52,
+      "end": 1232.68,
+      "text": "This includes an estimated $2 billion in charges related to consolidating our office"
+    },
+    {
+      "start": 1232.68,
+      "end": 1235.1200000000001,
+      "text": "facility's footprint."
+    },
+    {
+      "start": 1235.1200000000001,
+      "end": 1240.76,
+      "text": "We expect the slight majority of our 2023 expense dollar growth to be driven by operating"
+    },
+    {
+      "start": 1240.76,
+      "end": 1244.48,
+      "text": "expenses with the remaining growth coming from cost of revenue."
+    },
+    {
+      "start": 1244.48,
+      "end": 1250.32,
+      "text": "We expect the percentage growth rate of 2023 operating expenses to decelerate meaningfully"
+    },
+    {
+      "start": 1250.32,
+      "end": 1256.0,
+      "text": "as we curtail non-chead count related expense growth and keep 2023 head count roughly flat"
+    },
+    {
+      "start": 1256.0,
+      "end": 1258.1200000000001,
+      "text": "with current levels."
+    },
+    {
+      "start": 1258.1200000000001,
+      "end": 1261.96,
+      "text": "Conversely, our growth and cost of revenue is expected to accelerate."
+    },
+    {
+      "start": 1261.96,
+      "end": 1266.8,
+      "text": "Driven by infrastructure related expenses and to a lesser extent reality labs hard work"
+    },
+    {
+      "start": 1266.8,
+      "end": 1270.96,
+      "text": "cost driven by the launch of our next generation of our consumer quest headset later"
+    },
+    {
+      "start": 1270.96,
+      "end": 1272.96,
+      "text": "next year."
+    },
+    {
+      "start": 1272.96,
+      "end": 1276.88,
+      "text": "Quality labs expenses are included in our total expense guidance."
+    },
+    {
+      "start": 1276.88,
+      "end": 1281.92,
+      "text": "We do anticipate that reality labs operating losses in 2023 will grow significantly year"
+    },
+    {
+      "start": 1281.92,
+      "end": 1283.2,
+      "text": "over year."
+    },
+    {
+      "start": 1283.2,
+      "end": 1287.44,
+      "text": "Beyond 2023, we expect to pace reality labs investments such that we can achieve our goal"
+    },
+    {
+      "start": 1287.44,
+      "end": 1292.16,
+      "text": "with growing overall company operating income in the long run."
+    },
+    {
+      "start": 1292.16,
+      "end": 1296.32,
+      "text": "Before turning to our cap-backs outlook, I'd like to provide some context on our infrastructure"
+    },
+    {
+      "start": 1296.32,
+      "end": 1298.16,
+      "text": "investment approach."
+    },
+    {
+      "start": 1298.16,
+      "end": 1304.0800000000002,
+      "text": "We are currently going through an investment cycle, which is primarily driven by two large"
+    },
+    {
+      "start": 1304.0800000000002,
+      "end": 1305.88,
+      "text": "areas of investment."
+    },
+    {
+      "start": 1305.88,
+      "end": 1309.76,
+      "text": "First, we are significantly expanding our AI capacity."
+    },
+    {
+      "start": 1309.76,
+      "end": 1314.92,
+      "text": "These investments are driving substantially all of our capital expenditure growth in 2023."
+    },
+    {
+      "start": 1314.92,
+      "end": 1318.92,
+      "text": "There is some increased capital intensity that comes with moving more of our infrastructure"
+    },
+    {
+      "start": 1318.92,
+      "end": 1319.92,
+      "text": "to AI."
+    },
+    {
+      "start": 1319.92,
+      "end": 1323.88,
+      "text": "It requires more expensive servers in networking equipment and we are building new data"
+    },
+    {
+      "start": 1323.88,
+      "end": 1328.1200000000001,
+      "text": "centers specifically equipped to support next generation AI hardware."
+    },
+    {
+      "start": 1328.1200000000001,
+      "end": 1331.88,
+      "text": "We expect these investments to provide us a technology advantage and unlock meaningful"
+    },
+    {
+      "start": 1331.88,
+      "end": 1336.88,
+      "text": "improvements across many of our key initiatives, including feed, wheels, and ads."
+    },
+    {
+      "start": 1336.88,
+      "end": 1341.68,
+      "text": "We are carefully evaluating the return we achieve from these investments, which will"
+    },
+    {
+      "start": 1341.68,
+      "end": 1345.88,
+      "text": "inform the scale of our AI investment beyond 2023."
+    },
+    {
+      "start": 1345.88,
+      "end": 1349.72,
+      "text": "Second, we are making ongoing investments in our data center footprint."
+    },
+    {
+      "start": 1349.72,
+      "end": 1353.2,
+      "text": "In recent years, we have stepped up our investment in bringing more data center capacity"
+    },
+    {
+      "start": 1353.2,
+      "end": 1356.48,
+      "text": "online and that work is ongoing in 2023."
+    },
+    {
+      "start": 1356.56,
+      "end": 1359.88,
+      "text": "We believe the additional data center capacity will provide a greater flexibility with"
+    },
+    {
+      "start": 1359.88,
+      "end": 1363.8,
+      "text": "the types of servers we purchase and allow us to use them for longer, which we expect"
+    },
+    {
+      "start": 1363.8,
+      "end": 1367.1200000000001,
+      "text": "to generate greater cost efficiencies over time."
+    },
+    {
+      "start": 1367.1200000000001,
+      "end": 1371.64,
+      "text": "These investments, along with revenue headwinds, are contributing to higher capital expenditures"
+    },
+    {
+      "start": 1371.64,
+      "end": 1377.84,
+      "text": "as a percentage of revenue in 2022 and 2023 than we expect over the long term."
+    },
+    {
+      "start": 1377.84,
+      "end": 1382.28,
+      "text": "Turning now to the specific CapEx Outlook for 2022 and 2023."
+    },
+    {
+      "start": 1382.32,
+      "end": 1387.44,
+      "text": "We expect 2022 capital expenditures, including principal payments on finance leases, to be in"
+    },
+    {
+      "start": 1387.44,
+      "end": 1394.16,
+      "text": "the range of $32 to $33 billion, updated from our prior range of $30 to $34 billion."
+    },
+    {
+      "start": 1394.16,
+      "end": 1400.84,
+      "text": "For 2023, we expect capital expenditures to be in the range of $34 to $39 billion, driven"
+    },
+    {
+      "start": 1400.84,
+      "end": 1405.3999999999999,
+      "text": "by our investments in data center, servers, and network infrastructure, and increase an AI"
+    },
+    {
+      "start": 1405.3999999999999,
+      "end": 1412.16,
+      "text": "capacity is driving substantially all of our capital expenditure growth in 2023."
+    },
+    {
+      "start": 1413.16,
+      "end": 1417.68,
+      "text": "Absent any changes to U.S. tax law, we expect our fourth quarter 2022 and our"
+    },
+    {
+      "start": 1417.68,
+      "end": 1423.52,
+      "text": "full year 2023 tax rate to be similar to the third quarter 2022 rate."
+    },
+    {
+      "start": 1423.52,
+      "end": 1427.72,
+      "text": "In addition, as noted on previous calls, we continue to monitor developments regarding"
+    },
+    {
+      "start": 1427.72,
+      "end": 1431.96,
+      "text": "the viability of transit-landed data transfers and their potential impact on our European"
+    },
+    {
+      "start": 1431.96,
+      "end": 1434.16,
+      "text": "operations."
+    },
+    {
+      "start": 1434.16,
+      "end": 1438.4,
+      "text": "In closing, we are pleased with the growth of the community using our family of apps and"
+    },
+    {
+      "start": 1438.4,
+      "end": 1442.8000000000002,
+      "text": "the engagement improvements we are driving with efforts such as reels and our AI"
+    },
+    {
+      "start": 1442.8000000000002,
+      "end": 1445.1200000000001,
+      "text": "powered content recommendations."
+    },
+    {
+      "start": 1445.1200000000001,
+      "end": 1449.88,
+      "text": "While we are facing near-term headwinds on revenue, the fundamentals are there for return"
+    },
+    {
+      "start": 1449.88,
+      "end": 1451.96,
+      "text": "to stronger top-line growth."
+    },
+    {
+      "start": 1451.96,
+      "end": 1456.4,
+      "text": "We are approaching 2023 with a focus on efficiency and spending discipline, and I am optimistic"
+    },
+    {
+      "start": 1456.4,
+      "end": 1460.6000000000001,
+      "text": "that these moves will set us up well to achieve our goal of driving operating income"
+    },
+    {
+      "start": 1460.6000000000001,
+      "end": 1464.72,
+      "text": "growth over the long-term while investing for future growth."
+    },
+    {
+      "start": 1464.72,
+      "end": 1468.96,
+      "text": "In a personal note, I will be closing out a decade at Meta in the next couple of weeks,"
+    },
+    {
+      "start": 1468.96,
+      "end": 1471.28,
+      "text": "including the last eight years of CFO."
+    },
+    {
+      "start": 1471.28,
+      "end": 1474.56,
+      "text": "In my new role, I am looking forward to continuing to help the company achieve its long-term"
+    },
+    {
+      "start": 1474.56,
+      "end": 1476.92,
+      "text": "mission and execute on its financial plan."
+    },
+    {
+      "start": 1476.92,
+      "end": 1481.16,
+      "text": "I couldn't be happier to hand off the CFO role this seasonly, who is one of the most talented"
+    },
+    {
+      "start": 1481.16,
+      "end": 1485.56,
+      "text": "executives that I have had a chance to work with in my long career in finance and tech."
+    },
+    {
+      "start": 1485.56,
+      "end": 1489.24,
+      "text": "And with that, Martin, let me open up the call for questions."
+    },
+    {
+      "start": 1489.24,
+      "end": 1490.24,
+      "text": "Thank you."
+    },
+    {
+      "start": 1490.24,
+      "end": 1493.44,
+      "text": "We will now open the lines for a question and answer session."
+    },
+    {
+      "start": 1493.44,
+      "end": 1498.32,
+      "text": "To ask a question, press one to follow it by the number four on your touchstone phone."
+    },
+    {
+      "start": 1498.32,
+      "end": 1502.32,
+      "text": "Please pick up your handsets before asking your question to ensure clarity."
+    },
+    {
+      "start": 1502.32,
+      "end": 1506.48,
+      "text": "If you are streaming today's call, please meet your computer speakers, and your first"
+    },
+    {
+      "start": 1506.48,
+      "end": 1510.32,
+      "text": "question comes from line of Brian Hillback with Morgan Stanley."
+    },
+    {
+      "start": 1510.32,
+      "end": 1516.28,
+      "text": "Thanks for taking my questions, I agreed into the first one to sign cap X and return on"
+    },
+    {
+      "start": 1516.28,
+      "end": 1517.28,
+      "text": "invested capital."
+    },
+    {
+      "start": 1517.28,
+      "end": 1521.8799999999999,
+      "text": "You had to cap X been, and forward expectations are ruining somewhat higher than investors"
+    },
+    {
+      "start": 1521.8799999999999,
+      "end": 1522.8799999999999,
+      "text": "expected."
+    },
+    {
+      "start": 1522.8799999999999,
+      "end": 1528.16,
+      "text": "So, Mark, can you maybe just give us some examples of what these new AI investments are going"
+    },
+    {
+      "start": 1528.16,
+      "end": 1532.3999999999999,
+      "text": "to enable you to do differently going forward than in the past?"
+    },
+    {
+      "start": 1532.3999999999999,
+      "end": 1537.72,
+      "text": "And what's the reasonable period which investors expect to see material incremental engagement"
+    },
+    {
+      "start": 1537.72,
+      "end": 1540.16,
+      "text": "or revenue from these?"
+    },
+    {
+      "start": 1540.16,
+      "end": 1542.48,
+      "text": "And then the second one is on engagement."
+    },
+    {
+      "start": 1542.48,
+      "end": 1547.68,
+      "text": "I thought your comments about incremental time spent from reals were interesting, but"
+    },
+    {
+      "start": 1547.68,
+      "end": 1551.92,
+      "text": "maybe just to sort of address the big topic around time spent."
+    },
+    {
+      "start": 1551.92,
+      "end": 1557.56,
+      "text": "Can you give us any update on what U.S. time spent trends look like to sort of give investors"
+    },
+    {
+      "start": 1557.56,
+      "end": 1561.68,
+      "text": "to incremental confidence in the durability of the platform in your oldest market?"
+    },
+    {
+      "start": 1561.68,
+      "end": 1562.68,
+      "text": "Thanks."
+    },
+    {
+      "start": 1562.68,
+      "end": 1570.56,
+      "text": "I take the time spent question first and then I'll hand it off to Susan on the cap X question."
+    },
+    {
+      "start": 1570.56,
+      "end": 1576.52,
+      "text": "So on time spent, we are really pleased with what we're seeing on engagement and as Mark"
+    },
+    {
+      "start": 1576.52,
+      "end": 1582.08,
+      "text": "mentioned, reals is incremental to time spent, specifically in terms of aggregate time spent"
+    },
+    {
+      "start": 1582.08,
+      "end": 1589.2,
+      "text": "on Instagram and Facebook, both are up year over year and in both the U.S. and globally."
+    },
+    {
+      "start": 1589.2,
+      "end": 1596.32,
+      "text": "So while we're not specifically optimizing for time spent, those trends are positive."
+    },
+    {
+      "start": 1596.32,
+      "end": 1600.28,
+      "text": "And we aren't specifically optimizing for time spent as that would tend to tilt us towards"
+    },
+    {
+      "start": 1600.28,
+      "end": 1606.32,
+      "text": "longer form video and we're actually focused more on short form and other types of content."
+    },
+    {
+      "start": 1606.32,
+      "end": 1610.84,
+      "text": "So just some color on time spent and Susan, you want to take the cap X question?"
+    },
+    {
+      "start": 1610.84,
+      "end": 1611.84,
+      "text": "Yes, thanks Brian."
+    },
+    {
+      "start": 1611.84,
+      "end": 1618.1599999999999,
+      "text": "So as Dave mentioned in his script, we expect 2023 cap X to be in the range of 34 to 39 billion"
+    },
+    {
+      "start": 1618.1599999999999,
+      "end": 1622.0,
+      "text": "with our investments in AI driving all of that growth."
+    },
+    {
+      "start": 1622.0,
+      "end": 1626.8,
+      "text": "We're very focused on evaluating the ROI of our AI investments and that'll inform our"
+    },
+    {
+      "start": 1626.8,
+      "end": 1628.2,
+      "text": "level of future spend."
+    },
+    {
+      "start": 1628.2,
+      "end": 1634.56,
+      "text": "But so far, we've seen continued strong impact on our recommendations products from advancing"
+    },
+    {
+      "start": 1634.56,
+      "end": 1636.72,
+      "text": "developments in our AI work."
+    },
+    {
+      "start": 1636.72,
+      "end": 1641.2,
+      "text": "In the Q2 call, we had shared that a single AI advancement in scaling our recommendations"
+    },
+    {
+      "start": 1641.2,
+      "end": 1646.72,
+      "text": "models had led to a 15 percent watch time gain for Facebook Reels and that gain has continued"
+    },
+    {
+      "start": 1646.72,
+      "end": 1651.88,
+      "text": "to grow and we expect that there will be additional watch time improvements coming from"
+    },
+    {
+      "start": 1651.88,
+      "end": 1653.5600000000002,
+      "text": "that work."
+    },
+    {
+      "start": 1653.5600000000002,
+      "end": 1658.5200000000002,
+      "text": "On the ad side, we're also continuing to roll out more AI and ML improvements in some"
+    },
+    {
+      "start": 1658.5200000000002,
+      "end": 1663.16,
+      "text": "of the new ads offerings and we're encouraged by all of the early examples that we've"
+    },
+    {
+      "start": 1663.16,
+      "end": 1664.16,
+      "text": "seen."
+    },
+    {
+      "start": 1664.16,
+      "end": 1666.5600000000002,
+      "text": "So this is something that we'll be watching very closely."
+    },
+    {
+      "start": 1666.5600000000002,
+      "end": 1671.68,
+      "text": "We think we're early in this journey, but our level of cap X investment will depend"
+    },
+    {
+      "start": 1671.68,
+      "end": 1677.0,
+      "text": "on the returns that we generate through these investments in AI and if we generate significant"
+    },
+    {
+      "start": 1677.0,
+      "end": 1680.2800000000002,
+      "text": "engagement and revenue gains, we'll continue investing here."
+    },
+    {
+      "start": 1680.28,
+      "end": 1686.08,
+      "text": "And if we don't, we'll pace our spending accordingly."
+    },
+    {
+      "start": 1686.08,
+      "end": 1690.8,
+      "text": "Your next question comes from line of Mark Schmoelwick with Bernstein."
+    },
+    {
+      "start": 1690.8,
+      "end": 1693.72,
+      "text": "Yes, I think we're taking my question."
+    },
+    {
+      "start": 1693.72,
+      "end": 1697.0,
+      "text": "A couple of them, Mark, the first one, you know, you kind of mentioned in your opening"
+    },
+    {
+      "start": 1697.0,
+      "end": 1702.52,
+      "text": "remarks that you expect, you know, to get back to kind of revenue growth in 2023."
+    },
+    {
+      "start": 1702.52,
+      "end": 1706.3999999999999,
+      "text": "Any color you can share on kind of the key drivers behind that and how much that it is."
+    },
+    {
+      "start": 1706.52,
+      "end": 1710.6000000000001,
+      "text": "Excuse me, macro driven versus some of these initiatives that you guys are working on."
+    },
+    {
+      "start": 1710.6000000000001,
+      "end": 1715.8400000000001,
+      "text": "And then secondly, for Susan, as we think about kind of, you know, the operating expense guidance, you"
+    },
+    {
+      "start": 1715.8400000000001,
+      "end": 1717.3200000000002,
+      "text": "know, into 2023."
+    },
+    {
+      "start": 1717.3200000000002,
+      "end": 1721.68,
+      "text": "I know historically, you know, those numbers have tended to skew a bit conservative."
+    },
+    {
+      "start": 1721.68,
+      "end": 1726.44,
+      "text": "How much conservatism is baked in there and how much flexibility is there to kind of, you"
+    },
+    {
+      "start": 1726.44,
+      "end": 1729.72,
+      "text": "know, toggle some of those expenses depending on the health of Clark."
+    },
+    {
+      "start": 1729.72,
+      "end": 1730.72,
+      "text": "Thank you."
+    },
+    {
+      "start": 1730.72,
+      "end": 1735.3600000000001,
+      "text": "So Mark, if Dave, I'll take the, I'll take the first question."
+    },
+    {
+      "start": 1735.4,
+      "end": 1740.68,
+      "text": "Obviously, we're continuing to see, you know, significant, you know, macro headwinds in the business."
+    },
+    {
+      "start": 1740.68,
+      "end": 1742.8000000000002,
+      "text": "We do think there's a big cyclical factor here."
+    },
+    {
+      "start": 1742.8000000000002,
+      "end": 1749.6000000000001,
+      "text": "So some of it is just going to depend on the broader economy and recovery that we see."
+    },
+    {
+      "start": 1749.6000000000001,
+      "end": 1754.68,
+      "text": "But we're continuing to make progress in a number of areas in terms of growth and Mark cited"
+    },
+    {
+      "start": 1754.68,
+      "end": 1759.3600000000001,
+      "text": "one of those, which is a click to messaging ads, which has been a solid grower."
+    },
+    {
+      "start": 1759.3600000000001,
+      "end": 1764.44,
+      "text": "It's a $9 billion revenue run rate today and we're continuing to make, you know, good"
+    },
+    {
+      "start": 1764.48,
+      "end": 1766.8400000000001,
+      "text": "progress on click-to-messaging ads as a driver."
+    },
+    {
+      "start": 1766.8400000000001,
+      "end": 1771.56,
+      "text": "That's especially been important in some of the developing markets."
+    },
+    {
+      "start": 1771.56,
+      "end": 1778.68,
+      "text": "And, you know, overall we're focusing on a number of areas to, you know, grow revenue as"
+    },
+    {
+      "start": 1778.68,
+      "end": 1781.88,
+      "text": "we get through this tough cycle."
+    },
+    {
+      "start": 1781.88,
+      "end": 1785.52,
+      "text": "And, you know, we're seeing progress on a number of fronts."
+    },
+    {
+      "start": 1785.52,
+      "end": 1790.64,
+      "text": "But it's going to depend to some extent on what the overall macro climate is like."
+    },
+    {
+      "start": 1790.64,
+      "end": 1796.72,
+      "text": "We're not going to be facing as significant headwinds next year from the signals point"
+    },
+    {
+      "start": 1796.72,
+      "end": 1803.88,
+      "text": "of view as we are now, you know, lapping the big changes that were made on the iOS platform."
+    },
+    {
+      "start": 1803.88,
+      "end": 1810.1200000000001,
+      "text": "So that's going to also not factor in as strongly in our growth rates next year."
+    },
+    {
+      "start": 1810.1200000000001,
+      "end": 1814.0800000000002,
+      "text": "And I'll take that second question on next year's OpX Guide."
+    },
+    {
+      "start": 1814.12,
+      "end": 1819.4399999999998,
+      "text": "One thing I'd point out first is just next year's Guide includes an estimated $2 billion"
+    },
+    {
+      "start": 1819.4399999999998,
+      "end": 1824.52,
+      "text": "in 2023 expenses that are one time charges as part of our office facilities consolidation"
+    },
+    {
+      "start": 1824.52,
+      "end": 1829.36,
+      "text": "as we continue to rationalize our real estate footprint."
+    },
+    {
+      "start": 1829.36,
+      "end": 1834.8799999999999,
+      "text": "We also expect a little over half of our expense dollar growth in 2023 to come from"
+    },
+    {
+      "start": 1834.8799999999999,
+      "end": 1838.0,
+      "text": "OpX with the rest coming from cost to revenue."
+    },
+    {
+      "start": 1838.0,
+      "end": 1844.0,
+      "text": "On the OpX side, the growth in 2023 OpX is primarily driven by headcount-related costs"
+    },
+    {
+      "start": 1844.0,
+      "end": 1849.84,
+      "text": "from employees that we've already hired through 2022, and those hires have primarily"
+    },
+    {
+      "start": 1849.84,
+      "end": 1853.64,
+      "text": "been concentrated in technical and more senior roles."
+    },
+    {
+      "start": 1853.64,
+      "end": 1857.96,
+      "text": "So we expect, you know, the slowdown in payroll growth in 2023 will be the result"
+    },
+    {
+      "start": 1857.96,
+      "end": 1863.4,
+      "text": "of the slowdown and headcount growth overall as we mentioned we expect to end 2023, you"
+    },
+    {
+      "start": 1863.4,
+      "end": 1866.08,
+      "text": "know, with headcount roughly flat to where we are."
+    },
+    {
+      "start": 1866.08,
+      "end": 1870.76,
+      "text": "And now, and on the cost of revenue side, we expect, you know, the growth rate of cost"
+    },
+    {
+      "start": 1870.76,
+      "end": 1875.6399999999999,
+      "text": "of revenue to accelerate in 2023 driven by the increased appreciation that we're seeing"
+    },
+    {
+      "start": 1875.6399999999999,
+      "end": 1880.9199999999998,
+      "text": "play through from the big CapEx investments that, you know, we've made so far, and then"
+    },
+    {
+      "start": 1880.9199999999998,
+      "end": 1885.04,
+      "text": "as well as from reality labs with the launch of the next generation of the consumer"
+    },
+    {
+      "start": 1885.04,
+      "end": 1887.8,
+      "text": "quest headset later next year."
+    },
+    {
+      "start": 1887.8,
+      "end": 1895.08,
+      "text": "Your next question comes from line of Justin Post with Bank of America."
+    },
+    {
+      "start": 1895.08,
+      "end": 1900.04,
+      "text": "Great, a couple of questions on the real transition."
+    },
+    {
+      "start": 1900.04,
+      "end": 1906.72,
+      "text": "When you think about that business and people coming to the site, do you think, you know,"
+    },
+    {
+      "start": 1906.72,
+      "end": 1912.6399999999999,
+      "text": "it has a compare to the news feed as far as repeat rates or retention and are you a little"
+    },
+    {
+      "start": 1912.6399999999999,
+      "end": 1916.12,
+      "text": "worried that it's a little less proprietary than your prior content?"
+    },
+    {
+      "start": 1916.1200000000001,
+      "end": 1919.4,
+      "text": "And then second, I think there are a lot of questions on CapEx."
+    },
+    {
+      "start": 1919.4,
+      "end": 1924.0000000000002,
+      "text": "Just wondering if the build here for this year and next is one time to kind of get your"
+    },
+    {
+      "start": 1924.0000000000002,
+      "end": 1929.5600000000002,
+      "text": "capabilities in place and then maybe even go back to kind of a mid-teams level as a percentage"
+    },
+    {
+      "start": 1929.5600000000002,
+      "end": 1935.3600000000001,
+      "text": "of revenue or is just the transition in the business just higher capital intensity business."
+    },
+    {
+      "start": 1935.3600000000001,
+      "end": 1936.3600000000001,
+      "text": "Thank you."
+    },
+    {
+      "start": 1936.3600000000001,
+      "end": 1944.3600000000001,
+      "text": "So, Justin, on the real transition, you know, as Mark noted, it is incremental to time"
+    },
+    {
+      "start": 1944.3600000000001,
+      "end": 1945.3600000000001,
+      "text": "expense."
+    },
+    {
+      "start": 1945.3600000000001,
+      "end": 1951.0000000000002,
+      "text": "So, we are seeing a benefit from, you know, from reals to contributing to overall engagement"
+    },
+    {
+      "start": 1951.0000000000002,
+      "end": 1957.0000000000002,
+      "text": "on the platform and it's, you know, contributing to healthy engagement dynamics."
+    },
+    {
+      "start": 1957.0000000000002,
+      "end": 1963.6000000000001,
+      "text": "And I'd say that coupled with our recommendation engine, which is also, you know, increasing"
+    },
+    {
+      "start": 1963.6000000000001,
+      "end": 1968.0000000000002,
+      "text": "engagement on the platform or both promising trends on the engagement front."
+    },
+    {
+      "start": 1968.0000000000002,
+      "end": 1974.3200000000002,
+      "text": "From a monetization perspective, you know, we are still working to close the gap between"
+    },
+    {
+      "start": 1974.32,
+      "end": 1978.8,
+      "text": "reals and feeds and stories, but it's going to take, you know, time before reals becomes"
+    },
+    {
+      "start": 1978.8,
+      "end": 1981.04,
+      "text": "a tailwind to revenue."
+    },
+    {
+      "start": 1981.04,
+      "end": 1987.6799999999998,
+      "text": "As Mark mentioned, we're on about a $3 billion run rate today, but reals was still, you"
+    },
+    {
+      "start": 1987.6799999999998,
+      "end": 1992.6,
+      "text": "know, negative overall to revenue by about $500 million in the quarter."
+    },
+    {
+      "start": 1992.6,
+      "end": 1997.48,
+      "text": "So, you know, we expect that it should be a tailwind to the business eventually and we're"
+    },
+    {
+      "start": 1997.48,
+      "end": 2001.4399999999998,
+      "text": "sort of saying that's probably in the 12th to 18-month timeframe."
+    },
+    {
+      "start": 2001.44,
+      "end": 2006.64,
+      "text": "But overall, we're pleased with the impact that reals has on the business, specifically"
+    },
+    {
+      "start": 2006.64,
+      "end": 2008.68,
+      "text": "on the engagement front."
+    },
+    {
+      "start": 2008.68,
+      "end": 2015.52,
+      "text": "And on your second question about the CAPX guide, I would really think about our CAPX"
+    },
+    {
+      "start": 2015.52,
+      "end": 2019.6000000000001,
+      "text": "investment as kind of the AI and non-AI components."
+    },
+    {
+      "start": 2019.6000000000001,
+      "end": 2025.2,
+      "text": "On the AI side, which really is driving all of the CAPX growth in 2023, you know, we"
+    },
+    {
+      "start": 2025.2,
+      "end": 2029.88,
+      "text": "will be pacing that future investment on the basis of the returns that we're able to"
+    },
+    {
+      "start": 2029.88,
+      "end": 2031.28,
+      "text": "see and measure."
+    },
+    {
+      "start": 2031.28,
+      "end": 2036.04,
+      "text": "So frankly, we're hopeful that there will be a big opportunity to invest more here because"
+    },
+    {
+      "start": 2036.04,
+      "end": 2041.6,
+      "text": "we expect that this will be a high ROI area of investment for us."
+    },
+    {
+      "start": 2041.6,
+      "end": 2047.92,
+      "text": "On the non-AI side, a lot of that spend is in ongoing investments on our data center footprint,"
+    },
+    {
+      "start": 2047.92,
+      "end": 2052.52,
+      "text": "where we had stepped up our investment in recent years to build sort of a head of our anticipated"
+    },
+    {
+      "start": 2052.52,
+      "end": 2055.8,
+      "text": "capacity needs and that work continues in 2023."
+    },
+    {
+      "start": 2055.84,
+      "end": 2062.32,
+      "text": "We do expect this component of our CAPX spend to become more efficient, more efficient"
+    },
+    {
+      "start": 2062.32,
+      "end": 2067.28,
+      "text": "over time, and we're actively looking for more efficiencies there."
+    },
+    {
+      "start": 2067.28,
+      "end": 2071.84,
+      "text": "So I don't know that we are benchmarking to an exact number on the combination of those two"
+    },
+    {
+      "start": 2071.84,
+      "end": 2072.84,
+      "text": "things."
+    },
+    {
+      "start": 2072.84,
+      "end": 2076.92,
+      "text": "The future intensity, I think, is going to depend on the returns that we generate through"
+    },
+    {
+      "start": 2076.92,
+      "end": 2078.92,
+      "text": "those increased AI investments."
+    },
+    {
+      "start": 2078.92,
+      "end": 2083.96,
+      "text": "Yeah, and maybe I'll just add some color on how I'm seeing this too, just because the"
+    },
+    {
+      "start": 2083.96,
+      "end": 2088.56,
+      "text": "reals in discovery engine work is such a big part of what we're spending our time"
+    },
+    {
+      "start": 2088.56,
+      "end": 2090.6,
+      "text": "and energy on right now."
+    },
+    {
+      "start": 2090.6,
+      "end": 2095.6,
+      "text": "I think there are two comparisons to the things that we've done in the past year that"
+    },
+    {
+      "start": 2095.6,
+      "end": 2103.2400000000002,
+      "text": "are worth anchoring on for reals, monetization specifically."
+    },
+    {
+      "start": 2103.2400000000002,
+      "end": 2109.0,
+      "text": "Anytime we've had a new format, like when we added stories or even before that when we were"
+    },
+    {
+      "start": 2109.0,
+      "end": 2113.56,
+      "text": "primarily on desktop and we shifted to mobile feed, we sort of had this dynamic where"
+    },
+    {
+      "start": 2113.64,
+      "end": 2119.6,
+      "text": "we focused on increasing engagement and growing demand for the product."
+    },
+    {
+      "start": 2119.6,
+      "end": 2125.64,
+      "text": "But while that was happening, monetization efficiency for the new format lagged behind"
+    },
+    {
+      "start": 2125.64,
+      "end": 2131.36,
+      "text": "the news feed or mobile news feed compared to stories for some period while that was ramping"
+    },
+    {
+      "start": 2131.36,
+      "end": 2132.36,
+      "text": "up."
+    },
+    {
+      "start": 2132.36,
+      "end": 2136.64,
+      "text": "And while it's really hard for us to answer questions now that are like what is the eventual"
+    },
+    {
+      "start": 2136.64,
+      "end": 2141.16,
+      "text": "monetization efficiency going to be, it's really hard to predict that in advance, what"
+    },
+    {
+      "start": 2141.24,
+      "end": 2146.3999999999996,
+      "text": "I can say, I think on stories, we've ended up achieving something that was way greater"
+    },
+    {
+      "start": 2146.3999999999996,
+      "end": 2151.7999999999997,
+      "text": "than what we even hoped to achieve at the time, right, in terms of where we thought"
+    },
+    {
+      "start": 2151.7999999999997,
+      "end": 2156.3199999999997,
+      "text": "that story could net out and a lot of the progress that we've been making on real"
+    },
+    {
+      "start": 2156.3199999999997,
+      "end": 2161.3999999999996,
+      "text": "monetization so far has been at a clip that we've been pretty happy with."
+    },
+    {
+      "start": 2161.3999999999996,
+      "end": 2164.92,
+      "text": "So obviously we want to close the monetization gap as quickly as possible."
+    },
+    {
+      "start": 2164.92,
+      "end": 2168.2,
+      "text": "We want this to be a tailwind, not a headwind."
+    },
+    {
+      "start": 2168.2,
+      "end": 2171.12,
+      "text": "I think we're going to get there, but I think we've gone through a few"
+    },
+    {
+      "start": 2171.12,
+      "end": 2175.3599999999997,
+      "text": "of these transitions and I think that'll just take some time."
+    },
+    {
+      "start": 2175.3599999999997,
+      "end": 2180.44,
+      "text": "On the engagement side, in terms of how incremental this is, the basic way to think about"
+    },
+    {
+      "start": 2180.44,
+      "end": 2183.3599999999997,
+      "text": "this is you have a set amount of inventory across the system."
+    },
+    {
+      "start": 2183.3599999999997,
+      "end": 2190.64,
+      "text": "There's content from family and friends, which is quite differentiated and valuable and"
+    },
+    {
+      "start": 2190.64,
+      "end": 2197.16,
+      "text": "accounts that you follow, but now there's this whole larger corpus that we can use AI to effectively"
+    },
+    {
+      "start": 2197.16,
+      "end": 2202.08,
+      "text": "understand what the content means and understand individually, what you might be interested"
+    },
+    {
+      "start": 2202.08,
+      "end": 2207.2,
+      "text": "in, just have access to a much bigger corpus of content to put into your feeds and increase"
+    },
+    {
+      "start": 2207.2,
+      "end": 2208.2,
+      "text": "engagement."
+    },
+    {
+      "start": 2208.2,
+      "end": 2213.16,
+      "text": "And we're seeing that start to work already and be incremental in terms of having more"
+    },
+    {
+      "start": 2213.16,
+      "end": 2217.44,
+      "text": "people use the services, having them spend more time, having them spend, you know, just"
+    },
+    {
+      "start": 2217.44,
+      "end": 2219.2,
+      "text": "engage more in feeds overall."
+    },
+    {
+      "start": 2219.2,
+      "end": 2224.7999999999997,
+      "text": "So that part of thing we think is going well, we think we'll, we should be able to continue"
+    },
+    {
+      "start": 2224.8,
+      "end": 2226.6800000000003,
+      "text": "driving results."
+    },
+    {
+      "start": 2226.6800000000003,
+      "end": 2230.6000000000004,
+      "text": "Some of the results already have been due to some of the AI investments and infrastructure"
+    },
+    {
+      "start": 2230.6000000000004,
+      "end": 2232.2400000000002,
+      "text": "that we've made."
+    },
+    {
+      "start": 2232.2400000000002,
+      "end": 2237.1200000000003,
+      "text": "If our bets are correct, then the AI capex that we're bringing online should be able"
+    },
+    {
+      "start": 2237.1200000000003,
+      "end": 2239.2400000000002,
+      "text": "to drive incremental engagement."
+    },
+    {
+      "start": 2239.2400000000002,
+      "end": 2241.52,
+      "text": "That's pretty meaningful there."
+    },
+    {
+      "start": 2241.52,
+      "end": 2246.0,
+      "text": "But we think qualitatively that investment makes just a lot of sense, given the direction"
+    },
+    {
+      "start": 2246.0,
+      "end": 2248.48,
+      "text": "that the world seems to be going in."
+    },
+    {
+      "start": 2248.48,
+      "end": 2253.76,
+      "text": "And I do think that our, are somewhat unique mix of both having the kind of social friends"
+    },
+    {
+      "start": 2253.76,
+      "end": 2259.5600000000004,
+      "text": "and family content and the ability to drive recommendations, which I agree with some,"
+    },
+    {
+      "start": 2259.5600000000004,
+      "end": 2264.28,
+      "text": "you know, the premise of the question there and that, and that creators do want their content"
+    },
+    {
+      "start": 2264.28,
+      "end": 2268.1200000000003,
+      "text": "to be on multiple platforms, which I think is a little bit different from friends content"
+    },
+    {
+      "start": 2268.1200000000003,
+      "end": 2272.1600000000003,
+      "text": "where you want to, for the most part, share where your friends are and you're not trying"
+    },
+    {
+      "start": 2272.1600000000003,
+      "end": 2275.0400000000004,
+      "text": "to have it be everywhere."
+    },
+    {
+      "start": 2275.0400000000004,
+      "end": 2278.84,
+      "text": "I think we should be able to do pretty well on both of those and that should, that should"
+    },
+    {
+      "start": 2278.84,
+      "end": 2279.84,
+      "text": "grow over time."
+    },
+    {
+      "start": 2279.88,
+      "end": 2285.2400000000002,
+      "text": "That's, that's, it's hard for us to be more specific than that now, but but I do think"
+    },
+    {
+      "start": 2285.2400000000002,
+      "end": 2292.1200000000003,
+      "text": "that these trends, I mean, I get that this, this takes a little longer to play out than,"
+    },
+    {
+      "start": 2292.1200000000003,
+      "end": 2293.1200000000003,
+      "text": "than you would want."
+    },
+    {
+      "start": 2293.1200000000003,
+      "end": 2297.08,
+      "text": "But we've been to a couple of you cycles before already, and I'm pretty confident this"
+    },
+    {
+      "start": 2297.08,
+      "end": 2298.1200000000003,
+      "text": "is going in a good direction."
+    },
+    {
+      "start": 2298.1200000000003,
+      "end": 2305.1600000000003,
+      "text": "Here, next question comes from line of Doug Anyes with JP Morgan."
+    },
+    {
+      "start": 2305.24,
+      "end": 2309.48,
+      "text": "Thanks for taking the question, Doug, too."
+    },
+    {
+      "start": 2309.48,
+      "end": 2314.8799999999997,
+      "text": "Dave, you talked about the ATT impact diminishing in three, two, just as you lap the roll"
+    },
+    {
+      "start": 2314.8799999999997,
+      "end": 2319.72,
+      "text": "out, curious if you're seeing any meaningful improvements around ATT, or is this just"
+    },
+    {
+      "start": 2319.72,
+      "end": 2323.16,
+      "text": "a function of the year over your contiemic."
+    },
+    {
+      "start": 2323.16,
+      "end": 2328.68,
+      "text": "And then second, can you just talk about your efforts to track content creators to reels"
+    },
+    {
+      "start": 2328.68,
+      "end": 2334.3199999999997,
+      "text": "and just revenue sharing impact your margin structure versus the current ad formats and"
+    },
+    {
+      "start": 2334.32,
+      "end": 2335.32,
+      "text": "services."
+    },
+    {
+      "start": 2335.32,
+      "end": 2336.32,
+      "text": "Thanks."
+    },
+    {
+      "start": 2336.32,
+      "end": 2352.32,
+      "text": "So in terms of ATT impact, you know, the primary factor is the lapping factor relative to Q2."
+    },
+    {
+      "start": 2352.32,
+      "end": 2361.96,
+      "text": "So in Q2 of 2021, ATT had not been fully rolled out, it was largely rolled out by Q3"
+    },
+    {
+      "start": 2361.96,
+      "end": 2363.96,
+      "text": "of 21."
+    },
+    {
+      "start": 2363.96,
+      "end": 2370.84,
+      "text": "So the fact that we were lapping that period in the third quarter, we got a benefit relative"
+    },
+    {
+      "start": 2370.84,
+      "end": 2378.84,
+      "text": "to the second quarter, but that was offset by, you know, continued macro weakness."
+    },
+    {
+      "start": 2378.84,
+      "end": 2383.56,
+      "text": "In terms of the efforts to attract content creators, and specifically, as it relates"
+    },
+    {
+      "start": 2383.56,
+      "end": 2387.96,
+      "text": "to the, you know, overall cost structure, we don't anticipate that that's going to, you"
+    },
+    {
+      "start": 2387.96,
+      "end": 2391.92,
+      "text": "know, have a meaningful impact to the cost structure."
+    },
+    {
+      "start": 2391.92,
+      "end": 2398.92,
+      "text": "And obviously it's factored into our expense guidance."
+    },
+    {
+      "start": 2398.92,
+      "end": 2400.92,
+      "text": "Hey, you're next question."
+    },
+    {
+      "start": 2400.92,
+      "end": 2403.92,
+      "text": "So it's for a line of Eric Sheridan with Goldman Sachs."
+    },
+    {
+      "start": 2403.92,
+      "end": 2406.92,
+      "text": "Thanks for taking the question."
+    },
+    {
+      "start": 2406.92,
+      "end": 2409.92,
+      "text": "Maybe two if I can, Mark, I would look for you to weigh in."
+    },
+    {
+      "start": 2409.92,
+      "end": 2414.92,
+      "text": "Obviously the company has faced a lot of headwinds from platform changes, competitive dynamics,"
+    },
+    {
+      "start": 2414.92,
+      "end": 2419.92,
+      "text": "and a lot of macro advantages we've talked about of the last, well, to 24 months."
+    },
+    {
+      "start": 2419.92,
+      "end": 2427.92,
+      "text": "How much of this investment cycle is informed by your views around future pruiting the platform."
+    },
+    {
+      "start": 2427.92,
+      "end": 2433.92,
+      "text": "So there are less externalities that can impact it in your and control more of your own destiny,"
+    },
+    {
+      "start": 2433.92,
+      "end": 2439.92,
+      "text": "versus elements of curveballs that can be thrown at you that can cause volatility in the business"
+    },
+    {
+      "start": 2439.92,
+      "end": 2441.92,
+      "text": "and the medium to long term."
+    },
+    {
+      "start": 2441.92,
+      "end": 2445.92,
+      "text": "And then I'd love to ask one of the metaphors, you know, understood on the investment cadence"
+    },
+    {
+      "start": 2446.92,
+      "end": 2449.92,
+      "text": "in the metaphors, so next few years, even if quality,"
+    },
+    {
+      "start": 2449.92,
+      "end": 2454.92,
+      "text": "investors think about the revenue opportunity over the next three to five years,"
+    },
+    {
+      "start": 2454.92,
+      "end": 2459.92,
+      "text": "what's between the hardware opportunity and the non hardware opportunity as you see it,"
+    },
+    {
+      "start": 2459.92,
+      "end": 2465.92,
+      "text": "as then at a verse of all."
+    },
+    {
+      "start": 2465.92,
+      "end": 2471.92,
+      "text": "Sure, I can take the first one and then I guess I can take the second one too."
+    },
+    {
+      "start": 2471.92,
+      "end": 2481.92,
+      "text": "So the first question was, what was this?"
+    },
+    {
+      "start": 2481.92,
+      "end": 2483.92,
+      "text": "No, not much of anything."
+    },
+    {
+      "start": 2483.92,
+      "end": 2484.92,
+      "text": "Yeah, right."
+    },
+    {
+      "start": 2484.92,
+      "end": 2485.92,
+      "text": "Okay."
+    },
+    {
+      "start": 2485.92,
+      "end": 2492.92,
+      "text": "So I think that's a factor, but it's not the primary thing that's driving it."
+    },
+    {
+      "start": 2492.92,
+      "end": 2499.92,
+      "text": "So on the business side, I think, certainly see dynamics like what Apple has done with"
+    },
+    {
+      "start": 2499.92,
+      "end": 2506.92,
+      "text": "the TTT and continues to do in some ways with the policy that they announced yesterday,"
+    },
+    {
+      "start": 2506.92,
+      "end": 2514.92,
+      "text": "which are obviously big risks and we see issues."
+    },
+    {
+      "start": 2514.92,
+      "end": 2522.92,
+      "text": "But there were also other things that we just believe that we've invested so much in measurement over time,"
+    },
+    {
+      "start": 2522.92,
+      "end": 2529.92,
+      "text": "because since our ads help people higher up in the funnel, then search ads, for example,"
+    },
+    {
+      "start": 2529.92,
+      "end": 2534.92,
+      "text": "we think that often less of the value of sales is attributed to us than it should be."
+    },
+    {
+      "start": 2534.92,
+      "end": 2540.92,
+      "text": "So for all these reasons having a funnel that's more integrated, where we do more commerce internally,"
+    },
+    {
+      "start": 2540.92,
+      "end": 2546.92,
+      "text": "there's a big part of what we hope to achieve with business messaging,"
+    },
+    {
+      "start": 2546.92,
+      "end": 2554.92,
+      "text": "in the fact that you can find a customer, you know, have a thread directly with them in a business chat,"
+    },
+    {
+      "start": 2554.92,
+      "end": 2559.92,
+      "text": "and be able to sell a product directly or to be able to do customer support,"
+    },
+    {
+      "start": 2559.92,
+      "end": 2563.92,
+      "text": "and then help people out with the product and then maybe sell them something else."
+    },
+    {
+      "start": 2563.92,
+      "end": 2571.92,
+      "text": "That kind of integration, I think, is going to be valuable very broadly in terms of making sure that the value that we're creating for businesses and consumers"
+    },
+    {
+      "start": 2571.92,
+      "end": 2578.92,
+      "text": "can be more efficiently measured and attributed to our services."
+    },
+    {
+      "start": 2578.92,
+      "end": 2585.92,
+      "text": "A lot of this though, it's not just about fortifying and outside threats,"
+    },
+    {
+      "start": 2585.92,
+      "end": 2592.92,
+      "text": "a lot of this is just you can build new and innovative things by when you control more of the stack yourself."
+    },
+    {
+      "start": 2592.92,
+      "end": 2598.92,
+      "text": "In the metaverse sense, a lot of the things that we're trying to enable,"
+    },
+    {
+      "start": 2599.92,
+      "end": 2606.92,
+      "text": "this feeling of presence, which in a lot of ways is sort of the ultimate social experience."
+    },
+    {
+      "start": 2606.92,
+      "end": 2610.92,
+      "text": "When you do it physically or eventually, as you're doing it virtually,"
+    },
+    {
+      "start": 2610.92,
+      "end": 2621.92,
+      "text": "you'll be able to design the hardware that you can have sensors that can help map your facial expressions and emotions to the avatar that you have."
+    },
+    {
+      "start": 2621.92,
+      "end": 2627.92,
+      "text": "Virtual, I think, is going to be just a very profound experience and you can start to experience that with Quest Pro,"
+    },
+    {
+      "start": 2627.92,
+      "end": 2632.92,
+      "text": "which is out now. And it's just not clear if we weren't driving this forward that anyone else would be."
+    },
+    {
+      "start": 2632.92,
+      "end": 2636.92,
+      "text": "So I think that that sort of integration, innovation is really helpful."
+    },
+    {
+      "start": 2636.92,
+      "end": 2644.92,
+      "text": "Similarly, I think the fact that we can create a lot of the business and commerce platform around our messaging products,"
+    },
+    {
+      "start": 2644.92,
+      "end": 2652.92,
+      "text": "but then link to them from Facebook and Instagram, create some unique experiences that I think would be very hard to create otherwise as well."
+    },
+    {
+      "start": 2652.92,
+      "end": 2657.92,
+      "text": "I'm just in terms of having that kind of full loop in the product."
+    },
+    {
+      "start": 2657.92,
+      "end": 2661.92,
+      "text": "So I'm not that like enabling more experiences, I think is really the primary driver,"
+    },
+    {
+      "start": 2661.92,
+      "end": 2669.92,
+      "text": "and then the sort of fortification against external risks is certainly a strategic advantage over the long term,"
+    },
+    {
+      "start": 2669.92,
+      "end": 2677.92,
+      "text": "but probably not the only reason why we're doing this."
+    },
+    {
+      "start": 2678.92,
+      "end": 2683.92,
+      "text": "Your next question comes from line of use of squally with twist."
+    },
+    {
+      "start": 2683.92,
+      "end": 2685.92,
+      "text": "Great, thank you very much."
+    },
+    {
+      "start": 2685.92,
+      "end": 2690.92,
+      "text": "Maybe one question for Dave or Susan, and then one for Mark."
+    },
+    {
+      "start": 2690.92,
+      "end": 2695.92,
+      "text": "What kind of base case assumptions for Macrover, you guys, bacon in for 2023,"
+    },
+    {
+      "start": 2695.92,
+      "end": 2700.92,
+      "text": "with against that 12 to 15% increase in objects and capex guide,"
+    },
+    {
+      "start": 2700.92,
+      "end": 2704.92,
+      "text": "and can you talk about maybe the fixed versus variable component,"
+    },
+    {
+      "start": 2704.92,
+      "end": 2710.92,
+      "text": "the expense of guide that could give you the flexibility to address in the material macro changes next year."
+    },
+    {
+      "start": 2710.92,
+      "end": 2716.92,
+      "text": "And Mark, relative to your own expectations when you decided to pursue the metaverse strategy a couple years ago,"
+    },
+    {
+      "start": 2716.92,
+      "end": 2720.92,
+      "text": "how would you rate the company's performance to date in terms of product,"
+    },
+    {
+      "start": 2720.92,
+      "end": 2727.92,
+      "text": "roll out engagement with things like horizon worlds, et cetera, and is the opportunity to evolve in line with your expectations,"
+    },
+    {
+      "start": 2727.92,
+      "end": 2730.92,
+      "text": "and if not, what are the key-gating factors?"
+    },
+    {
+      "start": 2730.92,
+      "end": 2733.92,
+      "text": "Thank you."
+    },
+    {
+      "start": 2733.92,
+      "end": 2735.92,
+      "text": "It's Susan on the first question."
+    },
+    {
+      "start": 2735.92,
+      "end": 2739.92,
+      "text": "You know, we haven't given revenue guidance yet for 2023,"
+    },
+    {
+      "start": 2739.92,
+      "end": 2748.92,
+      "text": "but you know, our Q4 2022 guide is arranged and that range certainly encompasses, I think, a wide variety of macro expectations."
+    },
+    {
+      "start": 2748.92,
+      "end": 2753.92,
+      "text": "We're certainly in a period right now where we are seeing a slowdown in advertising demand,"
+    },
+    {
+      "start": 2753.92,
+      "end": 2758.92,
+      "text": "and you know, that correlates with a lot of things that we're seeing outside of just our sector here,"
+    },
+    {
+      "start": 2758.92,
+      "end": 2763.92,
+      "text": "including rising inflation and supply chain issues sort of more broadly across the economy."
+    },
+    {
+      "start": 2763.92,
+      "end": 2771.92,
+      "text": "So, you know, with that in mind, we have undertaken a 2023 budget process that has applied higher scrutiny"
+    },
+    {
+      "start": 2771.92,
+      "end": 2777.92,
+      "text": "to, you know, almost all of the areas of our very broad investment portfolio,"
+    },
+    {
+      "start": 2777.92,
+      "end": 2785.92,
+      "text": "and we have taken what is an intentionally more conservative approach to our budget and our anticipated growth."
+    },
+    {
+      "start": 2786.92,
+      "end": 2792.92,
+      "text": "You asked about this sort of fixed versus variable components of the 2023 opx guide."
+    },
+    {
+      "start": 2792.92,
+      "end": 2798.92,
+      "text": "I think I'd mentioned that, you know, over half, a little over half of that is coming from opx,"
+    },
+    {
+      "start": 2798.92,
+      "end": 2804.92,
+      "text": "the rest from cost of revenue, so the cost of revenue piece, you know, that has the sort of the growth and depreciation,"
+    },
+    {
+      "start": 2804.92,
+      "end": 2809.92,
+      "text": "which is certainly fixed, and, you know, is just playing through from prior year, capx growth."
+    },
+    {
+      "start": 2810.92,
+      "end": 2815.92,
+      "text": "You know, part of that is coming from reality labs and the launch of the next-gen consumer quest head side,"
+    },
+    {
+      "start": 2815.92,
+      "end": 2818.92,
+      "text": "so that sort of corresponds to the product launch."
+    },
+    {
+      "start": 2818.92,
+      "end": 2827.92,
+      "text": "And then on the opx side, you know, we, a lot of the growth in 2023 opx is coming from employees who we've already hired."
+    },
+    {
+      "start": 2827.92,
+      "end": 2832.92,
+      "text": "We expect that we're going to, you know, have the same number of employees, you know, end of 2023."
+    },
+    {
+      "start": 2832.92,
+      "end": 2838.92,
+      "text": "So, that's an area where, you know, we're pretty focused on, on being disciplined."
+    },
+    {
+      "start": 2838.92,
+      "end": 2843.92,
+      "text": "Also, and then finally, I just mentioned, again, there's that $2 billion office facilities,"
+    },
+    {
+      "start": 2843.92,
+      "end": 2849.92,
+      "text": "consolidation charge that's also included in the 2023 opx guide."
+    },
+    {
+      "start": 2849.92,
+      "end": 2857.92,
+      "text": "Sure, and in terms of the metaverse efforts and kind of how we're doing compared to what I expected,"
+    },
+    {
+      "start": 2857.92,
+      "end": 2861.92,
+      "text": "you know, it's a pretty wide portfolio of things that we're, that we're working on,"
+    },
+    {
+      "start": 2861.92,
+      "end": 2865.92,
+      "text": "which I think is important to internalize, because the, you know,"
+    },
+    {
+      "start": 2866.92,
+      "end": 2869.92,
+      "text": "what I think most people see are the VR headsets, right?"
+    },
+    {
+      "start": 2869.92,
+      "end": 2872.92,
+      "text": "Because that's the, that's sort of the first thing that we launched."
+    },
+    {
+      "start": 2872.92,
+      "end": 2875.92,
+      "text": "I'm quest two is the first mainstream VR headset."
+    },
+    {
+      "start": 2875.92,
+      "end": 2877.92,
+      "text": "I kind of think about what we're doing."
+    },
+    {
+      "start": 2877.92,
+      "end": 2880.92,
+      "text": "There's four major platforms that were focused on developing."
+    },
+    {
+      "start": 2880.92,
+      "end": 2889.92,
+      "text": "One is the, the kind of social metaverse platform where you see an early version of that with horizon with the avatar system."
+    },
+    {
+      "start": 2889.92,
+      "end": 2893.92,
+      "text": "And that's an area where we're really, you know, we're iterating out in the open, right?"
+    },
+    {
+      "start": 2893.92,
+      "end": 2897.92,
+      "text": "It's a kind of a live, you know, early product platform."
+    },
+    {
+      "start": 2897.92,
+      "end": 2901.92,
+      "text": "And that's evolving quickly."
+    },
+    {
+      "start": 2901.92,
+      "end": 2907.92,
+      "text": "But obviously, it has a long way to go before it's going to be what we aspire for it to be."
+    },
+    {
+      "start": 2907.92,
+      "end": 2911.92,
+      "text": "But that's, that's one important area that's, you know, given what we, what we do is sort of the,"
+    },
+    {
+      "start": 2911.92,
+      "end": 2917.92,
+      "text": "the social company that's about people interacting, how you express yourself in all forms,"
+    },
+    {
+      "start": 2917.92,
+      "end": 2921.92,
+      "text": "the, the kind of expressive avatars, the photo-realistic avatars."
+    },
+    {
+      "start": 2921.92,
+      "end": 2924.92,
+      "text": "You know, we think we're doing some, some leading work there."
+    },
+    {
+      "start": 2924.92,
+      "end": 2931.92,
+      "text": "But obviously, we need to get that into, into the product and, and continue to rating on that."
+    },
+    {
+      "start": 2931.92,
+      "end": 2933.92,
+      "text": "VR is the second major platform."
+    },
+    {
+      "start": 2933.92,
+      "end": 2945.92,
+      "text": "And there, you know, I think that there's going to be a consumer focused product that probably will reach a very large scale."
+    },
+    {
+      "start": 2945.92,
+      "end": 2949.92,
+      "text": "But there's also, I think, going to be a work focused product that, you know,"
+    },
+    {
+      "start": 2949.92,
+      "end": 2953.92,
+      "text": "that, you know, it's like you, you don't, you know, do most of your work on a $500 device."
+    },
+    {
+      "start": 2953.92,
+      "end": 2958.92,
+      "text": "We have computers and workstations that are much more powerful and have more technology in them."
+    },
+    {
+      "start": 2958.92,
+      "end": 2962.92,
+      "text": "And I think that that's going to be similar here as well."
+    },
+    {
+      "start": 2962.92,
+      "end": 2964.92,
+      "text": "So we started that with, with Quest Pro."
+    },
+    {
+      "start": 2964.92,
+      "end": 2968.92,
+      "text": "And, and that's, we're sort of at the start of the journey there."
+    },
+    {
+      "start": 2968.92,
+      "end": 2974.92,
+      "text": "The two other areas, which, which are mostly, just still internal,"
+    },
+    {
+      "start": 2974.92,
+      "end": 2980.92,
+      "text": "is a lot of the work on augmented reality, which is a quite a large effort."
+    },
+    {
+      "start": 2980.92,
+      "end": 2986.92,
+      "text": "But we think is, is going to be just a huge part of the value that gets created over time."
+    },
+    {
+      "start": 2986.92,
+      "end": 2993.92,
+      "text": "And there, you know, we, a lot of what I'm judging is, you know, how well are the R&D efforts going."
+    },
+    {
+      "start": 2993.92,
+      "end": 3000.92,
+      "text": "There are some kind of basic things that we need to get right, some integration of things, some figuring out how to manufacture things."
+    },
+    {
+      "start": 3000.92,
+      "end": 3007.92,
+      "text": "And, and, and where we're making progress on that and, and, and I'd say, you know, a bunch of that is that there are some things that are going better than I expected."
+    },
+    {
+      "start": 3007.92,
+      "end": 3009.92,
+      "text": "Something that seemed like they might take it both longer."
+    },
+    {
+      "start": 3009.92,
+      "end": 3016.92,
+      "text": "But overall, I mean, there's, um, none of the, none of the indications that I have would suggest that,"
+    },
+    {
+      "start": 3016.92,
+      "end": 3022.92,
+      "text": "um, that anyone else in the world is doing leading work ahead of us in, in those areas, even though we haven't,"
+    },
+    {
+      "start": 3022.92,
+      "end": 3025.92,
+      "text": "we haven't, we haven't obviously shipped, um, the AR glasses yet."
+    },
+    {
+      "start": 3025.92,
+      "end": 3033.92,
+      "text": "And then the fourth platform, you know, after the, the kind of social platforms VR and AR is, um, is neural interfaces,"
+    },
+    {
+      "start": 3033.92,
+      "end": 3039.92,
+      "text": "which I think the, you kind of wrist-based, um, EMG interface, which is, you know, for all these computing platforms,"
+    },
+    {
+      "start": 3039.92,
+      "end": 3043.92,
+      "text": "there's going to end up being, you know, input is a really important part."
+    },
+    {
+      "start": 3043.92,
+      "end": 3046.92,
+      "text": "How do you, how do you basically control the computing platform?"
+    },
+    {
+      "start": 3046.92,
+      "end": 3052.92,
+      "text": "And, you know, we think, by the time that you have glasses and you're kind of walking down the street with glasses,"
+    },
+    {
+      "start": 3052.92,
+      "end": 3058.92,
+      "text": "you're not going to have controllers with that, you're, you're not going to want to, you know, have your hands kind of like hovering in the air,"
+    },
+    {
+      "start": 3058.92,
+      "end": 3063.92,
+      "text": "and you're not always going to want to talk to the thing, even though that's going to be, um, one way that we use them a bunch of the time,"
+    },
+    {
+      "start": 3063.92,
+      "end": 3066.92,
+      "text": "sometimes you're going to want something that's, you know, more private."
+    },
+    {
+      "start": 3066.92,
+      "end": 3074.92,
+      "text": "So, we think that having a, a discrete, um, way to basically communicate with, with the device is going to be critical,"
+    },
+    {
+      "start": 3074.92,
+      "end": 3081.92,
+      "text": "and that's also an area where, as far as I can see, the research that we're doing is, is really, um, leading here."
+    },
+    {
+      "start": 3081.92,
+      "end": 3088.92,
+      "text": "So, it's, it's a pretty big surface, you know, I, I know that sometimes when we ship a product, and there's a meme where people say,"
+    },
+    {
+      "start": 3088.92,
+      "end": 3094.92,
+      "text": "hey, you're spending all this money, and you've produced this thing, and it's in, you know, I think that that's,"
+    },
+    {
+      "start": 3094.92,
+      "end": 3096.92,
+      "text": "not really the right way to think about it."
+    },
+    {
+      "start": 3096.92,
+      "end": 3101.92,
+      "text": "I think that, you know, there's, there's a, a number of different products and platforms that we're building,"
+    },
+    {
+      "start": 3101.92,
+      "end": 3108.92,
+      "text": "where we think we're doing leading work, that will become, um, you know, launching consumer products,"
+    },
+    {
+      "start": 3108.92,
+      "end": 3115.92,
+      "text": "and then, you know, eventually mature products at different cadences, um, different periods of time over the next, you know, five to ten years."
+    },
+    {
+      "start": 3115.92,
+      "end": 3124.92,
+      "text": "Um, and in all these areas, I, I think the teams are making very good progress, and, um, I think this will be fundamentally important for the future."
+    },
+    {
+      "start": 3124.92,
+      "end": 3128.92,
+      "text": "Uh, nothing that we're seeing suggests that that's not going to be the case."
+    },
+    {
+      "start": 3128.92,
+      "end": 3135.92,
+      "text": "Um, we are pacing a bunch of the investments, given the, be kind of macroeconomic environment and the rest of the business performance,"
+    },
+    {
+      "start": 3135.92,
+      "end": 3141.92,
+      "text": "but ultimately, I mean, look, I get that a lot of people, um, might disagree with this, with this investment,"
+    },
+    {
+      "start": 3141.92,
+      "end": 3146.92,
+      "text": "but, um, from what, what I can tell, I think that this is going to be a very important thing,"
+    },
+    {
+      "start": 3146.92,
+      "end": 3152.92,
+      "text": "and I think it would be a mistake for us to, um, you know, not focus on any of these areas,"
+    },
+    {
+      "start": 3152.92,
+      "end": 3154.92,
+      "text": "which I think are going to be fundamentally important to the future."
+    },
+    {
+      "start": 3154.92,
+      "end": 3160.92,
+      "text": "So, um, so we're going to try to do this in a way that is responsible and matches the, um,"
+    },
+    {
+      "start": 3160.92,
+      "end": 3163.92,
+      "text": "the way the rest of the business is growing over time."
+    },
+    {
+      "start": 3163.92,
+      "end": 3171.92,
+      "text": "Um, and I think we've, we've built up the team to a point now where, where, um, where I think we'll be able to kind of match that growth with the rest of the business,"
+    },
+    {
+      "start": 3171.92,
+      "end": 3178.92,
+      "text": "more going forward. Um, but over time, I, I, I think that the user are going to end up being very important investments"
+    },
+    {
+      "start": 3178.92,
+      "end": 3184.92,
+      "text": "for the future of, of our business, and, um, I think is, is some of the most historic work that we're doing,"
+    },
+    {
+      "start": 3184.92,
+      "end": 3190.92,
+      "text": "that I think people are going to look back on decades from now, um, and, and talk about the importance of the work that was done here."
+    },
+    {
+      "start": 3193.92,
+      "end": 3198.92,
+      "text": "Your next question comes from line of Mark Mahaney with Evercore ISI."
+    },
+    {
+      "start": 3198.92,
+      "end": 3201.92,
+      "text": "I want to follow up on a prior question."
+    },
+    {
+      "start": 3201.92,
+      "end": 3204.92,
+      "text": "Uh, it's back on the, the ad tools and, um,"
+    },
+    {
+      "start": 3204.92,
+      "end": 3211.92,
+      "text": "I'm trying to figure out how much of our priorities for the company and how long the company thinks it can take to kind of recover, um,"
+    },
+    {
+      "start": 3211.92,
+      "end": 3218.92,
+      "text": "or to create a new, I don't know, probabilistic ad attribution model, probabilistically based ad, uh,"
+    },
+    {
+      "start": 3218.92,
+      "end": 3221.92,
+      "text": "targeting model, you know, this, this is something that took 10 billion, you know,"
+    },
+    {
+      "start": 3221.92,
+      "end": 3224.92,
+      "text": "maybe out of your business. I mean, I have a material financial impact."
+    },
+    {
+      "start": 3224.92,
+      "end": 3227.92,
+      "text": "And listening to the call, I just don't hear it as a major investment priority."
+    },
+    {
+      "start": 3227.92,
+      "end": 3231.92,
+      "text": "So the challenge, the question is, you know, is it a major investment priority?"
+    },
+    {
+      "start": 3231.92,
+      "end": 3235.92,
+      "text": "Or is it that that goal is just, it elusive and it's better to focus on other things?"
+    },
+    {
+      "start": 3235.92,
+      "end": 3239.92,
+      "text": "Thanks a lot."
+    },
+    {
+      "start": 3239.92,
+      "end": 3246.92,
+      "text": "Hi, Mark. I'll take this question. Um, we have continued our broader work to rebuild meaningful elements of our ad text,"
+    },
+    {
+      "start": 3246.92,
+      "end": 3249.92,
+      "text": "so our system can improve performance and measurement with it."
+    },
+    {
+      "start": 3249.92,
+      "end": 3254.92,
+      "text": "And we've been making investments in the short and the medium term and over the long term."
+    },
+    {
+      "start": 3254.92,
+      "end": 3258.92,
+      "text": "In the short and the medium term, what we've been very focused on is evolving our ad system,"
+    },
+    {
+      "start": 3258.92,
+      "end": 3263.92,
+      "text": "by growing onsite conversions with products like lead ads and ads that click to message."
+    },
+    {
+      "start": 3263.92,
+      "end": 3269.92,
+      "text": "And we're continuing to make investments in AI, machine learning to improve measurement, targeting and delivery."
+    },
+    {
+      "start": 3269.92,
+      "end": 3275.92,
+      "text": "We have been pleased with our progress that we've made this quarter to help advertisers improve performance,"
+    },
+    {
+      "start": 3275.92,
+      "end": 3277.92,
+      "text": "targeting and measurement."
+    },
+    {
+      "start": 3277.92,
+      "end": 3282.92,
+      "text": "I would be remiss if I didn't talk about how AI and ML is really helping advertisers."
+    },
+    {
+      "start": 3282.92,
+      "end": 3285.92,
+      "text": "One example of this is, advantage plus shopping."
+    },
+    {
+      "start": 3285.92,
+      "end": 3286.92,
+      "text": "We launched it in August."
+    },
+    {
+      "start": 3286.92,
+      "end": 3292.92,
+      "text": "It's a product that's enabled by machine learning that helps clients pass learn and optimize their campaign faster."
+    },
+    {
+      "start": 3292.92,
+      "end": 3298.92,
+      "text": "It's early, but a recent test across, uh, cross section of advertisers,"
+    },
+    {
+      "start": 3298.92,
+      "end": 3305.92,
+      "text": "found that those using advantage plus shopping campaigns saw a 32% increase in return on ad spend."
+    },
+    {
+      "start": 3305.92,
+      "end": 3312.92,
+      "text": "Over the longer term, we're focused on investing in privacy enhancing technologies, both our own portfolio of solutions,"
+    },
+    {
+      "start": 3312.92,
+      "end": 3315.92,
+      "text": "but also working with the industry to do that."
+    },
+    {
+      "start": 3315.92,
+      "end": 3323.92,
+      "text": "And all of this is in the spirit of investing in this technology to help advertisers get more value."
+    },
+    {
+      "start": 3323.92,
+      "end": 3325.92,
+      "text": "Great. Thanks, Marty."
+    },
+    {
+      "start": 3325.92,
+      "end": 3329.92,
+      "text": "We have operator. We have time for one last question."
+    },
+    {
+      "start": 3329.92,
+      "end": 3334.92,
+      "text": "Thank you. That will come from line of bread still with Jeffries."
+    },
+    {
+      "start": 3334.92,
+      "end": 3343.92,
+      "text": "I think kind of summing up how investors are filling right now is that there are just too many experimental bets versus proven bets on the core."
+    },
+    {
+      "start": 3343.92,
+      "end": 3348.92,
+      "text": "I'm curious if you can just add more color. Why you don't feel these are expensive experimental."
+    },
+    {
+      "start": 3348.92,
+      "end": 3354.92,
+      "text": "You feel like they pay off. There's obviously a lot of focus on the investment sign."
+    },
+    {
+      "start": 3354.92,
+      "end": 3360.92,
+      "text": "Everyone loved to hear what, why do you think this pays off?"
+    },
+    {
+      "start": 3360.92,
+      "end": 3367.92,
+      "text": "Yeah. And looking take at least part of that. I mean, we're making a number of investments across the portfolio."
+    },
+    {
+      "start": 3367.92,
+      "end": 3370.92,
+      "text": "Marty outlined some that we're making in the ad space."
+    },
+    {
+      "start": 3370.92,
+      "end": 3377.92,
+      "text": "Obviously, the investments that we're making in product areas like reels and the business messaging platform,"
+    },
+    {
+      "start": 3377.92,
+      "end": 3388.92,
+      "text": "what's up are ones that we think will have a significant payoff for the in business both in terms of engagement and monetization."
+    },
+    {
+      "start": 3388.92,
+      "end": 3398.92,
+      "text": "So we're making a wide portfolio that's still the majority of our spending is directed towards our family of apps investment."
+    },
+    {
+      "start": 3398.92,
+      "end": 3406.92,
+      "text": "And those are across both engagement and monetization, leveraging AI in many cases."
+    },
+    {
+      "start": 3406.92,
+      "end": 3411.92,
+      "text": "And we're making, you know, good progress on those fronts."
+    },
+    {
+      "start": 3411.92,
+      "end": 3419.92,
+      "text": "And then leveraging as well what is today, you know, a fairly under-monitized resource in terms of our messaging platforms,"
+    },
+    {
+      "start": 3419.92,
+      "end": 3424.92,
+      "text": "building more scale around those as being a source of future revenue growth."
+    },
+    {
+      "start": 3424.92,
+      "end": 3431.92,
+      "text": "We've already proven it out with our business, our click to message ads with a $9 billion business today."
+    },
+    {
+      "start": 3431.92,
+      "end": 3437.92,
+      "text": "But we think we can build a substantial size business around paid messaging, which will complement that as well."
+    },
+    {
+      "start": 3437.92,
+      "end": 3449.92,
+      "text": "So, you know, I think we've got a lot of bets across the family of app portfolio, you know, in addition to the work that we're doing on reality labs in the metaphors."
+    },
+    {
+      "start": 3449.92,
+      "end": 3457.92,
+      "text": "Yeah, I mean, I just say that there's a difference between something being experimental and not knowing how good it's going to end up being."
+    },
+    {
+      "start": 3457.92,
+      "end": 3464.92,
+      "text": "But I think a lot of the things that we're working on across the family of apps are quite constant that they're going to work and be good."
+    },
+    {
+      "start": 3464.92,
+      "end": 3473.92,
+      "text": "You know, the reals work, the discovery engine work, all the ads work on signals, the business messaging work."
+    },
+    {
+      "start": 3473.92,
+      "end": 3478.92,
+      "text": "I, we can't tell you right now how much, how big they're going to scale to be."
+    },
+    {
+      "start": 3478.92,
+      "end": 3484.92,
+      "text": "But I think that, each of these things are kind of going in the right direction."
+    },
+    {
+      "start": 3484.92,
+      "end": 3491.92,
+      "text": "You know, obviously, the metaverse work is a longer term set of of efforts that we're working on."
+    },
+    {
+      "start": 3491.92,
+      "end": 3496.92,
+      "text": "But I don't know, I think that that is going to end up working too."
+    },
+    {
+      "start": 3496.92,
+      "end": 3508.92,
+      "text": "So, yeah, I think that look, there are a number of different, there are a lot of things going on right now in the business and in the world."
+    },
+    {
+      "start": 3508.92,
+      "end": 3517.92,
+      "text": "And so it's, it's hard to have like a simple, you know, we're going to do this one thing and that's going to get us solve all the issues."
+    },
+    {
+      "start": 3517.92,
+      "end": 3525.92,
+      "text": "I mean, there's macroeconomic issues, there's, there's a lot of competition, there's, you know, ads challenges, especially coming from Apple."
+    },
+    {
+      "start": 3525.92,
+      "end": 3532.92,
+      "text": "And then there's some of the longer term things that we're taking on expenses because we believe that they're going to provide greater returns over time."
+    },
+    {
+      "start": 3532.92,
+      "end": 3536.92,
+      "text": "And I think we're going to resolve each of these things over a different periods of time."
+    },
+    {
+      "start": 3536.92,
+      "end": 3544.92,
+      "text": "And, you know, I appreciate the patience and I think that those who are patient and invest with us will end up being rewarded."
+    },
+    {
+      "start": 3544.92,
+      "end": 3557.92,
+      "text": "Just adding to what Mark just said, it is a challenging time for advertisers and what they are focused on given the economic uncertainty is getting a strong return on investment."
+    },
+    {
+      "start": 3557.92,
+      "end": 3564.92,
+      "text": "Going back to the family of apps and services, reels continues to be the fastest growing format on Instagram and Facebook."
+    },
+    {
+      "start": 3564.92,
+      "end": 3570.92,
+      "text": "And it is a great way for people to discover new interest creators and connect with businesses."
+    },
+    {
+      "start": 3570.92,
+      "end": 3577.92,
+      "text": "What we're focused on is making sure that businesses get a strong ROI on reels."
+    },
+    {
+      "start": 3577.92,
+      "end": 3593.92,
+      "text": "One example that shows that we're delivering on this in terms of our investments is corxical, which is the insulated drinkware brand that added reels to its business as usual strategy and saw 34% higher return on ad spend and a 34% higher sales."
+    },
+    {
+      "start": 3593.92,
+      "end": 3602.92,
+      "text": "So we are making progress with our investments and helping advertisers find that ROI that they're looking for."
+    },
+    {
+      "start": 3602.92,
+      "end": 3609.92,
+      "text": "Thank you everybody for joining us today. We appreciate your time and we look forward to speaking with you again."
+    },
+    {
+      "start": 3609.92,
+      "end": 3615.92,
+      "text": "And this concludes today's conference call. Thank you for joining us. You may know disconnect your lines."
+    },
+    {
+      "start": 3632.92,
+      "end": 3639.92,
+      "text": "Thank you."
+    },
+    {
+      "start": 3662.92,
+      "end": 3669.92,
+      "text": "Thank you."
+    },
+    {
+      "start": 3669.92,
+      "end": 3676.92,
+      "text": "Thank you."
+    },
+    {
+      "start": 3676.92,
+      "end": 3685.92,
+      "text": "Thank you."
+    },
+    {
+      "start": 3699.92,
+      "end": 3706.92,
+      "text": "Thank you."
+    }
+  ]
+}

@@ -5,7 +5,7 @@ This folder contains two local review interfaces for the earnings-call pipeline,
 ## Run
 
 ```bash
-python app/server.py
+PYTHONPATH=src python app/server.py
 ```
 
 Open `http://127.0.0.1:7860`.
@@ -17,12 +17,16 @@ Backup interface:
 Primary shell:
 
 ```bash
-python app/site_server.py
+PYTHONPATH=src python app/site_server.py
 ```
 
 Open `http://127.0.0.1:7861`.
 
-The primary shell is the cleaner long-term website surface. The backup interface remains available as a fallback while the shell evolves.
+The primary shell now supports two modes in one place:
+- `Demo mode`: instant fixed-case loading for Netflix Q1 2022 and Meta Q3 2022 using the frozen fixture contracts
+- `Input mode`: the normal live workflow for YouTube, local media, transcript upload, and pasted transcript text
+
+The primary shell makes the side-by-side raw source vs extracted signal view the main demo surface. The backup interface remains available as a fallback while the shell evolves.
 
 Runs execute as local background jobs. The review page refreshes while a run is active, so long YouTube transcriptions do not hold the browser request open.
 
@@ -39,7 +43,8 @@ Runs execute as local background jobs. The review page refreshes while a run is 
 ## Notes
 - Document mode uses extracted text and synthetic relative timing. It writes `document_timing_note.txt` to make that explicit.
 - Legacy `.doc` extraction tries `textutil`, then `antiword`, then `soffice` if available.
-- The home screen surfaces the strongest current benchmark subset from `data/gold_guidance_calls/`.
+- Demo mode keeps audio bounded to the curated joined-review moments already prepared for the fixed cases.
+- Market context stays visible as a secondary sanity-check panel and is not presented as predictive validation.
 
 ## Suggested starting prompt
 

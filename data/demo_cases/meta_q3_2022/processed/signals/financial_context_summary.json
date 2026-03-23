@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "meta_q3_2022",
+  "quarter": "Q3 2022",
+  "official_results": {
+    "revenue_billion_usd": "27.71",
+    "revenue_change_yoy": "4%",
+    "operating_income_billion_usd": "5.66",
+    "operating_income_change_yoy": "46%",
+    "operating_margin": "20%",
+    "diluted_eps_usd": "1.64",
+    "diluted_eps_change_yoy": "49%",
+    "q4_2022_revenue_guide_billion_usd": "30-32.5 billion",
+    "expense_guidance_2023_billion_usd": "96-101 billion",
+    "capex_guidance_2023_billion_usd": "34-39 billion"
+  },
+  "presentation_support": {
+    "reality_labs_revenue_millions_usd": "285",
+    "total_revenue_millions_usd": "27,714",
+    "family_of_apps_operating_income_millions_usd": "9,336",
+    "reality_labs_operating_loss_millions_usd": "3,672",
+    "total_income_from_operations_millions_usd": "5,664",
+    "operating_margin": "20%",
+    "q3_2022_capex_millions_usd": "9,518"
+  },
+  "summary_points": [
+    "Revenue declined year-over-year while operating income, margin, and EPS deteriorated more sharply.",
+    "2023 expense and capex guidance stayed elevated even as management emphasized efficiency and flatter headcount.",
+    "Reality Labs remained a material drag on profitability in the presentation support deck."
+  ]
+}

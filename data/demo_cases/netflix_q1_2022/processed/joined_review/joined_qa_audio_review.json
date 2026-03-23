@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "row_id": "qa_growth_headwinds_audio",
+      "case_id": "netflix_q1_2022",
+      "plain_english_label": "analyst pushback on growth slowdown",
+      "analyst_question_excerpt": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have changed over the past fe...",
+      "management_answer_excerpt": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ...",
+      "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
+      "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
+      "transcript_hedge_markers": [
+        "i think",
+        "kind of",
+        "we think"
+      ],
+      "question_time_range": "00:32-00:48",
+      "answer_time_range": "00:48-03:16",
+      "review_priority": "high"
+    },
+    {
+      "row_id": "qa_paid_net_adds_miss_audio",
+      "case_id": "netflix_q1_2022",
+      "plain_english_label": "qualified explanation of the Q1 miss",
+      "analyst_question_excerpt": "Okay. So maybe just in terms of the recent trends, if we could talk about 1Q a little bit more. You lost 200,000 subscribers or gained 500,000 ex the Russia removal. Hoping you could perhaps parse out a little bit around some of those factors that you menti...",
+      "management_answer_excerpt": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e...",
+      "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+      "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
+      "transcript_hedge_markers": [
+        "maybe",
+        "probably",
+        "sort of",
+        "trying to",
+        "could"
+      ],
+      "question_time_range": "03:18-03:52",
+      "answer_time_range": "03:52-07:13",
+      "review_priority": "high"
+    },
+    {
+      "row_id": "qa_ad_supported_option_audio",
+      "case_id": "netflix_q1_2022",
+      "plain_english_label": "hedged answer on the ad-supported option",
+      "analyst_question_excerpt": "Got it. And is it fair to think that it would be something you would test in a few small markets to start out and then kind of move along?",
+      "management_answer_excerpt": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't think we have a lot of doubt that it works, that all those companies have figured it out. I'm sure we'll just get in and figure it out as opposed to test it and maybe do it or not d...",
+      "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+      "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
+      "transcript_hedge_markers": [
+        "i think",
+        "maybe",
+        "probably",
+        "would"
+      ],
+      "question_time_range": "21:12-21:24",
+      "answer_time_range": "21:24-22:03",
+      "review_priority": "high"
+    }
+  ]
+}

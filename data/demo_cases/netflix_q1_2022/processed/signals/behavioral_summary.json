@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "uncertainty_score_overall": {
+    "score": 14,
+    "level": "high"
+  },
+  "reassurance_score_management": {
+    "score": 0,
+    "level": "low"
+  },
+  "analyst_skepticism_score": {
+    "score": 0,
+    "level": "low"
+  },
+  "strongest_evidence": {
+    "uncertainty": [
+      {
+        "matched_phrase": "modal uncertainty",
+        "strength": 1,
+        "text": "And maybe I could pick it up and talk about the first 2 factors you want a little bit more detail on."
+      },
+      {
+        "matched_phrase": "modal uncertainty",
+        "strength": 1,
+        "text": "As a result, certain divisions of S&P Global may have information that is not available to other S&P Global divisions."
+      }
+    ],
+    "reassurance": [],
+    "analyst_skepticism": []
+  },
+  "notes": [
+    "Scores are deterministic phrase-weight totals, not model probabilities.",
+    "Analyst skepticism is only computed on question-like segments; management reassurance ignores question-like text."
+  ]
+}

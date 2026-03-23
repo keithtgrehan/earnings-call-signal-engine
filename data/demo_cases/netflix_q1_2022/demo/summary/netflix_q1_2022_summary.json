@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "netflix_q1_2022",
+  "display_name": "Netflix Q1 2022",
+  "quarter": "Q1 2022",
+  "quarter_consistency": {
+    "schema_version": "1.0.0",
+    "case_id": "netflix_q1_2022",
+    "expected_case_quarter": "Q1 2022",
+    "transcript": {
+      "status": "verified",
+      "detected_quarter": "Q1 2022",
+      "canonical_filename": "netflix_q1_2022_transcript.pdf",
+      "canonical_md5": "f102dd51e931f348a8d27e74e894f93b",
+      "supporting_text": "Netflix Q1 2022 Earnings Interview",
+      "mislabeled_duplicates": [
+        {
+          "filename": "Netflix-transcript Q2 2022",
+          "md5": "f102dd51e931f348a8d27e74e894f93b",
+          "same_as_canonical": true
+        }
+      ]
+    },
+    "shareholder_letter": {
+      "status": "verified",
+      "detected_quarter": "Q1 2022",
+      "filename": "netflix_q1_2022_shareholder_letter.pdf",
+      "supporting_text": "April 19, 2022 letter discussing slowing revenue growth and Q1 results."
+    },
+    "financials": {
+      "status": "verified",
+      "detected_quarter": "Q1 2022",
+      "workbook_filename": "netflix_q1_2022_financials.xlsx",
+      "income_statement_filename": "netflix_q1_2022_income_statement.csv",
+      "supporting_text": "Income statement latest quarter column ends at March 31, 2022."
+    },
+    "video": {
+      "status": "verified",
+      "expected_quarter": "Q1 2022",
+      "detected_quarter": "Q1 2022",
+      "quarter_consistent": true,
+      "video_filename": "netflix_q1_2022_video.mp4",
+      "video_md5": "578d5a95567259b36cd5c64ced4f1206",
+      "duration_s": 2598.986,
+      "intro_excerpt": "Good afternoon, and welcome to Netflix Q1 2020 earnings interview. I'm Spencer Wong, VP of IR and corporate development. Joining me today are COCO Reed Hastings, COCO and Chief Content Officer Ted Serrandos, COO and Chief Product Officer Greg Peters, and CFO Spence Newman. Our interviewer this quarter is dug in with from JP Morgan.",
+      "verification_basis": [
+        "intro_excerpt_contains_q1",
+        "intro_excerpt_matches_expected_speaker_lineup",
+        "year_token_noisy_in_asr_but_consistent_with_case_assets"
+      ],
+      "action": "Quarter-consistent video can be used for optional audio hooks."
+    },
+    "overall_status": "transcript_first_ready_media_available",
+    "action_taken": "Built the fixed Q1 2022 transcript-first demo case from transcript, shareholder letter, and financials, with quarter-consistent media available as an optional supporting layer."
+  },
+  "transcript_first_status": "ready",
+  "audio_status": {
+    "status": "generated",
+    "reason": "Quarter-consistent Q1 video was available, and curated Q&A moments were matched to supporting audio.",
+    "video_path": "raw/video/netflix_q1_2022_video.mp4",
+    "audio_path": "raw/audio/netflix_q1_2022_audio.wav",
+    "audio_extraction_status": {
+      "status": "reused_existing_audio",
+      "audio_path": "raw/audio/netflix_q1_2022_audio.wav",
+      "audio_md5": "de92bfbbec306fb8e7f332128c878b24",
+      "duration_s": 2598.986,
+      "sample_rate_hz": 16000,
+      "channels": 1
+    },
+    "audio_transcript_segments_path": "processed/audio_behavior/audio_transcript_segments.json",
+    "audio_aligned_qa_segments_path": "processed/audio_behavior/audio_aligned_qa_segments.csv",
+    "audio_behavior_summary_path": "processed/audio_behavior/audio_behavior_summary.json",
+    "audio_behavior_segments_path": "processed/audio_behavior/audio_behavior_segments.csv",
+    "audio_review_rows_path": "processed/audio_behavior/audio_review_rows.json",
+    "joined_qa_audio_review_path": "processed/joined_review/joined_qa_audio_review.json",
+    "usable_review_moments": 3,
+    "timing_mode": "curated_qa_match_only",
+    "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
+    "video_verification": {
+      "status": "verified",
+      "expected_quarter": "Q1 2022",
+      "detected_quarter": "Q1 2022",
+      "quarter_consistent": true,
+      "video_filename": "netflix_q1_2022_video.mp4",
+      "video_md5": "578d5a95567259b36cd5c64ced4f1206",
+      "duration_s": 2598.986,
+      "intro_excerpt": "Good afternoon, and welcome to Netflix Q1 2020 earnings interview. I'm Spencer Wong, VP of IR and corporate development. Joining me today are COCO Reed Hastings, COCO and Chief Content Officer Ted Serrandos, COO and Chief Product Officer Greg Peters, and CFO Spence Newman. Our interviewer this quarter is dug in with from JP Morgan.",
+      "verification_basis": [
+        "intro_excerpt_contains_q1",
+        "intro_excerpt_matches_expected_speaker_lineup",
+        "year_token_noisy_in_asr_but_consistent_with_case_assets"
+      ],
+      "action": "Quarter-consistent video can be used for optional audio hooks."
+    }
+  },
+  "headline_counts": {
+    "guidance_rows": 48,
+    "uncertainty_rows": 14,
+    "analyst_skepticism_rows": 0,
+    "qa_pairs": 27,
+    "evidence_rows": 9,
+    "audio_review_moments": 3
+  },
+  "review_scorecard": {},
+  "market_context": {
+    "case_id": "netflix_q1_2022",
+    "company": "Netflix",
+    "quarter": "Q1 2022",
+    "event_date": "2022-04-19",
+    "panel_title": "Market context around the Q1 2022 release window",
+    "key_extracted_signals": [
+      "slower paid net adds",
+      "qualified Q2 outlook pressure",
+      "account-sharing monetization narrative",
+      "ad-supported option discussed as a future path rather than a near-term launch"
+    ],
+    "market_reaction_window": {
+      "start_date": "2022-04-15",
+      "end_date": "2022-04-21",
+      "reaction_direction": "negative",
+      "reaction_magnitude_pct": -36.0,
+      "start_price_usd": 341.13,
+      "end_price_usd": 218.22
+    },
+    "market_reaction_note": "FactSet highlighted Netflix as a Q1 2022 example where a positive EPS surprise still coincided with a sharp negative stock reaction around the release window.",
+    "source": {
+      "primary_url": "https://advantage.factset.com/hubfs/Website/Resources%20Section/Research%20Desk/Earnings%20Insight/EarningsInsight_050622.pdf",
+      "secondary_url": null
+    },
+    "caveat": "Contextual sanity-check evidence only. This does not validate prediction, causality, or trading value."
+  },
+  "top_summary_points": [
+    "Q1 2022 transcript, shareholder letter, and financial files are quarter-consistent.",
+    "Quarter-consistent media is available as optional supporting context.",
+    "The transcript-first bundle surfaces explicit growth-slowdown framing, paid net adds pressure, and monetization/account-sharing discussion.",
+    "Three curated Q&A moments now carry optional audio support for later side-by-side review, while the transcript and shareholder letter remain the source of truth."
+  ],
+  "limitations": [
+    "This is a transcript-first deterministic review package, not a predictive or trading system.",
+    "Audio and video are supporting layers only; they do not override transcript-first extracted signals.",
+    "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
+    "Market reaction context is a historical sanity-check panel, not predictive validation or a trading claim."
+  ]
+}
