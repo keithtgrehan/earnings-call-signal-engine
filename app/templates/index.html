@@ -16,9 +16,17 @@
     <main class="site-shell">
       <section class="hero-band">
         <div class="hero-copy">
-          <p class="eyebrow">{{ ui_meta.eyebrow }}</p>
+          <div class="hero-topline">
+            <p class="eyebrow">{{ ui_meta.eyebrow }}</p>
+            <span class="hero-state">Local demo shell</span>
+          </div>
           <h1>{{ ui_meta.title }}</h1>
           <p class="hero-lede">{{ ui_meta.lede }}</p>
+          <p class="hero-support">Use the fixed Netflix and Meta cases for a polished walkthrough, or switch to live uploads without changing the deterministic artifact workflow underneath.</p>
+          <div class="hero-actions">
+            <a class="hero-link hero-link-primary" href="#evidence-review">Jump to evidence</a>
+            <a class="hero-link" href="#review-controls">Review controls</a>
+          </div>
           <div class="hero-facts">
             <span>Deterministic artifacts stay canonical</span>
             <span>Demo cases load instantly</span>
@@ -26,9 +34,25 @@
           </div>
         </div>
         <div class="hero-aside">
-          <p class="eyebrow">Why this shell exists</p>
-          <h2>Side-by-side evidence first</h2>
-          <p>The fixed Netflix and Meta cases are now presentation-ready inputs. This shell makes the raw source vs extracted signal experience obvious fast, while keeping ordinary uploads and YouTube review available.</p>
+          <div class="hero-aside-card">
+            <p class="eyebrow">Review framing</p>
+            <h2>Evidence-first, transcript-first reviewer aid</h2>
+            <p>The interface keeps raw source, extracted signal, and ambiguity context aligned so the review reads like an analyst workspace instead of a pipeline console.</p>
+          </div>
+          <div class="hero-principles">
+            <article class="hero-note-card">
+              <span>Evidence first</span>
+              <p>Raw source evidence stays adjacent to every extracted claim.</p>
+            </article>
+            <article class="hero-note-card">
+              <span>Deterministic core</span>
+              <p>Canonical artifacts remain the reference layer across demo and live runs.</p>
+            </article>
+            <article class="hero-note-card">
+              <span>Presentation ready</span>
+              <p>Fixed cases open fast without hiding the live workflow path.</p>
+            </article>
+          </div>
           <div class="trust-pill">Evidence-backed review aid, not a trading system</div>
         </div>
       </section>
@@ -55,14 +79,14 @@
       </section>
       {% endif %}
 
-      <section class="control-deck">
+      <section class="control-deck" id="review-controls">
         <form class="panel mode-panel" method="get" action="{{ current_path }}">
           <div class="panel-head">
             <div>
               <p class="eyebrow">Mode switch</p>
-              <h2>Choose the working surface</h2>
+              <h2>Choose the review surface</h2>
             </div>
-            <span class="panel-caption">Demo mode is instant. Input mode preserves the live pipeline.</span>
+            <span class="panel-caption">Use fixed cases for the walkthrough, or switch to live input without changing the pipeline.</span>
           </div>
           <div class="mode-toggle">
             <label class="mode-pill {% if view_mode == 'demo' %}is-active{% endif %}">
@@ -95,9 +119,9 @@
           <div class="panel-head">
             <div>
               <p class="eyebrow">Live input path</p>
-              <h2>Run a real upload or URL</h2>
+              <h2>Run the live deterministic workflow</h2>
             </div>
-            <span class="panel-caption">The core deterministic workflow stays intact.</span>
+            <span class="panel-caption">Uploads, URLs, and transcript review stay available as-is.</span>
           </div>
 
           <div class="input-grid">
@@ -256,11 +280,12 @@
         </article>
       </section>
 
-      <section class="panel evidence-panel" data-evidence-panel>
+      <section class="panel evidence-panel" id="evidence-review" data-evidence-panel>
         <div class="panel-head evidence-head">
           <div>
             <p class="eyebrow">Core experience</p>
             <h2>Raw source vs extracted signal</h2>
+            <p class="section-intro">Transcript-grounded review rows keep source evidence, extracted signal, and ambiguity context in one place for fast analyst scanning.</p>
           </div>
           <div class="panel-summary">
             <span>{{ demo_case.evidence_rows|length }} evidence rows</span>
@@ -269,24 +294,33 @@
         </div>
 
         <div class="filter-toolbar">
-          <div class="filter-group">
-            <button class="filter-chip is-active" type="button" data-filter-group="category" data-filter-value="all">All</button>
-            <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="guidance-outlook">Guidance / outlook</button>
-            <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="hedging-caution">Hedging / caution</button>
-            <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="analyst-pressure">Analyst pressure</button>
-            <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="audio-supported">Audio-supported</button>
-            <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="financial-context">Financial context</button>
-          </div>
-          <div class="filter-group">
-            <button class="filter-chip is-active" type="button" data-filter-group="source" data-filter-value="all">All sources</button>
-            {% for source in demo_case.source_filters %}
-            <button class="filter-chip" type="button" data-filter-group="source" data-filter-value="{{ source.value }}">{{ source.label }}</button>
-            {% endfor %}
-          </div>
-          <div class="filter-group compact-group">
-            <button class="filter-chip is-active" type="button" data-filter-top-toggle="true">Top moments</button>
-            <span class="filter-count" data-filter-count></span>
-          </div>
+          <section class="filter-group-card">
+            <p class="filter-group-label">Review theme</p>
+            <div class="filter-group">
+              <button class="filter-chip is-active" type="button" data-filter-group="category" data-filter-value="all">All</button>
+              <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="guidance-outlook">Guidance / outlook</button>
+              <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="hedging-caution">Hedging / caution</button>
+              <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="analyst-pressure">Analyst pressure</button>
+              <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="audio-supported">Audio-supported</button>
+              <button class="filter-chip" type="button" data-filter-group="category" data-filter-value="financial-context">Financial context</button>
+            </div>
+          </section>
+          <section class="filter-group-card">
+            <p class="filter-group-label">Source type</p>
+            <div class="filter-group">
+              <button class="filter-chip is-active" type="button" data-filter-group="source" data-filter-value="all">All sources</button>
+              {% for source in demo_case.source_filters %}
+              <button class="filter-chip" type="button" data-filter-group="source" data-filter-value="{{ source.value }}">{{ source.label }}</button>
+              {% endfor %}
+            </div>
+          </section>
+          <section class="filter-group-card filter-group-card-compact">
+            <p class="filter-group-label">View</p>
+            <div class="filter-group compact-group">
+              <button class="filter-chip is-active" type="button" data-filter-top-toggle="true">Top moments</button>
+              <span class="filter-count" data-filter-count></span>
+            </div>
+          </section>
         </div>
 
         <div class="evidence-stack" data-evidence-list>
@@ -298,16 +332,22 @@
             data-top-moment="{{ 'true' if row.is_top_moment else 'false' }}"
           >
             <div class="evidence-card-head">
-              <div class="badge-row">
-                <span class="badge badge-source">{{ row.source_type_label }}</span>
-                <span class="badge badge-priority priority-{{ row.priority_class }}">{{ row.review_priority }}</span>
-                {% if row.has_audio_support %}
-                <span class="badge badge-audio">Audio-supported</span>
+              <div class="evidence-headline">
+                <div class="badge-row">
+                  <span class="badge badge-source">{{ row.source_type_label }}</span>
+                  <span class="badge badge-priority priority-{{ row.priority_class }}">{{ row.review_priority }}</span>
+                  {% if row.has_audio_support %}
+                  <span class="badge badge-audio">Audio-supported</span>
+                  {% endif %}
+                </div>
+                <h3>{{ row.plain_english_label }}</h3>
+              </div>
+              <div class="evidence-meta">
+                <span class="evidence-sequence">Review row {{ loop.index }}</span>
+                {% if row.optional_timestamp %}
+                <span class="timestamp-pill">{{ row.optional_timestamp }}</span>
                 {% endif %}
               </div>
-              {% if row.optional_timestamp %}
-              <span class="timestamp-pill">{{ row.optional_timestamp }}</span>
-              {% endif %}
             </div>
 
             <div class="evidence-sides">
@@ -319,9 +359,11 @@
 
               <div class="evidence-side signal-side">
                 <p class="side-label">Extracted signal</p>
-                <h3>{{ row.plain_english_label }}</h3>
                 <p class="signal-copy">{{ row.extracted_signal }}</p>
-                <p class="why-copy">{{ row.why_it_matters }}</p>
+                <div class="signal-note">
+                  <p class="details-label">Why it matters</p>
+                  <p class="why-copy">{{ row.why_it_matters }}</p>
+                </div>
               </div>
             </div>
 
