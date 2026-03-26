@@ -4,7 +4,7 @@
 
 - Rebuilt the fixed NVIDIA demo case on branch `feat/demo-case-nvidia-q4-fy2024` using the local transcript PDF at:
   - `data/demo_cases/nvidia_q4_fy2024/raw/transcript/nvidia_q4_fy2024_transcript.pdf`
-- Removed the prior transcript provenance warning from the active case package by using the local PDF as the canonical transcript source.
+- Removed the prior transcript provenance issue from the active case package by using the local PDF as the canonical transcript source.
 - Kept the correct Seeking Alpha transcript URL as the canonical reference in provenance.
 - Kept the old mirror URL only as a fallback reference and did not use it for the rebuilt case.
 - Continued to reject the wrong Motley Fool Q4 2023 transcript URL for this case.
@@ -30,8 +30,8 @@ Reference URLs:
 - Explicitly rejected:
   - `https://www.fool.com/earnings/call-transcripts/2023/02/22/nvidia-nvda-q4-2023-earnings-call-transcript/`
 
-Why the prior warning was removed:
-- The active case no longer depends on mirror-derived transcript content.
+Why the prior provenance issue was resolved:
+- The active case no longer depends on the earlier fallback transcript snapshot.
 - The local PDF text matches the expected Feb. 21, 2024 call opening, participant set, and key Q4 FY24/Q1 FY25 guidance language.
 - `quarter_consistency.json` now records:
   - `overall_consistency = "ok"`
