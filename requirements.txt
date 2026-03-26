@@ -1,6 +1,7 @@
 faster-whisper
 transformers
 torch
+sentence-transformers
 pandas
 numpy<2
 scipy
@@ -12,6 +13,7 @@ opensmile
 yt-dlp
 matplotlib
 pypdf
+PyYAML
 opencv-python-headless<4.13
 mediapipe>=0.10.32,<0.11
 scikit-learn

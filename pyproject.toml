@@ -16,6 +16,7 @@ dependencies = [
   "faster-whisper",
   "transformers",
   "torch",
+  "sentence-transformers",
   "pandas",
   "numpy",
   "scipy",
@@ -29,6 +30,7 @@ dependencies = [
   "matplotlib",
   "python-docx",
   "pypdf",
+  "PyYAML",
 ]
 
 [project.optional-dependencies]

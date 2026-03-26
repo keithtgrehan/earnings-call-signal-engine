@@ -1,0 +1,26 @@
+management_stance:
+  - reassuring
+  - uncertain
+  - defensive
+  - cautious
+  - promotional
+
+business_pressure:
+  - demand softness
+  - pricing pressure
+  - margin pressure
+  - supply constraint
+  - execution confidence
+
+qa_dynamics:
+  - direct answer
+  - partial answer
+  - evasive answer
+  - analyst pushback
+  - clarification needed
+
+guidance_framing:
+  - strengthened outlook
+  - weakened outlook
+  - maintained outlook
+  - vague outlook

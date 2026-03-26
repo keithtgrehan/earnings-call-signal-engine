@@ -9,6 +9,7 @@ import json
 import os
 import re
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -28,7 +29,18 @@ from earnings_call_sentiment.pipeline.run import (
     write_sentiment_artifacts,
     write_transcript_artifacts,
 )
+from earnings_call_sentiment.model_sidecars.config import default_zero_shot_config_path
+from earnings_call_sentiment.model_sidecars.models.base import (
+    DEFAULT_BATCH_SIZE as DEFAULT_SIDECAR_BATCH_SIZE,
+)
+from earnings_call_sentiment.model_sidecars.models.base import (
+    DEFAULT_MAX_LENGTH as DEFAULT_SIDECAR_MAX_LENGTH,
+)
+from earnings_call_sentiment.model_sidecars.models.base import SUPPORTED_UNIT_TYPES
+from earnings_call_sentiment.model_sidecars.models.registry import AVAILABLE_MODEL_NAMES
+from earnings_call_sentiment.model_sidecars.runner import run_model_sidecars
 import earnings_call_sentiment.question_shifts as qs
+from earnings_call_sentiment.review_scorecard import build_review_scorecard
 from earnings_call_sentiment.signals import write_behavioral_outputs, write_qa_shift_outputs
 from earnings_call_sentiment.summary_config import (
     SummaryConfig,
@@ -756,6 +768,7 @@ def _build_metrics_payload(
     guidance_revision_df: pd.DataFrame,
     tone_changes_df: pd.DataFrame,
     behavioral_summary: dict[str, Any] | None = None,
+    qa_shift_summary: dict[str, Any] | None = None,
     prior_guidance_path: str | None,
     sentiment_model: str,
     sentiment_revision: str,
@@ -776,6 +789,14 @@ def _build_metrics_payload(
             "uncertainty_score_overall": {"score": 0, "level": "low"},
             "reassurance_score_management": {"score": 0, "level": "low"},
             "analyst_skepticism_score": {"score": 0, "level": "low"},
+        }
+    if qa_shift_summary is None:
+        qa_shift_summary = {
+            "prepared_remarks_vs_q_and_a": {"label": "mixed"},
+            "analyst_skepticism": {"level": "low"},
+            "management_answers_vs_prepared_uncertainty": {"label": "mixed"},
+            "early_vs_late_q_and_a": {"label": "mixed"},
+            "strongest_evidence": {},
         }
     tone_change_count = (
         int(tone_changes_df["is_change"].astype(bool).sum())
@@ -862,6 +883,21 @@ def _build_metrics_payload(
             "mixed_count": int((labels == "mixed").sum()),
             "top_revisions": top_revisions,
         }
+
+    review_scorecard = build_review_scorecard(
+        guidance_df=guidance_df,
+        guidance_revision=payload["guidance_revision"],
+        behavioral_summary=behavioral_summary,
+        qa_shift_summary=qa_shift_summary,
+    )
+    payload["review_scorecard"] = review_scorecard
+    payload.update(
+        {
+            key: value
+            for key, value in review_scorecard.items()
+            if key not in {"schema_version", "categories", "ranked_categories"}
+        }
+    )
     return payload
 
 
@@ -873,6 +909,10 @@ def _write_report_markdown(
     guidance_revision_df: pd.DataFrame,
     behavioral_summary: dict[str, Any],
     qa_shift_summary: dict[str, Any],
+    audio_summary: dict[str, Any] | None = None,
+    visual_summary: dict[str, Any] | None = None,
+    media_quality: dict[str, Any] | None = None,
+    multimodal_summary: dict[str, Any] | None = None,
 ) -> None:
     lines = [
         "# Earnings Call Sentiment Report",
@@ -1013,6 +1053,87 @@ def _write_report_markdown(
         lines.append("- _none_")
     lines.append("")
 
+    review_scorecard = metrics_payload.get("review_scorecard", {})
+    if isinstance(review_scorecard, dict) and review_scorecard:
+        lines.extend(
+            [
+                "## Reviewer Scorecard",
+                f"- overall review signal: {review_scorecard.get('overall_review_signal', 'amber')}",
+                f"- review confidence: {review_scorecard.get('review_confidence_pct', 0)}",
+                "",
+                "| Rank | Category | Score | Band | Explanation |",
+                "| --- | --- | --- | --- | --- |",
+            ]
+        )
+        for row in review_scorecard.get("ranked_categories", [])[:6]:
+            lines.append(
+                f"| {int(row.get('rank', 0))} | "
+                f"{str(row.get('name', ''))} | "
+                f"{int(row.get('score', 0))} | "
+                f"{str(row.get('color_band', 'unknown'))} | "
+                f"{str(row.get('explanation', ''))} |"
+            )
+            for evidence in row.get("strongest_evidence", [])[:2]:
+                lines.append(f"|  | evidence |  |  | {str(evidence)} |")
+        lines.append("")
+
+    if isinstance(audio_summary, dict) and audio_summary.get("audio_features_available"):
+        lines.extend(
+            [
+                "## Audio Behavior Signals",
+                f"- hesitation: {audio_summary.get('hesitation_overall', {}).get('level', 'low')}",
+                f"- pauses before answers: {audio_summary.get('pauses_before_answers', {}).get('level', 'low')}",
+                f"- prepared baseline stability: {audio_summary.get('prepared_baseline_audio_stability', {}).get('level', 'low')}",
+                f"- Q&A hesitation shift: {audio_summary.get('qa_hesitation_shift', {}).get('level', 'low')}",
+                f"- support mode: {audio_summary.get('support_mode', 'heuristic_fallback')}",
+                "",
+            ]
+        )
+
+    if isinstance(visual_summary, dict) and visual_summary.get("visual_features_available"):
+        lines.extend(
+            [
+                "## Visual Behavior Signals",
+                f"- face visibility: {visual_summary.get('face_visibility_overall', {}).get('level', 'low')}",
+                f"- prepared baseline stability: {visual_summary.get('prepared_baseline_visual_stability', {}).get('level', 'low')}",
+                f"- Q&A visual shift: {visual_summary.get('qa_visual_shift_score', {}).get('level', 'low')}",
+                "",
+            ]
+        )
+
+    if isinstance(media_quality, dict):
+        lines.extend(
+            [
+                "## Media Quality",
+                f"- audio quality ok: {media_quality.get('audio_quality_ok')}",
+                f"- video quality ok: {media_quality.get('video_quality_ok')}",
+            ]
+        )
+        for note in media_quality.get("quality_notes", [])[:5]:
+            lines.append(f"- note: {note}")
+        lines.append("")
+
+    if isinstance(multimodal_summary, dict):
+        lines.extend(
+            [
+                "## Multimodal Support",
+                (
+                    "- audio support direction: "
+                    f"{multimodal_summary.get('audio_support_direction', 'unavailable')}"
+                ),
+                (
+                    "- video support direction: "
+                    f"{multimodal_summary.get('video_support_direction', 'unavailable')}"
+                ),
+                f"- fusion mode: {multimodal_summary.get('fusion_mode', 'transcript_only')}",
+                (
+                    "- transcript primary assessment: "
+                    f"{multimodal_summary.get('transcript_primary_assessment', 'unknown')}"
+                ),
+                "",
+            ]
+        )
+
     lines.extend(
         [
             "## Outputs",
@@ -1114,6 +1235,7 @@ def _run_postscore_stages(
             guidance_revision_df=guidance_revision_df,
             tone_changes_df=tone_changes_df,
             behavioral_summary=behavioral_summary,
+            qa_shift_summary=qa_shift_summary,
             prior_guidance_path=args.prior_guidance,
             sentiment_model=str(args.sentiment_model),
             sentiment_revision=str(args.sentiment_revision),
@@ -1462,10 +1584,106 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def build_sidecars_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="earnings-call-sentiment sidecars",
+        description=(
+            "Run optional benchmark model sidecars over an existing processed case "
+            "without changing deterministic transcript-first outputs."
+        ),
+    )
+    parser.add_argument(
+        "--case-id",
+        nargs="+",
+        required=True,
+        help="One or more processed case ids to score.",
+    )
+    parser.add_argument(
+        "--case-dir",
+        default=None,
+        help=(
+            "Optional explicit processed-case directory. Use this only when a case is "
+            "not discoverable under outputs/ or data/demo_cases/."
+        ),
+    )
+    parser.add_argument(
+        "--models",
+        nargs="+",
+        required=True,
+        choices=sorted(AVAILABLE_MODEL_NAMES),
+        help="One or more optional sidecar models to run.",
+    )
+    parser.add_argument(
+        "--units",
+        nargs="+",
+        required=True,
+        choices=sorted(SUPPORTED_UNIT_TYPES),
+        help="Source units to score.",
+    )
+    parser.add_argument(
+        "--zero-shot-label-config",
+        default=str(default_zero_shot_config_path()),
+        help="YAML config for zero-shot label groups.",
+    )
+    parser.add_argument(
+        "--output-dir",
+        default="./outputs",
+        help=(
+            "Base output directory. Sidecars are written to "
+            "<output-dir>/<case_id>/model_sidecars/."
+        ),
+    )
+    parser.add_argument(
+        "--device",
+        default="auto",
+        help="Model-sidecar device (auto/cpu/cuda).",
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=DEFAULT_SIDECAR_BATCH_SIZE,
+        help="Inference batch size for sidecar models.",
+    )
+    parser.add_argument(
+        "--max-length",
+        type=int,
+        default=DEFAULT_SIDECAR_MAX_LENGTH,
+        help="Tokenizer max length for classifier sidecars.",
+    )
+    return parser
+
+
+def _run_sidecars_cli(argv: list[str]) -> int:
+    parser = build_sidecars_parser()
+    args = parser.parse_args(argv)
+    try:
+        payload = run_model_sidecars(
+            case_ids=list(args.case_id),
+            model_names=list(args.models),
+            unit_types=list(args.units),
+            output_dir=args.output_dir,
+            zero_shot_label_config=args.zero_shot_label_config,
+            batch_size=int(args.batch_size),
+            max_length=int(args.max_length),
+            device=str(args.device),
+            case_dir=args.case_dir,
+        )
+    except RuntimeError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+
+    print(json.dumps(payload, indent=2))
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     """CLI main entry point."""
+    raw_args = list(argv) if argv is not None else sys.argv[1:]
+    if raw_args and raw_args[0] == "sidecars":
+        return _run_sidecars_cli(raw_args[1:])
+
     parser = build_parser()
-    args = parser.parse_args(argv)
+    args = parser.parse_args(raw_args)
 
     mode_flags = [args.download_only, args.transcribe_only, args.score_only]
     if sum(bool(flag) for flag in mode_flags) > 1:

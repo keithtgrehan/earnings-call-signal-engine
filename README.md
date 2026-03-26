@@ -215,6 +215,29 @@ Optional heuristic outputs still exist, but they are not the current benchmark f
 - optional summary/eval utilities
 - offline backtest scripts
 
+## Optional Model Sidecars
+An additive benchmark layer is available for optional NLP model comparison on existing processed cases. It keeps the deterministic transcript-first outputs unchanged and writes separate artifacts under `outputs/<case_id>/model_sidecars/`.
+
+Use:
+
+```bash
+PYTHONPATH=src python -m earnings_call_sentiment sidecars \
+  --case-id nvidia_q4_fy2024 \
+  --models finbert_tone financial_roberta deberta_zero_shot mpnet_embeddings \
+  --units chunks guidance_spans qa_answers \
+  --zero-shot-label-config configs/model_eval/zero_shot_labels.finance.yaml
+```
+
+Evaluation report:
+
+```bash
+PYTHONPATH=src python scripts/evaluate_model_sidecars.py \
+  --case-id nvidia_q4_fy2024 \
+  --sidecar-root outputs
+```
+
+See `docs/model_sidecars.md` for the model list, unit support, artifact schema, and current limitations.
+
 ## UI / Local Review Shell
 The active local review shell is the primary interface served by:
 
