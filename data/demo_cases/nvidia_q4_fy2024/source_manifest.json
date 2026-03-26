@@ -1,0 +1,24 @@
+{
+  "case_id": "nvidia_q4_fy2024",
+  "ticker": "NVDA",
+  "company": "NVIDIA",
+  "event_date": "2024-02-21",
+  "fiscal_period_label": "Q4 FY24",
+  "fiscal_period_ended": "2024-01-28",
+  "official_press_release_url": "https://investor.nvidia.com/news/press-release-details/2024/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2024/",
+  "transcript_url": "https://seekingalpha.com/article/4672199-nvidia-corporation-nvda-q4-2024-earnings-call-transcript",
+  "transcript_content_mirror_url": "https://invest24.work/transcript/nvda-q4-2024-earnings-call-transcript",
+  "rejected_transcript_url": "https://www.fool.com/earnings/call-transcripts/2023/02/22/nvidia-nvda-q4-2023-earnings-call-transcript/",
+  "local_video_filename": "nvidia_q4_fy2024_video.mp4",
+  "saved_press_release_path": "raw/shareholder_letter/nvidia_q4_fy2024_press_release.md",
+  "saved_transcript_html_path": "raw/transcript/nvidia_q4_fy2024_transcript.html",
+  "saved_transcript_text_path": "raw/transcript/nvidia_q4_fy2024_transcript.txt",
+  "source_quality_notes": [
+    "The NVIDIA IR press-release page was saved through a text snapshot because direct requests hit anti-bot protection.",
+    "The canonical transcript reference is the correct Feb. 21, 2024 Seeking Alpha transcript URL.",
+    "Direct Seeking Alpha fetches were blocked by anti-bot protection, so the local transcript snapshot was saved from an accessible mirror after matching the case title, date, and participant list.",
+    "The Motley Fool Q4 2023 transcript URL is explicitly rejected for this case and must not be used."
+  ],
+  "created_by_task": "Codex NVIDIA demo-case input preparation",
+  "created_at_utc": "2026-03-26T12:15:05.096421+00:00"
+}

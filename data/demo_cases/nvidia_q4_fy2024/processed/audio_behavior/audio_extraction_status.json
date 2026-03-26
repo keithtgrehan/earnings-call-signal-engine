@@ -1,0 +1,8 @@
+{
+  "status": "reused_existing_audio",
+  "audio_path": "raw/audio/nvidia_q4_fy2024_audio.wav",
+  "audio_md5": "940cc36d27fde7e36b9007e3719eb7ec",
+  "duration_s": 3801.199,
+  "sample_rate_hz": 16000,
+  "channels": 1
+}

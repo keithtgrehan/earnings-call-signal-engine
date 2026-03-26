@@ -1,0 +1,16 @@
+{
+  "status": "verified",
+  "expected_quarter": "Q4 FY24",
+  "video_filename": "nvidia_q4_fy2024_video.mp4",
+  "video_md5": "4c64970b31da39cd93369c3418a1f0ce",
+  "video_path": "raw/video/nvidia_q4_fy2024_video.mp4",
+  "has_video_stream": true,
+  "has_audio_stream": true,
+  "duration_s": 3801.147,
+  "verification_basis": [
+    "asset path fixed to NVIDIA Q4 FY24 case",
+    "ffprobe readable",
+    "ffprobe audio stream present"
+  ],
+  "action": "Quarter-consistent local video is readable and can be used for optional bounded audio hooks."
+}

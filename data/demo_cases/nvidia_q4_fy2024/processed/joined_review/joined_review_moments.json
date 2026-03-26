@@ -1,0 +1,39 @@
+{
+  "case_id": "nvidia_q4_fy2024",
+  "joined_review_moments": [
+    {
+      "row_id": "transcript_hopper_supply",
+      "case_id": "nvidia_q4_fy2024",
+      "plain_english_label": "demand stayed above supply",
+      "source_excerpt": "and networking revenue tripled from last year. We are delighted that supply of Hopper architecture products is improving. Demand for Hopper remains very strong. We expect our next-generation products to be supply constrained as demand far exceeds supply. Fourth quarter data center growth was driven by both training and inference of generative AI and large language models acr...",
+      "extracted_signal": "demand for Hopper stayed very strong and management expected next-generation products to remain supply constrained",
+      "audio_summary": "answer opened after a noticeable pause; overall hesitation scored high",
+      "question_time_range": "35:41-36:11",
+      "answer_time_range": "36:11-39:27",
+      "review_priority": "high"
+    },
+    {
+      "row_id": "qa_gross_margin_normalization",
+      "case_id": "nvidia_q4_fy2024",
+      "plain_english_label": "gross-margin normalization was qualified",
+      "source_excerpt": "Yeah. Thanks for the question. We highlighted in our opening remarks really about our Q4 results and our outlook for Q1. Both of those quarters are unique. Those two quarters are unique in their gross margin as they include some benefit from favorable component cost in the supply chain kind of across both our compute and networking and also in several dif...",
+      "extracted_signal": "management said Q4 and Q1 gross margins were unusually high and should normalize back toward the mid-70s for the rest of the year",
+      "audio_summary": "opened with hedging or qualification; overall hesitation scored high",
+      "question_time_range": "47:23-47:50",
+      "answer_time_range": "47:51-48:53",
+      "review_priority": "high"
+    },
+    {
+      "row_id": "qa_supply_pressure",
+      "case_id": "nvidia_q4_fy2024",
+      "plain_english_label": "analysts pressed on whether supply can catch up",
+      "source_excerpt": "Yeah. The first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything from of course the wafers, the packaging, the memories, all of the power regulators, to transceivers and networking and cables and you name it. The list of components that we ship -- as you know, people think that NVIDIA ...",
+      "extracted_signal": "management said supply was improving overall, but demand should stay stronger than supply through the year",
+      "audio_summary": "answer opened after a noticeable pause; overall hesitation scored high",
+      "question_time_range": "35:41-36:11",
+      "answer_time_range": "36:11-39:27",
+      "review_priority": "high"
+    }
+  ],
+  "market_context_path": "demo/summary/nvidia_q4_fy2024_market_context.json"
+}

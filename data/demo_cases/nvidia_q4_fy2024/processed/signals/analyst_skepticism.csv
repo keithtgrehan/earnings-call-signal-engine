@@ -1,0 +1,2 @@
+question_id,analyst_name,text,skepticism_label,matched_phrase,strength,topic_hint,notes
+1,unknown,"I wanted to talk about, a little bit about your software business and it's pleasing to hear that it's over a $1 billion but I was hoping Jen-Hsun or Colette if you could just help us understand what the different parts and pieces are for the software business?",medium,help us understand why,2,clarification,1 skeptical cue(s) matched. Strongest cue: Analyst explicitly challenged the reasoning.

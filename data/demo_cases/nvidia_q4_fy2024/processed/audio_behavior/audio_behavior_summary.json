@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.2.0",
+  "audio_available": true,
+  "audio_features_available": true,
+  "audio_quality_ok": true,
+  "quality_gate": {
+    "quality_ok": true,
+    "suppression_recommended": false,
+    "snr_proxy_db": 77.7433,
+    "snr_proxy_ok": true,
+    "management_speech_duration_s": 185.08,
+    "enough_speech_duration_ok": true,
+    "usable_management_segments": 2,
+    "usable_answer_segments": 2,
+    "alignment_quality_ratio": 1.0,
+    "alignment_quality_ok": true
+  },
+  "audio_metadata": {
+    "path": "raw/audio/nvidia_q4_fy2024_audio.wav",
+    "duration_s": 3801.199,
+    "sample_rate": 16000,
+    "frame_length_s": 0.03,
+    "hop_length_s": 0.01,
+    "silence_threshold_db": -35.0
+  },
+  "hesitation_overall": {
+    "score": 8.0,
+    "level": "high"
+  },
+  "hesitation_level": {
+    "score": 8.0,
+    "level": "high"
+  },
+  "pauses_before_answers": {
+    "median_ms": 895.0,
+    "level": "high"
+  },
+  "prepared_baseline_audio_stability": {
+    "score": 0.0,
+    "level": "high"
+  },
+  "qa_hesitation_shift": {
+    "delta": 8.0,
+    "prepared_mean": 0.0,
+    "q_and_a_mean": 8.0,
+    "direction": "more_hesitant",
+    "level": "high"
+  },
+  "pause_pressure_delta": {
+    "delta": 4.8009,
+    "prepared_density": 0.0,
+    "q_and_a_density": 4.8009,
+    "level": "high",
+    "label": "more_paused_under_questions"
+  },
+  "answer_latency_pressure": {
+    "median_ms": 500.0,
+    "level": "medium"
+  },
+  "audio_confidence_support": {
+    "level": "high",
+    "suppressed": false,
+    "reason": "usable answer-level audio support"
+  },
+  "support_mode": "model_backed",
+  "model_support": {
+    "available": true,
+    "mode": "model_backed",
+    "support_direction": "cautionary",
+    "calibrated_support_score": 0.6243,
+    "reliability_weight": 0.4991,
+    "hesitation_pressure": {
+      "predicted_label": "high",
+      "probability_means": {
+        "high": 0.6676,
+        "low": 0.0422,
+        "medium": 0.2902
+      }
+    },
+    "delivery_confidence": {
+      "predicted_label": "low",
+      "probability_means": {
+        "high": 0.0422,
+        "low": 0.6676,
+        "medium": 0.2902
+      }
+    }
+  },
+  "egemaps_v02_summary": {
+    "available": true,
+    "pitch_variability_mean": 0.1165,
+    "loudness_mean": 0.6418,
+    "loudness_variability_mean": 0.9231,
+    "spectral_flux_mean": 0.4374
+  },
+  "strongest_audio_evidence": [
+    {
+      "segment_id": 1,
+      "start_time_s": 2171.04,
+      "end_time_s": 2367.04,
+      "hesitation_label": "high",
+      "pause_before_answer_ms": 1790.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 5.4082,
+      "text": "Yeah. The first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything f..."
+    },
+    {
+      "segment_id": 3,
+      "start_time_s": 2871.04,
+      "end_time_s": 2933.04,
+      "hesitation_label": "high",
+      "pause_before_answer_ms": 0.0,
+      "answer_onset_delay_ms": 1000.0,
+      "pause_density_per_10s": 4.1935,
+      "text": "networking and also in several different stages of our manufacturing process. So looking forward, we have visibility into a mid-70s gross..."
+    }
+  ],
+  "most_hesitant_answers": [
+    {
+      "segment_id": 1,
+      "section": "q_and_a",
+      "speaker_role": "management",
+      "start_time_s": 2171.04,
+      "end_time_s": 2367.04,
+      "hesitation_label": "high",
+      "hesitation_score": 10,
+      "pause_before_answer_ms": 1790.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 5.4082,
+      "articulation_rate_wpm": 22.82,
+      "confidence_note": "usable audio segment",
+      "text": "Yeah. The first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything f..."
+    },
+    {
+      "segment_id": 3,
+      "section": "q_and_a",
+      "speaker_role": "management",
+      "start_time_s": 2871.04,
+      "end_time_s": 2933.04,
+      "hesitation_label": "high",
+      "hesitation_score": 6,
+      "pause_before_answer_ms": 0.0,
+      "answer_onset_delay_ms": 1000.0,
+      "pause_density_per_10s": 4.1935,
+      "articulation_rate_wpm": 85.88,
+      "confidence_note": "usable audio segment",
+      "text": "networking and also in several different stages of our manufacturing process. So looking forward, we have visibility into a mid-70s gross..."
+    }
+  ],
+  "low_confidence_segments": [],
+  "limitations": [],
+  "notes": [
+    "Audio hesitation combines pause-before-answer, answer latency, within-segment pause density, filler markers, articulation rate, and loudness dynamics.",
+    "These are observational timing proxies for review support, not mental-state or deception inference."
+  ]
+}
