@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "uncertainty_score_overall": {
+    "score": 9,
+    "level": "high"
+  },
+  "reassurance_score_management": {
+    "score": 2,
+    "level": "medium"
+  },
+  "analyst_skepticism_score": {
+    "score": 2,
+    "level": "medium"
+  },
+  "strongest_evidence": {
+    "uncertainty": [
+      {
+        "matched_phrase": "modal uncertainty",
+        "strength": 1,
+        "text": "And you could tell by the CSPs extending and many data centers, including our own for general purpose computing, extending the depreciation from four to six years."
+      },
+      {
+        "matched_phrase": "modal uncertainty",
+        "strength": 1,
+        "text": "As Moore\u2019s Law slows, while computing demand continues to skyrocket, companies may accelerate every workload possible to drive future improvement in performance, TCO, and energy efficiency."
+      }
+    ],
+    "reassurance": [
+      {
+        "matched_phrase": "demand remains strong",
+        "strength": 2,
+        "text": "Demand is strong as H200 nearly doubles the inference performance of H100."
+      }
+    ],
+    "analyst_skepticism": [
+      {
+        "matched_phrase": "help us understand why",
+        "strength": 2,
+        "text": "I wanted to talk a little bit about your software business, and it\u2019s pleasing to hear that it\u2019s over a billion dollar, but I was hoping Jensen or Colette, if you could just help us understand what the different parts and pieces are for the software business."
+      }
+    ]
+  },
+  "notes": [
+    "Scores are deterministic phrase-weight totals, not model probabilities.",
+    "Analyst skepticism is only computed on question-like segments; management reassurance ignores question-like text.",
+    "Management language contains both caution and reassurance, so both evidence sets should be reviewed together."
+  ]
+}

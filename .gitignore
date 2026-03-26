@@ -16,6 +16,7 @@ build/
 .cache/
 data/demo_cases/netflix_q1_2022/raw/video/*.mp4
 data/demo_cases/meta_q3_2022/raw/video/*.mp4
+data/demo_cases/nvidia_q4_fy2024/raw/video/*.mp4
 
 # generated
 cache/

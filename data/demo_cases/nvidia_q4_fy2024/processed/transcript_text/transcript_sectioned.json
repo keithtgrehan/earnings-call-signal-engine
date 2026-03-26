@@ -1,0 +1,394 @@
+{
+  "blocks": [
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Rob",
+      "speaker_title": "",
+      "timestamp": "00:00",
+      "text": "Good afternoon. My name\u2019s Rob and I\u2019ll be your conference operator today. At this time, I would like to welcome everyone to the NVIDIA\u2019s Fourth Quarter Earnings Call. All lines have been placed on mute to prevent any background noise. After the speaker\u2019s remarks, there will be a question and answer session. If you would like to ask a question during this time, simply press star, followed by the number one on your telephone keypad. If you would like to withdraw your question, press star, one again. Thank you. Simona Jankowski, you may begin your conference.",
+      "block_id": 0,
+      "section": "presentation",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Simona Jankowski",
+      "speaker_title": "",
+      "timestamp": "00:29",
+      "text": "Thank you. Good afternoon everyone, and welcome to NVIDIA\u2019s conference call for the fourth quarter and fiscal 2024. With me today from NVIDIA are Jensen Huang, President and Chief Executive Officer, and Colette Kress, Executive Vice President and Chief Financial Officer. I\u2019d like to remind you that our call is being webcast live on NVIDIA\u2019s Investor Relations website. The webcast will be available for replay until the conference call to discuss our financial results for the first quarter of fiscal 2025. The content of today\u2019s call is NVIDIA\u2019s property. It can\u2019t be reproduced or transcribed without our prior written consent. During this call, we may make forward-looking statements based on current expectations. These are subject to a number of significant risks and uncertainties, and our actual results may differ materially. For a discussion of factors that could affect our future financial results and business, please refer to the disclosure in today\u2019s earnings release, our most recent forms, 10-K and 10-Q, and the reports that we may file on Form 8-K with the Securities and Exchange Commission. All our statements are made as of today, February 21st 2024, based on information currently available to us. Except as required by law, we assume no obligation to update any such statements. During this call, we will discuss non-GAAP financial measures. You can find a reconciliation of these non-GAAP financial measures to GAAP financial measures in our CFO commentary, which is posted on our website. With that, let me turn the call over to Colette.",
+      "block_id": 1,
+      "section": "presentation",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Colette Kress",
+      "speaker_title": "",
+      "timestamp": "01:59",
+      "text": "Thanks, Simona. Q4 was another record quarter. Revenue of 22.1 billion was up 22% sequentially and up 265% year-on-year and well above our outlook of 20 billion. For fiscal 2024, revenue was 60.9 billion and up 126% from the prior year. Starting with the data center. Data center revenue for the fiscal 2024 year was 47.5 billion, more than tripling from the prior year. The world has reached the tipping point of new computing era. The trillion dollar installed base of data center infrastructure is rapidly transitioning from general purpose to accelerated computing. As Moore\u2019s Law slows, while computing demand continues to skyrocket, companies may accelerate every workload possible to drive future improvement in performance, TCO, and energy efficiency. At the same time, companies have started to build the next generation of modern data centers, what we refer to as AI factories, purpose-built to refine raw data and produce valuable intelligence in the era of generative AI. In the fourth quarter, data center revenue of 18.4 billion was a record, up 27% sequentially and up 409% year-on-year, driven by the NVIDIA Hopper GPU computing platform, along with InfiniBand end-to-end networking. Compute revenue grew more than 5x and networking revenue tripled from last year. We are delighted that supply of Hopper architecture products is improving. Demand for Hopper remains very strong. We expect our next-generation products to be supply constrained as demand far exceeds supply. Fourth quarter data center growth was driven by both training and inference of generative AI and large-language models across a broad set of industries, use cases and regions. The versatility and leading performance of our data center platform enables a high return on investment for many use cases, including AI training and inference, data processing, and a broad range of CUDA accelerated workloads. We estimate in the past year, approximately 40% of data center revenue was for AI inference. Building and deploying AI solutions has reached virtually every industry. Many companies across industries are training and operating their AI models and services at scale, enterprises across NVIDIA AI infrastructure through cloud providers, including hyperscales, GPU specialized and private clouds or on-premise. NVIDIA\u2019s computing stack extends seamlessly across cloud and on-premise environments, allowing customers to deploy with a multi-cloud or hybrid-cloud strategy. In the fourth quarter, large cloud providers represented more than half of our data center revenue, supporting both internal workloads and external public cloud customers. Microsoft recently noted that more than 50,000 organizations use GitHub Copilot business to supercharge the productivity of their developers, contributing to GitHub revenue growth accelerating to 40% year-on-year. And Copilot for Microsoft 365 adoption grew faster in its first two months than the two previous major Microsoft 365 Enterprise Suite releases did. Consumer internet companies have been early adopters of AI and represent one of our largest customer categories. Companies from search to e-commerce, social media, news and video services, and entertainment are using AI for deep learning-based recommendation systems. These AI investments are generating a strong return by improving customer engagement, ad conversation and click-throughs rates. Meta, in its latest quarter, cited more accurate predictions and improved advertiser performance as contributing to the significant acceleration in its revenue. In addition, consumer internet companies are investing in generative AI to support content creators, advertisers, and customers through automation tools for content and ad creation, online product descriptions and AI shopping assistance. Enterprise software companies are applying generative AI to help customers realize productivity gains. Early customers we\u2019ve partnered with for both training and inference of generative AI are already seeing notable commercial success. ServiceNow\u2019s generative AI products, in their latest quarter, drove their largest ever net new annual contract value contribution of any new product family release. We are working with many other leading AI and enterprise software platforms as well, including Adobe, Databricks, Getty Images, SAP and Snowflake. The field of foundation large-language models is thriving. Anthropic, Google, Inflection, Microsoft, OpenAI and xAI are leading with continued amazing breakthroughs in generative AI. Exciting companies like Adept, AI21, Character.ai, Cohere, Mistral, Perplexity and Runway are building platforms to serve enterprises and creators. New startups are creating LLMs to serve the specific languages, cultures, and customs of the world\u2019s many regions. And others are creating foundation models to address entirely different industries like Recursion Pharmaceuticals and Generate: Biomedicines for biology. These companies are driving demand for NVIDIA AI infrastructure through hyperscale or GPU specialized cloud providers. Just this morning, we announced that we\u2019ve collaborated with Google to its state-of-the-art new GEMMA language models to accelerate their inference performance on NVIDIA GPUs in the cloud, data center and PC. One of the most notable trends over the past year is the significant adoption of AI by enterprises across the industry verticals such as automotive, healthcare, and financial services. NVIDIA offers multiple application frameworks to help companies adopt AI in vertical domains such as autonomous driving, drug discovery, low latency machine learning for fraud detection, or robotics, leveraging our full stack accelerated computing platform. We estimate that data center revenue contribution of the automotive vertical, through the cloud or on-prem, exceeded a billion dollars last year. NVIDIA DRIVE infrastructure solutions include systems and software for the development of autonomous driving, including data ingestion, creation, labeling, and AI training, plus validation through simulation. Almost 80 vehicle manufacturers across global OEMs, new energy vehicles, trucking, robotaxi and tier one suppliers are using NVIDIA\u2019s AI infrastructure to train LLMs and other AI models for automated driving and AI cockpit applications. In effect, nearly every automotive company working on AI is working with NVIDIA. As AV algorithms move to video transformers and more cars are equipped with cameras, we expect NVIDIA\u2019s automotive data center processing demand to grow significantly. In healthcare, digital biology and generative AI are helping to reinvent drug discovery, surgery, medical imaging, and wearable devices. We have built deep domain expertise in healthcare over the past decade, creating the NVIDIA Clara healthcare platform and NVIDIA BioNeMo, a generative AI service to develop, customize, and deploy AI foundation models for computer-aided drug discovery. BioNeMo features a growing collection of pre-trained, biomolecular AI models that can be applied to the end-to-end drug discovery processes. We announced Recursion is making available for the proprietary AI model, through BioNeMo, for the drug discovery ecosystem. In financial services, customers are using AI for a growing set of use cases from trading and risk management, to customer service and fraud detection. For example, American Express improved fraud detection accuracy by 6% using NVIDIA AI. Shifting to our data center revenue by geography, growth was strong across all regions except for China, where our data center revenue declined significantly following the U.S. Government export control regulations imposed in October. Although we have not received licenses from the U.S. Government to ship restricted products to China, we have started shipping alternatives that don\u2019t require a license for the China market. China represented a mid-single digit percentage of our data center revenue in Q4, and we expect it to stay in a similar range in the first quarter. In regions outside of the U.S. and China, sovereign AI has become an additional demand driver. Countries around the world are investing in AI infrastructure to support the building of large language models in their own language, on domestic data and in support of their local research and enterprise ecosystems. From a product perspective, the vast majority of revenue was driven by our Hopper architecture, along with InfiniBand networking. Together, they have emerged as the de-facto standard for accelerated computing and AI infrastructure. We are on track to ramp H200 with initial shipments in the second quarter. Demand is strong as H200 nearly doubles the inference performance of H100. Networking exceeded a $13 billion annualized revenue run rate. Our end-to-end networking solutions define modern AI data centers. Our Quantum InfiniBand solutions grew more than 5x, year-on-year. NVIDIA Quantum InfiniBand is the standard for the highest performance AI-dedicated infrastructures. We are now entering the ethernet networking space with the launch of our new Spectrum-X end-to-end offering, designed for an AI-optimized networking for the data center. Spectrum-X introduces new technologies, over ethernet, that are purpose-built for AI. Technologies incorporated in our Spectrum switch, BlueField DPU and software stack deliver 1.6x higher networking performance for AI processing compared with traditional ethernet. Leading OEMs, including Dell, HPE, Lenovo, and Super Micro, with their global sales channels, are partnering with us to expand our AI solution to enterprises worldwide. We are on track to ship Spectrum-X this quarter. We also made great progress with our software and services offerings, which reached an annualized revenue run rate of $1 billion in Q4. We announced that NVIDIA DGX Cloud will expand its list of partners to include Amazon\u2019s AWS, joining Microsoft Azure, Google Cloud, and Oracle Cloud. DGX Cloud is used for NVIDIA\u2019s own AI R&D and custom model development, as well as NVIDIA developers. It brings the CUDA ecosystem to NVIDIA CSP partners. Okay, moving to gaming. Gaming revenue was 2.87 billion, was flat sequentially, and up 56% year-on-year, better than our outlook on solid consumer demand for NVIDIA GeForce RTX GPUs during the holidays. Fiscal year revenue of 10.45 billion was up 15%. At CES, we announced our GeForce RTX 40 Super Series family of GPUs. Starting at $599, they deliver incredible gaming performance and generative AI capabilities. Sales are off to a great start. NVIDIA AI Tensor cores and the GPUs deliver up to 836 AI tops,",
+      "block_id": 2,
+      "section": "presentation",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Colette Kress",
+      "speaker_title": "",
+      "timestamp": "16:00",
+      "text": "\u2026 perfect for powering AI for gaming, creating an everyday productivity. The rich software stack we offer with our RTX GPUs further accelerates AI. With our DLSS technologies, seven out of eight pixels can be AI generated, resulting up to 4X faster ray tracing and better image quality. And with the TensorRT-LLM for Windows, our open source library that accelerates inference performance for the latest large language models, generative AI can run up to 5X faster on RTX AI PCs. At CES, we also announced a wave of RTX 40 series AI laptops from every major OEM. These bring high performance gaming and AI capabilities to a wide range form factors, including 14 inch and thin and light laptops. With up to 686 tops of AI performance, these next-generation AI PCs increase generative AI performance by up to 60X, making them the best performing AI PC platforms. At CES, we announced NVIDIA Avatar Cloud Engine microservices, which allowed developers to integrate state-of-the-art generative AI models into digital avatars. ACE won several Best of CES 2024 awards. NVIDIA has an end-to-end platform for building and deploying generative AI applications for RTX PCs and workstations. This includes libraries, SDKs, tools and services developers can incorporate into their generative AI workflows. NVIDIA is fueling the next wave of generative AI applications coming to the PC. With over a hundred million RTX PCs in the install base and over 500 AI enabled PC applications and gains, we are on our way. Moving to pro visualization. Revenue of 463 million was up 11% sequentially and up 105% year-on-year. Fiscal year revenue of 1.55 billion was up 1%. Sequential growth in the quarter was driven by a rich mix of RTX Ada architecture GPUs continuing to ramp. Enterprises are refreshing their workstations to support generative AI related workloads such as data preparation, LLM, fine-tuning, and retrieval augmented generation. These key industrial verticals driving demand include manufacturing, automotive, and robotics. The automotive industry has also been an early adopter of NVIDIA Omniverse, as it seeks to digitalize workflows from design to build, simulate, operate, and experience their factories and cars. At CES, we announced that creative partners and developers, including Brickland, WPP and Zero Light are building Omniverse powered car configurators leading automakers like Lotus are adopting the technology to bring new levels of personalization, realism, and interactivity to the car buying experience. Moving to automotive. Revenue was 281 million, up 8% sequentially and down 4% year-on-year. Fiscal year revenue of 1.09 billion was up 21%, crossing the 1 billion mark for the first time on continued adoption of the NVIDIA DRIVE platform by automakers. NVIDIA DRIVE Orin is the AI car computer of choice for software-defined AV fleets. Its successor, NVIDIA DRIVE Thor, designed for vision transformers often offers more AI performance and integrates a wide range of intelligent capabilities into a single AI compute platform, including autonomous driving and parking, driver and passenger monitoring, and AI cockpit functionality and will be available next year. There were several automotive customer announcements this quarter. Li Auto, Great Wall Motor, ZEEKR, the premium EV subsidiary of Geely and Xiaomi EV, all announced new vehicles built on NVIDIA. Moving to the rest of the P&L. GAAP gross margins expanded sequentially to 76% and non-GAAP gross margins to 76.7% on strong data center growth and mix. Our gross margins in Q4 benefited from favorable component costs. Sequentially, GAAP operating expenses were up 6% and non-GAAP operating expenses were up 9%, primarily reflecting higher compute and infrastructure investments and employee growth. In Q4, we returned 2.8 billion to shareholders in the form of share repurchases and cash dividends. During fiscal year \u201924, we utilized cash of 9.9 billion towards shareholder returns, including 9.5 billion in share repurchases. Let me turn to the outlook for the first quarter. Total revenue is expected to be 24 billion, plus or minus 2%. We expect sequential growth in data center and proviz, partially offset by seasonal decline in gaming. GAAP and non-GAAP gross margins are expected to be 76.3% and 77% respectively, plus or minus 50 basis points. Similar to Q4, Q1 gross margins are benefiting from favorable component costs. Beyond Q1 for the remainder of the year, we expect gross margins to return to the mid-seventies percent range. GAAP and non-GAAP operating expenses are expected to be approximately 3.5 billion and 2.5 billion respectively. Fiscal year 2025 GAAP and non-GAAP operating expenses are expected to grow in the mid 30% range, as we continue to invest in the large opportunities ahead of us. GAAP and non-GAAP other income and expenses are expected to be an income of approximately 250 million, excluding gains and losses from non-affiliated investments. GAAP and non-GAAP tax rates are expected to be 17% plus or minus 1%, excluding any discreet items. Further financial details are included in the CFO commentary and other information available on our IR website. In closing, let me highlight some upcoming events for the financial community. We\u2019ll attend the Morgan Stanley Technology and Media and Telecom Conference in San Francisco on March 4th and the TD Cowen\u2019s 44th Annual Healthcare Conference in Boston on March 5th. And of course, please join us for our annual DTC conference starting Monday, March 18th in San Jose, California to be held in person for the first time in five years. DTC will kick off with Jensen\u2019s keynote and we will host a Q&A session for financial analysts the next day, March 19th. At time, we are now open to call for questions. Operator, would you please poll for questions?",
+      "block_id": 3,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Operator",
+      "speaker_title": "",
+      "timestamp": "24:21",
+      "text": "At this time, I would like to remind everyone, in order to ask a question, press star then the number one on your telephone keypad. We\u2019ll pause for just a moment to compile the Q&A roster. As a reminder, please limit yourself to one question. Your first question comes from the line of Toshiya Hari from Goldman Sachs. Your line is open.",
+      "block_id": 4,
+      "section": "question_and_answer",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Toshiya Hari",
+      "speaker_title": "",
+      "timestamp": "24:42",
+      "text": "Hi, thank you so much for taking the question and congratulations on the really strong results. My question is for Jensen on the data center business. Clearly you\u2019re doing extremely well in the business. I\u2019m curious how your expectations for calendar \u201924 and \u201925 have evolved over the past 90 days. And as you answered the question, I was hoping you can touch on some of the newer buckets within data center, things like software. Sovereign AI, I think you\u2019ve been pretty vocal about, how to think about that medium to long-term. And recently there was an article about NVIDIA potentially participating in the ASIC market. Is there any credence to that? And if so, how should we think about you guys playing in that market over the next several years? Thank you.",
+      "block_id": 5,
+      "section": "question_and_answer",
+      "speaker_role": "analyst"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Jensen Huang",
+      "speaker_title": "",
+      "timestamp": "25:31",
+      "text": "Thanks, Toshiya. Let\u2019s see, there were three questions. One more time, the first question was-",
+      "block_id": 6,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Colette Kress",
+      "speaker_title": "",
+      "timestamp": "25:41",
+      "text": "[inaudible 00:25:44].",
+      "block_id": 7,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Toshiya Hari",
+      "speaker_title": "",
+      "timestamp": "25:44",
+      "text": "I guess your expectations for data center, how they\u2019ve evolved. Thank you.",
+      "block_id": 8,
+      "section": "question_and_answer",
+      "speaker_role": "analyst"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Jensen Huang",
+      "speaker_title": "",
+      "timestamp": "25:48",
+      "text": "Okay. Yeah. Well, we guide one quarter at a time, but fundamentally, the conditions are excellent for continued growth, calendar \u201924 to calendar \u201925 and beyond. And let me tell you why. We\u2019re at the beginning of two industry, industry-wide transitions, and both of them are industry-wide. The first one is a transition from general to accelerated computing. General purpose computing, as you know, is starting to run out of steam. And you could tell by the CSPs extending and many data centers, including our own for general purpose computing, extending the depreciation from four to six years. There\u2019s just no reason to update with more CPUs when you can\u2019t fundamentally and dramatically enhance its throughput like you used to. And so you have to accelerate everything. This is what NVIDIA has been pioneering for some time. And with accelerated computing, you can dramatically improve your energy efficiency. You can dramatically improve your cost in data processing by 20 to 1. Huge numbers. And of course, the speed. That speed is so incredible that we enabled a second industry- wide transition called generative AI. Generative AI, I\u2019m sure we\u2019re going to talk plenty about it during the call, but remember, generative AI is a new application. It is enabling a new way of doing software, new types of software being created. It is a new way of computing. You can\u2019t do generative AI on traditional general purpose computing. You have to accelerate it. And the third is, it is enabling a whole new industry. And this is something worthwhile to take a step back and look at. And it connects to your last question about sovereign AI. A whole new industry in the sense that for the very first time, a data center is not just about computing data and storing data and serving the employees of a company. We now have a new type of data center that is about AI generation. And AI generation factory, and you\u2019ve heard me describe it as AI factories, but basically it takes raw material, which is data. It transforms it with these AI supercomputers that NVIDIA builds, and it turns them into incredibly valuable tokens. These tokens are what people experience on the amazing ChatGPT or Midjourney or search these days are augmented by that. All of your recommender systems are now augmented by that, the hyper-personalization that goes along with it. All of these incredible startups and digital biology generating proteins and generating chemicals, and the list goes on. And so all of these tokens are generated in a very specialized type of data center. And this data center we call AI supercomputers and AI generation factories, but we\u2019re seeing diversity. So at the foundation is that, the way it manifests into new markets is in all of the diversity that you\u2019re seeing us in. One, the amount of inference that we do is just off the charts now. Almost every single time you interact with ChatGPT, you know that we\u2019re inferencing. Every time you use Midjourney, we\u2019re inferencing. Every time you see amazing\u2026 These SOAR videos that are being generated or Runway, the videos that they\u2019re editing, Firefly, NVIDIA is doing inferencing. The inference part of our business has grown tremendously. We estimate about 40%. The amount of training is continuing because these models are getting larger and larger, the amount of inference is increasing. But we\u2019re also diversifying into new industries. The large CSPs are still continuing to build out. You could see from their CapEx and their discussions, but there\u2019s a whole new category called GPUs specialized CSPs. They specialize NVIDIA AI infrastructure, GBU specialized CSPs. You\u2019re seeing enterprise software platforms deploying AI. ServiceNow is just a really, really great example. You see Adobe, you see others, SAP and others. You see consumer internet services that are now augmenting all of their services of the past with generative AI, so they can have even more hyper personalized content to be created. You see us talking about industrial generative AI. Now, our industries represent multi- billion dollar businesses, auto health, financial services in total, our vertical industries, our multi-billion dollar businesses now, and of course, sovereign AI. The reason for sovereign AI has to do with the fact that the language, the knowledge, the history, the culture of each region are different, and they own their own data. They would like to use their data, train it to create their own digital intelligence and provision it to harness that raw material themselves. It belongs to them. Each one of the regions around the world, the data belongs to them. The data is most useful to their society, and so they want to protect the data. They want to transform it themselves, value added transformation into AI, and provision those services themselves. So we\u2019re seeing",
+      "block_id": 9,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Jensen Huang",
+      "speaker_title": "",
+      "timestamp": "32:00",
+      "text": "\u2026 sovereign AI infrastructure is being built in Japan, in Canada, in France, so many other regions. And so my expectation is that what is being experienced here in the United States, in the West, will surely be replicated around the world, and these AI generation factories are going to be in every industry, every company, every region. And so I think this last year, we\u2019ve seen generative AI really becoming a whole new application space, a whole new way of doing computing, a whole new industry is being formed and that\u2019s driving our growth.",
+      "block_id": 10,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Operator",
+      "speaker_title": "",
+      "timestamp": "32:50",
+      "text": "Your next question comes from the line of Joe Moore from Morgan Stanley. Your line is open.",
+      "block_id": 11,
+      "section": "question_and_answer",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Joe Moore",
+      "speaker_title": "",
+      "timestamp": "32:56",
+      "text": "Great. Thank you. I wanted to follow up on the 40% of revenues coming from inference. That\u2019s a bigger number than I expected. Can you give us some sense of where that number was maybe a year before, how much you\u2019re seeing growth around LLMs from inference? And how are you measuring that? I assume it\u2019s in some cases the same GPUs you use for training and inference. How solid is that measurement? Thank you.",
+      "block_id": 12,
+      "section": "question_and_answer",
+      "speaker_role": "analyst"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Jensen Huang",
+      "speaker_title": "",
+      "timestamp": "33:23",
+      "text": "I\u2019ll go backwards. The estimate is probably understated, but we estimated it. And let me tell you why. A year ago, the recommender systems that people are\u2026 When you run the internet, the news, the videos, the music, the products that are being recommended to you because as you know, the internet has trillions\u2026 I don\u2019t know how many trillions, but trillions of things out there and your phone is three-inches square. And so the ability for them to fit all of that information down to something, such a small real estate, is through a system, an amazing system called recommender systems. These recommender systems used to be all based on CPU approaches. But the recent migration to deep learning and now generative AI has really put these recommender systems now directly into the path of GPU acceleration. It needs GPU acceleration for the embeddings. It needs GPU acceleration for the nearest neighbor search. It needs GPU acceleration for the re- ranking and it needs GPU acceleration to generate the augmented information for you. So GPUs are in every single step of a recommender system now. And as you know, recommender system is the single largest software engine on the planet. Almost every major company in the world has to run these large recommender systems. Whenever you use ChatGPT, it\u2019s being inferenced. Whenever you hear about Midjourney and just the number of things that they\u2019re generating for consumers, when you when you see Getty, the work that we do with Getty and Firefly from Adobe, these are all generative models. The list goes on. And none of these, as just I mentioned, existed a year ago, are 100% new.",
+      "block_id": 13,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Operator",
+      "speaker_title": "",
+      "timestamp": "35:33",
+      "text": "Your next question comes from the line of Stacy Rasgon from Bernstein Research. Your line is open.",
+      "block_id": 14,
+      "section": "question_and_answer",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Stacy Rasgon",
+      "speaker_title": "",
+      "timestamp": "35:39",
+      "text": "Hi guys, thanks for taking my question. Colette, I wanted to touch on your comment that you expected the next generation of products. I assume that meant Blackwell, to be supply constrained. Could you dig into that a little bit, what is the driver of that? Why does that get constrained as Hopper is easing up? And how long do you expect that to be constrained, like do you expect the next generation to be constrained like all the way through calendar \u201925? When do those start to ease?",
+      "block_id": 15,
+      "section": "question_and_answer",
+      "speaker_role": "analyst"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Jensen Huang",
+      "speaker_title": "",
+      "timestamp": "36:09",
+      "text": "Yeah, the first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything from of course the wafers, the packaging, the memories, all of the power regulators, to transceivers and networking and cables and you name it. The list of components that we ship\u2026 As you know, people think that NVIDIA GPUs is like a chip. But the NVIDIA Hopper GPU has 35,000 parts. It weighs 70 pounds. These things are really complicated things we\u2019ve built. People call it an AI supercomputer for good reason. If you ever look in the back of the data center, the systems, the cabling system is mind-boggling. It is the most dense complex cabling system for networking the world\u2019s ever seen. Our InfiniBand business grew 5X year-over-year. The supply chain is really doing fantastic supporting us. And so overall, the supply is improving. We expect the demand will continue to be stronger than our supply provides through the year, and we\u2019ll do our best. The cycle times are improving and we\u2019re going to continue to do our best. However, whenever we have new products, as you know, it ramps from zero to a very large number. And you can\u2019t do that overnight. Everything is ramped up. It doesn\u2019t step up. And so whenever we have a new generation of products, and right now, we are ramping H200s, there is no way we can reasonably keep up on demand in the short term as we ramp. We\u2019re ramping Spectrum-X. We\u2019re doing incredibly well with Spectrum-X. It\u2019s our brand-new product into the world of ethernet. InfiniBand is the standard for AI-dedicated systems. Ethernet with Spectrum-X, ethernet is just not a very good scale-out system. But with Spectrum-X, we\u2019ve augmented, layered on top of ethernet, fundamental new capabilities like adaptive routing, congestion control, noise isolation or traffic isolation, so that we could optimize ethernet for AI. And so InfiniBand will be our AI-dedicated infrastructure. Spectrum-X will be our AI- optimized networking and that is ramping. And so with all of the new products, demand is greater than supply. And that\u2019s just kind of the nature of new products and we work as fast as we can to capture the demand. But overall, overall net-net, overall, our supply is increasing very nicely.",
+      "block_id": 16,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Operator",
+      "speaker_title": "",
+      "timestamp": "39:25",
+      "text": "Your next question comes from the line of Matt Ramsay from TD Cowen. Your line is open.",
+      "block_id": 17,
+      "section": "question_and_answer",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Matt Ramsay",
+      "speaker_title": "",
+      "timestamp": "39:32",
+      "text": "Good afternoon, Jensen, Colette. Congrats on the results. I wanted to ask I guess a two-part question, and it comes at what Stacy was just getting out on your demand being significantly more than your supply, even though supply is improving. And I guess the two sides of the question are, I guess, first for Colette, how are you guys thinking about allocation of product in terms of customer readiness to deploy and sort of monitoring if there\u2019s any kind of build up of product that might not yet be turned on? And then I guess Jensen for you, I\u2019d be really interested to hear you speak a bit about the thought that you and your company are putting into the allocation of your product across customers, many of which compete with each other, across industries to smaller startup companies, to things in the healthcare arena to government. It\u2019s a very, very unique technology that you\u2019re enabling and I\u2019d be really interested to hear you speak a bit about how you think about \u201cfairly allocating\u201d for the good of your company, but also for the good of the industry. Thanks.",
+      "block_id": 18,
+      "section": "question_and_answer",
+      "speaker_role": "analyst"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Colette",
+      "speaker_title": "",
+      "timestamp": "40:50",
+      "text": "Let me first start with your question, thanks, about how we are working with our customers as they look into how they are building out their GPU instances and our allocation process. The folks that we work with, our customers that we work with, have been partners with us for many years as we have been assisting them both in what they set up in the cloud, as well as what they are setting up internally. Many of these providers have multiple products going at one time to serve so many different needs across their end customers but also what they need internally. So they are working in advance, of course, thinking about those new clusters that they will need. And our discussions with them continue not only on our Hopper architecture, but helping them understand the next wave and getting their interest and getting their outlook for the demand that they want. So it\u2019s always a moving process in terms of what they will purchase, what is still being built and what is in use for end customers. But the relationships that we\u2019ve built and their understanding of the sophistication of the build has really helped us with that allocation and both helped us with our communications with them.",
+      "block_id": 19,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Jensen Huang",
+      "speaker_title": "",
+      "timestamp": "42:18",
+      "text": "First, our CSPs have a very clear view of our product road map and transitions. And that transparency with our CSPs gives them the confidence of which products to place and where and when. And so they know the timing to the best of our ability, and they know quantities, and of course allocation. We allocate fairly. We allocate fairly. Do the best we can to allocate fairly and to avoid allocating unnecessarily. As you mentioned earlier, why allocate something when the data center\u2019s not ready. Nothing is more difficult than to have anything sit around. And so, allocate fairly, and to avoid allocating unnecessarily. The question that you asked about the end markets, you know that we have an excellent ecosystem with OEMs, ODMs, CSPs and, very importantly, end markets. What NVIDIA is really unique about is that we bring our customers, we bring our partners, CSPs and OEMs, we bring them customers. The biology companies, the healthcare companies, financial services companies, AI developers, large-language model developers, autonomous vehicle companies, robotics companies. There\u2019s just a giant suite of robotics companies that are emerging. There are warehouse robotics to surgical robotics to humanoid robotics, all kinds of really interesting robotics companies, agriculture robotics companies. All of these startups, large companies, healthcare, financial services and auto and such are working on NVIDIA\u2019s platform. We support them directly. And oftentimes, we can have a twofer by allocating to a CSP and bringing the customer to the CSP at the same time. And so this ecosystem, you\u2019re absolutely right that it\u2019s vibrant. But at the core of it, we want to allocate fairly with avoiding waste and looking for opportunities to connect partners and end users. We\u2019re looking for those opportunities all the time.",
+      "block_id": 20,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Operator",
+      "speaker_title": "",
+      "timestamp": "45:11",
+      "text": "Your next question comes from the line of Timothy Arcuri from UBS. Your line is open.",
+      "block_id": 21,
+      "section": "question_and_answer",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Timothy Arcuri",
+      "speaker_title": "",
+      "timestamp": "45:17",
+      "text": "Thanks a lot. I wanted to ask about how you\u2019re converting backlog into revenue. Obviously, lead times for your products have come down quite a bit. Colette, you didn\u2019t talk about the inventory purchase commitments. But if I add up your inventory plus the purchase commits and your prepaid supply, sort of the aggregate of your supply, it was actually down a touch. How should we read that? Is that just you saying that you don\u2019t need to make as much of a financial commitment to your suppliers because the lead times are lower? Or is that maybe you\u2019re reaching some sort of steady state where you\u2019re closer to filling your order book and your backlog? Thanks.",
+      "block_id": 22,
+      "section": "question_and_answer",
+      "speaker_role": "analyst"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Colette",
+      "speaker_title": "",
+      "timestamp": "45:53",
+      "text": "Yeah, so let me highlight on those three different areas of how we look at our suppliers. You\u2019re correct. Our inventory on hand given our allocation that we\u2019re on, we\u2019re trying to, as things come into inventory, immediately work to ship them to our customers. I think our customer appreciates our ability to meet the schedules that we\u2019ve looked for. The second piece of it is our purchase commitments. Our purchase commitments have many different components into it, components that we need for manufacturing, but also, often we are procuring capacity that we may need. The length of that need for capacity or the length for the components are all different. Some of them may be for the next two quarters, but some of them may be for multiple years. I can say the same regarding our prepaids. Our prepaids are pre-designed to make sure that we have the reserve capacity that we need at several of our manufacturing suppliers as we look forward. So wouldn\u2019t read into anything regarding approximately about the same numbers as we are increasing our supply. All of them just have different lengths as we have sometimes had to buy things in long-lead times or things that needed capacity to be built for us.",
+      "block_id": 23,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Operator",
+      "speaker_title": "",
+      "timestamp": "47:14",
+      "text": "Your next question comes from the line of Ben Reitzes from Melius Research. Your line is open.",
+      "block_id": 24,
+      "section": "question_and_answer",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Ben Reitzes",
+      "speaker_title": "",
+      "timestamp": "47:21",
+      "text": "Thanks. Congratulations on the results. Colette, I wanted to talk about your comment regarding gross margins and that they should go back to the mid-70s. If you don\u2019t mind unpacking that. And also, is that due to the HVM content in the new products and what do you think are the drivers of that comment? Thanks so much.",
+      "block_id": 25,
+      "section": "question_and_answer",
+      "speaker_role": "analyst"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Colette",
+      "speaker_title": "",
+      "timestamp": "47:49",
+      "text": "Thanks for the question. We highlighted in our opening remarks really about our Q4 results and our outlook for Q1.",
+      "block_id": 26,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Colette",
+      "speaker_title": "",
+      "timestamp": "48:00",
+      "text": "\u2026 Q1. Both of those quarters are unique. Those two quarters are unique in their gross margin as they include some benefits from favorable component costs in the supply chain across both our compute and networking, and also in several different stages of our manufacturing process. So, looking forward, we have visibility into a mid 70s gross margin for the rest of the fiscal year, taking us back to where we were before this Q4 and Q1 peak that we\u2019ve had here. So we\u2019re really looking at just a balance of our mix. Mix is always going to be our largest driver of what we will be shipping for the rest of the year. And those are really just the drivers.",
+      "block_id": 27,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Speaker 1",
+      "speaker_title": "",
+      "timestamp": "48:52",
+      "text": "Your next question comes from the line of CJ Muse from Cantor Fitzgerald. Your line is open.",
+      "block_id": 28,
+      "section": "question_and_answer",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "CJ Muse",
+      "speaker_title": "",
+      "timestamp": "48:58",
+      "text": "Yeah, good afternoon. Thank you for taking the question. Bigger picture question for you, Jensen. When you think about the million X improvement of GPU compute over the last decade and expectations for similar improvements in the next, how do your customers think about the long-term usability of their NVIDIA investments that they\u2019re making today? Did today\u2019s training clusters become tomorrow\u2019s inference clusters? How do you see this playing out? Thank you.",
+      "block_id": 29,
+      "section": "question_and_answer",
+      "speaker_role": "analyst"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Jensen Huang",
+      "speaker_title": "",
+      "timestamp": "49:22",
+      "text": "Hey, CJ, thanks for the question. Yeah, that\u2019s the really cool part. If you look at the reason why we\u2019re able to improve performance so much, it\u2019s because we have two characteristics about our platform. One is that it\u2019s accelerated. And two, it\u2019s programmable. It\u2019s not brittle. NVIDIA is the only architecture that has gone from the very, very beginning, literally the very beginning when CNN\u2019s and Alex Krizhevsky and Ilya Sutskever and Jeff Hinton first revealed AlexNet, all the way through RNNs to LSTMs, to RLs, to deep learning RLs, to transformers, to every single version, every single version and every species that have come along, vision transformers, multimodality transformers, and now time sequence stuff, and every single variation, every single species of AI that has come along, we\u2019ve been able to support it, optimize our stack for it, and deploy it into our install base. This is really the great, amazing part. On the one hand, we can invent new architectures and new technologies like our tensor cores, like our transformer engine four tensor cores improve new numerical formats and structures of processing like we\u2019ve done with the different generations of tensor cores, meanwhile supporting the install base at the same time. And so, as a result, we take all of our new software algorithm inventions, all of the inventions, new inventions of models of the industry, and it runs on our install base on the one hand. On the other hand, whenever we see something revolutionary, we can, like transformers, we can create something brand new like the Hopper Transformer Engine and implement it into future. And so, we simultaneously have this ability to bring software to the install base and keep making it better and better and better so our customers install base is enriched over time with our new software. On the other hand, for new technologies, create revolutionary capabilities. Don\u2019t be surprised if in our future generation all of a sudden amazing breakthroughs in large language models were made possible. And that those breakthroughs, some of which will be in software because they run CUDA, will be made available to the install base. And so we carry everybody with us. On the one hand, we make giant breakthroughs on the other hand.",
+      "block_id": 30,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Speaker 1",
+      "speaker_title": "",
+      "timestamp": "52:09",
+      "text": "Our next question comes from the line of Aaron Rakers from Wells Fargo. Your line is open.",
+      "block_id": 31,
+      "section": "question_and_answer",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Aaron Rakers",
+      "speaker_title": "",
+      "timestamp": "52:15",
+      "text": "Yeah, thanks for taking the question. I wanted to ask about the China business. I know that in the prepared comments, you said that you started shipping some alternative solutions into China. You also pointed out that you expect that contribution to continue to be about a mid- single digit percent of your total data center business. So I guess the question is, what is the extent of products that you\u2019re shipping today into the China market, and why should we not expect that maybe other alternative solutions come to the market and expand your breadth to participate in that opportunity again? Thank you.",
+      "block_id": 32,
+      "section": "question_and_answer",
+      "speaker_role": "analyst"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Jensen Huang",
+      "speaker_title": "",
+      "timestamp": "52:51",
+      "text": "Thank you. At the core, remember the US government wants to limit the latest capabilities of NVIDIA\u2019s accelerated computing in AI to the Chinese market, and the US government would like to see us be as successful in China as possible. Within those two constraints, within those two pillars, if you will, are the restrictions. And so we had to pause when the new restrictions came out. We immediately paused so that we understood what the restrictions are, reconfigured our products in a way that is not software hackable in any way. And that took some time. And so we reset our product offering to China, and now we\u2019re sampling to customers in China. And we\u2019re going to do our best to compete in that marketplace and succeed in that marketplace within the specifications of the restriction. And so, that\u2019s it. This last quarter, our business significantly declined as we paused in the marketplace. We stopped shipping in the marketplace. We expect this quarter to be about the same. But after that, hopefully we can go compete for our business and do our best. And we\u2019ll see how it turns out.",
+      "block_id": 33,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Speaker 1",
+      "speaker_title": "",
+      "timestamp": "54:27",
+      "text": "Your next question comes from the line of Harsh Kumar from Piper Sandler. Your line is open.",
+      "block_id": 34,
+      "section": "question_and_answer",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Harsh Kumar",
+      "speaker_title": "",
+      "timestamp": "54:33",
+      "text": "Yeah. Hey, Jensen, Colette, and NVIDIA team. First of all, congratulations on a stunning quarter in guide. I wanted to talk a little bit about your software business, and it\u2019s pleasing to hear that it\u2019s over a billion dollar, but I was hoping Jensen or Colette, if you could just help us understand what the different parts and pieces are for the software business. In other words, just help us unpack it a little bit so we can get a better understanding of where that growth is coming from.",
+      "block_id": 35,
+      "section": "question_and_answer",
+      "speaker_role": "analyst"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Jensen Huang",
+      "speaker_title": "",
+      "timestamp": "55:01",
+      "text": "Let me take a step back and explain the fundamental reason why NVIDIA will be very successful in software. So first, as you know, accelerated computing really grew in the cloud. In the cloud, the cloud service providers have really large engineering teams, and we work with them in a way that allows them to operate and manage their own business. And whenever there are any issues, we have large teams assigned to them, and their engineering teams are working directly with our engineering teams and we enhance, we fix, we maintain, we patch the complicated stack of software that\u2019s involved in accelerated computing. As you know, accelerated computing is very different than general purpose computing. You\u2019re not starting from a program like C++; you compile it and things run on all your CPUs. The stacks of software necessary for every domain from data processing, SQL versus SQL structured data versus all the images and text and PDF, which is unstructured, to classical machine learning, to computer vision, to speech, to large language models, all recommender systems, all of these things require different software stacks. That\u2019s the reason why NVIDIA has hundreds of libraries. If you don\u2019t have software, you can\u2019t open new markets. If you don\u2019t have software, you can\u2019t open and enable new applications. Software is fundamentally necessary for accelerated computing. This is the fundamental difference between accelerated computing and general purpose computing that most people took a long time to understand. And now people understand that the software is really key. In the way that we work with CSPs, that\u2019s really easy. We have large teams that are working with their large teams. However, now that generative AI is enabling every enterprise and every enterprise software company to embrace accelerated computing, and when it is now essential to embrace accelerated computing because it is no longer possible, no longer likely anyhow, to sustain improved throughput through just general purpose computing. All of these enterprise software companies and enterprise companies don\u2019t have large engineering teams to be able to maintain and optimize their software stack to run across all of the world\u2019s clouds and private clouds and on-prem. So we are going to do the management, the optimization, the patching, the tuning, the install-based optimization for all of their software stacks, and we containerize them into our stack, we call it NVIDIA AI Enterprise. And the way we go to market with it is think of that NVIDIA AI Enterprise now as a runtime like an operating system; it\u2019s an operating system for artificial intelligence, and we charge $4,500 per GPU per year. And my guess is that every enterprise in the world, every software enterprise company that are deploying software in all the clouds and private clouds and on-prem will run on NVIDIA AI Enterprise, especially obviously for our GPUs. And so this is going to likely be a very significant business over time. We\u2019re off to a great start, and Colette mentioned that it\u2019s already at a billion dollar run rate, and we\u2019re really just getting started.",
+      "block_id": 36,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Speaker 1",
+      "speaker_title": "",
+      "timestamp": "58:51",
+      "text": "Thank you. I will now turn the call back over to Jensen Huang, CEO for closing remarks.",
+      "block_id": 37,
+      "section": "question_and_answer",
+      "speaker_role": "operator"
+    },
+    {
+      "source_doc": "main_transcript",
+      "speaker": "Jensen Huang",
+      "speaker_title": "",
+      "timestamp": "58:58",
+      "text": "The computer industry is making two simultaneous platform shifts at the same time. The trillion dollar install base of data centers is transitioning from general purpose to accelerated computing. Every data center will be accelerated, so the world can keep up with the computing demand, with increasing throughput while managing costs and energy. The incredible speed-up that NVIDIA enabled a whole new computing paradigm, generative AI, where software can learn, understand, and generate any information, from human language to the structure of biology and the 3D world. We are now at the beginning of a new industry where AI dedicated data centers process massive raw data to refine it into digital intelligence. Like AC power generation plants of the last industrial revolution, NVIDIA AI supercomputers are essentially AI generation factories of this industrial revolution. (01:00:13) Every company and every industry is fundamentally built on their proprietary business intelligence, and in the future, their proprietary generative AI. Generative AI has kicked off a whole new investment cycle to build the next trillion dollars of infrastructure of AI generation factories. We believe these two trends will drive a doubling of the world\u2019s data center infrastructure installed base in the next five years and will represent an annual market opportunity in the hundreds of billions. This new AI infrastructure will open up a whole new world of applications not possible today. (01:00:54) We started the AI journey with the hyperscale cloud providers and consumer internet companies, and now every industry is on board, from automotive to healthcare, to financial services, to industrial to telecom, media and entertainment. NVIDIA\u2019s full-stack computing platform with industry specific applications frameworks and a huge developer and partner ecosystem gives us the speed, scale and reach to help every company, to help companies in every industry become an AI company. (01:01:38) We have so much to share with you at next month\u2019s GTC in San Jose, so be sure to join us. We look forward to updating you on our progress next quarter.",
+      "block_id": 38,
+      "section": "question_and_answer",
+      "speaker_role": "management"
+    }
+  ]
+}

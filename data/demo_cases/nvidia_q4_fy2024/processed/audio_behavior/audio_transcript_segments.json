@@ -1,0 +1,2646 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "nvidia_q4_fy2024",
+  "audio_path": "raw/audio/nvidia_q4_fy2024_audio.wav",
+  "audio_md5": "940cc36d27fde7e36b9007e3719eb7ec",
+  "transcription_model": "tiny",
+  "device": "cpu",
+  "compute_type": "int8",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.32,
+      "text": "Good afternoon, my name is Braup and I will be your conference operator today."
+    },
+    {
+      "start": 5.32,
+      "end": 8.96,
+      "text": "At this time I would like to welcome everyone to the NVIDIA's fourth quarter earnings"
+    },
+    {
+      "start": 8.96,
+      "end": 9.96,
+      "text": "call."
+    },
+    {
+      "start": 9.96,
+      "end": 13.280000000000001,
+      "text": "All lines have been placed on mute to prevent any background noise."
+    },
+    {
+      "start": 13.280000000000001,
+      "end": 16.8,
+      "text": "After the speaker's remarks, there will be a question and answer session."
+    },
+    {
+      "start": 16.8,
+      "end": 20.080000000000002,
+      "text": "If you would like to ask a question during this time, simply press star, followed by"
+    },
+    {
+      "start": 20.080000000000002,
+      "end": 22.68,
+      "text": "the number one on your telephone keypad."
+    },
+    {
+      "start": 22.68,
+      "end": 25.88,
+      "text": "If you would like to withdraw your question, press star one again."
+    },
+    {
+      "start": 25.88,
+      "end": 26.88,
+      "text": "Thank you."
+    },
+    {
+      "start": 26.88,
+      "end": 35.2,
+      "text": "Good afternoon everyone and welcome to NVIDIA's conference call for the fourth quarter"
+    },
+    {
+      "start": 35.2,
+      "end": 37.519999999999996,
+      "text": "in fiscal 2024."
+    },
+    {
+      "start": 37.519999999999996,
+      "end": 42.16,
+      "text": "With me today from NVIDIA, or Jensen Wong, President and Chief Executive Officer, and"
+    },
+    {
+      "start": 42.16,
+      "end": 47.519999999999996,
+      "text": "Collect Press, Executive Vice President and Chief Financial Officer, I'd like to remind you that"
+    },
+    {
+      "start": 47.519999999999996,
+      "end": 51.599999999999994,
+      "text": "our call is being webcast-wide on NVIDIA's investor relations website."
+    },
+    {
+      "start": 51.599999999999994,
+      "end": 55.84,
+      "text": "The webcast will be available for replay until the conference call to discuss our financial"
+    },
+    {
+      "start": 55.84,
+      "end": 59.64,
+      "text": "results for the first quarter of fiscal 2025."
+    },
+    {
+      "start": 59.64,
+      "end": 62.52,
+      "text": "The content of today's call is in Vittia's property."
+    },
+    {
+      "start": 62.52,
+      "end": 67.44,
+      "text": "It can be reproduced or transcribed without a prior written consent."
+    },
+    {
+      "start": 67.44,
+      "end": 71.96000000000001,
+      "text": "During this call, we may make forward-looking statements based on current expectations."
+    },
+    {
+      "start": 71.96000000000001,
+      "end": 76.28,
+      "text": "These are subject to a number of significant risks and uncertainties, and our actual results"
+    },
+    {
+      "start": 76.28,
+      "end": 78.08000000000001,
+      "text": "may differ materially."
+    },
+    {
+      "start": 78.08000000000001,
+      "end": 82.84,
+      "text": "Her discussion of factors that could affect our future financial results in business, please refer"
+    },
+    {
+      "start": 82.84,
+      "end": 85.36,
+      "text": "to the disclosure in today's earnings release."
+    },
+    {
+      "start": 85.36,
+      "end": 90.8,
+      "text": "For most recent forms, 10K and 10Q, and the reports that we may file on form 8K with"
+    },
+    {
+      "start": 90.8,
+      "end": 96.03999999999999,
+      "text": "the Securities and Exchange Commission, all our statements are made as of today, February"
+    },
+    {
+      "start": 96.03999999999999,
+      "end": 102.72,
+      "text": "21, 2024, based on information currently available to us, accepted required by law."
+    },
+    {
+      "start": 102.72,
+      "end": 106.48,
+      "text": "We assume no obligation to update any such statements."
+    },
+    {
+      "start": 106.48,
+      "end": 109.8,
+      "text": "During this call, we will discuss non-gap financial measures."
+    },
+    {
+      "start": 109.8,
+      "end": 114.28,
+      "text": "You can find a reconciliation of these non-gap financial measures to gap financial measures"
+    },
+    {
+      "start": 114.32000000000001,
+      "end": 117.84,
+      "text": "in our CFO commentary, which is posted on our website."
+    },
+    {
+      "start": 117.84,
+      "end": 121.24,
+      "text": "With that, let me turn the call over to Colette."
+    },
+    {
+      "start": 121.24,
+      "end": 122.64,
+      "text": "Thanks, Simona."
+    },
+    {
+      "start": 122.64,
+      "end": 125.24000000000001,
+      "text": "Q4 was another record quarter."
+    },
+    {
+      "start": 125.24000000000001,
+      "end": 134.2,
+      "text": "Revenue of 22.1 billion was up 22% sequentially, and up 265% year on year, and while above"
+    },
+    {
+      "start": 134.2,
+      "end": 136.84,
+      "text": "our outlook of 20 billion."
+    },
+    {
+      "start": 136.84,
+      "end": 146.86,
+      "text": "Our fiscal's 2024 revenue was 60.9 billion, and up 126% from the prior year."
+    },
+    {
+      "start": 146.86,
+      "end": 148.78,
+      "text": "Starting with the data center."
+    },
+    {
+      "start": 148.78,
+      "end": 156.74,
+      "text": "Data center revenue for the fiscal's 2024 year was 4,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000."
+    },
+    {
+      "start": 156.74,
+      "end": 159.56,
+      "text": "More than tripling from the prior year."
+    },
+    {
+      "start": 159.56,
+      "end": 163.62,
+      "text": "The world has reached a tipping point of new computing path."
+    },
+    {
+      "start": 163.62,
+      "end": 169.42000000000002,
+      "text": "The trillion dollar installed base of data center infrastructure is rapidly transitioning"
+    },
+    {
+      "start": 169.42000000000002,
+      "end": 172.82,
+      "text": "from general purpose to accelerated computing."
+    },
+    {
+      "start": 172.82,
+      "end": 179.82,
+      "text": "As more law slows, while computing demand continues to skyrocket, companies may accelerate"
+    },
+    {
+      "start": 179.82,
+      "end": 187.42000000000002,
+      "text": "every workload possible to drive future improvement in performance, TCO, and energy efficiency."
+    },
+    {
+      "start": 187.42000000000002,
+      "end": 192.82,
+      "text": "At the same time, companies have started to build the next generation of modern data centers,"
+    },
+    {
+      "start": 192.82,
+      "end": 195.82,
+      "text": "but we refer to as AI factories."
+    },
+    {
+      "start": 195.82,
+      "end": 202.82,
+      "text": "Purpose built to refine raw data and produce valuable intelligence in the era of gender"
+    },
+    {
+      "start": 202.82,
+      "end": 204.62,
+      "text": "to AI."
+    },
+    {
+      "start": 204.62,
+      "end": 213.62,
+      "text": "In the fourth quarter, data center revenue of 18.4 billion was a record of 27% sequentially,"
+    },
+    {
+      "start": 213.62,
+      "end": 221.1,
+      "text": "and up 409% year-on-year, driven by the Nvidia Hopper GPU computing platform, along with"
+    },
+    {
+      "start": 221.1,
+      "end": 224.29999999999998,
+      "text": "infinite band and end networking."
+    },
+    {
+      "start": 224.29999999999998,
+      "end": 231.1,
+      "text": "Compute revenue grew more than 5x, and networking revenue tripled from last year."
+    },
+    {
+      "start": 231.1,
+      "end": 236.29999999999998,
+      "text": "We are delighted that supply of hopper architecture products is improving."
+    },
+    {
+      "start": 236.29999999999998,
+      "end": 238.9,
+      "text": "Demand for hopper remains very strong."
+    },
+    {
+      "start": 238.9,
+      "end": 247.7,
+      "text": "We expect our next generation products to be supply constraint as demand far exceeds supply."
+    },
+    {
+      "start": 247.70000000000002,
+      "end": 252.82000000000002,
+      "text": "Fourth quarter data center growth was driven by both training and inference of gender"
+    },
+    {
+      "start": 252.82000000000002,
+      "end": 260.02000000000004,
+      "text": "to AI and large language models across a broad set of industries, use cases, and regions."
+    },
+    {
+      "start": 260.02000000000004,
+      "end": 265.74,
+      "text": "The versatility and leading performance of our data center platforms enables a high return"
+    },
+    {
+      "start": 265.74,
+      "end": 272.78000000000003,
+      "text": "on investment for many use cases, including AI training and inference, data processing,"
+    },
+    {
+      "start": 272.78000000000003,
+      "end": 276.58000000000004,
+      "text": "and a broad range of CUDA accelerated workloads."
+    },
+    {
+      "start": 276.58,
+      "end": 285.78,
+      "text": "Reestimate in the past year approximately 40% of data center revenue was for AI inference."
+    },
+    {
+      "start": 285.78,
+      "end": 291.34,
+      "text": "Building and deploying AI solutions has reached virtually every industry."
+    },
+    {
+      "start": 291.34,
+      "end": 296.82,
+      "text": "Many companies across industries are training and operating their AI models and services"
+    },
+    {
+      "start": 296.82,
+      "end": 298.86,
+      "text": "at scale."
+    },
+    {
+      "start": 298.86,
+      "end": 305.94,
+      "text": "Enterprises across Nvidia AI infrastructure through cloud providers, including hyperscales,"
+    },
+    {
+      "start": 305.94,
+      "end": 311.14,
+      "text": "GPU specialized, and private clouds, or on-premise."
+    },
+    {
+      "start": 311.14,
+      "end": 318.3,
+      "text": "Nvidia's computing stack extends seamlessly across cloud and on-premise environments,"
+    },
+    {
+      "start": 318.3,
+      "end": 324.9,
+      "text": "allowing customers to deploy with a multi-cloud or hybrid cloud strategy."
+    },
+    {
+      "start": 324.9,
+      "end": 330.3,
+      "text": "In the fourth quarter, large cloud providers represented more than half of our data center revenue,"
+    },
+    {
+      "start": 330.3,
+      "end": 336.58,
+      "text": "reporting both internal workloads, and external public cloud customers."
+    },
+    {
+      "start": 336.58,
+      "end": 343.98,
+      "text": "Microsoft recently noted that more than 50,000 organizations use GitHub co-pilot business"
+    },
+    {
+      "start": 343.98,
+      "end": 350.46000000000004,
+      "text": "to supercharge the productivity of their developers contributing to GitHub revenue growth"
+    },
+    {
+      "start": 350.46000000000004,
+      "end": 354.06,
+      "text": "accelerating to 40% year on year."
+    },
+    {
+      "start": 354.14,
+      "end": 361.66,
+      "text": "Microsoft 365 adoption grew faster in its first two months than the two previous major"
+    },
+    {
+      "start": 361.66,
+      "end": 366.62,
+      "text": "Microsoft 365 enterprise suite releases did."
+    },
+    {
+      "start": 366.62,
+      "end": 372.78,
+      "text": "Consumer internet companies have been early adopters of AI and represent one of our largest"
+    },
+    {
+      "start": 372.78,
+      "end": 379.98,
+      "text": "customer categories, companies from search to e-commerce, social media, news and video services,"
+    },
+    {
+      "start": 380.06,
+      "end": 386.46000000000004,
+      "text": "and entertainment are using AI for deep learning based recommendation systems."
+    },
+    {
+      "start": 386.46000000000004,
+      "end": 393.34000000000003,
+      "text": "These AI investments are generating a strong return by improving customer engagement,"
+    },
+    {
+      "start": 393.34000000000003,
+      "end": 397.06,
+      "text": "ad conversation, and click through rates."
+    },
+    {
+      "start": 397.06,
+      "end": 403.78000000000003,
+      "text": "Meta in its latest quarter cited more accurate predictions and improved advertiser performance"
+    },
+    {
+      "start": 403.78000000000003,
+      "end": 409.22,
+      "text": "as contributing to the significant acceleration in its revenue."
+    },
+    {
+      "start": 409.22,
+      "end": 414.94000000000005,
+      "text": "In addition, consumer internet companies are investing in gender to AI to support content"
+    },
+    {
+      "start": 414.94000000000005,
+      "end": 421.3,
+      "text": "creators, advertisers, and customers through automation tools, for content and ad creation"
+    },
+    {
+      "start": 421.3,
+      "end": 426.14000000000004,
+      "text": "online product descriptions, and AI shopping assistance."
+    },
+    {
+      "start": 426.14000000000004,
+      "end": 432.94000000000005,
+      "text": "Enterprise software companies are applying gender to AI to help customers realize productivity"
+    },
+    {
+      "start": 432.94,
+      "end": 433.94,
+      "text": "gains."
+    },
+    {
+      "start": 433.94,
+      "end": 439.5,
+      "text": "Early customers, we've partnered with for both training and inference of gender to AI"
+    },
+    {
+      "start": 439.5,
+      "end": 446.94,
+      "text": "are already seen notable commercial success, service nows, generative AI products in their"
+    },
+    {
+      "start": 446.94,
+      "end": 453.02,
+      "text": "latest quarter drove their largest effort, net new annual contract value contribution"
+    },
+    {
+      "start": 453.02,
+      "end": 456.22,
+      "text": "of any new product family release."
+    },
+    {
+      "start": 456.22,
+      "end": 461.7,
+      "text": "We are working with many other leading AI and enterprise software platforms as well, including"
+    },
+    {
+      "start": 461.7,
+      "end": 468.14,
+      "text": "Adobe Databricks, Daddy Images, SAP, and Snowflick."
+    },
+    {
+      "start": 468.14,
+      "end": 476.09999999999997,
+      "text": "The field of foundation large language models is thriving, anthropic, Google, and flexion,"
+    },
+    {
+      "start": 476.09999999999997,
+      "end": 483.74,
+      "text": "Microsoft, OpenAI, and XAI are leading with continued amazing breakthrough in gender to"
+    },
+    {
+      "start": 483.74,
+      "end": 493.5,
+      "text": "AI, exciting companies like ADEPT, AI-21, character AI, co-here, install, complexity,"
+    },
+    {
+      "start": 493.5,
+      "end": 499.3,
+      "text": "and runway are building platforms to serve enterprises and creators."
+    },
+    {
+      "start": 499.3,
+      "end": 505.14,
+      "text": "New startups are creating LLMs, to serve the specific languages, cultures, and customs"
+    },
+    {
+      "start": 505.14,
+      "end": 511.58,
+      "text": "of the world many regions, and others are creating foundation models to address entirely"
+    },
+    {
+      "start": 511.58,
+      "end": 520.5799999999999,
+      "text": "different industries, like recursion, pharmaceuticals, and generate by own medicines for biology."
+    },
+    {
+      "start": 520.5799999999999,
+      "end": 526.34,
+      "text": "These companies are driving demand for Nvidia AI infrastructure through hyperscale"
+    },
+    {
+      "start": 526.34,
+      "end": 529.8199999999999,
+      "text": "or GPU specialized cloud providers."
+    },
+    {
+      "start": 529.8199999999999,
+      "end": 535.8199999999999,
+      "text": "Just this morning, we announced that we collaborated with Google to optimize its state-of-the-art"
+    },
+    {
+      "start": 535.82,
+      "end": 543.3000000000001,
+      "text": "new, jemma language models to accelerate their inference performance on video GPUs in the cloud,"
+    },
+    {
+      "start": 543.3000000000001,
+      "end": 546.34,
+      "text": "data center, and PC."
+    },
+    {
+      "start": 546.34,
+      "end": 551.7800000000001,
+      "text": "One of the most notable trends over the past year is the significant adoption of AI by"
+    },
+    {
+      "start": 551.7800000000001,
+      "end": 557.46,
+      "text": "enterprises across the industry's verticals, such as automotive, healthcare, and financial"
+    },
+    {
+      "start": 557.46,
+      "end": 558.86,
+      "text": "services."
+    },
+    {
+      "start": 558.86,
+      "end": 565.42,
+      "text": "Nvidia offers multiple application frameworks to help companies adopt AI in vertical domains,"
+    },
+    {
+      "start": 565.42,
+      "end": 571.74,
+      "text": "such as autonomous driving, drug discovery, low latency machine learning for fraud detection,"
+    },
+    {
+      "start": 571.74,
+      "end": 577.58,
+      "text": "or robotics, leveraging our full-stack accelerated computing platform."
+    },
+    {
+      "start": 577.58,
+      "end": 583.1800000000001,
+      "text": "We estimate that data center revenue contribution of the automotive vertical through the cloud"
+    },
+    {
+      "start": 583.1800000000001,
+      "end": 586.94,
+      "text": "or on-prem exceeded a billion dollars last year."
+    },
+    {
+      "start": 586.94,
+      "end": 592.5400000000001,
+      "text": "Nvidia drive infrastructure solutions include systems and software for the development of autonomous"
+    },
+    {
+      "start": 592.5400000000001,
+      "end": 599.5400000000001,
+      "text": "driving, including data ingestion, creation, labeling, and AI training, plus validation"
+    },
+    {
+      "start": 599.5400000000001,
+      "end": 601.6600000000001,
+      "text": "through simulation."
+    },
+    {
+      "start": 601.6600000000001,
+      "end": 608.0600000000001,
+      "text": "Almost 80 vehicle manufacturers across global OEMs, new energy vehicles, trucking,"
+    },
+    {
+      "start": 608.0600000000001,
+      "end": 614.4000000000001,
+      "text": "robot taxi, and tier 1 suppliers are using Nvidia's AI infrastructure to train"
+    },
+    {
+      "start": 614.4,
+      "end": 621.1999999999999,
+      "text": "AI elements and other AI models for automated driving and AI cockpit applications."
+    },
+    {
+      "start": 621.1999999999999,
+      "end": 627.92,
+      "text": "In effect, nearly every automotive company working on AI is working with Nvidia."
+    },
+    {
+      "start": 627.92,
+      "end": 634.76,
+      "text": "As AV algorithms move to video transformers and more cars are equipped with cameras, we expect"
+    },
+    {
+      "start": 634.76,
+      "end": 641.48,
+      "text": "in videos, automotive data center processing demand to grow significantly."
+    },
+    {
+      "start": 641.48,
+      "end": 648.6,
+      "text": "In health care, digital biology and gender to AI are helping to reinvent drug discovery,"
+    },
+    {
+      "start": 648.6,
+      "end": 652.28,
+      "text": "surgery, medical imaging, and wearable devices."
+    },
+    {
+      "start": 652.28,
+      "end": 658.76,
+      "text": "We have built deep domain expertise in health care over the past decade, creating the"
+    },
+    {
+      "start": 658.76,
+      "end": 667.12,
+      "text": "Nvidia Clara health care platform and Nvidia Byronimo, a gender to AI service to develop,"
+    },
+    {
+      "start": 667.12,
+      "end": 673.48,
+      "text": "customized, and deploying AI foundation models for computer-aided drug discovery."
+    },
+    {
+      "start": 673.48,
+      "end": 680.36,
+      "text": "Byronimo features a growing collection, a pre-trained biomolecular AI models that can be applied"
+    },
+    {
+      "start": 680.36,
+      "end": 684.08,
+      "text": "to the end-end drug discovery processes."
+    },
+    {
+      "start": 684.08,
+      "end": 689.96,
+      "text": "We announced recursion is making available for the proprietary AI model through bio-neemo"
+    },
+    {
+      "start": 689.96,
+      "end": 693.48,
+      "text": "for the drug discovery system."
+    },
+    {
+      "start": 693.48,
+      "end": 700.36,
+      "text": "In financial services, customers are using AI for growing set of use cases from trading"
+    },
+    {
+      "start": 700.36,
+      "end": 705.28,
+      "text": "and risk management to customer service and fraud detection."
+    },
+    {
+      "start": 705.28,
+      "end": 713.12,
+      "text": "For example, American Express improved fraud detection accuracy by 6% using a video AI."
+    },
+    {
+      "start": 713.12,
+      "end": 718.9200000000001,
+      "text": "Shifting to our data center revenue by geography, growth was strong across all regions except"
+    },
+    {
+      "start": 718.92,
+      "end": 724.04,
+      "text": "for China, where our data center revenue declined significantly, following the U.S. government"
+    },
+    {
+      "start": 724.04,
+      "end": 727.8,
+      "text": "export control regulations imposed in October."
+    },
+    {
+      "start": 727.8,
+      "end": 731.9599999999999,
+      "text": "Although we have not received licenses from the U.S. government to ship restricted products"
+    },
+    {
+      "start": 731.9599999999999,
+      "end": 737.64,
+      "text": "to China, we have started shipping alternatives that don't require license for the China"
+    },
+    {
+      "start": 737.64,
+      "end": 738.64,
+      "text": "market."
+    },
+    {
+      "start": 738.64,
+      "end": 745.28,
+      "text": "China represented a mid-singled digit percentage of our data center revenue in Q4, and we"
+    },
+    {
+      "start": 745.3199999999999,
+      "end": 750.4,
+      "text": "expect it to stay in a similar range in the first quarter."
+    },
+    {
+      "start": 750.4,
+      "end": 755.8,
+      "text": "In regions outside of the U.S. and China, sovereign AI has become an additional demand"
+    },
+    {
+      "start": 755.8,
+      "end": 757.12,
+      "text": "driver."
+    },
+    {
+      "start": 757.12,
+      "end": 762.6,
+      "text": "Countries around the world are investing in AI infrastructure to support the building of large"
+    },
+    {
+      "start": 762.6,
+      "end": 769.16,
+      "text": "language models in their own language, on domestic data and in support of their local research"
+    },
+    {
+      "start": 769.16,
+      "end": 772.24,
+      "text": "and enterprise ecosystems."
+    },
+    {
+      "start": 772.24,
+      "end": 778.84,
+      "text": "From a product perspective, the vast majority of revenue was driven by our hopper architecture,"
+    },
+    {
+      "start": 778.84,
+      "end": 784.6,
+      "text": "along with infiniban networking, together they have emerged as the de facto standard for"
+    },
+    {
+      "start": 784.6,
+      "end": 788.8,
+      "text": "accelerated computing and AI infrastructure."
+    },
+    {
+      "start": 788.8,
+      "end": 795.36,
+      "text": "We are on track to ramp H200 with initial shipments in the second quarter, demand is"
+    },
+    {
+      "start": 795.36,
+      "end": 802.16,
+      "text": "strong as H200 nearly doubles the inference performance of H200."
+    },
+    {
+      "start": 802.16,
+      "end": 810.92,
+      "text": "Networking exceeded a $13 billion annualized revenue run rate, or end-end networking solutions"
+    },
+    {
+      "start": 810.92,
+      "end": 813.88,
+      "text": "to fine modern AI data centers."
+    },
+    {
+      "start": 813.88,
+      "end": 820.0,
+      "text": "Our quantum infiniban solutions grow more than 5x year-on-year."
+    },
+    {
+      "start": 820.0,
+      "end": 827.32,
+      "text": "Nvidia quantum infiniban is a standard for the highest performance AI dedicated infrastructures."
+    },
+    {
+      "start": 827.32,
+      "end": 832.32,
+      "text": "We are now entering the Ethernet networking space with the launch of our new Spectrum"
+    },
+    {
+      "start": 832.32,
+      "end": 839.64,
+      "text": "X and an offering, designed for an AI optimized networking for the data center."
+    },
+    {
+      "start": 839.64,
+      "end": 846.56,
+      "text": "Spectrum X introduces new technologies over Ethernet that are purpose-built for AI."
+    },
+    {
+      "start": 846.5600000000001,
+      "end": 852.0400000000001,
+      "text": "The technologies incorporated in our Spectrum Switch, Bluefield, DPU, and software stack"
+    },
+    {
+      "start": 852.0400000000001,
+      "end": 861.72,
+      "text": "deliver 1.6x higher networking performance for AI processing compared with traditional Ethernet."
+    },
+    {
+      "start": 861.72,
+      "end": 868.4000000000001,
+      "text": "Meeting all begins, including Dell, HPE, Lenovo, and Supermicro with their global sales channels"
+    },
+    {
+      "start": 868.4000000000001,
+      "end": 873.96,
+      "text": "are partnering with us to expand our AI solution to enterprises worldwide."
+    },
+    {
+      "start": 873.96,
+      "end": 878.44,
+      "text": "We are on track to ship Spectrum X discord."
+    },
+    {
+      "start": 878.44,
+      "end": 883.12,
+      "text": "We also make great progress with our software and services offerings, which reached an"
+    },
+    {
+      "start": 883.12,
+      "end": 888.0400000000001,
+      "text": "annualized revenue run rate of $1 billion in Q4."
+    },
+    {
+      "start": 888.0400000000001,
+      "end": 894.08,
+      "text": "We announced that Nvidia, DJX Cloud, will expand its list of partners to include Amazon,"
+    },
+    {
+      "start": 894.08,
+      "end": 900.0400000000001,
+      "text": "AWS, joining Microsoft Azure, Google Cloud, and Oracle Cloud."
+    },
+    {
+      "start": 900.04,
+      "end": 908.04,
+      "text": "DJX Cloud is used for video-owned AI, R&D, and custom model development, as well as Nvidia"
+    },
+    {
+      "start": 908.04,
+      "end": 909.04,
+      "text": "developers."
+    },
+    {
+      "start": 909.04,
+      "end": 914.04,
+      "text": "It brings the CUDA ecosystem to Nvidia CSP partners."
+    },
+    {
+      "start": 914.04,
+      "end": 917.04,
+      "text": "OK, moving to gaming."
+    },
+    {
+      "start": 917.04,
+      "end": 924.04,
+      "text": "Gaming revenue was 2.87 billion with flat sequentially and up 56% year-on-year."
+    },
+    {
+      "start": 925.04,
+      "end": 931.04,
+      "text": "Better than our outlook on solid consumer demand for Nvidia GeForce RTX GPUs during the holidays."
+    },
+    {
+      "start": 931.04,
+      "end": 937.04,
+      "text": "Cisco, your revenue of $10.45 billion was up 15%."
+    },
+    {
+      "start": 937.04,
+      "end": 944.04,
+      "text": "As CES, we announced our GeForce RTX 40 Super Series family of GPUs."
+    },
+    {
+      "start": 944.04,
+      "end": 952.04,
+      "text": "Starting at $599, they deliver incredible gaming performance and generative AI capabilities."
+    },
+    {
+      "start": 952.04,
+      "end": 954.04,
+      "text": "Sales are off to a great start."
+    },
+    {
+      "start": 954.04,
+      "end": 961.04,
+      "text": "Nvidia AI tensor cores and the GPUs deliver up to 836 AI tops."
+    },
+    {
+      "start": 961.04,
+      "end": 967.04,
+      "text": "Perfect for calling AI for gaming, creating and everyday productivity."
+    },
+    {
+      "start": 967.04,
+      "end": 974.04,
+      "text": "The rich software stock we offer with our RTX GPU further accelerates AI."
+    },
+    {
+      "start": 974.04,
+      "end": 983.04,
+      "text": "With our DLSS technology, Devon out of 8 pixels can be AI generated resulting up to 4x faster,"
+    },
+    {
+      "start": 983.04,
+      "end": 986.04,
+      "text": "ray tracing and better image quality."
+    },
+    {
+      "start": 986.04,
+      "end": 993.04,
+      "text": "And with the tensor RTLLM for Windows, our open source library that accelerates inference performance"
+    },
+    {
+      "start": 993.04,
+      "end": 995.04,
+      "text": "for the latest large language models."
+    },
+    {
+      "start": 995.04,
+      "end": 1002.04,
+      "text": "Genre to AI can run up to 5x faster on RTX AI PCs."
+    },
+    {
+      "start": 1003.0400000000001,
+      "end": 1011.0400000000001,
+      "text": "At CES, we also announced a wave of new RTX 40 series AI laptops from every major OEMs."
+    },
+    {
+      "start": 1011.0400000000001,
+      "end": 1017.0400000000001,
+      "text": "These bring high performance gaming and AI capabilities to a wide range of form factors,"
+    },
+    {
+      "start": 1017.0400000000001,
+      "end": 1021.0400000000001,
+      "text": "including 14 inch and then the light laptops."
+    },
+    {
+      "start": 1021.0400000000001,
+      "end": 1031.04,
+      "text": "With up to 686 tops of AI performance, these next generations AI PCs increase gender to AI performance by up to 60x,"
+    },
+    {
+      "start": 1031.04,
+      "end": 1036.04,
+      "text": "making them the best performing AI PC platforms."
+    },
+    {
+      "start": 1036.04,
+      "end": 1046.04,
+      "text": "At CES, we announced Nvidia Avatar Cloud engine microservices, which allowed developers to integrate state of the art,"
+    },
+    {
+      "start": 1046.04,
+      "end": 1049.04,
+      "text": "and enter to AI models into digital avatars."
+    },
+    {
+      "start": 1049.04,
+      "end": 1055.04,
+      "text": "Ace, one several best to CES 2024 awards."
+    },
+    {
+      "start": 1055.04,
+      "end": 1063.04,
+      "text": "Nvidia has an end end platform for building and deploying gener to AI applications for RTX PCs and workstations."
+    },
+    {
+      "start": 1063.04,
+      "end": 1072.04,
+      "text": "This includes libraries, SDKs, tools, and services developers can incorporate into their generative AI works of."
+    },
+    {
+      "start": 1072.04,
+      "end": 1087.04,
+      "text": "Nvidia is fueling the next wave of gender to AI applications coming to the PC with over 100 million RTX PCs in the installed base and over 500 AI enabled PC applications and games."
+    },
+    {
+      "start": 1087.04,
+      "end": 1090.04,
+      "text": "We are on our way."
+    },
+    {
+      "start": 1090.04,
+      "end": 1093.04,
+      "text": "Moving to pro visualization."
+    },
+    {
+      "start": 1093.04,
+      "end": 1102.04,
+      "text": "Revenue of 463 million was up 11% sequentially and up 105% year-on-year."
+    },
+    {
+      "start": 1102.04,
+      "end": 1107.04,
+      "text": "Cisco year revenue of 1.55 billion was up 1%."
+    },
+    {
+      "start": 1107.04,
+      "end": 1115.04,
+      "text": "Sequential growth in the quarter was driven by a rich mix of RTX ADA architecture GPUs continuing to ramp."
+    },
+    {
+      "start": 1115.04,
+      "end": 1122.04,
+      "text": "Enterprises are refreshing their workstations to support gender to AI, related workloads such as data preparation,"
+    },
+    {
+      "start": 1122.04,
+      "end": 1128.04,
+      "text": "LLM, fine tuning, and retrieval augmented generation."
+    },
+    {
+      "start": 1128.04,
+      "end": 1136.04,
+      "text": "These keys, industrial, verticals, driving demand include manufacturing, automotive, and robotics."
+    },
+    {
+      "start": 1136.04,
+      "end": 1150.04,
+      "text": "The automotive industry has also been an early adopter of Nvidia Omniverse, as it seeks to digitize workflows from design, to build, simulate, operate, and experience their factories and cars."
+    },
+    {
+      "start": 1151.04,
+      "end": 1162.04,
+      "text": "At CES, we announced that creative partners and developers including Brooklyn, WPP, and ZeroLite are building Omniverse powered car configurations."
+    },
+    {
+      "start": 1162.04,
+      "end": 1175.04,
+      "text": "Leading automakers like Lotus are adopting the technology to renew levels of personalization, realism, and inter-activity to the car buying experience."
+    },
+    {
+      "start": 1175.04,
+      "end": 1183.04,
+      "text": "Moving to automotive, revenue was 281 million up 8% sequentially and down 4% year-on-year."
+    },
+    {
+      "start": 1183.04,
+      "end": 1197.04,
+      "text": "Cisco year revenue of 1.09 billion was up 21% crossing the 1 billion mark for the first time on continued adoption of the Nvidia Drive platform by automakers."
+    },
+    {
+      "start": 1198.04,
+      "end": 1206.04,
+      "text": "Nvidia Drive Oran is the AI car computer of choice for software-defined AVs late."
+    },
+    {
+      "start": 1206.04,
+      "end": 1224.04,
+      "text": "Its successor in Nvidia Drive 4 designed for vision transformers, often offers more AI performance and integrates a wide range of intelligent capabilities into a single AI compute platform, including autonomous driving and parking,"
+    },
+    {
+      "start": 1224.04,
+      "end": 1231.04,
+      "text": "driver and passenger monitoring, and AI cockpit functionality, and will be available next year."
+    },
+    {
+      "start": 1231.04,
+      "end": 1235.04,
+      "text": "There was sell the several automotive customer announcements this quarter."
+    },
+    {
+      "start": 1235.04,
+      "end": 1249.04,
+      "text": "Leado, great-while-motor, Zeker, the premium, EV subsidiary of the EV, and Xiaomi EV, all announced new vehicles built on Nvidia."
+    },
+    {
+      "start": 1249.04,
+      "end": 1251.04,
+      "text": "Moving to the rest of the PNL."
+    },
+    {
+      "start": 1251.04,
+      "end": 1264.04,
+      "text": "Gap growth margins expanded sequentially to 76% and non-gap growth margins to 76.7% on strong data center growth and mix."
+    },
+    {
+      "start": 1264.04,
+      "end": 1270.04,
+      "text": "Our growth margins in Q4 benefited from favorable component calls."
+    },
+    {
+      "start": 1270.04,
+      "end": 1278.04,
+      "text": "Sequentially Gap operating expenses were up 6% and non-gap operating expenses were up 9%."
+    },
+    {
+      "start": 1278.04,
+      "end": 1285.04,
+      "text": "Primarily reflecting higher compute and infrastructure investments and employee growth."
+    },
+    {
+      "start": 1285.04,
+      "end": 1293.04,
+      "text": "In Q4, we returned 2.8 billion to shareholders in the form of share repurchases and cash dividends."
+    },
+    {
+      "start": 1293.04,
+      "end": 1305.04,
+      "text": "During fiscal year 24, we utilized cash of 9.9 billion towards shareholder returns, including 9.5 billion in share repurchases."
+    },
+    {
+      "start": 1305.04,
+      "end": 1309.04,
+      "text": "Let me turn to the outlook for the first quarter."
+    },
+    {
+      "start": 1309.04,
+      "end": 1316.04,
+      "text": "Total revenue is expected to be 24 billion plus or minus 2%."
+    },
+    {
+      "start": 1316.04,
+      "end": 1326.04,
+      "text": "We expect sequential growth in data center and Provis partially offset a seasonal decline in gaming."
+    },
+    {
+      "start": 1326.04,
+      "end": 1338.04,
+      "text": "Gap and non-gap growth margins are expected to be 76.3% and 77% respectively, plus or minus 50 basis points."
+    },
+    {
+      "start": 1338.04,
+      "end": 1346.04,
+      "text": "Similar to Q4, Q1 growth margins are benefiting from favorable component calls."
+    },
+    {
+      "start": 1346.04,
+      "end": 1355.04,
+      "text": "Beyond Q1, for the remainder of the year, we expect growth margins to return to the mid 70s percent range."
+    },
+    {
+      "start": 1355.04,
+      "end": 1366.04,
+      "text": "Gap and non-gap operating expenses are expected to be approximately 3.5 billion and 2.5 billion respectively."
+    },
+    {
+      "start": 1366.04,
+      "end": 1379.04,
+      "text": "fiscal year 2025 gap and non-gap operating expenses are expected to grow in the mid 30% range as we continue to invest in the large opportunities ahead of us."
+    },
+    {
+      "start": 1379.04,
+      "end": 1391.04,
+      "text": "Gap and non-gap, other income and expenses are expected to be an income of approximately 250 million, excluding gains and losses from non-affiliated investments."
+    },
+    {
+      "start": 1391.04,
+      "end": 1402.04,
+      "text": "Gap and non-gap tax rates are expected to be 17% plus or minus 1% excluding any discrete items."
+    },
+    {
+      "start": 1402.04,
+      "end": 1410.04,
+      "text": "Further financial details are included in the CFO commentary and other information available on our IR website."
+    },
+    {
+      "start": 1411.04,
+      "end": 1416.04,
+      "text": "In closing, let me highlight some upcoming events for the financial community."
+    },
+    {
+      "start": 1416.04,
+      "end": 1424.04,
+      "text": "We will attend the Morgan Stanley Technology and Media and Telecom conference in San Francisco on March 4."
+    },
+    {
+      "start": 1424.04,
+      "end": 1430.04,
+      "text": "In the TD Cohen's 44th Annual Healthcare Conference in Boston on March 5."
+    },
+    {
+      "start": 1430.04,
+      "end": 1440.04,
+      "text": "And of course, join us for our annual GTC conference starting Monday, March 18th in San Jose, California."
+    },
+    {
+      "start": 1440.04,
+      "end": 1453.04,
+      "text": "To be held in-person for the first time in five years, GTC will kick off with Jensen's keynote and we will host a Q&A session for financial analysts the next day March 19th."
+    },
+    {
+      "start": 1455.04,
+      "end": 1463.04,
+      "text": "Time. We are now open. The call for questions. Operator, would you please poll for questions?"
+    },
+    {
+      "start": 1463.04,
+      "end": 1470.04,
+      "text": "At this time, I would like to remind everyone in order to ask a question, press star, then the number one on your telephone keypad."
+    },
+    {
+      "start": 1470.04,
+      "end": 1473.04,
+      "text": "We'll pause for just a moment to compile the Q&A roster."
+    },
+    {
+      "start": 1473.04,
+      "end": 1477.04,
+      "text": "As a reminder, please limit yourself to one question."
+    },
+    {
+      "start": 1477.04,
+      "end": 1483.04,
+      "text": "Your first question comes from the line of to Shia Hari from Goldman Sachs. Your line is open."
+    },
+    {
+      "start": 1484.04,
+      "end": 1489.04,
+      "text": "Hi, thank you so much for taking the question and congratulations on the really strong results."
+    },
+    {
+      "start": 1489.04,
+      "end": 1498.04,
+      "text": "My question is for Jensen on the data center business. You know, clearly, you're doing extremely well in the business."
+    },
+    {
+      "start": 1498.04,
+      "end": 1506.04,
+      "text": "I'm curious how your expectations for calendar 24 and 25 have evolved over the past 90 days."
+    },
+    {
+      "start": 1506.04,
+      "end": 1514.04,
+      "text": "As you answer the question, I was hoping you can touch on some of the newer buckets within data center, things like software, sovereign AI."
+    },
+    {
+      "start": 1514.04,
+      "end": 1518.04,
+      "text": "I think you've been pretty vocal about how to think about that medium to long term."
+    },
+    {
+      "start": 1518.04,
+      "end": 1524.04,
+      "text": "And recently there was an article about, you know, Nvidia potentially participating in the ASIC market."
+    },
+    {
+      "start": 1524.04,
+      "end": 1531.04,
+      "text": "Is there any credence of that enough so in how should we think about you guys playing at that market over the next several years?"
+    },
+    {
+      "start": 1531.04,
+      "end": 1533.04,
+      "text": "Thank you."
+    },
+    {
+      "start": 1533.04,
+      "end": 1535.04,
+      "text": "Thanks, Toshia."
+    },
+    {
+      "start": 1536.04,
+      "end": 1538.04,
+      "text": "Let's see."
+    },
+    {
+      "start": 1538.04,
+      "end": 1542.04,
+      "text": "There were three questions one more time. First question."
+    },
+    {
+      "start": 1542.04,
+      "end": 1544.04,
+      "text": "Was."
+    },
+    {
+      "start": 1544.04,
+      "end": 1545.04,
+      "text": "Can you?"
+    },
+    {
+      "start": 1545.04,
+      "end": 1550.04,
+      "text": "Well, I guess your expectations for data center. How they've evolved. Thank you."
+    },
+    {
+      "start": 1550.04,
+      "end": 1552.04,
+      "text": "Okay. Yeah."
+    },
+    {
+      "start": 1552.04,
+      "end": 1556.04,
+      "text": "Well, you know, we guide one quarter at a time."
+    },
+    {
+      "start": 1556.04,
+      "end": 1563.04,
+      "text": "But fundamentally, the conditions are excellent for continued growth."
+    },
+    {
+      "start": 1563.04,
+      "end": 1568.04,
+      "text": "Calendar 24 calendar 25 and beyond. And let me tell you why."
+    },
+    {
+      "start": 1568.04,
+      "end": 1575.04,
+      "text": "We're at the beginning of two industry-wide transitions."
+    },
+    {
+      "start": 1575.04,
+      "end": 1583.04,
+      "text": "And both of them are industry-wide. The first one is a transition from general to accelerated computing."
+    },
+    {
+      "start": 1583.04,
+      "end": 1587.04,
+      "text": "General purpose computing, as you know, is starting to run out of steam."
+    },
+    {
+      "start": 1587.04,
+      "end": 1595.04,
+      "text": "And you could tell by the CSPs extending and many data centers, including our own for general purpose computing,"
+    },
+    {
+      "start": 1595.04,
+      "end": 1598.04,
+      "text": "extending the depreciation from four to six years."
+    },
+    {
+      "start": 1598.04,
+      "end": 1606.04,
+      "text": "There's just no reason to update with more CPUs when you can't fundamentally and dramatically enhance its throughput, like you used to."
+    },
+    {
+      "start": 1606.04,
+      "end": 1609.04,
+      "text": "And so you have to accelerate everything."
+    },
+    {
+      "start": 1609.04,
+      "end": 1612.04,
+      "text": "This is what Nvidia has been pioneering for some time."
+    },
+    {
+      "start": 1612.04,
+      "end": 1618.04,
+      "text": "And with accelerated computing, you can dramatically improve your energy efficiency."
+    },
+    {
+      "start": 1618.04,
+      "end": 1624.04,
+      "text": "You can dramatically improve your cost in data processing by 20 to 1."
+    },
+    {
+      "start": 1624.04,
+      "end": 1628.04,
+      "text": "Huge numbers. And of course, the speed."
+    },
+    {
+      "start": 1628.04,
+      "end": 1638.04,
+      "text": "That speed is so incredible that we enabled a second industry-wide transition called generative AI."
+    },
+    {
+      "start": 1638.04,
+      "end": 1642.04,
+      "text": "In generative AI, I'm sure we're going to talk plenty about it during the call."
+    },
+    {
+      "start": 1642.04,
+      "end": 1647.04,
+      "text": "But remember, generative AI is a new application."
+    },
+    {
+      "start": 1647.04,
+      "end": 1652.04,
+      "text": "This is enabling a new way of doing software, new types of software being created."
+    },
+    {
+      "start": 1652.04,
+      "end": 1654.04,
+      "text": "It is a new way of computing."
+    },
+    {
+      "start": 1654.04,
+      "end": 1658.04,
+      "text": "You can do generative AI on traditional general purpose computing."
+    },
+    {
+      "start": 1658.04,
+      "end": 1660.04,
+      "text": "You have to accelerate it."
+    },
+    {
+      "start": 1660.04,
+      "end": 1666.04,
+      "text": "And the third is it is enabling a whole new industry."
+    },
+    {
+      "start": 1666.04,
+      "end": 1670.04,
+      "text": "And this is something worthwhile to take a step back and look at."
+    },
+    {
+      "start": 1670.04,
+      "end": 1674.04,
+      "text": "And it connects to your last question about software and AI."
+    },
+    {
+      "start": 1674.04,
+      "end": 1678.04,
+      "text": "A whole new industry in the sense that, for the very first time in data center,"
+    },
+    {
+      "start": 1678.04,
+      "end": 1686.04,
+      "text": "is not just about computing data and storing data and serving the employees of a company."
+    },
+    {
+      "start": 1686.04,
+      "end": 1688.04,
+      "text": "We now have a new type of data center."
+    },
+    {
+      "start": 1688.04,
+      "end": 1693.04,
+      "text": "That is about AI generation."
+    },
+    {
+      "start": 1693.04,
+      "end": 1695.04,
+      "text": "And AI generation factory."
+    },
+    {
+      "start": 1695.04,
+      "end": 1699.04,
+      "text": "And you've heard me describe it as AI factories."
+    },
+    {
+      "start": 1699.04,
+      "end": 1703.04,
+      "text": "But basically, it takes raw material, which is data."
+    },
+    {
+      "start": 1703.04,
+      "end": 1709.04,
+      "text": "It transforms it with these AI supercomputers that Nvidia builds."
+    },
+    {
+      "start": 1709.04,
+      "end": 1715.04,
+      "text": "And it turns them into incredibly valuable tokens."
+    },
+    {
+      "start": 1715.04,
+      "end": 1719.04,
+      "text": "These tokens are what people experience on the amazing,"
+    },
+    {
+      "start": 1719.04,
+      "end": 1727.04,
+      "text": "the amazing chatGPT or mid-Journey or search these days."
+    },
+    {
+      "start": 1727.04,
+      "end": 1729.04,
+      "text": "Are augmented by that?"
+    },
+    {
+      "start": 1729.04,
+      "end": 1732.04,
+      "text": "All of your recommender systems are now augmented by that."
+    },
+    {
+      "start": 1732.04,
+      "end": 1735.04,
+      "text": "The hyper personalization that goes along with it."
+    },
+    {
+      "start": 1735.04,
+      "end": 1739.04,
+      "text": "All of these incredible startups and digital biology."
+    },
+    {
+      "start": 1739.04,
+      "end": 1742.04,
+      "text": "Generating proteins and generating chemicals."
+    },
+    {
+      "start": 1742.04,
+      "end": 1744.04,
+      "text": "And the list goes on."
+    },
+    {
+      "start": 1744.04,
+      "end": 1748.04,
+      "text": "And so all of these tokens are generated."
+    },
+    {
+      "start": 1748.04,
+      "end": 1752.04,
+      "text": "In a very specialized type of data center."
+    },
+    {
+      "start": 1752.04,
+      "end": 1758.04,
+      "text": "And the data center we call it, AI supercomputers and AI generation factories."
+    },
+    {
+      "start": 1758.04,
+      "end": 1760.04,
+      "text": "But we're seeing diversity."
+    },
+    {
+      "start": 1760.04,
+      "end": 1764.04,
+      "text": "One of the other, so the foundation is that."
+    },
+    {
+      "start": 1764.04,
+      "end": 1771.04,
+      "text": "The way it manifests into new markets is in all of the diversity that you're seeing us in."
+    },
+    {
+      "start": 1771.04,
+      "end": 1777.04,
+      "text": "One, the amount of inference that we do is just off to charts now."
+    },
+    {
+      "start": 1777.04,
+      "end": 1780.04,
+      "text": "Almost every single time you interact with chatGPT,"
+    },
+    {
+      "start": 1780.04,
+      "end": 1781.04,
+      "text": "you know that we're inferencing."
+    },
+    {
+      "start": 1781.04,
+      "end": 1783.04,
+      "text": "Every time you use the majority we're inferencing."
+    },
+    {
+      "start": 1783.04,
+      "end": 1787.04,
+      "text": "Every time you see amazing these sort of videos that are being generated or run way."
+    },
+    {
+      "start": 1787.04,
+      "end": 1792.04,
+      "text": "The videos that they're editing, firefly, and video doing inferencing."
+    },
+    {
+      "start": 1792.04,
+      "end": 1797.04,
+      "text": "The inference part of our business has grown tremendously."
+    },
+    {
+      "start": 1797.04,
+      "end": 1800.04,
+      "text": "We estimate about 40%."
+    },
+    {
+      "start": 1800.04,
+      "end": 1804.04,
+      "text": "The amount of training is continuing because these models are getting larger."
+    },
+    {
+      "start": 1804.04,
+      "end": 1806.04,
+      "text": "The amount of inferences increasing."
+    },
+    {
+      "start": 1806.04,
+      "end": 1811.04,
+      "text": "But we're also diversifying into new industries."
+    },
+    {
+      "start": 1811.04,
+      "end": 1816.04,
+      "text": "The large CSPs are still continuing to build out."
+    },
+    {
+      "start": 1816.04,
+      "end": 1820.04,
+      "text": "You could see from their context and their discussions."
+    },
+    {
+      "start": 1820.04,
+      "end": 1825.04,
+      "text": "But there's a whole new category called GPU specialized CSPs."
+    },
+    {
+      "start": 1825.04,
+      "end": 1829.04,
+      "text": "They specialize in video and video AI infrastructure."
+    },
+    {
+      "start": 1829.04,
+      "end": 1831.04,
+      "text": "GPU specialized CSPs."
+    },
+    {
+      "start": 1831.04,
+      "end": 1835.04,
+      "text": "You're seeing enterprise software platforms deploying AI."
+    },
+    {
+      "start": 1835.04,
+      "end": 1838.04,
+      "text": "Service now is just a really, really great example."
+    },
+    {
+      "start": 1838.04,
+      "end": 1839.04,
+      "text": "You see Adobe."
+    },
+    {
+      "start": 1839.04,
+      "end": 1841.04,
+      "text": "They're see others SAP and others."
+    },
+    {
+      "start": 1841.04,
+      "end": 1849.04,
+      "text": "You see consumer internet services that are now augmenting all of their services at the past with generative AI."
+    },
+    {
+      "start": 1849.04,
+      "end": 1854.04,
+      "text": "So they can have even more hyper personalized content to be created."
+    },
+    {
+      "start": 1854.04,
+      "end": 1858.04,
+      "text": "You see us talking about industrial generative AI."
+    },
+    {
+      "start": 1858.04,
+      "end": 1864.04,
+      "text": "Now our industries represent multi-billion dollar businesses."
+    },
+    {
+      "start": 1864.04,
+      "end": 1872.04,
+      "text": "Auto-health financial services in total our vertical industries are multi-billion dollar businesses now."
+    },
+    {
+      "start": 1872.04,
+      "end": 1874.04,
+      "text": "And of course, sovereign AI."
+    },
+    {
+      "start": 1874.04,
+      "end": 1887.04,
+      "text": "The reason for sovereign AI has to do with the fact that the language, the knowledge, the history, the culture of each region are different."
+    },
+    {
+      "start": 1888.04,
+      "end": 1890.04,
+      "text": "And they own their own data."
+    },
+    {
+      "start": 1890.04,
+      "end": 1896.04,
+      "text": "They would like to use their data, train it with to create their own digital intelligence."
+    },
+    {
+      "start": 1896.04,
+      "end": 1901.04,
+      "text": "And provision it to harness that raw material themselves."
+    },
+    {
+      "start": 1901.04,
+      "end": 1902.04,
+      "text": "It belongs to them."
+    },
+    {
+      "start": 1902.04,
+      "end": 1906.04,
+      "text": "Each one of the regions around the world, the data belongs to them."
+    },
+    {
+      "start": 1906.04,
+      "end": 1909.04,
+      "text": "The data is most useful to their society."
+    },
+    {
+      "start": 1909.04,
+      "end": 1912.04,
+      "text": "And so they want to protect the data."
+    },
+    {
+      "start": 1912.04,
+      "end": 1917.04,
+      "text": "They want to transform it themselves, value added transformation into AI."
+    },
+    {
+      "start": 1917.04,
+      "end": 1920.04,
+      "text": "And provision those services themselves."
+    },
+    {
+      "start": 1920.04,
+      "end": 1935.04,
+      "text": "So we're seeing sovereign AI infrastructure being built in Japan, in Canada, in France, so many other regions."
+    },
+    {
+      "start": 1935.04,
+      "end": 1941.04,
+      "text": "And so my expectation is that what is being experienced here in the United States and the West."
+    },
+    {
+      "start": 1942.04,
+      "end": 1946.04,
+      "text": "We'll surely be replicated around the world."
+    },
+    {
+      "start": 1946.04,
+      "end": 1953.04,
+      "text": "And these AI generation factories are going to be in every industry, every company, every region."
+    },
+    {
+      "start": 1953.04,
+      "end": 1968.04,
+      "text": "And so I think the last, this last year we've seen, gender to AI, really becoming a whole new application space, a whole new way of doing computing, a whole new industry is being formed."
+    },
+    {
+      "start": 1968.04,
+      "end": 1971.04,
+      "text": "And that's driving our growth."
+    },
+    {
+      "start": 1971.04,
+      "end": 1978.04,
+      "text": "Here, our next question comes from a line of Joe Moore from Morgan Stanley, your line is open."
+    },
+    {
+      "start": 1978.04,
+      "end": 1979.04,
+      "text": "Great, thank you."
+    },
+    {
+      "start": 1979.04,
+      "end": 1986.04,
+      "text": "I wanted to follow up on the 40% of revenues coming from inference at the bigger number than I expected."
+    },
+    {
+      "start": 1986.04,
+      "end": 1994.04,
+      "text": "Can you give us some sense of, you know, where that number was, you know, maybe year before, how much you're seeing growth around LLMs from inference?"
+    },
+    {
+      "start": 1994.04,
+      "end": 2000.04,
+      "text": "And, and, you know, how are you measuring that? Is that, I assume it's in some cases the same KPUs are used for training and inference."
+    },
+    {
+      "start": 2000.04,
+      "end": 2005.04,
+      "text": "You know, how solid is that measurement? Thank you."
+    },
+    {
+      "start": 2005.04,
+      "end": 2010.04,
+      "text": "I'll go backwards. The estimate is probably understated."
+    },
+    {
+      "start": 2010.04,
+      "end": 2016.04,
+      "text": "And, but we estimated it. And let me tell you why."
+    },
+    {
+      "start": 2016.04,
+      "end": 2030.04,
+      "text": "Whenever a year ago, a year ago, the recommender systems that people are, you know, when you run the internet, the news, the videos, the music, the products that are being recommended to you,"
+    },
+    {
+      "start": 2030.04,
+      "end": 2037.04,
+      "text": "because as you know, the internet has trillions, you know, I don't know how many trillions, but trillions of things out there,"
+    },
+    {
+      "start": 2037.04,
+      "end": 2052.04,
+      "text": "and your phone is, you know, three inches square, you know, and so, so the ability for them to fit all of that information down to something such a small real estate is through a system, an amazing system called recommender systems."
+    },
+    {
+      "start": 2052.04,
+      "end": 2061.04,
+      "text": "These recommender systems used to be all based on CPU, CPU approaches."
+    },
+    {
+      "start": 2061.04,
+      "end": 2074.04,
+      "text": "But the recent migration to deep learning, and now, generally to the AI, has really put these recommender systems now directly into the path of GPU acceleration."
+    },
+    {
+      "start": 2074.04,
+      "end": 2088.04,
+      "text": "It needs GPU acceleration for the embeddings, it needs GPU acceleration for the nearest neighbor search, it needs GPU acceleration for the re-wanking, and needs GPU acceleration to generate the augmented information for you."
+    },
+    {
+      "start": 2088.04,
+      "end": 2106.04,
+      "text": "So GPUs are in every single step of a recommender system now, and as you know, recommender system is the single largest software engine on the planet, almost every major, major company in the world has to run these large recommender systems."
+    },
+    {
+      "start": 2106.04,
+      "end": 2125.04,
+      "text": "Whatever you just chat to your PT is being inference, whenever you hear about mid-Journey and just the number of things that they're generating for consumers, when you see getty, the worth that we do with getty and firefly from Adobe, these are all generative models."
+    },
+    {
+      "start": 2125.04,
+      "end": 2134.04,
+      "text": "The list goes on, and none of these, I just I mentioned, exist a year ago, 100% new."
+    },
+    {
+      "start": 2134.04,
+      "end": 2141.04,
+      "text": "Your next question comes from a line of Stacey Raskon from Bernstein Research, your line is open."
+    },
+    {
+      "start": 2141.04,
+      "end": 2149.04,
+      "text": "Hi guys, thanks for taking my question. I wanted to collect, I wanted to touch on your comments that you expected the next generation of products."
+    },
+    {
+      "start": 2149.04,
+      "end": 2160.04,
+      "text": "I see them at blackwell to be supply constrained. Can you take into that a little bit? What is a driver of that? Why does that get constrained as hopper is easing up?"
+    },
+    {
+      "start": 2160.04,
+      "end": 2171.04,
+      "text": "How long do you expect that to be constrained? Do you expect the next generation to be constrained like all the way through calendar 25 like when do those start to ease?"
+    },
+    {
+      "start": 2171.04,
+      "end": 2182.04,
+      "text": "Yeah, the first thing is overall our supply is improving. Overall, our supply chain is just doing an incredible job for us."
+    },
+    {
+      "start": 2182.04,
+      "end": 2200.04,
+      "text": "Everything from, of course, the way for us, the packaging, the memories, all of the power regulators to transceivers and networking and cables and you name it."
+    },
+    {
+      "start": 2200.04,
+      "end": 2214.04,
+      "text": "The list of components that we ship, as you know, people think that Nvidia GPUs is like a chip, but the Nvidia Hopper GPU has 35,000 parts, it weighs 70 pounds."
+    },
+    {
+      "start": 2214.04,
+      "end": 2226.04,
+      "text": "These things are really complicated things. We built people call it a super computer for good reason. If you ever look and look in the back of the data center, the systems, the cabling system is mind boggling."
+    },
+    {
+      "start": 2226.04,
+      "end": 2233.04,
+      "text": "It is the most dense, complex, cabling system for networking, the world's ever seen."
+    },
+    {
+      "start": 2233.04,
+      "end": 2241.04,
+      "text": "Our infinite band business grew five X year over year. The supply chain is really doing fantastic supporting us."
+    },
+    {
+      "start": 2241.04,
+      "end": 2254.04,
+      "text": "So overall the supply is improving. We expect a demand will continue to be stronger than our supply provides and through the year."
+    },
+    {
+      "start": 2254.04,
+      "end": 2272.04,
+      "text": "And we'll do our best. The cycle times are improving, and we're going to continue to do our best. However, whenever we have new products, as you know, it ramps from zero to a very large number, and you can't do that overnight."
+    },
+    {
+      "start": 2272.04,
+      "end": 2292.04,
+      "text": "You know, everything is ramped up. It doesn't step up. And so whenever we have a new generation of products and right now we are ramping H200s, there's no way we can reasonably keep up on demand in a short term as we ramp."
+    },
+    {
+      "start": 2292.04,
+      "end": 2302.04,
+      "text": "We're ramping Spectrum X. We're doing incredibly well with Spectrum X. It's our brand new product into the world of Ethernet."
+    },
+    {
+      "start": 2303.04,
+      "end": 2316.04,
+      "text": "Infinity band is the standard for AI dedicated systems Ethernet with Spectrum X. Ethernet is just not a very good scale off system."
+    },
+    {
+      "start": 2316.04,
+      "end": 2330.04,
+      "text": "But with Spectrum X, we've augmented layered on top of Ethernet. Fundamental new capabilities like adaptive routing, construction control, noise isolation or traffic isolation."
+    },
+    {
+      "start": 2331.04,
+      "end": 2345.04,
+      "text": "So that we can optimize Ethernet for AI. And so infinity band will be our AI dedicated infrastructure, Spectrum X will be our AI optimized, networking, and that is ramping."
+    },
+    {
+      "start": 2345.04,
+      "end": 2367.04,
+      "text": "And so we'll, you know, with all of new products, demand is greater than supply. And that's just kind of the nature of new products. And we work as fast as we can to capture with the demand. But overall, overall net net, overall, our supply is increasing very nicely."
+    },
+    {
+      "start": 2367.04,
+      "end": 2373.04,
+      "text": "Your next question comes to the line of Matt Ramsey from TD Cowan. Your line is open."
+    },
+    {
+      "start": 2373.04,
+      "end": 2381.04,
+      "text": "Good afternoon, Jimson Collette. Congratulations. I wanted to ask, I guess, a two-part question."
+    },
+    {
+      "start": 2381.04,
+      "end": 2391.04,
+      "text": "And it comes at what Stacey was just getting at on your demand being significantly more than your supply, even though supply is improving."
+    },
+    {
+      "start": 2391.04,
+      "end": 2395.04,
+      "text": "And I guess the two sides of the question are, I guess, first for Collette."
+    },
+    {
+      "start": 2395.04,
+      "end": 2411.04,
+      "text": "How are you guys thinking about allocation of products in terms of customer readiness to deploy and sort of monitoring if there's any kind of buildup of products that might not yet be turned on?"
+    },
+    {
+      "start": 2411.04,
+      "end": 2424.04,
+      "text": "And then I guess, Jensen, for you, I'd be really interested to hear you speak a bit about a thought that you and your company are putting into the allocation of your product."
+    },
+    {
+      "start": 2424.04,
+      "end": 2435.04,
+      "text": "A cross-customer, many of which compete with each other across industry to smaller startup companies to things in the healthcare arena as a government."
+    },
+    {
+      "start": 2435.04,
+      "end": 2450.04,
+      "text": "It's a very, very unique technology that you're enabling and I'd be really interested to hear you speak a bit about how you think about quote unquote fairly allocating sort of for the good of your company, but also for the good of the industry."
+    },
+    {
+      "start": 2451.04,
+      "end": 2467.04,
+      "text": "Let me first start with your question, thanks about how we are working with our customers as they look into how they are building out their GPU instances and our allocation process."
+    },
+    {
+      "start": 2467.04,
+      "end": 2474.04,
+      "text": "The folks that we work with, our customers that we work with, I've been partners with us for many years."
+    },
+    {
+      "start": 2474.04,
+      "end": 2481.04,
+      "text": "As we have been assisting them both in what they set up in the cloud as well as they are setting up internally."
+    },
+    {
+      "start": 2481.04,
+      "end": 2493.04,
+      "text": "Many of these providers have multiple products going at one time to serve so many different needs across their end customers, but also what they need internally."
+    },
+    {
+      "start": 2493.04,
+      "end": 2500.04,
+      "text": "So they are working in advance, of course, thinking about those new clusters that they will need."
+    },
+    {
+      "start": 2500.04,
+      "end": 2516.04,
+      "text": "And our discussions with them continue, not only on our helper architecture, but helping them understand the next wave and getting their interest and getting their outlook for the demand that they want."
+    },
+    {
+      "start": 2516.04,
+      "end": 2526.04,
+      "text": "So it's always a moving process in terms of what they will purchase, what is still being built, and what is in use for in customers."
+    },
+    {
+      "start": 2526.04,
+      "end": 2540.04,
+      "text": "But the relationships that we've built and their understanding of the sophistication of the build has really helped us with that allocation and both helped us with our communications with them."
+    },
+    {
+      "start": 2540.04,
+      "end": 2553.04,
+      "text": "First, our CSPs have a very clear view of our product roadmap and transitions."
+    },
+    {
+      "start": 2553.04,
+      "end": 2567.04,
+      "text": "And that transparency with our CSPs gives them the confidence of which products to place and where and when."
+    },
+    {
+      "start": 2567.04,
+      "end": 2580.04,
+      "text": "And so they know they know they know the timing to the best of our ability and they know quantities and of course allocation."
+    },
+    {
+      "start": 2580.04,
+      "end": 2593.04,
+      "text": "We allocate fairly, we allocate fairly, do the best of our best we can to allocate fairly, and to avoid allocating unnecessarily."
+    },
+    {
+      "start": 2593.04,
+      "end": 2610.04,
+      "text": "As you mentioned earlier, why allocates something when a data center is not ready. Nothing is more difficult than to have anything sit around and so allocate fairly and to avoid allocating unnecessarily."
+    },
+    {
+      "start": 2610.04,
+      "end": 2621.04,
+      "text": "And where we do, the question that you asked about the end markets, you know that we have an excellent ecosystem with."
+    },
+    {
+      "start": 2621.04,
+      "end": 2628.04,
+      "text": "OEMs, ODMs, CSPs, and very importantly, and markets."
+    },
+    {
+      "start": 2628.04,
+      "end": 2639.04,
+      "text": "What Nvidia is really unique about is that we bring our customers, we bring our partners, CSPs and OEMs, we bring them customers."
+    },
+    {
+      "start": 2639.04,
+      "end": 2655.04,
+      "text": "The biology companies, the healthcare companies, financial services companies, AI developers, large language model developers, autonomous vehicle companies, robotics companies, there's just a giant suite of robotics companies that are emerging."
+    },
+    {
+      "start": 2655.04,
+      "end": 2665.04,
+      "text": "Their warehouse robotics to surgical robotics to humanoid robotics all kinds of really interesting robotics companies, agriculture robotics companies."
+    },
+    {
+      "start": 2665.04,
+      "end": 2675.04,
+      "text": "All of these startups, large companies, healthcare financial services and auto-insudge, are working on Nvidia platform."
+    },
+    {
+      "start": 2675.04,
+      "end": 2687.04,
+      "text": "We support them directly. And oftentimes, we can have a two-for by allocating to a CSP and bring the customer to the CSP at the same time."
+    },
+    {
+      "start": 2687.04,
+      "end": 2708.04,
+      "text": "And so this ecosystem, you're actually right that it's vibrant, but at the core of it, we want to allocate fairly, with avoiding waste and looking for opportunities to connect partners and users."
+    },
+    {
+      "start": 2708.04,
+      "end": 2712.04,
+      "text": "We're looking for those opportunities all the time."
+    },
+    {
+      "start": 2712.04,
+      "end": 2719.04,
+      "text": "Your next question comes from a line of Timothy R. Curry from UBS. Your line is open."
+    },
+    {
+      "start": 2719.04,
+      "end": 2727.04,
+      "text": "Thanks a lot. I wanted to ask about how you're converting back log into revenue. Obviously, lead times for your products have come down quite a bit."
+    },
+    {
+      "start": 2727.04,
+      "end": 2739.04,
+      "text": "You didn't talk about the inventory purchase commitments, but if I sort of add up your inventory, plus the purchase commits and your prepaid supply, sort of the aggregative of your supply, it was actually down a touch."
+    },
+    {
+      "start": 2739.04,
+      "end": 2745.04,
+      "text": "How should we read that? Is that just you saying that you don't need to make as much of a financial commitment to your suppliers?"
+    },
+    {
+      "start": 2745.04,
+      "end": 2755.04,
+      "text": "Because the lead times are lower, or is that maybe you're reaching some sort of steady state where you're closer to filling your orderbook in your backlog? Thanks."
+    },
+    {
+      "start": 2755.04,
+      "end": 2761.04,
+      "text": "Yeah, so let me highlight on those three different areas of how we look at our suppliers."
+    },
+    {
+      "start": 2761.04,
+      "end": 2772.04,
+      "text": "Your correct or inventory on hand, given our allocation that we're on, we're trying to as things come into inventory immediately work to ship them to our customers."
+    },
+    {
+      "start": 2772.04,
+      "end": 2778.04,
+      "text": "I think our customer appreciates our ability to meet the schedules that we've looked for."
+    },
+    {
+      "start": 2778.04,
+      "end": 2784.04,
+      "text": "The second piece of it is our purchase commitments. Our purchase commitments have many different components into it."
+    },
+    {
+      "start": 2784.04,
+      "end": 2791.04,
+      "text": "Components that we need for manufacturing, but also often we are procuring capacity that we may need."
+    },
+    {
+      "start": 2791.04,
+      "end": 2802.04,
+      "text": "The links of that need for capacity or the links for the components are all different. Some of them may be for the next two quarters, but some of them may be for multiple years."
+    },
+    {
+      "start": 2802.04,
+      "end": 2815.04,
+      "text": "I can say the same regarding our prepaid, our prepaid, our pre-designed to make sure that we have the reserve capacity that we need at several of our manufacturing suppliers as we look forward."
+    },
+    {
+      "start": 2815.04,
+      "end": 2823.04,
+      "text": "So wouldn't read into anything regarding approximately about the same numbers as we are increasing our supply."
+    },
+    {
+      "start": 2823.04,
+      "end": 2836.04,
+      "text": "All of them just have different links as we have sometimes had to buy things in long lead times or things that need a capacity to build for us."
+    },
+    {
+      "start": 2836.04,
+      "end": 2842.04,
+      "text": "Your next question comes from a line of Ben writes from a meleus research. Your line is open."
+    },
+    {
+      "start": 2843.04,
+      "end": 2846.04,
+      "text": "Yeah, thanks. Congratulations on the results."
+    },
+    {
+      "start": 2846.04,
+      "end": 2855.04,
+      "text": "So collect. I wanted to talk about your comment regarding gross margins and that they should go back to the mid 70s."
+    },
+    {
+      "start": 2855.04,
+      "end": 2870.04,
+      "text": "If you don't mind unpacking that. And also, is that due to the HBM content in the new products and what do you think are the drivers of that comment? Thanks so much."
+    },
+    {
+      "start": 2871.04,
+      "end": 2884.04,
+      "text": "Yeah, thanks for the question. We highlighted in our opening remarks really about our Q4 results and our outlook for Q1. Both of those quarters are unique."
+    },
+    {
+      "start": 2884.04,
+      "end": 2898.04,
+      "text": "Those two quarters are unique in their gross margin as they include some benefits from favorable component costs in the supply chain kind of across both our compute and networking."
+    },
+    {
+      "start": 2898.04,
+      "end": 2911.04,
+      "text": "And also in several different stages of our manufacturing process. So looking forward we have visibility into a mid 70s gross margin for the rest of the fiscal year."
+    },
+    {
+      "start": 2911.04,
+      "end": 2917.04,
+      "text": "Taking us back to where we were before this Q4 and Q1."
+    },
+    {
+      "start": 2918.04,
+      "end": 2933.04,
+      "text": "So we're really looking at just a balance of our mix mix is always going to be our largest driver of what we will be shipping for the rest of the year. And those are really just the drivers."
+    },
+    {
+      "start": 2933.04,
+      "end": 2939.04,
+      "text": "Your next question comes from a line of C.J. Mews from Kent or Fitzgeralds. Your line is open."
+    },
+    {
+      "start": 2939.04,
+      "end": 2942.04,
+      "text": "Good afternoon. Thank you for taking the question."
+    },
+    {
+      "start": 2942.04,
+      "end": 2951.04,
+      "text": "There's a picture question for you, Johnson. When you think about the million extra proven and GPU compute of the last decade and expectations for similar improvements in the next."
+    },
+    {
+      "start": 2951.04,
+      "end": 2957.04,
+      "text": "How do your customers think about the long term usability of their Nvidia investments that they're making today?"
+    },
+    {
+      "start": 2957.04,
+      "end": 2964.04,
+      "text": "Today's training clusters become tomorrow's inference clusters. How do you see this playing out? Thank you."
+    },
+    {
+      "start": 2964.04,
+      "end": 2969.04,
+      "text": "Hey C.J. Thanks for the question. Yeah. That's the really cool part."
+    },
+    {
+      "start": 2969.04,
+      "end": 2979.04,
+      "text": "If you look at the reason why we're able to improve performance so much, it's because we have two characteristics about our platform."
+    },
+    {
+      "start": 2979.04,
+      "end": 2988.04,
+      "text": "One is that it's accelerated. And two, it's programmable. It's not brittle."
+    },
+    {
+      "start": 2988.04,
+      "end": 2992.04,
+      "text": "And video is the only architecture that has gone from the very, very beginning."
+    },
+    {
+      "start": 2992.04,
+      "end": 3008.04,
+      "text": "Literally the very beginning when CNN's and Alex Krszewski and Ilya Suskaver and Jeff Hinton first revealed Alex Net all the way through RNNs to LSTM to every RLs to deep learning RLs to transformers to every single version."
+    },
+    {
+      "start": 3008.04,
+      "end": 3018.04,
+      "text": "Every single version, every single version, every species that have come along, vision, transformers, multi-modality, transformers that every single and then now time sequence stuff."
+    },
+    {
+      "start": 3018.04,
+      "end": 3035.04,
+      "text": "And every single variation, every single species of AI that has come along, we've been able to support it, optimize our stack for it, and deploy it into our installed base."
+    },
+    {
+      "start": 3035.04,
+      "end": 3058.04,
+      "text": "This is really the great amazing part. On the one hand, we can invent new architectures and new technologies like our tensor course, like our transformer engine for tensor course, improve new, numerical formats and structures of processing like we've done with the different generations of tensor course, meanwhile supporting the install base at the same time."
+    },
+    {
+      "start": 3058.04,
+      "end": 3073.04,
+      "text": "And so, as a result, we take all of our new software algorithm, invest inventions, all of the inventions, new inventions of models of the industry, and it runs on our install base on the one hand."
+    },
+    {
+      "start": 3073.04,
+      "end": 3085.04,
+      "text": "On the other hand, whenever we see something revolutionary, we can like transformers. We can create something brand new like the hopper transformer engine and implement it into future."
+    },
+    {
+      "start": 3085.04,
+      "end": 3105.04,
+      "text": "And so we simultaneously have this ability to bring software to the install base and keep making a better and better and better, so our customers install base is enriched over time with our new software on the other hand for new technologies, create revolutionary capabilities."
+    },
+    {
+      "start": 3105.04,
+      "end": 3122.04,
+      "text": "Don't be surprised in our future generation, all of a sudden, amazing breakthroughs in large language models were made possible, and those breakthroughs, some of which will be in software because they run kuda will be made available to the install base."
+    },
+    {
+      "start": 3122.04,
+      "end": 3130.04,
+      "text": "And so we carry everybody with us on the one hand, we make giant breakthroughs on the other hand."
+    },
+    {
+      "start": 3130.04,
+      "end": 3136.04,
+      "text": "Your next question comes from a line of air and racers from Wells Fargo, your line is open."
+    },
+    {
+      "start": 3136.04,
+      "end": 3152.04,
+      "text": "Yeah, thanks for taking a question. I wanted to ask about the China business. I know that in the prepare comments, you said that you started shipping some alternatives to the solutions in the China, you also put it out that you expect that contribution to continue to be about a mid-singled digit."
+    },
+    {
+      "start": 3152.04,
+      "end": 3169.04,
+      "text": "So I guess the question is, what is the extent of products that you're shipping today into the China market, and why should we not expect that maybe other alternatives solutions come to the market and expand your breath to participate in that opportunity again."
+    },
+    {
+      "start": 3169.04,
+      "end": 3171.04,
+      "text": "Thank you."
+    },
+    {
+      "start": 3172.04,
+      "end": 3193.04,
+      "text": "At the core, remember the US government wanted to limit the latest capabilities of invasive accelerated computing in AI to the Chinese market and the US government would like to see us be a successful in China's possible."
+    },
+    {
+      "start": 3193.04,
+      "end": 3210.04,
+      "text": "Within those two constraints, within those two pillars, if you will, are the restrictions. And so we had the pause when the new restrictions came out, we immediately paused."
+    },
+    {
+      "start": 3211.04,
+      "end": 3214.04,
+      "text": "So we understood what the restrictions are."
+    },
+    {
+      "start": 3214.04,
+      "end": 3224.04,
+      "text": "We configured our products in a way that is not software hackable in any way."
+    },
+    {
+      "start": 3224.04,
+      "end": 3239.04,
+      "text": "And that took some time. And so we reset our product offering to China, and now we're sampling to customers in China, and we're going to do our best to compete in that marketplace and succeed in that marketplace."
+    },
+    {
+      "start": 3239.04,
+      "end": 3246.04,
+      "text": "Within the specifications of the restrictions. And so that's it."
+    },
+    {
+      "start": 3246.04,
+      "end": 3255.04,
+      "text": "You know, we, this last quarter, we are business significantly declined as we pause in the marketplace."
+    },
+    {
+      "start": 3255.04,
+      "end": 3260.04,
+      "text": "We stopped shipping in the marketplace. We expect this quarter to be about the same."
+    },
+    {
+      "start": 3260.04,
+      "end": 3267.04,
+      "text": "But after that, hopefully we can go compete for our business and do our best, and we'll see how it turns out."
+    },
+    {
+      "start": 3268.04,
+      "end": 3274.04,
+      "text": "Your next question comes from a line of hers Kumar from Piper Sandler, your line is open."
+    },
+    {
+      "start": 3274.04,
+      "end": 3280.04,
+      "text": "Yeah, hey, Jensen Collette, and really at the first of all, congratulations on a stunning quarter in guide."
+    },
+    {
+      "start": 3280.04,
+      "end": 3288.04,
+      "text": "I wanted to talk about a little bit about your software business, and it's it's pleasing to hear that it's over a billion dollar."
+    },
+    {
+      "start": 3288.04,
+      "end": 3295.04,
+      "text": "But I was hoping, Jensen on Collette, if you could just help us understand what the different parts and pieces are for the software business."
+    },
+    {
+      "start": 3295.04,
+      "end": 3302.04,
+      "text": "So let's just help us unpack it a little bit so we can get a better understanding of where that growth is coming from."
+    },
+    {
+      "start": 3302.04,
+      "end": 3310.04,
+      "text": "Let me take a step back and explain the fundamental reason why and video will be very successful software."
+    },
+    {
+      "start": 3310.04,
+      "end": 3317.04,
+      "text": "So first, as you know, accelerated computing really grew in the cloud."
+    },
+    {
+      "start": 3317.04,
+      "end": 3322.04,
+      "text": "In the cloud, the cloud service providers have really large engineering teams."
+    },
+    {
+      "start": 3322.04,
+      "end": 3330.04,
+      "text": "And we work with them in a way that allows them to operate and manage their own business."
+    },
+    {
+      "start": 3330.04,
+      "end": 3334.04,
+      "text": "And whenever there are any issues, we have large teams assigned to them."
+    },
+    {
+      "start": 3334.04,
+      "end": 3337.04,
+      "text": "And their engineering teams are working directly with our engineering teams."
+    },
+    {
+      "start": 3337.04,
+      "end": 3346.04,
+      "text": "And we enhance, we fix, we maintain, we patch the complicated stack of software that's involved in accelerated computing."
+    },
+    {
+      "start": 3346.04,
+      "end": 3350.04,
+      "text": "As you know, accelerated computing is very different than general purpose computing."
+    },
+    {
+      "start": 3350.04,
+      "end": 3355.04,
+      "text": "You're not starting from a program like C++."
+    },
+    {
+      "start": 3355.04,
+      "end": 3359.04,
+      "text": "You compile it and things run on all your CPUs."
+    },
+    {
+      "start": 3359.04,
+      "end": 3363.04,
+      "text": "The stacks of software necessary for every domain from data processing."
+    },
+    {
+      "start": 3363.04,
+      "end": 3379.04,
+      "text": "SQL versus SQL structured data versus all the images and text and PDF, which is unstructured to classical machine learning to computer vision to speech to large language models."
+    },
+    {
+      "start": 3379.04,
+      "end": 3385.04,
+      "text": "All the recommended systems, all of these things require different software stacks."
+    },
+    {
+      "start": 3385.04,
+      "end": 3389.04,
+      "text": "That's the reason why and video has hundreds of libraries."
+    },
+    {
+      "start": 3389.04,
+      "end": 3393.04,
+      "text": "If you don't have software, you can't open new markets."
+    },
+    {
+      "start": 3393.04,
+      "end": 3398.04,
+      "text": "If you don't have software, you can't open and enable new applications."
+    },
+    {
+      "start": 3398.04,
+      "end": 3401.04,
+      "text": "Software is fundamentally necessary for accelerated computing."
+    },
+    {
+      "start": 3401.04,
+      "end": 3409.04,
+      "text": "This is the fundamental difference between accelerating computing and general purpose computing that most people took a long time to understand."
+    },
+    {
+      "start": 3409.04,
+      "end": 3412.04,
+      "text": "And now people understand that the software is really key."
+    },
+    {
+      "start": 3412.04,
+      "end": 3416.04,
+      "text": "In the way that we work with CSPs, that's really easy."
+    },
+    {
+      "start": 3416.04,
+      "end": 3419.04,
+      "text": "We have large teams that are working with their large teams."
+    },
+    {
+      "start": 3419.04,
+      "end": 3432.04,
+      "text": "However, now that generative AI is enabling every enterprise and every enterprise software company to embrace accelerated computing."
+    },
+    {
+      "start": 3432.04,
+      "end": 3449.04,
+      "text": "And when it is now essential to embrace accelerated computing, because it is no longer possible, no longer likely anyhow, to sustain improved throughput through just generative purpose computing."
+    },
+    {
+      "start": 3449.04,
+      "end": 3461.04,
+      "text": "All of these enterprise software companies and enterprise companies don't have large engineering teams to be able to maintain and optimize their software stack to run across all of the world's clouds."
+    },
+    {
+      "start": 3461.04,
+      "end": 3463.04,
+      "text": "And private clouds and on-prem."
+    },
+    {
+      "start": 3463.04,
+      "end": 3475.04,
+      "text": "So we are going to do the management, the optimization, the patching, the tuning, the install-based optimization for all of their software stacks."
+    },
+    {
+      "start": 3475.04,
+      "end": 3480.04,
+      "text": "And we containerize them into our stack, we call it Nvidia AI Enterprise."
+    },
+    {
+      "start": 3480.04,
+      "end": 3489.04,
+      "text": "And the way we go to market with it is think of that Nvidia AI Enterprise now as a runtime, like an operating system."
+    },
+    {
+      "start": 3489.04,
+      "end": 3492.04,
+      "text": "It's an operating system for artificial intelligence."
+    },
+    {
+      "start": 3492.04,
+      "end": 3497.04,
+      "text": "And we charge $4,500 per GPU per year."
+    },
+    {
+      "start": 3497.04,
+      "end": 3514.04,
+      "text": "And my guess is that every enterprise in the world, every software enterprise company that are deploying software in all the clouds and private clouds and on-prem, will run on Nvidia AI Enterprise, especially obviously for our GPUs."
+    },
+    {
+      "start": 3514.04,
+      "end": 3518.04,
+      "text": "And so this is going to likely be a very significant business over time."
+    },
+    {
+      "start": 3519.04,
+      "end": 3521.04,
+      "text": "We're off to a great start."
+    },
+    {
+      "start": 3521.04,
+      "end": 3528.04,
+      "text": "And a collab mentioned that it's already at a billion dollar run rate."
+    },
+    {
+      "start": 3528.04,
+      "end": 3533.04,
+      "text": "And we're really just getting started."
+    },
+    {
+      "start": 3533.04,
+      "end": 3534.04,
+      "text": "Thank you."
+    },
+    {
+      "start": 3534.04,
+      "end": 3540.04,
+      "text": "I will now turn the call back over to Genshin-Flying CEO for closing remarks."
+    },
+    {
+      "start": 3540.04,
+      "end": 3546.04,
+      "text": "The computer industry is making two simultaneous platform shifts at the same time."
+    },
+    {
+      "start": 3546.04,
+      "end": 3554.04,
+      "text": "The trillion dollar installed base of data centers is transitioning from general purpose to accelerated computing."
+    },
+    {
+      "start": 3554.04,
+      "end": 3558.04,
+      "text": "Every data center will be accelerated."
+    },
+    {
+      "start": 3558.04,
+      "end": 3565.04,
+      "text": "So the world can keep up with the computing demand with increasing throughput while managing cost and energy."
+    },
+    {
+      "start": 3565.04,
+      "end": 3589.04,
+      "text": "The incredible speed up of the video enabled that Nvidia enabled a whole new computing paradigm, generative AI, where software can learn, understand, and generate any information from human language to the structure of biology and the 3D world."
+    },
+    {
+      "start": 3589.04,
+      "end": 3601.04,
+      "text": "And we are now at the beginning of a new industry, where AI dedicated data centers process massive raw data to refine it into digital intelligence."
+    },
+    {
+      "start": 3601.04,
+      "end": 3615.04,
+      "text": "Like AC power generation plants of the last industrial revolution, Nvidia AI supercomputers are essentially AI generation factories of this industrial revolution."
+    },
+    {
+      "start": 3615.04,
+      "end": 3625.04,
+      "text": "The company in every industry is fundamentally built on their proprietary business intelligence, and in the future, their proprietary generative AI."
+    },
+    {
+      "start": 3625.04,
+      "end": 3636.04,
+      "text": "Generative AI has kicked off a whole new investment cycle to build the next trillion dollars of infrastructure of AI generation factories."
+    },
+    {
+      "start": 3636.04,
+      "end": 3650.04,
+      "text": "We believe these two trends will drive a doubling of the world's data center infrastructure installed base in the next five years, and will represent an annual market opportunity in the hundreds of billions."
+    },
+    {
+      "start": 3650.04,
+      "end": 3657.04,
+      "text": "This new AI infrastructure will open up a whole new world of applications not possible today."
+    },
+    {
+      "start": 3657.04,
+      "end": 3677.04,
+      "text": "We started the AI journey with the hyperscale cloud providers and consumer internet companies, and now every industry is on board from automotive, to healthcare, to financial services, to industrial, to telecom, median entertainment."
+    },
+    {
+      "start": 3678.04,
+      "end": 3699.04,
+      "text": "Nvidia's full stack computing platform with industry specific applications frameworks, and a huge developer and partner ecosystem gives us the speed, scale, and reach to help every company, to help companies in every industry become an AI company."
+    },
+    {
+      "start": 3699.04,
+      "end": 3706.04,
+      "text": "We have so much to share with you at next month's GTC in San Jose, so be sure to join us."
+    },
+    {
+      "start": 3706.04,
+      "end": 3711.04,
+      "text": "We look forward to updating you on our progress next quarter."
+    },
+    {
+      "start": 3711.04,
+      "end": 3715.04,
+      "text": "This concludes today's conference call. You may now disconnect."
+    },
+    {
+      "start": 3729.04,
+      "end": 3736.04,
+      "text": "Thanks for watching."
+    },
+    {
+      "start": 3759.04,
+      "end": 3766.04,
+      "text": "Thanks for watching."
+    },
+    {
+      "start": 3789.04,
+      "end": 3796.04,
+      "text": "Thank you."
+    }
+  ]
+}

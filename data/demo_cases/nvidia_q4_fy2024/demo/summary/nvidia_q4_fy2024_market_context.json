@@ -1,0 +1,27 @@
+{
+  "case_id": "nvidia_q4_fy2024",
+  "company": "NVIDIA",
+  "quarter": "Q4 FY24",
+  "event_date": "2024-02-21",
+  "panel_title": "Market context around the Q4 FY24 release window",
+  "key_extracted_signals": [
+    "Q4 revenue reached $22.1 billion and first-quarter fiscal 2025 revenue guidance was about $24.0 billion",
+    "management said demand for Hopper remained very strong and next-generation products would stay supply constrained",
+    "China data-center revenue stayed only a mid-single-digit share after export-control restrictions",
+    "gross margins were expected to fall back toward the mid-70s after unusually strong Q4 and Q1 levels"
+  ],
+  "market_reaction_window": {
+    "start_date": "2024-02-21",
+    "end_date": "2024-02-22",
+    "reaction_direction": "positive",
+    "reaction_magnitude_pct": 16.4,
+    "start_price_usd": 67.4529,
+    "end_price_usd": 78.5158
+  },
+  "market_reaction_note": "NVDA rose sharply the session after the release as investors reacted to another major beat, a strong near-term guide, and management's demand commentary.",
+  "source": {
+    "primary_url": "https://stooq.com/q/d/l/?s=nvda.us&i=d",
+    "secondary_url": "https://investor.nvidia.com/news/press-release-details/2024/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2024/"
+  },
+  "caveat": "Contextual sanity-check evidence only. This does not validate prediction, causality, or trading value."
+}

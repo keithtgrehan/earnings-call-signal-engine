@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "git_commit": "a4720dd",
+  "package_version": "0.1.0",
+  "generated_at": "2026-03-26T13:08:41.002860+00:00",
+  "models": {
+    "sentiment": {
+      "model": "distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+      "revision": "714eb0f"
+    }
+  },
+  "num_chunks_scored": 80,
+  "sentiment_mean": 0.661204,
+  "sentiment_std": 0.703251,
+  "guidance": {
+    "row_count": 43,
+    "mean_strength": 0.472777
+  },
+  "tone_changes": {
+    "row_count": 80,
+    "change_count": 0
+  },
+  "behavioral_signals": {
+    "uncertainty": {
+      "score": 9,
+      "level": "high"
+    },
+    "reassurance": {
+      "score": 2,
+      "level": "medium"
+    },
+    "analyst_skepticism": {
+      "score": 2,
+      "level": "medium"
+    }
+  },
+  "guidance_revision": {
+    "prior_guidance_path": null,
+    "matched_count": 0,
+    "raised_count": 0,
+    "lowered_count": 0,
+    "reaffirmed_count": 0,
+    "unclear_count": 0,
+    "mixed_count": 0,
+    "top_revisions": []
+  }
+}

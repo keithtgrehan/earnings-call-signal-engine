@@ -1,0 +1,14 @@
+{
+  "case_id": "nvidia_q4_fy2024",
+  "expected_event_date": "2024-02-21",
+  "expected_label": "Q4 FY24",
+  "expected_period_end": "2024-01-28",
+  "transcript_source_match": true,
+  "transcript_source_match_explanation": "The local transcript PDF under raw/transcript was used as the canonical source and its extracted text matches the expected Feb. 21, 2024 NVIDIA Q4 FY24 call opening, event date, and participant list. The rejected Motley Fool Q4 2023 transcript URL is a different call and was not used.",
+  "press_release_match": true,
+  "press_release_match_explanation": "The official NVIDIA IR press release explicitly says fourth quarter ended January 28, 2024 and provides the first-quarter fiscal 2025 outlook, matching the expected case.",
+  "video_match": true,
+  "video_match_explanation": "The local MP4 is readable and contains both video and audio streams for the same case. It is supporting media only and does not override the transcript-first source of truth.",
+  "overall_consistency": "ok",
+  "warnings": []
+}

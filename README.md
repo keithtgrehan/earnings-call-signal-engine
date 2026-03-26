@@ -1,12 +1,35 @@
 # Earnings Call Signal Engine
-Transcript-first deterministic review tool for extracting structured, auditable earnings-call signals from transcript, audio, and optional video inputs.
+Transcript-first deterministic review tool that turns one earnings call into structured, auditable artifacts and a local analyst-style review workspace.
 
 This project is a local decision-support system for earnings-call review. It is not a live trading system, does not execute orders, and does not claim predictive edge or statistical significance.
 
+Audio, NLP sidecars, and optional video summaries are supporting layers only. The transcript-backed deterministic artifacts remain the source of truth.
+
 ## Start Here
+- [Demo UI / local review shell](#demo-ui)
 - [Evidence map](docs/evidence-map.md)
 - [End-to-end demo path](docs/demo-path.md)
 - [Current status](docs/current-status.md)
+
+## Why This Project Matters
+Earnings calls combine explicit guidance, hedging, Q&A pressure, and delivery cues across transcript, audio, and optional video. This project keeps the workflow grounded in transcript-first deterministic artifacts so a reviewer can inspect evidence directly instead of relying on opaque summary claims.
+
+## Demo UI
+The main demo surface is a local review shell served by `app/site_server.py`. It is designed for analyst-style inspection, not production deployment.
+
+```bash
+PYTHONPATH=src PORT=7872 python app/site_server.py
+```
+
+Current demo path:
+- `Demo mode`: loads fixed Netflix and Meta cases instantly for a presentation-safe walkthrough
+- `Input mode`: keeps the ordinary local workflow for YouTube, local media, transcript upload, and pasted transcript text
+- `Raw source vs extracted signal`: the centerpiece view keeps source excerpts, extracted signals, ambiguity notes, and supporting context in one review workspace
+
+Current demo status:
+- transcript-first deterministic artifacts remain canonical
+- multimodal layers stay secondary and supporting only
+- the shell is positioned as a local review tool, not a hosted product or live trading system
 
 ## Project Summary
 The repo converts one earnings call into structured, auditable artifacts that help a reviewer inspect:
@@ -194,24 +217,17 @@ Optional heuristic outputs still exist, but they are not the current benchmark f
 The active local review shell is the primary interface served by:
 
 ```bash
-PORT=7872 python app/site_server.py
+PYTHONPATH=src PORT=7872 python app/site_server.py
 ```
 
 Current shell structure:
-- hero and project positioning
-- left-side configuration flow:
-  - input source
-  - transcript/media/document input
-  - metadata and transcription settings
-  - deterministic vs additive summary mode
-  - primary run action
-- dossier / outputs area below the configuration flow
-- compact right rail with:
-  - recent local runs
-  - benchmark subset
-  - workflow notes
+- hero framing and review-surface selection
+- `Demo mode` for fixed Netflix / Meta presentation cases
+- `Input mode` for real YouTube, media, and transcript review
+- centerpiece evidence workspace for `Raw source vs extracted signal`
+- supporting panels for management caution, audio support, market context, artifacts, and recent local runs
 
-This is a local review product shell for analyst-style inspection. It is not a production SaaS app.
+This is a local review product shell for analyst-style inspection. It is not a production SaaS app, and it should be presented as local decision support only.
 
 ## Gold Benchmark
 The frozen gold benchmark lives under:
@@ -368,7 +384,7 @@ python scripts/summarize_gold_benchmark.py
 
 ### Launch the active local review shell
 ```bash
-PORT=7872 python app/site_server.py
+PYTHONPATH=src PORT=7872 python app/site_server.py
 ```
 
 ### Run the CLI pipeline

@@ -1,0 +1,42 @@
+{
+  "case_id": "nvidia_q4_fy2024",
+  "company": "NVIDIA",
+  "quarter": "Q4 FY24",
+  "case_status": "ready",
+  "artifact_paths": {
+    "source_manifest": "source_manifest.json",
+    "quarter_consistency": "quarter_consistency.json",
+    "transcript_cleaned": "processed/transcript_text/transcript_cleaned.txt",
+    "transcript_sectioned": "processed/transcript_text/transcript_sectioned.json",
+    "qa_pairs": "processed/qa_pairs/qa_pairs.json",
+    "guidance": "processed/signals/guidance.csv",
+    "uncertainty": "processed/signals/uncertainty_signals.csv",
+    "qa_shift_summary": "processed/signals/qa_shift_summary.json",
+    "press_release_evidence": "processed/signals/press_release_evidence.json",
+    "financial_context_summary": "processed/signals/financial_context_summary.json",
+    "audio_status": "processed/audio_behavior/audio_status.json",
+    "audio_transcript_segments": "processed/audio_behavior/audio_transcript_segments.json",
+    "audio_aligned_qa_segments": "processed/audio_behavior/audio_aligned_qa_segments.csv",
+    "audio_behavior_summary": "processed/audio_behavior/audio_behavior_summary.json",
+    "audio_behavior_segments": "processed/audio_behavior/audio_behavior_segments.csv",
+    "audio_review_rows": "processed/audio_behavior/audio_review_rows.json",
+    "joined_qa_audio_review": "processed/joined_review/joined_qa_audio_review.json",
+    "joined_review_moments": "processed/joined_review/joined_review_moments.json",
+    "market_context": "demo/summary/nvidia_q4_fy2024_market_context.json",
+    "evidence_rows": "demo/evidence_rows/nvidia_q4_fy2024_evidence_rows.json",
+    "summary": "demo/summary/nvidia_q4_fy2024_summary.json"
+  },
+  "preview_row_ids": [
+    "transcript_q1_outlook",
+    "release_q4_results",
+    "release_q1_outlook",
+    "transcript_hopper_supply",
+    "transcript_china_restrictions",
+    "qa_gross_margin_normalization"
+  ],
+  "notes": [
+    "The transcript and official NVIDIA press release are the source of truth for this demo case.",
+    "The local Q4 FY24 transcript PDF is the canonical transcript source for this demo case.",
+    "Later UI work can consume this fixture directly without touching benchmark or app packages."
+  ]
+}

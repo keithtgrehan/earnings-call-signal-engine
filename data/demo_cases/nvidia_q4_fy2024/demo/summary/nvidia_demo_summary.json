@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "nvidia_q4_fy2024",
+  "display_name": "NVIDIA Q4 FY24",
+  "quarter": "Q4 FY24",
+  "case_status": "ready",
+  "quarter_consistency": {
+    "case_id": "nvidia_q4_fy2024",
+    "expected_event_date": "2024-02-21",
+    "expected_label": "Q4 FY24",
+    "expected_period_end": "2024-01-28",
+    "transcript_source_match": true,
+    "transcript_source_match_explanation": "The local transcript PDF under raw/transcript was used as the canonical source and its extracted text matches the expected Feb. 21, 2024 NVIDIA Q4 FY24 call opening, event date, and participant list. The rejected Motley Fool Q4 2023 transcript URL is a different call and was not used.",
+    "press_release_match": true,
+    "press_release_match_explanation": "The official NVIDIA IR press release explicitly says fourth quarter ended January 28, 2024 and provides the first-quarter fiscal 2025 outlook, matching the expected case.",
+    "video_match": true,
+    "video_match_explanation": "The local MP4 is readable and contains both video and audio streams for the same case. It is supporting media only and does not override the transcript-first source of truth.",
+    "overall_consistency": "ok",
+    "warnings": []
+  },
+  "transcript_first_status": "ready",
+  "audio_status": {
+    "status": "generated",
+    "reason": "Readable local video was copied, audio was extracted, and a few curated Q&A moments were matched to supporting audio.",
+    "video_path": "raw/video/nvidia_q4_fy2024_video.mp4",
+    "audio_path": "raw/audio/nvidia_q4_fy2024_audio.wav",
+    "audio_extraction_status": {
+      "status": "reused_existing_audio",
+      "audio_path": "raw/audio/nvidia_q4_fy2024_audio.wav",
+      "audio_md5": "940cc36d27fde7e36b9007e3719eb7ec",
+      "duration_s": 3801.199,
+      "sample_rate_hz": 16000,
+      "channels": 1
+    },
+    "audio_transcript_segments_path": "processed/audio_behavior/audio_transcript_segments.json",
+    "audio_aligned_qa_segments_path": "processed/audio_behavior/audio_aligned_qa_segments.csv",
+    "audio_behavior_summary_path": "processed/audio_behavior/audio_behavior_summary.json",
+    "audio_behavior_segments_path": "processed/audio_behavior/audio_behavior_segments.csv",
+    "audio_review_rows_path": "processed/audio_behavior/audio_review_rows.json",
+    "joined_qa_audio_review_path": "processed/joined_review/joined_qa_audio_review.json",
+    "usable_review_moments": 3,
+    "timing_mode": "curated_qa_match_only",
+    "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
+    "video_verification": {
+      "status": "verified",
+      "expected_quarter": "Q4 FY24",
+      "video_filename": "nvidia_q4_fy2024_video.mp4",
+      "video_md5": "4c64970b31da39cd93369c3418a1f0ce",
+      "video_path": "raw/video/nvidia_q4_fy2024_video.mp4",
+      "has_video_stream": true,
+      "has_audio_stream": true,
+      "duration_s": 3801.147,
+      "verification_basis": [
+        "asset path fixed to NVIDIA Q4 FY24 case",
+        "ffprobe readable",
+        "ffprobe audio stream present"
+      ],
+      "action": "Quarter-consistent local video is readable and can be used for optional bounded audio hooks."
+    }
+  },
+  "headline_counts": {
+    "guidance_rows": 43,
+    "uncertainty_rows": 9,
+    "analyst_skepticism_rows": 1,
+    "main_qa_pairs": 10,
+    "evidence_rows": 8,
+    "audio_review_moments": 3
+  },
+  "review_scorecard": {},
+  "market_context": {
+    "case_id": "nvidia_q4_fy2024",
+    "company": "NVIDIA",
+    "quarter": "Q4 FY24",
+    "event_date": "2024-02-21",
+    "panel_title": "Market context around the Q4 FY24 release window",
+    "key_extracted_signals": [
+      "Q4 revenue reached $22.1 billion and first-quarter fiscal 2025 revenue guidance was about $24.0 billion",
+      "management said demand for Hopper remained very strong and next-generation products would stay supply constrained",
+      "China data-center revenue stayed only a mid-single-digit share after export-control restrictions",
+      "gross margins were expected to fall back toward the mid-70s after unusually strong Q4 and Q1 levels"
+    ],
+    "market_reaction_window": {
+      "start_date": "2024-02-21",
+      "end_date": "2024-02-22",
+      "reaction_direction": "positive",
+      "reaction_magnitude_pct": 16.4,
+      "start_price_usd": 67.4529,
+      "end_price_usd": 78.5158
+    },
+    "market_reaction_note": "NVDA rose sharply the session after the release as investors reacted to another major beat, a strong near-term guide, and management's demand commentary.",
+    "source": {
+      "primary_url": "https://stooq.com/q/d/l/?s=nvda.us&i=d",
+      "secondary_url": "https://investor.nvidia.com/news/press-release-details/2024/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2024/"
+    },
+    "caveat": "Contextual sanity-check evidence only. This does not validate prediction, causality, or trading value."
+  },
+  "top_summary_points": [
+    "The NVIDIA Q4 FY24 transcript, official press release, and local media asset all point to the same Feb. 21, 2024 call, and the local transcript PDF is now the canonical transcript source for the case.",
+    "The transcript-first package surfaces explicit first-quarter fiscal 2025 guidance, very strong Hopper demand, supply constraints on next-generation products, and China export-control limitations.",
+    "The strongest reviewer moments are the qualified answers on gross-margin normalization, supply constraints, and China restrictions under direct analyst pressure.",
+    "Optional audio support is bounded to a few curated Q&A moments and remains supporting context only."
+  ],
+  "limitations": [
+    "This is a transcript-first deterministic review package, not a predictive or trading system.",
+    "The canonical transcript source for this case is the local Q4 FY24 transcript PDF saved under raw/transcript.",
+    "Audio and video are supporting layers only; they do not override transcript-first extracted signals.",
+    "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
+    "Market reaction context is a historical sanity-check panel, not predictive validation or a trading claim."
+  ]
+}

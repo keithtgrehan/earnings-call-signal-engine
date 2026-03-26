@@ -1,0 +1,28 @@
+{
+  "case_id": "nvidia_q4_fy2024",
+  "ticker": "NVDA",
+  "company": "NVIDIA",
+  "event_date": "2024-02-21",
+  "fiscal_period_label": "Q4 FY24",
+  "fiscal_period_ended": "2024-01-28",
+  "official_press_release_url": "https://investor.nvidia.com/news/press-release-details/2024/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2024/",
+  "primary_transcript_source": "local_pdf",
+  "transcript_url": "https://seekingalpha.com/article/4672199-nvidia-corporation-nvda-q4-2024-earnings-call-transcript",
+  "transcript_reference_url": "https://seekingalpha.com/article/4672199-nvidia-corporation-nvda-q4-2024-earnings-call-transcript",
+  "transcript_content_mirror_url": "https://invest24.work/transcript/nvda-q4-2024-earnings-call-transcript",
+  "rejected_transcript_url": "https://www.fool.com/earnings/call-transcripts/2023/02/22/nvidia-nvda-q4-2023-earnings-call-transcript/",
+  "local_video_filename": "nvidia_q4_fy2024_video.mp4",
+  "saved_press_release_path": "raw/shareholder_letter/nvidia_q4_fy2024_press_release.md",
+  "saved_transcript_pdf_path": "raw/transcript/nvidia_q4_fy2024_transcript.pdf",
+  "saved_transcript_html_path": null,
+  "saved_transcript_text_path": "raw/transcript/nvidia_q4_fy2024_transcript.txt",
+  "source_quality_notes": [
+    "The NVIDIA IR press-release page was saved through a text snapshot because direct requests hit anti-bot protection.",
+    "The canonical transcript reference is the correct Feb. 21, 2024 Seeking Alpha transcript URL.",
+    "The primary transcript source is the local transcript PDF saved under raw/transcript and verified against the expected event date, fiscal period, and participant list.",
+    "The Motley Fool Q4 2023 transcript URL is explicitly rejected for this case and must not be used.",
+    "The mirror transcript URL is retained only as a reference fallback and was not used for the rebuilt case artifacts."
+  ],
+  "created_by_task": "Codex NVIDIA demo-case input preparation",
+  "created_at_utc": "2026-03-26T13:08:36.678656+00:00"
+}

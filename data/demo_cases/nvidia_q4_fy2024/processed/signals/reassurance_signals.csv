@@ -1,0 +1,2 @@
+section,speaker_role,text,matched_phrase,strength,topic_hint,start_char,end_char,notes,segment_start,segment_end,sentence_start
+management,management,Demand is strong as H200 nearly doubles the inference performance of H100.,demand remains strong,2,demand,0,16,Management explicitly framed demand as strong.,598.462,651.924,767

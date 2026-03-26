@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "nvidia_q4_fy2024",
+  "quarter": "Q4 FY24",
+  "event_date": "2024-02-21",
+  "official_results": {
+    "q4_revenue_billion_usd": "22.1",
+    "full_year_revenue_billion_usd": "60.9",
+    "q1_fy2025_revenue_outlook_billion_usd": "24.0",
+    "q1_fy2025_gaap_gross_margin_pct": "76.3",
+    "q1_fy2025_non_gaap_gross_margin_pct": "77.0",
+    "q1_fy2025_gaap_opex_billion_usd": "3.5",
+    "q1_fy2025_non_gaap_opex_billion_usd": "2.5"
+  },
+  "summary_points": [
+    "Official NVIDIA IR materials show another step-change quarter in revenue, operating income, and earnings.",
+    "The official outlook guided first-quarter fiscal 2025 revenue to about $24.0 billion with gross margins still above the mid-70s.",
+    "The transcript adds the more qualified story around supply constraints, China restrictions, and margin normalization beyond Q1."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "status": "generated",
+  "reason": "Readable local video was copied, audio was extracted, and a few curated Q&A moments were matched to supporting audio.",
+  "video_path": "raw/video/nvidia_q4_fy2024_video.mp4",
+  "audio_path": "raw/audio/nvidia_q4_fy2024_audio.wav",
+  "audio_extraction_status": {
+    "status": "reused_existing_audio",
+    "audio_path": "raw/audio/nvidia_q4_fy2024_audio.wav",
+    "audio_md5": "940cc36d27fde7e36b9007e3719eb7ec",
+    "duration_s": 3801.199,
+    "sample_rate_hz": 16000,
+    "channels": 1
+  },
+  "audio_transcript_segments_path": "processed/audio_behavior/audio_transcript_segments.json",
+  "audio_aligned_qa_segments_path": "processed/audio_behavior/audio_aligned_qa_segments.csv",
+  "audio_behavior_summary_path": "processed/audio_behavior/audio_behavior_summary.json",
+  "audio_behavior_segments_path": "processed/audio_behavior/audio_behavior_segments.csv",
+  "audio_review_rows_path": "processed/audio_behavior/audio_review_rows.json",
+  "joined_qa_audio_review_path": "processed/joined_review/joined_qa_audio_review.json",
+  "usable_review_moments": 3,
+  "timing_mode": "curated_qa_match_only",
+  "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
+  "video_verification": {
+    "status": "verified",
+    "expected_quarter": "Q4 FY24",
+    "video_filename": "nvidia_q4_fy2024_video.mp4",
+    "video_md5": "4c64970b31da39cd93369c3418a1f0ce",
+    "video_path": "raw/video/nvidia_q4_fy2024_video.mp4",
+    "has_video_stream": true,
+    "has_audio_stream": true,
+    "duration_s": 3801.147,
+    "verification_basis": [
+      "asset path fixed to NVIDIA Q4 FY24 case",
+      "ffprobe readable",
+      "ffprobe audio stream present"
+    ],
+    "action": "Quarter-consistent local video is readable and can be used for optional bounded audio hooks."
+  }
+}
