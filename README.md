@@ -5,6 +5,8 @@ This project is a local decision-support system for earnings-call review. It is 
 
 Audio, NLP sidecars, and optional video summaries are supporting layers only. The transcript-backed deterministic artifacts remain the source of truth.
 
+Fixed presentation/demo cases currently include Netflix Q1 2022, Meta Q3 2022, and NVIDIA Q4 FY24. The NVIDIA case was rebuilt from a local official transcript PDF and follows the same transcript-first deterministic pattern.
+
 ## Start Here
 - [Demo UI / local review shell](#demo-ui)
 - [Evidence map](docs/evidence-map.md)
