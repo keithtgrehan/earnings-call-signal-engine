@@ -5,7 +5,7 @@
       "row_id": "transcript_hopper_supply",
       "case_id": "nvidia_q4_fy2024",
       "plain_english_label": "demand stayed above supply",
-      "source_excerpt": "and networking revenue tripled from last year. We are delighted that supply of Hopper architecture products is improving. Demand for Hopper remains very strong. We expect our next-generation products to be supply constrained as demand far exceeds supply. Fourth quarter data center growth was driven by both training and inference of generative AI and large language models acr...",
+      "source_excerpt": "and networking revenue tripled from last year. We are delighted that supply of Hopper architecture products is improving. Demand for Hopper remains very strong. We expect our next-generation products to be supply constrained as demand far exceeds supply. Fourth quarter data center growth was driven by both training and inference of generative AI and large-language models acr...",
       "extracted_signal": "demand for Hopper stayed very strong and management expected next-generation products to remain supply constrained",
       "audio_summary": "answer opened after a noticeable pause; overall hesitation scored high",
       "question_time_range": "35:41-36:11",
@@ -13,10 +13,21 @@
       "review_priority": "high"
     },
     {
+      "row_id": "transcript_china_restrictions",
+      "case_id": "nvidia_q4_fy2024",
+      "plain_english_label": "China stayed constrained by export controls",
+      "source_excerpt": "products to China, we have started shipping alternatives that don\u2019t require a license for the China market. China represented a mid-single digit percentage of our data center revenue in Q4, and we expect it to stay in a similar range in the first quarter. In regions outside of the U.S. and China, sovereign AI has become an additional demand driver. Countries around the world...",
+      "extracted_signal": "China data-center revenue fell sharply after export controls and stayed only a mid-single-digit share of Q4 data-center revenue",
+      "audio_summary": "overall hesitation scored high",
+      "question_time_range": "52:16-52:51",
+      "answer_time_range": "52:49-54:27",
+      "review_priority": "high"
+    },
+    {
       "row_id": "qa_gross_margin_normalization",
       "case_id": "nvidia_q4_fy2024",
       "plain_english_label": "gross-margin normalization was qualified",
-      "source_excerpt": "Yeah. Thanks for the question. We highlighted in our opening remarks really about our Q4 results and our outlook for Q1. Both of those quarters are unique. Those two quarters are unique in their gross margin as they include some benefit from favorable component cost in the supply chain kind of across both our compute and networking and also in several dif...",
+      "source_excerpt": "Thanks for the question. We highlighted in our opening remarks really about our Q4 results and our outlook for Q1. \u2026 Q1. Both of those quarters are unique. Those two quarters are unique in their gross margin as they include some benefits from favorable component costs in the supply chain across both our compute and networking, and also in several differen...",
       "extracted_signal": "management said Q4 and Q1 gross margins were unusually high and should normalize back toward the mid-70s for the rest of the year",
       "audio_summary": "opened with hedging or qualification; overall hesitation scored high",
       "question_time_range": "47:23-47:50",
@@ -24,10 +35,21 @@
       "review_priority": "high"
     },
     {
+      "row_id": "qa_china_pressure",
+      "case_id": "nvidia_q4_fy2024",
+      "plain_english_label": "management stayed careful on China under pressure",
+      "source_excerpt": "Thank you. At the core, remember the US government wants to limit the latest capabilities of NVIDIA\u2019s accelerated computing in AI to the Chinese market, and the US government would like to see us be as successful in China as possible. Within those two constraints, within those two pillars, if you will, are the restrictions. And so we had to pause when the...",
+      "extracted_signal": "under pressure on China, management said restricted products had to be reconfigured and near-term contribution should stay about the same",
+      "audio_summary": "overall hesitation scored high",
+      "question_time_range": "52:16-52:51",
+      "answer_time_range": "52:49-54:27",
+      "review_priority": "high"
+    },
+    {
       "row_id": "qa_supply_pressure",
       "case_id": "nvidia_q4_fy2024",
       "plain_english_label": "analysts pressed on whether supply can catch up",
-      "source_excerpt": "Yeah. The first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything from of course the wafers, the packaging, the memories, all of the power regulators, to transceivers and networking and cables and you name it. The list of components that we ship -- as you know, people think that NVIDIA ...",
+      "source_excerpt": "Yeah, the first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything from of course the wafers, the packaging, the memories, all of the power regulators, to transceivers and networking and cables and you name it. The list of components that we ship\u2026 As you know, people think that NVIDIA GP...",
       "extracted_signal": "management said supply was improving overall, but demand should stay stronger than supply through the year",
       "audio_summary": "answer opened after a noticeable pause; overall hesitation scored high",
       "question_time_range": "35:41-36:11",

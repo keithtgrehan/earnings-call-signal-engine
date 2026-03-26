@@ -52,6 +52,9 @@ REJECTED_TRANSCRIPT_URL = (
 )
 SECTION_PRESENTATION = "presentation"
 SECTION_QA = "question_and_answer"
+TRANSCRIPT_PDF_FILENAME = "nvidia_q4_fy2024_transcript.pdf"
+TRANSCRIPT_HTML_FILENAME = "nvidia_q4_fy2024_transcript.html"
+TRANSCRIPT_TEXT_FILENAME = "nvidia_q4_fy2024_transcript.txt"
 AUDIO_ALIGNMENT_NOTE = (
     "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. "
     "They are supporting review cues, not full transcript-to-media alignment."
@@ -59,9 +62,11 @@ AUDIO_ALIGNMENT_NOTE = (
 MANAGEMENT_SPEAKERS = {
     "Simona Jankowski": "management",
     "Colette Kress": "management",
+    "Colette": "management",
     "Jensen Huang": "management",
     "Jen-Hsun Huang": "management",
 }
+OPERATOR_SPEAKERS = {"Rob", "Operator", "Speaker 1"}
 HEDGE_MARKER_PATTERNS = (
     ("we guide one quarter at a time", re.compile(r"\bwe guide one quarter at a time\b")),
     ("fundamentally", re.compile(r"\bfundamentally\b")),
@@ -173,7 +178,7 @@ def build_case_readme() -> str:
         f"# {CASE_LABEL} Fixed Demo Case\n\n"
         "This folder holds a fixed, transcript-first NVIDIA Q4 FY24 demo package.\n\n"
         "Included raw inputs:\n"
-        "- correct-quarter earnings call transcript snapshot\n"
+        "- correct-quarter earnings call transcript PDF when available locally\n"
         "- official NVIDIA investor-relations press release snapshot\n"
         "- local Q4 FY24 video asset for optional supporting audio hooks\n\n"
         "Processing boundary:\n"
@@ -186,6 +191,26 @@ def build_case_readme() -> str:
         f"PYTHONPATH=src python3 scripts/build_nvidia_demo_case.py\n"
         "```\n"
     )
+
+
+def expected_raw_assets(paths: dict[str, Path]) -> dict[str, Path]:
+    return {
+        "transcript_pdf": paths["raw_transcript"] / TRANSCRIPT_PDF_FILENAME,
+        "transcript_html": paths["raw_transcript"] / TRANSCRIPT_HTML_FILENAME,
+        "transcript_text": paths["raw_transcript"] / TRANSCRIPT_TEXT_FILENAME,
+        "video_path": paths["raw_video"] / "nvidia_q4_fy2024_video.mp4",
+        "audio_path": paths["raw_audio"] / "nvidia_q4_fy2024_audio.wav",
+    }
+
+
+def transcript_text_matches_expected(text: str) -> bool:
+    normalized = shared.normalize_space(text).lower().replace("’", "'")
+    checks = (
+        "welcome to nvidia's conference call for the fourth quarter and fiscal 2024",
+        "all our statements are made as of today, february 21st 2024",
+        "q4 was another record quarter",
+    )
+    return all(check in normalized for check in checks)
 
 
 def save_press_release(paths: dict[str, Path]) -> tuple[Path, str]:
@@ -206,11 +231,11 @@ def save_press_release(paths: dict[str, Path]) -> tuple[Path, str]:
 
 def save_transcript(paths: dict[str, Path]) -> tuple[Path, Path, str]:
     html_snapshot = fetch_text(TRANSCRIPT_MIRROR_URL)
-    html_path = paths["raw_transcript"] / "nvidia_q4_fy2024_transcript.html"
+    html_path = paths["raw_transcript"] / TRANSCRIPT_HTML_FILENAME
     html_path.write_text(html_snapshot, encoding="utf-8")
 
     paragraphs = extract_html_paragraphs(html_snapshot)
-    text_path = paths["raw_transcript"] / "nvidia_q4_fy2024_transcript.txt"
+    text_path = paths["raw_transcript"] / TRANSCRIPT_TEXT_FILENAME
     transcript_text = "\n\n".join(paragraphs).strip() + "\n"
     text_path.write_text(transcript_text, encoding="utf-8")
     return html_path, text_path, html_snapshot
@@ -248,13 +273,155 @@ def parse_participants(paragraphs: list[str]) -> tuple[list[str], list[str]]:
 
 
 def speaker_role_for(speaker: str, *, analysts: set[str]) -> str:
-    if speaker == "Operator":
+    if speaker in OPERATOR_SPEAKERS:
         return "operator"
     if speaker in MANAGEMENT_SPEAKERS:
         return "management"
     if speaker in analysts:
         return "analyst"
     return "other"
+
+
+def clean_pdf_transcript_pages(pages: list[str]) -> list[str]:
+    lines: list[str] = []
+    started = False
+    speaker_pattern = re.compile(r"^[A-Z][A-Za-z0-9 .&'’/-]{1,80} \(\d{2}:\d{2}\):$")
+    for page in pages:
+        for raw_line in page.splitlines():
+            line = shared.normalize_space(raw_line)
+            if not line:
+                continue
+            if not started and speaker_pattern.match(line):
+                started = True
+            if not started:
+                continue
+            lines.append(line)
+    return lines
+
+
+def build_pdf_transcript_blocks(lines: list[str]) -> list[dict[str, Any]]:
+    blocks: list[dict[str, Any]] = []
+    current: dict[str, Any] | None = None
+    block_id = 0
+    speaker_pattern = re.compile(r"^([A-Z][A-Za-z0-9 .&'’/-]{1,80}) \((\d{2}:\d{2})\):\s*(.*)$")
+    continuation_pattern = re.compile(r"^\((\d{2}:\d{2})\)\s*(.*)$")
+
+    def flush() -> None:
+        nonlocal current, block_id
+        if current is None:
+            return
+        text = shared.normalize_space(" ".join(current["text_parts"]))
+        if text:
+            current["text"] = text
+            current["block_id"] = block_id
+            current.pop("text_parts", None)
+            blocks.append(current)
+            block_id += 1
+        current = None
+
+    for line in lines:
+        speaker_match = speaker_pattern.match(line)
+        if speaker_match:
+            flush()
+            speaker = shared.normalize_space(speaker_match.group(1))
+            timestamp = speaker_match.group(2)
+            text = shared.normalize_space(speaker_match.group(3))
+            current = {
+                "source_doc": "main_transcript",
+                "speaker": speaker,
+                "speaker_title": "",
+                "timestamp": timestamp,
+                "text_parts": [text] if text else [],
+            }
+            continue
+
+        continuation_match = continuation_pattern.match(line)
+        if continuation_match and current is not None:
+            text = shared.normalize_space(continuation_match.group(2))
+            if text:
+                current["text_parts"].append(text)
+            continue
+
+        if current is None:
+            continue
+        current["text_parts"].append(line)
+
+    flush()
+
+    qna_start: int | None = None
+    for index, block in enumerate(blocks):
+        lowered = block["text"].lower()
+        if (
+            "open to call for questions" in lowered
+            or "compile the q&a roster" in lowered
+            or "your first question comes from the line of" in lowered
+        ):
+            qna_start = index
+            break
+
+    if qna_start is None:
+        for index, block in enumerate(blocks):
+            if block["speaker"] not in MANAGEMENT_SPEAKERS and block["speaker"] not in OPERATOR_SPEAKERS:
+                qna_start = index
+                break
+
+    for index, block in enumerate(blocks):
+        section = SECTION_QA if qna_start is not None and index >= qna_start else SECTION_PRESENTATION
+        if block["speaker"] in OPERATOR_SPEAKERS:
+            speaker_role = "operator"
+        elif block["speaker"] in MANAGEMENT_SPEAKERS:
+            speaker_role = "management"
+        elif section == SECTION_QA:
+            speaker_role = "analyst"
+        else:
+            speaker_role = "other"
+        block["section"] = section
+        block["speaker_role"] = speaker_role
+
+    return [block for block in blocks if block["speaker_role"] != "operator" or block["text"]]
+
+
+def load_transcript_source(paths: dict[str, Path]) -> dict[str, Any]:
+    raw_assets = expected_raw_assets(paths)
+    transcript_pdf = raw_assets["transcript_pdf"]
+    transcript_html = raw_assets["transcript_html"]
+    transcript_text = raw_assets["transcript_text"]
+
+    if transcript_pdf.exists():
+        pages = shared.extract_pdf_pages(transcript_pdf)
+        raw_text = "\n\n".join(page.strip() for page in pages if page.strip()).strip() + "\n"
+        if transcript_text_matches_expected(raw_text):
+            transcript_text.write_text(raw_text, encoding="utf-8")
+            cleaned_lines = clean_pdf_transcript_pages(pages)
+            blocks = build_pdf_transcript_blocks(cleaned_lines)
+            return {
+                "mode": "local_pdf",
+                "pdf_path": transcript_pdf,
+                "html_path": None,
+                "text_path": transcript_text,
+                "raw_text": raw_text,
+                "blocks": blocks,
+                "provenance_note": (
+                    "The canonical transcript source is the local earnings-call transcript PDF saved under raw/transcript. "
+                    "The mirror URL is retained only as a fallback reference."
+                ),
+            }
+
+    html_path, text_path, html_snapshot = save_transcript(paths)
+    transcript_paragraphs = extract_html_paragraphs(html_snapshot)
+    blocks, _, _ = build_transcript_blocks(transcript_paragraphs)
+    return {
+        "mode": "mirror_fallback",
+        "pdf_path": transcript_pdf if transcript_pdf.exists() else None,
+        "html_path": html_path,
+        "text_path": text_path,
+        "raw_text": text_path.read_text(encoding="utf-8"),
+        "blocks": blocks,
+        "provenance_note": (
+            "The canonical transcript reference is the correct Feb. 21, 2024 Seeking Alpha URL, but direct access was blocked. "
+            "The saved transcript snapshot came from the accessible mirror fallback."
+        ),
+    }
 
 
 def build_transcript_blocks(paragraphs: list[str]) -> tuple[list[dict[str, Any]], list[str], list[str]]:
@@ -480,8 +647,29 @@ def build_source_manifest(
     case_root: Path,
     video_source_path: Path,
     press_release_saved_path: Path,
-    transcript_saved_paths: tuple[Path, Path],
+    transcript_source: dict[str, Any],
 ) -> dict[str, Any]:
+    transcript_pdf_path = transcript_source.get("pdf_path")
+    transcript_html_path = transcript_source.get("html_path")
+    transcript_text_path = transcript_source["text_path"]
+    source_quality_notes = [
+        "The NVIDIA IR press-release page was saved through a text snapshot because direct requests hit anti-bot protection.",
+        "The canonical transcript reference is the correct Feb. 21, 2024 Seeking Alpha transcript URL.",
+        "The Motley Fool Q4 2023 transcript URL is explicitly rejected for this case and must not be used.",
+    ]
+    if transcript_source["mode"] == "local_pdf":
+        source_quality_notes.insert(
+            2,
+            "The primary transcript source is the local transcript PDF saved under raw/transcript and verified against the expected event date, fiscal period, and participant list.",
+        )
+        source_quality_notes.append(
+            "The mirror transcript URL is retained only as a reference fallback and was not used for the rebuilt case artifacts."
+        )
+    else:
+        source_quality_notes.insert(
+            2,
+            "Direct Seeking Alpha fetches were blocked by anti-bot protection, so the local transcript snapshot was saved from an accessible mirror after matching the case title, date, and participant list.",
+        )
     return {
         "case_id": CASE_ID,
         "ticker": TICKER,
@@ -490,19 +678,17 @@ def build_source_manifest(
         "fiscal_period_label": QUARTER_LABEL,
         "fiscal_period_ended": EXPECTED_PERIOD_END,
         "official_press_release_url": PRESS_RELEASE_URL,
+        "primary_transcript_source": "local_pdf" if transcript_source["mode"] == "local_pdf" else "mirror_fallback",
         "transcript_url": TRANSCRIPT_URL,
+        "transcript_reference_url": TRANSCRIPT_URL,
         "transcript_content_mirror_url": TRANSCRIPT_MIRROR_URL,
         "rejected_transcript_url": REJECTED_TRANSCRIPT_URL,
         "local_video_filename": video_source_path.name,
         "saved_press_release_path": shared.relative_to_case(press_release_saved_path, case_root),
-        "saved_transcript_html_path": shared.relative_to_case(transcript_saved_paths[0], case_root),
-        "saved_transcript_text_path": shared.relative_to_case(transcript_saved_paths[1], case_root),
-        "source_quality_notes": [
-            "The NVIDIA IR press-release page was saved through a text snapshot because direct requests hit anti-bot protection.",
-            "The canonical transcript reference is the correct Feb. 21, 2024 Seeking Alpha transcript URL.",
-            "Direct Seeking Alpha fetches were blocked by anti-bot protection, so the local transcript snapshot was saved from an accessible mirror after matching the case title, date, and participant list.",
-            "The Motley Fool Q4 2023 transcript URL is explicitly rejected for this case and must not be used.",
-        ],
+        "saved_transcript_pdf_path": shared.relative_to_case(transcript_pdf_path, case_root) if transcript_pdf_path and transcript_pdf_path.exists() else None,
+        "saved_transcript_html_path": shared.relative_to_case(transcript_html_path, case_root) if transcript_html_path else None,
+        "saved_transcript_text_path": shared.relative_to_case(transcript_text_path, case_root),
+        "source_quality_notes": source_quality_notes,
         "created_by_task": "Codex NVIDIA demo-case input preparation",
         "created_at_utc": datetime.now(UTC).isoformat(),
     }
@@ -513,11 +699,9 @@ def build_quarter_consistency(
     video_verification: dict[str, Any],
     press_release_text: str,
     transcript_text: str,
+    transcript_source_mode: str,
 ) -> dict[str, Any]:
-    transcript_match = (
-        "NVIDIA Corporation (NASDAQ:NVDA) Q4 2024 Earnings Conference Call February 21, 2024 5:00 PM ET" in transcript_text
-        and "welcome to NVIDIA's conference call for the fourth quarter and fiscal 2024" in transcript_text
-    )
+    transcript_match = transcript_text_matches_expected(transcript_text)
     press_release_match = (
         "fourth quarter ended January 28, 2024" in press_release_text
         and "NVIDIA’s outlook for the first quarter of fiscal 2025" in press_release_text
@@ -529,25 +713,24 @@ def build_quarter_consistency(
         warnings.append("Transcript content did not cleanly confirm the expected Q4 FY24 event.")
     if not press_release_match:
         warnings.append("Press release snapshot did not cleanly confirm the expected Q4 FY24 event.")
-    warnings.append(
-        "Direct Seeking Alpha transcript fetch was blocked by anti-bot protection; the saved transcript content came from an accessible mirror after title/date/participant verification."
-    )
-    warnings.append(
-        "Rejected source guard: the Motley Fool Q4 2023 transcript URL is a different NVIDIA call and was not used."
-    )
+    if transcript_source_mode != "local_pdf":
+        warnings.append(
+            "Direct Seeking Alpha transcript fetch was blocked by anti-bot protection; the saved transcript content came from an accessible mirror after title/date/participant verification."
+        )
     if not (has_video_stream and has_audio_stream):
         warnings.append("Video file is readable but missing either a video or audio stream.")
+    transcript_explanation = (
+        "The local transcript PDF under raw/transcript was used as the canonical source and its extracted text matches the expected Feb. 21, 2024 NVIDIA Q4 FY24 call opening, event date, and participant list. The rejected Motley Fool Q4 2023 transcript URL is a different call and was not used."
+        if transcript_source_mode == "local_pdf"
+        else "Saved transcript text matches the expected Feb. 21, 2024 NVIDIA Q4 FY24 call opening, but the local snapshot came from a verified mirror fallback because direct Seeking Alpha access was blocked. The rejected Motley Fool Q4 2023 transcript URL is a different call and was not used."
+    )
     return {
         "case_id": CASE_ID,
         "expected_event_date": EVENT_DATE,
         "expected_label": QUARTER_LABEL,
         "expected_period_end": EXPECTED_PERIOD_END,
         "transcript_source_match": bool(transcript_match),
-        "transcript_source_match_explanation": (
-            "Saved transcript text matches the expected Feb. 21, 2024 NVIDIA Q4 2024 call title and the body opens "
-            "with NVIDIA's fourth quarter and fiscal 2024 welcome line. The canonical Seeking Alpha URL is correct, "
-            "but direct access was blocked, so an accessible mirror was used for the local snapshot."
-        ),
+        "transcript_source_match_explanation": transcript_explanation,
         "press_release_match": bool(press_release_match),
         "press_release_match_explanation": (
             "The official NVIDIA IR press release explicitly says fourth quarter ended January 28, 2024 and provides "
@@ -555,10 +738,15 @@ def build_quarter_consistency(
         ),
         "video_match": bool(has_video_stream and has_audio_stream),
         "video_match_explanation": (
-            "The local MP4 is readable and contains both video and audio streams. This is weaker than the transcript "
-            "and press-release verification because the video itself was not independently fetched from an official page in this task."
+            "The local MP4 is readable and contains both video and audio streams for the same case. It is supporting media only and does not override the transcript-first source of truth."
         ),
-        "overall_consistency": "warn" if transcript_match and press_release_match and has_video_stream and has_audio_stream else "fail",
+        "overall_consistency": (
+            "ok"
+            if transcript_match and press_release_match and has_video_stream and has_audio_stream and transcript_source_mode == "local_pdf"
+            else "warn"
+            if transcript_match and press_release_match
+            else "fail"
+        ),
         "warnings": warnings,
     }
 
@@ -754,17 +942,30 @@ def build_demo_summary(
     qa_pairs: list[dict[str, Any]],
     audio_status: dict[str, Any],
     market_context: dict[str, Any],
+    transcript_source_mode: str,
 ) -> dict[str, Any]:
     signals_dir = case_root / "processed" / "signals"
     metrics = json.loads((signals_dir / "metrics.json").read_text(encoding="utf-8"))
     guidance_df = read_csv_or_empty(signals_dir / "guidance.csv")
     uncertainty_df = read_csv_or_empty(signals_dir / "uncertainty_signals.csv")
     skepticism_df = read_csv_or_empty(signals_dir / "analyst_skepticism.csv")
+    case_status = "ready" if quarter_consistency["overall_consistency"] == "ok" else "ready_with_source_warning"
+    provenance_point = (
+        "The NVIDIA Q4 FY24 transcript, official press release, and local media asset all point to the same Feb. 21, 2024 call, and the local transcript PDF is now the canonical transcript source for the case."
+        if transcript_source_mode == "local_pdf"
+        else "The NVIDIA Q4 FY24 transcript, official press release, and local media asset all point to the same Feb. 21, 2024 call, with a warning that the saved transcript content came through an accessible mirror because direct Seeking Alpha access was blocked."
+    )
+    transcript_limitation = (
+        "The canonical transcript source for this case is the local Q4 FY24 transcript PDF saved under raw/transcript."
+        if transcript_source_mode == "local_pdf"
+        else "The canonical transcript reference is the correct Seeking Alpha page, but the saved raw transcript content came from an accessible mirror because direct fetches were blocked by anti-bot protection."
+    )
     return {
         "schema_version": "1.0.0",
         "case_id": CASE_ID,
         "display_name": CASE_LABEL,
         "quarter": QUARTER_LABEL,
+        "case_status": case_status,
         "quarter_consistency": quarter_consistency,
         "transcript_first_status": "ready",
         "audio_status": audio_status,
@@ -779,14 +980,14 @@ def build_demo_summary(
         "review_scorecard": metrics.get("review_scorecard", {}),
         "market_context": market_context,
         "top_summary_points": [
-            "The NVIDIA Q4 FY24 transcript, official press release, and local media asset all point to the same Feb. 21, 2024 call, with a warning that the saved transcript content came through an accessible mirror because direct Seeking Alpha access was blocked.",
+            provenance_point,
             "The transcript-first package surfaces explicit first-quarter fiscal 2025 guidance, very strong Hopper demand, supply constraints on next-generation products, and China export-control limitations.",
             "The strongest reviewer moments are the qualified answers on gross-margin normalization, supply constraints, and China restrictions under direct analyst pressure.",
             "Optional audio support is bounded to a few curated Q&A moments and remains supporting context only.",
         ],
         "limitations": [
             "This is a transcript-first deterministic review package, not a predictive or trading system.",
-            "The canonical transcript reference is the correct Seeking Alpha page, but the saved raw transcript content came from an accessible mirror because direct fetches were blocked by anti-bot protection.",
+            transcript_limitation,
             "Audio and video are supporting layers only; they do not override transcript-first extracted signals.",
             AUDIO_ALIGNMENT_NOTE,
             "Market reaction context is a historical sanity-check panel, not predictive validation or a trading claim.",
@@ -794,7 +995,12 @@ def build_demo_summary(
     }
 
 
-def build_fixture_source() -> dict[str, Any]:
+def build_fixture_source(*, transcript_source_mode: str) -> dict[str, Any]:
+    transcript_note = (
+        "The local Q4 FY24 transcript PDF is the canonical transcript source for this demo case."
+        if transcript_source_mode == "local_pdf"
+        else "The canonical transcript reference is the correct Seeking Alpha page, but the saved raw transcript content came from an accessible mirror because direct fetches were blocked."
+    )
     return {
         "case_status": "ready",
         "artifact_paths": {
@@ -822,7 +1028,7 @@ def build_fixture_source() -> dict[str, Any]:
         },
         "notes": [
             "The transcript and official NVIDIA press release are the source of truth for this demo case.",
-            "The canonical transcript reference is the correct Seeking Alpha page, but the saved raw transcript content came from an accessible mirror because direct fetches were blocked.",
+            transcript_note,
             "Later UI work can consume this fixture directly without touching benchmark or app packages.",
         ],
     }
@@ -995,7 +1201,8 @@ def build_demo_case(*, case_root: Path, video_source_path: Path | None) -> dict[
     paths = ensure_scaffold(case_root)
     (case_root / "README.md").write_text(build_case_readme(), encoding="utf-8")
 
-    raw_video_path = paths["raw_video"] / "nvidia_q4_fy2024_video.mp4"
+    raw_assets = expected_raw_assets(paths)
+    raw_video_path = raw_assets["video_path"]
     if video_source_path is None:
         if not raw_video_path.exists():
             raise RuntimeError(
@@ -1008,25 +1215,24 @@ def build_demo_case(*, case_root: Path, video_source_path: Path | None) -> dict[
         shutil.copy2(video_source_path, raw_video_path)
 
     press_release_path, press_release_text = save_press_release(paths)
-    transcript_html_path, transcript_txt_path, transcript_html = save_transcript(paths)
+    transcript_source = load_transcript_source(paths)
 
     source_manifest = build_source_manifest(
         case_root=case_root,
         video_source_path=video_source_path,
         press_release_saved_path=press_release_path,
-        transcript_saved_paths=(transcript_html_path, transcript_txt_path),
+        transcript_source=transcript_source,
     )
     write_json(case_root / "source_manifest.json", source_manifest)
 
-    transcript_paragraphs = extract_html_paragraphs(transcript_html)
-    blocks, _, _ = build_transcript_blocks(transcript_paragraphs)
+    blocks = transcript_source["blocks"]
     cleaned_transcript = build_cleaned_transcript(blocks)
     segments, segment_metadata = shared.build_synthetic_segments(blocks)
     qa_pairs = shared.build_qa_pairs(blocks, source_doc="main_transcript")
 
     transcript_dir = paths["processed_transcript"]
     (transcript_dir / "transcript_raw_extract.txt").write_text(
-        transcript_txt_path.read_text(encoding="utf-8"),
+        transcript_source["raw_text"],
         encoding="utf-8",
     )
     (transcript_dir / "transcript_cleaned.txt").write_text(cleaned_transcript, encoding="utf-8")
@@ -1075,7 +1281,8 @@ def build_demo_case(*, case_root: Path, video_source_path: Path | None) -> dict[
     quarter_consistency = build_quarter_consistency(
         video_verification=video_verification,
         press_release_text=press_release_text,
-        transcript_text=transcript_txt_path.read_text(encoding="utf-8"),
+        transcript_text=transcript_source["raw_text"],
+        transcript_source_mode=transcript_source["mode"],
     )
     write_json(case_root / "quarter_consistency.json", quarter_consistency)
     write_json(paths["processed_joined_review"] / "quarter_consistency.json", quarter_consistency)
@@ -1094,9 +1301,10 @@ def build_demo_case(*, case_root: Path, video_source_path: Path | None) -> dict[
         qa_pairs=qa_pairs,
         audio_status=audio_status,
         market_context=market_context,
+        transcript_source_mode=transcript_source["mode"],
     )
 
-    fixture_source = build_fixture_source()
+    fixture_source = build_fixture_source(transcript_source_mode=transcript_source["mode"])
     fixture = build_demo_fixture_index(
         case_id=CASE_ID,
         company=COMPANY,

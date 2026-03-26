@@ -9,8 +9,8 @@
       "answer_speakers": [
         "Jensen Huang"
       ],
-      "analyst_question_excerpt": "wanted to touch on your comment that you expected the next generation of products -- I assume that meant Blackwell, to be supply constrained. Could you dig into that a little bit, what is the driver of that? Why does that get constrained as Hopper is easing...",
-      "management_answer_excerpt": "Yeah. The first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything from of course the wafers, the packaging, the memories, all of the power regulators, to transceivers and networking and cables and you name it. The list of components",
+      "analyst_question_excerpt": "wanted to touch on your comment that you expected the next generation of products. I assume that meant Blackwell, to be supply constrained. Could you dig into that a little bit, what is the driver of that? Why does that get constrained as Hopper is easing u...",
+      "management_answer_excerpt": "Yeah, the first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything from of course the wafers, the packaging, the memories, all of the power regulators, to transceivers and networking and cables and you name it. The list of components",
       "question_time_range": "35:41-36:11",
       "answer_time_range": "36:11-39:27",
       "question_start_s": 2141.04,
@@ -27,7 +27,7 @@
       "hesitation_label": "high",
       "hesitation_flag": true,
       "qa_shift_label": "weaker",
-      "qa_shift_delta": -0.2221,
+      "qa_shift_delta": -1.2214,
       "plain_english_audio_summary": "answer opened after a noticeable pause; overall hesitation scored high",
       "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and stayed relatively direct in wording. Transcript-only Q&A shift stayed weaker.",
       "artifact_paths": [
@@ -47,10 +47,11 @@
       "review_priority": "high",
       "question_speaker": "Ben Reitzes",
       "answer_speakers": [
-        "Colette Kress"
+        "Colette",
+        "Colette"
       ],
-      "analyst_question_excerpt": "Yeah. Thanks. Congratulations on the results. Colette, I wanted to talk about your comment regarding gross margins and that they should go back to the mid-70s. If you don't mind unpacking that. And also, is that due to the HBM content in the new products an...",
-      "management_answer_excerpt": "networking and also in several different stages of our manufacturing process. So looking forward, we have visibility into a mid-70s gross margin for the rest of the fiscal year, taking us back to where we were before this Q4 and Q1 peak that we've had here. So we're really looking at just a balance of our mix. Mix i...",
+      "analyst_question_excerpt": "Thanks. Congratulations on the results. Colette, I wanted to talk about your comment regarding gross margins and that they should go back to the mid-70s. If you don\u2019t mind unpacking that. And also, is that due to the HVM content in the new products and what...",
+      "management_answer_excerpt": "have visibility into a mid 70s gross margin for the rest of the fiscal year, taking us back to where we were before this Q4 and Q1 peak that we\u2019ve had here. So we\u2019re really looking at just a balance of our mix. Mix is always going to be our largest driver of what we will be shipping for the rest of the year. And tho...",
       "question_time_range": "47:23-47:50",
       "answer_time_range": "47:51-48:53",
       "question_start_s": 2843.04,
@@ -61,17 +62,57 @@
       "pause_before_answer_ms": 0.0,
       "filler_count": 0,
       "filler_density": 0.0,
-      "restart_count": 1,
+      "restart_count": 0,
       "transcript_hedge_markers": [
         "visibility"
       ],
       "hesitation_score": 6,
       "hesitation_label": "high",
       "hesitation_flag": true,
-      "qa_shift_label": "stronger",
-      "qa_shift_delta": 1.4445,
+      "qa_shift_label": "mixed",
+      "qa_shift_delta": -0.0019,
       "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored high",
-      "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+      "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed mixed.",
+      "artifact_paths": [
+        "processed/qa_pairs/qa_pairs.json",
+        "processed/signals/qa_shift_summary.json",
+        "processed/audio_behavior/audio_behavior_segments.csv",
+        "processed/audio_behavior/audio_behavior_summary.json"
+      ],
+      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
+      "audio_support_mode": "supporting_only",
+      "source_artifact_path": "processed/audio_behavior/audio_behavior_segments.csv"
+    },
+    {
+      "row_id": "qa_china_restriction_audio",
+      "qa_pair_id": 9,
+      "plain_english_label": "qualified answer on China restrictions",
+      "review_priority": "high",
+      "question_speaker": "Aaron Rakers",
+      "answer_speakers": [
+        "Jensen Huang"
+      ],
+      "analyst_question_excerpt": "Yeah, thanks for taking the question. I wanted to ask about the China business. I know that in the prepared comments, you said that you started shipping some alternative solutions into China. You also pointed out that you expect that contribution to continu...",
+      "management_answer_excerpt": "see us be as successful in China as possible. Within those two constraints, within those two pillars, if you will, are the restrictions. And so we had to pause when the new restrictions came out. We immediately paused so that we understood what the restrictions are, reconfigured our products in a way that is not sof...",
+      "question_time_range": "52:16-52:51",
+      "answer_time_range": "52:49-54:27",
+      "question_start_s": 3136.04,
+      "question_end_s": 3171.04,
+      "answer_start_s": 3169.04,
+      "answer_end_s": 3267.04,
+      "answer_start_delay_seconds": 0.0,
+      "pause_before_answer_ms": 270.0,
+      "filler_count": 0,
+      "filler_density": 0.0,
+      "restart_count": 1,
+      "transcript_hedge_markers": [],
+      "hesitation_score": 8,
+      "hesitation_label": "high",
+      "hesitation_flag": true,
+      "qa_shift_label": "weaker",
+      "qa_shift_delta": -0.2377,
+      "plain_english_audio_summary": "overall hesitation scored high",
+      "plain_english_interpretation": "Analyst asked a direct question; stayed relatively direct in wording. Transcript-only Q&A shift stayed weaker.",
       "artifact_paths": [
         "processed/qa_pairs/qa_pairs.json",
         "processed/signals/qa_shift_summary.json",

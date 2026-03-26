@@ -8,10 +8,10 @@
     "suppression_recommended": false,
     "snr_proxy_db": 77.7433,
     "snr_proxy_ok": true,
-    "management_speech_duration_s": 185.08,
+    "management_speech_duration_s": 246.85,
     "enough_speech_duration_ok": true,
-    "usable_management_segments": 2,
-    "usable_answer_segments": 2,
+    "usable_management_segments": 3,
+    "usable_answer_segments": 3,
     "alignment_quality_ratio": 1.0,
     "alignment_quality_ok": true
   },
@@ -32,8 +32,8 @@
     "level": "high"
   },
   "pauses_before_answers": {
-    "median_ms": 895.0,
-    "level": "high"
+    "median_ms": 270.0,
+    "level": "medium"
   },
   "prepared_baseline_audio_stability": {
     "score": 0.0,
@@ -47,15 +47,15 @@
     "level": "high"
   },
   "pause_pressure_delta": {
-    "delta": 4.8009,
+    "delta": 5.2074,
     "prepared_density": 0.0,
-    "q_and_a_density": 4.8009,
+    "q_and_a_density": 5.2074,
     "level": "high",
     "label": "more_paused_under_questions"
   },
   "answer_latency_pressure": {
-    "median_ms": 500.0,
-    "level": "medium"
+    "median_ms": 0.0,
+    "level": "low"
   },
   "audio_confidence_support": {
     "level": "high",
@@ -67,31 +67,31 @@
     "available": true,
     "mode": "model_backed",
     "support_direction": "cautionary",
-    "calibrated_support_score": 0.6243,
+    "calibrated_support_score": 0.6163,
     "reliability_weight": 0.4991,
     "hesitation_pressure": {
       "predicted_label": "high",
       "probability_means": {
-        "high": 0.6676,
-        "low": 0.0422,
-        "medium": 0.2902
+        "high": 0.6482,
+        "low": 0.0308,
+        "medium": 0.321
       }
     },
     "delivery_confidence": {
       "predicted_label": "low",
       "probability_means": {
-        "high": 0.0422,
-        "low": 0.6676,
-        "medium": 0.2902
+        "high": 0.0308,
+        "low": 0.6482,
+        "medium": 0.321
       }
     }
   },
   "egemaps_v02_summary": {
     "available": true,
-    "pitch_variability_mean": 0.1165,
-    "loudness_mean": 0.6418,
-    "loudness_variability_mean": 0.9231,
-    "spectral_flux_mean": 0.4374
+    "pitch_variability_mean": 0.1276,
+    "loudness_mean": 0.6315,
+    "loudness_variability_mean": 0.9734,
+    "spectral_flux_mean": 0.4292
   },
   "strongest_audio_evidence": [
     {
@@ -102,7 +102,17 @@
       "pause_before_answer_ms": 1790.0,
       "answer_onset_delay_ms": 0.0,
       "pause_density_per_10s": 5.4082,
-      "text": "Yeah. The first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything f..."
+      "text": "Yeah, the first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything f..."
+    },
+    {
+      "segment_id": 5,
+      "start_time_s": 3169.04,
+      "end_time_s": 3267.04,
+      "hesitation_label": "high",
+      "pause_before_answer_ms": 270.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 6.0204,
+      "text": "see us be as successful in China as possible. Within those two constraints, within those two pillars, if you will, are the restrictions. ..."
     },
     {
       "segment_id": 3,
@@ -112,7 +122,7 @@
       "pause_before_answer_ms": 0.0,
       "answer_onset_delay_ms": 1000.0,
       "pause_density_per_10s": 4.1935,
-      "text": "networking and also in several different stages of our manufacturing process. So looking forward, we have visibility into a mid-70s gross..."
+      "text": "have visibility into a mid 70s gross margin for the rest of the fiscal year, taking us back to where we were before this Q4 and Q1 peak t..."
     }
   ],
   "most_hesitant_answers": [
@@ -129,7 +139,22 @@
       "pause_density_per_10s": 5.4082,
       "articulation_rate_wpm": 22.82,
       "confidence_note": "usable audio segment",
-      "text": "Yeah. The first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything f..."
+      "text": "Yeah, the first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything f..."
+    },
+    {
+      "segment_id": 5,
+      "section": "q_and_a",
+      "speaker_role": "management",
+      "start_time_s": 3169.04,
+      "end_time_s": 3267.04,
+      "hesitation_label": "high",
+      "hesitation_score": 8,
+      "pause_before_answer_ms": 270.0,
+      "answer_onset_delay_ms": 0.0,
+      "pause_density_per_10s": 6.0204,
+      "articulation_rate_wpm": 66.05,
+      "confidence_note": "usable audio segment",
+      "text": "see us be as successful in China as possible. Within those two constraints, within those two pillars, if you will, are the restrictions. ..."
     },
     {
       "segment_id": 3,
@@ -144,7 +169,7 @@
       "pause_density_per_10s": 4.1935,
       "articulation_rate_wpm": 85.88,
       "confidence_note": "usable audio segment",
-      "text": "networking and also in several different stages of our manufacturing process. So looking forward, we have visibility into a mid-70s gross..."
+      "text": "have visibility into a mid 70s gross margin for the rest of the fiscal year, taking us back to where we were before this Q4 and Q1 peak t..."
     }
   ],
   "low_confidence_segments": [],

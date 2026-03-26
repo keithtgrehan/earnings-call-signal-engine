@@ -3,7 +3,7 @@
 This folder holds a fixed, transcript-first NVIDIA Q4 FY24 demo package.
 
 Included raw inputs:
-- correct-quarter earnings call transcript snapshot
+- correct-quarter earnings call transcript PDF when available locally
 - official NVIDIA investor-relations press release snapshot
 - local Q4 FY24 video asset for optional supporting audio hooks
 

@@ -2,7 +2,7 @@
   "case_id": "nvidia_q4_fy2024",
   "company": "NVIDIA",
   "quarter": "Q4 FY24",
-  "case_status": "ready_with_source_warning",
+  "case_status": "ready",
   "artifact_paths": {
     "source_manifest": "source_manifest.json",
     "quarter_consistency": "quarter_consistency.json",
@@ -36,7 +36,7 @@
   ],
   "notes": [
     "The transcript and official NVIDIA press release are the source of truth for this demo case.",
-    "The canonical transcript reference is the correct Seeking Alpha page, but the saved raw transcript content came from an accessible mirror because direct fetches were blocked.",
+    "The local Q4 FY24 transcript PDF is the canonical transcript source for this demo case.",
     "Later UI work can consume this fixture directly without touching benchmark or app packages."
   ]
 }

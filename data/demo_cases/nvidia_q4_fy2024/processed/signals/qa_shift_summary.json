@@ -3,9 +3,9 @@
   "status": "ok",
   "prepared_remarks_vs_q_and_a": {
     "label": "weaker",
-    "delta": -0.3785,
-    "prepared_mean": 0.9944,
-    "q_and_a_mean": 0.6159
+    "delta": -0.0886,
+    "prepared_mean": 0.7243,
+    "q_and_a_mean": 0.6357
   },
   "analyst_skepticism": {
     "level": "medium",
@@ -13,54 +13,54 @@
   },
   "management_answers_vs_prepared_uncertainty": {
     "label": "more uncertain",
-    "delta": 7,
-    "prepared_score": 0,
-    "q_and_a_answer_score": 7
+    "delta": 3,
+    "prepared_score": 3,
+    "q_and_a_answer_score": 6
   },
   "early_vs_late_q_and_a": {
-    "label": "weaker",
-    "delta": -0.2684
+    "label": "stronger",
+    "delta": 0.1202
   },
   "strongest_evidence": {
     "skepticism": [
       {
         "matched_phrase": "help us understand why",
         "strength": 2,
-        "text": "I wanted to talk about, a little bit about your software business and it's pleasing to hear that it's over a $1 billion but I was hoping Jen-Hsun or Colette if you could just help us understand what the different parts and pieces are for the software business?"
+        "text": "I wanted to talk a little bit about your software business, and it\u2019s pleasing to hear that it\u2019s over a billion dollar, but I was hoping Jensen or Colette, if you could just help us understand what the different parts and pieces are for the software business."
       }
     ],
     "answer_uncertainty": [
       {
         "matched_phrase": "modal uncertainty",
         "strength": 1,
-        "text": "As Moore's Law slows while computing demand continues to skyrocket, companies may accelerate every workload possible to drive future improvement in performance, TCO and energy efficiency."
+        "text": "And you could tell by the CSPs extending and many data centers, including our own for general purpose computing, extending the depreciation from four to six years."
       },
       {
         "matched_phrase": "modal uncertainty",
         "strength": 1,
-        "text": "But also, often we are procuring capacity that we may need."
+        "text": "But with Spectrum-X, we\u2019ve augmented, layered on top of ethernet, fundamental new capabilities like adaptive routing, congestion control, noise isolation or traffic isolation, so that we could optimize ethernet for AI."
       }
     ],
     "qa_pairs": [
       {
         "qa_pair_id": 5,
-        "question_text": "Great. Thank you. I wanted to follow up on the 40% of revenues coming from inference. That's a bigger number than I expected. Can you give us some sense of where that number was maybe a year before, how much you're seeing growth around LLMs from inference? And how are you measuring that? Is that -- I assume it's in some cases the same GPUs you use for training and inference. How solid is that measurement? Thank you.",
-        "answer_text": "I'll go backwards. The estimate is probably understated. And -- but we estimated it. And let me tell you why. Whenever -- a year ago, the recommender systems that people are -- when you run the internet, the news, the videos, the music, the products that are being recommended to you because as you know, the internet has trillions -- I don't know how many trillions, but trillions of things out there and your phone is 3-inches square. And so the ability for them to fit all of that information down to something, such a small real estate, is through a system, an amazing system called recommender systems. These recommender systems used to be all based on CPU approaches. But the recent migration to deep learning and now generative AI has really put these recommender systems now directly into the path of GPU acceleration. It needs GPU acceleration for the embeddings.",
-        "answer_minus_question": -1.9093
+        "question_text": "Hi guys, thanks for taking my question. Colette, I wanted to touch on your comment that you expected the next generation of products. I assume that meant Blackwell, to be supply constrained. Could you dig into that a little bit, what is the driver of that? Why does that get constrained as Hopper is easing up? And how long do you expect that to be constrained, like do you expect the next generation to be constrained like all the way through calendar \u201925? When do those start to ease?",
+        "answer_text": "Yeah, the first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything from of course the wafers, the packaging, the memories, all of the power regulators, to transceivers and networking and cables and you name it. The list of components that we ship\u2026 As you know, people think that NVIDIA GPUs is like a chip. But the NVIDIA Hopper GPU has 35,000 parts. It weighs 70 pounds. These things are really complicated things we\u2019ve built. People call it an AI supercomputer for good reason. If you ever look in the back of the data center, the systems, the cabling system is mind-boggling. It is the most dense complex cabling system for networking the world\u2019s ever seen. Our InfiniBand business grew 5X year-over-year. The supply chain is really doing fantastic supporting us. And so overall, the supply is improving.",
+        "answer_minus_question": 1.7852
       },
       {
         "qa_pair_id": 6,
-        "question_text": "Hi, guys. Thanks for taking my question. I wanted Colette -- I wanted to touch on your comment that you expected the next generation of products -- I assume that meant Blackwell, to be supply constrained. Could you dig into that a little bit, what is the driver of that? Why does that get constrained as Hopper is easing up? And how long do you expect that to be constrained, like do you expect the next generation to be constrained like all the way through calendar '25, like when do those start to ease?",
-        "answer_text": "Yeah. The first thing is overall, our supply is improving, overall. Our supply chain is just doing an incredible job for us, everything from of course the wafers, the packaging, the memories, all of the power regulators, to transceivers and networking and cables and you name it. The list of components that we ship -- as you know, people think that NVIDIA GPUs is like a chip. But the NVIDIA Hopper GPU has 35,000 parts. It weighs 70 pounds. These things are really complicated things we've built. People call it an AI supercomputer for good reason. If you ever look in the back of the data center, the systems, the cabling system is mind boggling. It is the most dense complex cabling system for networking the world's ever seen. Our InfiniBand business grew 5x year over year. The supply chain is really doing fantastic supporting us. And so overall, the supply is improving.",
-        "answer_minus_question": 1.7796
+        "question_text": "Thanks a lot. I wanted to ask about how you\u2019re converting backlog into revenue. Obviously, lead times for your products have come down quite a bit. Colette, you didn\u2019t talk about the inventory purchase commitments. But if I add up your inventory plus the purchase commits and your prepaid supply, sort of the aggregate of your supply, it was actually down a touch. How should we read that? Is that just you saying that you don\u2019t need to make as much of a financial commitment to your suppliers because the lead times are lower? Or is that maybe you\u2019re reaching some sort of steady state where you\u2019re closer to filling your order book and your backlog? Thanks.",
+        "answer_text": "Yeah, so let me highlight on those three different areas of how we look at our suppliers. You\u2019re correct. Our inventory on hand given our allocation that we\u2019re on, we\u2019re trying to, as things come into inventory, immediately work to ship them to our customers. I think our customer appreciates our ability to meet the schedules that we\u2019ve looked for. The second piece of it is our purchase commitments. Our purchase commitments have many different components into it, components that we need for manufacturing, but also, often we are procuring capacity that we may need. The length of that need for capacity or the length for the components are all different. Some of them may be for the next two quarters, but some of them may be for multiple years. I can say the same regarding our prepaids.",
+        "answer_minus_question": 1.5752
       }
     ]
   },
   "counts": {
-    "prepared_segments": 1,
-    "q_and_a_segments": 77,
-    "analyst_questions": 10,
-    "management_answers": 58
+    "prepared_segments": 23,
+    "q_and_a_segments": 57,
+    "analyst_questions": 9,
+    "management_answers": 40
   },
   "notes": [
     "Prepared remarks vs Q&A is a simple signed-score mean comparison over deterministic transcript chunks.",

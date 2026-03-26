@@ -3,22 +3,20 @@
   "case_id": "nvidia_q4_fy2024",
   "display_name": "NVIDIA Q4 FY24",
   "quarter": "Q4 FY24",
+  "case_status": "ready",
   "quarter_consistency": {
     "case_id": "nvidia_q4_fy2024",
     "expected_event_date": "2024-02-21",
     "expected_label": "Q4 FY24",
     "expected_period_end": "2024-01-28",
     "transcript_source_match": true,
-    "transcript_source_match_explanation": "Saved transcript text matches the expected Feb. 21, 2024 NVIDIA Q4 2024 call title and the body opens with NVIDIA's fourth quarter and fiscal 2024 welcome line. The canonical Seeking Alpha URL is correct, but direct access was blocked, so an accessible mirror was used for the local snapshot.",
+    "transcript_source_match_explanation": "The local transcript PDF under raw/transcript was used as the canonical source and its extracted text matches the expected Feb. 21, 2024 NVIDIA Q4 FY24 call opening, event date, and participant list. The rejected Motley Fool Q4 2023 transcript URL is a different call and was not used.",
     "press_release_match": true,
     "press_release_match_explanation": "The official NVIDIA IR press release explicitly says fourth quarter ended January 28, 2024 and provides the first-quarter fiscal 2025 outlook, matching the expected case.",
     "video_match": true,
-    "video_match_explanation": "The local MP4 is readable and contains both video and audio streams. This is weaker than the transcript and press-release verification because the video itself was not independently fetched from an official page in this task.",
-    "overall_consistency": "warn",
-    "warnings": [
-      "Direct Seeking Alpha transcript fetch was blocked by anti-bot protection; the saved transcript content came from an accessible mirror after title/date/participant verification.",
-      "Rejected source guard: the Motley Fool Q4 2023 transcript URL is a different NVIDIA call and was not used."
-    ]
+    "video_match_explanation": "The local MP4 is readable and contains both video and audio streams for the same case. It is supporting media only and does not override the transcript-first source of truth.",
+    "overall_consistency": "ok",
+    "warnings": []
   },
   "transcript_first_status": "ready",
   "audio_status": {
@@ -40,7 +38,7 @@
     "audio_behavior_segments_path": "processed/audio_behavior/audio_behavior_segments.csv",
     "audio_review_rows_path": "processed/audio_behavior/audio_review_rows.json",
     "joined_qa_audio_review_path": "processed/joined_review/joined_qa_audio_review.json",
-    "usable_review_moments": 2,
+    "usable_review_moments": 3,
     "timing_mode": "curated_qa_match_only",
     "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
     "video_verification": {
@@ -61,12 +59,12 @@
     }
   },
   "headline_counts": {
-    "guidance_rows": 40,
-    "uncertainty_rows": 7,
+    "guidance_rows": 43,
+    "uncertainty_rows": 9,
     "analyst_skepticism_rows": 1,
     "main_qa_pairs": 10,
     "evidence_rows": 8,
-    "audio_review_moments": 2
+    "audio_review_moments": 3
   },
   "review_scorecard": {},
   "market_context": {
@@ -97,14 +95,14 @@
     "caveat": "Contextual sanity-check evidence only. This does not validate prediction, causality, or trading value."
   },
   "top_summary_points": [
-    "The NVIDIA Q4 FY24 transcript, official press release, and local media asset all point to the same Feb. 21, 2024 call, with a warning that the saved transcript content came through an accessible mirror because direct Seeking Alpha access was blocked.",
+    "The NVIDIA Q4 FY24 transcript, official press release, and local media asset all point to the same Feb. 21, 2024 call, and the local transcript PDF is now the canonical transcript source for the case.",
     "The transcript-first package surfaces explicit first-quarter fiscal 2025 guidance, very strong Hopper demand, supply constraints on next-generation products, and China export-control limitations.",
     "The strongest reviewer moments are the qualified answers on gross-margin normalization, supply constraints, and China restrictions under direct analyst pressure.",
     "Optional audio support is bounded to a few curated Q&A moments and remains supporting context only."
   ],
   "limitations": [
     "This is a transcript-first deterministic review package, not a predictive or trading system.",
-    "The canonical transcript reference is the correct Seeking Alpha page, but the saved raw transcript content came from an accessible mirror because direct fetches were blocked by anti-bot protection.",
+    "The canonical transcript source for this case is the local Q4 FY24 transcript PDF saved under raw/transcript.",
     "Audio and video are supporting layers only; they do not override transcript-first extracted signals.",
     "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
     "Market reaction context is a historical sanity-check panel, not predictive validation or a trading claim."

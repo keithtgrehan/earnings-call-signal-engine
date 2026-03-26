@@ -17,7 +17,7 @@
   "audio_behavior_segments_path": "processed/audio_behavior/audio_behavior_segments.csv",
   "audio_review_rows_path": "processed/audio_behavior/audio_review_rows.json",
   "joined_qa_audio_review_path": "processed/joined_review/joined_qa_audio_review.json",
-  "usable_review_moments": 2,
+  "usable_review_moments": 3,
   "timing_mode": "curated_qa_match_only",
   "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.",
   "video_verification": {
