@@ -22,7 +22,7 @@
           </div>
           <h1>{{ ui_meta.title }}</h1>
           <p class="hero-lede">{{ ui_meta.lede }}</p>
-          <p class="hero-support">Use the fixed Netflix and Meta cases for a polished walkthrough, or switch to live uploads without changing the deterministic artifact workflow underneath.</p>
+          <p class="hero-support">Use the fixed Netflix, Meta, and NVIDIA cases for a polished walkthrough, or switch to live uploads without changing the deterministic artifact workflow underneath.</p>
           <div class="hero-actions">
             <a class="hero-link hero-link-primary" href="#evidence-review">Jump to evidence</a>
             <a class="hero-link" href="#review-controls">Review controls</a>
@@ -80,7 +80,7 @@
       {% endif %}
 
       <section class="control-deck" id="review-controls">
-        <form class="panel mode-panel" method="get" action="{{ current_path }}">
+        <section class="panel mode-panel">
           <div class="panel-head">
             <div>
               <p class="eyebrow">Mode switch</p>
@@ -88,34 +88,45 @@
             </div>
             <span class="panel-caption">Use fixed cases for the walkthrough, or switch to live input without changing the pipeline.</span>
           </div>
-          <div class="mode-toggle">
-            <label class="mode-pill {% if view_mode == 'demo' %}is-active{% endif %}">
-              <input type="radio" name="mode" value="demo" {% if view_mode == 'demo' %}checked{% endif %}>
-              <span>Demo mode</span>
-              <small>Load fixed Netflix or Meta cases immediately.</small>
-            </label>
-            <label class="mode-pill {% if view_mode == 'input' %}is-active{% endif %}">
-              <input type="radio" name="mode" value="input" {% if view_mode == 'input' %}checked{% endif %}>
-              <span>Input mode</span>
-              <small>Run YouTube, local media, or transcript uploads.</small>
-            </label>
+          <div class="mode-panel-body">
+            <form class="mode-switch-form" method="get" action="{{ mode_action_path }}">
+              <input type="hidden" name="demo_case" value="{{ selected_demo_case }}">
+              <div class="mode-toggle">
+                <label class="mode-pill {% if view_mode == 'demo' %}is-active{% endif %}">
+                  <input type="radio" name="mode" value="demo" {% if view_mode == 'demo' %}checked{% endif %}>
+                  <span>Demo mode</span>
+                  <small>Load fixed Netflix, Meta, or NVIDIA cases instantly from the repo-local demo package.</small>
+                </label>
+                <label class="mode-pill {% if view_mode == 'input' %}is-active{% endif %}">
+                  <input type="radio" name="mode" value="input" {% if view_mode == 'input' %}checked{% endif %}>
+                  <span>Input mode</span>
+                  <small>Run YouTube, local media, or transcript uploads through the live deterministic workflow.</small>
+                </label>
+              </div>
+              <div class="mode-panel-actions">
+                <p class="mode-note">Demo mode loads curated fixed artifacts only. Input mode starts a new run only when you submit the live form.</p>
+                <button class="secondary-button" type="submit">Switch view</button>
+              </div>
+            </form>
+
+            <form class="demo-picker" method="get" action="{{ mode_action_path }}">
+              <input type="hidden" name="mode" value="demo">
+              <label>
+                <span>Fixed demo case</span>
+                <select name="demo_case">
+                  {% for case in demo_cases %}
+                  <option value="{{ case.case_id }}" {% if case.case_id == selected_demo_case %}selected{% endif %}>{{ case.label }}</option>
+                  {% endfor %}
+                </select>
+              </label>
+              <button class="secondary-button" type="submit">Load case</button>
+            </form>
           </div>
-          <div class="demo-picker">
-            <label>
-              <span>Fixed demo case</span>
-              <select name="demo_case">
-                {% for case in demo_cases %}
-                <option value="{{ case.case_id }}" {% if case.case_id == selected_demo_case %}selected{% endif %}>{{ case.label }}</option>
-                {% endfor %}
-              </select>
-            </label>
-            <button class="secondary-button" type="submit">Load case</button>
-          </div>
-        </form>
+        </section>
 
         <form class="panel intake-panel {% if view_mode == 'demo' %}panel-muted{% endif %}" method="post" action="{{ url_for('analyze') }}" enctype="multipart/form-data">
           <input type="hidden" name="selected_demo_case" value="{{ selected_demo_case }}">
-          <input type="hidden" name="view_mode" value="{{ view_mode }}">
+          <input type="hidden" name="view_mode" value="input">
           <div class="panel-head">
             <div>
               <p class="eyebrow">Live input path</p>
@@ -397,6 +408,7 @@
           <span class="panel-caption">This panel stays observational: direct analyst questions, cautious answers, and where the ambiguity remains.</span>
         </div>
         <div class="pressure-grid">
+          {% if demo_case.pressure_rows %}
           {% for row in demo_case.pressure_rows %}
           <article class="pressure-card">
             <div class="badge-row">
@@ -412,6 +424,12 @@
             <p class="pressure-ambiguity">{{ row.ambiguity_note }}</p>
           </article>
           {% endfor %}
+          {% else %}
+          <div class="empty-support-state">
+            <strong>No curated Q&amp;A pressure moments are packaged for this case.</strong>
+            <p>The main evidence rows and summary still load from the fixed transcript-first artifact bundle.</p>
+          </div>
+          {% endif %}
         </div>
       </section>
 
@@ -423,6 +441,7 @@
           </div>
           <span class="summary-chip">{{ demo_case.joined_audio_rows|length }} moments</span>
         </summary>
+        {% if demo_case.joined_audio_rows %}
         <div class="audio-card-grid">
           {% for row in demo_case.joined_audio_rows %}
           <article class="audio-card">
@@ -443,6 +462,12 @@
           </article>
           {% endfor %}
         </div>
+        {% else %}
+        <div class="empty-support-state">
+          <strong>Audio support not available for this case.</strong>
+          <p>Transcript-first evidence remains available and canonical even when curated audio moments are absent.</p>
+        </div>
+        {% endif %}
       </details>
 
       <section class="panel market-panel">
@@ -640,7 +665,7 @@
               {% else %}
               <div class="empty-state">
                 <h3>Normal input mode is ready.</h3>
-                <p>Upload a transcript, audio/video file, or use a YouTube URL. The live result view keeps the current deterministic artifact bundle intact, while the frozen Netflix and Meta cases remain available in demo mode for the polished side-by-side walkthrough.</p>
+                <p>Upload a transcript, audio/video file, or use a YouTube URL. The live result view keeps the current deterministic artifact bundle intact, while the frozen Netflix, Meta, and NVIDIA cases remain available in demo mode for the polished side-by-side walkthrough.</p>
               </div>
               {% endif %}
             </section>
@@ -682,7 +707,7 @@
                 <article class="stack-card dense-card">
                   <strong>{{ case.label }}</strong>
                   <small>Fixed demo package</small>
-                  <a href="{{ request.path }}?mode=demo&demo_case={{ case.case_id }}">Open</a>
+                  <a href="{{ mode_action_path }}?mode=demo&demo_case={{ case.case_id }}">Open</a>
                 </article>
                 {% endfor %}
               </div>

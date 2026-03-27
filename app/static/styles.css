@@ -608,12 +608,31 @@ summary:focus-visible {
   box-shadow: 0 16px 32px rgba(23, 52, 84, 0.08);
 }
 
+.mode-panel-body,
+.mode-switch-form {
+  display: grid;
+  gap: 20px;
+}
+
+.mode-panel-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.mode-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
 .demo-picker {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 16px;
   align-items: end;
-  margin-top: 24px;
   padding: 20px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -710,6 +729,24 @@ textarea {
 .debug-card,
 .stack-card {
   padding: 24px;
+}
+
+.empty-support-state {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  border: 1px dashed rgba(16, 23, 35, 0.16);
+  border-radius: var(--radius-lg);
+  background: rgba(247, 249, 251, 0.92);
+}
+
+.empty-support-state strong {
+  font-size: 1rem;
+}
+
+.empty-support-state p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .group-card,
@@ -1576,6 +1613,7 @@ th {
   .panel-head,
   .action-bar,
   .banner,
+  .mode-panel-actions,
   .audio-card-top,
   .section-head {
     align-items: flex-start;

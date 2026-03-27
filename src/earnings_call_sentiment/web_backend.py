@@ -87,6 +87,7 @@ def create_review_app(
             demo_case=load_demo_case_payload(resolved_repo, selected_demo_case) if selected_demo_case else None,
             view_mode=view_mode,
             current_path=request.path,
+            mode_action_path=url_for("index"),
             benchmark_rows=_load_benchmark_subset(resolved_benchmark_root),
             recent_runs=_load_recent_runs(resolved_output_root),
             ui_meta=metadata,
@@ -99,7 +100,7 @@ def create_review_app(
         form_state = _merge_form_state(request.form)
         demo_cases = load_demo_case_catalog(resolved_repo)
         selected_demo_case = _resolve_demo_case_id(request.form.get("selected_demo_case"), demo_cases)
-        view_mode = _resolve_view_mode(request.form.get("view_mode"), has_result=False)
+        view_mode = "input"
         review_run = None
         try:
             review_run = prepare_review_run(
@@ -131,7 +132,8 @@ def create_review_app(
                 selected_demo_case=selected_demo_case,
                 demo_case=load_demo_case_payload(resolved_repo, selected_demo_case) if selected_demo_case else None,
                 view_mode=view_mode,
-                current_path=request.path,
+                current_path=url_for("index"),
+                mode_action_path=url_for("index"),
                 benchmark_rows=_load_benchmark_subset(resolved_benchmark_root),
                 recent_runs=_load_recent_runs(resolved_output_root),
                 ui_meta=metadata,
@@ -166,6 +168,7 @@ def create_review_app(
                 demo_case=load_demo_case_payload(resolved_repo, selected_demo_case) if selected_demo_case else None,
                 view_mode=view_mode,
                 current_path=request.path,
+                mode_action_path=request.path,
                 benchmark_rows=_load_benchmark_subset(resolved_benchmark_root),
                 recent_runs=_load_recent_runs(resolved_output_root),
                 ui_meta=metadata,
@@ -186,6 +189,7 @@ def create_review_app(
             demo_case=load_demo_case_payload(resolved_repo, selected_demo_case) if selected_demo_case else None,
             view_mode=view_mode,
             current_path=request.path,
+            mode_action_path=request.path,
             benchmark_rows=_load_benchmark_subset(resolved_benchmark_root),
             recent_runs=_load_recent_runs(resolved_output_root),
             ui_meta=metadata,

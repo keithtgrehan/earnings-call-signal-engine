@@ -24,7 +24,7 @@ PYTHONPATH=src PORT=7872 python app/site_server.py
 ```
 
 Current demo path:
-- `Demo mode`: loads fixed Netflix and Meta cases instantly for a presentation-safe walkthrough
+- `Demo mode`: loads fixed Netflix Q1 2022, Meta Q3 2022, and NVIDIA Q4 FY24 cases instantly for a presentation-safe walkthrough
 - `Input mode`: keeps the ordinary local workflow for YouTube, local media, transcript upload, and pasted transcript text
 - `Raw source vs extracted signal`: the centerpiece view keeps source excerpts, extracted signals, ambiguity notes, and supporting context in one review workspace
 

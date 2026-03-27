@@ -48,7 +48,7 @@ def load_demo_case_payload(repo_root: Path, case_id: str) -> dict[str, Any] | No
     fixture = _load_json(fixture_path)
     artifact_paths = fixture.get("artifact_paths", {})
     evidence_rows = _load_rows(case_root, artifact_paths.get("evidence_rows"))
-    joined_audio_rows = _load_rows(case_root, artifact_paths.get("joined_qa_audio_review"))
+    joined_audio_rows = _load_rows(case_root, artifact_paths.get("joined_qa_audio_review"), optional=True)
     market_context = _load_json(case_root / artifact_paths["market_context"])
     summary = _load_json(case_root / artifact_paths["summary"])
 
@@ -63,6 +63,7 @@ def load_demo_case_payload(repo_root: Path, case_id: str) -> dict[str, Any] | No
             "url_path": rel_path.replace("\\", "/"),
         }
         for key, rel_path in artifact_paths.items()
+        if rel_path and (case_root / rel_path).exists()
     ]
 
     pressure_rows = [
@@ -85,6 +86,7 @@ def load_demo_case_payload(repo_root: Path, case_id: str) -> dict[str, Any] | No
         "limitations": list(summary.get("limitations", [])),
         "evidence_rows": enriched_rows,
         "joined_audio_rows": enriched_joined_rows,
+        "audio_support_available": bool(enriched_joined_rows),
         "pressure_rows": pressure_rows[:4],
         "market_context": market_context,
         "fixture": fixture,
@@ -94,10 +96,13 @@ def load_demo_case_payload(repo_root: Path, case_id: str) -> dict[str, Any] | No
     }
 
 
-def _load_rows(case_root: Path, relative_path: str | None) -> list[dict[str, Any]]:
+def _load_rows(case_root: Path, relative_path: str | None, *, optional: bool = False) -> list[dict[str, Any]]:
     if not relative_path:
         return []
-    payload = _load_json(case_root / relative_path)
+    path = case_root / relative_path
+    if optional and not path.exists():
+        return []
+    payload = _load_json(path)
     rows = payload.get("rows", [])
     return rows if isinstance(rows, list) else []
 

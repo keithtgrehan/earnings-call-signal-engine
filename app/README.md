@@ -23,10 +23,19 @@ PYTHONPATH=src python app/site_server.py
 Open `http://127.0.0.1:7861`.
 
 The primary shell now supports two modes in one place:
-- `Demo mode`: instant fixed-case loading for Netflix Q1 2022 and Meta Q3 2022 using the frozen fixture contracts
+- `Demo mode`: instant fixed-case loading for Netflix Q1 2022, Meta Q3 2022, and NVIDIA Q4 FY24 using the frozen fixture contracts under `data/demo_cases/`
 - `Input mode`: the normal live workflow for YouTube, local media, transcript upload, and pasted transcript text
 
 The primary shell makes the side-by-side raw source vs extracted signal view the main demo surface. The backup interface remains available as a fallback while the shell evolves.
+
+Direct demo URLs:
+- `/?mode=demo&demo_case=netflix_q1_2022`
+- `/?mode=demo&demo_case=meta_q3_2022`
+- `/?mode=demo&demo_case=nvidia_q4_fy2024`
+
+Refresh source note:
+- fixed-case source files can be refreshed from `/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE`
+- copy only the intended case artifacts into the existing `data/demo_cases/<case_id>/` structure; do not dump raw extra files into the repo
 
 Runs execute as local background jobs. The review page refreshes while a run is active, so long YouTube transcriptions do not hold the browser request open.
 
