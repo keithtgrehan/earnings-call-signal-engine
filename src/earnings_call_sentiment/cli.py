@@ -29,7 +29,12 @@ from earnings_call_sentiment.pipeline.run import (
     write_sentiment_artifacts,
     write_transcript_artifacts,
 )
-from earnings_call_sentiment.model_sidecars.config import default_zero_shot_config_path
+from earnings_call_sentiment.model_sidecars.benchmark import write_benchmark_outputs
+from earnings_call_sentiment.model_sidecars.config import (
+    default_zero_shot_config_path,
+    load_sidecar_manifest,
+)
+from earnings_call_sentiment.model_sidecars.evaluate import write_evaluation_outputs
 from earnings_call_sentiment.model_sidecars.models.base import (
     DEFAULT_BATCH_SIZE as DEFAULT_SIDECAR_BATCH_SIZE,
 )
@@ -38,7 +43,12 @@ from earnings_call_sentiment.model_sidecars.models.base import (
 )
 from earnings_call_sentiment.model_sidecars.models.base import SUPPORTED_UNIT_TYPES
 from earnings_call_sentiment.model_sidecars.models.registry import AVAILABLE_MODEL_NAMES
-from earnings_call_sentiment.model_sidecars.runner import run_model_sidecars
+from earnings_call_sentiment.model_sidecars.runner import (
+    SUPPORTED_SAMPLE_STRATEGIES,
+    benchmark_model_sidecars,
+    prewarm_model_sidecars,
+    run_model_sidecars,
+)
 import earnings_call_sentiment.question_shifts as qs
 from earnings_call_sentiment.review_scorecard import build_review_scorecard
 from earnings_call_sentiment.signals import write_behavioral_outputs, write_qa_shift_outputs
@@ -1650,6 +1660,183 @@ def build_sidecars_parser() -> argparse.ArgumentParser:
         default=DEFAULT_SIDECAR_MAX_LENGTH,
         help="Tokenizer max length for classifier sidecars.",
     )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Optional head limit per unit type before any sampling is applied.",
+    )
+    parser.add_argument(
+        "--sample-size",
+        type=int,
+        default=None,
+        help="Optional sample size per unit type for reduced CPU validation runs.",
+    )
+    parser.add_argument(
+        "--sample-strategy",
+        choices=SUPPORTED_SAMPLE_STRATEGIES,
+        default="head",
+        help="Sampling strategy used when --sample-size is provided.",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=7,
+        help="Random seed used for deterministic random sampling.",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        default=False,
+        help="Recompute selected model/unit outputs even when complete artifacts already exist.",
+    )
+    parser.add_argument(
+        "--no-resume",
+        action="store_true",
+        default=False,
+        help="Disable skip/resume behavior and run selected model/units again.",
+    )
+    parser.add_argument(
+        "--prewarm",
+        action="store_true",
+        default=False,
+        help="Initialize requested models before scoring to separate cache warmup from inference.",
+    )
+    return parser
+
+
+def build_sidecars_prewarm_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="earnings-call-sentiment sidecars-prewarm",
+        description="Prewarm optional model-sidecar weights and tokenizers without scoring a case.",
+    )
+    parser.add_argument(
+        "--models",
+        nargs="+",
+        required=True,
+        choices=sorted(AVAILABLE_MODEL_NAMES),
+        help="One or more sidecar models to initialize.",
+    )
+    parser.add_argument(
+        "--device",
+        default="auto",
+        help="Model-sidecar device (auto/cpu/cuda).",
+    )
+    return parser
+
+
+def build_sidecars_benchmark_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="earnings-call-sentiment sidecars-benchmark",
+        description=(
+            "Benchmark optional model-sidecar runtime behavior on one or more existing processed cases."
+        ),
+    )
+    parser.add_argument(
+        "--manifest",
+        default=None,
+        help="Optional YAML manifest describing case ids, models, units, and intended runtime settings.",
+    )
+    parser.add_argument(
+        "--case-id",
+        nargs="+",
+        default=None,
+        help="One or more processed case ids to benchmark.",
+    )
+    parser.add_argument(
+        "--case-dir",
+        default=None,
+        help="Optional explicit processed-case directory for a single case benchmark.",
+    )
+    parser.add_argument(
+        "--models",
+        nargs="+",
+        default=None,
+        choices=sorted(AVAILABLE_MODEL_NAMES),
+        help="One or more models to benchmark.",
+    )
+    parser.add_argument(
+        "--units",
+        nargs="+",
+        default=None,
+        choices=sorted(SUPPORTED_UNIT_TYPES),
+        help="Source units to benchmark.",
+    )
+    parser.add_argument(
+        "--zero-shot-label-config",
+        default=None,
+        help="YAML config for zero-shot label groups.",
+    )
+    parser.add_argument(
+        "--output-dir",
+        default=None,
+        help="Base output directory for sidecar outputs and benchmark artifacts.",
+    )
+    parser.add_argument(
+        "--device",
+        default=None,
+        help="Model-sidecar device (auto/cpu/cuda).",
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=None,
+        help="Inference batch size for sidecar models.",
+    )
+    parser.add_argument(
+        "--max-length",
+        type=int,
+        default=None,
+        help="Tokenizer max length for classifier sidecars.",
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Optional head limit per unit type before any sampling is applied.",
+    )
+    parser.add_argument(
+        "--sample-size",
+        type=int,
+        default=None,
+        help="Optional sample size per unit type for reduced CPU benchmark runs.",
+    )
+    parser.add_argument(
+        "--sample-strategy",
+        choices=SUPPORTED_SAMPLE_STRATEGIES,
+        default=None,
+        help="Sampling strategy used when --sample-size is provided.",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Random seed used for deterministic random sampling.",
+    )
+    parser.add_argument(
+        "--run-mode",
+        choices=("cold", "warm", "both"),
+        default=None,
+        help="Whether to benchmark a cold run, warm run, or both.",
+    )
+    return parser
+
+
+def build_sidecars_evaluate_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="earnings-call-sentiment sidecars-evaluate",
+        description="Write comparison reports for previously generated sidecar outputs.",
+    )
+    parser.add_argument(
+        "--case-id",
+        required=True,
+        help="Processed case id whose sidecar outputs should be evaluated.",
+    )
+    parser.add_argument(
+        "--sidecar-root",
+        default="./outputs",
+        help="Base sidecar output root. The evaluator reads from <sidecar-root>/<case_id>/model_sidecars/.",
+    )
     return parser
 
 
@@ -1667,6 +1854,13 @@ def _run_sidecars_cli(argv: list[str]) -> int:
             max_length=int(args.max_length),
             device=str(args.device),
             case_dir=args.case_dir,
+            limit=args.limit,
+            sample_size=args.sample_size,
+            sample_strategy=str(args.sample_strategy),
+            seed=int(args.seed),
+            resume=not bool(args.no_resume),
+            force=bool(args.force),
+            prewarm_models=bool(args.prewarm),
         )
     except RuntimeError as exc:
         print(f"error: {exc}", file=sys.stderr)
@@ -1676,11 +1870,135 @@ def _run_sidecars_cli(argv: list[str]) -> int:
     return 0
 
 
+def _run_sidecars_prewarm_cli(argv: list[str]) -> int:
+    parser = build_sidecars_prewarm_parser()
+    args = parser.parse_args(argv)
+    payload = prewarm_model_sidecars(
+        model_names=list(args.models),
+        device=str(args.device),
+    )
+    print(json.dumps(payload, indent=2))
+    if payload["failed_models"]:
+        print(
+            "error: one or more requested sidecar models could not be prewarmed.",
+            file=sys.stderr,
+        )
+        return 2
+    return 0
+
+
+def _coalesce_sidecar_value(primary: Any, fallback: Any) -> Any:
+    return fallback if primary is None else primary
+
+
+def _run_sidecars_benchmark_cli(argv: list[str]) -> int:
+    parser = build_sidecars_benchmark_parser()
+    args = parser.parse_args(argv)
+    manifest = load_sidecar_manifest(args.manifest) if args.manifest else {}
+
+    case_ids = list(_coalesce_sidecar_value(args.case_id, manifest.get("case_ids", [])))
+    model_names = list(_coalesce_sidecar_value(args.models, manifest.get("models", [])))
+    unit_types = list(_coalesce_sidecar_value(args.units, manifest.get("units", [])))
+    if not case_ids or not model_names or not unit_types:
+        parser.error(
+            "Benchmarking requires case ids, models, and units either directly or through --manifest."
+        )
+
+    output_dir = _coalesce_sidecar_value(args.output_dir, manifest.get("output_root", "./outputs"))
+    zero_shot_label_config = _coalesce_sidecar_value(
+        args.zero_shot_label_config,
+        manifest.get("zero_shot_label_config", str(default_zero_shot_config_path())),
+    )
+    device = str(
+        _coalesce_sidecar_value(args.device, manifest.get("device_expectation", "auto"))
+    )
+    batch_size = int(
+        _coalesce_sidecar_value(args.batch_size, manifest.get("batch_size", DEFAULT_SIDECAR_BATCH_SIZE))
+    )
+    max_length = int(
+        _coalesce_sidecar_value(args.max_length, manifest.get("max_length", DEFAULT_SIDECAR_MAX_LENGTH))
+    )
+    limit = _coalesce_sidecar_value(args.limit, manifest.get("limit"))
+    sample_size = _coalesce_sidecar_value(args.sample_size, manifest.get("sample_size"))
+    sample_strategy = str(
+        _coalesce_sidecar_value(args.sample_strategy, manifest.get("sample_strategy", "head"))
+    )
+    seed = int(_coalesce_sidecar_value(args.seed, manifest.get("seed", 7)))
+    run_mode = str(_coalesce_sidecar_value(args.run_mode, manifest.get("run_mode", "warm")))
+
+    try:
+        payload = benchmark_model_sidecars(
+            case_ids=case_ids,
+            model_names=model_names,
+            unit_types=unit_types,
+            output_dir=output_dir,
+            zero_shot_label_config=zero_shot_label_config,
+            batch_size=batch_size,
+            max_length=max_length,
+            device=device,
+            case_dir=args.case_dir,
+            limit=limit,
+            sample_size=sample_size,
+            sample_strategy=sample_strategy,
+            seed=seed,
+            run_mode=run_mode,
+        )
+        artifacts = write_benchmark_outputs(payload, output_root=output_dir)
+    except RuntimeError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+
+    print(
+        json.dumps(
+            {
+                "run_mode": payload["run_mode"],
+                "manifest": manifest.get("manifest_path"),
+                "artifacts": {
+                    case_id: {key: str(value) for key, value in case_artifacts.items()}
+                    for case_id, case_artifacts in artifacts.items()
+                },
+                "notes": payload.get("notes", []),
+            },
+            indent=2,
+        )
+    )
+    return 0
+
+
+def _run_sidecars_evaluate_cli(argv: list[str]) -> int:
+    parser = build_sidecars_evaluate_parser()
+    args = parser.parse_args(argv)
+    try:
+        artifacts = write_evaluation_outputs(
+            args.case_id,
+            sidecar_root=args.sidecar_root,
+        )
+    except RuntimeError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+    print(
+        json.dumps(
+            {
+                "case_id": args.case_id,
+                "artifacts": {key: str(value) for key, value in artifacts.items()},
+            },
+            indent=2,
+        )
+    )
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     """CLI main entry point."""
     raw_args = list(argv) if argv is not None else sys.argv[1:]
     if raw_args and raw_args[0] == "sidecars":
         return _run_sidecars_cli(raw_args[1:])
+    if raw_args and raw_args[0] == "sidecars-prewarm":
+        return _run_sidecars_prewarm_cli(raw_args[1:])
+    if raw_args and raw_args[0] == "sidecars-benchmark":
+        return _run_sidecars_benchmark_cli(raw_args[1:])
+    if raw_args and raw_args[0] == "sidecars-evaluate":
+        return _run_sidecars_evaluate_cli(raw_args[1:])
 
     parser = build_parser()
     args = parser.parse_args(raw_args)

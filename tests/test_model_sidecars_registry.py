@@ -12,6 +12,7 @@ from earnings_call_sentiment.model_sidecars.models.registry import (
 def test_model_registry_lists_expected_models() -> None:
     assert AVAILABLE_MODEL_NAMES == (
         "deberta_zero_shot",
+        "distilbart_zero_shot_smoke",
         "financial_roberta",
         "finbert_tone",
         "mpnet_embeddings",

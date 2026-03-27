@@ -35,6 +35,34 @@ def _normalize_sentiment_label(label: str) -> str:
     return lowered or "unknown"
 
 
+def _metadata_source(row: dict[str, Any]) -> dict[str, Any]:
+    metadata = row.get("metadata", {})
+    if isinstance(metadata, dict):
+        source_metadata = metadata.get("source_metadata", {})
+        if isinstance(source_metadata, dict):
+            return source_metadata
+    return {}
+
+
+def _deterministic_label(row: dict[str, Any]) -> str | None:
+    source_metadata = _metadata_source(row)
+    label = _normalize_sentiment_label(str(source_metadata.get("sentiment", "")))
+    if label == "unknown":
+        return None
+    return label
+
+
+def _deterministic_signed_score(row: dict[str, Any]) -> float | None:
+    source_metadata = _metadata_source(row)
+    value = source_metadata.get("signed_score")
+    if value is None:
+        value = source_metadata.get("score")
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
 def _top_label_rows(model_dir: Path) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for path in sorted(model_dir.glob("*_scores.jsonl")):
@@ -59,6 +87,119 @@ def _collect_similarity_highlights(model_dir: Path) -> list[dict[str, Any]]:
         elif payload.get("mode") == "prior_guidance_comparison":
             highlights.extend(payload.get("pairs", [])[:5])
     return highlights[:10]
+
+
+def _classifier_sidecar_comparison(models: dict[str, Any]) -> dict[str, Any]:
+    finbert_rows = {
+        (row.get("unit_type"), row.get("source_id")): row
+        for row in models.get("finbert_tone", {}).get("top_rows", [])
+    }
+    roberta_rows = {
+        (row.get("unit_type"), row.get("source_id")): row
+        for row in models.get("financial_roberta", {}).get("top_rows", [])
+    }
+    comparable_keys = sorted(set(finbert_rows) & set(roberta_rows))
+    disagreement_hotspots: list[dict[str, Any]] = []
+    agreement_count = 0
+    for key in comparable_keys:
+        finbert = finbert_rows[key]
+        roberta = roberta_rows[key]
+        finbert_label = _normalize_sentiment_label(str(finbert.get("label")))
+        roberta_label = _normalize_sentiment_label(str(roberta.get("label")))
+        if finbert_label == roberta_label:
+            agreement_count += 1
+            continue
+        disagreement_hotspots.append(
+            {
+                "case_id": finbert.get("case_id"),
+                "unit_type": finbert.get("unit_type"),
+                "unit_id": finbert.get("source_id"),
+                "section": finbert.get("section"),
+                "speaker": finbert.get("speaker"),
+                "finbert_label": finbert.get("label"),
+                "finbert_score": finbert.get("score"),
+                "financial_roberta_label": roberta.get("label"),
+                "financial_roberta_score": roberta.get("score"),
+                "text": str(finbert.get("text", ""))[:320],
+                "disagreement_severity": round(
+                    max(
+                        float(finbert.get("score", 0.0) or 0.0),
+                        float(roberta.get("score", 0.0) or 0.0),
+                    ),
+                    6,
+                ),
+            }
+        )
+
+    disagreement_hotspots = sorted(
+        disagreement_hotspots,
+        key=lambda row: float(row.get("disagreement_severity", 0.0) or 0.0),
+        reverse=True,
+    )[:10]
+    return {
+        "comparable_rows": len(comparable_keys),
+        "agreement_rows": agreement_count,
+        "disagreement_rows": len(disagreement_hotspots),
+        "agreement_rate": round(agreement_count / len(comparable_keys), 4)
+        if comparable_keys
+        else 0.0,
+        "hotspots": disagreement_hotspots,
+    }
+
+
+def _deterministic_comparison(models: dict[str, Any]) -> dict[str, Any]:
+    by_model: dict[str, Any] = {}
+    hotspots: list[dict[str, Any]] = []
+    for model_name in ("finbert_tone", "financial_roberta"):
+        rows = models.get(model_name, {}).get("top_rows", [])
+        comparable_rows = 0
+        agreement_rows = 0
+        for row in rows:
+            deterministic_label = _deterministic_label(row)
+            if row.get("unit_type") != "chunks" or deterministic_label is None:
+                continue
+            comparable_rows += 1
+            sidecar_label = _normalize_sentiment_label(str(row.get("label")))
+            if deterministic_label == sidecar_label:
+                agreement_rows += 1
+                continue
+            deterministic_score = _deterministic_signed_score(row)
+            sidecar_score = float(row.get("score", 0.0) or 0.0)
+            hotspots.append(
+                {
+                    "case_id": row.get("case_id"),
+                    "unit_type": row.get("unit_type"),
+                    "unit_id": row.get("source_id"),
+                    "text": str(row.get("text", ""))[:320],
+                    "deterministic_label": deterministic_label,
+                    "deterministic_signal": "chunk_sentiment",
+                    "deterministic_score": deterministic_score,
+                    "model_name": model_name,
+                    "sidecar_label": row.get("label"),
+                    "sidecar_score": sidecar_score,
+                    "disagreement_severity": round(
+                        abs(float(deterministic_score or 0.0)) + abs(sidecar_score),
+                        6,
+                    ),
+                }
+            )
+
+        disagreement_rows = comparable_rows - agreement_rows
+        by_model[model_name] = {
+            "comparable_rows": comparable_rows,
+            "agreement_rows": agreement_rows,
+            "disagreement_rows": disagreement_rows,
+            "agreement_rate": round(agreement_rows / comparable_rows, 4)
+            if comparable_rows
+            else 0.0,
+        }
+
+    hotspots = sorted(
+        hotspots,
+        key=lambda row: float(row.get("disagreement_severity", 0.0) or 0.0),
+        reverse=True,
+    )[:10]
+    return {"by_model": by_model, "hotspots": hotspots}
 
 
 def evaluate_case_sidecars(
@@ -88,48 +229,8 @@ def evaluate_case_sidecars(
             "similarity_highlights": _collect_similarity_highlights(model_dir),
         }
 
-    finbert_rows = {
-        (row.get("unit_type"), row.get("source_id")): row
-        for row in models.get("finbert_tone", {}).get("top_rows", [])
-    }
-    roberta_rows = {
-        (row.get("unit_type"), row.get("source_id")): row
-        for row in models.get("financial_roberta", {}).get("top_rows", [])
-    }
-    comparable_keys = sorted(set(finbert_rows) & set(roberta_rows))
-    disagreement_hotspots: list[dict[str, Any]] = []
-    agreement_count = 0
-    for key in comparable_keys:
-        finbert = finbert_rows[key]
-        roberta = roberta_rows[key]
-        finbert_label = _normalize_sentiment_label(str(finbert.get("label")))
-        roberta_label = _normalize_sentiment_label(str(roberta.get("label")))
-        if finbert_label == roberta_label:
-            agreement_count += 1
-            continue
-        disagreement_hotspots.append(
-            {
-                "unit_type": finbert.get("unit_type"),
-                "source_id": finbert.get("source_id"),
-                "section": finbert.get("section"),
-                "speaker": finbert.get("speaker"),
-                "finbert_label": finbert.get("label"),
-                "finbert_score": finbert.get("score"),
-                "financial_roberta_label": roberta.get("label"),
-                "financial_roberta_score": roberta.get("score"),
-                "text": str(finbert.get("text", ""))[:320],
-            }
-        )
-
-    disagreement_hotspots = sorted(
-        disagreement_hotspots,
-        key=lambda row: max(
-            float(row.get("finbert_score", 0.0) or 0.0),
-            float(row.get("financial_roberta_score", 0.0) or 0.0),
-        ),
-        reverse=True,
-    )[:10]
-
+    sidecar_comparison = _classifier_sidecar_comparison(models)
+    deterministic_comparison = _deterministic_comparison(models)
     mpnet_highlights = models.get("mpnet_embeddings", {}).get("similarity_highlights", [])
     report = {
         "case_id": case_id,
@@ -144,23 +245,22 @@ def evaluate_case_sidecars(
             for model_name, payload in models.items()
         },
         "finbert_vs_financial_roberta": {
-            "comparable_rows": len(comparable_keys),
-            "agreement_rows": agreement_count,
-            "disagreement_rows": len(disagreement_hotspots),
-            "agreement_rate": round(agreement_count / len(comparable_keys), 4)
-            if comparable_keys
-            else 0.0,
+            "comparable_rows": sidecar_comparison["comparable_rows"],
+            "agreement_rows": sidecar_comparison["agreement_rows"],
+            "disagreement_rows": sidecar_comparison["disagreement_rows"],
+            "agreement_rate": sidecar_comparison["agreement_rate"],
         },
-        "disagreement_hotspots": disagreement_hotspots,
+        "disagreement_hotspots": sidecar_comparison["hotspots"],
+        "deterministic_comparison": deterministic_comparison,
         "mpnet_similarity_highlights": mpnet_highlights[:10],
         "incremental_value_summary": {
             "agreement_note": (
                 "Use FinBERT-Tone and Financial-RoBERTa agreement as a consistency check, "
                 "not as a replacement for deterministic evidence."
             ),
-            "disagreement_note": (
-                "Inspect disagreement hotspots for wording the deterministic pipeline may flag "
-                "as cautious, defensive, or mixed."
+            "deterministic_note": (
+                "Use deterministic-vs-sidecar disagreements as an inspection queue only. "
+                "These are not accuracy claims."
             ),
             "embedding_note": (
                 "Use MPNet neighbors to spot repeated themes or guidance echoes; do not treat "
@@ -185,7 +285,7 @@ def render_evaluation_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## Agreement",
+            "## Sidecar Agreement",
             (
                 "- FinBERT-Tone vs Financial-RoBERTa: "
                 f"{payload['finbert_vs_financial_roberta'].get('agreement_rows', 0)} agreement rows, "
@@ -193,18 +293,41 @@ def render_evaluation_markdown(payload: dict[str, Any]) -> str:
                 f"agreement rate `{payload['finbert_vs_financial_roberta'].get('agreement_rate', 0.0)}`"
             ),
             "",
-            "## Disagreement Hotspots",
+            "## Sidecar Disagreement Hotspots",
         ]
     )
     if payload.get("disagreement_hotspots"):
         for row in payload["disagreement_hotspots"]:
             lines.append(
                 "- "
-                f"{row.get('unit_type')} / {row.get('source_id')}: "
-                f"FinBERT=`{row.get('finbert_label')}` vs Financial-RoBERTa=`{row.get('financial_roberta_label')}`"
+                f"{row.get('unit_type')} / {row.get('unit_id')}: "
+                f"FinBERT=`{row.get('finbert_label')}` vs Financial-RoBERTa=`{row.get('financial_roberta_label')}` "
+                f"(severity `{row.get('disagreement_severity')}`)"
             )
     else:
         lines.append("- No comparable disagreement hotspots were found.")
+
+    lines.extend(["", "## Deterministic Comparison"])
+    for model_name, summary in payload.get("deterministic_comparison", {}).get("by_model", {}).items():
+        lines.append(
+            "- "
+            f"`{model_name}`: {summary.get('agreement_rows', 0)} agreement rows, "
+            f"{summary.get('disagreement_rows', 0)} disagreements, "
+            f"agreement rate `{summary.get('agreement_rate', 0.0)}`"
+        )
+    deterministic_hotspots = payload.get("deterministic_comparison", {}).get("hotspots", [])
+    if deterministic_hotspots:
+        lines.append("")
+        lines.append("### Deterministic Hotspots")
+        for row in deterministic_hotspots[:5]:
+            lines.append(
+                "- "
+                f"{row.get('model_name')} / {row.get('unit_id')}: "
+                f"deterministic=`{row.get('deterministic_label')}` vs sidecar=`{row.get('sidecar_label')}` "
+                f"(severity `{row.get('disagreement_severity')}`)"
+            )
+    else:
+        lines.append("- No deterministic comparison hotspots were found.")
 
     lines.extend(["", "## MPNet Similarity"])
     if payload.get("mpnet_similarity_highlights"):
@@ -229,7 +352,7 @@ def render_evaluation_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Incremental Value Scaffold",
             f"- {payload['incremental_value_summary']['agreement_note']}",
-            f"- {payload['incremental_value_summary']['disagreement_note']}",
+            f"- {payload['incremental_value_summary']['deterministic_note']}",
             f"- {payload['incremental_value_summary']['embedding_note']}",
         ]
     )

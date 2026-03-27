@@ -1,0 +1,29 @@
+name: CPU Smoke 5-Call Template
+case_ids:
+  - meta_q3_2022
+  - netflix_q1_2022
+  - nvidia_q4_fy2024
+  - REPLACE_WITH_CASE_ID_04
+  - REPLACE_WITH_CASE_ID_05
+models:
+  - finbert_tone
+  - financial_roberta
+  - deberta_zero_shot
+  - mpnet_embeddings
+units:
+  - chunks
+  - guidance_spans
+  - qa_answers
+device_expectation: cpu
+batch_size: 2
+max_length: 512
+sample_size: 6
+sample_strategy: random
+seed: 7
+run_mode: warm
+zero_shot_label_config: configs/model_eval/zero_shot_labels.finance.yaml
+output_root: ./outputs
+notes:
+  - This is a template because the repo currently contains three sidecar-ready processed demo cases, not five.
+  - Replace the placeholder case ids before running a full 5-call smoke batch.
+  - Intended for reduced CPU smoke validation before larger GPU batch runs.

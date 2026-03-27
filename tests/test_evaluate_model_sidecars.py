@@ -39,7 +39,12 @@ def _prepare_sidecar_outputs(tmp_path: Path) -> Path:
                 "label": "positive",
                 "score": 0.91,
                 "rank": 1,
-                "metadata": {},
+                "metadata": {
+                    "source_metadata": {
+                        "sentiment": "NEGATIVE",
+                        "signed_score": -0.7,
+                    }
+                },
             }
         )
         + "\n",
@@ -58,7 +63,12 @@ def _prepare_sidecar_outputs(tmp_path: Path) -> Path:
                 "label": "negative",
                 "score": 0.87,
                 "rank": 1,
-                "metadata": {},
+                "metadata": {
+                    "source_metadata": {
+                        "sentiment": "NEGATIVE",
+                        "signed_score": -0.7,
+                    }
+                },
             }
         )
         + "\n",
@@ -94,6 +104,7 @@ def test_write_evaluation_outputs_writes_json_and_markdown(tmp_path: Path) -> No
     payload = json.loads(artifacts["json_path"].read_text(encoding="utf-8"))
     assert payload["case_id"] == "synthetic_case"
     assert payload["finbert_vs_financial_roberta"]["disagreement_rows"] == 1
+    assert payload["deterministic_comparison"]["by_model"]["finbert_tone"]["disagreement_rows"] == 1
     assert artifacts["md_path"].exists()
 
 

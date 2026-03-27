@@ -4,6 +4,8 @@ __pycache__/
 .DS_Store
 outputs/
 models/
+!src/earnings_call_sentiment/model_sidecars/models/
+!src/earnings_call_sentiment/model_sidecars/models/*.py
 cache/
 *.log
 *.egg-info/

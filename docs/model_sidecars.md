@@ -1,12 +1,19 @@
 # Model Sidecars
 
-This repo now includes an optional model-sidecar benchmark layer for inspecting how additional NLP models behave on top of existing processed cases.
+This repo includes an optional model-sidecar layer for comparing additional NLP model behavior on top of existing processed cases.
 
 The sidecars are additive only:
 - deterministic transcript-first outputs remain the source of truth
-- sidecars do not rewrite or weaken guidance, Q&A, or scorecard artifacts
-- sidecars are for model-behavior comparison and review support only
+- sidecars do not rewrite guidance, Q&A, scorecard, or report artifacts
+- sidecars are for inspection, comparison, and utility benchmarking only
 - sidecars do not add trading automation or unsupported statistical claims
+
+## What Sidecars Are Not
+
+- not a rewrite of the deterministic pipeline
+- not a replacement for transcript-backed evidence rows
+- not a claim of alpha, predictive lift, or statistical validity
+- not a hidden cloud dependency path
 
 ## Models
 
@@ -25,6 +32,12 @@ The sidecars are additive only:
 - Purpose: configurable zero-shot scoring by finance-specific label groups
 - Output: ranked scores per label group
 
+### `distilbart_zero_shot_smoke`
+- Hugging Face id: `valhalla/distilbart-mnli-12-1`
+- Purpose: lighter optional zero-shot fallback for CPU smoke tests
+- Output: ranked scores per label group
+- Note: this is a lower-cost fallback, not the canonical benchmark zero-shot model
+
 ### `mpnet_embeddings`
 - Hugging Face id: `sentence-transformers/all-mpnet-base-v2`
 - Purpose: semantic embedding baseline for nearest-neighbor and guidance-similarity inspection
@@ -37,33 +50,153 @@ The sidecars are additive only:
 - `qa_answers`: answer text from existing `qa_pairs.json`
 - `speaker_turns`: speaker-aware blocks from existing `transcript_sectioned.json` when present
 
-The loader reuses existing repo artifacts. It does not add new parsing heuristics for these units.
+The loader reuses existing repo artifacts. It does not invent new parsing heuristics for these units.
 
-## CLI
+## Prewarm
 
-Run sidecars from the existing CLI with the explicit `sidecars` subcommand:
+Use prewarm to download and initialize models before a timed benchmark run:
 
 ```bash
-PYTHONPATH=src python -m earnings_call_sentiment sidecars \
+PYTHONPATH=src python3 -m earnings_call_sentiment sidecars-prewarm \
+  --models finbert_tone financial_roberta deberta_zero_shot mpnet_embeddings \
+  --device cpu
+```
+
+Prewarm:
+- resolves optional dependencies
+- initializes pipelines or embedding models
+- downloads model weights and tokenizers if they are not already cached
+- exits cleanly with a clear error if an optional dependency is missing
+
+## Running Sidecars
+
+Run sidecars on an existing processed case:
+
+```bash
+PYTHONPATH=src python3 -m earnings_call_sentiment sidecars \
   --case-id nvidia_q4_fy2024 \
   --models finbert_tone financial_roberta deberta_zero_shot mpnet_embeddings \
-  --units chunks guidance_spans qa_answers speaker_turns \
-  --zero-shot-label-config configs/model_eval/zero_shot_labels.finance.yaml
+  --units chunks guidance_spans qa_answers \
+  --zero-shot-label-config configs/model_eval/zero_shot_labels.finance.yaml \
+  --output-dir outputs
 ```
 
 Useful flags:
-- `--case-id`: one or more processed cases
-- `--models`: one or more sidecar models
-- `--units`: which existing artifacts to score
-- `--zero-shot-label-config`: YAML label-group preset for the DeBERTa zero-shot model
-- `--output-dir`: base directory for sidecar artifacts
+- `--prewarm`: initialize the requested models before scoring
+- `--force`: recompute even when complete sidecar artifacts already exist
+- `--no-resume`: disable skip/resume behavior and run selected model/unit outputs again
+- `--limit`: head limit per unit type before sampling
+- `--sample-size`: sampled item count per unit type
+- `--sample-strategy`: `head`, `random`, or `stratified`
+- `--seed`: deterministic seed for random sampling
 - `--device`: `auto`, `cpu`, or `cuda`
 - `--batch-size`
 - `--max-length`
 
+## Reduced CPU Validation
+
+The slower zero-shot and embedding models can be validated on CPU with reduced runs:
+
+```bash
+PYTHONPATH=src python3 -m earnings_call_sentiment sidecars \
+  --case-id nvidia_q4_fy2024 \
+  --models deberta_zero_shot mpnet_embeddings \
+  --units qa_answers guidance_spans \
+  --sample-size 4 \
+  --sample-strategy random \
+  --seed 7 \
+  --batch-size 2 \
+  --device cpu \
+  --prewarm
+```
+
+Recommended CPU pattern:
+- prewarm first
+- use `--sample-size` or `--limit` for smoke validation
+- keep `--batch-size` small for the heavier CPU-only models
+
+## Resume And Retry
+
+Resume/skip behavior is enabled by default.
+
+Completion rules:
+- classification output is complete when the final unit JSONL exists and is non-empty
+- embedding output is complete when the final embedding JSONL and similarity JSON both exist and are non-empty
+- temporary `.inprogress` files do not count as complete
+
+Write safety:
+- sidecar unit artifacts are written to temporary `.inprogress` files first
+- final files are only moved into place after a full successful write
+- interrupted runs can resume and skip already completed model/unit artifacts
+
+Recompute controls:
+- use `--force` to recompute selected outputs
+- use `--no-resume` to disable skip logic for a run
+
+## Benchmarks
+
+Benchmark sidecars with a dedicated script or the matching CLI entrypoint:
+
+```bash
+PYTHONPATH=src python3 scripts/benchmark_model_sidecars.py \
+  --case-id nvidia_q4_fy2024 \
+  --models finbert_tone financial_roberta \
+  --units chunks guidance_spans \
+  --batch-size 4 \
+  --device cpu \
+  --run-mode warm
+```
+
+Or:
+
+```bash
+PYTHONPATH=src python3 -m earnings_call_sentiment sidecars-benchmark \
+  --manifest configs/model_eval/manifests/cpu_smoke_5_calls.template.yaml
+```
+
+Benchmark reports record:
+- per-model wall-clock runtime
+- per-unit item counts
+- items per second
+- requested device and resolved runtime device
+- batch size and max length
+- warm or cold run label
+- approximate peak process RSS where available
+- output paths for generated sidecar artifacts
+
+Memory note:
+- peak memory is approximate process-level RSS from `resource.ru_maxrss` where available
+- this is useful for honest comparison, but it is not an isolated cross-platform profiler
+
+## Evaluation Reports
+
+Generate a comparison report from existing sidecar outputs:
+
+```bash
+PYTHONPATH=src python3 scripts/evaluate_model_sidecars.py \
+  --case-id nvidia_q4_fy2024 \
+  --sidecar-root outputs
+```
+
+The evaluation report writes:
+- `outputs/<case_id>/model_sidecars/model_sidecars_evaluation.json`
+- `outputs/<case_id>/model_sidecars/model_sidecars_evaluation.md`
+
+It covers:
+- coverage counts
+- runtime per model
+- label distributions
+- FinBERT-Tone vs Financial-RoBERTa agreement where comparable
+- sidecar disagreement hotspots
+- deterministic chunk-sentiment vs sidecar disagreement hotspots where meaningful
+- MPNet similarity highlights
+- an incremental-value summary scaffold
+
+These are inspection reports only. They are not accuracy claims.
+
 ## Output Layout
 
-Sidecar artifacts are written separately from the deterministic outputs:
+Sidecar artifacts are written separately from deterministic outputs:
 
 ```text
 outputs/<case_id>/model_sidecars/
@@ -77,6 +210,8 @@ outputs/<case_id>/model_sidecars/
     ...
   deberta_zero_shot/
     ...
+  distilbart_zero_shot_smoke/
+    ...
   mpnet_embeddings/
     chunk_embeddings.jsonl
     guidance_span_embeddings.jsonl
@@ -87,6 +222,11 @@ outputs/<case_id>/model_sidecars/
     qa_similarity.json
     speaker_turn_similarity.json
     run_summary.json
+  benchmarks/
+    model_sidecars_benchmark.json
+    model_sidecars_benchmark.md
+  model_sidecars_evaluation.json
+  model_sidecars_evaluation.md
 ```
 
 Each classification record includes:
@@ -116,7 +256,7 @@ Each embedding record includes:
 
 ## Zero-Shot Label Presets
 
-Two presets are included:
+Included presets:
 - `configs/model_eval/zero_shot_labels.default.yaml`
 - `configs/model_eval/zero_shot_labels.finance.yaml`
 
@@ -126,35 +266,24 @@ The finance preset includes:
 - `qa_dynamics`
 - `guidance_framing`
 
-Each group is scored separately and saved with the label-group name in record metadata.
+Each label group is scored separately and saved with the label-group name in record metadata.
 
-## Evaluation Script
+## Batch Manifest Templates
 
-Generate a compact sidecar comparison report:
+Templates live under:
+- `configs/model_eval/manifests/cpu_smoke_5_calls.template.yaml`
+- `configs/model_eval/manifests/gpu_batch_15_calls.template.yaml`
+- `configs/model_eval/manifests/gpu_batch_50_calls.template.yaml`
 
-```bash
-PYTHONPATH=src python scripts/evaluate_model_sidecars.py \
-  --case-id nvidia_q4_fy2024 \
-  --sidecar-root outputs
-```
-
-This writes:
-- `outputs/<case_id>/model_sidecars/model_sidecars_evaluation.json`
-- `outputs/<case_id>/model_sidecars/model_sidecars_evaluation.md`
-
-The report covers:
-- coverage counts
-- runtime per model
-- label distributions
-- FinBERT-Tone vs Financial-RoBERTa agreement where comparable
-- disagreement hotspots
-- MPNet similarity highlights
-- an incremental-value summary scaffold
+Current repo reality:
+- the repo currently contains three sidecar-ready processed demo cases: `meta_q3_2022`, `netflix_q1_2022`, and `nvidia_q4_fy2024`
+- the 5, 15, and 50 call manifests are therefore honest templates with placeholders where additional processed cases are still needed
 
 ## Limitations
 
-- Model downloads can be large and may take time on the first run.
-- GPU is used automatically when `torch` sees CUDA, but GPU is not required.
-- `speaker_turns` only runs when clean speaker-turn artifacts already exist.
-- Prior-quarter guidance similarity uses existing `guidance_revision.csv` pairs when available; otherwise MPNet falls back to within-case nearest-neighbor outputs.
-- Sidecars are local-first inspection aids. They do not replace deterministic outputs and should not be treated as trading signals.
+- first-run model downloads can be large and slow on CPU
+- GPU is used automatically when `torch` sees CUDA, but GPU is not required
+- `speaker_turns` only runs when clean speaker-turn artifacts already exist
+- prior-quarter guidance similarity uses existing `guidance_revision.csv` pairs when available; otherwise MPNet falls back to within-case nearest-neighbor outputs
+- broader throughput benchmarking is better suited to NVIDIA hardware after CPU-side validation
+- sidecars remain optional support layers and should not be treated as trading signals
