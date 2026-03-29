@@ -133,10 +133,62 @@ Review confidence means confidence in the tool's interpretation of the available
 - behavioral text signals: uncertainty, reassurance, analyst skepticism
 - deterministic Q&A shift
 - deterministic audio behavior support
+- optional NLP sidecar evaluation pack
 - optional visual behavior support
 - deterministic scorecard presentation layer
 
-Audio and visual layers are supporting, confidence-tagged review aids. They are not truth detectors and should not be presented as hidden-state inference.
+Audio, NLP, and visual layers are supporting, confidence-tagged review aids. They are not truth detectors and should not be presented as hidden-state inference.
+
+## Optional NLP Sidecar Eval Pack
+This branch adds an optional NLP sidecar evaluation pack that stays separate from the canonical deterministic path.
+
+What it does:
+- reads existing repo artifacts for `chunks`, `guidance_spans`, and `qa_answers`
+- writes sidecar outputs under `outputs/<case_id>/model_sidecars/<model_name>/`
+- records runtime, coverage, disagreement summaries, and per-case comparison summaries
+- keeps all sidecar outputs explicitly additive and supporting only
+
+Models wired:
+- `finbert_tone`
+- `financial_roberta`
+- `deberta_zero_shot`
+- `mpnet_embeddings`
+
+Runner:
+
+```bash
+PYTHONPATH=src python scripts/run_nlp_sidecars.py run \
+  --case-id meta_q3_2022 \
+  --demo-case-root data/demo_cases/meta_q3_2022 \
+  --models finbert_tone financial_roberta \
+  --units chunks guidance_spans qa_answers \
+  --smoke-limit 4 \
+  --prewarm
+```
+
+Refresh only the rolled-up comparison summary:
+
+```bash
+PYTHONPATH=src python scripts/run_nlp_sidecars.py compare --case-id meta_q3_2022
+```
+
+CPU vs GPU expectations:
+- `finbert_tone` and `financial_roberta` are practical on CPU for reduced overnight subsets
+- `deberta_zero_shot` is materially slower on CPU and is best treated as smoke/subset validation unless GPU is available
+- `mpnet_embeddings` is practical on CPU for smaller subsets and similarity inspection
+
+What this does not do:
+- it does not replace deterministic transcript-backed outputs
+- it does not claim predictive edge, accuracy lift, or statistical significance
+- it does not invent a second parser or change benchmark labels
+- it does not turn embeddings or zero-shot outputs into finance ground truth
+
+Branch-local reduced real-case validations completed:
+- `meta_q3_2022`: `finbert_tone` + `financial_roberta` on `chunks`, `guidance_spans`, and `qa_answers` with `smoke_limit=4`
+- `nvidia_q4_fy2024`: `finbert_tone` + `deberta_zero_shot` on `guidance_spans` and `qa_answers` with `smoke_limit=3`
+- `netflix_q1_2022`: `mpnet_embeddings` on `guidance_spans` and `qa_answers` with `smoke_limit=2`
+
+These were reduced branch-local validation runs only. They demonstrate runtime wiring and output generation, not model validation.
 
 ## Conservative Multimodal Status
 The repo remains transcript-first. Multimodal artifacts are supporting evidence layers and do not replace the deterministic transcript-backed outputs.

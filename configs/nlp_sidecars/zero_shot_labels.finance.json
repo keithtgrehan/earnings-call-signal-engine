@@ -1,0 +1,23 @@
+{
+  "tone": [
+    "positive",
+    "neutral",
+    "negative"
+  ],
+  "caution_signal": [
+    "cautious management tone",
+    "balanced management tone",
+    "confident management tone"
+  ],
+  "guidance_direction": [
+    "guidance raised",
+    "guidance maintained",
+    "guidance lowered",
+    "guidance unclear"
+  ],
+  "qa_answer_style": [
+    "direct answer",
+    "qualified answer",
+    "evasive answer"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "tone": [
+    "positive",
+    "neutral",
+    "negative"
+  ],
+  "guidance_direction": [
+    "guidance raised",
+    "guidance maintained",
+    "guidance lowered",
+    "guidance unclear"
+  ]
+}
