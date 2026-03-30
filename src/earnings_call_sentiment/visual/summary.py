@@ -334,7 +334,7 @@ def _build_summary(frames_df: pd.DataFrame, segments_df: pd.DataFrame, metadata:
 
     limitations = []
     if not bool(quality_gate["stable_face_frame_pct_ok"]):
-        limitations.append("Low stable face visibility reduces confidence in visual interpretation.")
+        limitations.append("Low stable face visibility reduces visual usability.")
     if not bool(quality_gate["face_size_ratio_ok"]):
         limitations.append("On-screen face size is small, so visual pressure cues are less reliable.")
     if not bool(quality_gate["pose_frame_pct_ok"]):
@@ -392,9 +392,9 @@ def _build_summary(frames_df: pd.DataFrame, segments_df: pd.DataFrame, metadata:
             "level": _confidence_support_level(quality_gate, qa_segments),
             "suppressed": not bool(quality_gate["quality_ok"]),
             "reason": (
-                "quality gate suppressed visual confidence uplift"
+                "quality gate suppressed visual usability"
                 if not bool(quality_gate["quality_ok"])
-                else "usable face visibility and landmark support"
+                else "usable face visibility and landmark context"
             ),
         },
         "support_mode": str(model_support.get("mode", "heuristic_fallback")),
@@ -408,7 +408,7 @@ def _build_summary(frames_df: pd.DataFrame, segments_df: pd.DataFrame, metadata:
         "limitations": limitations,
         "notes": [
             "Visual behavior signals are observational proxies only; they are not emotion or deception inference.",
-            "Frame features are sampled at a low rate and aggregated into transcript-aligned segments for reviewer decision support.",
+            "Frame features are sampled at a low rate and aggregated into transcript-aligned segments for reviewer context only.",
         ],
     }
 

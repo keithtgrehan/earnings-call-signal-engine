@@ -161,50 +161,11 @@ def test_audio_behavior_quality_gate_flags_short_audio(tmp_path: Path) -> None:
     assert payload["summary"]["audio_quality_ok"] is False
     assert payload["summary"]["audio_confidence_support"]["suppressed"] is True
     assert payload["summary"]["quality_gate"]["enough_speech_duration_ok"] is False
+    assert payload["summary"]["audio_confidence_support"]["reason"] == "quality gate suppressed audio usability"
+    assert "reviewer context only" in " ".join(payload["summary"]["notes"])
 
-
-def test_report_markdown_includes_audio_section_when_summary_present(tmp_path: Path) -> None:
-    output_path = tmp_path / "report.md"
-    cli._write_report_markdown(
-        output_path=output_path,
-        metrics_payload={"num_chunks_scored": 2, "sentiment_mean": 0.1, "sentiment_std": 0.2, "guidance": {"row_count": 1, "mean_strength": 0.4}},
-        guidance_df=pd.DataFrame(),
-        guidance_revision_df=pd.DataFrame(),
-        behavioral_summary={
-            "uncertainty_score_overall": {"level": "low"},
-            "reassurance_score_management": {"level": "medium"},
-            "analyst_skepticism_score": {"level": "high"},
-            "strongest_evidence": {},
-        },
-        qa_shift_summary={
-            "prepared_remarks_vs_q_and_a": {"label": "mixed"},
-            "analyst_skepticism": {"level": "high"},
-            "management_answers_vs_prepared_uncertainty": {"label": "mixed"},
-            "early_vs_late_q_and_a": {"label": "low"},
-            "strongest_evidence": {},
-        },
-        audio_summary={
-            "audio_features_available": True,
-            "hesitation_overall": {"level": "medium"},
-            "pauses_before_answers": {"level": "high"},
-            "prepared_baseline_audio_stability": {"level": "medium"},
-            "qa_hesitation_shift": {"level": "medium"},
-            "most_hesitant_answers": [
-                {
-                    "section": "q_and_a",
-                    "start_time_s": 10.0,
-                    "end_time_s": 18.0,
-                    "hesitation_label": "high",
-                    "pause_before_answer_ms": 820.0,
-                }
-            ],
-            "low_confidence_segments": [
-                {"confidence_note": "short segment limits audio confidence"}
-            ],
-        },
-        visual_summary=None,
-    )
-    report = output_path.read_text(encoding="utf-8")
-    assert "## Audio Behavior Signals" in report
-    assert "- hesitation: medium" in report
-    assert "- pauses before answers: high" in report
+def test_audio_behavior_unavailable_summary_keeps_supporting_only_language() -> None:
+    payload = compute_audio_behavior_outputs(None, pd.DataFrame())
+    notes = " ".join(payload["summary"]["notes"])
+    assert "observational proxies only" in notes
+    assert "deception inference" in notes

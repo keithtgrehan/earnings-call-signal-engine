@@ -353,7 +353,7 @@ def _build_summary(segments_df: pd.DataFrame, envelope: AudioEnvelope) -> dict[s
     if not bool(quality_gate["alignment_quality_ok"]):
         limitations.append("Transcript/audio alignment is sparse or short for several segments.")
     if not bool(quality_gate["enough_speech_duration_ok"]):
-        limitations.append("Management speech duration is short, which limits audio confidence.")
+        limitations.append("Management speech duration is short, which limits audio usability.")
     if pause_series.empty:
         limitations.append("Pause-before-answer metrics were unavailable because answer/question pairing was sparse.")
 
@@ -411,9 +411,9 @@ def _build_summary(segments_df: pd.DataFrame, envelope: AudioEnvelope) -> dict[s
             "level": audio_confidence_level,
             "suppressed": not bool(quality_gate["quality_ok"]),
             "reason": (
-                "quality gate suppressed confidence uplift"
+                "quality gate suppressed audio usability"
                 if not bool(quality_gate["quality_ok"])
-                else "usable answer-level audio support"
+                else "usable answer-level audio context"
             ),
         },
         "support_mode": str(model_support.get("mode", "heuristic_fallback")),
@@ -431,7 +431,7 @@ def _build_summary(segments_df: pd.DataFrame, envelope: AudioEnvelope) -> dict[s
         "limitations": limitations,
         "notes": [
             "Audio hesitation combines pause-before-answer, answer latency, within-segment pause density, filler markers, articulation rate, and loudness dynamics.",
-            "These are observational timing proxies for review support, not mental-state or deception inference.",
+            "These are observational timing proxies for reviewer context only, not mental-state or deception inference.",
         ],
     }
 
