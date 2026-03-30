@@ -1,7 +1,15 @@
 # Netflix Multimodal Evidence Panel
 
 - Deterministic transcript-backed outputs remain canonical.
-- NLP, audio, and visual layers are supporting only.
+- NLP, audio, and visual layers are non-canonical inspection layers only.
+
+## How To Read This Pack
+
+- Start with the transcript-backed deterministic read for each moment.
+- Treat same-direction sidecar output as bounded comparison context, not proof that the deterministic read is correct.
+- Treat disagreement hotspots as review priorities, not winners or losers.
+- Treat audio as measured pause, filler, and qualification context only.
+- Treat visual as heuristic fallback context only when model-backed scoring is unavailable.
 
 ## Top 8 Showcase
 
@@ -11,7 +19,7 @@
 - Category: `growth_pressure`
 - Why selected: Most direct transcript-backed answer on why the growth narrative worsened.
 - Quote: Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ...
-- Reviewer note: Deterministic read stays primary. Most comparable sidecar labels line up with the expected direction, but at least one model softens the read. Bounded audio cues show a noticeable pre-answer pause plus qualification/filler context.
+- Reviewer note: Deterministic read stays primary. Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral. Measured audio cues show a noticeable pre-answer pause plus qualification/filler context.
 - Caveat: Deterministic evidence stays canonical; supporting layers here are optional reviewer context only.
 
 ### 2. qa_q1_miss_explanation
@@ -20,7 +28,7 @@
 - Category: `guidance_pressure`
 - Why selected: Best bounded explanation of the Q1 miss and the near-term pressure path management described.
 - Quote: Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e...
-- Reviewer note: Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. The heuristic visual layer only shows broadly steady on-camera delivery and should not be treated as corroboration.
+- Reviewer note: Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. The heuristic visual layer only shows broadly steady on-camera delivery and does not change the transcript-backed deterministic read.
 - Caveat: Deterministic evidence stays canonical; supporting layers here are optional reviewer context only.
 
 ### 3. guidance_negative_q2_net_adds
@@ -38,7 +46,7 @@
 - Category: `strategic_option`
 - Why selected: Useful non-polar strategy answer that reviewers could otherwise overread without the supporting-only caveat.
 - Quote: Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript...
-- Reviewer note: This is a non-polar management framing moment. Sidecars and any audio/visual context add descriptive texture only and should not be treated as categorical evidence.
+- Reviewer note: This is a non-polar management framing moment. Sidecars and any audio or visual context add descriptive review texture only and should not be treated as categorical evidence.
 - Caveat: Deterministic evidence stays canonical; supporting layers here are optional reviewer context only.
 
 ### 5. chunk_monetize_sharing_competition
@@ -65,7 +73,7 @@
 - Category: `growth_pressure`
 - Why selected: Shortest management-authored slowdown anchor from the shareholder letter.
 - Quote: April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar...
-- Reviewer note: Deterministic read stays primary, and this is one of the cleaner support examples in the pack.
+- Reviewer note: Deterministic read stays primary, and this is one of the cleaner comparison examples in the pack.
 - Caveat: Deterministic evidence stays canonical; supporting layers here are optional reviewer context only.
 
 ### 8. chunk_opening_analyst_skepticism
@@ -74,7 +82,7 @@
 - Category: `analyst_skepticism`
 - Why selected: Sets the review frame by capturing the analyst's direct challenge on tone and headwinds.
 - Quote: Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have changed over the past few months.
-- Reviewer note: Deterministic read stays primary. Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it. No curated audio timing is attached to this moment.
+- Reviewer note: Deterministic read stays primary. Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral. No curated audio timing is attached to this moment.
 - Caveat: Deterministic evidence stays canonical; supporting layers here are optional reviewer context only.
 
 ## Pressure Moments Panel
@@ -83,19 +91,19 @@
 
 - Analyst question: Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could s...
 - Executive answer: Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with ...
-- Reviewer note: Deterministic read stays primary. Most comparable sidecar labels line up with the expected direction, but at least one model softens the read. Bounded audio cues show a noticeable pre-answer pause plus qualification/filler context.
+- Reviewer note: Deterministic read stays primary. Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral. Measured audio cues show a noticeable pre-answer pause plus qualification/filler context.
 
 ### qa_q1_miss_explanation
 
 - Analyst question: Okay. So maybe just in terms of the recent trends, if we could talk about 1Q a little bit more. You lost 200,000 subscribers or gained 500,000 ex the Russia removal. Hoping you ...
 - Executive answer: Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's real...
-- Reviewer note: Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. The heuristic visual layer only shows broadly steady on-camera delivery and should not be treated as corroboration.
+- Reviewer note: Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. The heuristic visual layer only shows broadly steady on-camera delivery and does not change the transcript-backed deterministic read.
 
 ### qa_ad_supported_option
 
 - Analyst question: Got it. And is it fair to think that it would be something you would test in a few small markets to start out and then kind of move along?
 - Executive answer: We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't think we have a lot of doubt that it work...
-- Reviewer note: This is a non-polar management framing moment. Sidecars and any audio/visual context add descriptive texture only and should not be treated as categorical evidence.
+- Reviewer note: This is a non-polar management framing moment. Sidecars and any audio or visual context add descriptive review texture only and should not be treated as categorical evidence.
 
 ## Disagreement Hotspots
 
@@ -108,9 +116,9 @@
 - `chunk_long_term_market_unchanged` [high]: Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term...
   Reason: Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.
 - `qa_growth_headwinds` [medium]: Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that ...
-  Reason: Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.
+  Reason: Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.
 - `chunk_opening_analyst_skepticism` [medium]: Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hop...
-  Reason: Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it.
+  Reason: Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.
 - `qa_ad_supported_option` [low]: Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower pri...
   Reason: This deterministic category is non-polar, so sidecar spread is descriptive context only.
 - `financial_anchor_q1` [low]: Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53.

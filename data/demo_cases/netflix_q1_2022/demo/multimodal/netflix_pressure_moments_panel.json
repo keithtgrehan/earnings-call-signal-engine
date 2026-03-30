@@ -15,9 +15,11 @@
         "top_8_showcase": true,
         "unit_type": "qa_answers",
         "deterministic_signal_category": "growth_pressure",
-        "expected_sidecar_polarity": "negative",
-        "consensus_label": "negative",
-        "label_counts": {
+        "expected_direction_from_deterministic": "negative",
+        "leading_sidecar_label": "negative",
+        "leading_sidecar_label_is_tied": false,
+        "tied_leading_sidecar_labels": [],
+        "sidecar_label_counts": {
           "negative": 2,
           "neutral": 1
         },
@@ -69,10 +71,10 @@
           }
         },
         "pairwise_disagreement": true,
-        "deterministic_alignment": "mixed_vs_expected_category",
-        "support_signal_bucket": "soft_mismatch",
+        "expected_direction_check": "some_comparable_labels_match_expected_direction",
+        "review_bucket": "softened_directional_read",
         "review_priority": "medium",
-        "review_priority_reason": "Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.",
+        "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.",
         "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ..."
       },
       "audio_support": {
@@ -85,8 +87,8 @@
         "hesitation_label": "high",
         "qa_shift_label": "weaker",
         "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
-        "plain_english_interpretation": "Measured cues show a noticeable pre-answer pause, heavier filler or qualification language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
-        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+        "plain_english_interpretation": "Measured cues show a noticeable pre-answer pause, heavier filler or qualification language. Use this as measured pacing/context only; it does not change the transcript-backed deterministic read.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
       },
       "visual_support": {
         "moment_id": "qa_growth_headwinds",
@@ -94,14 +96,14 @@
         "start_time_s": 48.16,
         "end_time_s": 196.24,
         "visual_stability_label": "stable",
-        "support_direction": "context_only",
-        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
-        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
+        "context_role": "context_only",
+        "context_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual reason to revisit the transcript-backed read",
+        "quality_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.0601,
         "head_motion_energy": 0.0698
       },
-      "reviewer_note": "Deterministic read stays primary. Most comparable sidecar labels line up with the expected direction, but at least one model softens the read. Bounded audio cues show a noticeable pre-answer pause plus qualification/filler context."
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral. Measured audio cues show a noticeable pre-answer pause plus qualification/filler context."
     },
     {
       "moment_id": "qa_q1_miss_explanation",
@@ -116,9 +118,11 @@
         "top_8_showcase": true,
         "unit_type": "qa_answers",
         "deterministic_signal_category": "guidance_pressure",
-        "expected_sidecar_polarity": "negative",
-        "consensus_label": "negative",
-        "label_counts": {
+        "expected_direction_from_deterministic": "negative",
+        "leading_sidecar_label": "negative",
+        "leading_sidecar_label_is_tied": false,
+        "tied_leading_sidecar_labels": [],
+        "sidecar_label_counts": {
           "negative": 2,
           "positive": 1
         },
@@ -170,8 +174,8 @@
           }
         },
         "pairwise_disagreement": true,
-        "deterministic_alignment": "mixed_vs_expected_category",
-        "support_signal_bucket": "directional_conflict",
+        "expected_direction_check": "some_comparable_labels_match_expected_direction",
+        "review_bucket": "directional_conflict",
         "review_priority": "high",
         "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
         "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e..."
@@ -186,8 +190,8 @@
         "hesitation_label": "high",
         "qa_shift_label": "stronger",
         "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
-        "plain_english_interpretation": "Measured cues show a shorter pre-answer pause, some filler or qualification language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
-        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+        "plain_english_interpretation": "Measured cues show a shorter pre-answer pause, some filler or qualification language. Use this as measured pacing/context only; it does not change the transcript-backed deterministic read.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
       },
       "visual_support": {
         "moment_id": "qa_q1_miss_explanation",
@@ -195,14 +199,14 @@
         "start_time_s": 232.24,
         "end_time_s": 433.0,
         "visual_stability_label": "stable",
-        "support_direction": "context_only",
-        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
-        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
+        "context_role": "context_only",
+        "context_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual reason to revisit the transcript-backed read",
+        "quality_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.059,
         "head_motion_energy": 0.0523
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. The heuristic visual layer only shows broadly steady on-camera delivery and should not be treated as corroboration."
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. The heuristic visual layer only shows broadly steady on-camera delivery and does not change the transcript-backed deterministic read."
     },
     {
       "moment_id": "qa_ad_supported_option",
@@ -217,9 +221,11 @@
         "top_8_showcase": true,
         "unit_type": "qa_answers",
         "deterministic_signal_category": "strategic_option",
-        "expected_sidecar_polarity": null,
-        "consensus_label": "neutral",
-        "label_counts": {
+        "expected_direction_from_deterministic": null,
+        "leading_sidecar_label": "neutral",
+        "leading_sidecar_label_is_tied": false,
+        "tied_leading_sidecar_labels": [],
+        "sidecar_label_counts": {
           "neutral": 2,
           "positive": 1
         },
@@ -271,8 +277,8 @@
           }
         },
         "pairwise_disagreement": true,
-        "deterministic_alignment": "supporting_only_non_polar_category",
-        "support_signal_bucket": "non_polar_context_only",
+        "expected_direction_check": "non_polar_context_only",
+        "review_bucket": "non_polar_context_only",
         "review_priority": "low",
         "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
         "quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript..."
@@ -287,8 +293,8 @@
         "hesitation_label": "medium",
         "qa_shift_label": "stronger",
         "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
-        "plain_english_interpretation": "Measured cues show qualifying opening language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
-        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+        "plain_english_interpretation": "Measured cues show qualifying opening language. Use this as measured pacing/context only; it does not change the transcript-backed deterministic read.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
       },
       "visual_support": {
         "moment_id": "qa_ad_supported_option",
@@ -296,14 +302,14 @@
         "start_time_s": 1284.2,
         "end_time_s": 1323.4,
         "visual_stability_label": "stable",
-        "support_direction": "context_only",
-        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
-        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
+        "context_role": "context_only",
+        "context_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual reason to revisit the transcript-backed read",
+        "quality_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.0312,
         "head_motion_energy": 0.0805
       },
-      "reviewer_note": "This is a non-polar management framing moment. Sidecars and any audio/visual context add descriptive texture only and should not be treated as categorical evidence."
+      "reviewer_note": "This is a non-polar management framing moment. Sidecars and any audio or visual context add descriptive review texture only and should not be treated as categorical evidence."
     }
   ]
 }

@@ -6,19 +6,26 @@
       "moment_id": "guidance_negative_q2_net_adds",
       "rank": 3,
       "deterministic_signal_category": "guidance_pressure",
-      "expected_sidecar_polarity": "negative",
+      "expected_direction_from_deterministic": "negative",
       "observed_labels": [
         "negative",
         "neutral",
         "positive"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "negative": 1,
         "neutral": 1,
         "positive": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "distinct_label_count": 3,
@@ -28,19 +35,26 @@
       "moment_id": "chunk_monetize_sharing_competition",
       "rank": 5,
       "deterministic_signal_category": "headwind_disclosure",
-      "expected_sidecar_polarity": "negative",
+      "expected_direction_from_deterministic": "negative",
       "observed_labels": [
         "negative",
         "neutral",
         "positive"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "negative": 1,
         "neutral": 1,
         "positive": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "distinct_label_count": 3,
@@ -50,18 +64,21 @@
       "moment_id": "qa_q1_miss_explanation",
       "rank": 2,
       "deterministic_signal_category": "guidance_pressure",
-      "expected_sidecar_polarity": "negative",
+      "expected_direction_from_deterministic": "negative",
       "observed_labels": [
         "positive",
         "negative",
         "negative"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "negative": 2,
         "positive": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "distinct_label_count": 2,
@@ -71,18 +88,21 @@
       "moment_id": "chunk_long_term_market_unchanged",
       "rank": 6,
       "deterministic_signal_category": "long_term_reassurance",
-      "expected_sidecar_polarity": "positive",
+      "expected_direction_from_deterministic": "positive",
       "observed_labels": [
         "negative",
         "negative",
         "positive"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "negative": 2,
         "positive": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "distinct_label_count": 2,
@@ -92,20 +112,23 @@
       "moment_id": "qa_growth_headwinds",
       "rank": 1,
       "deterministic_signal_category": "growth_pressure",
-      "expected_sidecar_polarity": "negative",
+      "expected_direction_from_deterministic": "negative",
       "observed_labels": [
         "negative",
         "negative",
         "neutral"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "negative": 2,
         "neutral": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "soft_mismatch",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "softened_directional_read",
       "review_priority": "medium",
-      "review_priority_reason": "Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.",
+      "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.",
       "distinct_label_count": 2,
       "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki..."
     },
@@ -113,20 +136,23 @@
       "moment_id": "chunk_opening_analyst_skepticism",
       "rank": 8,
       "deterministic_signal_category": "analyst_skepticism",
-      "expected_sidecar_polarity": "negative",
+      "expected_direction_from_deterministic": "negative",
       "observed_labels": [
         "negative",
         "neutral",
         "neutral"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "neutral": 2,
         "negative": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "soft_mismatch",
+      "leading_sidecar_label": "neutral",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "softened_directional_read",
       "review_priority": "medium",
-      "review_priority_reason": "Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it.",
+      "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.",
       "distinct_label_count": 2,
       "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have chan..."
     },
@@ -134,18 +160,21 @@
       "moment_id": "qa_ad_supported_option",
       "rank": 4,
       "deterministic_signal_category": "strategic_option",
-      "expected_sidecar_polarity": null,
+      "expected_direction_from_deterministic": null,
       "observed_labels": [
         "positive",
         "neutral",
         "neutral"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "neutral": 2,
         "positive": 1
       },
-      "alignment": "supporting_only_non_polar_category",
-      "support_signal_bucket": "non_polar_context_only",
+      "leading_sidecar_label": "neutral",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "expected_direction_check": "non_polar_context_only",
+      "review_bucket": "non_polar_context_only",
       "review_priority": "low",
       "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
       "distinct_label_count": 2,
@@ -155,18 +184,21 @@
       "moment_id": "financial_anchor_q1",
       "rank": 11,
       "deterministic_signal_category": "financial_anchor",
-      "expected_sidecar_polarity": null,
+      "expected_direction_from_deterministic": null,
       "observed_labels": [
         "positive",
         "neutral",
         "neutral"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "neutral": 2,
         "positive": 1
       },
-      "alignment": "supporting_only_non_polar_category",
-      "support_signal_bucket": "non_polar_context_only",
+      "leading_sidecar_label": "neutral",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "expected_direction_check": "non_polar_context_only",
+      "review_bucket": "non_polar_context_only",
       "review_priority": "low",
       "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
       "distinct_label_count": 2,
@@ -179,19 +211,26 @@
       "moment_id": "guidance_negative_q2_net_adds",
       "rank": 3,
       "deterministic_signal_category": "guidance_pressure",
-      "expected_sidecar_polarity": "negative",
+      "expected_direction_from_deterministic": "negative",
       "observed_labels": [
         "negative",
         "neutral",
         "positive"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "negative": 1,
         "neutral": 1,
         "positive": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "distinct_label_count": 3,
@@ -201,19 +240,26 @@
       "moment_id": "chunk_monetize_sharing_competition",
       "rank": 5,
       "deterministic_signal_category": "headwind_disclosure",
-      "expected_sidecar_polarity": "negative",
+      "expected_direction_from_deterministic": "negative",
       "observed_labels": [
         "negative",
         "neutral",
         "positive"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "negative": 1,
         "neutral": 1,
         "positive": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "distinct_label_count": 3,
@@ -223,18 +269,21 @@
       "moment_id": "qa_q1_miss_explanation",
       "rank": 2,
       "deterministic_signal_category": "guidance_pressure",
-      "expected_sidecar_polarity": "negative",
+      "expected_direction_from_deterministic": "negative",
       "observed_labels": [
         "positive",
         "negative",
         "negative"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "negative": 2,
         "positive": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "distinct_label_count": 2,
@@ -244,18 +293,21 @@
       "moment_id": "chunk_long_term_market_unchanged",
       "rank": 6,
       "deterministic_signal_category": "long_term_reassurance",
-      "expected_sidecar_polarity": "positive",
+      "expected_direction_from_deterministic": "positive",
       "observed_labels": [
         "negative",
         "negative",
         "positive"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "negative": 2,
         "positive": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "distinct_label_count": 2,
@@ -265,20 +317,23 @@
       "moment_id": "qa_growth_headwinds",
       "rank": 1,
       "deterministic_signal_category": "growth_pressure",
-      "expected_sidecar_polarity": "negative",
+      "expected_direction_from_deterministic": "negative",
       "observed_labels": [
         "negative",
         "negative",
         "neutral"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "negative": 2,
         "neutral": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "soft_mismatch",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "softened_directional_read",
       "review_priority": "medium",
-      "review_priority_reason": "Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.",
+      "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.",
       "distinct_label_count": 2,
       "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki..."
     },
@@ -286,20 +341,23 @@
       "moment_id": "chunk_opening_analyst_skepticism",
       "rank": 8,
       "deterministic_signal_category": "analyst_skepticism",
-      "expected_sidecar_polarity": "negative",
+      "expected_direction_from_deterministic": "negative",
       "observed_labels": [
         "negative",
         "neutral",
         "neutral"
       ],
-      "label_counts": {
+      "sidecar_label_counts": {
         "neutral": 2,
         "negative": 1
       },
-      "alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "soft_mismatch",
+      "leading_sidecar_label": "neutral",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "softened_directional_read",
       "review_priority": "medium",
-      "review_priority_reason": "Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it.",
+      "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.",
       "distinct_label_count": 2,
       "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have chan..."
     }

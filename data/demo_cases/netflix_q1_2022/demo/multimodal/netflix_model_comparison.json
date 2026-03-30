@@ -279,9 +279,11 @@
       "top_8_showcase": true,
       "unit_type": "qa_answers",
       "deterministic_signal_category": "growth_pressure",
-      "expected_sidecar_polarity": "negative",
-      "consensus_label": "negative",
-      "label_counts": {
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
         "negative": 2,
         "neutral": 1
       },
@@ -333,10 +335,10 @@
         }
       },
       "pairwise_disagreement": true,
-      "deterministic_alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "soft_mismatch",
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "softened_directional_read",
       "review_priority": "medium",
-      "review_priority_reason": "Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.",
+      "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.",
       "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ..."
     },
     {
@@ -345,9 +347,11 @@
       "top_8_showcase": true,
       "unit_type": "qa_answers",
       "deterministic_signal_category": "guidance_pressure",
-      "expected_sidecar_polarity": "negative",
-      "consensus_label": "negative",
-      "label_counts": {
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
         "negative": 2,
         "positive": 1
       },
@@ -399,8 +403,8 @@
         }
       },
       "pairwise_disagreement": true,
-      "deterministic_alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e..."
@@ -411,9 +415,15 @@
       "top_8_showcase": true,
       "unit_type": "guidance_spans",
       "deterministic_signal_category": "guidance_pressure",
-      "expected_sidecar_polarity": "negative",
-      "consensus_label": "negative",
-      "label_counts": {
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "sidecar_label_counts": {
         "negative": 1,
         "neutral": 1,
         "positive": 1
@@ -466,8 +476,8 @@
         }
       },
       "pairwise_disagreement": true,
-      "deterministic_alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net adds in Q2. We didn't talk about full year and how -- what we expect. And we're not providing full year guidance, Doug, but I just want to make sure there's not a read-through from negative 2 million paid net adds in Q2 that there's going to be a steady strip down of negative adds. We're not expecting our growth to reaccelerate, our revenue growth to reaccelerate before the end of the year, but we will grow revenue. And there will be paid net add growth. As we get to the back half of the year, Ted talked about the stronger slate. We get further away from some of the big price increases. We get into a stronger seasonal period."
@@ -478,9 +488,11 @@
       "top_8_showcase": true,
       "unit_type": "qa_answers",
       "deterministic_signal_category": "strategic_option",
-      "expected_sidecar_polarity": null,
-      "consensus_label": "neutral",
-      "label_counts": {
+      "expected_direction_from_deterministic": null,
+      "leading_sidecar_label": "neutral",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
         "neutral": 2,
         "positive": 1
       },
@@ -532,8 +544,8 @@
         }
       },
       "pairwise_disagreement": true,
-      "deterministic_alignment": "supporting_only_non_polar_category",
-      "support_signal_bucket": "non_polar_context_only",
+      "expected_direction_check": "non_polar_context_only",
+      "review_bucket": "non_polar_context_only",
       "review_priority": "low",
       "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
       "quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript..."
@@ -544,9 +556,15 @@
       "top_8_showcase": true,
       "unit_type": "chunks",
       "deterministic_signal_category": "headwind_disclosure",
-      "expected_sidecar_polarity": "negative",
-      "consensus_label": "negative",
-      "label_counts": {
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "sidecar_label_counts": {
         "negative": 1,
         "neutral": 1,
         "positive": 1
@@ -599,8 +617,8 @@
         }
       },
       "pairwise_disagreement": true,
-      "deterministic_alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And remember, these are over 100 million households that already are choosing to view Netflix. They love the service. We just got to get paid at some degree for them. So that's part of it. And then two, it's really -- we got great competition. They've got some very good shows and films out. And what we've got to do is take it up a notch. And I'll tell you that we're all pretty -- I know it's disappointing for investors, and it is for sure. But internally, we're really geared up, and this is like our moment to shine. This is when it all matters. And we're super focused on achieving those objectives and getting back into our investors' good graces."
@@ -611,9 +629,11 @@
       "top_8_showcase": true,
       "unit_type": "chunks",
       "deterministic_signal_category": "long_term_reassurance",
-      "expected_sidecar_polarity": "positive",
-      "consensus_label": "negative",
-      "label_counts": {
+      "expected_direction_from_deterministic": "positive",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
         "negative": 2,
         "positive": 1
       },
@@ -665,8 +685,8 @@
         }
       },
       "pairwise_disagreement": true,
-      "deterministic_alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "directional_conflict",
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
       "review_priority": "high",
       "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
       "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged in terms of all broadband households. It's just that we have a better sense that COVID clouded in terms of these near-term limiters to penetrate that growth and capture that market. So that's one of the things that we put a finer point on this letter, but I just want to reinforce that the core addressable market is still there, and that's what we're still growing into, Doug."
@@ -677,9 +697,11 @@
       "top_8_showcase": true,
       "unit_type": "chunks",
       "deterministic_signal_category": "growth_pressure",
-      "expected_sidecar_polarity": "negative",
-      "consensus_label": "negative",
-      "label_counts": {
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
         "negative": 3
       },
       "model_outputs": {
@@ -730,10 +752,10 @@
         }
       },
       "pairwise_disagreement": false,
-      "deterministic_alignment": "aligned_with_expected_category",
-      "support_signal_bucket": "clean_support_example",
+      "expected_direction_check": "all_comparable_labels_match_expected_direction",
+      "review_bucket": "consistent_directional_read",
       "review_priority": "low",
-      "review_priority_reason": "Comparable sidecar labels line up cleanly with the expected deterministic direction.",
+      "review_priority_reason": "Comparable sidecar labels point in the same direction as the expected deterministic read.",
       "quote_or_span": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar..."
     },
     {
@@ -742,9 +764,11 @@
       "top_8_showcase": true,
       "unit_type": "chunks",
       "deterministic_signal_category": "analyst_skepticism",
-      "expected_sidecar_polarity": "negative",
-      "consensus_label": "neutral",
-      "label_counts": {
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "neutral",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
         "neutral": 2,
         "negative": 1
       },
@@ -796,10 +820,10 @@
         }
       },
       "pairwise_disagreement": true,
-      "deterministic_alignment": "mixed_vs_expected_category",
-      "support_signal_bucket": "soft_mismatch",
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "softened_directional_read",
       "review_priority": "medium",
-      "review_priority_reason": "Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it.",
+      "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.",
       "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have changed over the past few months."
     },
     {
@@ -808,9 +832,11 @@
       "top_8_showcase": false,
       "unit_type": "chunks",
       "deterministic_signal_category": "headwind_disclosure",
-      "expected_sidecar_polarity": "negative",
-      "consensus_label": "negative",
-      "label_counts": {
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
         "negative": 3
       },
       "model_outputs": {
@@ -861,10 +887,10 @@
         }
       },
       "pairwise_disagreement": false,
-      "deterministic_alignment": "aligned_with_expected_category",
-      "support_signal_bucket": "clean_support_example",
+      "expected_direction_check": "all_comparable_labels_match_expected_direction",
+      "review_bucket": "consistent_directional_read",
       "review_priority": "low",
-      "review_priority_reason": "Comparable sidecar labels line up cleanly with the expected deterministic direction.",
+      "review_priority_reason": "Comparable sidecar labels point in the same direction as the expected deterministic read.",
       "quote_or_span": "In the near term though, we’re not growing revenue as fast as we’d like. COVID clouded the picture bysignificantly increasing our growth in 2020, leading us to believe that most of our slowing growth in 2021was due to the COVID pull forward. Now, we believe there are four main inter-related factors at work. First, i..."
     },
     {
@@ -873,9 +899,11 @@
       "top_8_showcase": false,
       "unit_type": "chunks",
       "deterministic_signal_category": "margin_framing",
-      "expected_sidecar_polarity": null,
-      "consensus_label": "negative",
-      "label_counts": {
+      "expected_direction_from_deterministic": null,
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
         "negative": 3
       },
       "model_outputs": {
@@ -926,8 +954,8 @@
         }
       },
       "pairwise_disagreement": false,
-      "deterministic_alignment": "supporting_only_non_polar_category",
-      "support_signal_bucket": "non_polar_context_only",
+      "expected_direction_check": "non_polar_context_only",
+      "review_bucket": "non_polar_context_only",
       "review_priority": "low",
       "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
       "quote_or_span": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar..."
@@ -938,9 +966,11 @@
       "top_8_showcase": false,
       "unit_type": "chunks",
       "deterministic_signal_category": "financial_anchor",
-      "expected_sidecar_polarity": null,
-      "consensus_label": "neutral",
-      "label_counts": {
+      "expected_direction_from_deterministic": null,
+      "leading_sidecar_label": "neutral",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
         "neutral": 2,
         "positive": 1
       },
@@ -992,8 +1022,8 @@
         }
       },
       "pairwise_disagreement": true,
-      "deterministic_alignment": "supporting_only_non_polar_category",
-      "support_signal_bucket": "non_polar_context_only",
+      "expected_direction_check": "non_polar_context_only",
+      "review_bucket": "non_polar_context_only",
       "review_priority": "low",
       "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
       "quote_or_span": "Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53."
@@ -1001,7 +1031,8 @@
   ],
   "notes": [
     "Deterministic categories remain canonical; these comparisons are supporting-only review aids.",
-    "Expected sidecar polarity is only applied when the deterministic category maps cleanly to an obvious directional read.",
+    "Expected direction from the deterministic layer is only filled when the category maps cleanly to an obvious positive or negative read.",
+    "Leading sidecar labels are left blank when comparable labels are tied, so mixed rows do not pretend to have consensus.",
     "Non-polar rows can still show sidecar spread, but that should be treated as context rather than contradiction."
   ]
 }

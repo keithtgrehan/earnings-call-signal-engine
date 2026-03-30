@@ -11,11 +11,11 @@
   "audio": [
     "Audio behavior remains supporting-only and is limited to curated Q&A windows already aligned in the repo.",
     "Audio timing cues are observational review support, not mental-state inference.",
-    "Pause and filler cues describe pacing only; they do not establish intent, confidence, or contradiction."
+    "Pause and filler cues describe pacing only; they do not establish intent, certainty, or contradiction."
   ],
   "visual": [
     "Visual behavior is observational only and is not emotion or deception inference.",
-    "If face visibility or pose quality is weak, visual support should be suppressed rather than forced.",
-    "The current committed Netflix visual layer is heuristic fallback only and should not be treated as model-backed corroboration."
+    "If face visibility or pose quality is weak, visual context should be suppressed rather than forced.",
+    "The current committed Netflix visual layer is heuristic fallback only and should not be treated as model-backed visual scoring or as a basis to revise the transcript-backed read."
   ]
 }

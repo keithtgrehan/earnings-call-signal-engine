@@ -13,12 +13,19 @@
 
 - `PYTHONPATH=src python3 scripts/build_netflix_multimodal_panel.py --device auto --visual-sample-fps 0.25`
 
-## Pairwise Sidecar Comparison
+## How To Read This Pack
+
+- Start with the transcript-backed deterministic rows and use this bundle as reviewer support only.
+- A same-direction sidecar read is bounded comparison context, not proof of correctness.
+- A disagreement hotspot is a review priority, not a winner or loser among models.
+- Audio stays on measured pause, filler, and qualification cues; visual stays on heuristic fallback context only.
+
+## Supporting-Layer Comparison Snapshot
 
 - Visual support mode: `heuristic_fallback` (observational fallback only; no model-backed visual scoring)
-- `deberta_zero_shot` vs `financial_roberta`: comparable-label agreement `0.4545` across `11` curated moments.
-- `deberta_zero_shot` vs `finbert_tone`: comparable-label agreement `0.2727` across `11` curated moments.
-- `financial_roberta` vs `finbert_tone`: comparable-label agreement `0.6364` across `11` curated moments.
+- `deberta_zero_shot` vs `financial_roberta`: comparable-label same-label rate `0.4545` across `11` curated moments.
+- `deberta_zero_shot` vs `finbert_tone`: comparable-label same-label rate `0.2727` across `11` curated moments.
+- `financial_roberta` vs `finbert_tone`: comparable-label same-label rate `0.6364` across `11` curated moments.
 
 ## What Was Skipped
 

@@ -75,6 +75,14 @@ def test_build_audio_support_interpretation_stays_observational() -> None:
     assert all("does not change the transcript-backed deterministic read" in str(row["plain_english_interpretation"]) for row in aligned)
 
 
+def test_build_audio_support_uses_signal_usability_field() -> None:
+    manifest = build_curated_moment_manifest(REPO_ROOT)
+    payload = build_audio_support(manifest, root=REPO_ROOT)
+
+    assert "audio_signal_usability" in payload["summary"]
+    assert "audio_confidence_support" not in payload["summary"]
+
+
 def test_build_visual_support_skips_cleanly_when_video_missing(monkeypatch) -> None:
     manifest = build_curated_moment_manifest(REPO_ROOT)
     monkeypatch.setattr(netflix_panel, "REQUESTED_VIDEO_PATH", Path("/tmp/netflix-video-missing-requested.mp4"))
@@ -106,19 +114,20 @@ def test_visual_moment_row_softens_heuristic_fallback_language() -> None:
         support_mode="heuristic_fallback",
     )
 
-    assert softened["support_direction"] == "context_only"
-    assert "heuristic fallback only" in softened["support_note"]
-    assert "heuristic fallback only" in softened["confidence_note"]
+    assert softened["context_role"] == "context_only"
+    assert "heuristic fallback only" in softened["context_note"]
+    assert "heuristic fallback only" in softened["quality_note"]
+    assert "support_direction" not in softened
+    assert "confidence_note" not in softened
 
 
 def test_support_signal_metadata_downgrades_non_polar_spread() -> None:
     metadata = netflix_panel._support_signal_metadata(
-        expected_polarity="",
+        expected_direction="",
         comparable_labels=["positive", "neutral", "neutral"],
-        consensus_label="neutral",
     )
 
-    assert metadata["support_signal_bucket"] == "non_polar_context_only"
+    assert metadata["review_bucket"] == "non_polar_context_only"
     assert metadata["review_priority"] == "low"
 
 
@@ -128,15 +137,19 @@ def test_build_panel_payload_returns_pressure_rows() -> None:
         "moment_rows": [
             {
                 "moment_id": "qa_growth_headwinds",
-                "consensus_label": "negative",
+                "leading_sidecar_label": "negative",
                 "pairwise_disagreement": False,
-                "deterministic_alignment": "aligned_with_expected_category",
+                "expected_direction_check": "all_comparable_labels_match_expected_direction",
+                "review_bucket": "consistent_directional_read",
+                "review_priority_reason": "Comparable sidecar labels point in the same direction as the expected deterministic read.",
             },
             {
                 "moment_id": "qa_q1_miss_explanation",
-                "consensus_label": "negative",
+                "leading_sidecar_label": "negative",
                 "pairwise_disagreement": True,
-                "deterministic_alignment": "mixed_vs_expected_category",
+                "expected_direction_check": "some_comparable_labels_match_expected_direction",
+                "review_bucket": "directional_conflict",
+                "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
             },
         ]
     }
@@ -145,7 +158,8 @@ def test_build_panel_payload_returns_pressure_rows() -> None:
             {
                 "moment_id": "qa_q1_miss_explanation",
                 "quote_or_span": "A disagreement hotspot.",
-                "alignment": "mixed_vs_expected_category",
+                "expected_direction_check": "some_comparable_labels_match_expected_direction",
+                "review_bucket": "directional_conflict",
             }
         ]
     }
@@ -166,6 +180,8 @@ def test_build_panel_payload_returns_pressure_rows() -> None:
     )
 
     assert panel_payload["selected_moment_count"] == manifest["primary_moment_count"]
+    assert "cleaner_sidecar_examples" in panel_payload
+    assert "strong_supporting_alignment_moments" not in panel_payload
     assert len(pressure_panel["rows"]) == 3
     assert disagreement_panel["rows"][0]["moment_id"] == "qa_q1_miss_explanation"
 
@@ -177,12 +193,24 @@ def test_build_model_comparison_adds_review_priority_metadata() -> None:
     rows = {row["moment_id"]: row for row in comparison_payload["moment_rows"]}
     priorities = {"high": 0, "medium": 1, "low": 2}
 
-    assert rows["qa_ad_supported_option"]["support_signal_bucket"] == "non_polar_context_only"
+    assert rows["qa_ad_supported_option"]["review_bucket"] == "non_polar_context_only"
     assert rows["qa_ad_supported_option"]["review_priority"] == "low"
     assert rows["chunk_long_term_market_unchanged"]["review_priority"] == "high"
     assert all("review_priority_reason" in row for row in disagreement_payload["pairwise_model_disagreements"])
     priority_values = [priorities[row["review_priority"]] for row in disagreement_payload["pairwise_model_disagreements"]]
     assert priority_values == sorted(priority_values)
+
+
+def test_build_model_comparison_marks_tied_leading_labels_explicitly() -> None:
+    manifest = build_curated_moment_manifest(REPO_ROOT)
+    comparison_payload, _ = build_model_comparison(manifest, root=REPO_ROOT)
+
+    rows = {row["moment_id"]: row for row in comparison_payload["moment_rows"]}
+    tie_row = rows["guidance_negative_q2_net_adds"]
+
+    assert tie_row["leading_sidecar_label"] is None
+    assert tie_row["leading_sidecar_label_is_tied"] is True
+    assert set(tie_row["tied_leading_sidecar_labels"]) == {"negative", "neutral", "positive"}
 
 
 def test_build_netflix_multimodal_panel_script_invokes_writer(monkeypatch, capsys) -> None:

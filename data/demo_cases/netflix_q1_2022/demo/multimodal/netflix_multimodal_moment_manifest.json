@@ -28,7 +28,7 @@
       "timestamp_range": "00:32-03:16",
       "audio_row_id": "qa_growth_headwinds_audio",
       "deterministic_polarity_hint": null,
-      "expected_sidecar_polarity": "negative"
+      "expected_direction_from_deterministic": "negative"
     },
     {
       "moment_id": "qa_q1_miss_explanation",
@@ -55,7 +55,7 @@
       "timestamp_range": "03:18-07:13",
       "audio_row_id": "qa_paid_net_adds_miss_audio",
       "deterministic_polarity_hint": null,
-      "expected_sidecar_polarity": "negative"
+      "expected_direction_from_deterministic": "negative"
     },
     {
       "moment_id": "guidance_negative_q2_net_adds",
@@ -82,7 +82,7 @@
       "topic": "outlook",
       "period": "Q2",
       "matched_cues": "guidance;we expect;year;q2;revenue",
-      "expected_sidecar_polarity": "negative"
+      "expected_direction_from_deterministic": "negative"
     },
     {
       "moment_id": "qa_ad_supported_option",
@@ -108,7 +108,7 @@
       "timestamp_range": "21:12-22:03",
       "audio_row_id": "qa_ad_supported_option_audio",
       "deterministic_polarity_hint": null,
-      "expected_sidecar_polarity": null
+      "expected_direction_from_deterministic": null
     },
     {
       "moment_id": "chunk_monetize_sharing_competition",
@@ -134,7 +134,7 @@
       "source_signed_score": 0.9981277585029602,
       "positive_prob": 0.9981277585029602,
       "negative_prob": 0.0018722414970397,
-      "expected_sidecar_polarity": "negative"
+      "expected_direction_from_deterministic": "negative"
     },
     {
       "moment_id": "chunk_long_term_market_unchanged",
@@ -160,7 +160,7 @@
       "source_signed_score": 0.6974472403526306,
       "positive_prob": 0.6974472403526306,
       "negative_prob": 0.3025527596473694,
-      "expected_sidecar_polarity": "positive"
+      "expected_direction_from_deterministic": "positive"
     },
     {
       "moment_id": "letter_growth_slowdown",
@@ -182,7 +182,7 @@
       "audio_row_id": null,
       "deterministic_polarity_hint": null,
       "source_type": "shareholder_letter",
-      "expected_sidecar_polarity": "negative"
+      "expected_direction_from_deterministic": "negative"
     },
     {
       "moment_id": "chunk_opening_analyst_skepticism",
@@ -208,7 +208,7 @@
       "source_signed_score": 0.9966632723808287,
       "positive_prob": 0.9966632723808287,
       "negative_prob": 0.0033367276191711,
-      "expected_sidecar_polarity": "negative"
+      "expected_direction_from_deterministic": "negative"
     },
     {
       "moment_id": "letter_headwinds",
@@ -230,7 +230,7 @@
       "audio_row_id": null,
       "deterministic_polarity_hint": null,
       "source_type": "shareholder_letter",
-      "expected_sidecar_polarity": "negative"
+      "expected_direction_from_deterministic": "negative"
     },
     {
       "moment_id": "letter_margin_framing",
@@ -252,7 +252,7 @@
       "audio_row_id": null,
       "deterministic_polarity_hint": null,
       "source_type": "shareholder_letter",
-      "expected_sidecar_polarity": null
+      "expected_direction_from_deterministic": null
     },
     {
       "moment_id": "financial_anchor_q1",
@@ -274,7 +274,7 @@
       "audio_row_id": null,
       "deterministic_polarity_hint": null,
       "source_type": "financials",
-      "expected_sidecar_polarity": null
+      "expected_direction_from_deterministic": null
     }
   ],
   "notes": [

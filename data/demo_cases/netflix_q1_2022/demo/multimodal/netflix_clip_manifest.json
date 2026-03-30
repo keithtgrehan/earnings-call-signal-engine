@@ -12,7 +12,7 @@
       "end_time_s": 196.24,
       "timestamp_range": "00:32-03:16",
       "clip_ready": true,
-      "clip_note": "Timed media alignment is available for bounded reviewer playback."
+      "clip_note": "A timed media window is available for bounded reviewer playback."
     },
     {
       "moment_id": "qa_q1_miss_explanation",
@@ -24,7 +24,7 @@
       "end_time_s": 433.0,
       "timestamp_range": "03:18-07:13",
       "clip_ready": true,
-      "clip_note": "Timed media alignment is available for bounded reviewer playback."
+      "clip_note": "A timed media window is available for bounded reviewer playback."
     },
     {
       "moment_id": "guidance_negative_q2_net_adds",
@@ -36,7 +36,7 @@
       "end_time_s": 2889.613,
       "timestamp_range": "47:03-48:10",
       "clip_ready": true,
-      "clip_note": "Timed media alignment is available for bounded reviewer playback."
+      "clip_note": "A timed media window is available for bounded reviewer playback."
     },
     {
       "moment_id": "qa_ad_supported_option",
@@ -48,7 +48,7 @@
       "end_time_s": 1323.4,
       "timestamp_range": "21:12-22:03",
       "clip_ready": true,
-      "clip_note": "Timed media alignment is available for bounded reviewer playback."
+      "clip_note": "A timed media window is available for bounded reviewer playback."
     },
     {
       "moment_id": "chunk_monetize_sharing_competition",
@@ -60,7 +60,7 @@
       "end_time_s": 183.077,
       "timestamp_range": "01:55-03:03",
       "clip_ready": true,
-      "clip_note": "Timed media alignment is available for bounded reviewer playback."
+      "clip_note": "A timed media window is available for bounded reviewer playback."
     },
     {
       "moment_id": "chunk_long_term_market_unchanged",
@@ -72,7 +72,7 @@
       "end_time_s": 228.462,
       "timestamp_range": "03:03-03:48",
       "clip_ready": true,
-      "clip_note": "Timed media alignment is available for bounded reviewer playback."
+      "clip_note": "A timed media window is available for bounded reviewer playback."
     },
     {
       "moment_id": "letter_growth_slowdown",
@@ -84,7 +84,7 @@
       "end_time_s": null,
       "timestamp_range": null,
       "clip_ready": false,
-      "clip_note": "No timed media alignment is available for this moment."
+      "clip_note": "No timed media window is available for this moment."
     },
     {
       "moment_id": "chunk_opening_analyst_skepticism",
@@ -96,7 +96,7 @@
       "end_time_s": 52.308,
       "timestamp_range": "00:34-00:52",
       "clip_ready": true,
-      "clip_note": "Timed media alignment is available for bounded reviewer playback."
+      "clip_note": "A timed media window is available for bounded reviewer playback."
     },
     {
       "moment_id": "letter_headwinds",
@@ -108,7 +108,7 @@
       "end_time_s": null,
       "timestamp_range": null,
       "clip_ready": false,
-      "clip_note": "No timed media alignment is available for this moment."
+      "clip_note": "No timed media window is available for this moment."
     },
     {
       "moment_id": "letter_margin_framing",
@@ -120,7 +120,7 @@
       "end_time_s": null,
       "timestamp_range": null,
       "clip_ready": false,
-      "clip_note": "No timed media alignment is available for this moment."
+      "clip_note": "No timed media window is available for this moment."
     },
     {
       "moment_id": "financial_anchor_q1",
@@ -132,7 +132,7 @@
       "end_time_s": null,
       "timestamp_range": null,
       "clip_ready": false,
-      "clip_note": "No timed media alignment is available for this moment."
+      "clip_note": "No timed media window is available for this moment."
     }
   ]
 }

@@ -47,12 +47,12 @@ SUPPORTING_CAVEATS = {
     "audio": [
         "Audio behavior remains supporting-only and is limited to curated Q&A windows already aligned in the repo.",
         "Audio timing cues are observational review support, not mental-state inference.",
-        "Pause and filler cues describe pacing only; they do not establish intent, confidence, or contradiction.",
+        "Pause and filler cues describe pacing only; they do not establish intent, certainty, or contradiction.",
     ],
     "visual": [
         "Visual behavior is observational only and is not emotion or deception inference.",
-        "If face visibility or pose quality is weak, visual support should be suppressed rather than forced.",
-        "The current committed Netflix visual layer is heuristic fallback only and should not be treated as model-backed corroboration.",
+        "If face visibility or pose quality is weak, visual context should be suppressed rather than forced.",
+        "The current committed Netflix visual layer is heuristic fallback only and should not be treated as model-backed visual scoring or as a basis to revise the transcript-backed read.",
     ],
 }
 
@@ -515,7 +515,7 @@ def build_curated_moment_manifest(root: Path | None = None) -> dict[str, Any]:
         else:  # pragma: no cover - guarded by static specs
             raise RuntimeError(f"Unsupported Netflix moment source kind: {source_kind}")
 
-        moment["expected_sidecar_polarity"] = EXPECTED_POLARITY_BY_CATEGORY.get(moment["deterministic_signal_category"])
+        moment["expected_direction_from_deterministic"] = EXPECTED_POLARITY_BY_CATEGORY.get(moment["deterministic_signal_category"])
         moments.append(moment)
 
     ordered = sorted(moments, key=lambda item: int(item["rank"]))
@@ -661,59 +661,76 @@ def _label_counts(labels: list[str]) -> dict[str, int]:
     return {str(label): int(count) for label, count in pd.Series(labels).value_counts().to_dict().items()} if labels else {}
 
 
-def _support_signal_metadata(*, expected_polarity: str, comparable_labels: list[str], consensus_label: str) -> dict[str, Any]:
+def _sidecar_label_summary(labels: list[str]) -> dict[str, Any]:
+    label_counts = _label_counts(labels)
+    if not label_counts:
+        return {
+            "sidecar_label_counts": {},
+            "leading_sidecar_label": None,
+            "leading_sidecar_label_is_tied": False,
+            "tied_leading_sidecar_labels": [],
+        }
+    highest_count = max(label_counts.values())
+    leaders = sorted(label for label, count in label_counts.items() if count == highest_count)
+    return {
+        "sidecar_label_counts": label_counts,
+        "leading_sidecar_label": leaders[0] if len(leaders) == 1 else None,
+        "leading_sidecar_label_is_tied": len(leaders) > 1,
+        "tied_leading_sidecar_labels": leaders if len(leaders) > 1 else [],
+    }
+
+
+def _expected_direction_check(expected_direction: str, comparable_labels: list[str]) -> str:
+    if expected_direction and comparable_labels:
+        if all(label == expected_direction for label in comparable_labels):
+            return "all_comparable_labels_match_expected_direction"
+        if any(label == expected_direction for label in comparable_labels):
+            return "some_comparable_labels_match_expected_direction"
+        return "no_comparable_labels_match_expected_direction"
+    if comparable_labels:
+        return "non_polar_context_only"
+    return "no_expected_direction"
+
+
+def _support_signal_metadata(*, expected_direction: str, comparable_labels: list[str]) -> dict[str, Any]:
     label_counts = _label_counts(comparable_labels)
     label_set = set(label_counts)
-    pairwise_disagreement = len(label_set) > 1
     positive_present = "positive" in label_set
     negative_present = "negative" in label_set
     neutral_present = "neutral" in label_set
 
     if not comparable_labels:
         return {
-            "label_counts": label_counts,
-            "support_signal_bucket": "no_comparable_sidecar_signal",
+            "review_bucket": "no_comparable_signal",
             "review_priority": "low",
             "review_priority_reason": "No comparable sidecar polarity was available for this moment.",
         }
-    if not expected_polarity:
+    if not expected_direction:
         return {
-            "label_counts": label_counts,
-            "support_signal_bucket": "non_polar_context_only",
+            "review_bucket": "non_polar_context_only",
             "review_priority": "low",
             "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
         }
-    if not pairwise_disagreement and consensus_label == expected_polarity:
+    if len(label_set) == 1 and expected_direction in label_set:
         return {
-            "label_counts": label_counts,
-            "support_signal_bucket": "clean_support_example",
+            "review_bucket": "consistent_directional_read",
             "review_priority": "low",
-            "review_priority_reason": "Comparable sidecar labels line up cleanly with the expected deterministic direction.",
+            "review_priority_reason": "Comparable sidecar labels point in the same direction as the expected deterministic read.",
         }
     if positive_present and negative_present:
         return {
-            "label_counts": label_counts,
-            "support_signal_bucket": "directional_conflict",
+            "review_bucket": "directional_conflict",
             "review_priority": "high",
             "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
         }
-    if consensus_label == expected_polarity and neutral_present:
+    if expected_direction in label_set and neutral_present:
         return {
-            "label_counts": label_counts,
-            "support_signal_bucket": "soft_mismatch",
+            "review_bucket": "softened_directional_read",
             "review_priority": "medium",
-            "review_priority_reason": "Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.",
-        }
-    if expected_polarity in label_set and consensus_label == "neutral":
-        return {
-            "label_counts": label_counts,
-            "support_signal_bucket": "soft_mismatch",
-            "review_priority": "medium",
-            "review_priority_reason": "Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it.",
+            "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.",
         }
     return {
-        "label_counts": label_counts,
-        "support_signal_bucket": "directional_conflict",
+        "review_bucket": "directional_conflict",
         "review_priority": "high",
         "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
     }
@@ -757,23 +774,12 @@ def build_model_comparison(
                 comparable_labels.append(model_row["comparable_label"])
             per_model[model_name] = model_row
 
-        label_counts = _label_counts(comparable_labels)
-        consensus_label = max(label_counts, key=label_counts.get) if label_counts else ""
-        expected_polarity = str(moment.get("expected_sidecar_polarity") or "")
-        alignment = "no_expected_polarity"
-        if expected_polarity and comparable_labels:
-            if all(label == expected_polarity for label in comparable_labels):
-                alignment = "aligned_with_expected_category"
-            elif any(label == expected_polarity for label in comparable_labels):
-                alignment = "mixed_vs_expected_category"
-            else:
-                alignment = "diverged_from_expected_category"
-        elif comparable_labels:
-            alignment = "supporting_only_non_polar_category"
+        label_summary = _sidecar_label_summary(comparable_labels)
+        expected_direction = str(moment.get("expected_direction_from_deterministic") or "")
+        direction_check = _expected_direction_check(expected_direction, comparable_labels)
         support_signal = _support_signal_metadata(
-            expected_polarity=expected_polarity,
+            expected_direction=expected_direction,
             comparable_labels=comparable_labels,
-            consensus_label=consensus_label,
         )
 
         panel_row = {
@@ -782,30 +788,35 @@ def build_model_comparison(
             "top_8_showcase": moment["top_8_showcase"],
             "unit_type": moment["unit_type"],
             "deterministic_signal_category": moment["deterministic_signal_category"],
-            "expected_sidecar_polarity": expected_polarity or None,
-            "consensus_label": consensus_label or None,
-            "label_counts": support_signal["label_counts"],
+            "expected_direction_from_deterministic": expected_direction or None,
+            "leading_sidecar_label": label_summary["leading_sidecar_label"],
+            "leading_sidecar_label_is_tied": label_summary["leading_sidecar_label_is_tied"],
+            "tied_leading_sidecar_labels": label_summary["tied_leading_sidecar_labels"],
+            "sidecar_label_counts": label_summary["sidecar_label_counts"],
             "model_outputs": per_model,
             "pairwise_disagreement": len(set(comparable_labels)) > 1 if comparable_labels else False,
-            "deterministic_alignment": alignment,
-            "support_signal_bucket": support_signal["support_signal_bucket"],
+            "expected_direction_check": direction_check,
+            "review_bucket": support_signal["review_bucket"],
             "review_priority": support_signal["review_priority"],
             "review_priority_reason": support_signal["review_priority_reason"],
             "quote_or_span": moment["quote_or_span"],
         }
         panel_rows.append(panel_row)
 
-        if panel_row["pairwise_disagreement"] or alignment == "diverged_from_expected_category":
+        if panel_row["pairwise_disagreement"] or direction_check == "no_comparable_labels_match_expected_direction":
             disagreements.append(
                 {
                     "moment_id": moment["moment_id"],
                     "rank": moment["rank"],
                     "deterministic_signal_category": moment["deterministic_signal_category"],
-                    "expected_sidecar_polarity": expected_polarity or None,
+                    "expected_direction_from_deterministic": expected_direction or None,
                     "observed_labels": comparable_labels,
-                    "label_counts": support_signal["label_counts"],
-                    "alignment": alignment,
-                    "support_signal_bucket": support_signal["support_signal_bucket"],
+                    "sidecar_label_counts": label_summary["sidecar_label_counts"],
+                    "leading_sidecar_label": label_summary["leading_sidecar_label"],
+                    "leading_sidecar_label_is_tied": label_summary["leading_sidecar_label_is_tied"],
+                    "tied_leading_sidecar_labels": label_summary["tied_leading_sidecar_labels"],
+                    "expected_direction_check": direction_check,
+                    "review_bucket": support_signal["review_bucket"],
                     "review_priority": support_signal["review_priority"],
                     "review_priority_reason": support_signal["review_priority_reason"],
                     "distinct_label_count": len(set(comparable_labels)),
@@ -847,7 +858,8 @@ def build_model_comparison(
         "moment_rows": panel_rows,
         "notes": [
             "Deterministic categories remain canonical; these comparisons are supporting-only review aids.",
-            "Expected sidecar polarity is only applied when the deterministic category maps cleanly to an obvious directional read.",
+            "Expected direction from the deterministic layer is only filled when the category maps cleanly to an obvious positive or negative read.",
+            "Leading sidecar labels are left blank when comparable labels are tied, so mixed rows do not pretend to have consensus.",
             "Non-polar rows can still show sidecar spread, but that should be treated as context rather than contradiction.",
         ],
     }
@@ -859,7 +871,7 @@ def build_model_comparison(
         "noisy_or_unhelpful_sidecars": [
             item
             for item in disagreements
-            if item["support_signal_bucket"] in {"soft_mismatch", "directional_conflict"}
+            if item["review_bucket"] in {"softened_directional_read", "directional_conflict"}
         ],
         "notes": [
             "Disagreement hotspots are review priorities, not proof that one layer is better than another.",
@@ -889,46 +901,87 @@ def _audio_interpretation(moment: dict[str, Any], row: dict[str, Any]) -> str:
     if not cues:
         cues.append("no strong pause or filler escalation")
     return (
-        f"Measured cues show {', '.join(cues)}. Use this as pacing/context only; "
+        f"Measured cues show {', '.join(cues)}. Use this as measured pacing/context only; "
         "it does not change the transcript-backed deterministic read."
     )
+
+
+def _normalize_visual_segment_fields(row: dict[str, Any]) -> dict[str, Any]:
+    normalized = json.loads(json.dumps(row))
+    if "support_direction" in normalized:
+        normalized["context_role"] = normalized.pop("support_direction")
+    if "support_note" in normalized:
+        normalized["context_note"] = normalized.pop("support_note")
+    if "confidence_note" in normalized:
+        normalized["quality_note"] = normalized.pop("confidence_note")
+    return normalized
+
+
+def _normalize_visual_summary(summary: dict[str, Any]) -> dict[str, Any]:
+    normalized = json.loads(json.dumps(summary))
+    if "visual_support_direction" in normalized:
+        normalized["visual_layer_role"] = normalized.pop("visual_support_direction")
+    if "visual_confidence_support" in normalized:
+        normalized["visual_signal_usability"] = normalized.pop("visual_confidence_support")
+    if "strongest_visual_evidence" in normalized:
+        normalized["most_reviewable_visual_segments"] = normalized.pop("strongest_visual_evidence")
+    if "most_confident_visual_segments" in normalized:
+        normalized["most_usable_visual_segments"] = normalized.pop("most_confident_visual_segments")
+    if "notable_low_confidence_segments" in normalized:
+        normalized["notable_low_usability_segments"] = normalized.pop("notable_low_confidence_segments")
+    model_support = normalized.get("model_support")
+    if isinstance(model_support, dict) and "support_direction" in model_support:
+        model_support["context_role"] = model_support.pop("support_direction")
+    for key in (
+        "most_reviewable_visual_segments",
+        "most_visually_changed_segments",
+        "most_usable_visual_segments",
+        "notable_low_usability_segments",
+    ):
+        normalized[key] = [
+            _normalize_visual_segment_fields(item) if isinstance(item, dict) else item
+            for item in normalized.get(key, [])
+        ]
+    return normalized
 
 
 def _soften_heuristic_visual_summary(summary: dict[str, Any]) -> dict[str, Any]:
     softened = json.loads(json.dumps(summary))
     if softened.get("support_mode") != "heuristic_fallback" or softened.get("model_support", {}).get("available"):
-        return softened
+        return _normalize_visual_summary(softened)
 
     softened["visual_support_direction"] = "context_only"
     softened.setdefault("limitations", []).append(
-        "This run is heuristic fallback only, so visually steady delivery should be treated as bounded context rather than corroboration."
+        "This run is heuristic fallback only, so visually steady delivery should be treated as bounded context and does not change the transcript-backed read."
     )
     softened.setdefault("notes", []).append(
-        "Heuristic fallback can describe visible steadiness or change, but it does not establish contradiction, confidence, or sentiment."
+        "Heuristic fallback can describe visible steadiness or change, but it does not establish certainty or sentiment and does not change the transcript-backed read."
     )
     for key in ("strongest_visual_evidence", "most_visually_changed_segments", "most_confident_visual_segments", "notable_low_confidence_segments"):
         for item in softened.get(key, []):
             if isinstance(item, dict):
                 item["support_direction"] = "context_only"
-    return softened
+    return _normalize_visual_summary(softened)
 
 
 def _visual_moment_row(row: dict[str, Any], *, support_mode: str | None) -> dict[str, Any]:
-    support_direction = str(row["support_direction"])
-    support_note = str(row["support_note"])
-    confidence_note = str(row["confidence_note"])
+    context_role = str(row["support_direction"])
+    context_note = str(row["support_note"])
+    quality_note = str(row["confidence_note"])
     if support_mode == "heuristic_fallback":
-        support_direction = "context_only"
-        support_note = "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction"
-        confidence_note = f"{confidence_note}; heuristic fallback only"
+        context_role = "context_only"
+        context_note = (
+            "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual reason to revisit the transcript-backed read"
+        )
+        quality_note = f"{quality_note}; heuristic fallback only"
     return {
         "status": "aligned",
         "start_time_s": float(row["start_time_s"]),
         "end_time_s": float(row["end_time_s"]),
         "visual_stability_label": str(row["visual_stability_label"]),
-        "support_direction": support_direction,
-        "support_note": support_note,
-        "confidence_note": confidence_note,
+        "context_role": context_role,
+        "context_note": context_note,
+        "quality_note": quality_note,
         "face_visible_pct": float(row["face_visible_pct"]),
         "visual_change_score": float(row["visual_change_score"]),
         "head_motion_energy": float(row["head_motion_energy"]),
@@ -959,7 +1012,10 @@ def build_audio_support(
                     "qa_shift_label": row.get("qa_shift_label"),
                     "plain_english_audio_summary": row.get("plain_english_audio_summary"),
                     "plain_english_interpretation": _audio_interpretation(moment, row),
-                    "timing_note": row.get("timing_note"),
+                    "timing_note": (
+                        "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. "
+                        "They are supporting review cues, not full transcript-to-media coverage."
+                    ),
                 }
             )
         else:
@@ -979,13 +1035,13 @@ def build_audio_support(
             "hesitation_overall": audio_summary.get("hesitation_overall"),
             "qa_hesitation_shift": audio_summary.get("qa_hesitation_shift"),
             "pause_pressure_delta": audio_summary.get("pause_pressure_delta"),
-            "audio_confidence_support": audio_summary.get("audio_confidence_support"),
+            "audio_signal_usability": audio_summary.get("audio_confidence_support"),
         },
         "moments": moments,
         "notes": [
             "Audio rows were reused from the committed curated Q&A audio artifacts for this case.",
             "Audio support remains bounded to the aligned Q&A windows already present in the repo.",
-            "Pause, filler, and qualification cues are observational only and should not be treated as intent or confidence inference.",
+            "Pause, filler, and qualification cues are observational only and should not be treated as intent or certainty inference.",
         ],
     }
 
@@ -1059,11 +1115,12 @@ def build_visual_support(
         outputs = write_visual_behavior_outputs(video_file, qa_segments_df, visual_dir, sample_fps=sample_fps)
     summary = outputs["summary"]
     if not summary.get("video_quality_ok"):
+        summary = _normalize_visual_summary(summary)
         return (
             {
                 "case_id": CASE_ID,
                 "status": "skipped",
-                "reason": str(summary.get("visual_confidence_support", {}).get("reason", "Visual quality gate failed.")),
+                "reason": str(summary.get("visual_signal_usability", {}).get("reason", "Visual quality gate failed.")),
                 "video_source_path": str(video_file),
                 "summary": summary,
                 "intermediate_paths": {
@@ -1100,7 +1157,7 @@ def build_visual_support(
             "notes": [
                 "Visual behavior remains supporting-only and was run on the bounded timed Q&A answer windows.",
                 "Only the windows with existing curated audio timing were used for the visual pass.",
-                "The current visual layer is heuristic fallback only, so it should be read as bounded observational context rather than corroboration.",
+                "The current visual layer is heuristic fallback only, so it should be read as bounded observational context and does not change the transcript-backed read.",
             ],
         },
         False,
@@ -1117,30 +1174,30 @@ def _audio_reviewer_brief(audio_row: dict[str, Any] | None) -> str:
     pause_ms = float(audio_row.get("pause_before_answer_ms") or 0.0)
     filler_density = float(audio_row.get("filler_density") or 0.0)
     if pause_ms >= 750:
-        return "Bounded audio cues show a noticeable pre-answer pause plus qualification/filler context."
+        return "Measured audio cues show a noticeable pre-answer pause plus qualification/filler context."
     if filler_density >= 0.15:
-        return "Bounded audio cues mainly add qualification/filler context rather than a large pause signal."
-    return "Bounded audio cues are available, but they add only limited pacing context."
+        return "Measured audio cues mainly add qualification or filler context rather than a large pause signal."
+    return "A curated audio window is available, but it adds only limited pacing context."
 
 
 def _visual_reviewer_brief(visual_row: dict[str, Any] | None) -> str:
     if not visual_row or visual_row.get("status") != "aligned":
         return "No aligned visual window is attached to this moment."
-    if str(visual_row.get("support_direction", "")) == "context_only":
-        return "The heuristic visual layer only shows broadly steady on-camera delivery and should not be treated as corroboration."
-    return "Visual context is available, but it remains secondary to the transcript-backed read."
+    if str(visual_row.get("context_role", "")) == "context_only":
+        return "The heuristic visual layer only shows broadly steady on-camera delivery and does not change the transcript-backed deterministic read."
+    return "Visual context is available, but it remains secondary and non-canonical."
 
 
 def _reviewer_note(moment: dict[str, Any], comparison_row: dict[str, Any], audio_row: dict[str, Any] | None, visual_row: dict[str, Any] | None) -> str:
-    bucket = str(comparison_row.get("support_signal_bucket", ""))
+    bucket = str(comparison_row.get("review_bucket", ""))
     priority_reason = str(comparison_row.get("review_priority_reason", "")).strip()
-    if bucket == "clean_support_example":
+    if bucket == "consistent_directional_read":
         if audio_row and audio_row.get("status") == "aligned":
-            return f"Deterministic read stays primary, and this is one of the cleaner support examples in the pack. {_audio_reviewer_brief(audio_row)}"
-        return "Deterministic read stays primary, and this is one of the cleaner support examples in the pack."
+            return f"Deterministic read stays primary, and this is one of the cleaner comparison examples in the pack. {_audio_reviewer_brief(audio_row)}"
+        return "Deterministic read stays primary, and this is one of the cleaner comparison examples in the pack."
     if bucket == "non_polar_context_only":
-        return "This is a non-polar management framing moment. Sidecars and any audio/visual context add descriptive texture only and should not be treated as categorical evidence."
-    if bucket == "soft_mismatch":
+        return "This is a non-polar management framing moment. Sidecars and any audio or visual context add descriptive review texture only and should not be treated as categorical evidence."
+    if bucket == "softened_directional_read":
         return f"Deterministic read stays primary. {priority_reason} {_audio_reviewer_brief(audio_row)}"
     if bucket == "directional_conflict":
         return f"Deterministic read stays primary. {priority_reason} {_visual_reviewer_brief(visual_row)}"
@@ -1220,16 +1277,16 @@ def build_panel_payload(
         "showcase_moment_count": sum(1 for row in rows if row["top_8_showcase"]),
         "panel_rows": rows,
         "top_disagreement_hotspots": disagreement_rows[:8],
-        "strong_supporting_alignment_moments": [
+        "cleaner_sidecar_examples": [
             {
                 "moment_id": row["moment_id"],
                 "rank": row["rank"],
-                "consensus_label": row["sidecar_outputs"].get("consensus_label"),
+                "leading_sidecar_label": row["sidecar_outputs"].get("leading_sidecar_label"),
                 "reviewer_note": row["reviewer_note"],
                 "review_priority_reason": row["sidecar_outputs"].get("review_priority_reason"),
             }
             for row in rows
-            if row["sidecar_outputs"].get("support_signal_bucket") == "clean_support_example"
+            if row["sidecar_outputs"].get("review_bucket") == "consistent_directional_read"
         ][:8],
         "what_sidecars_added": [
             "A bounded cross-model comparison on the curated Netflix moment set.",
@@ -1308,7 +1365,15 @@ def _render_panel_markdown(panel_payload: dict[str, Any], pressure_panel: dict[s
         "# Netflix Multimodal Evidence Panel",
         "",
         "- Deterministic transcript-backed outputs remain canonical.",
-        "- NLP, audio, and visual layers are supporting only.",
+        "- NLP, audio, and visual layers are non-canonical inspection layers only.",
+        "",
+        "## How To Read This Pack",
+        "",
+        "- Start with the transcript-backed deterministic read for each moment.",
+        "- Treat same-direction sidecar output as bounded comparison context, not proof that the deterministic read is correct.",
+        "- Treat disagreement hotspots as review priorities, not winners or losers.",
+        "- Treat audio as measured pause, filler, and qualification context only.",
+        "- Treat visual as heuristic fallback context only when model-backed scoring is unavailable.",
         "",
         "## Top 8 Showcase",
         "",
@@ -1393,7 +1458,14 @@ def _render_summary_markdown(
         "",
         "- `PYTHONPATH=src python3 scripts/build_netflix_multimodal_panel.py --device auto --visual-sample-fps 0.25`",
         "",
-        "## Pairwise Sidecar Comparison",
+        "## How To Read This Pack",
+        "",
+        "- Start with the transcript-backed deterministic rows and use this bundle as reviewer support only.",
+        "- A same-direction sidecar read is bounded comparison context, not proof of correctness.",
+        "- A disagreement hotspot is a review priority, not a winner or loser among models.",
+        "- Audio stays on measured pause, filler, and qualification cues; visual stays on heuristic fallback context only.",
+        "",
+        "## Supporting-Layer Comparison Snapshot",
         "",
     ]
     if visual_support_mode:
@@ -1405,7 +1477,7 @@ def _render_summary_markdown(
         for row in pairwise_summary[:3]:
             lines.append(
                 f"- `{row.get('left_model')}` vs `{row.get('right_model')}`: "
-                f"comparable-label agreement `{row.get('comparable_label_agreement_rate')}` across "
+                f"comparable-label same-label rate `{row.get('comparable_label_agreement_rate')}` across "
                 f"`{row.get('rows_compared')}` curated moments."
             )
     else:
@@ -1527,9 +1599,9 @@ def write_review_bundle(
                     "timestamp_range": moment.get("timestamp_range"),
                     "clip_ready": bool(moment.get("start_time_s") is not None and audit["preferred_video_check"]["resolved_video_path"]),
                     "clip_note": (
-                        "Timed media alignment is available for bounded reviewer playback."
+                        "A timed media window is available for bounded reviewer playback."
                         if bool(moment.get("start_time_s") is not None and audit["preferred_video_check"]["resolved_video_path"])
-                        else "No timed media alignment is available for this moment."
+                        else "No timed media window is available for this moment."
                     ),
                 }
                 for moment in manifest["moments"]
