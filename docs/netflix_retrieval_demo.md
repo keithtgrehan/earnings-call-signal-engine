@@ -13,7 +13,8 @@ What remains canonical:
 What retrieval adds:
 
 - faster navigation to bounded evidence rows
-- lexical and semantic follow-up search
+- hybrid retrieval as the recommended reviewer mode
+- lexical and semantic follow-up search without dropping provenance
 - row-to-row similarity without dropping provenance
 
 What retrieval does **not** do:
@@ -22,29 +23,40 @@ What retrieval does **not** do:
 - it does not replace transcript review
 - it does not make predictive or statistical claims
 
+## Reviewer Mode
+
+Use `--mode hybrid` for reviewer workflows.
+
+- semantic alone can be noisy
+- lexical alone can be too literal
+- hybrid is the best bounded default for navigation and inspection
+
+If embeddings are unavailable, lexical still works as the fallback. Either way, the transcript-backed artifact remains the canonical review target.
+
 ## Example 1: Find guidance pressure moments
 
 Command:
 
 ```bash
 PYTHONPATH=src python3 scripts/search_case_retrieval.py \
-  "guidance pressure moments" \
-  --case-id netflix_q1_2022 \
+  --query "guidance pressure moments" \
+  --case netflix_q1_2022 \
   --mode hybrid \
   --top-k 5
 ```
 
 Representative hits:
 
-- `guidance_row:1`: Q1 miss versus the prior 2.5M paid-net-add guide
-- `guidance_row:42`: tactical clarification around churn and Q1 performance
-- `guidance_row:4`: explicit caution against over-reading the negative Q2 guide
-- `guidance_row:8`: slower revenue growth and the need to manage through it
+- `guidance_span_001`: Q1 miss versus the prior 2.5M paid-net-add guide
+- `guidance_span_042`: tactical clarification around churn and Q1 performance
+- `guidance_span_008`: slower revenue growth and the need to manage through it
+- `guidance_span_006`: competition, penetration, and lower acquisition pressure
 
 Use:
 
 - surfaces pressure-oriented guidance rows quickly
 - keeps the reviewer on transcript-backed spans rather than vague summaries
+- avoids low-information guidance joke/meta rows in the top hits
 
 ## Example 2: Find ad-supported strategy moments
 
@@ -52,22 +64,22 @@ Command:
 
 ```bash
 PYTHONPATH=src python3 scripts/search_case_retrieval.py \
-  "ad-supported strategy moments" \
-  --case-id netflix_q1_2022 \
+  --query "ad supported option" \
+  --case netflix_q1_2022 \
   --mode hybrid \
-  --top-k 6
+  --top-k 5
 ```
 
 Representative hits:
 
-- `qa_pair_011_question`: analyst question on a lower-priced ad-supported tier
+- `qa_pair_012_answer`: management answer that Netflix expects a lower-price ad-tolerant plan layer to work
 - `qa_pair_011_answer`: management answer describing ads as a gradual, not short-term, path
-- transcript chunk rows for the same exchange, still carrying exact source locators
+- `qa_pair_011_question`: analyst question on a lower-priced ad-supported tier
 
 Use:
 
 - helps a reviewer jump straight to the most relevant question/answer span pair
-- still keeps the transcript span as the inspection target
+- keeps structured Q&A rows ahead of weaker duplicate chunk matches when scores are close
 
 ## Example 3: Find growth slowdown / competition discussion
 
@@ -75,22 +87,24 @@ Command:
 
 ```bash
 PYTHONPATH=src python3 scripts/search_case_retrieval.py \
-  "growth slowdown competition discussion" \
-  --case-id netflix_q1_2022 \
+  --query "growth slowdown competition discussion" \
+  --case netflix_q1_2022 \
   --mode hybrid \
-  --top-k 6
+  --top-k 5
 ```
 
 Representative hits:
 
-- `qa_pair_002_answer`: explicit Q1 miss explanation with churn / macro / acquisition context
+- `shareholder_letter_paragraph_002`: direct shareholder-letter framing of competitive and macro headwinds
 - `qa_pair_001_answer`: lower acquisition, account sharing, and competition framing
-- shareholder-letter paragraph rows that mirror the same slowdown / competition discussion
+- `qa_pair_002_answer`: Q1 miss explanation with churn, macro strain, and softer seasonality
+- `shareholder_letter_paragraph_001`: slowed growth and monetization framing from the letter
 
 Use:
 
 - links the transcript discussion with the management-authored document context
 - keeps both results pinned to explicit bounded artifacts
+- prefers richer structured rows over broad guidance-only matches when reviewer intent is about slowdown and competition
 
 ## Example 4: Find semantically similar spans to a skeptical analyst question
 
@@ -98,22 +112,23 @@ Command:
 
 ```bash
 PYTHONPATH=src python3 scripts/search_case_retrieval.py \
-  --case-id netflix_q1_2022 \
+  --case netflix_q1_2022 \
   --mode hybrid \
   --top-k 5 \
-  --like-row-id qa_pair_011_question
+  --like-row-id qa_pair_001_question
 ```
 
 Representative hits:
 
-- `qa_pair_009_answer`: another monetization / advertising-adjacent answer span
-- `qa_pair_011_answer`: the direct management response to the seeded skeptical question
-- nearby transcript chunks with the same underlying exchange
+- `qa_pair_001_answer`: the direct management response to the seeded skeptical question
+- `qa_pair_002_answer`: another management answer on miss drivers, churn, and macro pressure
+- `shareholder_letter_paragraph_002`: document-backed headwinds framing that echoes the same concerns
 
 Use:
 
 - reviewer can start from a known skeptical question row
 - similarity search stays attached to exact row ids and source locators
+- the returned rows still need transcript-backed inspection; nearest neighbors are not adjudication
 
 ## Interpretation Guidance
 
@@ -129,4 +144,4 @@ Do not use them as:
 - a substitute for transcript-backed review
 - a confidence claim about what management “really meant”
 
-Nearest-neighbor similarity is not adjudication. The transcript-backed artifact remains the review target.
+Nearest-neighbor similarity is not adjudication. Semantic-only retrieval can be noisy, and lexical-only retrieval can be too literal. Hybrid is the recommended reviewer mode, but the transcript-backed artifact remains the review target.
