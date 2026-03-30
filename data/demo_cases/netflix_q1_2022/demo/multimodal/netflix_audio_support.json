@@ -39,7 +39,7 @@
       "hesitation_label": "high",
       "qa_shift_label": "weaker",
       "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
-      "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
+      "plain_english_interpretation": "Measured cues show a noticeable pre-answer pause, heavier filler or qualification language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
       "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
     },
     {
@@ -52,7 +52,7 @@
       "hesitation_label": "high",
       "qa_shift_label": "stronger",
       "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
-      "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+      "plain_english_interpretation": "Measured cues show a shorter pre-answer pause, some filler or qualification language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
       "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
     },
     {
@@ -70,7 +70,7 @@
       "hesitation_label": "medium",
       "qa_shift_label": "stronger",
       "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
-      "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+      "plain_english_interpretation": "Measured cues show qualifying opening language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
       "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
     },
     {
@@ -111,6 +111,7 @@
   ],
   "notes": [
     "Audio rows were reused from the committed curated Q&A audio artifacts for this case.",
-    "Audio support remains bounded to the aligned Q&A windows already present in the repo."
+    "Audio support remains bounded to the aligned Q&A windows already present in the repo.",
+    "Pause, filler, and qualification cues are observational only and should not be treated as intent or confidence inference."
   ]
 }

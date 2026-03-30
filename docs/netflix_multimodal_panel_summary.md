@@ -26,10 +26,12 @@
 
 ## Outputs To Inspect First
 
+- `/Users/keith/Documents/New project/main-demo-wt/docs/netflix_multimodal_asset_audit.md`
 - `/Users/keith/Documents/New project/main-demo-wt/data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_multimodal_panel.json`
 - `/Users/keith/Documents/New project/main-demo-wt/data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_multimodal_panel.md`
 - `/Users/keith/Documents/New project/main-demo-wt/data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_model_comparison.json`
 - `/Users/keith/Documents/New project/main-demo-wt/data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_disagreement_hotspots.json`
+- `/Users/keith/Documents/New project/main-demo-wt/data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_supporting_only_caveats.json`
 
 ## Known Limitations
 
@@ -41,4 +43,4 @@
 
 ## Recommended Next Step
 
-- Review the top-8 showcase moments first, then scan the disagreement hotspots before considering any UI surfacing.
+- Read the asset audit first, then review the top-8 showcase moments, then scan the ranked disagreement hotspots before considering any UI surfacing.

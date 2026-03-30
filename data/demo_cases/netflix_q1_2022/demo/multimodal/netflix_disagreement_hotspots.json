@@ -3,17 +3,48 @@
   "status": "ok",
   "pairwise_model_disagreements": [
     {
-      "moment_id": "qa_growth_headwinds",
-      "rank": 1,
-      "deterministic_signal_category": "growth_pressure",
+      "moment_id": "guidance_negative_q2_net_adds",
+      "rank": 3,
+      "deterministic_signal_category": "guidance_pressure",
       "expected_sidecar_polarity": "negative",
       "observed_labels": [
         "negative",
-        "negative",
-        "neutral"
+        "neutral",
+        "positive"
       ],
+      "label_counts": {
+        "negative": 1,
+        "neutral": 1,
+        "positive": 1
+      },
       "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki..."
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 3,
+      "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net ..."
+    },
+    {
+      "moment_id": "chunk_monetize_sharing_competition",
+      "rank": 5,
+      "deterministic_signal_category": "headwind_disclosure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "label_counts": {
+        "negative": 1,
+        "neutral": 1,
+        "positive": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 3,
+      "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And rememb..."
     },
     {
       "moment_id": "qa_q1_miss_explanation",
@@ -25,21 +56,79 @@
         "negative",
         "negative"
       ],
+      "label_counts": {
+        "negative": 2,
+        "positive": 1
+      },
       "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 2,
       "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And w..."
     },
     {
-      "moment_id": "guidance_negative_q2_net_adds",
-      "rank": 3,
-      "deterministic_signal_category": "guidance_pressure",
+      "moment_id": "chunk_long_term_market_unchanged",
+      "rank": 6,
+      "deterministic_signal_category": "long_term_reassurance",
+      "expected_sidecar_polarity": "positive",
+      "observed_labels": [
+        "negative",
+        "negative",
+        "positive"
+      ],
+      "label_counts": {
+        "negative": 2,
+        "positive": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged ..."
+    },
+    {
+      "moment_id": "qa_growth_headwinds",
+      "rank": 1,
+      "deterministic_signal_category": "growth_pressure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "negative",
+        "neutral"
+      ],
+      "label_counts": {
+        "negative": 2,
+        "neutral": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "soft_mismatch",
+      "review_priority": "medium",
+      "review_priority_reason": "Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki..."
+    },
+    {
+      "moment_id": "chunk_opening_analyst_skepticism",
+      "rank": 8,
+      "deterministic_signal_category": "analyst_skepticism",
       "expected_sidecar_polarity": "negative",
       "observed_labels": [
         "negative",
         "neutral",
-        "positive"
+        "neutral"
       ],
+      "label_counts": {
+        "neutral": 2,
+        "negative": 1
+      },
       "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net ..."
+      "support_signal_bucket": "soft_mismatch",
+      "review_priority": "medium",
+      "review_priority_reason": "Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have chan..."
     },
     {
       "moment_id": "qa_ad_supported_option",
@@ -51,47 +140,16 @@
         "neutral",
         "neutral"
       ],
+      "label_counts": {
+        "neutral": 2,
+        "positive": 1
+      },
       "alignment": "supporting_only_non_polar_category",
+      "support_signal_bucket": "non_polar_context_only",
+      "review_priority": "low",
+      "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
+      "distinct_label_count": 2,
       "quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been ag..."
-    },
-    {
-      "moment_id": "chunk_monetize_sharing_competition",
-      "rank": 5,
-      "deterministic_signal_category": "headwind_disclosure",
-      "expected_sidecar_polarity": "negative",
-      "observed_labels": [
-        "negative",
-        "neutral",
-        "positive"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And rememb..."
-    },
-    {
-      "moment_id": "chunk_long_term_market_unchanged",
-      "rank": 6,
-      "deterministic_signal_category": "long_term_reassurance",
-      "expected_sidecar_polarity": "positive",
-      "observed_labels": [
-        "negative",
-        "negative",
-        "positive"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged ..."
-    },
-    {
-      "moment_id": "chunk_opening_analyst_skepticism",
-      "rank": 8,
-      "deterministic_signal_category": "analyst_skepticism",
-      "expected_sidecar_polarity": "negative",
-      "observed_labels": [
-        "negative",
-        "neutral",
-        "neutral"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have chan..."
     },
     {
       "moment_id": "financial_anchor_q1",
@@ -103,38 +161,20 @@
         "neutral",
         "neutral"
       ],
+      "label_counts": {
+        "neutral": 2,
+        "positive": 1
+      },
       "alignment": "supporting_only_non_polar_category",
+      "support_signal_bucket": "non_polar_context_only",
+      "review_priority": "low",
+      "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
+      "distinct_label_count": 2,
       "quote_or_span": "Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53."
     }
   ],
   "embedding_similarity_hotspots": [],
   "noisy_or_unhelpful_sidecars": [
-    {
-      "moment_id": "qa_growth_headwinds",
-      "rank": 1,
-      "deterministic_signal_category": "growth_pressure",
-      "expected_sidecar_polarity": "negative",
-      "observed_labels": [
-        "negative",
-        "negative",
-        "neutral"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki..."
-    },
-    {
-      "moment_id": "qa_q1_miss_explanation",
-      "rank": 2,
-      "deterministic_signal_category": "guidance_pressure",
-      "expected_sidecar_polarity": "negative",
-      "observed_labels": [
-        "positive",
-        "negative",
-        "negative"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And w..."
-    },
     {
       "moment_id": "guidance_negative_q2_net_adds",
       "rank": 3,
@@ -145,7 +185,16 @@
         "neutral",
         "positive"
       ],
+      "label_counts": {
+        "negative": 1,
+        "neutral": 1,
+        "positive": 1
+      },
       "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 3,
       "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net ..."
     },
     {
@@ -158,8 +207,38 @@
         "neutral",
         "positive"
       ],
+      "label_counts": {
+        "negative": 1,
+        "neutral": 1,
+        "positive": 1
+      },
       "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 3,
       "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And rememb..."
+    },
+    {
+      "moment_id": "qa_q1_miss_explanation",
+      "rank": 2,
+      "deterministic_signal_category": "guidance_pressure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "positive",
+        "negative",
+        "negative"
+      ],
+      "label_counts": {
+        "negative": 2,
+        "positive": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And w..."
     },
     {
       "moment_id": "chunk_long_term_market_unchanged",
@@ -171,8 +250,37 @@
         "negative",
         "positive"
       ],
+      "label_counts": {
+        "negative": 2,
+        "positive": 1
+      },
       "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 2,
       "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged ..."
+    },
+    {
+      "moment_id": "qa_growth_headwinds",
+      "rank": 1,
+      "deterministic_signal_category": "growth_pressure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "negative",
+        "neutral"
+      ],
+      "label_counts": {
+        "negative": 2,
+        "neutral": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "soft_mismatch",
+      "review_priority": "medium",
+      "review_priority_reason": "Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki..."
     },
     {
       "moment_id": "chunk_opening_analyst_skepticism",
@@ -184,12 +292,21 @@
         "neutral",
         "neutral"
       ],
+      "label_counts": {
+        "neutral": 2,
+        "negative": 1
+      },
       "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "soft_mismatch",
+      "review_priority": "medium",
+      "review_priority_reason": "Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it.",
+      "distinct_label_count": 2,
       "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have chan..."
     }
   ],
   "notes": [
     "Disagreement hotspots are review priorities, not proof that one layer is better than another.",
-    "Embedding hotspots flag semantic similarity across differently labeled moments for manual inspection."
+    "Embedding hotspots flag semantic similarity across differently labeled moments for manual inspection.",
+    "Non-polar rows are kept for completeness but should rank below true directional conflict."
   ]
 }

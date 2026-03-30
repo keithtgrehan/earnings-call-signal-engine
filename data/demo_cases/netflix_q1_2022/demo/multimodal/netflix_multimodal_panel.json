@@ -8,6 +8,7 @@
       "moment_id": "qa_growth_headwinds",
       "rank": 1,
       "top_8_showcase": true,
+      "why_selected": "Most direct transcript-backed answer on why the growth narrative worsened.",
       "raw_quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ...",
       "deterministic_signal": {
         "category": "growth_pressure",
@@ -23,6 +24,10 @@
         "deterministic_signal_category": "growth_pressure",
         "expected_sidecar_polarity": "negative",
         "consensus_label": "negative",
+        "label_counts": {
+          "negative": 2,
+          "neutral": 1
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "guidance lowered",
@@ -72,6 +77,9 @@
         },
         "pairwise_disagreement": true,
         "deterministic_alignment": "mixed_vs_expected_category",
+        "support_signal_bucket": "soft_mismatch",
+        "review_priority": "medium",
+        "review_priority_reason": "Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.",
         "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ..."
       },
       "audio_support": {
@@ -84,7 +92,7 @@
         "hesitation_label": "high",
         "qa_shift_label": "weaker",
         "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
-        "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
+        "plain_english_interpretation": "Measured cues show a noticeable pre-answer pause, heavier filler or qualification language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
         "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
       },
       "visual_support": {
@@ -93,20 +101,21 @@
         "start_time_s": 48.16,
         "end_time_s": 196.24,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "context_only",
+        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.0601,
         "head_motion_energy": 0.0698
       },
-      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "reviewer_note": "Deterministic read stays primary. Most comparable sidecar labels line up with the expected direction, but at least one model softens the read. Bounded audio cues show a noticeable pre-answer pause plus qualification/filler context.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "qa_q1_miss_explanation",
       "rank": 2,
       "top_8_showcase": true,
+      "why_selected": "Best bounded explanation of the Q1 miss and the near-term pressure path management described.",
       "raw_quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e...",
       "deterministic_signal": {
         "category": "guidance_pressure",
@@ -122,6 +131,10 @@
         "deterministic_signal_category": "guidance_pressure",
         "expected_sidecar_polarity": "negative",
         "consensus_label": "negative",
+        "label_counts": {
+          "negative": 2,
+          "positive": 1
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "guidance maintained",
@@ -171,6 +184,9 @@
         },
         "pairwise_disagreement": true,
         "deterministic_alignment": "mixed_vs_expected_category",
+        "support_signal_bucket": "directional_conflict",
+        "review_priority": "high",
+        "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
         "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e..."
       },
       "audio_support": {
@@ -183,7 +199,7 @@
         "hesitation_label": "high",
         "qa_shift_label": "stronger",
         "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
-        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "plain_english_interpretation": "Measured cues show a shorter pre-answer pause, some filler or qualification language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
         "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
       },
       "visual_support": {
@@ -192,20 +208,21 @@
         "start_time_s": 232.24,
         "end_time_s": 433.0,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "context_only",
+        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.059,
         "head_motion_energy": 0.0523
       },
-      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. The heuristic visual layer only shows broadly steady on-camera delivery and should not be treated as corroboration.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "guidance_negative_q2_net_adds",
       "rank": 3,
       "top_8_showcase": true,
+      "why_selected": "Most explicit deterministic guide reset language in the case.",
       "raw_quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net adds in Q2. We didn't talk about full year and how -- what we expect. And we're not providing full year guidance, Doug, but I just want to make sure there's not a read-through from negative 2 million paid net adds in Q2 that there's going to be a steady strip down of negative adds. We're not expecting our growth to reaccelerate, our revenue growth to reaccelerate before the end of the year, but we will grow revenue. And there will be paid net add growth. As we get to the back half of the year, Ted talked about the stronger slate. We get further away from some of the big price increases. We get into a stronger seasonal period.",
       "deterministic_signal": {
         "category": "guidance_pressure",
@@ -221,6 +238,11 @@
         "deterministic_signal_category": "guidance_pressure",
         "expected_sidecar_polarity": "negative",
         "consensus_label": "negative",
+        "label_counts": {
+          "negative": 1,
+          "neutral": 1,
+          "positive": 1
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "cautious management tone",
@@ -270,6 +292,9 @@
         },
         "pairwise_disagreement": true,
         "deterministic_alignment": "mixed_vs_expected_category",
+        "support_signal_bucket": "directional_conflict",
+        "review_priority": "high",
+        "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
         "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net adds in Q2. We didn't talk about full year and how -- what we expect. And we're not providing full year guidance, Doug, but I just want to make sure there's not a read-through from negative 2 million paid net adds in Q2 that there's going to be a steady strip down of negative adds. We're not expecting our growth to reaccelerate, our revenue growth to reaccelerate before the end of the year, but we will grow revenue. And there will be paid net add growth. As we get to the back half of the year, Ted talked about the stronger slate. We get further away from some of the big price increases. We get into a stronger seasonal period."
       },
       "audio_support": {
@@ -280,13 +305,14 @@
       "visual_support": {
         "status": "unavailable"
       },
-      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. No aligned visual window is attached to this moment.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "qa_ad_supported_option",
       "rank": 4,
       "top_8_showcase": true,
+      "why_selected": "Useful non-polar strategy answer that reviewers could otherwise overread without the supporting-only caveat.",
       "raw_quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript...",
       "deterministic_signal": {
         "category": "strategic_option",
@@ -302,6 +328,10 @@
         "deterministic_signal_category": "strategic_option",
         "expected_sidecar_polarity": null,
         "consensus_label": "neutral",
+        "label_counts": {
+          "neutral": 2,
+          "positive": 1
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "confident management tone",
@@ -351,6 +381,9 @@
         },
         "pairwise_disagreement": true,
         "deterministic_alignment": "supporting_only_non_polar_category",
+        "support_signal_bucket": "non_polar_context_only",
+        "review_priority": "low",
+        "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
         "quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript..."
       },
       "audio_support": {
@@ -363,7 +396,7 @@
         "hesitation_label": "medium",
         "qa_shift_label": "stronger",
         "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
-        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "plain_english_interpretation": "Measured cues show qualifying opening language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
         "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
       },
       "visual_support": {
@@ -372,20 +405,21 @@
         "start_time_s": 1284.2,
         "end_time_s": 1323.4,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "context_only",
+        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.0312,
         "head_motion_energy": 0.0805
       },
-      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "reviewer_note": "This is a non-polar management framing moment. Sidecars and any audio/visual context add descriptive texture only and should not be treated as categorical evidence.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "chunk_monetize_sharing_competition",
       "rank": 5,
       "top_8_showcase": true,
+      "why_selected": "Compact deterministic row that combines sharing monetization, competition, and execution framing.",
       "raw_quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And remember, these are over 100 million households that already are choosing to view Netflix. They love the service. We just got to get paid at some degree for them. So that's part of it. And then two, it's really -- we got great competition. They've got some very good shows and films out. And what we've got to do is take it up a notch. And I'll tell you that we're all pretty -- I know it's disappointing for investors, and it is for sure. But internally, we're really geared up, and this is like our moment to shine. This is when it all matters. And we're super focused on achieving those objectives and getting back into our investors' good graces.",
       "deterministic_signal": {
         "category": "headwind_disclosure",
@@ -401,6 +435,11 @@
         "deterministic_signal_category": "headwind_disclosure",
         "expected_sidecar_polarity": "negative",
         "consensus_label": "negative",
+        "label_counts": {
+          "negative": 1,
+          "neutral": 1,
+          "positive": 1
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "negative",
@@ -450,6 +489,9 @@
         },
         "pairwise_disagreement": true,
         "deterministic_alignment": "mixed_vs_expected_category",
+        "support_signal_bucket": "directional_conflict",
+        "review_priority": "high",
+        "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
         "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And remember, these are over 100 million households that already are choosing to view Netflix. They love the service. We just got to get paid at some degree for them. So that's part of it. And then two, it's really -- we got great competition. They've got some very good shows and films out. And what we've got to do is take it up a notch. And I'll tell you that we're all pretty -- I know it's disappointing for investors, and it is for sure. But internally, we're really geared up, and this is like our moment to shine. This is when it all matters. And we're super focused on achieving those objectives and getting back into our investors' good graces."
       },
       "audio_support": {
@@ -460,13 +502,14 @@
       "visual_support": {
         "status": "unavailable"
       },
-      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. No aligned visual window is attached to this moment.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "chunk_long_term_market_unchanged",
       "rank": 6,
       "top_8_showcase": true,
+      "why_selected": "Useful contrast row where management stabilizes the long-term narrative after near-term pressure.",
       "raw_quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged in terms of all broadband households. It's just that we have a better sense that COVID clouded in terms of these near-term limiters to penetrate that growth and capture that market. So that's one of the things that we put a finer point on this letter, but I just want to reinforce that the core addressable market is still there, and that's what we're still growing into, Doug.",
       "deterministic_signal": {
         "category": "long_term_reassurance",
@@ -482,6 +525,10 @@
         "deterministic_signal_category": "long_term_reassurance",
         "expected_sidecar_polarity": "positive",
         "consensus_label": "negative",
+        "label_counts": {
+          "negative": 2,
+          "positive": 1
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "cautious management tone",
@@ -531,6 +578,9 @@
         },
         "pairwise_disagreement": true,
         "deterministic_alignment": "mixed_vs_expected_category",
+        "support_signal_bucket": "directional_conflict",
+        "review_priority": "high",
+        "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
         "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged in terms of all broadband households. It's just that we have a better sense that COVID clouded in terms of these near-term limiters to penetrate that growth and capture that market. So that's one of the things that we put a finer point on this letter, but I just want to reinforce that the core addressable market is still there, and that's what we're still growing into, Doug."
       },
       "audio_support": {
@@ -541,13 +591,14 @@
       "visual_support": {
         "status": "unavailable"
       },
-      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. No aligned visual window is attached to this moment.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "letter_growth_slowdown",
       "rank": 7,
       "top_8_showcase": true,
+      "why_selected": "Shortest management-authored slowdown anchor from the shareholder letter.",
       "raw_quote_or_span": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar...",
       "deterministic_signal": {
         "category": "growth_pressure",
@@ -563,6 +614,9 @@
         "deterministic_signal_category": "growth_pressure",
         "expected_sidecar_polarity": "negative",
         "consensus_label": "negative",
+        "label_counts": {
+          "negative": 3
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "cautious management tone",
@@ -612,6 +666,9 @@
         },
         "pairwise_disagreement": false,
         "deterministic_alignment": "aligned_with_expected_category",
+        "support_signal_bucket": "clean_support_example",
+        "review_priority": "low",
+        "review_priority_reason": "Comparable sidecar labels line up cleanly with the expected deterministic direction.",
         "quote_or_span": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar..."
       },
       "audio_support": {
@@ -622,13 +679,14 @@
       "visual_support": {
         "status": "unavailable"
       },
-      "reviewer_note": "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot.",
+      "reviewer_note": "Deterministic read stays primary, and this is one of the cleaner support examples in the pack.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "chunk_opening_analyst_skepticism",
       "rank": 8,
       "top_8_showcase": true,
+      "why_selected": "Sets the review frame by capturing the analyst's direct challenge on tone and headwinds.",
       "raw_quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have changed over the past few months.",
       "deterministic_signal": {
         "category": "analyst_skepticism",
@@ -644,6 +702,10 @@
         "deterministic_signal_category": "analyst_skepticism",
         "expected_sidecar_polarity": "negative",
         "consensus_label": "neutral",
+        "label_counts": {
+          "neutral": 2,
+          "negative": 1
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "evasive answer",
@@ -693,6 +755,9 @@
         },
         "pairwise_disagreement": true,
         "deterministic_alignment": "mixed_vs_expected_category",
+        "support_signal_bucket": "soft_mismatch",
+        "review_priority": "medium",
+        "review_priority_reason": "Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it.",
         "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have changed over the past few months."
       },
       "audio_support": {
@@ -703,13 +768,14 @@
       "visual_support": {
         "status": "unavailable"
       },
-      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it. No curated audio timing is attached to this moment.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "letter_headwinds",
       "rank": 9,
       "top_8_showcase": false,
+      "why_selected": "Letter version of the headwind story for cross-checking against the Q&A language.",
       "raw_quote_or_span": "In the near term though, we’re not growing revenue as fast as we’d like. COVID clouded the picture bysignificantly increasing our growth in 2020, leading us to believe that most of our slowing growth in 2021was due to the COVID pull forward. Now, we believe there are four main inter-related factors at work. First, i...",
       "deterministic_signal": {
         "category": "headwind_disclosure",
@@ -725,6 +791,9 @@
         "deterministic_signal_category": "headwind_disclosure",
         "expected_sidecar_polarity": "negative",
         "consensus_label": "negative",
+        "label_counts": {
+          "negative": 3
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "negative",
@@ -774,6 +843,9 @@
         },
         "pairwise_disagreement": false,
         "deterministic_alignment": "aligned_with_expected_category",
+        "support_signal_bucket": "clean_support_example",
+        "review_priority": "low",
+        "review_priority_reason": "Comparable sidecar labels line up cleanly with the expected deterministic direction.",
         "quote_or_span": "In the near term though, we’re not growing revenue as fast as we’d like. COVID clouded the picture bysignificantly increasing our growth in 2020, leading us to believe that most of our slowing growth in 2021was due to the COVID pull forward. Now, we believe there are four main inter-related factors at work. First, i..."
       },
       "audio_support": {
@@ -784,13 +856,14 @@
       "visual_support": {
         "status": "unavailable"
       },
-      "reviewer_note": "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot.",
+      "reviewer_note": "Deterministic read stays primary, and this is one of the cleaner support examples in the pack.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "letter_margin_framing",
       "rank": 10,
       "top_8_showcase": false,
+      "why_selected": "Keeps a bounded non-polar margins framing row in the pack without treating it as a new negative signal.",
       "raw_quote_or_span": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar...",
       "deterministic_signal": {
         "category": "margin_framing",
@@ -806,6 +879,9 @@
         "deterministic_signal_category": "margin_framing",
         "expected_sidecar_polarity": null,
         "consensus_label": "negative",
+        "label_counts": {
+          "negative": 3
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "cautious management tone",
@@ -855,6 +931,9 @@
         },
         "pairwise_disagreement": false,
         "deterministic_alignment": "supporting_only_non_polar_category",
+        "support_signal_bucket": "non_polar_context_only",
+        "review_priority": "low",
+        "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
         "quote_or_span": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar..."
       },
       "audio_support": {
@@ -865,13 +944,14 @@
       "visual_support": {
         "status": "unavailable"
       },
-      "reviewer_note": "This is a non-polar management framing moment, so sidecars add color but should not be treated as a categorical override.",
+      "reviewer_note": "This is a non-polar management framing moment. Sidecars and any audio/visual context add descriptive texture only and should not be treated as categorical evidence.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "financial_anchor_q1",
       "rank": 11,
       "top_8_showcase": false,
+      "why_selected": "Anchors the pack to reported quarter facts so the bundle does not drift into narrative-only excerpts.",
       "raw_quote_or_span": "Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53.",
       "deterministic_signal": {
         "category": "financial_anchor",
@@ -887,6 +967,10 @@
         "deterministic_signal_category": "financial_anchor",
         "expected_sidecar_polarity": null,
         "consensus_label": "neutral",
+        "label_counts": {
+          "neutral": 2,
+          "positive": 1
+        },
         "model_outputs": {
           "deberta_zero_shot": {
             "top_label": "positive",
@@ -936,6 +1020,9 @@
         },
         "pairwise_disagreement": true,
         "deterministic_alignment": "supporting_only_non_polar_category",
+        "support_signal_bucket": "non_polar_context_only",
+        "review_priority": "low",
+        "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
         "quote_or_span": "Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53."
       },
       "audio_support": {
@@ -946,48 +1033,69 @@
       "visual_support": {
         "status": "unavailable"
       },
-      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "reviewer_note": "This is a non-polar management framing moment. Sidecars and any audio/visual context add descriptive texture only and should not be treated as categorical evidence.",
       "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
     }
   ],
   "top_disagreement_hotspots": [
     {
-      "moment_id": "qa_growth_headwinds",
-      "rank": 1,
-      "deterministic_signal_category": "growth_pressure",
+      "moment_id": "guidance_negative_q2_net_adds",
+      "rank": 3,
+      "deterministic_signal_category": "guidance_pressure",
       "expected_sidecar_polarity": "negative",
       "observed_labels": [
         "negative",
-        "negative",
-        "neutral"
+        "neutral",
+        "positive"
       ],
+      "label_counts": {
+        "negative": 1,
+        "neutral": 1,
+        "positive": 1
+      },
       "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki...",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 3,
+      "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net ...",
       "audio_support": {
-        "moment_id": "qa_growth_headwinds",
-        "status": "aligned",
-        "question_time_range": "00:32-00:48",
-        "answer_time_range": "00:48-03:16",
-        "pause_before_answer_ms": 1060.0,
-        "filler_density": 0.6897,
-        "hesitation_label": "high",
-        "qa_shift_label": "weaker",
-        "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
-        "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
-        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+        "moment_id": "guidance_negative_q2_net_adds",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "moment_id": "qa_growth_headwinds",
-        "status": "aligned",
-        "start_time_s": 48.16,
-        "end_time_s": 196.24,
-        "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "face_visible_pct": 1.0,
-        "visual_change_score": 0.0601,
-        "head_motion_energy": 0.0698
+        "status": "unavailable"
+      }
+    },
+    {
+      "moment_id": "chunk_monetize_sharing_competition",
+      "rank": 5,
+      "deterministic_signal_category": "headwind_disclosure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "label_counts": {
+        "negative": 1,
+        "neutral": 1,
+        "positive": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 3,
+      "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And rememb...",
+      "audio_support": {
+        "moment_id": "chunk_monetize_sharing_competition",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
       }
     },
     {
@@ -1000,7 +1108,15 @@
         "negative",
         "negative"
       ],
+      "label_counts": {
+        "negative": 2,
+        "positive": 1
+      },
       "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 2,
       "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And w...",
       "audio_support": {
         "moment_id": "qa_q1_miss_explanation",
@@ -1012,7 +1128,7 @@
         "hesitation_label": "high",
         "qa_shift_label": "stronger",
         "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
-        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "plain_english_interpretation": "Measured cues show a shorter pre-answer pause, some filler or qualification language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
         "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
       },
       "visual_support": {
@@ -1021,28 +1137,112 @@
         "start_time_s": 232.24,
         "end_time_s": 433.0,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "context_only",
+        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.059,
         "head_motion_energy": 0.0523
       }
     },
     {
-      "moment_id": "guidance_negative_q2_net_adds",
-      "rank": 3,
-      "deterministic_signal_category": "guidance_pressure",
+      "moment_id": "chunk_long_term_market_unchanged",
+      "rank": 6,
+      "deterministic_signal_category": "long_term_reassurance",
+      "expected_sidecar_polarity": "positive",
+      "observed_labels": [
+        "negative",
+        "negative",
+        "positive"
+      ],
+      "label_counts": {
+        "negative": 2,
+        "positive": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged ...",
+      "audio_support": {
+        "moment_id": "chunk_long_term_market_unchanged",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      }
+    },
+    {
+      "moment_id": "qa_growth_headwinds",
+      "rank": 1,
+      "deterministic_signal_category": "growth_pressure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "negative",
+        "neutral"
+      ],
+      "label_counts": {
+        "negative": 2,
+        "neutral": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "soft_mismatch",
+      "review_priority": "medium",
+      "review_priority_reason": "Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki...",
+      "audio_support": {
+        "moment_id": "qa_growth_headwinds",
+        "status": "aligned",
+        "question_time_range": "00:32-00:48",
+        "answer_time_range": "00:48-03:16",
+        "pause_before_answer_ms": 1060.0,
+        "filler_density": 0.6897,
+        "hesitation_label": "high",
+        "qa_shift_label": "weaker",
+        "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
+        "plain_english_interpretation": "Measured cues show a noticeable pre-answer pause, heavier filler or qualification language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_growth_headwinds",
+        "status": "aligned",
+        "start_time_s": 48.16,
+        "end_time_s": 196.24,
+        "visual_stability_label": "stable",
+        "support_direction": "context_only",
+        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.0601,
+        "head_motion_energy": 0.0698
+      }
+    },
+    {
+      "moment_id": "chunk_opening_analyst_skepticism",
+      "rank": 8,
+      "deterministic_signal_category": "analyst_skepticism",
       "expected_sidecar_polarity": "negative",
       "observed_labels": [
         "negative",
         "neutral",
-        "positive"
+        "neutral"
       ],
+      "label_counts": {
+        "neutral": 2,
+        "negative": 1
+      },
       "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net ...",
+      "support_signal_bucket": "soft_mismatch",
+      "review_priority": "medium",
+      "review_priority_reason": "Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have chan...",
       "audio_support": {
-        "moment_id": "guidance_negative_q2_net_adds",
+        "moment_id": "chunk_opening_analyst_skepticism",
         "status": "unavailable",
         "reason": "No curated repo audio timing is attached to this deterministic moment."
       },
@@ -1060,7 +1260,15 @@
         "neutral",
         "neutral"
       ],
+      "label_counts": {
+        "neutral": 2,
+        "positive": 1
+      },
       "alignment": "supporting_only_non_polar_category",
+      "support_signal_bucket": "non_polar_context_only",
+      "review_priority": "low",
+      "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
+      "distinct_label_count": 2,
       "quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been ag...",
       "audio_support": {
         "moment_id": "qa_ad_supported_option",
@@ -1072,7 +1280,7 @@
         "hesitation_label": "medium",
         "qa_shift_label": "stronger",
         "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
-        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "plain_english_interpretation": "Measured cues show qualifying opening language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
         "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
       },
       "visual_support": {
@@ -1081,75 +1289,12 @@
         "start_time_s": 1284.2,
         "end_time_s": 1323.4,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "context_only",
+        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.0312,
         "head_motion_energy": 0.0805
-      }
-    },
-    {
-      "moment_id": "chunk_monetize_sharing_competition",
-      "rank": 5,
-      "deterministic_signal_category": "headwind_disclosure",
-      "expected_sidecar_polarity": "negative",
-      "observed_labels": [
-        "negative",
-        "neutral",
-        "positive"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And rememb...",
-      "audio_support": {
-        "moment_id": "chunk_monetize_sharing_competition",
-        "status": "unavailable",
-        "reason": "No curated repo audio timing is attached to this deterministic moment."
-      },
-      "visual_support": {
-        "status": "unavailable"
-      }
-    },
-    {
-      "moment_id": "chunk_long_term_market_unchanged",
-      "rank": 6,
-      "deterministic_signal_category": "long_term_reassurance",
-      "expected_sidecar_polarity": "positive",
-      "observed_labels": [
-        "negative",
-        "negative",
-        "positive"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged ...",
-      "audio_support": {
-        "moment_id": "chunk_long_term_market_unchanged",
-        "status": "unavailable",
-        "reason": "No curated repo audio timing is attached to this deterministic moment."
-      },
-      "visual_support": {
-        "status": "unavailable"
-      }
-    },
-    {
-      "moment_id": "chunk_opening_analyst_skepticism",
-      "rank": 8,
-      "deterministic_signal_category": "analyst_skepticism",
-      "expected_sidecar_polarity": "negative",
-      "observed_labels": [
-        "negative",
-        "neutral",
-        "neutral"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have chan...",
-      "audio_support": {
-        "moment_id": "chunk_opening_analyst_skepticism",
-        "status": "unavailable",
-        "reason": "No curated repo audio timing is attached to this deterministic moment."
-      },
-      "visual_support": {
-        "status": "unavailable"
       }
     },
     {
@@ -1162,7 +1307,15 @@
         "neutral",
         "neutral"
       ],
+      "label_counts": {
+        "neutral": 2,
+        "positive": 1
+      },
       "alignment": "supporting_only_non_polar_category",
+      "support_signal_bucket": "non_polar_context_only",
+      "review_priority": "low",
+      "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
+      "distinct_label_count": 2,
       "quote_or_span": "Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53.",
       "audio_support": {
         "moment_id": "financial_anchor_q1",
@@ -1179,26 +1332,29 @@
       "moment_id": "letter_growth_slowdown",
       "rank": 7,
       "consensus_label": "negative",
-      "reviewer_note": "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot."
+      "reviewer_note": "Deterministic read stays primary, and this is one of the cleaner support examples in the pack.",
+      "review_priority_reason": "Comparable sidecar labels line up cleanly with the expected deterministic direction."
     },
     {
       "moment_id": "letter_headwinds",
       "rank": 9,
       "consensus_label": "negative",
-      "reviewer_note": "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot."
+      "reviewer_note": "Deterministic read stays primary, and this is one of the cleaner support examples in the pack.",
+      "review_priority_reason": "Comparable sidecar labels line up cleanly with the expected deterministic direction."
     }
   ],
   "what_sidecars_added": [
-    "Fast cross-model agreement checks on the bounded Netflix moment set.",
-    "A shortlist of disagreement hotspots to review before any future UI surfacing.",
-    "Optional semantic grouping via embeddings where similarity helps cluster noisy moments."
+    "A bounded cross-model comparison on the curated Netflix moment set.",
+    "A ranked shortlist of sidecar hotspots that separates directional conflict from non-polar context rows.",
+    "Optional embedding similarity for reviewer clustering, not semantic ground truth."
   ],
   "what_sidecars_did_not_add": [
     "No sidecar output replaces the deterministic transcript-backed evidence rows.",
-    "No model output here establishes ground truth, predictive edge, or statistical lift."
+    "No model output here establishes ground truth, predictive edge, or statistical lift.",
+    "No sidecar output resolves disagreement without transcript-first review."
   ],
   "future_ui_surface_notes": [
     "The top-8 showcase moments can be surfaced as a fixed accordion or table without changing the current demo architecture.",
-    "Pressure and disagreement subpanels are already shaped as persistent JSON bundles for later UI plumbing."
+    "Pressure and disagreement subpanels already carry reviewer notes, bounded caveats, and clip-ready metadata for later UI plumbing."
   ]
 }

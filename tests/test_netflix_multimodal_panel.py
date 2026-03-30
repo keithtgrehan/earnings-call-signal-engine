@@ -5,6 +5,7 @@ from pathlib import Path
 
 import earnings_call_sentiment.netflix_multimodal_panel as netflix_panel
 from earnings_call_sentiment.netflix_multimodal_panel import (
+    build_model_comparison,
     build_audio_support,
     build_curated_moment_manifest,
     build_panel_payload,
@@ -25,6 +26,17 @@ def test_build_curated_moment_manifest_has_expected_showcase_shape() -> None:
     assert "qa_growth_headwinds" in moment_ids
     assert "guidance_negative_q2_net_adds" in moment_ids
     assert moment_ids[:2] == ["qa_growth_headwinds", "qa_q1_miss_explanation"]
+
+
+def test_build_curated_moment_manifest_showcase_rows_have_reviewer_rationale() -> None:
+    manifest = build_curated_moment_manifest(REPO_ROOT)
+
+    showcase_rows = [row for row in manifest["moments"] if row["top_8_showcase"]]
+
+    assert len(showcase_rows) == 8
+    assert all(str(row["why_selected"]).strip() for row in showcase_rows)
+    guidance_row = next(row for row in showcase_rows if row["moment_id"] == "guidance_negative_q2_net_adds")
+    assert "guide reset language" in guidance_row["why_selected"]
 
 
 def test_write_curated_sidecar_inputs_preserves_manifest_ids(tmp_path: Path) -> None:
@@ -52,6 +64,17 @@ def test_build_audio_support_marks_only_curated_rows_as_aligned() -> None:
     assert len(unavailable) >= 1
 
 
+def test_build_audio_support_interpretation_stays_observational() -> None:
+    manifest = build_curated_moment_manifest(REPO_ROOT)
+    payload = build_audio_support(manifest, root=REPO_ROOT)
+
+    aligned = [row for row in payload["moments"] if row["status"] == "aligned"]
+
+    assert aligned
+    assert all("pacing/context only" in str(row["plain_english_interpretation"]) for row in aligned)
+    assert all("does not change the transcript-backed deterministic read" in str(row["plain_english_interpretation"]) for row in aligned)
+
+
 def test_build_visual_support_skips_cleanly_when_video_missing(monkeypatch) -> None:
     manifest = build_curated_moment_manifest(REPO_ROOT)
     monkeypatch.setattr(netflix_panel, "REQUESTED_VIDEO_PATH", Path("/tmp/netflix-video-missing-requested.mp4"))
@@ -65,6 +88,38 @@ def test_build_visual_support_skips_cleanly_when_video_missing(monkeypatch) -> N
 
     assert skipped is True
     assert payload["status"] == "skipped"
+
+
+def test_visual_moment_row_softens_heuristic_fallback_language() -> None:
+    softened = netflix_panel._visual_moment_row(
+        {
+            "start_time_s": 1.0,
+            "end_time_s": 2.0,
+            "visual_stability_label": "stable",
+            "support_direction": "supportive",
+            "support_note": "visible delivery stayed comparatively steady in this window",
+            "confidence_note": "pose coverage is limited",
+            "face_visible_pct": 1.0,
+            "visual_change_score": 0.05,
+            "head_motion_energy": 0.06,
+        },
+        support_mode="heuristic_fallback",
+    )
+
+    assert softened["support_direction"] == "context_only"
+    assert "heuristic fallback only" in softened["support_note"]
+    assert "heuristic fallback only" in softened["confidence_note"]
+
+
+def test_support_signal_metadata_downgrades_non_polar_spread() -> None:
+    metadata = netflix_panel._support_signal_metadata(
+        expected_polarity="",
+        comparable_labels=["positive", "neutral", "neutral"],
+        consensus_label="neutral",
+    )
+
+    assert metadata["support_signal_bucket"] == "non_polar_context_only"
+    assert metadata["review_priority"] == "low"
 
 
 def test_build_panel_payload_returns_pressure_rows() -> None:
@@ -113,6 +168,21 @@ def test_build_panel_payload_returns_pressure_rows() -> None:
     assert panel_payload["selected_moment_count"] == manifest["primary_moment_count"]
     assert len(pressure_panel["rows"]) == 3
     assert disagreement_panel["rows"][0]["moment_id"] == "qa_q1_miss_explanation"
+
+
+def test_build_model_comparison_adds_review_priority_metadata() -> None:
+    manifest = build_curated_moment_manifest(REPO_ROOT)
+    comparison_payload, disagreement_payload = build_model_comparison(manifest, root=REPO_ROOT)
+
+    rows = {row["moment_id"]: row for row in comparison_payload["moment_rows"]}
+    priorities = {"high": 0, "medium": 1, "low": 2}
+
+    assert rows["qa_ad_supported_option"]["support_signal_bucket"] == "non_polar_context_only"
+    assert rows["qa_ad_supported_option"]["review_priority"] == "low"
+    assert rows["chunk_long_term_market_unchanged"]["review_priority"] == "high"
+    assert all("review_priority_reason" in row for row in disagreement_payload["pairwise_model_disagreements"])
+    priority_values = [priorities[row["review_priority"]] for row in disagreement_payload["pairwise_model_disagreements"]]
+    assert priority_values == sorted(priority_values)
 
 
 def test_build_netflix_multimodal_panel_script_invokes_writer(monkeypatch, capsys) -> None:

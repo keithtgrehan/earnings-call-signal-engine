@@ -60,7 +60,7 @@
       "score": 0.9499,
       "level": "high"
     },
-    "visual_support_direction": "supportive",
+    "visual_support_direction": "context_only",
     "visual_confidence_support": {
       "level": "high",
       "suppressed": false,
@@ -87,7 +87,7 @@
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
         "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "support_direction": "context_only",
         "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
       },
       {
@@ -102,7 +102,7 @@
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
         "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "support_direction": "context_only",
         "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
       },
       {
@@ -117,7 +117,7 @@
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
         "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "support_direction": "context_only",
         "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
       }
     ],
@@ -134,7 +134,7 @@
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
         "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "support_direction": "context_only",
         "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
       },
       {
@@ -149,7 +149,7 @@
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
         "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "support_direction": "context_only",
         "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
       },
       {
@@ -164,7 +164,7 @@
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
         "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "support_direction": "context_only",
         "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
       }
     ],
@@ -181,7 +181,7 @@
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
         "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "support_direction": "context_only",
         "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
       },
       {
@@ -196,7 +196,7 @@
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
         "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "support_direction": "context_only",
         "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
       },
       {
@@ -211,17 +211,19 @@
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
         "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "support_direction": "context_only",
         "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
       }
     ],
     "notable_low_confidence_segments": [],
     "limitations": [
-      "Upper-body coverage is limited, so shoulder and hand signals remain secondary."
+      "Upper-body coverage is limited, so shoulder and hand signals remain secondary.",
+      "This run is heuristic fallback only, so visually steady delivery should be treated as bounded context rather than corroboration."
     ],
     "notes": [
       "Visual behavior signals are observational proxies only; they are not emotion or deception inference.",
-      "Frame features are sampled at a low rate and aggregated into transcript-aligned segments for reviewer decision support."
+      "Frame features are sampled at a low rate and aggregated into transcript-aligned segments for reviewer decision support.",
+      "Heuristic fallback can describe visible steadiness or change, but it does not establish contradiction, confidence, or sentiment."
     ]
   },
   "moments": [
@@ -231,9 +233,9 @@
       "start_time_s": 48.16,
       "end_time_s": 196.24,
       "visual_stability_label": "stable",
-      "support_direction": "supportive",
-      "support_note": "visible delivery stayed comparatively steady in this window",
-      "confidence_note": "pose coverage is limited for shoulder and hand features",
+      "support_direction": "context_only",
+      "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+      "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
       "face_visible_pct": 1.0,
       "visual_change_score": 0.0601,
       "head_motion_energy": 0.0698
@@ -244,9 +246,9 @@
       "start_time_s": 232.24,
       "end_time_s": 433.0,
       "visual_stability_label": "stable",
-      "support_direction": "supportive",
-      "support_note": "visible delivery stayed comparatively steady in this window",
-      "confidence_note": "pose coverage is limited for shoulder and hand features",
+      "support_direction": "context_only",
+      "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+      "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
       "face_visible_pct": 1.0,
       "visual_change_score": 0.059,
       "head_motion_energy": 0.0523
@@ -257,9 +259,9 @@
       "start_time_s": 1284.2,
       "end_time_s": 1323.4,
       "visual_stability_label": "stable",
-      "support_direction": "supportive",
-      "support_note": "visible delivery stayed comparatively steady in this window",
-      "confidence_note": "pose coverage is limited for shoulder and hand features",
+      "support_direction": "context_only",
+      "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+      "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
       "face_visible_pct": 1.0,
       "visual_change_score": 0.0312,
       "head_motion_energy": 0.0805
@@ -272,6 +274,7 @@
   },
   "notes": [
     "Visual behavior remains supporting-only and was run on the bounded timed Q&A answer windows.",
-    "Only the windows with existing curated audio timing were used for the visual pass."
+    "Only the windows with existing curated audio timing were used for the visual pass.",
+    "The current visual layer is heuristic fallback only, so it should be read as bounded observational context rather than corroboration."
   ]
 }

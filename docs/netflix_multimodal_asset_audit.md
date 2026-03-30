@@ -31,3 +31,4 @@
 ## Conclusion
 
 - The exact requested file path did not match, but a local Netflix MP4 fallback was found and used for a bounded supporting-only visual pass.
+- The committed visual layer is heuristic fallback only; it is not model-backed visual scoring.

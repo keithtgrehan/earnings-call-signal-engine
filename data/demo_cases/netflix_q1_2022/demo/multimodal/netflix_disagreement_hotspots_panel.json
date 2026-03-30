@@ -3,42 +3,63 @@
   "status": "ok",
   "rows": [
     {
-      "moment_id": "qa_growth_headwinds",
-      "rank": 1,
-      "deterministic_signal_category": "growth_pressure",
+      "moment_id": "guidance_negative_q2_net_adds",
+      "rank": 3,
+      "deterministic_signal_category": "guidance_pressure",
       "expected_sidecar_polarity": "negative",
       "observed_labels": [
         "negative",
-        "negative",
-        "neutral"
+        "neutral",
+        "positive"
       ],
+      "label_counts": {
+        "negative": 1,
+        "neutral": 1,
+        "positive": 1
+      },
       "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki...",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 3,
+      "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net ...",
       "audio_support": {
-        "moment_id": "qa_growth_headwinds",
-        "status": "aligned",
-        "question_time_range": "00:32-00:48",
-        "answer_time_range": "00:48-03:16",
-        "pause_before_answer_ms": 1060.0,
-        "filler_density": 0.6897,
-        "hesitation_label": "high",
-        "qa_shift_label": "weaker",
-        "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
-        "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
-        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+        "moment_id": "guidance_negative_q2_net_adds",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "moment_id": "qa_growth_headwinds",
-        "status": "aligned",
-        "start_time_s": 48.16,
-        "end_time_s": 196.24,
-        "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "face_visible_pct": 1.0,
-        "visual_change_score": 0.0601,
-        "head_motion_energy": 0.0698
+        "status": "unavailable"
+      }
+    },
+    {
+      "moment_id": "chunk_monetize_sharing_competition",
+      "rank": 5,
+      "deterministic_signal_category": "headwind_disclosure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "label_counts": {
+        "negative": 1,
+        "neutral": 1,
+        "positive": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 3,
+      "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And rememb...",
+      "audio_support": {
+        "moment_id": "chunk_monetize_sharing_competition",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
       }
     },
     {
@@ -51,7 +72,15 @@
         "negative",
         "negative"
       ],
+      "label_counts": {
+        "negative": 2,
+        "positive": 1
+      },
       "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 2,
       "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And w...",
       "audio_support": {
         "moment_id": "qa_q1_miss_explanation",
@@ -63,7 +92,7 @@
         "hesitation_label": "high",
         "qa_shift_label": "stronger",
         "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
-        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "plain_english_interpretation": "Measured cues show a shorter pre-answer pause, some filler or qualification language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
         "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
       },
       "visual_support": {
@@ -72,28 +101,112 @@
         "start_time_s": 232.24,
         "end_time_s": 433.0,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "context_only",
+        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.059,
         "head_motion_energy": 0.0523
       }
     },
     {
-      "moment_id": "guidance_negative_q2_net_adds",
-      "rank": 3,
-      "deterministic_signal_category": "guidance_pressure",
+      "moment_id": "chunk_long_term_market_unchanged",
+      "rank": 6,
+      "deterministic_signal_category": "long_term_reassurance",
+      "expected_sidecar_polarity": "positive",
+      "observed_labels": [
+        "negative",
+        "negative",
+        "positive"
+      ],
+      "label_counts": {
+        "negative": 2,
+        "positive": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged ...",
+      "audio_support": {
+        "moment_id": "chunk_long_term_market_unchanged",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      }
+    },
+    {
+      "moment_id": "qa_growth_headwinds",
+      "rank": 1,
+      "deterministic_signal_category": "growth_pressure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "negative",
+        "neutral"
+      ],
+      "label_counts": {
+        "negative": 2,
+        "neutral": 1
+      },
+      "alignment": "mixed_vs_expected_category",
+      "support_signal_bucket": "soft_mismatch",
+      "review_priority": "medium",
+      "review_priority_reason": "Most comparable sidecar labels line up with the expected direction, but at least one model softens the read.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki...",
+      "audio_support": {
+        "moment_id": "qa_growth_headwinds",
+        "status": "aligned",
+        "question_time_range": "00:32-00:48",
+        "answer_time_range": "00:48-03:16",
+        "pause_before_answer_ms": 1060.0,
+        "filler_density": 0.6897,
+        "hesitation_label": "high",
+        "qa_shift_label": "weaker",
+        "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
+        "plain_english_interpretation": "Measured cues show a noticeable pre-answer pause, heavier filler or qualification language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_growth_headwinds",
+        "status": "aligned",
+        "start_time_s": 48.16,
+        "end_time_s": 196.24,
+        "visual_stability_label": "stable",
+        "support_direction": "context_only",
+        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.0601,
+        "head_motion_energy": 0.0698
+      }
+    },
+    {
+      "moment_id": "chunk_opening_analyst_skepticism",
+      "rank": 8,
+      "deterministic_signal_category": "analyst_skepticism",
       "expected_sidecar_polarity": "negative",
       "observed_labels": [
         "negative",
         "neutral",
-        "positive"
+        "neutral"
       ],
+      "label_counts": {
+        "neutral": 2,
+        "negative": 1
+      },
       "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net ...",
+      "support_signal_bucket": "soft_mismatch",
+      "review_priority": "medium",
+      "review_priority_reason": "Comparable sidecar labels soften the expected direction to neutral rather than clearly reversing it.",
+      "distinct_label_count": 2,
+      "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have chan...",
       "audio_support": {
-        "moment_id": "guidance_negative_q2_net_adds",
+        "moment_id": "chunk_opening_analyst_skepticism",
         "status": "unavailable",
         "reason": "No curated repo audio timing is attached to this deterministic moment."
       },
@@ -111,7 +224,15 @@
         "neutral",
         "neutral"
       ],
+      "label_counts": {
+        "neutral": 2,
+        "positive": 1
+      },
       "alignment": "supporting_only_non_polar_category",
+      "support_signal_bucket": "non_polar_context_only",
+      "review_priority": "low",
+      "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
+      "distinct_label_count": 2,
       "quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been ag...",
       "audio_support": {
         "moment_id": "qa_ad_supported_option",
@@ -123,7 +244,7 @@
         "hesitation_label": "medium",
         "qa_shift_label": "stronger",
         "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
-        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "plain_english_interpretation": "Measured cues show qualifying opening language. Use this as pacing/context only; it does not change the transcript-backed deterministic read.",
         "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
       },
       "visual_support": {
@@ -132,75 +253,12 @@
         "start_time_s": 1284.2,
         "end_time_s": 1323.4,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "context_only",
+        "support_note": "heuristic fallback only; visible delivery stayed broadly steady and did not add a strong visual contradiction",
+        "confidence_note": "pose coverage is limited for shoulder and hand features; heuristic fallback only",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.0312,
         "head_motion_energy": 0.0805
-      }
-    },
-    {
-      "moment_id": "chunk_monetize_sharing_competition",
-      "rank": 5,
-      "deterministic_signal_category": "headwind_disclosure",
-      "expected_sidecar_polarity": "negative",
-      "observed_labels": [
-        "negative",
-        "neutral",
-        "positive"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And rememb...",
-      "audio_support": {
-        "moment_id": "chunk_monetize_sharing_competition",
-        "status": "unavailable",
-        "reason": "No curated repo audio timing is attached to this deterministic moment."
-      },
-      "visual_support": {
-        "status": "unavailable"
-      }
-    },
-    {
-      "moment_id": "chunk_long_term_market_unchanged",
-      "rank": 6,
-      "deterministic_signal_category": "long_term_reassurance",
-      "expected_sidecar_polarity": "positive",
-      "observed_labels": [
-        "negative",
-        "negative",
-        "positive"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged ...",
-      "audio_support": {
-        "moment_id": "chunk_long_term_market_unchanged",
-        "status": "unavailable",
-        "reason": "No curated repo audio timing is attached to this deterministic moment."
-      },
-      "visual_support": {
-        "status": "unavailable"
-      }
-    },
-    {
-      "moment_id": "chunk_opening_analyst_skepticism",
-      "rank": 8,
-      "deterministic_signal_category": "analyst_skepticism",
-      "expected_sidecar_polarity": "negative",
-      "observed_labels": [
-        "negative",
-        "neutral",
-        "neutral"
-      ],
-      "alignment": "mixed_vs_expected_category",
-      "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have chan...",
-      "audio_support": {
-        "moment_id": "chunk_opening_analyst_skepticism",
-        "status": "unavailable",
-        "reason": "No curated repo audio timing is attached to this deterministic moment."
-      },
-      "visual_support": {
-        "status": "unavailable"
       }
     },
     {
@@ -213,7 +271,15 @@
         "neutral",
         "neutral"
       ],
+      "label_counts": {
+        "neutral": 2,
+        "positive": 1
+      },
       "alignment": "supporting_only_non_polar_category",
+      "support_signal_bucket": "non_polar_context_only",
+      "review_priority": "low",
+      "review_priority_reason": "This deterministic category is non-polar, so sidecar spread is descriptive context only.",
+      "distinct_label_count": 2,
       "quote_or_span": "Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53.",
       "audio_support": {
         "moment_id": "financial_anchor_q1",

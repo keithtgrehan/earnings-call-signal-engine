@@ -4,80 +4,135 @@
   "clips": [
     {
       "moment_id": "qa_growth_headwinds",
+      "rank": 1,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "growth_pressure",
+      "plain_english_label": "management acknowledged growth pressure",
       "start_time_s": 32.28,
       "end_time_s": 196.24,
       "timestamp_range": "00:32-03:16",
-      "clip_ready": true
+      "clip_ready": true,
+      "clip_note": "Timed media alignment is available for bounded reviewer playback."
     },
     {
       "moment_id": "qa_q1_miss_explanation",
+      "rank": 2,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "guidance_pressure",
+      "plain_english_label": "management explained the miss directly",
       "start_time_s": 198.24,
       "end_time_s": 433.0,
       "timestamp_range": "03:18-07:13",
-      "clip_ready": true
+      "clip_ready": true,
+      "clip_note": "Timed media alignment is available for bounded reviewer playback."
     },
     {
       "moment_id": "guidance_negative_q2_net_adds",
+      "rank": 3,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "guidance_pressure",
+      "plain_english_label": "negative Q2 paid net adds guidance",
       "start_time_s": 2823.459,
       "end_time_s": 2889.613,
       "timestamp_range": "47:03-48:10",
-      "clip_ready": true
+      "clip_ready": true,
+      "clip_note": "Timed media alignment is available for bounded reviewer playback."
     },
     {
       "moment_id": "qa_ad_supported_option",
+      "rank": 4,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "strategic_option",
+      "plain_english_label": "qualified answer on the ad-supported option",
       "start_time_s": 1271.64,
       "end_time_s": 1323.4,
       "timestamp_range": "21:12-22:03",
-      "clip_ready": true
+      "clip_ready": true,
+      "clip_note": "Timed media alignment is available for bounded reviewer playback."
     },
     {
       "moment_id": "chunk_monetize_sharing_competition",
+      "rank": 5,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "headwind_disclosure",
+      "plain_english_label": "monetizing sharing while acknowledging competition",
       "start_time_s": 115.0,
       "end_time_s": 183.077,
       "timestamp_range": "01:55-03:03",
-      "clip_ready": true
+      "clip_ready": true,
+      "clip_note": "Timed media alignment is available for bounded reviewer playback."
     },
     {
       "moment_id": "chunk_long_term_market_unchanged",
+      "rank": 6,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "long_term_reassurance",
+      "plain_english_label": "long-term market remains intact",
       "start_time_s": 183.077,
       "end_time_s": 228.462,
       "timestamp_range": "03:03-03:48",
-      "clip_ready": true
+      "clip_ready": true,
+      "clip_note": "Timed media alignment is available for bounded reviewer playback."
     },
     {
       "moment_id": "letter_growth_slowdown",
+      "rank": 7,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "growth_pressure",
+      "plain_english_label": "growth slowdown",
       "start_time_s": null,
       "end_time_s": null,
       "timestamp_range": null,
-      "clip_ready": false
+      "clip_ready": false,
+      "clip_note": "No timed media alignment is available for this moment."
     },
     {
       "moment_id": "chunk_opening_analyst_skepticism",
+      "rank": 8,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "analyst_skepticism",
+      "plain_english_label": "opening analyst skepticism",
       "start_time_s": 33.846,
       "end_time_s": 52.308,
       "timestamp_range": "00:34-00:52",
-      "clip_ready": true
+      "clip_ready": true,
+      "clip_note": "Timed media alignment is available for bounded reviewer playback."
     },
     {
       "moment_id": "letter_headwinds",
+      "rank": 9,
+      "top_8_showcase": false,
+      "deterministic_signal_category": "headwind_disclosure",
+      "plain_english_label": "competitive and macro headwinds",
       "start_time_s": null,
       "end_time_s": null,
       "timestamp_range": null,
-      "clip_ready": false
+      "clip_ready": false,
+      "clip_note": "No timed media alignment is available for this moment."
     },
     {
       "moment_id": "letter_margin_framing",
+      "rank": 10,
+      "top_8_showcase": false,
+      "deterministic_signal_category": "margin_framing",
+      "plain_english_label": "forward margin framing",
       "start_time_s": null,
       "end_time_s": null,
       "timestamp_range": null,
-      "clip_ready": false
+      "clip_ready": false,
+      "clip_note": "No timed media alignment is available for this moment."
     },
     {
       "moment_id": "financial_anchor_q1",
+      "rank": 11,
+      "top_8_showcase": false,
+      "deterministic_signal_category": "financial_anchor",
+      "plain_english_label": "quarter anchored by reported financials",
       "start_time_s": null,
       "end_time_s": null,
       "timestamp_range": null,
-      "clip_ready": false
+      "clip_ready": false,
+      "clip_note": "No timed media alignment is available for this moment."
     }
   ]
 }

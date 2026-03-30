@@ -15,6 +15,7 @@ This PR is Netflix-case only for the multimodal bundle. It is intended for bound
 - Pairwise NLP sidecar comparison outputs, disagreement hotspots, supporting-only caveats, and pressure/disagreement panel JSON shaped for later review or UI plumbing.
 - A bounded visual pass tied only to curated timed Q&A windows when local video support is available.
 - Small CLI/script support to build the Netflix bundle and keep optional NLP sidecar outputs additive rather than threaded into the canonical deterministic pipeline.
+- Reviewer-oriented polish on moment rationale, disagreement prioritization, and support-layer wording so the pack is easier to inspect honestly.
 
 ## What Stayed Intentionally Unchanged
 
@@ -30,6 +31,7 @@ This PR is Netflix-case only for the multimodal bundle. It is intended for bound
 - This bundle is limited to the Netflix Q1 2022 case.
 - The visual pass is bounded and observational; the committed bundle used a fallback local Netflix MP4 after the exact requested path did not match.
 - The current visual support is heuristic fallback only, not model-backed visual scoring.
+- Disagreement rows are ranked for review priority, but they still do not override the transcript-backed deterministic read.
 - No predictive, alpha, lift, or statistical-significance claims are made.
 
 ## Testing Performed
@@ -43,6 +45,7 @@ This PR is Netflix-case only for the multimodal bundle. It is intended for bound
 - Confirm sidecars/audio/video are framed as supporting-only everywhere reviewer-facing.
 - Confirm the multimodal bundle is scoped to Netflix Q1 2022 only.
 - Confirm the asset audit clearly distinguishes requested MP4 path vs fallback local MP4 used.
+- Confirm disagreement ranking now separates directional conflict from non-polar context rows.
 - Confirm no predictive or statistical claims slipped into docs, JSON, or README language.
 - Confirm the reusable NLP sidecar plumbing is additive support for this bounded bundle, not a hidden rewrite of the canonical path.
 
