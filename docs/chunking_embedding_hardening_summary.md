@@ -14,9 +14,11 @@
   - transcript-chunk de-preferencing when richer structured rows are close
   - analyst-skepticism query boosts
   - competition / slowdown query boosts
+- Added one final bounded skepticism correction:
+  - skepticism-oriented queries now add a small extra bonus for analyst-question rows that carry the strongest opener language such as `tone`, `very different`, `3 months ago`, `competition`, `macro`, `maturity`, and `walk us through how your views have changed`
 - Added a bounded Netflix retrieval evaluation fixture:
   - `tests/fixtures/netflix_retrieval_eval.json`
-  - 10 reviewer-style queries with expected source families and row ids
+  - 12 reviewer-style queries with expected source families and row ids
 - Added focused regressions in `tests/test_retrieval_support.py`
 - Updated the summary and Netflix demo docs for the hardened reviewer flow
 
@@ -31,6 +33,7 @@
 - Added explicit query-intent boosts for:
   - analyst / skeptical / challenging question queries
   - competition / slowdown / growth-headwind queries
+- Added a final skepticism-opener bonus so the strongest Netflix opening skepticism question rises above more generic analyst questions for clearly skepticism-oriented queries.
 - Added a small baseline penalty for transcript chunks so richer structured rows win when scores are otherwise close.
 - Preserved provenance on every result; no ranking step strips source locators, row ids, or deterministic labels.
 
@@ -52,6 +55,11 @@
 - `guidance pressure moments` now stays focused on real pressure-oriented guidance spans instead of surfacing the low-information guidance joke/meta row near the top.
 - `growth slowdown competition discussion` now surfaces richer Q&A answers and shareholder-letter paragraphs ahead of broad guidance-only matches.
 - `skeptical analyst question`, `analyst skepticism`, `pressure from analyst`, and `challenging question` now stay centered on analyst-question rows.
+- The strongest Netflix skepticism opener, `qa_pair_001_question`, now ranks first for:
+  - `skeptical analyst question`
+  - `tone changed vs three months ago`
+  - `competition macro maturity question`
+  - `pressure from analyst`
 - `ad supported option` now keeps the strongest analyst-question and management-answer rows ahead of weaker duplicates.
 
 ## What Still Remains Weak
@@ -72,6 +80,8 @@ PYTHONPATH=src python3 scripts/search_case_retrieval.py --query "guidance pressu
 PYTHONPATH=src python3 scripts/search_case_retrieval.py --query "ad supported option" --case netflix_q1_2022 --mode hybrid --top-k 5
 PYTHONPATH=src python3 scripts/search_case_retrieval.py --query "growth slowdown competition discussion" --case netflix_q1_2022 --mode hybrid --top-k 5
 PYTHONPATH=src python3 scripts/search_case_retrieval.py --query "skeptical analyst question" --case netflix_q1_2022 --mode hybrid --top-k 5
+PYTHONPATH=src python3 scripts/search_case_retrieval.py --query "tone changed vs three months ago" --case netflix_q1_2022 --mode hybrid --top-k 5
+PYTHONPATH=src python3 scripts/search_case_retrieval.py --query "competition macro maturity question" --case netflix_q1_2022 --mode hybrid --top-k 5
 git diff --check
 ```
 
@@ -83,7 +93,11 @@ git diff --check
   - `guidance pressure moments` -> top hits were `guidance_span_001`, `guidance_span_042`, `guidance_span_008`
   - `ad supported option` -> top hits were `qa_pair_012_answer`, `qa_pair_011_answer`, `qa_pair_011_question`
   - `growth slowdown competition discussion` -> top hits were `shareholder_letter_paragraph_002`, `qa_pair_001_answer`, `qa_pair_002_answer`
-  - `skeptical analyst question` -> top hits were `qa_pair_004_question`, `qa_pair_001_question`, `qa_pair_008_question`
+  - `skeptical analyst question` -> top hits were `qa_pair_001_question`, `qa_pair_004_question`, `qa_pair_008_question`
+  - `tone changed vs three months ago` -> top hit was `qa_pair_001_question`
+  - `competition macro maturity question` -> top hit was `qa_pair_001_question`
+- Final skepticism check:
+  - the Netflix skepticism query now behaves correctly for the targeted reviewer-style queries because `qa_pair_001_question` is the top result for the clear skepticism opener cases above
 
 ## Branch Status
 

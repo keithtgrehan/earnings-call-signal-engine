@@ -564,6 +564,10 @@ def test_netflix_retrieval_eval_fixture_matches_reviewer_queries() -> None:
         if expected_first_source_type:
             assert source_types[0] == expected_first_source_type, spec["query"]
 
+        expected_first_row_id = spec.get("expected_first_row_id")
+        if expected_first_row_id:
+            assert row_ids[0] == expected_first_row_id, spec["query"]
+
         for expected_source_type in spec.get("expected_source_types", []):
             assert expected_source_type in source_types, spec["query"]
 

@@ -43,27 +43,45 @@
     },
     {
       "query": "analyst skepticism",
+      "expected_first_row_id": "qa_pair_001_question",
       "expected_first_source_type": "analyst_question_span",
       "expected_source_types": ["analyst_question_span"],
-      "expected_any_row_ids": ["qa_pair_004_question", "qa_pair_002_question", "qa_pair_001_question", "qa_pair_008_question"]
+      "expected_any_row_ids": ["qa_pair_001_question", "qa_pair_004_question", "qa_pair_002_question", "qa_pair_008_question"]
     },
     {
       "query": "skeptical analyst question",
+      "expected_first_row_id": "qa_pair_001_question",
       "expected_first_source_type": "analyst_question_span",
       "expected_source_types": ["analyst_question_span"],
-      "expected_any_row_ids": ["qa_pair_004_question", "qa_pair_001_question", "qa_pair_008_question", "qa_pair_002_question"]
+      "expected_any_row_ids": ["qa_pair_001_question", "qa_pair_004_question", "qa_pair_008_question", "qa_pair_002_question"]
+    },
+    {
+      "query": "tone changed vs three months ago",
+      "expected_first_row_id": "qa_pair_001_question",
+      "expected_first_source_type": "analyst_question_span",
+      "expected_source_types": ["analyst_question_span"],
+      "expected_any_row_ids": ["qa_pair_001_question"]
+    },
+    {
+      "query": "competition macro maturity question",
+      "expected_first_row_id": "qa_pair_001_question",
+      "expected_first_source_type": "analyst_question_span",
+      "expected_source_types": ["analyst_question_span", "qa_answer_span"],
+      "expected_any_row_ids": ["qa_pair_001_question", "qa_pair_001_answer", "qa_pair_002_answer"]
     },
     {
       "query": "pressure from analyst",
+      "expected_first_row_id": "qa_pair_001_question",
       "expected_first_source_type": "analyst_question_span",
       "expected_source_types": ["analyst_question_span"],
-      "expected_any_row_ids": ["qa_pair_008_question", "qa_pair_001_question", "qa_pair_004_question", "qa_pair_002_question"]
+      "expected_any_row_ids": ["qa_pair_001_question", "qa_pair_008_question", "qa_pair_004_question", "qa_pair_002_question"]
     },
     {
       "query": "challenging question",
+      "expected_first_row_id": "qa_pair_001_question",
       "expected_first_source_type": "analyst_question_span",
       "expected_source_types": ["analyst_question_span"],
-      "expected_any_row_ids": ["qa_pair_002_question", "qa_pair_001_question", "qa_pair_004_question", "qa_pair_012_question"]
+      "expected_any_row_ids": ["qa_pair_001_question", "qa_pair_002_question", "qa_pair_004_question", "qa_pair_012_question"]
     }
   ]
 }

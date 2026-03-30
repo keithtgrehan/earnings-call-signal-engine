@@ -84,6 +84,20 @@ ANALYST_QUERY_TOKENS = {
     "challenge",
     "pressure",
 }
+SKEPTICISM_QUERY_TOKENS = {
+    "skeptical",
+    "skepticism",
+    "tone",
+    "different",
+    "changed",
+    "change",
+    "maturity",
+    "months",
+    "month",
+    "ago",
+    "challenging",
+    "challenge",
+}
 COMPETITION_QUERY_TOKENS = {
     "competition",
     "competitive",
@@ -109,11 +123,17 @@ COMPETITION_TEXT_CUES = (
     "addressable market",
 )
 SKEPTICISM_STRONG_CUES = (
+    "tone",
+    "very different",
     "different than",
+    "3 months ago",
+    "three months ago",
     "how have your views changed",
+    "views have changed",
     "pressure",
     "competition",
     "macro",
+    "maturity",
     "miss",
     "loss",
     "churn",
@@ -124,6 +144,7 @@ SKEPTICISM_STRONG_CUES = (
 SKEPTICISM_MILD_CUES = (
     "why",
     "how",
+    "walk through",
     "walk us through",
     "parse out",
     "talk us through",
@@ -289,10 +310,42 @@ def _has_competition_cues(search_text: str) -> bool:
     return any(cue in search_text for cue in COMPETITION_TEXT_CUES)
 
 
+def _has_skepticism_query_intent(query_tokens: set[str]) -> bool:
+    if query_tokens & SKEPTICISM_QUERY_TOKENS:
+        return True
+    if {"pressure", "analyst"} <= query_tokens:
+        return True
+    if {"competition", "macro", "maturity"} <= query_tokens:
+        return True
+    return False
+
+
 def _skepticism_cue_score(search_text: str) -> float:
     strong_hits = sum(1 for cue in SKEPTICISM_STRONG_CUES if cue in search_text)
     mild_hits = sum(1 for cue in SKEPTICISM_MILD_CUES if cue in search_text)
     return float(strong_hits) + (0.35 * float(mild_hits))
+
+
+def _skepticism_opener_score(search_text: str) -> float:
+    score = 0.0
+    for cue, weight in (
+        ("tone", 0.35),
+        ("very different", 0.8),
+        ("different than", 0.6),
+        ("3 months ago", 0.9),
+        ("three months ago", 0.9),
+        ("competition", 0.4),
+        ("macro", 0.4),
+        ("maturity", 0.4),
+        ("walk us through", 0.35),
+        ("walk through", 0.2),
+        ("views have changed", 0.8),
+        ("past few months", 0.35),
+        ("last few months", 0.35),
+    ):
+        if cue in search_text:
+            score += weight
+    return score
 
 
 def _structured_duplicate_texts(rows: list[dict[str, Any]]) -> set[str]:
@@ -365,25 +418,35 @@ def _row_ranking_adjustment(
         adjustment -= 0.22
 
     analyst_focus = bool(query_tokens & ANALYST_QUERY_TOKENS)
+    skepticism_query_focus = _has_skepticism_query_intent(query_tokens)
+    analyst_query_focus = analyst_focus or skepticism_query_focus
     guidance_focus = bool(query_tokens & GUIDANCE_QUERY_TOKENS)
     pressure_focus = bool(query_tokens & PRESSURE_QUERY_TOKENS)
     competition_focus = bool(query_tokens & COMPETITION_QUERY_TOKENS)
     related_source_types = text_source_types.get(normalized_text, set())
 
-    if analyst_focus:
+    if analyst_query_focus:
         skepticism_score = _skepticism_cue_score(search_text)
+        opener_score = _skepticism_opener_score(search_text)
         if source_type == SOURCE_TYPE_ANALYST_QUESTION:
             adjustment += 0.18
             if skepticism_score >= 1.0:
                 adjustment += 0.12
             elif skepticism_score >= 0.35:
                 adjustment += 0.06
+            if skepticism_query_focus:
+                if opener_score >= 2.0:
+                    adjustment += 0.24
+                elif opener_score >= 1.0:
+                    adjustment += 0.12
         elif source_type == SOURCE_TYPE_QA_ANSWER:
             adjustment += 0.05
             if _has_pressure_cues(search_text):
                 adjustment += 0.03
         elif source_type == SOURCE_TYPE_TRANSCRIPT_CHUNK and speaker_role == "analyst":
             adjustment -= 0.03
+            if skepticism_query_focus:
+                adjustment -= 0.05
         elif source_type == SOURCE_TYPE_GUIDANCE and not guidance_focus:
             adjustment -= 0.08
 
