@@ -1,0 +1,15 @@
+{
+  "case_id": "meta_q3_2022",
+  "case_scope": "Meta Q3 2022",
+  "status": "skipped",
+  "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+  "video_source_check": {
+    "requested_path": "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Meta/Facebook (META) Q3 2022 Earnings Call.mp4",
+    "requested_exists": true,
+    "fallback_candidates": [
+      "/Users/keith/Documents/New project/earnings-call-sentiment-from-voice-transcript-with-an-optional-video-24-02-2026-meta-reference-case/data/demo_cases/meta_q3_2022/raw/video/meta_q3_2022_video.mp4"
+    ],
+    "resolved_video_path": "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Meta/Facebook (META) Q3 2022 Earnings Call.mp4",
+    "resolved_from_fallback": false
+  }
+}

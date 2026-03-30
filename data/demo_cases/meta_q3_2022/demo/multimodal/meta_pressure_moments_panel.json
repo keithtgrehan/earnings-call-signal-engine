@@ -1,0 +1,237 @@
+{
+  "case_id": "meta_q3_2022",
+  "case_scope": "Meta Q3 2022",
+  "status": "ok",
+  "rows": [
+    {
+      "moment_id": "follow_up_reels_headwind_pressure",
+      "rank": 7,
+      "analyst_question": "Hey, thank you. I have two. First is, on the call Mark talked a bit about messaging and commerce. And I just wanted to get an update on how you’re thinking about commerce on the platform of Instagram and Facebook? There were some reports that perhaps there’s been a change on strategies. Any update you can on platform commerce. And then Dave, I really appreciate the update on the Reels headwind. Can you help us at all quantify what happened the previous two quarters because I -- it’s -- based on the math it’s pretty bullish what you guys are reporting in potentially the next 12 months for this to be at least a tail -- a neutral to perhaps a tailwind down the road?",
+      "executive_answer": "Hi, it’s Susan. I’ll start on the commerce question and maybe and turn it over to Dave to talk about the Reels piece. We really, I think, think about commerce now in the context of sort of the big ecommerce and retail vertical and how that is a big part of our business and how are we best addressed to serve those advertisers. And also the dimension in which what can we do to sort of move as much of the data that used to be sort of third party transaction data into first party forms as possible. So a lot of work really is directed at addressing, I think, either or both of those things. One of the things that we have talked about this quarter is some of the new advertising tools that we’ve rolled out, the Advantage+ suite of advertising tools. We’ve started those in particular with the ecommerce and retail verticals, in particular the Advantage+ shopping tool that we’ve launched, which basically enables advertisers to, A, easily access a lot of disparate features of our product and then, B, use sort of new machine learning on technology to basically automatically test and optimize ads at scale on behalf of advertisers without a ton of manual work on their part. So -- and that’s actually something where we’re seeing now growing interest from advertisers outside of the commerce and retail sales verticals also. But we’re starting there. And then we talked about a lot of the ways that we are working to move, I think, more third party transaction data to first party forms, a lot of the sort of business messaging efforts, I think, have a lot of that too and that’s another place that we’re optimistic about growth going forward. Yes, Michael, I think just adding to what Susan is saying there, I do think that the business messaging and the WhatsApp business platform is a very interesting growth opportunity. Obviously the scale messaging revenue that we have today is click to messaging ads but we’re really bullish on where paid messaging can go over the next several years. Commerce is going to be a component of that; it’s not going to be the exclusive component of that. We expect that we’re going to see a lot of successful adoption outside of the U.S. But WhatsApp is also growing -- it’s -- we’ve seen good growth of WhatsApp DAU in North America that, on percentage basis, was our fastest growing market. So we think that the business messaging platform is a really interesting opportunity and we’re seeing growth there. On Reels, yes, that’s -- we’re super excited about Reels, we think it’s doing quite well from an engagement point of view. We think we’re, as Mark mentioned, growing market share on a time spent basis versus competition and that includes TikTok. So I think that’s a good sign. It’s incremental to time spent but there is some cannibalistic component. It’s more cannibalistic on revenue because of the fact that we don’t have very high ad loads in Reels. So it’s a $500 million headwind that is coming down, but it's -- from prior quarters, but it is -- it remains a big headwind. But we're at a $3 billion run rate. That's growing. We expect the tailwind to decrease and we don't think it's to neutrality until 12 to 18 months from now, but we do think that that's -- is something that we are bullish on in the long run, as you mentioned.",
+      "deterministic_read": "analyst follow-up on Reels headwind",
+      "nlp_sidecar_read": {
+        "moment_id": "follow_up_reels_headwind_pressure",
+        "rank": 7,
+        "top_8_showcase": true,
+        "unit_type": "qa_answers",
+        "deterministic_signal_category": "analyst_pressure",
+        "expected_direction_from_deterministic": "negative",
+        "leading_sidecar_label": null,
+        "leading_sidecar_label_is_tied": true,
+        "tied_leading_sidecar_labels": [
+          "neutral",
+          "positive"
+        ],
+        "sidecar_label_counts": {
+          "positive": 1,
+          "neutral": 1
+        },
+        "model_outputs": {
+          "financial_roberta": {
+            "top_label": "positive",
+            "top_score": 0.994462,
+            "comparable_label": "positive",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Neutral",
+            "top_score": 0.999752,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          }
+        },
+        "pairwise_disagreement": true,
+        "expected_direction_check": "no_comparable_labels_match_expected_direction",
+        "review_bucket": "directional_conflict",
+        "review_priority": "high",
+        "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+        "quote_or_span": "component. It’s more cannibalistic on revenue because of the fact that we don’t have very high ad loads in Reels. So it’s a $500 million headwind that is coming down, but it's -- from prior quarters, but it is -- it remains a big headwin..."
+      },
+      "audio_support": {
+        "moment_id": "follow_up_reels_headwind_pressure",
+        "status": "unavailable",
+        "reason": "No curated audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment."
+    },
+    {
+      "moment_id": "follow_up_macro_caution",
+      "rank": 8,
+      "analyst_question": "Thanks very much for taking the questions. Curious if you could just talk broadly about the competitive intensity in the industry right at the moment, just curious your perspective. And then seems like a lot of the issues right now is just a depressed environment for ads and macro, and curious if you feel like there is a playbook for managing that type of environment or a tactical message for your sales force in order to kind of mitigate that lower demand environment?",
+      "executive_answer": "Yes, so I think maybe I'll take the second question first, and then we'll come back to the first question. I think what we would point to is -- I mean, obviously I think we have seen, because of the Apple ATT changes, we have seen that some of the demand has shifted to lower parts of the funnel. But I think broadly speaking, we believe that we have incredibly wide reach across the platform. We've talked about the strong engagement that we saw this quarter, both on Facebook Blue and on Instagram and especially on Reels. And then we have ads products that are very performance oriented, even post-ATT. And we're continuing to invest in those products and make them better. I talked a little bit about the Advantage+ launch recently, which I think is a big step forward in making our ads tools easier to use, and I think on the sort of signals landscape of mitigations, I think that's a place where we've also invested a lot and developed tools that I think are really valuable to advertisers in the post-ATT world. And then we’re continuing to invest in the medium and longer-term of first party ads formats and privacy-enhancing ad tech that I think will all be I think really sort of valuable ways for advertisers to reach the sort of broad range of people we have on our platform. So both in terms of region performance, I just think that we’re still an extremely-attractive offering for advertisers. And on the competitive intensity question, I think obviously the tech industry broadly – the consumer tech industry broadly is very competitive, and we’re focused on innovating the best possible consumer experiences for people. We do think based on the data that we’re looking at that we are certainly gaining share in some areas with Reels in particular, and we feel really good about what we’re seeing with our progress in Reels. Yes. And I think on the competitive front, I would point to the fact that we can invest in A.I. at scale. Yes. And we’ve got an incredible reach with our platform. We've got engaged products and really footholds in places like short-from video that are very compelling. We can – we've got a lot of engagement and we’ve got the ability to drive more engagement through recommended content through A.I. So you combine that with also our ability to use A.I. and machine learning to drive more performant ad products, like we’re pushing with through our sales force with Advantage+. We think we’ve got a good set of solutions combined with good impression growth. And so, over time we think that will set us up well for the future competitively.",
+      "deterministic_read": "management stayed cautious on macro",
+      "nlp_sidecar_read": {
+        "moment_id": "follow_up_macro_caution",
+        "rank": 8,
+        "top_8_showcase": true,
+        "unit_type": "qa_answers",
+        "deterministic_signal_category": "recovery_caution",
+        "expected_direction_from_deterministic": "negative",
+        "leading_sidecar_label": "positive",
+        "leading_sidecar_label_is_tied": false,
+        "tied_leading_sidecar_labels": [],
+        "sidecar_label_counts": {
+          "positive": 2
+        },
+        "model_outputs": {
+          "financial_roberta": {
+            "top_label": "positive",
+            "top_score": 0.997758,
+            "comparable_label": "positive",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Positive",
+            "top_score": 0.985614,
+            "comparable_label": "positive",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          }
+        },
+        "pairwise_disagreement": false,
+        "expected_direction_check": "no_comparable_labels_match_expected_direction",
+        "review_bucket": "directional_conflict",
+        "review_priority": "high",
+        "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+        "quote_or_span": "Yes, so I think maybe I'll take the second question first, and then we'll come back to the first question. I think what we would point to is -- I mean, obviously I think we have seen, because of the Apple ATT changes, we have seen that s..."
+      },
+      "audio_support": {
+        "moment_id": "follow_up_macro_caution",
+        "status": "unavailable",
+        "reason": "No curated audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment."
+    },
+    {
+      "moment_id": "qa_capex_ai_pressure",
+      "rank": 11,
+      "analyst_question": "Thanks for taking my questions. If I could squeeze in two. The first one is on CapEx and return on invested capital. The CapEx spend and forward expectations are remaining somewhat higher than investors expected. So Mark, can you maybe just give us some examples of what these new AI investments are going to enable you to do differently going forward than in the past? And what's a reasonable period in which investors should expect to see material incremental engagement or revenue from these? And then the second one is on engagement. I thought your comments about incremental time spent from Reels were interesting. But maybe just to sort of address the big topic around time spent, can you give us any update on what U.S. time spent trends look like just to sort of give investors some incremental confidence in the durability of the platform in your oldest market? Thanks.",
+      "executive_answer": "Yes, hey Brian, why don't I take the time spent question first, and then I'll hand it off to Susan on the CapEx question. So on time spent, we are really pleased with what we're seeing on engagement. And as Mark mentioned, Reels is incremental to time spent. Specifically, in terms of aggregate time spent on Instagram and Facebook, both are up year-over-year in both the U.S. and globally. So while we're not specifically optimizing for time spent, those trends are positive. And we aren't specifically optimizing for time spent because that would tend to tilt us towards longer-form video, and we're actually focused more on short-form and other types of content. So just some color on time spent. And Susan, do you want to take the CapEx question? Yes. Thanks, Brian. So as Dave mentioned in his script, we expect 2023 CapEx to be in the range of $34 billion to $39 billion, with our investments in AI driving all of that growth. We're very focused on evaluating the ROI of our AI investments, and that'll inform our level of future spend. But so far, we've seen continued strong impact on our recommendations products from advancing developments in our AI work. In the Q2 call, we had shared that a single AI advancement in scaling our recommendations models had led to a 15% watch time gain for Facebook Reels, and that gain has continued to grow. And we expect that there will be additional Watch time improvements coming from that work. On the ads side, we're also continuing to roll out more AI and ML improvements in some of the new ads offerings, and we're encouraged by all of the early examples that we've seen. So this is something that we'll be watching very closely. We think we're early in this journey, but our level of CapEx investment will depend on the returns that we generate through these investments in AI. And if we generate significant engagement and revenue gains, we'll continue investing here. And if we don't, we'll pace our spending accordingly.",
+      "deterministic_read": "Management defended elevated AI capex with ROI language, but kept the near-term spend burden explicit.",
+      "nlp_sidecar_read": {
+        "moment_id": "qa_capex_ai_pressure",
+        "rank": 11,
+        "top_8_showcase": false,
+        "unit_type": "qa_answers",
+        "deterministic_signal_category": "qa_capex_pressure",
+        "expected_direction_from_deterministic": "negative",
+        "leading_sidecar_label": "positive",
+        "leading_sidecar_label_is_tied": false,
+        "tied_leading_sidecar_labels": [],
+        "sidecar_label_counts": {
+          "positive": 2
+        },
+        "model_outputs": {
+          "financial_roberta": {
+            "top_label": "positive",
+            "top_score": 0.997983,
+            "comparable_label": "positive",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Positive",
+            "top_score": 0.998031,
+            "comparable_label": "positive",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          }
+        },
+        "pairwise_disagreement": false,
+        "expected_direction_check": "no_comparable_labels_match_expected_direction",
+        "review_bucket": "directional_conflict",
+        "review_priority": "high",
+        "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+        "quote_or_span": "mentioned in his script, we expect 2023 CapEx to be in the range of $34 billion to $39 billion, with our investments in AI driving all of that growth. We're very focused on evaluating the ROI of our AI investments, and that'll inform our..."
+      },
+      "audio_support": {
+        "moment_id": "qa_capex_ai_pressure",
+        "status": "aligned",
+        "question_time_range": "25:10-26:03",
+        "answer_time_range": "26:02-28:00",
+        "pause_before_answer_ms": 0.0,
+        "answer_start_delay_seconds": 0.0,
+        "filler_density": 0.0,
+        "hesitation_label": "medium",
+        "qa_shift_label": "stronger",
+        "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
+        "plain_english_interpretation": "Measured cues show qualifying opening language. Use this as measured pacing/context only; it does not change the transcript-first deterministic read.",
+        "timing_note": "Audio timings are attached only to a few curated main-call Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment."
+    },
+    {
+      "moment_id": "qa_reels_transition_pressure",
+      "rank": 12,
+      "analyst_question": "Great, a couple of questions on the Reels transition. When you think about that business, and people coming to the site, do you think -- how does it compare to the News Feed as far as repeat rates or retention? And are you a little worried that it's a little less proprietary than your prior content? And then second, I think there are a lot of questions on CapEx. Just wondering if the build here for this year and next is one-time to kind of get your capabilities in place, and then maybe you can go back to kind of a mid-teens level as a percentage of revenue or is just the transition in the business just a higher capital intensity business. Thank you.",
+      "executive_answer": "So Justin, on the Reels transition, as Mark noted, it is incremental to time spent. So we are seeing a benefit from Reels to contributing to overall engagement on the platform. And it's contributing to healthy engagement dynamics. And I'd say that, coupled with our recommendation engine, which is also increasing engagement on the platform, are both promising trends on the engagement front. From a monetization perspective, we are still working to close the gap between Reels and Feeds and Stories, but it's going to take time before Reels becomes a tailwind to revenue. As Mark mentioned, we're on about a $3 billion run rate today, but Reels was still negative overall to revenue by about $500 million in the quarter. So we expect that it should be a tailwind to the business eventually. And we're sort of saying that's probably in the 12- to 18-month time frame. But overall, we're pleased with the impact that Reels has on the business, specifically on the engagement front. And on your second question about the CapEx guide, I would really think about our CapEx investment as kind of the AI and non-AI components. On the AI side, which really is driving all of the CapEx growth in 2023, we will be pacing that future investment on the basis of the returns that we're able to see and measure. So frankly, we're hopeful that there will be a big opportunity to invest more here because we expect that this will be a high ROI area of investment for us. On the non-AI side, a lot of that spend is in ongoing investments on our data center footprint where we had stepped up our investment in recent years to build sort of ahead of our anticipated capacity needs, and that work continues in 2023. We do expect this component of our CapEx spend to become more efficient over time, and we're actively looking for more efficiencies there. So I don't know that we are benchmarking to an exact number on the combination of those two things. The future intensity, I think, is going to depend on the returns that we generate through those increased AI investments. Yes. And maybe I'll just add some color on how I'm seeing this, too, just because the Reels and discovery engine work is such a big part of what we're spending our time and energy on right now. I think there are two comparisons to the things that we've done in the past here that are worth anchoring on. For Reels monetization specifically, any time we've had a new format, like when we added Stories or even before that when we were primarily on desktop and we shifted to mobile feed, we sort of had this dynamic where we focused on increasing engagement and growing demand for the product. But while that was happening, monetization efficiency for the new format lagged behind kind of the News Feed or mobile News Feed compared to Stories for some period while that was ramping up. And while it's really hard for us to answer questions now that are like what is the eventual monetization efficiency going to be, it's really hard to predict that in advance. What I can say is I think on Stories, we've ended up achieving something that was way greater than what we even hoped to achieve at the time, right, in terms of where we thought that Stories could net out. And a lot of the progress that we've been making on Reels monetization so far has been at a clip that we've been pretty happy with. So obviously, we want to close the monetization gap as quickly as possible. We want this to be a tailwind, not a headwind. I think we're going to get there. It's -- but I think we've gone through a few of these transitions, and I think that'll just take some time. On the engagement side, in terms of how incremental this is, the basic way to think about this is you have a set amount of inventory across the system. There's content from family and friends, which is quite differentiated and valuable and accounts that you follow. But now there's this whole larger corpus that we can use AI to effectively understand what the content means and understand individually what you might be interested in, just have access to a much bigger corpus of content to put into your feeds and increase engagement. And we're seeing that start to work already and be incremental in terms of having more people use the services, having them spend more time, having them spend -- just engage more in feeds overall. So that part of things we think is going well. We think we'll -- we should be able to continue driving results. Some of the results already have been due to some of the AI investments and infrastructure that we've made. If our bets are correct, then the AI CapEx that we're bringing online should be able to drive incremental engagement that's pretty meaningful there. But we think qualitatively that investment makes just a lot of sense given the direction that the world seems to be going in. And I do think that our somewhat unique mix of both having the kind of social friends and family content and the ability to drive recommendations, which I agree with some -- the premise of the question there, and that creators do want their content to be on multiple platforms, which I think is a little bit different from friends content where you want to, for the most part, share where your friends are, and you're not trying to have it be everywhere. I think we should be able to do pretty well on both of those, and that should grow over time. But that's -- it's hard for us to be more specific than that now, but I do think that these trends -- I mean I get that this takes a little longer to play out than you would want. But we've been through a couple of these cycles before already, and I'm pretty confident this is going in a good direction.",
+      "deterministic_read": "Management kept the eventual-tailwind story but still described Reels as a meaningful near-term headwind.",
+      "nlp_sidecar_read": {
+        "moment_id": "qa_reels_transition_pressure",
+        "rank": 12,
+        "top_8_showcase": false,
+        "unit_type": "qa_answers",
+        "deterministic_signal_category": "qa_reels_pressure",
+        "expected_direction_from_deterministic": "negative",
+        "leading_sidecar_label": "positive",
+        "leading_sidecar_label_is_tied": false,
+        "tied_leading_sidecar_labels": [],
+        "sidecar_label_counts": {
+          "positive": 2
+        },
+        "model_outputs": {
+          "financial_roberta": {
+            "top_label": "positive",
+            "top_score": 0.996091,
+            "comparable_label": "positive",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Positive",
+            "top_score": 0.998892,
+            "comparable_label": "positive",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          }
+        },
+        "pairwise_disagreement": false,
+        "expected_direction_check": "no_comparable_labels_match_expected_direction",
+        "review_bucket": "directional_conflict",
+        "review_priority": "high",
+        "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+        "quote_or_span": "As Mark mentioned, we're on about a $3 billion run rate today, but Reels was still negative overall to revenue by about $500 million in the quarter. So we expect that it should be a tailwind to the business eventually. And we're sort of ..."
+      },
+      "audio_support": {
+        "moment_id": "qa_reels_transition_pressure",
+        "status": "aligned",
+        "question_time_range": "31:35-32:16",
+        "answer_time_range": "32:16-38:18",
+        "pause_before_answer_ms": 210.0,
+        "answer_start_delay_seconds": 0.0,
+        "filler_density": 1.4493,
+        "hesitation_label": "high",
+        "qa_shift_label": "mixed",
+        "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
+        "plain_english_interpretation": "Measured cues show a shorter pre-answer pause, heavier filler or qualification language. Use this as measured pacing/context only; it does not change the transcript-first deterministic read.",
+        "timing_note": "Audio timings are attached only to a few curated main-call Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment."
+    }
+  ]
+}

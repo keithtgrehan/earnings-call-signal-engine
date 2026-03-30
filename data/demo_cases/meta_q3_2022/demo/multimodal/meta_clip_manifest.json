@@ -1,0 +1,151 @@
+{
+  "case_id": "meta_q3_2022",
+  "case_scope": "Meta Q3 2022",
+  "source_video_path": "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Meta/Facebook (META) Q3 2022 Earnings Call.mp4",
+  "clips": [
+    {
+      "moment_id": "transcript_macro_ads_pressure",
+      "rank": 1,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "macro_ads_pressure",
+      "plain_english_label": "management flagged macro and ads pressure",
+      "start_time_s": 77.308,
+      "end_time_s": 127.693,
+      "timestamp_range": "01:17-02:08",
+      "clip_ready": true,
+      "clip_note": "A timed main-call media window is available for bounded reviewer playback."
+    },
+    {
+      "moment_id": "transcript_conservative_budget",
+      "rank": 2,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "efficiency_restraint",
+      "plain_english_label": "management turned more cautious on 2023 spending",
+      "start_time_s": 127.693,
+      "end_time_s": 245.386,
+      "timestamp_range": "02:08-04:05",
+      "clip_ready": true,
+      "clip_note": "A timed main-call media window is available for bounded reviewer playback."
+    },
+    {
+      "moment_id": "transcript_reels_headwind",
+      "rank": 3,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "monetization_headwind",
+      "plain_english_label": "Reels monetization remained a clear headwind",
+      "start_time_s": 409.617,
+      "end_time_s": 463.848,
+      "timestamp_range": "06:50-07:44",
+      "clip_ready": true,
+      "clip_note": "A timed main-call media window is available for bounded reviewer playback."
+    },
+    {
+      "moment_id": "release_profitability_deterioration",
+      "rank": 4,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "profitability_pressure",
+      "plain_english_label": "profitability deteriorated sharply",
+      "start_time_s": null,
+      "end_time_s": null,
+      "timestamp_range": null,
+      "clip_ready": false,
+      "clip_note": "No timed main-call media window is available for this moment."
+    },
+    {
+      "moment_id": "release_expense_capex_guidance",
+      "rank": 5,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "capex_pressure",
+      "plain_english_label": "efficiency language still came with heavy spending",
+      "start_time_s": null,
+      "end_time_s": null,
+      "timestamp_range": null,
+      "clip_ready": false,
+      "clip_note": "No timed main-call media window is available for this moment."
+    },
+    {
+      "moment_id": "presentation_reality_labs_drag",
+      "rank": 6,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "reality_labs_losses",
+      "plain_english_label": "Reality Labs remained a major drag on profits",
+      "start_time_s": null,
+      "end_time_s": null,
+      "timestamp_range": null,
+      "clip_ready": false,
+      "clip_note": "No timed main-call media window is available for this moment."
+    },
+    {
+      "moment_id": "follow_up_reels_headwind_pressure",
+      "rank": 7,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "analyst_pressure",
+      "plain_english_label": "analyst kept pressure on the weak spots",
+      "start_time_s": null,
+      "end_time_s": null,
+      "timestamp_range": null,
+      "clip_ready": false,
+      "clip_note": "No timed main-call media window is available for this moment."
+    },
+    {
+      "moment_id": "follow_up_macro_caution",
+      "rank": 8,
+      "top_8_showcase": true,
+      "deterministic_signal_category": "recovery_caution",
+      "plain_english_label": "management stayed cautious on the recovery story",
+      "start_time_s": null,
+      "end_time_s": null,
+      "timestamp_range": null,
+      "clip_ready": false,
+      "clip_note": "No timed main-call media window is available for this moment."
+    },
+    {
+      "moment_id": "guidance_q4_revenue_outlook",
+      "rank": 9,
+      "top_8_showcase": false,
+      "deterministic_signal_category": "revenue_outlook",
+      "plain_english_label": "Q4 revenue outlook stayed under pressure",
+      "start_time_s": 1003.08,
+      "end_time_s": 1060.772,
+      "timestamp_range": "16:43-17:41",
+      "clip_ready": true,
+      "clip_note": "A timed main-call media window is available for bounded reviewer playback."
+    },
+    {
+      "moment_id": "guidance_2023_expense_range",
+      "rank": 10,
+      "top_8_showcase": false,
+      "deterministic_signal_category": "expense_outlook",
+      "plain_english_label": "2023 expenses remained elevated",
+      "start_time_s": 1120.003,
+      "end_time_s": 1173.465,
+      "timestamp_range": "18:40-19:33",
+      "clip_ready": true,
+      "clip_note": "A timed main-call media window is available for bounded reviewer playback."
+    },
+    {
+      "moment_id": "qa_capex_ai_pressure",
+      "rank": 11,
+      "top_8_showcase": false,
+      "deterministic_signal_category": "qa_capex_pressure",
+      "plain_english_label": "AI capex and ROI pushback",
+      "start_time_s": 1561.68,
+      "end_time_s": 1680.28,
+      "timestamp_range": "26:02-28:00",
+      "clip_ready": true,
+      "clip_note": "A timed main-call media window is available for bounded reviewer playback."
+    },
+    {
+      "moment_id": "qa_reels_transition_pressure",
+      "rank": 12,
+      "top_8_showcase": false,
+      "deterministic_signal_category": "qa_reels_pressure",
+      "plain_english_label": "Reels transition pressure under direct questioning",
+      "start_time_s": 1936.36,
+      "end_time_s": 2298.12,
+      "timestamp_range": "32:16-38:18",
+      "clip_ready": true,
+      "clip_note": "A timed main-call media window is available for bounded reviewer playback."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "transcript_first_canonical",
+    "message": "Deterministic transcript-backed outputs remain the canonical review layer for Meta Q3 2022."
+  },
+  {
+    "id": "support_layers_supporting_only",
+    "message": "Audio, NLP, and visual layers are supporting-only reviewer context and do not override transcript-backed outputs."
+  },
+  {
+    "id": "weak_or_missing_support_explicit",
+    "message": "Missing, weak, or suppressed support layers must stay explicit rather than being normalized into a stronger read."
+  },
+  {
+    "id": "heuristic_visual_context_only",
+    "message": "Heuristic visual output is context only and must not be presented as corroboration or proof."
+  },
+  {
+    "id": "no_predictive_claims",
+    "message": "The package does not make predictive-edge, return, or trading-value claims."
+  },
+  {
+    "id": "no_statistical_claims",
+    "message": "The package does not make statistical-significance claims."
+  }
+]

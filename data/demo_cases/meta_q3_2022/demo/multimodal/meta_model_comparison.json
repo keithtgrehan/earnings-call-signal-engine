@@ -1,0 +1,564 @@
+{
+  "case_id": "meta_q3_2022",
+  "case_scope": "Meta Q3 2022",
+  "status": "ok",
+  "models_run": [
+    {
+      "model_name": "financial_roberta",
+      "status": "ok",
+      "model_kind": "classification",
+      "runtime_s": 33.9119,
+      "units_processed": 12,
+      "unit_type_counts": {
+        "chunks": 6,
+        "guidance_spans": 2,
+        "qa_answers": 4
+      }
+    },
+    {
+      "model_name": "finbert_tone",
+      "status": "ok",
+      "model_kind": "classification",
+      "runtime_s": 20.8975,
+      "units_processed": 12,
+      "unit_type_counts": {
+        "chunks": 6,
+        "guidance_spans": 2,
+        "qa_answers": 4
+      }
+    }
+  ],
+  "pairwise_summary": [
+    {
+      "left_model": "financial_roberta",
+      "right_model": "finbert_tone",
+      "rows_compared": 12,
+      "top_label_agreement_rate": 0.5,
+      "comparable_label_agreement_rate": 0.5,
+      "hotspots": [
+        {
+          "unit_id": "follow_up_reels_headwind_pressure",
+          "unit_type": "qa_answers",
+          "left_top_label": "positive",
+          "right_top_label": "Neutral",
+          "left_top_score": 0.9945,
+          "right_top_score": 0.9998,
+          "text": "Hi, it’s Susan. I’ll start on the commerce question and maybe and turn it over to Dave to talk about the Reels piece. We really, I think, think about commerce now in the context of sort of the big ecommerce and retail ve"
+        },
+        {
+          "unit_id": "transcript_reels_headwind",
+          "unit_type": "chunks",
+          "left_top_label": "negative",
+          "right_top_label": "Neutral",
+          "left_top_score": 0.9933,
+          "right_top_score": 0.8243,
+          "text": "but closing this gap is also a high priority. Even with the progress we've made, we're still choosing to take a more than $500 million quarterly revenue headwind with this shift. But we expect to get to a more neutral pl"
+        },
+        {
+          "unit_id": "release_expense_capex_guidance",
+          "unit_type": "chunks",
+          "left_top_label": "positive",
+          "right_top_label": "Neutral",
+          "left_top_score": 0.9853,
+          "right_top_score": 0.9955,
+          "text": "billion, updated from our prior range of $30-34 billion . For 2023, we expect capital expenditures to be in the range of $34-39 billion , driven by our investments in data centers, servers, and network infrastructure. An"
+        },
+        {
+          "unit_id": "transcript_macro_ads_pressure",
+          "unit_type": "chunks",
+          "left_top_label": "neutral",
+          "right_top_label": "Positive",
+          "left_top_score": 0.9261,
+          "right_top_score": 1.0,
+          "text": "than 3.7 billion people monthly across our family of apps. And while we continue to navigate some challenging dynamics -- a volatile macroeconomy, increasing competition, ads signal loss, and growing costs from our long-"
+        },
+        {
+          "unit_id": "release_profitability_deterioration",
+          "unit_type": "chunks",
+          "left_top_label": "negative",
+          "right_top_label": "Positive",
+          "left_top_score": 0.718,
+          "right_top_score": 0.9895,
+          "text": "Family of Apps increased by 17% year-over-year and the average price per ad decreased by 18% year- over-year. • Revenue – Revenue was $27.71 billion, a decrease of 4% year-over-year, and an increase of 2% year- over-year"
+        },
+        {
+          "unit_id": "guidance_2023_expense_range",
+          "unit_type": "guidance_spans",
+          "left_top_label": "positive",
+          "right_top_label": "Neutral",
+          "left_top_score": 0.5049,
+          "right_top_score": 0.5058,
+          "text": "We anticipate our full-year 2023 total expenses will be in the range of $96-101 billion. This includes an estimated $2 billion in charges related to consolidating our office facilities footprint. We expect the slight maj"
+        }
+      ],
+      "notes": [
+        "Exact top-label agreement can be noisy when label spaces differ.",
+        "Comparable-label agreement uses normalized polarity when both models expose it."
+      ]
+    }
+  ],
+  "moment_rows": [
+    {
+      "moment_id": "transcript_macro_ads_pressure",
+      "rank": 1,
+      "top_8_showcase": true,
+      "unit_type": "chunks",
+      "deterministic_signal_category": "macro_ads_pressure",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "neutral",
+        "positive"
+      ],
+      "sidecar_label_counts": {
+        "neutral": 1,
+        "positive": 1
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "neutral",
+          "top_score": 0.926092,
+          "comparable_label": "neutral",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Positive",
+          "top_score": 0.999997,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": true,
+      "expected_direction_check": "no_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+      "quote_or_span": "than 3.7 billion people monthly across our family of apps. And while we continue to navigate some challenging dynamics -- a volatile macroeconomy, increasing competition, ads signal loss, and growing costs from our long-term investments ..."
+    },
+    {
+      "moment_id": "transcript_conservative_budget",
+      "rank": 2,
+      "top_8_showcase": true,
+      "unit_type": "chunks",
+      "deterministic_signal_category": "efficiency_restraint",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "positive",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
+        "positive": 2
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "positive",
+          "top_score": 0.869718,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Positive",
+          "top_score": 0.994992,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": false,
+      "expected_direction_check": "no_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+      "quote_or_span": "where I think we should be, but we believe that we will return to healthier revenue growth trends next year. That said, it’s not clear that the economy has stabilized yet so we’re planning our budget somewhat more conservatively. In 2023..."
+    },
+    {
+      "moment_id": "transcript_reels_headwind",
+      "rank": 3,
+      "top_8_showcase": true,
+      "unit_type": "chunks",
+      "deterministic_signal_category": "monetization_headwind",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "negative",
+        "neutral"
+      ],
+      "sidecar_label_counts": {
+        "negative": 1,
+        "neutral": 1
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "negative",
+          "top_score": 0.99334,
+          "comparable_label": "negative",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Neutral",
+          "top_score": 0.824284,
+          "comparable_label": "neutral",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": true,
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "softened_directional_read",
+      "review_priority": "medium",
+      "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.",
+      "quote_or_span": "but closing this gap is also a high priority. Even with the progress we've made, we're still choosing to take a more than $500 million quarterly revenue headwind with this shift. But we expect to get to a more neutral place over the next..."
+    },
+    {
+      "moment_id": "release_profitability_deterioration",
+      "rank": 4,
+      "top_8_showcase": true,
+      "unit_type": "chunks",
+      "deterministic_signal_category": "profitability_pressure",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "negative",
+        "positive"
+      ],
+      "sidecar_label_counts": {
+        "negative": 1,
+        "positive": 1
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "negative",
+          "top_score": 0.718043,
+          "comparable_label": "negative",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Positive",
+          "top_score": 0.989462,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": true,
+      "expected_direction_check": "some_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity.",
+      "quote_or_span": "Family of Apps increased by 17% year-over-year and the average price per ad decreased by 18% year- over-year. • Revenue – Revenue was $27.71 billion, a decrease of 4% year-over-year, and an increase of 2% year- over-year on a constant cu..."
+    },
+    {
+      "moment_id": "release_expense_capex_guidance",
+      "rank": 5,
+      "top_8_showcase": true,
+      "unit_type": "chunks",
+      "deterministic_signal_category": "capex_pressure",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "neutral",
+        "positive"
+      ],
+      "sidecar_label_counts": {
+        "positive": 1,
+        "neutral": 1
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "positive",
+          "top_score": 0.985271,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Neutral",
+          "top_score": 0.995501,
+          "comparable_label": "neutral",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": true,
+      "expected_direction_check": "no_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+      "quote_or_span": "billion, updated from our prior range of $30-34 billion . For 2023, we expect capital expenditures to be in the range of $34-39 billion , driven by our investments in data centers, servers, and network infrastructure. An increase in AI c..."
+    },
+    {
+      "moment_id": "presentation_reality_labs_drag",
+      "rank": 6,
+      "top_8_showcase": true,
+      "unit_type": "chunks",
+      "deterministic_signal_category": "reality_labs_losses",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "neutral",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
+        "neutral": 2
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "neutral",
+          "top_score": 0.998828,
+          "comparable_label": "neutral",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Neutral",
+          "top_score": 0.999997,
+          "comparable_label": "neutral",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": false,
+      "expected_direction_check": "no_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+      "quote_or_span": "27,237 Other 168 198 192 176 155 215 218 192 Family of Apps Revenue 27,355 25,637 28,772 28,452 32,794 27,213 28,370 27,429 Reality Labs Revenue 717 534 305 558 877 695 452 285 Total Revenue $ 28,072 $ 26,171 $ 29,077 $ 29,010 $ 33,671 $..."
+    },
+    {
+      "moment_id": "follow_up_reels_headwind_pressure",
+      "rank": 7,
+      "top_8_showcase": true,
+      "unit_type": "qa_answers",
+      "deterministic_signal_category": "analyst_pressure",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "neutral",
+        "positive"
+      ],
+      "sidecar_label_counts": {
+        "positive": 1,
+        "neutral": 1
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "positive",
+          "top_score": 0.994462,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Neutral",
+          "top_score": 0.999752,
+          "comparable_label": "neutral",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": true,
+      "expected_direction_check": "no_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+      "quote_or_span": "component. It’s more cannibalistic on revenue because of the fact that we don’t have very high ad loads in Reels. So it’s a $500 million headwind that is coming down, but it's -- from prior quarters, but it is -- it remains a big headwin..."
+    },
+    {
+      "moment_id": "follow_up_macro_caution",
+      "rank": 8,
+      "top_8_showcase": true,
+      "unit_type": "qa_answers",
+      "deterministic_signal_category": "recovery_caution",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "positive",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
+        "positive": 2
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "positive",
+          "top_score": 0.997758,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Positive",
+          "top_score": 0.985614,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": false,
+      "expected_direction_check": "no_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+      "quote_or_span": "Yes, so I think maybe I'll take the second question first, and then we'll come back to the first question. I think what we would point to is -- I mean, obviously I think we have seen, because of the Apple ATT changes, we have seen that s..."
+    },
+    {
+      "moment_id": "guidance_q4_revenue_outlook",
+      "rank": 9,
+      "top_8_showcase": false,
+      "unit_type": "guidance_spans",
+      "deterministic_signal_category": "revenue_outlook",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "negative",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
+        "negative": 2
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "negative",
+          "top_score": 0.997712,
+          "comparable_label": "negative",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Negative",
+          "top_score": 0.856041,
+          "comparable_label": "negative",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": false,
+      "expected_direction_check": "all_comparable_labels_match_expected_direction",
+      "review_bucket": "consistent_directional_read",
+      "review_priority": "low",
+      "review_priority_reason": "Comparable sidecar labels point in the same direction as the expected deterministic read.",
+      "quote_or_span": "Within our Reality Labs segment, Q3 revenue was $285 million, down 49% due to lower Quest 2 sales. Reality Labs expenses were $4.0 billion, up 24% due primarily to employee-related costs and technology development expenses. Reality Labs ..."
+    },
+    {
+      "moment_id": "guidance_2023_expense_range",
+      "rank": 10,
+      "top_8_showcase": false,
+      "unit_type": "guidance_spans",
+      "deterministic_signal_category": "expense_outlook",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": null,
+      "leading_sidecar_label_is_tied": true,
+      "tied_leading_sidecar_labels": [
+        "neutral",
+        "positive"
+      ],
+      "sidecar_label_counts": {
+        "positive": 1,
+        "neutral": 1
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "positive",
+          "top_score": 0.504871,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Neutral",
+          "top_score": 0.505817,
+          "comparable_label": "neutral",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": true,
+      "expected_direction_check": "no_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+      "quote_or_span": "We anticipate our full-year 2023 total expenses will be in the range of $96-101 billion. This includes an estimated $2 billion in charges related to consolidating our office facilities footprint. We expect the slight majority of our 2023..."
+    },
+    {
+      "moment_id": "qa_capex_ai_pressure",
+      "rank": 11,
+      "top_8_showcase": false,
+      "unit_type": "qa_answers",
+      "deterministic_signal_category": "qa_capex_pressure",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "positive",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
+        "positive": 2
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "positive",
+          "top_score": 0.997983,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Positive",
+          "top_score": 0.998031,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": false,
+      "expected_direction_check": "no_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+      "quote_or_span": "mentioned in his script, we expect 2023 CapEx to be in the range of $34 billion to $39 billion, with our investments in AI driving all of that growth. We're very focused on evaluating the ROI of our AI investments, and that'll inform our..."
+    },
+    {
+      "moment_id": "qa_reels_transition_pressure",
+      "rank": 12,
+      "top_8_showcase": false,
+      "unit_type": "qa_answers",
+      "deterministic_signal_category": "qa_reels_pressure",
+      "expected_direction_from_deterministic": "negative",
+      "leading_sidecar_label": "positive",
+      "leading_sidecar_label_is_tied": false,
+      "tied_leading_sidecar_labels": [],
+      "sidecar_label_counts": {
+        "positive": 2
+      },
+      "model_outputs": {
+        "financial_roberta": {
+          "top_label": "positive",
+          "top_score": 0.996091,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        },
+        "finbert_tone": {
+          "top_label": "Positive",
+          "top_score": 0.998892,
+          "comparable_label": "positive",
+          "group_top_labels": {},
+          "output_kind": "classification"
+        }
+      },
+      "pairwise_disagreement": false,
+      "expected_direction_check": "no_comparable_labels_match_expected_direction",
+      "review_bucket": "directional_conflict",
+      "review_priority": "high",
+      "review_priority_reason": "Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot.",
+      "quote_or_span": "As Mark mentioned, we're on about a $3 billion run rate today, but Reels was still negative overall to revenue by about $500 million in the quarter. So we expect that it should be a tailwind to the business eventually. And we're sort of ..."
+    }
+  ],
+  "notes": [
+    "Deterministic transcript-backed outputs remain canonical; these comparisons are supporting-only review aids.",
+    "Expected direction from the deterministic layer is only used as bounded same-direction context, not proof.",
+    "Tied leading labels stay explicit so mixed rows do not pretend to have sidecar consensus.",
+    "Secondary follow-up-call rows remain useful review context, but they do not override the canonical main-call transcript."
+  ]
+}

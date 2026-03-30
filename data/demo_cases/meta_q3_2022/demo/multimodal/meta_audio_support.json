@@ -1,0 +1,117 @@
+{
+  "case_id": "meta_q3_2022",
+  "case_scope": "Meta Q3 2022",
+  "status": "ok",
+  "audio_available": true,
+  "audio_quality_ok": true,
+  "summary": {
+    "hesitation_overall": {
+      "score": 5.0,
+      "level": "high"
+    },
+    "qa_hesitation_shift": {
+      "delta": 5.0,
+      "prepared_mean": 0.0,
+      "q_and_a_mean": 5.0,
+      "direction": "more_hesitant",
+      "level": "high"
+    },
+    "pause_pressure_delta": {
+      "delta": 1.4858,
+      "prepared_density": 0.0,
+      "q_and_a_density": 1.4858,
+      "level": "medium",
+      "label": "more_paused_under_questions"
+    },
+    "audio_signal_usability": {
+      "level": "high",
+      "suppressed": false,
+      "reason": "usable answer-level audio support"
+    }
+  },
+  "moments": [
+    {
+      "moment_id": "transcript_macro_ads_pressure",
+      "status": "unavailable",
+      "reason": "No curated audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "transcript_conservative_budget",
+      "status": "unavailable",
+      "reason": "No curated audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "transcript_reels_headwind",
+      "status": "unavailable",
+      "reason": "No curated audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "release_profitability_deterioration",
+      "status": "unavailable",
+      "reason": "No curated audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "release_expense_capex_guidance",
+      "status": "unavailable",
+      "reason": "No curated audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "presentation_reality_labs_drag",
+      "status": "unavailable",
+      "reason": "No curated audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "follow_up_reels_headwind_pressure",
+      "status": "unavailable",
+      "reason": "No curated audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "follow_up_macro_caution",
+      "status": "unavailable",
+      "reason": "No curated audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "guidance_q4_revenue_outlook",
+      "status": "unavailable",
+      "reason": "No curated audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "guidance_2023_expense_range",
+      "status": "unavailable",
+      "reason": "No curated audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "qa_capex_ai_pressure",
+      "status": "aligned",
+      "question_time_range": "25:10-26:03",
+      "answer_time_range": "26:02-28:00",
+      "pause_before_answer_ms": 0.0,
+      "answer_start_delay_seconds": 0.0,
+      "filler_density": 0.0,
+      "hesitation_label": "medium",
+      "qa_shift_label": "stronger",
+      "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
+      "plain_english_interpretation": "Measured cues show qualifying opening language. Use this as measured pacing/context only; it does not change the transcript-first deterministic read.",
+      "timing_note": "Audio timings are attached only to a few curated main-call Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
+    },
+    {
+      "moment_id": "qa_reels_transition_pressure",
+      "status": "aligned",
+      "question_time_range": "31:35-32:16",
+      "answer_time_range": "32:16-38:18",
+      "pause_before_answer_ms": 210.0,
+      "answer_start_delay_seconds": 0.0,
+      "filler_density": 1.4493,
+      "hesitation_label": "high",
+      "qa_shift_label": "mixed",
+      "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
+      "plain_english_interpretation": "Measured cues show a shorter pre-answer pause, heavier filler or qualification language. Use this as measured pacing/context only; it does not change the transcript-first deterministic read.",
+      "timing_note": "Audio timings are attached only to a few curated main-call Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
+    }
+  ],
+  "notes": [
+    "Audio rows were reused from the committed curated Meta Q3 2022 Q&A audio artifacts.",
+    "Audio support remains bounded to the two aligned main-call Q&A windows already present in the repo.",
+    "Pause, filler, and qualification cues are observational only and should not be treated as intent or certainty inference."
+  ]
+}
