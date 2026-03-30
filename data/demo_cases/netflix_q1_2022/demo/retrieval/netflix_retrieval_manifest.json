@@ -1,0 +1,35 @@
+{
+  "bundle_type": "supporting_only_retrieval",
+  "case_id": "netflix_q1_2022",
+  "embedding": {
+    "dimensions": 384,
+    "dtype": "float32",
+    "error": null,
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "row_count": 214,
+    "status": "written"
+  },
+  "files": {
+    "embeddings": "netflix_retrieval_embeddings.npy",
+    "manifest": "netflix_retrieval_manifest.json",
+    "rows": "netflix_retrieval_rows.jsonl"
+  },
+  "generated_at_utc": "2026-03-30T19:35:57.100512+00:00",
+  "included_curated_multimodal": false,
+  "notes": [
+    "Deterministic transcript-backed artifacts remain canonical.",
+    "Chunking remains the bounded evidence unit for review.",
+    "This retrieval bundle is supporting-only and preserves source provenance on every row.",
+    "Nearest-neighbor similarity is a navigation aid, not adjudication."
+  ],
+  "row_count": 214,
+  "schema_version": "1.0.0",
+  "source_type_counts": {
+    "analyst_question_span": 27,
+    "guidance_span": 48,
+    "qa_answer_span": 27,
+    "shareholder_letter_paragraph": 16,
+    "transcript_chunk": 96
+  },
+  "supporting_only": true
+}
