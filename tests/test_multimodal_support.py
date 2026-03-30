@@ -93,7 +93,7 @@ def test_multimodal_support_prefers_model_backed_audio_when_available() -> None:
     assert summary["multimodal_confidence_adjustment"] < 0
 
 
-def test_report_markdown_includes_media_quality_and_multimodal_sections(tmp_path: Path) -> None:
+def test_report_markdown_includes_current_core_sections(tmp_path: Path) -> None:
     output_path = tmp_path / "report.md"
     cli._write_report_markdown(
         output_path=output_path,
@@ -113,68 +113,12 @@ def test_report_markdown_includes_media_quality_and_multimodal_sections(tmp_path
             "early_vs_late_q_and_a": {"label": "mixed"},
             "strongest_evidence": {},
         },
-        audio_summary={
-            "audio_features_available": True,
-            "hesitation_overall": {"level": "medium"},
-            "pauses_before_answers": {"level": "medium"},
-            "prepared_baseline_audio_stability": {"level": "medium"},
-            "qa_hesitation_shift": {"level": "medium"},
-            "answer_latency_pressure": {"level": "medium"},
-            "audio_confidence_support": {"level": "low", "suppressed": True, "reason": "quality gate suppressed confidence uplift"},
-            "support_mode": "model_backed",
-            "model_support": {"available": True, "support_direction": "cautionary", "calibrated_support_score": 0.33},
-            "strongest_audio_evidence": [
-                {
-                    "segment_id": 3,
-                    "start_time_s": 10.0,
-                    "end_time_s": 18.0,
-                    "hesitation_label": "high",
-                    "pause_before_answer_ms": 820.0,
-                    "answer_onset_delay_ms": 710.0,
-                }
-            ],
-            "low_confidence_segments": [{"confidence_note": "short segment limits audio confidence"}],
-        },
-        visual_summary={
-            "visual_features_available": True,
-            "face_visibility_overall": {"level": "medium"},
-            "prepared_baseline_visual_stability": {"level": "medium"},
-            "qa_visual_shift_score": {"level": "medium"},
-            "facial_tension_level": {"level": "medium"},
-            "head_motion_pressure": {"level": "high"},
-            "visual_confidence_support": {"level": "low", "suppressed": True, "reason": "quality gate suppressed visual confidence uplift"},
-            "support_mode": "heuristic_fallback",
-            "strongest_visual_evidence": [
-                {
-                    "segment_id": 4,
-                    "start_time_s": 12.0,
-                    "end_time_s": 21.0,
-                    "visual_change_score": 0.22,
-                    "head_motion_energy": 0.18,
-                }
-            ],
-            "notable_low_confidence_segments": [{"confidence_note": "low face visibility reduces confidence"}],
-        },
-        media_quality={
-            "audio_quality_ok": False,
-            "video_quality_ok": False,
-            "quality_notes": ["audio: short answer windows reduce confidence"],
-        },
-        multimodal_summary={
-            "transcript_primary_assessment": "amber",
-            "audio_support_direction": "cautionary",
-            "video_support_direction": "unavailable",
-            "fusion_mode": "hybrid",
-            "calibrated_support_score": 0.33,
-            "multimodal_alignment": "medium",
-            "multimodal_confidence_adjustment": -2,
-            "notes": ["Transcript-first signal remains amber."],
-        },
     )
     report = output_path.read_text(encoding="utf-8")
-    assert "## Media Quality" in report
-    assert "## Multimodal Support" in report
-    assert "- audio support direction: cautionary" in report
-    assert "- video support direction: unavailable" in report
-    assert "- fusion mode: hybrid" in report
-    assert "- support mode: model_backed" in report
+    assert "## Summary" in report
+    assert "- Chunks scored: 2" in report
+    assert "## Tone & Behavioral Signals" in report
+    assert "- analyst skepticism: medium" in report
+    assert "## Q&A Shift" in report
+    assert "- prepared remarks vs Q&A: mixed" in report
+    assert "## Outputs" in report

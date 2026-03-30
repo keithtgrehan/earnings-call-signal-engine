@@ -60,18 +60,46 @@ def _task_impact_readiness(root: Path) -> dict[str, object]:
     }
 
 
+def _visual_trainability_note(visual: dict[str, object]) -> str:
+    group_count = int(visual.get("source_groups_with_visual_tension_labels", 0) or 0)
+    missing_for_defensible = int(
+        (visual.get("minimum_next_data") or {}).get("additional_groups_for_defensible_grouped_eval", 0) or 0
+    )
+    if bool(visual.get("calibration_ready")):
+        return "Visual tension labels now support grouped evaluation and minimum class counts for basic calibration checks."
+    if bool(visual.get("defensible_grouped_eval_ready")):
+        return "Visual tension labels now support a more defensible grouped evaluation, but class-count limits still block calibrated scoring."
+    if bool(visual.get("basic_grouped_eval_ready")):
+        return (
+            f"Visual tension labels now support a basic grouped check across {group_count} source groups, "
+            f"but {missing_for_defensible} more source group is still needed for a more defensible grouped evaluation target."
+        )
+    return (
+        f"Visual tension labels are still below even a basic grouped evaluation target; "
+        f"{missing_for_defensible} additional source groups are still needed for a more defensible grouped evaluation target."
+    )
+
+
 def _downstream_case_summary(root: Path) -> dict[str, object]:
     cases_path = root / DOWNSTREAM_CASES
     if not cases_path.exists():
         return {
             "case_rows": 0,
             "support_target_rows": 0,
+            "case_rows_without_support_targets": 0,
+            "readiness_note": "No downstream casepack is present yet.",
         }
     cases = pd.read_csv(cases_path, dtype=str).fillna("")
+    case_rows = int(len(cases))
     support_target_rows = int(cases["target_support_direction"].astype(str).str.strip().ne("").sum())
     return {
-        "case_rows": int(len(cases)),
+        "case_rows": case_rows,
         "support_target_rows": support_target_rows,
+        "case_rows_without_support_targets": int(case_rows - support_target_rows),
+        "readiness_note": (
+            f"Only {support_target_rows} of {case_rows} downstream cases currently carry source-level support targets; "
+            "the remaining cases stay transcript-first packaged comparisons until more media-support labels are added."
+        ),
     }
 
 
@@ -110,6 +138,10 @@ def main() -> None:
             downstream_case_rows=int(downstream["case_rows"]),
             visual_groups=int(visual["source_groups_with_visual_tension_labels"]),
         ),
+        "notes": [
+            _visual_trainability_note(visual),
+            str(downstream["readiness_note"]),
+        ],
     }
 
     output_dir = root / "outputs" / "media_support_eval"

@@ -32,10 +32,12 @@ The smallest existing code path that does this without changing frozen logic is 
 
 ## Shared Setup
 
-Run from the canonical `main` repo root and point at the sibling local feature worktree that still holds the cached source files:
+Run from the canonical repo root. If the needed cached source files still only
+exist in a separate local reference checkout, point at that checkout
+explicitly:
 
 ```bash
-export FEAT_REPO=../earnings-call-sentiment-from-voice-transcript-with-an-optional-video-24-02-2026
+export LOCAL_REFERENCE_REPO=/path/to/local/reference-checkout
 ```
 
 Use stable repo-relative staging directories so any successful rerun stays attributable:
@@ -48,9 +50,9 @@ Use stable repo-relative staging directories so any successful rerun stays attri
 
 ### `goog_q1_2025_example`
 
-Current repo-local inputs:
+Currently available local inputs:
 
-- feature-worktree-only cache files:
+- reference-checkout-only cache files:
   - `cache/curated_multimodal_slice/goog_q1_2025_example/audio.wav`
   - `cache/curated_multimodal_slice/goog_q1_2025_example/audio.mp3`
   - `cache/curated_multimodal_slice/goog_q1_2025_example/video.mp4`
@@ -67,7 +69,7 @@ Commands:
 
 ```bash
 PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
-  --audio-path "$FEAT_REPO/cache/curated_multimodal_slice/goog_q1_2025_example/audio.wav" \
+  --audio-path "$LOCAL_REFERENCE_REPO/cache/curated_multimodal_slice/goog_q1_2025_example/audio.wav" \
   --cache-dir cache/nlp_rerun/goog_q1_2025_example \
   --out-dir outputs/nlp_rerun/goog_q1_2025_example \
   --transcribe-only \
@@ -77,7 +79,7 @@ PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
   --chunk-seconds 30
 
 PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
-  --audio-path "$FEAT_REPO/cache/curated_multimodal_slice/goog_q1_2025_example/audio.wav" \
+  --audio-path "$LOCAL_REFERENCE_REPO/cache/curated_multimodal_slice/goog_q1_2025_example/audio.wav" \
   --cache-dir cache/nlp_rerun/goog_q1_2025_example \
   --out-dir outputs/nlp_rerun/goog_q1_2025_example \
   --score-only \
@@ -102,7 +104,7 @@ Expected outputs:
 
 Risk: medium  
 Effort: heavy  
-Dependency scope: feature-worktree cache plus existing frozen CLI and current scorer  
+Dependency scope: local reference-checkout cache plus existing frozen CLI and current scorer
 Commit-worthiness: yes, if the rerun finishes cleanly and the new NLP outputs are accompanied by stable repo-relative transcript/chunk staging outputs  
 Recommendation: go first if a heavier rerun is approved
 
@@ -116,9 +118,9 @@ Observed bounded attempt on 2026-03-21:
 
 ### `dis_q1_fy26_example`
 
-Current repo-local inputs:
+Currently available local inputs:
 
-- feature-worktree-only cache files:
+- reference-checkout-only cache files:
   - `cache/curated_multimodal_slice/dis_q1_fy26_example/audio.wav`
   - `cache/curated_multimodal_slice/dis_q1_fy26_example/audio.mp3`
   - `cache/curated_multimodal_slice/dis_q1_fy26_example/audio.webm`
@@ -136,7 +138,7 @@ Commands:
 
 ```bash
 PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
-  --audio-path "$FEAT_REPO/cache/curated_multimodal_slice/dis_q1_fy26_example/audio.wav" \
+  --audio-path "$LOCAL_REFERENCE_REPO/cache/curated_multimodal_slice/dis_q1_fy26_example/audio.wav" \
   --cache-dir cache/nlp_rerun/dis_q1_fy26_example \
   --out-dir outputs/nlp_rerun/dis_q1_fy26_example \
   --transcribe-only \
@@ -146,7 +148,7 @@ PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
   --chunk-seconds 30
 
 PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
-  --audio-path "$FEAT_REPO/cache/curated_multimodal_slice/dis_q1_fy26_example/audio.wav" \
+  --audio-path "$LOCAL_REFERENCE_REPO/cache/curated_multimodal_slice/dis_q1_fy26_example/audio.wav" \
   --cache-dir cache/nlp_rerun/dis_q1_fy26_example \
   --out-dir outputs/nlp_rerun/dis_q1_fy26_example \
   --score-only \
@@ -171,15 +173,15 @@ Expected outputs:
 
 Risk: medium  
 Effort: heavy  
-Dependency scope: feature-worktree cache plus existing frozen CLI and current scorer  
+Dependency scope: local reference-checkout cache plus existing frozen CLI and current scorer
 Commit-worthiness: yes, with the same stable-path caveat as GOOGL  
 Recommendation: second-best approved rerun candidate
 
 ### `bac_q4_2025_example`
 
-Current repo-local inputs:
+Currently available local inputs:
 
-- feature-worktree-only cache files:
+- reference-checkout-only cache files:
   - `cache/curated_multimodal_slice/bac_q4_2025_example/audio.wav`
   - `cache/curated_multimodal_slice/bac_q4_2025_example/audio.mp3`
   - `cache/curated_multimodal_slice/bac_q4_2025_example/video.mp4`
@@ -196,7 +198,7 @@ Commands:
 
 ```bash
 PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
-  --audio-path "$FEAT_REPO/cache/curated_multimodal_slice/bac_q4_2025_example/audio.wav" \
+  --audio-path "$LOCAL_REFERENCE_REPO/cache/curated_multimodal_slice/bac_q4_2025_example/audio.wav" \
   --cache-dir cache/nlp_rerun/bac_q4_2025_example \
   --out-dir outputs/nlp_rerun/bac_q4_2025_example \
   --transcribe-only \
@@ -206,7 +208,7 @@ PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
   --chunk-seconds 30
 
 PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
-  --audio-path "$FEAT_REPO/cache/curated_multimodal_slice/bac_q4_2025_example/audio.wav" \
+  --audio-path "$LOCAL_REFERENCE_REPO/cache/curated_multimodal_slice/bac_q4_2025_example/audio.wav" \
   --cache-dir cache/nlp_rerun/bac_q4_2025_example \
   --out-dir outputs/nlp_rerun/bac_q4_2025_example \
   --score-only \
@@ -231,15 +233,15 @@ Expected outputs:
 
 Risk: medium-high  
 Effort: heavy  
-Dependency scope: feature-worktree cache plus existing frozen CLI and current scorer  
+Dependency scope: local reference-checkout cache plus existing frozen CLI and current scorer
 Commit-worthiness: yes, if the rerun completes and the staging outputs are kept stable  
 Recommendation: only after a smaller source succeeds
 
 ### `sbux_prepared_remarks_example`
 
-Current repo-local inputs:
+Currently available local inputs:
 
-- feature-worktree-only cache files:
+- reference-checkout-only cache files:
   - `cache/curated_multimodal_slice/sbux_prepared_remarks_example/audio.wav`
   - `cache/curated_multimodal_slice/sbux_prepared_remarks_example/audio.mp3`
   - `cache/curated_multimodal_slice/sbux_prepared_remarks_example/video.mp4`
@@ -257,7 +259,7 @@ Commands:
 
 ```bash
 PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
-  --audio-path "$FEAT_REPO/cache/curated_multimodal_slice/sbux_prepared_remarks_example/audio.wav" \
+  --audio-path "$LOCAL_REFERENCE_REPO/cache/curated_multimodal_slice/sbux_prepared_remarks_example/audio.wav" \
   --cache-dir cache/nlp_rerun/sbux_prepared_remarks_example \
   --out-dir outputs/nlp_rerun/sbux_prepared_remarks_example \
   --transcribe-only \
@@ -267,7 +269,7 @@ PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
   --chunk-seconds 30
 
 PYTHONPATH=src python3 -m earnings_call_sentiment.cli \
-  --audio-path "$FEAT_REPO/cache/curated_multimodal_slice/sbux_prepared_remarks_example/audio.wav" \
+  --audio-path "$LOCAL_REFERENCE_REPO/cache/curated_multimodal_slice/sbux_prepared_remarks_example/audio.wav" \
   --cache-dir cache/nlp_rerun/sbux_prepared_remarks_example \
   --out-dir outputs/nlp_rerun/sbux_prepared_remarks_example \
   --score-only \
@@ -292,7 +294,7 @@ Expected outputs:
 
 Risk: high  
 Effort: heavy  
-Dependency scope: feature-worktree cache plus existing frozen CLI and current scorer  
+Dependency scope: local reference-checkout cache plus existing frozen CLI and current scorer
 Commit-worthiness: only if the rerun is clean and the resulting transcript/chunk staging looks reviewable; the cached transcript-side assets themselves are not clean enough to use directly  
 Recommendation: last candidate on the current frozen-path route
 
