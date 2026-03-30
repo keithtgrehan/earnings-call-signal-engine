@@ -7,7 +7,7 @@ Priority order:
 1. transcript + guidance + text behavior + Q&A shift
 2. audio delivery support
 3. optional visual support
-4. late fusion that only adjusts interpretation confidence modestly
+4. late fusion that only adjusts reviewer priority modestly
 
 This is not:
 - a deception detector
@@ -20,7 +20,7 @@ Audio and video should help reviewers inspect delivery under questioning. They s
 ## Current Repo Stance
 - Transcript artifacts remain canonical and benchmarked.
 - Audio and visual outputs are support layers only.
-- Weak media should be suppressed, not stretched into a confident read.
+- Weak media should be suppressed, not stretched into a stronger read.
 - Generic emotion datasets are calibration resources, not earnings-call ground truth.
 
 ## Download Status In This Repo
@@ -39,13 +39,13 @@ Audio and video should help reviewers inspect delivery under questioning. They s
 - Downstream cases with source-level media-support targets: 9 of 23
 - Current support tasks:
   - hesitation pressure
-  - delivery confidence support
+  - delivery steadiness / usability support
   - visual tension support
 
 This seed set is intentionally small and conservative. It is used for:
 - validating repo-native feature extraction
 - training narrow support models where label coverage is sufficient
-- calibrating multimodal confidence adjustments without changing transcript-first benchmark labels
+- calibrating modest context weighting without changing transcript-first benchmark labels
 
 It is not large enough to justify broad product claims, and weak media should still suppress or downweight support outputs.
 The current visual set is enough for a basic two-group grouped check, but it is
@@ -108,7 +108,7 @@ so the visual group count remains 2.
 Now active in a narrow, optional support role:
 - logistic regression / LightGBM / XGBoost for narrow support tasks
 - hesitation under pressure
-- delivery confidence support
+- delivery steadiness / usability support
 - visual tension under questioning
 - calibrated probabilities only if they improve reviewer trust and stay interpretable
 

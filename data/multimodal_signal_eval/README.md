@@ -20,7 +20,7 @@ This package is a metadata-first staging area for the next multimodal acquisitio
 1. pull the highest-priority rows that already have full local transcripts and Q&A structure
 2. add answer-level audio pause / hesitation extraction on those rows first
 3. only then add small audio and fusion labeling files if the extracted windows are actually usable
-4. treat video rows as optional support and confidence-gated
+4. treat video rows as optional context and quality-gated
 
 ## Label families planned
 ### Audio
@@ -34,7 +34,7 @@ This package is a metadata-first staging area for the next multimodal acquisitio
 - face_visibility: `low | medium | high`
 - visual_stability: `low | medium | high`
 - visual_change_during_answer: `low | medium | high`
-- visual_confidence: `low | medium | high`
+- visual_usability: `low | medium | high`
 
 ### Fusion
 - answer_pressure_response: `low | medium | high`

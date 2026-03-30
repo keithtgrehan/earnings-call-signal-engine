@@ -55,4 +55,4 @@ Practical status:
 - No claim that the current repo state demonstrates alignment coverage at useful scale.
 
 ## Practical Positioning
-This project should be presented as a **transcript-first validated prototype** and deterministic evidence-backed review tool. The strongest current value is deterministic, evidence-linked output generation plus strong internal agreement checkpoints rather than return prediction.
+This project should be presented as a **transcript-first review prototype** and deterministic evidence-backed review tool. The strongest current value is deterministic, evidence-linked output generation plus strong internal agreement checkpoints rather than return prediction.

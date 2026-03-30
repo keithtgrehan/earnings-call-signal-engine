@@ -44,11 +44,29 @@ It is intentionally conservative:
 - Missing treatment bundles in the task-impact package are explicit transcript-
   only placeholders, not hidden full reruns.
 
+## Useful Local Commands
+
+- Refresh the fixed downstream/task-impact casepacks:
+  - `PYTHONPATH=src python3 scripts/refresh_media_support_casepack.py`
+- Write the current readiness summary:
+  - `PYTHONPATH=src python3 scripts/check_media_support_readiness.py`
+- Write the bounded downstream comparison outputs:
+  - `PYTHONPATH=src python3 scripts/compare_multimodal_support_slice.py`
+- Summarize any task-impact pilot submissions:
+  - `PYTHONPATH=src python3 scripts/summarize_task_impact_results.py`
+
+The downstream comparison should only be interpreted over rows with nonblank
+`target_support_direction`. Rows without source-level support targets remain
+transcript-first packaged cases until more media-support labels are added.
+Rows whose `metrics.json` bundle is not present locally are now flagged and
+excluded from current multimodal accuracy/error summaries instead of being
+silently treated as neutral comparison rows.
+
 ## Label Meaning
 - `media_quality_label`: whether the segment quality is poor, usable, or strong
 - `hesitation_pressure_label`: low / medium / high audio hesitation under questioning
 - `visual_tension_label`: low / medium / high visible tension or motion pressure
-- `delivery_confidence_label`: low / medium / high delivery confidence support
+- `delivery_confidence_label`: legacy schema name for measured delivery steadiness / reviewer usability cues, not truth confidence
 - `multimodal_support_direction`: supportive / cautionary / neutral / unavailable
 
 These labels are for reviewer support only and should not be interpreted as

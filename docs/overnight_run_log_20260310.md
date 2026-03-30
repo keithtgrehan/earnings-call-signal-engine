@@ -1,5 +1,10 @@
 # Overnight Run Log - 2026-03-10
 
+Historical note: this log records a run that happened in the then-active local
+clone path shown below. The canonical repo is now `earnings-call-signal-engine`;
+keep the old path here as historical context only, not as the current canonical
+working location.
+
 ## Start
 - UTC start: 2026-03-10T22:27:55Z
 - Repository: `/Users/keith/GitHub/earnings-call-sentiment-from-voice-transcript-with-an-optional-video-24-02-2026`

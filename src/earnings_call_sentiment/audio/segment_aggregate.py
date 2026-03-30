@@ -123,11 +123,11 @@ def _confidence_note(duration_s: float, frame_count: int, word_count: int) -> st
     if frame_count <= 0:
         return "no sampled audio frames in segment"
     if duration_s < 1.0:
-        return "short segment limits audio confidence"
+        return "short segment limits audio usability"
     if word_count < 7:
-        return "low transcript word count limits audio confidence"
+        return "low transcript word count limits audio usability"
     if frame_count < 5:
-        return "sparse sampled audio frames limit confidence"
+        return "sparse sampled audio frames limit usability"
     return "usable audio segment"
 
 

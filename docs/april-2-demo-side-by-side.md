@@ -91,7 +91,7 @@ From [outputs/MSFT_2026_Q2_call05/transcript.txt](../outputs/MSFT_2026_Q2_call05
   - `review_confidence_pct = 55`
 - [outputs/MSFT_2026_Q2_call05/multimodal_support_summary.json](../outputs/MSFT_2026_Q2_call05/multimodal_support_summary.json)
   - transcript primary assessment remains `amber`
-  - audio support is `supportive`
+  - audio support direction is saved as `supportive` in the legacy field naming, meaning same-direction supporting context rather than validation
   - multimodal confidence adjustment is `-1`
 - [outputs/MSFT_2026_Q2_call05/audio_behavior_summary.json](../outputs/MSFT_2026_Q2_call05/audio_behavior_summary.json)
   - hesitation stays `low`
@@ -104,7 +104,7 @@ From [outputs/MSFT_2026_Q2_call05/transcript.txt](../outputs/MSFT_2026_Q2_call05
 ### What The Structured Output Makes Easier
 
 - it prevents the demo from equating polished delivery with a definitive answer
-- it shows that even with supportive audio and committed NLP sidecar coverage, the primary interpretation stays transcript-first and conservative
+- it shows that even with same-direction audio context and committed NLP sidecar coverage, the primary interpretation stays transcript-first and conservative
 - it turns a fuzzy “that answer felt vague” reaction into a traceable combination of high uncertainty, low management confidence, mixed Q&A shift, and unchanged benchmark label
 
 ### What Remains Ambiguous
@@ -117,14 +117,14 @@ From [outputs/MSFT_2026_Q2_call05/transcript.txt](../outputs/MSFT_2026_Q2_call05
 
 - the canonical review truth still lives in the transcript, the deterministic report, the structured metrics, and the frozen label files
 - sidecars help the reviewer inspect delivery and disagreement, but they do not become the truth source
-- this Microsoft case is useful precisely because the repo contains supportive audio and a real NLP sidecar, yet the final benchmark interpretation still stays conservative
+- this Microsoft case is useful precisely because the repo contains same-direction audio context and a real NLP sidecar, yet the final benchmark interpretation still stays conservative
 
 ## What Happens When Management Is Vague?
 
 - the system does not force a confident answer where the underlying evidence is indirect
 - explicit outlook language is surfaced cleanly, but the guidance-revision block stays empty and the frozen label remains `unclear`
 - the hard OpenAI durability question is not treated as proof of a guidance change
-- supportive sidecars do not override the transcript-first assessment
+- supporting-only sidecars do not override the transcript-first assessment
 
 In other words: vagueness is surfaced as ambiguity, not hallucinated into certainty.
 

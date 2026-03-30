@@ -36,7 +36,7 @@ The only real ambiguity here is the transcript typo `206` instead of `2026`. The
 | Outlook language | The transcript explicitly states total-company and segment-level revenue expectations. | The transcript does not itself say whether guidance was raised, maintained, lowered, or withdrawn versus prior guidance. | [transcript.txt](../outputs/MSFT_2026_Q2_call05/transcript.txt), [report.md](../outputs/MSFT_2026_Q2_call05/report.md) |
 | Deterministic extraction | The report and metrics pull the strongest outlook snippets and score uncertainty, guidance strength, and management confidence. | The guidance-revision block stays empty and no prior-guidance comparison path is present. | [report.md](../outputs/MSFT_2026_Q2_call05/report.md), [metrics.json](../outputs/MSFT_2026_Q2_call05/metrics.json) |
 | Hard Q&A moment | The analyst asks directly about OpenAI backlog durability and exposure. | Management answers indirectly and the system does not claim that indirectness resolves guidance direction. | [transcript.txt](../outputs/MSFT_2026_Q2_call05/transcript.txt), [report.md](../outputs/MSFT_2026_Q2_call05/report.md) |
-| Supporting sidecars | Audio is usable and supportive; NLP sidecar coverage exists for this same case. | Sidecars stay secondary and do not override the deterministic label path. Video remains unavailable in the committed roll-up. | [audio_behavior_summary.json](../outputs/MSFT_2026_Q2_call05/audio_behavior_summary.json), [multimodal_support_summary.json](../outputs/MSFT_2026_Q2_call05/multimodal_support_summary.json), [nlp_scoring_summary.json](../data/processed/multimodal/nlp/msft_fy26_q2_example/nlp_scoring_summary.json) |
+| Supporting sidecars | Audio is usable as supporting-only reviewer context, and NLP sidecar coverage exists for this same case. | Sidecars stay secondary and do not override the deterministic label path. Video remains unavailable in the committed roll-up. | [audio_behavior_summary.json](../outputs/MSFT_2026_Q2_call05/audio_behavior_summary.json), [multimodal_support_summary.json](../outputs/MSFT_2026_Q2_call05/multimodal_support_summary.json), [nlp_scoring_summary.json](../data/processed/multimodal/nlp/msft_fy26_q2_example/nlp_scoring_summary.json) |
 
 ## Evidence Pull
 
@@ -104,7 +104,7 @@ Matching structured artifacts:
   - `answer_directness_score = 5`
 - [multimodal_support_summary.json](../outputs/MSFT_2026_Q2_call05/multimodal_support_summary.json)
   - transcript stays primary
-  - audio is supportive
+  - audio is recorded as same-direction supporting context in the saved roll-up
   - video is unavailable
 
 What is clear:
@@ -141,7 +141,7 @@ This is why the current repo state is easier to defend as “explicit outlook, u
 Audio adds:
 
 - usable answer-level support with `audio_quality_ok = true`
-- supportive model-backed signal with `calibrated_support_score = -0.39`
+- a model-backed audio context row with `calibrated_support_score = -0.39`
 - high prepared-remarks stability and low overall hesitation
 - a small cue that Q&A becomes somewhat more paused, but still at a low level
 
@@ -154,7 +154,7 @@ NLP adds:
 Multimodal roll-up adds:
 
 - a compact record that transcript remains primary
-- supportive audio as secondary context
+- same-direction audio context as secondary context
 - explicit confirmation that video is currently unavailable in the committed roll-up
 
 What sidecars do not add:

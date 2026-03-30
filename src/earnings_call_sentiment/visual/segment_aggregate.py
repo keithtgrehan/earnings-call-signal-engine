@@ -36,13 +36,13 @@ def _confidence_note(
     if frame_count <= 0:
         return "no sampled frames overlapped this segment"
     if face_visible_pct < 0.35:
-        return "low face visibility reduces confidence"
+        return "low face visibility reduces visual usability"
     if stable_face_pct < 0.35:
-        return "unstable face tracking reduces confidence"
+        return "unstable face tracking reduces visual usability"
     if landmark_confidence < 0.45:
-        return "low landmark confidence reduces confidence"
+        return "low landmark confidence reduces visual usability"
     if face_size_ratio < 0.06:
-        return "small on-screen face reduces confidence"
+        return "small on-screen face reduces visual usability"
     if pose_visible_pct < 0.2:
         return "pose coverage is limited for shoulder and hand features"
     return "usable visual segment"
@@ -57,7 +57,7 @@ def _segment_support_direction(
     avg_lower_face_tension: float,
 ) -> tuple[str, str]:
     if stable_face_pct < 0.35 or face_size_ratio_mean < 0.06:
-        return "unavailable", "visual quality gate is too weak for segment-level support"
+        return "unavailable", "visual quality gate is too weak for segment-level context"
     risk_score = (
         (head_motion_energy * 0.5)
         + (head_pose_drift_mean * 0.2)

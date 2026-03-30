@@ -66,7 +66,37 @@ def test_evaluate_downstream_decision_cases_tracks_unscored_rows_honestly() -> N
     assert summary["case_count"] == 2
     assert summary["case_count_with_support_targets"] == 1
     assert summary["case_count_without_support_targets"] == 1
+    assert summary["artifact_coverage"]["support_target_rows_without_current_metrics"] == 1
+    assert summary["current_conservative_multimodal"]["case_count"] == 0
     assert summary["gold_guidance_label_distribution"]["unclear"] == 1
+
+
+def test_evaluate_downstream_decision_cases_excludes_missing_nonblank_metrics_from_current_summary() -> None:
+    cases = pd.DataFrame(
+        [
+            {
+                "case_id": "call01",
+                "metrics_path": "outputs/missing/metrics.json",
+                "qa_shift_path": "",
+                "audio_summary_path": "",
+                "visual_summary_path": "",
+                "saved_multimodal_summary_path": "",
+                "target_support_direction": "supportive",
+                "target_support_signed_mean": "-0.3",
+                "gold_guidance_label": "raised",
+            }
+        ]
+    )
+
+    result_frame, summary = evaluate_downstream_decision_cases(cases)
+
+    assert len(result_frame) == 1
+    assert not bool(result_frame.iloc[0]["current_metrics_available"])
+    assert result_frame.iloc[0]["current_direction"] == ""
+    assert "excluded from current multimodal comparison summaries" in result_frame.iloc[0]["current_availability_note"]
+    assert summary["artifact_coverage"]["support_target_rows_without_current_metrics"] == 1
+    assert summary["current_conservative_multimodal"]["case_count"] == 0
+    assert summary["current_conservative_multimodal"]["excluded_support_target_rows_missing_current_metrics"] == 1
 
 
 def test_evaluate_downstream_decision_cases_resolves_repo_relative_artifact_paths(
@@ -120,9 +150,11 @@ def test_evaluate_downstream_decision_cases_resolves_repo_relative_artifact_path
     result_frame, summary = evaluate_downstream_decision_cases(cases)
 
     assert len(result_frame) == 1
+    assert bool(result_frame.iloc[0]["current_metrics_available"])
     assert result_frame.iloc[0]["current_direction"] == "cautionary"
     assert result_frame.iloc[0]["saved_direction"] == "cautionary"
     assert summary["case_count_with_support_targets"] == 1
+    assert summary["current_conservative_multimodal"]["case_count"] == 1
 
 
 def test_summarize_task_impact_results_scores_against_case_labels() -> None:

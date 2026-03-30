@@ -19,7 +19,7 @@ def _audio_direction(
 ) -> tuple[str, list[str], float, float, str]:
     notes: list[str] = []
     if not isinstance(audio_summary, dict) or not bool(media_quality.get("audio_quality_ok")):
-        return "unavailable", ["Audio support was suppressed because quality gates were not met."], 0.0, 0.0, "unavailable"
+        return "unavailable", ["Audio review context stayed unavailable because quality gates were not met."], 0.0, 0.0, "unavailable"
 
     model_support = audio_summary.get("model_support", {})
     if isinstance(model_support, dict) and bool(model_support.get("available")):
@@ -27,7 +27,7 @@ def _audio_direction(
         score = float(model_support.get("calibrated_support_score", 0.0))
         reliability = float(model_support.get("reliability_weight", 0.0))
         notes.append(
-            f"Audio support used model-backed scoring ({direction}, score {score:+.2f}, reliability {reliability:.2f})."
+            f"Audio review context used model-backed scoring ({direction}, score {score:+.2f}, reliability {reliability:.2f}) as bounded context only."
         )
         return direction, notes, score, reliability, "model_backed"
 
@@ -36,12 +36,12 @@ def _audio_direction(
     latency = str(audio_summary.get("answer_latency_pressure", {}).get("level", "low"))
 
     if hesitation == "high" or latency == "high" or pause_delta == "more_paused_under_questions":
-        notes.append("Audio delivery became more hesitant under questioning.")
+        notes.append("Audio timing cues suggested more hesitation under questioning.")
         return "cautionary", notes, 0.08, 0.12, "heuristic_fallback"
     if hesitation == "low" and latency == "low" and pause_delta != "more_paused_under_questions":
-        notes.append("Audio delivery stayed comparatively steady across answers.")
+        notes.append("Audio timing cues stayed comparatively steady across answers.")
         return "supportive", notes, -0.08, 0.12, "heuristic_fallback"
-    notes.append("Audio cues were mixed and stayed secondary to the transcript.")
+    notes.append("Audio cues were mixed and stayed supporting-only relative to the transcript.")
     return "neutral", notes, 0.0, 0.12, "heuristic_fallback"
 
 
@@ -51,7 +51,7 @@ def _video_direction(
 ) -> tuple[str, list[str], float, float, str]:
     notes: list[str] = []
     if not isinstance(visual_summary, dict) or not bool(media_quality.get("video_quality_ok")):
-        return "unavailable", ["Video support was suppressed because quality gates were not met."], 0.0, 0.0, "unavailable"
+        return "unavailable", ["Video review context stayed unavailable because quality gates were not met."], 0.0, 0.0, "unavailable"
 
     model_support = visual_summary.get("model_support", {})
     if isinstance(model_support, dict) and bool(model_support.get("available")):
@@ -59,7 +59,7 @@ def _video_direction(
         score = float(model_support.get("calibrated_support_score", 0.0))
         reliability = float(model_support.get("reliability_weight", 0.0))
         notes.append(
-            f"Visual support used model-backed scoring ({direction}, score {score:+.2f}, reliability {reliability:.2f})."
+            f"Visual review context used model-backed scoring ({direction}, score {score:+.2f}, reliability {reliability:.2f}) as bounded context only."
         )
         return direction, notes, score, reliability, "model_backed"
 
@@ -68,12 +68,12 @@ def _video_direction(
     qa_shift = str(visual_summary.get("qa_visual_shift_score", {}).get("level", "low"))
 
     if facial_tension == "high" or head_motion == "high" or qa_shift == "high":
-        notes.append("Visual pressure cues rose during Q&A.")
+        notes.append("Visual pressure cues rose during Q&A, but remained observational context only.")
         return "cautionary", notes, 0.06, 0.08, "heuristic_fallback"
     if facial_tension == "low" and head_motion == "low" and qa_shift != "high":
-        notes.append("Visible delivery stayed comparatively stable when the face remained usable.")
+        notes.append("Visible delivery stayed comparatively stable when the face remained usable, but remained observational context only.")
         return "supportive", notes, -0.06, 0.08, "heuristic_fallback"
-    notes.append("Visual cues were mixed and stayed secondary to the transcript.")
+    notes.append("Visual cues were mixed and stayed supporting-only relative to the transcript.")
     return "neutral", notes, 0.0, 0.08, "heuristic_fallback"
 
 
@@ -143,12 +143,16 @@ def build_multimodal_support_summary(
         fusion_mode = "hybrid"
 
     notes = [
-        f"Transcript-first signal remains {transcript_signal} with interpretation confidence {transcript_confidence:.2f}.",
+        (
+            f"Transcript-first signal remains {transcript_signal}. "
+            f"Deterministic review confidence {transcript_confidence:.2f} only bounds how much optional context can shift reviewer priority."
+        ),
         *audio_notes,
         *video_notes,
     ]
     qa_level = str(qa_shift_summary.get("prepared_remarks_vs_q_and_a", {}).get("label", "mixed"))
     notes.append(f"Q&A transcript shift stayed {qa_level}.")
+    notes.append("Optional audio and video context do not change the transcript-backed read.")
 
     return {
         "transcript_primary_assessment": transcript_signal,

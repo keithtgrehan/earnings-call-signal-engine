@@ -32,3 +32,8 @@ audio-behavior signals such as:
 ## Current status
 
 This package is scaffold-only for now. No audio gold labels have been appended.
+
+Current `source_manifest.csv` rows still point to legacy-local normalized audio
+cache files where those files have not yet been rehydrated in the canonical
+checkout. Treat that manifest as staging guidance only, not as proof that the
+audio assets are canonical-repo-local today.

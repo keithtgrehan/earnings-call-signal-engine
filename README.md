@@ -136,10 +136,10 @@ Review confidence means confidence in the tool's interpretation of the available
 - optional visual behavior support
 - deterministic scorecard presentation layer
 
-Audio and visual layers are supporting, confidence-tagged review aids. They are not truth detectors and should not be presented as hidden-state inference.
+Audio and visual layers are supporting, quality-gated review aids. They are not truth detectors and should not be presented as hidden-state inference.
 
 ## Conservative Multimodal Status
-The repo remains transcript-first. Multimodal artifacts are supporting evidence layers and do not replace the deterministic transcript-backed outputs.
+The repo remains transcript-first. Multimodal artifacts are supporting context layers and do not replace the deterministic transcript-backed outputs.
 
 Current committed multimodal summary outputs under `data/processed/multimodal/eval/` report:
 - `12` source calls
