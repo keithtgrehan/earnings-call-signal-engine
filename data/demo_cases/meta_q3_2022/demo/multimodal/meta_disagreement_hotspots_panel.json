@@ -34,7 +34,9 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       }
     },
     {
@@ -68,7 +70,10 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       }
     },
     {
@@ -102,7 +107,10 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       }
     },
     {
@@ -136,7 +144,10 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       }
     },
     {
@@ -170,7 +181,9 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       }
     },
     {
@@ -200,7 +213,9 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       }
     },
     {
@@ -230,7 +245,10 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       }
     },
     {
@@ -260,7 +278,10 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       }
     },
     {
@@ -299,7 +320,9 @@
         "timing_note": "Audio timings are attached only to a few curated main-call Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       }
     },
     {
@@ -338,7 +361,9 @@
         "timing_note": "Audio timings are attached only to a few curated main-call Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       }
     },
     {
@@ -372,7 +397,9 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       }
     }
   ]

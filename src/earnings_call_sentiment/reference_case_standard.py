@@ -120,6 +120,11 @@ def _validate_panel_payload(payload: Any, panel_path: Path) -> list[str]:
         moments = payload.get("panel_rows")
     if not isinstance(moments, list) or not moments:
         errors.append(f"panel json must include at least one moment row under `moments` or `panel_rows`: {panel_path}")
+    elif any(
+        not isinstance(row, dict) or not str(row.get("caveat", "")).strip()
+        for row in moments
+    ):
+        errors.append(f"panel json must include a non-empty per-moment `caveat`: {panel_path}")
 
     if "moments" in payload:
         for key in (

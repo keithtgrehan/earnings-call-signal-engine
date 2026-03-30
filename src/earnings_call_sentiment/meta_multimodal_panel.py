@@ -1214,23 +1214,78 @@ def _audio_reviewer_brief(audio_row: dict[str, Any] | None) -> str:
 
 
 def _visual_reviewer_brief(visual_row: dict[str, Any] | None) -> str:
-    if not visual_row or visual_row.get("status") != "aligned":
+    if not visual_row:
         return "No aligned visual window is attached to this moment."
-    return "The visual layer remains heuristic context only and does not change the transcript-first read."
+    status = str(visual_row.get("status") or "")
+    if status == "aligned":
+        return "The visual layer remains heuristic context only and does not change the transcript-first read."
+    if status == "skipped":
+        return "A local main-call video window exists for this moment, but the final bounded visual pass was skipped after earlier heuristic attempts exceeded the runtime cap."
+    if str(visual_row.get("case_level_visual_status") or "") == "skipped":
+        return "No timed main-call video window is attached to this moment, and the final case-level visual pass was also skipped."
+    return str(visual_row.get("reason") or "No aligned visual window is attached to this moment.")
 
 
 def _reviewer_note(moment: dict[str, Any], comparison_row: dict[str, Any], audio_row: dict[str, Any] | None, visual_row: dict[str, Any] | None) -> str:
     bucket = str(comparison_row.get("review_bucket", ""))
     priority_reason = str(comparison_row.get("review_priority_reason", "")).strip()
+    audio_brief = _audio_reviewer_brief(audio_row)
+    visual_brief = _visual_reviewer_brief(visual_row)
     if bucket == "consistent_directional_read":
+        if str(visual_row.get("status") if visual_row else "") == "skipped":
+            return (
+                "Deterministic read stays primary, and the optional sidecars mostly stay in the same direction on this moment. "
+                f"{visual_brief}"
+            )
         return "Deterministic read stays primary, and the optional sidecars mostly stay in the same direction on this moment."
     if bucket == "softened_directional_read":
-        return f"Deterministic read stays primary. {priority_reason} {_audio_reviewer_brief(audio_row)}"
+        trailing = audio_brief
+        if not audio_row or str(audio_row.get("status") or "") != "aligned":
+            trailing = visual_brief
+        return f"Deterministic read stays primary. {priority_reason} {trailing}"
     if bucket == "directional_conflict":
-        return f"Deterministic read stays primary. {priority_reason} {_visual_reviewer_brief(visual_row)}"
+        return f"Deterministic read stays primary. {priority_reason} {visual_brief}"
     if bucket == "no_comparable_signal":
         return "Optional sidecars were unavailable or non-comparable here, so review this moment transcript-first."
     return "This moment is best read transcript-first because any sidecar spread is descriptive context only."
+
+
+def _visual_support_for_moment(
+    moment: dict[str, Any],
+    visual_payload: dict[str, Any],
+    visual_by_id: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    visual_status = str(visual_payload.get("status") or "")
+    if visual_status == "ok":
+        if str(moment["moment_id"]) in visual_by_id:
+            return visual_by_id[str(moment["moment_id"])]
+        if moment.get("main_call_media_eligible"):
+            return {
+                "status": "unavailable",
+                "reason": "No aligned visual summary row was produced for this timestamped main-call moment.",
+            }
+        return {
+            "status": "unavailable",
+            "reason": "No timed main-call media window is available for this moment.",
+        }
+    if visual_status == "skipped":
+        skip_reason = str(visual_payload.get("reason") or "The final bounded visual pass was skipped.")
+        if moment.get("main_call_media_eligible"):
+            return {
+                "status": "skipped",
+                "reason": skip_reason,
+                "main_call_media_eligible": True,
+            }
+        return {
+            "status": "unavailable",
+            "reason": "No timed main-call media window is available for this moment.",
+            "case_level_visual_status": "skipped",
+            "case_level_visual_reason": skip_reason,
+        }
+    return {
+        "status": "unavailable",
+        "reason": "No visual support was available for this moment.",
+    }
 
 
 def build_panel_payload(
@@ -1250,7 +1305,7 @@ def build_panel_payload(
     for moment_id, moment in manifest_by_id.items():
         comparison_row = comparison_by_id.get(moment_id, {})
         audio_row = audio_by_id.get(moment_id)
-        visual_row = visual_by_id.get(moment_id)
+        visual_row = _visual_support_for_moment(moment, visual_payload, visual_by_id)
         caveat = "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
         row = {
             "moment_id": moment_id,
@@ -1268,7 +1323,7 @@ def build_panel_payload(
             },
             "sidecar_outputs": comparison_row,
             "audio_support": audio_row or {"status": "unavailable"},
-            "visual_support": visual_row or {"status": "unavailable"},
+            "visual_support": visual_row,
             "reviewer_note": _reviewer_note(moment, comparison_row, audio_row, visual_row),
             "caveat": caveat,
         }
@@ -1294,7 +1349,11 @@ def build_panel_payload(
         {
             **item,
             "audio_support": audio_by_id.get(str(item["moment_id"]), {"status": "unavailable"}),
-            "visual_support": visual_by_id.get(str(item["moment_id"]), {"status": "unavailable"}),
+            "visual_support": _visual_support_for_moment(
+                manifest_by_id[str(item["moment_id"])],
+                visual_payload,
+                visual_by_id,
+            ),
         }
         for item in disagreement_payload.get("pairwise_model_disagreements", [])
     ]
@@ -1302,8 +1361,15 @@ def build_panel_payload(
         "case_id": CASE_ID,
         "case_scope": CASE_SCOPE,
         "status": "ok",
+        "deterministic_transcript_first_is_canonical": True,
+        "support_layers_are_supporting_only": True,
+        "no_predictive_claims": True,
+        "no_statistical_claims": True,
         "selected_moment_count": len(rows),
         "showcase_moment_count": sum(1 for row in rows if row["top_8_showcase"]),
+        "top_8_showcase_moment_ids": [row["moment_id"] for row in rows if row["top_8_showcase"]],
+        "visual_support_status": str(visual_payload.get("status") or "unavailable"),
+        "visual_support_reason": visual_payload.get("reason"),
         "panel_rows": rows,
         "top_disagreement_hotspots": disagreement_rows[:8],
         "strong_supporting_context_moments": [
@@ -1359,7 +1425,7 @@ def _render_asset_audit_markdown(audit: dict[str, Any], visual_payload: dict[str
         f"- Requested exact MP4 path: `{preferred_video['requested_path']}`",
         f"- Requested exact MP4 path matched directly: `{requested_matched_directly}`",
         f"- Resolved local MP4 fallback used: `{fallback_video}`",
-        f"- Bounded visual analysis usable: `{audit['video_usable_for_bounded_visual_analysis']}`",
+        f"- Local video available for bounded visual analysis: `{audit['video_usable_for_bounded_visual_analysis']}`",
         "",
         "## What Exists",
         "",

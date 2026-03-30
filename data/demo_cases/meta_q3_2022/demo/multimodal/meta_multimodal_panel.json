@@ -2,8 +2,24 @@
   "case_id": "meta_q3_2022",
   "case_scope": "Meta Q3 2022",
   "status": "ok",
+  "deterministic_transcript_first_is_canonical": true,
+  "support_layers_are_supporting_only": true,
+  "no_predictive_claims": true,
+  "no_statistical_claims": true,
   "selected_moment_count": 12,
   "showcase_moment_count": 8,
+  "top_8_showcase_moment_ids": [
+    "transcript_macro_ads_pressure",
+    "transcript_conservative_budget",
+    "transcript_reels_headwind",
+    "release_profitability_deterioration",
+    "release_expense_capex_guidance",
+    "presentation_reality_labs_drag",
+    "follow_up_reels_headwind_pressure",
+    "follow_up_macro_caution"
+  ],
+  "visual_support_status": "skipped",
+  "visual_support_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
   "panel_rows": [
     {
       "moment_id": "transcript_macro_ads_pressure",
@@ -65,9 +81,11 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. A local main-call video window exists for this moment, but the final bounded visual pass was skipped after earlier heuristic attempts exceeded the runtime cap.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -126,9 +144,11 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. A local main-call video window exists for this moment, but the final bounded visual pass was skipped after earlier heuristic attempts exceeded the runtime cap.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -191,9 +211,11 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral. No curated audio timing is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral. A local main-call video window exists for this moment, but the final bounded visual pass was skipped after earlier heuristic attempts exceeded the runtime cap.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -256,9 +278,12 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. No aligned visual window is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels split across positive and negative directions on a moment with an expected deterministic polarity. No timed main-call video window is attached to this moment, and the final case-level visual pass was also skipped.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -321,9 +346,12 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No timed main-call video window is attached to this moment, and the final case-level visual pass was also skipped.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -382,9 +410,12 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No timed main-call video window is attached to this moment, and the final case-level visual pass was also skipped.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -447,9 +478,12 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No timed main-call video window is attached to this moment, and the final case-level visual pass was also skipped.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -508,9 +542,12 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No timed main-call video window is attached to this moment, and the final case-level visual pass was also skipped.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -569,9 +606,11 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       },
-      "reviewer_note": "Deterministic read stays primary, and the optional sidecars mostly stay in the same direction on this moment.",
+      "reviewer_note": "Deterministic read stays primary, and the optional sidecars mostly stay in the same direction on this moment. A local main-call video window exists for this moment, but the final bounded visual pass was skipped after earlier heuristic attempts exceeded the runtime cap.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -634,9 +673,11 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. A local main-call video window exists for this moment, but the final bounded visual pass was skipped after earlier heuristic attempts exceeded the runtime cap.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -704,9 +745,11 @@
         "timing_note": "Audio timings are attached only to a few curated main-call Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. A local main-call video window exists for this moment, but the final bounded visual pass was skipped after earlier heuristic attempts exceeded the runtime cap.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     },
     {
@@ -774,9 +817,11 @@
         "timing_note": "Audio timings are attached only to a few curated main-call Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media coverage."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       },
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. No aligned visual window is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels do not preserve the expected deterministic direction and should be treated as a review hotspot. A local main-call video window exists for this moment, but the final bounded visual pass was skipped after earlier heuristic attempts exceeded the runtime cap.",
       "caveat": "Deterministic transcript-backed output stays canonical; sidecars, audio, and visual cues are supporting-only reviewer context."
     }
   ],
@@ -812,7 +857,9 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       }
     },
     {
@@ -846,7 +893,10 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       }
     },
     {
@@ -880,7 +930,10 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       }
     },
     {
@@ -914,7 +967,10 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       }
     },
     {
@@ -948,7 +1004,9 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       }
     },
     {
@@ -978,7 +1036,9 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "skipped",
+        "reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session.",
+        "main_call_media_eligible": true
       }
     },
     {
@@ -1008,7 +1068,10 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       }
     },
     {
@@ -1038,7 +1101,10 @@
         "reason": "No curated audio timing is attached to this deterministic moment."
       },
       "visual_support": {
-        "status": "unavailable"
+        "status": "unavailable",
+        "reason": "No timed main-call media window is available for this moment.",
+        "case_level_visual_status": "skipped",
+        "case_level_visual_reason": "A bounded visual pass was intentionally skipped after earlier full-video heuristic attempts exceeded the reviewer-safe runtime cap in this session."
       }
     }
   ],
@@ -1047,14 +1113,14 @@
       "moment_id": "transcript_reels_headwind",
       "rank": 3,
       "leading_sidecar_label": null,
-      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral. No curated audio timing is attached to this moment.",
+      "reviewer_note": "Deterministic read stays primary. Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral. A local main-call video window exists for this moment, but the final bounded visual pass was skipped after earlier heuristic attempts exceeded the runtime cap.",
       "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral."
     },
     {
       "moment_id": "guidance_q4_revenue_outlook",
       "rank": 9,
       "leading_sidecar_label": "negative",
-      "reviewer_note": "Deterministic read stays primary, and the optional sidecars mostly stay in the same direction on this moment.",
+      "reviewer_note": "Deterministic read stays primary, and the optional sidecars mostly stay in the same direction on this moment. A local main-call video window exists for this moment, but the final bounded visual pass was skipped after earlier heuristic attempts exceeded the runtime cap.",
       "review_priority_reason": "Comparable sidecar labels point in the same direction as the expected deterministic read."
     }
   ],

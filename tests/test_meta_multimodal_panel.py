@@ -177,9 +177,52 @@ def test_build_panel_payload_returns_pressure_rows() -> None:
     )
 
     assert panel_payload["selected_moment_count"] == manifest["primary_moment_count"]
+    assert panel_payload["deterministic_transcript_first_is_canonical"] is True
+    assert panel_payload["support_layers_are_supporting_only"] is True
+    assert panel_payload["visual_support_status"] == "skipped"
+    assert len(panel_payload["top_8_showcase_moment_ids"]) == 8
     assert "strong_supporting_context_moments" in panel_payload
     assert len(pressure_panel["rows"]) >= 4
     assert disagreement_panel["rows"][0]["moment_id"] == "qa_reels_transition_pressure"
+
+    reels_row = next(row for row in panel_payload["panel_rows"] if row["moment_id"] == "qa_reels_transition_pressure")
+    assert reels_row["visual_support"]["status"] == "skipped"
+    assert "runtime cap" in reels_row["reviewer_note"]
+
+    follow_up_row = next(row for row in panel_payload["panel_rows"] if row["moment_id"] == "follow_up_macro_caution")
+    assert follow_up_row["visual_support"]["status"] == "unavailable"
+    assert follow_up_row["visual_support"]["case_level_visual_status"] == "skipped"
+
+
+def test_build_panel_payload_mentions_visual_skip_when_audio_is_unavailable() -> None:
+    manifest = build_curated_moment_manifest(REPO_ROOT)
+    comparison_payload = {
+        "moment_rows": [
+            {
+                "moment_id": "transcript_reels_headwind",
+                "leading_sidecar_label": "negative",
+                "pairwise_disagreement": True,
+                "expected_direction_check": "some_comparable_labels_match_expected_direction",
+                "review_bucket": "softened_directional_read",
+                "review_priority_reason": "Comparable sidecar labels keep the expected direction in view, but at least one model softens it toward neutral.",
+            }
+        ]
+    }
+    disagreement_payload = {"pairwise_model_disagreements": []}
+    audio_payload = {"moments": []}
+    visual_payload = {"status": "skipped", "reason": "A bounded visual pass hit the runtime cap."}
+
+    panel_payload, _, _ = build_panel_payload(
+        manifest,
+        comparison_payload,
+        disagreement_payload,
+        audio_payload,
+        visual_payload,
+    )
+
+    row = next(item for item in panel_payload["panel_rows"] if item["moment_id"] == "transcript_reels_headwind")
+    assert row["visual_support"]["status"] == "skipped"
+    assert "runtime cap" in row["reviewer_note"]
 
 
 def test_default_meta_caveats_cover_required_ids() -> None:

@@ -4,7 +4,7 @@
 - Requested exact MP4 path: `/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Meta/Facebook (META) Q3 2022 Earnings Call.mp4`
 - Requested exact MP4 path matched directly: `True`
 - Resolved local MP4 fallback used: `not needed`
-- Bounded visual analysis usable: `True`
+- Local video available for bounded visual analysis: `True`
 
 ## What Exists
 
