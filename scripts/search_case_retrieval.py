@@ -24,14 +24,27 @@ def _excerpt(text: str, max_chars: int = 220) -> str:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(
+        description=(
+            "Search a supporting-only case retrieval bundle. "
+            "Hybrid is the recommended reviewer mode; lexical and semantic are narrower fallback/debug modes."
+        ),
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
     parser.add_argument(
         "query",
         nargs="?",
-        help="Free-text query for the retrieval bundle.",
+        help="Optional positional free-text query for the retrieval bundle.",
+    )
+    parser.add_argument(
+        "--query",
+        dest="query_flag",
+        help="Optional explicit free-text query. Overrides the positional query when both are provided.",
     )
     parser.add_argument(
         "--case-id",
+        "--case",
+        dest="case_id",
         default="netflix_q1_2022",
         help="Demo case id under data/demo_cases. Default: netflix_q1_2022",
     )
@@ -53,7 +66,10 @@ def parse_args() -> argparse.Namespace:
         "--mode",
         default="hybrid",
         choices=("lexical", "semantic", "hybrid"),
-        help="Retrieval mode. Default: hybrid",
+        help=(
+            "Retrieval mode. Use hybrid for reviewer workflows. "
+            "Lexical is a literal fallback/debug view; semantic is a noisier exploration/debug view."
+        ),
     )
     parser.add_argument(
         "--device",
@@ -69,7 +85,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    if not args.query and not args.like_row_id:
+    query_input = args.query_flag or args.query
+    if not query_input and not args.like_row_id:
         raise SystemExit("Provide either a free-text query or --like-row-id.")
     case_root = (
         Path(args.case_root).expanduser().resolve()
@@ -84,7 +101,7 @@ def main() -> int:
     bundle = load_retrieval_bundle(bundle_dir)
     manifest = bundle.manifest
     model_name = manifest.get("embedding", {}).get("model_name")
-    query_text = args.query or ""
+    query_text = query_input or ""
     query_embedding = None
     exclude_row_ids: set[str] | None = None
     if args.like_row_id:

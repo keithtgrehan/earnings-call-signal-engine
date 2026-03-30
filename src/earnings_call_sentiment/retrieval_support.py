@@ -73,6 +73,73 @@ PRESSURE_TEXT_CUES = (
     "softer",
 )
 
+GUIDANCE_QUERY_TOKENS = {"guidance", "guide", "outlook", "forecast"}
+ANALYST_QUERY_TOKENS = {
+    "analyst",
+    "question",
+    "questions",
+    "skepticism",
+    "skeptical",
+    "challenging",
+    "challenge",
+    "pressure",
+}
+COMPETITION_QUERY_TOKENS = {
+    "competition",
+    "competitive",
+    "growth",
+    "slowdown",
+    "slowing",
+    "macro",
+    "headwind",
+    "headwinds",
+    "churn",
+}
+COMPETITION_TEXT_CUES = (
+    "competition",
+    "competitive",
+    "lower growth",
+    "slowing growth",
+    "slowing revenue growth",
+    "slowdown",
+    "macro strain",
+    "headwind",
+    "penetration",
+    "lower acquisition",
+    "addressable market",
+)
+SKEPTICISM_STRONG_CUES = (
+    "different than",
+    "how have your views changed",
+    "pressure",
+    "competition",
+    "macro",
+    "miss",
+    "loss",
+    "churn",
+    "read-through",
+    "has that view changed",
+    "not seeing",
+)
+SKEPTICISM_MILD_CUES = (
+    "why",
+    "how",
+    "walk us through",
+    "parse out",
+    "talk us through",
+    "help us understand",
+    "could you",
+)
+LOW_INFORMATION_GUIDANCE_PATTERNS = (
+    "nonguidance guidance",
+    "not providing full year guidance",
+)
+GENERIC_GUIDANCE_CATEGORIES = {
+    "guidance:other:year",
+    "guidance:other:unknown",
+    "guidance:outlook:unknown",
+}
+
 
 @dataclass(frozen=True)
 class RetrievalRow:
@@ -212,6 +279,160 @@ def _pressure_adjustment(query_tokens: set[str], search_text: str) -> float:
     if any(cue in search_text for cue in PRESSURE_TEXT_CUES):
         return 0.4
     return -0.2
+
+
+def _has_pressure_cues(search_text: str) -> bool:
+    return any(cue in search_text for cue in PRESSURE_TEXT_CUES)
+
+
+def _has_competition_cues(search_text: str) -> bool:
+    return any(cue in search_text for cue in COMPETITION_TEXT_CUES)
+
+
+def _skepticism_cue_score(search_text: str) -> float:
+    strong_hits = sum(1 for cue in SKEPTICISM_STRONG_CUES if cue in search_text)
+    mild_hits = sum(1 for cue in SKEPTICISM_MILD_CUES if cue in search_text)
+    return float(strong_hits) + (0.35 * float(mild_hits))
+
+
+def _structured_duplicate_texts(rows: list[dict[str, Any]]) -> set[str]:
+    duplicates: set[str] = set()
+    for row in rows:
+        if str(row.get("source_type")) == SOURCE_TYPE_TRANSCRIPT_CHUNK:
+            continue
+        normalized_text = _normalize_space(row.get("text")).lower()
+        if normalized_text:
+            duplicates.add(normalized_text)
+    return duplicates
+
+
+def _text_source_type_index(rows: list[dict[str, Any]]) -> dict[str, set[str]]:
+    index: dict[str, set[str]] = {}
+    for row in rows:
+        normalized_text = _normalize_space(row.get("text")).lower()
+        if not normalized_text:
+            continue
+        index.setdefault(normalized_text, set()).add(str(row.get("source_type") or ""))
+    return index
+
+
+def _row_ranking_adjustment(
+    row: dict[str, Any],
+    *,
+    query_tokens: set[str],
+    duplicate_structured_texts: set[str],
+    text_source_types: dict[str, set[str]],
+) -> float:
+    search_text = _row_search_text(row).lower()
+    source_type = str(row.get("source_type") or "")
+    normalized_text = _normalize_space(row.get("text")).lower()
+    word_count = len(_tokenize(str(row.get("text") or "")))
+    deterministic_category = str(row.get("deterministic_category") or "")
+    plain_label = str(row.get("plain_english_label") or "")
+    speaker_role = str(row.get("speaker_role") or "").lower()
+
+    adjustment = 0.0
+
+    if word_count < 6:
+        adjustment -= 0.35
+    elif word_count < 10:
+        adjustment -= 0.18
+    elif word_count < 18:
+        adjustment -= 0.06
+
+    if any(pattern in search_text for pattern in LOW_INFORMATION_GUIDANCE_PATTERNS):
+        adjustment -= 0.45
+
+    if source_type == SOURCE_TYPE_GUIDANCE:
+        adjustment += 0.12
+        if plain_label.startswith("guidance pressure"):
+            adjustment += 0.08
+        if deterministic_category in GENERIC_GUIDANCE_CATEGORIES and not _has_pressure_cues(search_text):
+            adjustment -= 0.16
+    elif source_type == SOURCE_TYPE_QA_ANSWER:
+        adjustment += 0.10
+    elif source_type == SOURCE_TYPE_ANALYST_QUESTION:
+        adjustment += 0.08
+    elif source_type in {SOURCE_TYPE_SHAREHOLDER_LETTER, SOURCE_TYPE_PRESS_RELEASE}:
+        adjustment += 0.08 if deterministic_category else 0.04
+    elif source_type == SOURCE_TYPE_TRANSCRIPT_CHUNK:
+        adjustment -= 0.04
+
+    if row.get("top_8_showcase") is True:
+        adjustment += 0.05
+
+    if source_type == SOURCE_TYPE_TRANSCRIPT_CHUNK and normalized_text in duplicate_structured_texts:
+        adjustment -= 0.22
+
+    analyst_focus = bool(query_tokens & ANALYST_QUERY_TOKENS)
+    guidance_focus = bool(query_tokens & GUIDANCE_QUERY_TOKENS)
+    pressure_focus = bool(query_tokens & PRESSURE_QUERY_TOKENS)
+    competition_focus = bool(query_tokens & COMPETITION_QUERY_TOKENS)
+    related_source_types = text_source_types.get(normalized_text, set())
+
+    if analyst_focus:
+        skepticism_score = _skepticism_cue_score(search_text)
+        if source_type == SOURCE_TYPE_ANALYST_QUESTION:
+            adjustment += 0.18
+            if skepticism_score >= 1.0:
+                adjustment += 0.12
+            elif skepticism_score >= 0.35:
+                adjustment += 0.06
+        elif source_type == SOURCE_TYPE_QA_ANSWER:
+            adjustment += 0.05
+            if _has_pressure_cues(search_text):
+                adjustment += 0.03
+        elif source_type == SOURCE_TYPE_TRANSCRIPT_CHUNK and speaker_role == "analyst":
+            adjustment -= 0.03
+        elif source_type == SOURCE_TYPE_GUIDANCE and not guidance_focus:
+            adjustment -= 0.08
+
+    if guidance_focus:
+        if source_type == SOURCE_TYPE_GUIDANCE:
+            adjustment += 0.12
+        elif source_type in {SOURCE_TYPE_SHAREHOLDER_LETTER, SOURCE_TYPE_PRESS_RELEASE} and deterministic_category:
+            adjustment += 0.05
+        elif source_type == SOURCE_TYPE_TRANSCRIPT_CHUNK and speaker_role == "management":
+            adjustment -= 0.02
+
+    if pressure_focus:
+        if source_type == SOURCE_TYPE_GUIDANCE and _has_pressure_cues(search_text):
+            adjustment += 0.06
+        elif source_type in {SOURCE_TYPE_SHAREHOLDER_LETTER, SOURCE_TYPE_PRESS_RELEASE} and deterministic_category:
+            adjustment += 0.04
+
+    if competition_focus:
+        if source_type == SOURCE_TYPE_QA_ANSWER:
+            if _has_competition_cues(search_text):
+                adjustment += 0.18
+            if any(cue in search_text for cue in ("lower growth", "slowing growth", "slowdown")):
+                adjustment += 0.04
+        elif source_type in {SOURCE_TYPE_SHAREHOLDER_LETTER, SOURCE_TYPE_PRESS_RELEASE}:
+            if deterministic_category == "competitive_and_macro_headwinds":
+                adjustment += 0.22
+            elif deterministic_category == "account_sharing_and_monetization":
+                adjustment += 0.18
+            elif deterministic_category == "paid_net_adds_or_outlook":
+                adjustment += 0.08
+            elif _has_competition_cues(search_text):
+                adjustment += 0.10
+        elif source_type == SOURCE_TYPE_ANALYST_QUESTION and _has_competition_cues(search_text):
+            adjustment += 0.08
+        elif source_type == SOURCE_TYPE_GUIDANCE and not guidance_focus:
+            adjustment -= 0.08
+            if _has_competition_cues(search_text):
+                adjustment += 0.03
+        elif source_type == SOURCE_TYPE_TRANSCRIPT_CHUNK and _has_competition_cues(search_text):
+            adjustment -= 0.02
+
+    if (
+        source_type == SOURCE_TYPE_GUIDANCE
+        and not guidance_focus
+        and {SOURCE_TYPE_QA_ANSWER, SOURCE_TYPE_ANALYST_QUESTION} & related_source_types
+    ):
+        adjustment -= 0.14
+
+    return round(adjustment, 6)
 
 
 def _bundle_file_names(case_id: str) -> dict[str, str]:
@@ -1198,6 +1419,18 @@ def search_retrieval_rows(
         raise RuntimeError(f"Unsupported retrieval mode '{mode}'. Use lexical, semantic, or hybrid.")
 
     notes: list[str] = []
+    query_tokens = set(_tokenize(query))
+    duplicate_structured_texts = _structured_duplicate_texts(rows)
+    text_source_types = _text_source_type_index(rows)
+    adjustments = [
+        _row_ranking_adjustment(
+            row,
+            query_tokens=query_tokens,
+            duplicate_structured_texts=duplicate_structured_texts,
+            text_source_types=text_source_types,
+        )
+        for row in rows
+    ]
     lexical = lexical_scores(query, rows)
     semantic: list[float] | None = None
     effective_mode = normalized_mode
@@ -1228,28 +1461,44 @@ def search_retrieval_rows(
                 ).tolist()
 
     if normalized_mode == "lexical":
-        combined = lexical
+        combined = [
+            round(lex + adj, 6)
+            for lex, adj in zip(lexical, adjustments, strict=True)
+        ]
     elif semantic is None:
-        combined = lexical
+        combined = [
+            round(lex + adj, 6)
+            for lex, adj in zip(lexical, adjustments, strict=True)
+        ]
         effective_mode = "lexical"
     elif normalized_mode == "semantic":
-        combined = semantic
+        combined = [
+            round(sem + adj, 6)
+            for sem, adj in zip(semantic, adjustments, strict=True)
+        ]
     else:
         semantic_norm = _normalize_scores(semantic)
         lexical_norm = _normalize_scores(lexical)
         combined = [
-            round((semantic_weight * sem) + ((1.0 - semantic_weight) * lex), 6)
-            for sem, lex in zip(semantic_norm, lexical_norm, strict=True)
+            round((semantic_weight * sem) + ((1.0 - semantic_weight) * lex) + adj, 6)
+            for sem, lex, adj in zip(semantic_norm, lexical_norm, adjustments, strict=True)
         ]
 
     ranked_indices = sorted(
         range(len(rows)),
-        key=lambda idx: (combined[idx], lexical[idx], semantic[idx] if semantic is not None else -1.0),
+        key=lambda idx: (
+            combined[idx],
+            adjustments[idx],
+            lexical[idx],
+            semantic[idx] if semantic is not None else -1.0,
+        ),
         reverse=True,
     )
 
     results: list[RetrievalSearchResult] = []
-    for rank, index in enumerate(ranked_indices[: max(1, top_k)], start=1):
+    for index in ranked_indices:
+        if len(results) >= max(1, top_k):
+            break
         if exclude_row_ids and str(rows[index].get("row_id")) in exclude_row_ids:
             continue
         if combined[index] <= 0 and lexical[index] <= 0 and (semantic is None or semantic[index] <= 0):

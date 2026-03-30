@@ -1,0 +1,69 @@
+{
+  "case_id": "netflix_q1_2022",
+  "recommended_mode": "hybrid",
+  "top_k": 5,
+  "queries": [
+    {
+      "query": "guidance pressure moments",
+      "expected_first_source_type": "guidance_span",
+      "expected_source_types": ["guidance_span"],
+      "expected_any_row_ids": ["guidance_span_001", "guidance_span_042", "guidance_span_008", "guidance_span_039"],
+      "excluded_row_ids": ["guidance_span_028"]
+    },
+    {
+      "query": "q2 guide pressure",
+      "expected_first_source_type": "guidance_span",
+      "expected_source_types": ["guidance_span"],
+      "expected_any_row_ids": ["guidance_span_001", "guidance_span_012", "guidance_span_042"]
+    },
+    {
+      "query": "ad-supported strategy moments",
+      "expected_source_types": ["analyst_question_span", "qa_answer_span"],
+      "expected_any_row_ids": ["qa_pair_011_question", "qa_pair_011_answer", "qa_pair_009_answer"]
+    },
+    {
+      "query": "ad supported option",
+      "expected_source_types": ["analyst_question_span", "qa_answer_span"],
+      "expected_any_row_ids": ["qa_pair_012_answer", "qa_pair_011_answer", "qa_pair_011_question"]
+    },
+    {
+      "query": "growth slowdown competition discussion",
+      "expected_source_types": ["shareholder_letter_paragraph", "qa_answer_span"],
+      "expected_any_row_ids": [
+        "shareholder_letter_paragraph_002",
+        "shareholder_letter_paragraph_001",
+        "qa_pair_001_answer",
+        "qa_pair_002_answer"
+      ]
+    },
+    {
+      "query": "competition slowdown",
+      "expected_source_types": ["shareholder_letter_paragraph", "qa_answer_span"],
+      "expected_any_row_ids": ["shareholder_letter_paragraph_002", "qa_pair_002_answer", "qa_pair_001_answer"]
+    },
+    {
+      "query": "analyst skepticism",
+      "expected_first_source_type": "analyst_question_span",
+      "expected_source_types": ["analyst_question_span"],
+      "expected_any_row_ids": ["qa_pair_004_question", "qa_pair_002_question", "qa_pair_001_question", "qa_pair_008_question"]
+    },
+    {
+      "query": "skeptical analyst question",
+      "expected_first_source_type": "analyst_question_span",
+      "expected_source_types": ["analyst_question_span"],
+      "expected_any_row_ids": ["qa_pair_004_question", "qa_pair_001_question", "qa_pair_008_question", "qa_pair_002_question"]
+    },
+    {
+      "query": "pressure from analyst",
+      "expected_first_source_type": "analyst_question_span",
+      "expected_source_types": ["analyst_question_span"],
+      "expected_any_row_ids": ["qa_pair_008_question", "qa_pair_001_question", "qa_pair_004_question", "qa_pair_002_question"]
+    },
+    {
+      "query": "challenging question",
+      "expected_first_source_type": "analyst_question_span",
+      "expected_source_types": ["analyst_question_span"],
+      "expected_any_row_ids": ["qa_pair_002_question", "qa_pair_001_question", "qa_pair_004_question", "qa_pair_012_question"]
+    }
+  ]
+}

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+from functools import lru_cache
 from pathlib import Path
 import subprocess
 import sys
@@ -10,6 +11,7 @@ import numpy as np
 
 from earnings_call_sentiment.retrieval_support import (
     build_case_retrieval_rows,
+    compute_embeddings,
     load_retrieval_bundle,
     search_retrieval_rows,
     write_retrieval_bundle,
@@ -19,6 +21,16 @@ from earnings_call_sentiment.retrieval_support import (
 
 def _repo_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+@lru_cache(maxsize=1)
+def _netflix_retrieval_bundle():
+    return load_retrieval_bundle(_repo_root() / "data" / "demo_cases" / "netflix_q1_2022" / "demo" / "retrieval")
+
+
+def _load_netflix_eval_fixture() -> dict[str, object]:
+    path = _repo_root() / "tests" / "fixtures" / "netflix_retrieval_eval.json"
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def _write_json(path: Path, payload: object) -> None:
@@ -440,3 +452,124 @@ def test_search_case_retrieval_cli_smoke(tmp_path: Path) -> None:
 
     assert "Supporting-only retrieval output" in result.stdout
     assert "requested_mode=lexical" in result.stdout
+
+
+def test_search_case_retrieval_cli_supports_query_flag_and_case_alias(tmp_path: Path) -> None:
+    case_root = _make_fake_case(tmp_path)
+    rows = build_case_retrieval_rows(case_root)
+    write_retrieval_bundle(
+        case_root=case_root,
+        rows=rows,
+        out_dir=tmp_path / "bundle",
+        include_embeddings=False,
+    )
+    write_retrieval_readme(case_root=case_root, out_dir=tmp_path / "bundle")
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/search_case_retrieval.py",
+            "--query",
+            "guidance pressure",
+            "--case",
+            "demo_case",
+            "--bundle-dir",
+            str(tmp_path / "bundle"),
+            "--mode",
+            "hybrid",
+            "--top-k",
+            "2",
+        ],
+        cwd=_repo_root(),
+        env=os.environ | {"PYTHONPATH": "src"},
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+
+    assert "case_id=demo_case" in result.stdout
+    assert "requested_mode=hybrid" in result.stdout
+    assert "falling back to lexical retrieval" in result.stdout
+
+
+def test_search_case_retrieval_help_mentions_hybrid_reviewer_mode() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/search_case_retrieval.py",
+            "--help",
+        ],
+        cwd=_repo_root(),
+        env=os.environ | {"PYTHONPATH": "src"},
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+
+    assert "Hybrid is the recommended" in result.stdout
+    assert "fallback/debug modes" in result.stdout
+    assert "Use hybrid for reviewer workflows" in result.stdout
+    assert "--case-id" in result.stdout
+    assert "--case" in result.stdout
+    assert "--query" in result.stdout
+
+
+def test_netflix_retrieval_eval_fixture_is_bounded() -> None:
+    fixture = _load_netflix_eval_fixture()
+
+    assert fixture["case_id"] == "netflix_q1_2022"
+    assert fixture["recommended_mode"] == "hybrid"
+    assert 8 <= len(fixture["queries"]) <= 12
+
+
+def test_netflix_retrieval_eval_fixture_matches_reviewer_queries() -> None:
+    fixture = _load_netflix_eval_fixture()
+    bundle = _netflix_retrieval_bundle()
+    query_specs = fixture["queries"]
+    queries = [spec["query"] for spec in query_specs]
+    model_name = bundle.manifest["embedding"]["model_name"]
+    query_embeddings = None
+    mode = "lexical"
+
+    if bundle.embeddings is not None:
+        try:
+            query_embeddings = compute_embeddings(
+                queries,
+                model_name=model_name,
+                device="cpu",
+                local_files_only=True,
+            )
+            mode = str(fixture["recommended_mode"])
+        except Exception:
+            query_embeddings = None
+
+    for index, spec in enumerate(query_specs):
+        results, _ = search_retrieval_rows(
+            query=spec["query"],
+            rows=bundle.rows,
+            top_k=int(spec.get("top_k", fixture["top_k"])),
+            mode=mode,
+            row_embeddings=(bundle.embeddings if mode == "hybrid" else None),
+            query_embedding=(query_embeddings[index] if query_embeddings is not None else None),
+            model_name=model_name,
+            device="cpu",
+        )
+
+        assert results, spec["query"]
+
+        row_ids = [str(result.row["row_id"]) for result in results]
+        source_types = [str(result.row["source_type"]) for result in results]
+
+        expected_first_source_type = spec.get("expected_first_source_type")
+        if expected_first_source_type:
+            assert source_types[0] == expected_first_source_type, spec["query"]
+
+        for expected_source_type in spec.get("expected_source_types", []):
+            assert expected_source_type in source_types, spec["query"]
+
+        expected_any_row_ids = set(spec.get("expected_any_row_ids", []))
+        if expected_any_row_ids:
+            assert expected_any_row_ids & set(row_ids), spec["query"]
+
+        for excluded_row_id in spec.get("excluded_row_ids", []):
+            assert excluded_row_id not in row_ids, spec["query"]
