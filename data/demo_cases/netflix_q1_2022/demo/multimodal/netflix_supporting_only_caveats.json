@@ -1,0 +1,19 @@
+{
+  "deterministic": [
+    "Transcript-backed deterministic artifacts remain the canonical review path for this case.",
+    "This bundle does not change or overwrite the fixed Netflix demo outputs."
+  ],
+  "nlp_sidecars": [
+    "Optional NLP sidecars are supporting inspection aids only.",
+    "Model outputs can disagree with each other and with deterministic categories without implying lift.",
+    "Embedding similarity is not sentiment truth."
+  ],
+  "audio": [
+    "Audio behavior remains supporting-only and is limited to curated Q&A windows already aligned in the repo.",
+    "Audio timing cues are observational review support, not mental-state inference."
+  ],
+  "visual": [
+    "Visual behavior is observational only and is not emotion or deception inference.",
+    "If face visibility or pose quality is weak, visual support should be suppressed rather than forced."
+  ]
+}

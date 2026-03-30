@@ -1,0 +1,277 @@
+{
+  "case_id": "netflix_q1_2022",
+  "status": "ok",
+  "video_source_path": "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4",
+  "sample_fps": 0.25,
+  "summary": {
+    "schema_version": "1.2.0",
+    "video_available": true,
+    "visual_features_available": true,
+    "video_quality_ok": true,
+    "quality_gate": {
+      "quality_ok": true,
+      "suppression_recommended": false,
+      "stable_face_frame_pct": 0.9954,
+      "stable_face_frame_pct_ok": true,
+      "stable_face_tracking_pct": 0.9954,
+      "stable_face_tracking_ok": true,
+      "mean_landmark_confidence": 0.5972,
+      "landmark_confidence_ok": true,
+      "face_size_ratio_mean": 0.1307,
+      "face_size_ratio_ok": true,
+      "pose_frame_pct": 0.0,
+      "pose_frame_pct_ok": false,
+      "frame_resolution_ok": true,
+      "sampled_frame_count": 650,
+      "min_face_frame_count_ok": true
+    },
+    "video_metadata": {
+      "path": "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4",
+      "duration_s": 2598.986,
+      "fps": 30.0,
+      "frame_count": 77968,
+      "width": 1280,
+      "height": 720,
+      "sample_fps": 0.25
+    },
+    "face_visibility_overall": {
+      "pct": 0.9954,
+      "level": "high"
+    },
+    "prepared_baseline_visual_stability": {
+      "score": 0.0,
+      "level": "high"
+    },
+    "qa_visual_shift_score": {
+      "delta": 0.0501,
+      "prepared_mean": 0.0,
+      "q_and_a_mean": 0.0501,
+      "level": "low"
+    },
+    "facial_tension_level": {
+      "score": 0.0,
+      "level": "low"
+    },
+    "head_motion_pressure": {
+      "score": 0.0675,
+      "level": "low"
+    },
+    "visual_stability": {
+      "score": 0.9499,
+      "level": "high"
+    },
+    "visual_support_direction": "supportive",
+    "visual_confidence_support": {
+      "level": "high",
+      "suppressed": false,
+      "reason": "usable face visibility and landmark support"
+    },
+    "support_mode": "heuristic_fallback",
+    "model_support": {
+      "available": false,
+      "mode": "heuristic_fallback",
+      "support_direction": "unavailable",
+      "calibrated_support_score": 0.0,
+      "reason": "No usable visual segments were available for model-backed scoring."
+    },
+    "strongest_visual_evidence": [
+      {
+        "segment_id": 1,
+        "section": "q_and_a",
+        "speaker_role": "management",
+        "start_time_s": 48.16,
+        "end_time_s": 196.24,
+        "visual_change_score": 0.0601,
+        "head_motion_energy": 0.0698,
+        "head_pose_drift_mean": 0.0,
+        "blink_rate_per_10s": 0.0,
+        "face_visible_pct": 1.0,
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "supportive",
+        "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
+      },
+      {
+        "segment_id": 2,
+        "section": "q_and_a",
+        "speaker_role": "management",
+        "start_time_s": 232.24,
+        "end_time_s": 433.0,
+        "visual_change_score": 0.059,
+        "head_motion_energy": 0.0523,
+        "head_pose_drift_mean": 0.0,
+        "blink_rate_per_10s": 0.0,
+        "face_visible_pct": 1.0,
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "supportive",
+        "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
+      },
+      {
+        "segment_id": 4,
+        "section": "q_and_a",
+        "speaker_role": "management",
+        "start_time_s": 1284.2,
+        "end_time_s": 1323.4,
+        "visual_change_score": 0.0312,
+        "head_motion_energy": 0.0805,
+        "head_pose_drift_mean": 0.0,
+        "blink_rate_per_10s": 0.0,
+        "face_visible_pct": 1.0,
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "supportive",
+        "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
+      }
+    ],
+    "most_visually_changed_segments": [
+      {
+        "segment_id": 1,
+        "section": "q_and_a",
+        "speaker_role": "management",
+        "start_time_s": 48.16,
+        "end_time_s": 196.24,
+        "visual_change_score": 0.0601,
+        "head_motion_energy": 0.0698,
+        "head_pose_drift_mean": 0.0,
+        "blink_rate_per_10s": 0.0,
+        "face_visible_pct": 1.0,
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "supportive",
+        "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
+      },
+      {
+        "segment_id": 2,
+        "section": "q_and_a",
+        "speaker_role": "management",
+        "start_time_s": 232.24,
+        "end_time_s": 433.0,
+        "visual_change_score": 0.059,
+        "head_motion_energy": 0.0523,
+        "head_pose_drift_mean": 0.0,
+        "blink_rate_per_10s": 0.0,
+        "face_visible_pct": 1.0,
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "supportive",
+        "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
+      },
+      {
+        "segment_id": 4,
+        "section": "q_and_a",
+        "speaker_role": "management",
+        "start_time_s": 1284.2,
+        "end_time_s": 1323.4,
+        "visual_change_score": 0.0312,
+        "head_motion_energy": 0.0805,
+        "head_pose_drift_mean": 0.0,
+        "blink_rate_per_10s": 0.0,
+        "face_visible_pct": 1.0,
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "supportive",
+        "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
+      }
+    ],
+    "most_confident_visual_segments": [
+      {
+        "segment_id": 1,
+        "section": "q_and_a",
+        "speaker_role": "management",
+        "start_time_s": 48.16,
+        "end_time_s": 196.24,
+        "visual_change_score": 0.0601,
+        "head_motion_energy": 0.0698,
+        "head_pose_drift_mean": 0.0,
+        "blink_rate_per_10s": 0.0,
+        "face_visible_pct": 1.0,
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "supportive",
+        "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
+      },
+      {
+        "segment_id": 2,
+        "section": "q_and_a",
+        "speaker_role": "management",
+        "start_time_s": 232.24,
+        "end_time_s": 433.0,
+        "visual_change_score": 0.059,
+        "head_motion_energy": 0.0523,
+        "head_pose_drift_mean": 0.0,
+        "blink_rate_per_10s": 0.0,
+        "face_visible_pct": 1.0,
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "supportive",
+        "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
+      },
+      {
+        "segment_id": 4,
+        "section": "q_and_a",
+        "speaker_role": "management",
+        "start_time_s": 1284.2,
+        "end_time_s": 1323.4,
+        "visual_change_score": 0.0312,
+        "head_motion_energy": 0.0805,
+        "head_pose_drift_mean": 0.0,
+        "blink_rate_per_10s": 0.0,
+        "face_visible_pct": 1.0,
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "support_direction": "supportive",
+        "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
+      }
+    ],
+    "notable_low_confidence_segments": [],
+    "limitations": [
+      "Upper-body coverage is limited, so shoulder and hand signals remain secondary."
+    ],
+    "notes": [
+      "Visual behavior signals are observational proxies only; they are not emotion or deception inference.",
+      "Frame features are sampled at a low rate and aggregated into transcript-aligned segments for reviewer decision support."
+    ]
+  },
+  "moments": [
+    {
+      "moment_id": "qa_growth_headwinds",
+      "status": "aligned",
+      "start_time_s": 48.16,
+      "end_time_s": 196.24,
+      "visual_stability_label": "stable",
+      "support_direction": "supportive",
+      "support_note": "visible delivery stayed comparatively steady in this window",
+      "confidence_note": "pose coverage is limited for shoulder and hand features",
+      "face_visible_pct": 1.0,
+      "visual_change_score": 0.0601,
+      "head_motion_energy": 0.0698
+    },
+    {
+      "moment_id": "qa_q1_miss_explanation",
+      "status": "aligned",
+      "start_time_s": 232.24,
+      "end_time_s": 433.0,
+      "visual_stability_label": "stable",
+      "support_direction": "supportive",
+      "support_note": "visible delivery stayed comparatively steady in this window",
+      "confidence_note": "pose coverage is limited for shoulder and hand features",
+      "face_visible_pct": 1.0,
+      "visual_change_score": 0.059,
+      "head_motion_energy": 0.0523
+    },
+    {
+      "moment_id": "qa_ad_supported_option",
+      "status": "aligned",
+      "start_time_s": 1284.2,
+      "end_time_s": 1323.4,
+      "visual_stability_label": "stable",
+      "support_direction": "supportive",
+      "support_note": "visible delivery stayed comparatively steady in this window",
+      "confidence_note": "pose coverage is limited for shoulder and hand features",
+      "face_visible_pct": 1.0,
+      "visual_change_score": 0.0312,
+      "head_motion_energy": 0.0805
+    }
+  ],
+  "intermediate_paths": {
+    "frames_csv": "/Users/keith/Documents/New project/main-demo-wt/outputs/netflix_q1_2022/model_sidecars_curated/visual_support/visual_behavior_frames.csv",
+    "segments_csv": "/Users/keith/Documents/New project/main-demo-wt/outputs/netflix_q1_2022/model_sidecars_curated/visual_support/visual_behavior_segments.csv",
+    "summary_json": "/Users/keith/Documents/New project/main-demo-wt/outputs/netflix_q1_2022/model_sidecars_curated/visual_support/visual_behavior_summary.json"
+  },
+  "notes": [
+    "Visual behavior remains supporting-only and was run on the bounded timed Q&A answer windows.",
+    "Only the windows with existing curated audio timing were used for the visual pass."
+  ]
+}

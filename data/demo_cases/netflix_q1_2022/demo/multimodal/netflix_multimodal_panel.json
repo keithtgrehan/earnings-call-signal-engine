@@ -1,0 +1,1204 @@
+{
+  "case_id": "netflix_q1_2022",
+  "status": "ok",
+  "selected_moment_count": 11,
+  "showcase_moment_count": 8,
+  "panel_rows": [
+    {
+      "moment_id": "qa_growth_headwinds",
+      "rank": 1,
+      "top_8_showcase": true,
+      "raw_quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ...",
+      "deterministic_signal": {
+        "category": "growth_pressure",
+        "label": "management acknowledged growth pressure",
+        "summary": "growth slowdown framed as a mix of account sharing, high penetration, and competition",
+        "source_artifact": "processed/transcript_text/transcript_cleaned.txt"
+      },
+      "sidecar_outputs": {
+        "moment_id": "qa_growth_headwinds",
+        "rank": 1,
+        "top_8_showcase": true,
+        "unit_type": "qa_answers",
+        "deterministic_signal_category": "growth_pressure",
+        "expected_sidecar_polarity": "negative",
+        "consensus_label": "negative",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "guidance lowered",
+            "top_score": 0.999144,
+            "comparable_label": "negative",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "cautious management tone",
+                "score": 0.998995
+              },
+              "guidance_direction": {
+                "label": "guidance lowered",
+                "score": 0.999144
+              },
+              "qa_answer_style": {
+                "label": "evasive answer",
+                "score": 0.949364
+              },
+              "tone": {
+                "label": "negative",
+                "score": 0.999106
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "negative",
+            "top_score": 0.995965,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Neutral",
+            "top_score": 0.99569,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "mixed_vs_expected_category",
+        "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ..."
+      },
+      "audio_support": {
+        "moment_id": "qa_growth_headwinds",
+        "status": "aligned",
+        "question_time_range": "00:32-00:48",
+        "answer_time_range": "00:48-03:16",
+        "pause_before_answer_ms": 1060.0,
+        "filler_density": 0.6897,
+        "hesitation_label": "high",
+        "qa_shift_label": "weaker",
+        "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
+        "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_growth_headwinds",
+        "status": "aligned",
+        "start_time_s": 48.16,
+        "end_time_s": 196.24,
+        "visual_stability_label": "stable",
+        "support_direction": "supportive",
+        "support_note": "visible delivery stayed comparatively steady in this window",
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.0601,
+        "head_motion_energy": 0.0698
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    },
+    {
+      "moment_id": "qa_q1_miss_explanation",
+      "rank": 2,
+      "top_8_showcase": true,
+      "raw_quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e...",
+      "deterministic_signal": {
+        "category": "guidance_pressure",
+        "label": "management explained the miss directly",
+        "summary": "explicit explanation of the Q1 miss and qualified Q2 pressure",
+        "source_artifact": "processed/transcript_text/transcript_cleaned.txt"
+      },
+      "sidecar_outputs": {
+        "moment_id": "qa_q1_miss_explanation",
+        "rank": 2,
+        "top_8_showcase": true,
+        "unit_type": "qa_answers",
+        "deterministic_signal_category": "guidance_pressure",
+        "expected_sidecar_polarity": "negative",
+        "consensus_label": "negative",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "guidance maintained",
+            "top_score": 0.997002,
+            "comparable_label": "positive",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "balanced management tone",
+                "score": 0.896167
+              },
+              "guidance_direction": {
+                "label": "guidance maintained",
+                "score": 0.997002
+              },
+              "qa_answer_style": {
+                "label": "qualified answer",
+                "score": 0.781455
+              },
+              "tone": {
+                "label": "positive",
+                "score": 0.993988
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "negative",
+            "top_score": 0.997162,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Negative",
+            "top_score": 0.976232,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "mixed_vs_expected_category",
+        "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e..."
+      },
+      "audio_support": {
+        "moment_id": "qa_q1_miss_explanation",
+        "status": "aligned",
+        "question_time_range": "03:18-03:52",
+        "answer_time_range": "03:52-07:13",
+        "pause_before_answer_ms": 380.0,
+        "filler_density": 0.3215,
+        "hesitation_label": "high",
+        "qa_shift_label": "stronger",
+        "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
+        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_q1_miss_explanation",
+        "status": "aligned",
+        "start_time_s": 232.24,
+        "end_time_s": 433.0,
+        "visual_stability_label": "stable",
+        "support_direction": "supportive",
+        "support_note": "visible delivery stayed comparatively steady in this window",
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.059,
+        "head_motion_energy": 0.0523
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    },
+    {
+      "moment_id": "guidance_negative_q2_net_adds",
+      "rank": 3,
+      "top_8_showcase": true,
+      "raw_quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net adds in Q2. We didn't talk about full year and how -- what we expect. And we're not providing full year guidance, Doug, but I just want to make sure there's not a read-through from negative 2 million paid net adds in Q2 that there's going to be a steady strip down of negative adds. We're not expecting our growth to reaccelerate, our revenue growth to reaccelerate before the end of the year, but we will grow revenue. And there will be paid net add growth. As we get to the back half of the year, Ted talked about the stronger slate. We get further away from some of the big price increases. We get into a stronger seasonal period.",
+      "deterministic_signal": {
+        "category": "guidance_pressure",
+        "label": "negative Q2 paid net adds guidance",
+        "summary": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net adds in Q2. We didn't talk about full year and how -- what we expect. And we're not providing full year guidance, Doug, but I just want to make sure there's not a read-through from negative 2 million paid net adds in Q2 that there's going to be a steady strip down of negative adds. We're not expecting our growth to reaccelerate, our revenue growth to reaccelerate before the end of the year, but we will grow revenue. And there will be paid net add growth. As we get to the back half of the year, Ted talked about the stronger slate. We get further away from some of the big price increases. We get into a stronger seasonal period.",
+        "source_artifact": "processed/signals/guidance.csv"
+      },
+      "sidecar_outputs": {
+        "moment_id": "guidance_negative_q2_net_adds",
+        "rank": 3,
+        "top_8_showcase": true,
+        "unit_type": "guidance_spans",
+        "deterministic_signal_category": "guidance_pressure",
+        "expected_sidecar_polarity": "negative",
+        "consensus_label": "negative",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "cautious management tone",
+            "top_score": 0.999672,
+            "comparable_label": "negative",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "cautious management tone",
+                "score": 0.999672
+              },
+              "guidance_direction": {
+                "label": "guidance unclear",
+                "score": 0.998845
+              },
+              "qa_answer_style": {
+                "label": "evasive answer",
+                "score": 0.938157
+              },
+              "tone": {
+                "label": "negative",
+                "score": 0.999097
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "neutral",
+            "top_score": 0.986232,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Positive",
+            "top_score": 0.995358,
+            "comparable_label": "positive",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "mixed_vs_expected_category",
+        "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net adds in Q2. We didn't talk about full year and how -- what we expect. And we're not providing full year guidance, Doug, but I just want to make sure there's not a read-through from negative 2 million paid net adds in Q2 that there's going to be a steady strip down of negative adds. We're not expecting our growth to reaccelerate, our revenue growth to reaccelerate before the end of the year, but we will grow revenue. And there will be paid net add growth. As we get to the back half of the year, Ted talked about the stronger slate. We get further away from some of the big price increases. We get into a stronger seasonal period."
+      },
+      "audio_support": {
+        "moment_id": "guidance_negative_q2_net_adds",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    },
+    {
+      "moment_id": "qa_ad_supported_option",
+      "rank": 4,
+      "top_8_showcase": true,
+      "raw_quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript...",
+      "deterministic_signal": {
+        "category": "strategic_option",
+        "label": "qualified answer on the ad-supported option",
+        "summary": "ad-supported option surfaced as a future strategic path",
+        "source_artifact": "processed/transcript_text/transcript_cleaned.txt"
+      },
+      "sidecar_outputs": {
+        "moment_id": "qa_ad_supported_option",
+        "rank": 4,
+        "top_8_showcase": true,
+        "unit_type": "qa_answers",
+        "deterministic_signal_category": "strategic_option",
+        "expected_sidecar_polarity": null,
+        "consensus_label": "neutral",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "confident management tone",
+            "top_score": 0.999346,
+            "comparable_label": "positive",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "confident management tone",
+                "score": 0.999346
+              },
+              "guidance_direction": {
+                "label": "guidance lowered",
+                "score": 0.993067
+              },
+              "qa_answer_style": {
+                "label": "evasive answer",
+                "score": 0.868639
+              },
+              "tone": {
+                "label": "positive",
+                "score": 0.952362
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "neutral",
+            "top_score": 0.516437,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Neutral",
+            "top_score": 0.999753,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "supporting_only_non_polar_category",
+        "quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript..."
+      },
+      "audio_support": {
+        "moment_id": "qa_ad_supported_option",
+        "status": "aligned",
+        "question_time_range": "21:12-21:24",
+        "answer_time_range": "21:24-22:03",
+        "pause_before_answer_ms": 0.0,
+        "filler_density": 0.0,
+        "hesitation_label": "medium",
+        "qa_shift_label": "stronger",
+        "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
+        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_ad_supported_option",
+        "status": "aligned",
+        "start_time_s": 1284.2,
+        "end_time_s": 1323.4,
+        "visual_stability_label": "stable",
+        "support_direction": "supportive",
+        "support_note": "visible delivery stayed comparatively steady in this window",
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.0312,
+        "head_motion_energy": 0.0805
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    },
+    {
+      "moment_id": "chunk_monetize_sharing_competition",
+      "rank": 5,
+      "top_8_showcase": true,
+      "raw_quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And remember, these are over 100 million households that already are choosing to view Netflix. They love the service. We just got to get paid at some degree for them. So that's part of it. And then two, it's really -- we got great competition. They've got some very good shows and films out. And what we've got to do is take it up a notch. And I'll tell you that we're all pretty -- I know it's disappointing for investors, and it is for sure. But internally, we're really geared up, and this is like our moment to shine. This is when it all matters. And we're super focused on achieving those objectives and getting back into our investors' good graces.",
+      "deterministic_signal": {
+        "category": "headwind_disclosure",
+        "label": "monetizing sharing while acknowledging competition",
+        "summary": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And remember, these are over 100 million households that already are choosing to view Netflix. They love the service. We just got to get paid at some degree for them. So that's part of it. And then two, it's really -- we got great competition. They've got some very good shows and films out. And what we've got to do is take it up a notch. And I'll tell you that we're all pretty -- I know it's disappointing for investors, and it is for sure. But internally, we're really geared up, and this is like our moment to shine. This is when it all matters. And we're super focused on achieving those objectives and getting back into our investors' good graces.",
+        "source_artifact": "processed/chunks/chunks_scored.csv"
+      },
+      "sidecar_outputs": {
+        "moment_id": "chunk_monetize_sharing_competition",
+        "rank": 5,
+        "top_8_showcase": true,
+        "unit_type": "chunks",
+        "deterministic_signal_category": "headwind_disclosure",
+        "expected_sidecar_polarity": "negative",
+        "consensus_label": "negative",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "negative",
+            "top_score": 0.999026,
+            "comparable_label": "negative",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "balanced management tone",
+                "score": 0.997461
+              },
+              "guidance_direction": {
+                "label": "guidance unclear",
+                "score": 0.985689
+              },
+              "qa_answer_style": {
+                "label": "evasive answer",
+                "score": 0.913007
+              },
+              "tone": {
+                "label": "negative",
+                "score": 0.999026
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "neutral",
+            "top_score": 0.975504,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Positive",
+            "top_score": 0.994132,
+            "comparable_label": "positive",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "mixed_vs_expected_category",
+        "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And remember, these are over 100 million households that already are choosing to view Netflix. They love the service. We just got to get paid at some degree for them. So that's part of it. And then two, it's really -- we got great competition. They've got some very good shows and films out. And what we've got to do is take it up a notch. And I'll tell you that we're all pretty -- I know it's disappointing for investors, and it is for sure. But internally, we're really geared up, and this is like our moment to shine. This is when it all matters. And we're super focused on achieving those objectives and getting back into our investors' good graces."
+      },
+      "audio_support": {
+        "moment_id": "chunk_monetize_sharing_competition",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    },
+    {
+      "moment_id": "chunk_long_term_market_unchanged",
+      "rank": 6,
+      "top_8_showcase": true,
+      "raw_quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged in terms of all broadband households. It's just that we have a better sense that COVID clouded in terms of these near-term limiters to penetrate that growth and capture that market. So that's one of the things that we put a finer point on this letter, but I just want to reinforce that the core addressable market is still there, and that's what we're still growing into, Doug.",
+      "deterministic_signal": {
+        "category": "long_term_reassurance",
+        "label": "long-term market remains intact",
+        "summary": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged in terms of all broadband households. It's just that we have a better sense that COVID clouded in terms of these near-term limiters to penetrate that growth and capture that market. So that's one of the things that we put a finer point on this letter, but I just want to reinforce that the core addressable market is still there, and that's what we're still growing into, Doug.",
+        "source_artifact": "processed/chunks/chunks_scored.csv"
+      },
+      "sidecar_outputs": {
+        "moment_id": "chunk_long_term_market_unchanged",
+        "rank": 6,
+        "top_8_showcase": true,
+        "unit_type": "chunks",
+        "deterministic_signal_category": "long_term_reassurance",
+        "expected_sidecar_polarity": "positive",
+        "consensus_label": "negative",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "cautious management tone",
+            "top_score": 0.998715,
+            "comparable_label": "negative",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "cautious management tone",
+                "score": 0.998715
+              },
+              "guidance_direction": {
+                "label": "guidance unclear",
+                "score": 0.973767
+              },
+              "qa_answer_style": {
+                "label": "qualified answer",
+                "score": 0.892013
+              },
+              "tone": {
+                "label": "negative",
+                "score": 0.997137
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "negative",
+            "top_score": 0.908009,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Positive",
+            "top_score": 0.529617,
+            "comparable_label": "positive",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "mixed_vs_expected_category",
+        "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged in terms of all broadband households. It's just that we have a better sense that COVID clouded in terms of these near-term limiters to penetrate that growth and capture that market. So that's one of the things that we put a finer point on this letter, but I just want to reinforce that the core addressable market is still there, and that's what we're still growing into, Doug."
+      },
+      "audio_support": {
+        "moment_id": "chunk_long_term_market_unchanged",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    },
+    {
+      "moment_id": "letter_growth_slowdown",
+      "rank": 7,
+      "top_8_showcase": true,
+      "raw_quote_or_span": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar...",
+      "deterministic_signal": {
+        "category": "growth_pressure",
+        "label": "growth slowdown",
+        "summary": "shareholder-letter context: growth slowdown",
+        "source_artifact": "demo/evidence_rows/netflix_q1_2022_evidence_rows.json#letter_growth_slowdown"
+      },
+      "sidecar_outputs": {
+        "moment_id": "letter_growth_slowdown",
+        "rank": 7,
+        "top_8_showcase": true,
+        "unit_type": "chunks",
+        "deterministic_signal_category": "growth_pressure",
+        "expected_sidecar_polarity": "negative",
+        "consensus_label": "negative",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "cautious management tone",
+            "top_score": 0.997495,
+            "comparable_label": "negative",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "cautious management tone",
+                "score": 0.997495
+              },
+              "guidance_direction": {
+                "label": "guidance lowered",
+                "score": 0.884086
+              },
+              "qa_answer_style": {
+                "label": "qualified answer",
+                "score": 0.557146
+              },
+              "tone": {
+                "label": "negative",
+                "score": 0.915787
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "negative",
+            "top_score": 0.998539,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Negative",
+            "top_score": 0.99989,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": false,
+        "deterministic_alignment": "aligned_with_expected_category",
+        "quote_or_span": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar..."
+      },
+      "audio_support": {
+        "moment_id": "letter_growth_slowdown",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    },
+    {
+      "moment_id": "chunk_opening_analyst_skepticism",
+      "rank": 8,
+      "top_8_showcase": true,
+      "raw_quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have changed over the past few months.",
+      "deterministic_signal": {
+        "category": "analyst_skepticism",
+        "label": "opening analyst skepticism",
+        "summary": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have changed over the past few months.",
+        "source_artifact": "processed/chunks/chunks_scored.csv"
+      },
+      "sidecar_outputs": {
+        "moment_id": "chunk_opening_analyst_skepticism",
+        "rank": 8,
+        "top_8_showcase": true,
+        "unit_type": "chunks",
+        "deterministic_signal_category": "analyst_skepticism",
+        "expected_sidecar_polarity": "negative",
+        "consensus_label": "neutral",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "evasive answer",
+            "top_score": 0.978656,
+            "comparable_label": "negative",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "balanced management tone",
+                "score": 0.590127
+              },
+              "guidance_direction": {
+                "label": "guidance raised",
+                "score": 0.853659
+              },
+              "qa_answer_style": {
+                "label": "evasive answer",
+                "score": 0.978656
+              },
+              "tone": {
+                "label": "negative",
+                "score": 0.657425
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "neutral",
+            "top_score": 0.998713,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Neutral",
+            "top_score": 0.991677,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "mixed_vs_expected_category",
+        "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have changed over the past few months."
+      },
+      "audio_support": {
+        "moment_id": "chunk_opening_analyst_skepticism",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    },
+    {
+      "moment_id": "letter_headwinds",
+      "rank": 9,
+      "top_8_showcase": false,
+      "raw_quote_or_span": "In the near term though, we’re not growing revenue as fast as we’d like. COVID clouded the picture bysignificantly increasing our growth in 2020, leading us to believe that most of our slowing growth in 2021was due to the COVID pull forward. Now, we believe there are four main inter-related factors at work. First, i...",
+      "deterministic_signal": {
+        "category": "headwind_disclosure",
+        "label": "competitive and macro headwinds",
+        "summary": "shareholder-letter context: competitive and macro headwinds",
+        "source_artifact": "demo/evidence_rows/netflix_q1_2022_evidence_rows.json#letter_headwinds"
+      },
+      "sidecar_outputs": {
+        "moment_id": "letter_headwinds",
+        "rank": 9,
+        "top_8_showcase": false,
+        "unit_type": "chunks",
+        "deterministic_signal_category": "headwind_disclosure",
+        "expected_sidecar_polarity": "negative",
+        "consensus_label": "negative",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "negative",
+            "top_score": 0.998972,
+            "comparable_label": "negative",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "cautious management tone",
+                "score": 0.988505
+              },
+              "guidance_direction": {
+                "label": "guidance unclear",
+                "score": 0.991576
+              },
+              "qa_answer_style": {
+                "label": "evasive answer",
+                "score": 0.74464
+              },
+              "tone": {
+                "label": "negative",
+                "score": 0.998972
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "negative",
+            "top_score": 0.99858,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Negative",
+            "top_score": 0.584594,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": false,
+        "deterministic_alignment": "aligned_with_expected_category",
+        "quote_or_span": "In the near term though, we’re not growing revenue as fast as we’d like. COVID clouded the picture bysignificantly increasing our growth in 2020, leading us to believe that most of our slowing growth in 2021was due to the COVID pull forward. Now, we believe there are four main inter-related factors at work. First, i..."
+      },
+      "audio_support": {
+        "moment_id": "letter_headwinds",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    },
+    {
+      "moment_id": "letter_margin_framing",
+      "rank": 10,
+      "top_8_showcase": false,
+      "raw_quote_or_span": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar...",
+      "deterministic_signal": {
+        "category": "margin_framing",
+        "label": "forward margin framing",
+        "summary": "shareholder-letter context: forward margin framing",
+        "source_artifact": "demo/evidence_rows/netflix_q1_2022_evidence_rows.json#letter_margin_framing"
+      },
+      "sidecar_outputs": {
+        "moment_id": "letter_margin_framing",
+        "rank": 10,
+        "top_8_showcase": false,
+        "unit_type": "chunks",
+        "deterministic_signal_category": "margin_framing",
+        "expected_sidecar_polarity": null,
+        "consensus_label": "negative",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "cautious management tone",
+            "top_score": 0.997495,
+            "comparable_label": "negative",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "cautious management tone",
+                "score": 0.997495
+              },
+              "guidance_direction": {
+                "label": "guidance lowered",
+                "score": 0.884086
+              },
+              "qa_answer_style": {
+                "label": "qualified answer",
+                "score": 0.557146
+              },
+              "tone": {
+                "label": "negative",
+                "score": 0.915787
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "negative",
+            "top_score": 0.998539,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Negative",
+            "top_score": 0.99989,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": false,
+        "deterministic_alignment": "supporting_only_non_polar_category",
+        "quote_or_span": "April 19, 2022 Fellow shareholders, Our revenue growth has slowed considerably as our results and forecast below show. Streaming iswinning over linear, as we predicted, and Netflix titles are very popular globally. However, our relativelyhigh household penetration - when including the large number of households shar..."
+      },
+      "audio_support": {
+        "moment_id": "letter_margin_framing",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "This is a non-polar management framing moment, so sidecars add color but should not be treated as a categorical override.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    },
+    {
+      "moment_id": "financial_anchor_q1",
+      "rank": 11,
+      "top_8_showcase": false,
+      "raw_quote_or_span": "Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53.",
+      "deterministic_signal": {
+        "category": "financial_anchor",
+        "label": "quarter anchored by reported financials",
+        "summary": "reported Q1 financial context anchored to March 31, 2022",
+        "source_artifact": "demo/evidence_rows/netflix_q1_2022_evidence_rows.json#financial_context_q1_2022"
+      },
+      "sidecar_outputs": {
+        "moment_id": "financial_anchor_q1",
+        "rank": 11,
+        "top_8_showcase": false,
+        "unit_type": "chunks",
+        "deterministic_signal_category": "financial_anchor",
+        "expected_sidecar_polarity": null,
+        "consensus_label": "neutral",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "positive",
+            "top_score": 0.980375,
+            "comparable_label": "positive",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "balanced management tone",
+                "score": 0.745678
+              },
+              "guidance_direction": {
+                "label": "guidance maintained",
+                "score": 0.418929
+              },
+              "qa_answer_style": {
+                "label": "qualified answer",
+                "score": 0.706746
+              },
+              "tone": {
+                "label": "positive",
+                "score": 0.980375
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "neutral",
+            "top_score": 0.998518,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Neutral",
+            "top_score": 0.999999,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "supporting_only_non_polar_category",
+        "quote_or_span": "Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53."
+      },
+      "audio_support": {
+        "moment_id": "financial_anchor_q1",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
+      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+    }
+  ],
+  "top_disagreement_hotspots": [
+    {
+      "moment_id": "qa_growth_headwinds",
+      "rank": 1,
+      "deterministic_signal_category": "growth_pressure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "negative",
+        "neutral"
+      ],
+      "alignment": "mixed_vs_expected_category",
+      "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to ki...",
+      "audio_support": {
+        "moment_id": "qa_growth_headwinds",
+        "status": "aligned",
+        "question_time_range": "00:32-00:48",
+        "answer_time_range": "00:48-03:16",
+        "pause_before_answer_ms": 1060.0,
+        "filler_density": 0.6897,
+        "hesitation_label": "high",
+        "qa_shift_label": "weaker",
+        "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
+        "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_growth_headwinds",
+        "status": "aligned",
+        "start_time_s": 48.16,
+        "end_time_s": 196.24,
+        "visual_stability_label": "stable",
+        "support_direction": "supportive",
+        "support_note": "visible delivery stayed comparatively steady in this window",
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.0601,
+        "head_motion_energy": 0.0698
+      }
+    },
+    {
+      "moment_id": "qa_q1_miss_explanation",
+      "rank": 2,
+      "deterministic_signal_category": "guidance_pressure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "positive",
+        "negative",
+        "negative"
+      ],
+      "alignment": "mixed_vs_expected_category",
+      "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And w...",
+      "audio_support": {
+        "moment_id": "qa_q1_miss_explanation",
+        "status": "aligned",
+        "question_time_range": "03:18-03:52",
+        "answer_time_range": "03:52-07:13",
+        "pause_before_answer_ms": 380.0,
+        "filler_density": 0.3215,
+        "hesitation_label": "high",
+        "qa_shift_label": "stronger",
+        "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
+        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_q1_miss_explanation",
+        "status": "aligned",
+        "start_time_s": 232.24,
+        "end_time_s": 433.0,
+        "visual_stability_label": "stable",
+        "support_direction": "supportive",
+        "support_note": "visible delivery stayed comparatively steady in this window",
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.059,
+        "head_motion_energy": 0.0523
+      }
+    },
+    {
+      "moment_id": "guidance_negative_q2_net_adds",
+      "rank": 3,
+      "deterministic_signal_category": "guidance_pressure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "alignment": "mixed_vs_expected_category",
+      "quote_or_span": "Hey. Can I say one thing before they close us out, just as a tactical thing, one tactical thing that I should have mentioned earlier, Doug? I just want to make sure there's not a read-through when we guide to negative 2 million paid net ...",
+      "audio_support": {
+        "moment_id": "guidance_negative_q2_net_adds",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      }
+    },
+    {
+      "moment_id": "qa_ad_supported_option",
+      "rank": 4,
+      "deterministic_signal_category": "strategic_option",
+      "expected_sidecar_polarity": null,
+      "observed_labels": [
+        "positive",
+        "neutral",
+        "neutral"
+      ],
+      "alignment": "supporting_only_non_polar_category",
+      "quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been ag...",
+      "audio_support": {
+        "moment_id": "qa_ad_supported_option",
+        "status": "aligned",
+        "question_time_range": "21:12-21:24",
+        "answer_time_range": "21:24-22:03",
+        "pause_before_answer_ms": 0.0,
+        "filler_density": 0.0,
+        "hesitation_label": "medium",
+        "qa_shift_label": "stronger",
+        "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
+        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_ad_supported_option",
+        "status": "aligned",
+        "start_time_s": 1284.2,
+        "end_time_s": 1323.4,
+        "visual_stability_label": "stable",
+        "support_direction": "supportive",
+        "support_note": "visible delivery stayed comparatively steady in this window",
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.0312,
+        "head_motion_energy": 0.0805
+      }
+    },
+    {
+      "moment_id": "chunk_monetize_sharing_competition",
+      "rank": 5,
+      "deterministic_signal_category": "headwind_disclosure",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "alignment": "mixed_vs_expected_category",
+      "quote_or_span": "So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And rememb...",
+      "audio_support": {
+        "moment_id": "chunk_monetize_sharing_competition",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      }
+    },
+    {
+      "moment_id": "chunk_long_term_market_unchanged",
+      "rank": 6,
+      "deterministic_signal_category": "long_term_reassurance",
+      "expected_sidecar_polarity": "positive",
+      "observed_labels": [
+        "negative",
+        "negative",
+        "positive"
+      ],
+      "alignment": "mixed_vs_expected_category",
+      "quote_or_span": "Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged ...",
+      "audio_support": {
+        "moment_id": "chunk_long_term_market_unchanged",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      }
+    },
+    {
+      "moment_id": "chunk_opening_analyst_skepticism",
+      "rank": 8,
+      "deterministic_signal_category": "analyst_skepticism",
+      "expected_sidecar_polarity": "negative",
+      "observed_labels": [
+        "negative",
+        "neutral",
+        "neutral"
+      ],
+      "alignment": "mixed_vs_expected_category",
+      "quote_or_span": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have chan...",
+      "audio_support": {
+        "moment_id": "chunk_opening_analyst_skepticism",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      }
+    },
+    {
+      "moment_id": "financial_anchor_q1",
+      "rank": 11,
+      "deterministic_signal_category": "financial_anchor",
+      "expected_sidecar_polarity": null,
+      "observed_labels": [
+        "positive",
+        "neutral",
+        "neutral"
+      ],
+      "alignment": "supporting_only_non_polar_category",
+      "quote_or_span": "Revenue: 7,867,767 (USD thousands); Operating income: 1,971,626; Net income: 1,597,447; Diluted EPS: 3.53.",
+      "audio_support": {
+        "moment_id": "financial_anchor_q1",
+        "status": "unavailable",
+        "reason": "No curated repo audio timing is attached to this deterministic moment."
+      },
+      "visual_support": {
+        "status": "unavailable"
+      }
+    }
+  ],
+  "strong_supporting_alignment_moments": [
+    {
+      "moment_id": "letter_growth_slowdown",
+      "rank": 7,
+      "consensus_label": "negative",
+      "reviewer_note": "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot."
+    },
+    {
+      "moment_id": "letter_headwinds",
+      "rank": 9,
+      "consensus_label": "negative",
+      "reviewer_note": "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot."
+    }
+  ],
+  "what_sidecars_added": [
+    "Fast cross-model agreement checks on the bounded Netflix moment set.",
+    "A shortlist of disagreement hotspots to review before any future UI surfacing.",
+    "Optional semantic grouping via embeddings where similarity helps cluster noisy moments."
+  ],
+  "what_sidecars_did_not_add": [
+    "No sidecar output replaces the deterministic transcript-backed evidence rows.",
+    "No model output here establishes ground truth, predictive edge, or statistical lift."
+  ],
+  "future_ui_surface_notes": [
+    "The top-8 showcase moments can be surfaced as a fixed accordion or table without changing the current demo architecture.",
+    "Pressure and disagreement subpanels are already shaped as persistent JSON bundles for later UI plumbing."
+  ]
+}

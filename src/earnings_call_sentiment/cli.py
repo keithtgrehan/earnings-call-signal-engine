@@ -873,6 +873,7 @@ def _write_report_markdown(
     guidance_revision_df: pd.DataFrame,
     behavioral_summary: dict[str, Any],
     qa_shift_summary: dict[str, Any],
+    visual_summary: dict[str, Any] | None = None,
 ) -> None:
     lines = [
         "# Earnings Call Sentiment Report",
@@ -940,6 +941,34 @@ def _write_report_markdown(
                 )
         else:
             lines.append("_none_")
+        lines.append("")
+
+    review_scorecard = metrics_payload.get("review_scorecard", {})
+    if isinstance(review_scorecard, dict) and review_scorecard:
+        lines.extend(
+            [
+                "## Reviewer Scorecard",
+                f"- overall signal: {review_scorecard.get('overall_review_signal', 'unknown')}",
+                f"- review confidence pct: {review_scorecard.get('review_confidence_pct', 'unknown')}",
+                f"- note: {review_scorecard.get('confidence_note', '')}",
+                "",
+                "| Rank | Category | Score | Band | Explanation |",
+                "| --- | --- | --- | --- | --- |",
+            ]
+        )
+        ranked_categories = review_scorecard.get("ranked_categories", [])
+        if isinstance(ranked_categories, list) and ranked_categories:
+            for item in ranked_categories[:5]:
+                lines.append(
+                    f"| {item.get('rank', '')} | {item.get('name', '')} | {item.get('score', '')} | "
+                    f"{item.get('color_band', '')} | {item.get('explanation', '')} |"
+                )
+                strongest_evidence = item.get("strongest_evidence", [])
+                if isinstance(strongest_evidence, list):
+                    for evidence in strongest_evidence[:2]:
+                        lines.append(f"|  | evidence |  |  | {str(evidence)} |")
+        else:
+            lines.append("|  | _none_ |  |  |  |")
         lines.append("")
 
     lines.extend(
@@ -1012,6 +1041,37 @@ def _write_report_markdown(
     else:
         lines.append("- _none_")
     lines.append("")
+
+    if isinstance(visual_summary, dict) and visual_summary.get("visual_features_available"):
+        lines.extend(
+            [
+                "## Visual Behavior Signals",
+                f"- face visibility: {visual_summary.get('face_visibility_overall', {}).get('level', 'low')}",
+                f"- prepared baseline stability: {visual_summary.get('prepared_baseline_visual_stability', {}).get('level', 'low')}",
+                f"- Q&A visual shift: {visual_summary.get('qa_visual_shift_score', {}).get('level', 'low')}",
+                "",
+            ]
+        )
+        changed_segments = visual_summary.get("most_visually_changed_segments", [])
+        lines.append("### Visual change examples")
+        if isinstance(changed_segments, list) and changed_segments:
+            for item in changed_segments[:2]:
+                lines.append(
+                    f"- {item.get('section', 'segment')} "
+                    f"{float(item.get('start_time_s', 0.0)):.1f}-{float(item.get('end_time_s', 0.0)):.1f}s "
+                    f"change={float(item.get('visual_change_score', 0.0)):.3f}"
+                )
+        else:
+            lines.append("- _none_")
+        low_confidence = visual_summary.get("notable_low_confidence_segments", [])
+        lines.append("")
+        lines.append("### Visual caution notes")
+        if isinstance(low_confidence, list) and low_confidence:
+            for item in low_confidence[:2]:
+                lines.append(f"- {item.get('confidence_note', 'low confidence visual segment')}")
+        else:
+            lines.append("- _none_")
+        lines.append("")
 
     lines.extend(
         [

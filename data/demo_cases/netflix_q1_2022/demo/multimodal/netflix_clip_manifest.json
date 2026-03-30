@@ -1,0 +1,83 @@
+{
+  "case_id": "netflix_q1_2022",
+  "source_video_path": "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4",
+  "clips": [
+    {
+      "moment_id": "qa_growth_headwinds",
+      "start_time_s": 32.28,
+      "end_time_s": 196.24,
+      "timestamp_range": "00:32-03:16",
+      "clip_ready": true
+    },
+    {
+      "moment_id": "qa_q1_miss_explanation",
+      "start_time_s": 198.24,
+      "end_time_s": 433.0,
+      "timestamp_range": "03:18-07:13",
+      "clip_ready": true
+    },
+    {
+      "moment_id": "guidance_negative_q2_net_adds",
+      "start_time_s": 2823.459,
+      "end_time_s": 2889.613,
+      "timestamp_range": "47:03-48:10",
+      "clip_ready": true
+    },
+    {
+      "moment_id": "qa_ad_supported_option",
+      "start_time_s": 1271.64,
+      "end_time_s": 1323.4,
+      "timestamp_range": "21:12-22:03",
+      "clip_ready": true
+    },
+    {
+      "moment_id": "chunk_monetize_sharing_competition",
+      "start_time_s": 115.0,
+      "end_time_s": 183.077,
+      "timestamp_range": "01:55-03:03",
+      "clip_ready": true
+    },
+    {
+      "moment_id": "chunk_long_term_market_unchanged",
+      "start_time_s": 183.077,
+      "end_time_s": 228.462,
+      "timestamp_range": "03:03-03:48",
+      "clip_ready": true
+    },
+    {
+      "moment_id": "letter_growth_slowdown",
+      "start_time_s": null,
+      "end_time_s": null,
+      "timestamp_range": null,
+      "clip_ready": false
+    },
+    {
+      "moment_id": "chunk_opening_analyst_skepticism",
+      "start_time_s": 33.846,
+      "end_time_s": 52.308,
+      "timestamp_range": "00:34-00:52",
+      "clip_ready": true
+    },
+    {
+      "moment_id": "letter_headwinds",
+      "start_time_s": null,
+      "end_time_s": null,
+      "timestamp_range": null,
+      "clip_ready": false
+    },
+    {
+      "moment_id": "letter_margin_framing",
+      "start_time_s": null,
+      "end_time_s": null,
+      "timestamp_range": null,
+      "clip_ready": false
+    },
+    {
+      "moment_id": "financial_anchor_q1",
+      "start_time_s": null,
+      "end_time_s": null,
+      "timestamp_range": null,
+      "clip_ready": false
+    }
+  ]
+}

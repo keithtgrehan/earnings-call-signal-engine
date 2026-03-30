@@ -34,6 +34,14 @@ def _coerce_float(value: Any) -> float | None:
         return None
 
 
+def _preferred_unit_id(row: dict[str, Any], *, default: str) -> str:
+    for key in ("unit_id", "moment_id", "row_id"):
+        candidate = _clean_text(row.get(key))
+        if candidate:
+            return candidate
+    return default
+
+
 def build_artifact_inputs(
     *,
     case_id: str,
@@ -78,7 +86,7 @@ def _load_chunks_units(case_id: str, path: Path) -> list[TextUnit]:
             TextUnit(
                 case_id=case_id,
                 unit_type="chunks",
-                unit_id=f"chunk_{idx:04d}",
+                unit_id=_preferred_unit_id(row, default=f"chunk_{idx:04d}"),
                 text=text,
                 source_artifact=str(path),
                 start_time_s=_coerce_float(row.get("start")),
@@ -106,7 +114,7 @@ def _load_guidance_units(case_id: str, path: Path) -> list[TextUnit]:
             TextUnit(
                 case_id=case_id,
                 unit_type="guidance_spans",
-                unit_id=f"guidance_{idx:04d}",
+                unit_id=_preferred_unit_id(row, default=f"guidance_{idx:04d}"),
                 text=text,
                 source_artifact=str(path),
                 start_time_s=_coerce_float(row.get("start")),
@@ -150,7 +158,7 @@ def _load_qa_units(case_id: str, path: Path) -> list[TextUnit]:
             TextUnit(
                 case_id=case_id,
                 unit_type="qa_answers",
-                unit_id=f"qa_answer_{int(row.get('qa_pair_id', idx)):04d}",
+                unit_id=_preferred_unit_id(row, default=f"qa_answer_{int(row.get('qa_pair_id', idx)):04d}"),
                 text=answer_text,
                 source_artifact=str(path),
                 section=_clean_text(row.get("source_doc")) or "qa_pairs",

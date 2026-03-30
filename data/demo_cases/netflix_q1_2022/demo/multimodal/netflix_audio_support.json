@@ -1,0 +1,116 @@
+{
+  "case_id": "netflix_q1_2022",
+  "status": "ok",
+  "audio_available": true,
+  "audio_quality_ok": true,
+  "summary": {
+    "hesitation_overall": {
+      "score": 4.6667,
+      "level": "medium"
+    },
+    "qa_hesitation_shift": {
+      "delta": 4.6667,
+      "prepared_mean": 0.0,
+      "q_and_a_mean": 4.6667,
+      "direction": "more_hesitant",
+      "level": "high"
+    },
+    "pause_pressure_delta": {
+      "delta": 2.2544,
+      "prepared_density": 0.0,
+      "q_and_a_density": 2.2544,
+      "level": "high",
+      "label": "more_paused_under_questions"
+    },
+    "audio_confidence_support": {
+      "level": "high",
+      "suppressed": false,
+      "reason": "usable answer-level audio support"
+    }
+  },
+  "moments": [
+    {
+      "moment_id": "qa_growth_headwinds",
+      "status": "aligned",
+      "question_time_range": "00:32-00:48",
+      "answer_time_range": "00:48-03:16",
+      "pause_before_answer_ms": 1060.0,
+      "filler_density": 0.6897,
+      "hesitation_label": "high",
+      "qa_shift_label": "weaker",
+      "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
+      "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
+      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+    },
+    {
+      "moment_id": "qa_q1_miss_explanation",
+      "status": "aligned",
+      "question_time_range": "03:18-03:52",
+      "answer_time_range": "03:52-07:13",
+      "pause_before_answer_ms": 380.0,
+      "filler_density": 0.3215,
+      "hesitation_label": "high",
+      "qa_shift_label": "stronger",
+      "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
+      "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+    },
+    {
+      "moment_id": "guidance_negative_q2_net_adds",
+      "status": "unavailable",
+      "reason": "No curated repo audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "qa_ad_supported_option",
+      "status": "aligned",
+      "question_time_range": "21:12-21:24",
+      "answer_time_range": "21:24-22:03",
+      "pause_before_answer_ms": 0.0,
+      "filler_density": 0.0,
+      "hesitation_label": "medium",
+      "qa_shift_label": "stronger",
+      "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
+      "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+    },
+    {
+      "moment_id": "chunk_monetize_sharing_competition",
+      "status": "unavailable",
+      "reason": "No curated repo audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "chunk_long_term_market_unchanged",
+      "status": "unavailable",
+      "reason": "No curated repo audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "letter_growth_slowdown",
+      "status": "unavailable",
+      "reason": "No curated repo audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "chunk_opening_analyst_skepticism",
+      "status": "unavailable",
+      "reason": "No curated repo audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "letter_headwinds",
+      "status": "unavailable",
+      "reason": "No curated repo audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "letter_margin_framing",
+      "status": "unavailable",
+      "reason": "No curated repo audio timing is attached to this deterministic moment."
+    },
+    {
+      "moment_id": "financial_anchor_q1",
+      "status": "unavailable",
+      "reason": "No curated repo audio timing is attached to this deterministic moment."
+    }
+  ],
+  "notes": [
+    "Audio rows were reused from the committed curated Q&A audio artifacts for this case.",
+    "Audio support remains bounded to the aligned Q&A windows already present in the repo."
+  ]
+}

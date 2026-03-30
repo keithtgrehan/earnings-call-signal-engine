@@ -71,3 +71,44 @@ def test_load_text_units_respects_smoke_limit(tmp_path: Path) -> None:
     )
 
     assert len(units) == 3
+
+
+def test_load_text_units_prefers_explicit_unit_ids(tmp_path: Path) -> None:
+    demo_case_root = _build_demo_case_root(tmp_path)
+    (demo_case_root / "processed" / "chunks" / "chunks_scored.csv").write_text(
+        "unit_id,start,end,text,sentiment,score,signed_score\n"
+        "moment_chunk,0,10,Prepared remarks were cautious.,NEGATIVE,0.9,-0.9\n",
+        encoding="utf-8",
+    )
+    (demo_case_root / "processed" / "signals" / "guidance.csv").write_text(
+        "unit_id,start,end,text,sentiment,score,topic,period,guidance_strength,matched_cues\n"
+        'moment_guidance,10,20,"We expect margin pressure to ease later in the year.",POSITIVE,0.8,margin,Q4,0.7,"we expect;q4"\n',
+        encoding="utf-8",
+    )
+    (demo_case_root / "processed" / "qa_pairs" / "qa_pairs.json").write_text(
+        json.dumps(
+            {
+                "qa_pairs": [
+                    {
+                        "unit_id": "moment_qa",
+                        "qa_pair_id": 7,
+                        "source_doc": "main_transcript",
+                        "question_speaker": "Analyst",
+                        "question_text": "What changed?",
+                        "answer_speakers": ["CEO"],
+                        "answer_text": "We remain careful on near-term demand.",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    artifact_inputs = build_artifact_inputs(case_id="demo_case", demo_case_root=demo_case_root)
+    units = load_text_units(
+        case_id="demo_case",
+        artifact_inputs=artifact_inputs,
+        unit_types=["chunks", "guidance_spans", "qa_answers"],
+    )
+
+    assert [unit.unit_id for unit in units] == ["moment_chunk", "moment_guidance", "moment_qa"]

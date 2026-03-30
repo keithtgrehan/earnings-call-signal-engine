@@ -1,0 +1,285 @@
+{
+  "case_id": "netflix_q1_2022",
+  "status": "ok",
+  "rows": [
+    {
+      "moment_id": "qa_growth_headwinds",
+      "rank": 1,
+      "analyst_question": "Great. Thanks, Spencer. So your tone in the letter today around competition, maturity and macro factors is very different than it was 3 months ago. I was hoping that you could start out by just walking us through how your views have changed over the past few months.",
+      "executive_answer": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a lot of noise on how to read the situation, boosted us a lot in 2020. And then in 2021, I think we thoughtfully said it was mostly pull forward, which was the logical conclusion. But now, coming into 2022, that doesn't really hold. So then pushing into it, we realized, with all of the account sharing, which we've always had, that's not a new thing, but when you add that up together, we're getting pretty high market penetration. And that, combined with the competition, is really what we think is driving the lower acquisition and lower growth. So on the 2 parts, we're working on how to monetize sharing. We've been thinking about that for a couple of years. But when we were growing fast, it wasn't the high priority to work on. And now, we're working super hard on it. And remember, these are over 100 million households that already are choosing to view Netflix. They love the service. We just got to get paid at some degree for them. So that's part of it. And then two, it's really -- we got great competition. They've got some very good shows and films out. And what we've got to do is take it up a notch. And I'll tell you that we're all pretty -- I know it's disappointing for investors, and it is for sure. But internally, we're really geared up, and this is like our moment to shine. This is when it all matters. And we're super focused on achieving those objectives and getting back into our investors' good graces. Yes. The only thing I might add, Reed, is just that we put a finer point on kind of elaborating on what we're seeing in terms of slowing growth and near-term slowing growth. But the long-term addressable market, we believe, is unchanged in terms of all broadband households. It's just that we have a better sense that COVID clouded in terms of these near-term limiters to penetrate that growth and capture that market. So that's one of the things that we put a finer point on this letter, but I just want to reinforce that the core addressable market is still there, and that's what we're still growing into, Doug.",
+      "deterministic_read": "growth slowdown framed as a mix of account sharing, high penetration, and competition",
+      "nlp_sidecar_read": {
+        "moment_id": "qa_growth_headwinds",
+        "rank": 1,
+        "top_8_showcase": true,
+        "unit_type": "qa_answers",
+        "deterministic_signal_category": "growth_pressure",
+        "expected_sidecar_polarity": "negative",
+        "consensus_label": "negative",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "guidance lowered",
+            "top_score": 0.999144,
+            "comparable_label": "negative",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "cautious management tone",
+                "score": 0.998995
+              },
+              "guidance_direction": {
+                "label": "guidance lowered",
+                "score": 0.999144
+              },
+              "qa_answer_style": {
+                "label": "evasive answer",
+                "score": 0.949364
+              },
+              "tone": {
+                "label": "negative",
+                "score": 0.999106
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "negative",
+            "top_score": 0.995965,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Neutral",
+            "top_score": 0.99569,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "mixed_vs_expected_category",
+        "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ..."
+      },
+      "audio_support": {
+        "moment_id": "qa_growth_headwinds",
+        "status": "aligned",
+        "question_time_range": "00:32-00:48",
+        "answer_time_range": "00:48-03:16",
+        "pause_before_answer_ms": 1060.0,
+        "filler_density": 0.6897,
+        "hesitation_label": "high",
+        "qa_shift_label": "weaker",
+        "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
+        "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_growth_headwinds",
+        "status": "aligned",
+        "start_time_s": 48.16,
+        "end_time_s": 196.24,
+        "visual_stability_label": "stable",
+        "support_direction": "supportive",
+        "support_note": "visible delivery stayed comparatively steady in this window",
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.0601,
+        "head_motion_energy": 0.0698
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only."
+    },
+    {
+      "moment_id": "qa_q1_miss_explanation",
+      "rank": 2,
+      "analyst_question": "Okay. So maybe just in terms of the recent trends, if we could talk about 1Q a little bit more. You lost 200,000 subscribers or gained 500,000 ex the Russia removal. Hoping you could perhaps parse out a little bit around some of those factors that you mentioned. It sounds like acquisition might be at the top of the list, and you've talked about that for a little while now, but hoping you could kind of isolate some of those factors. And then talk to us about how that informs your 2Q guide for a loss of 2 million subscribers.",
+      "executive_answer": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we expected. We were seeing that slowdown when we did the guide, and it played out as expected. The difference is really some slight elevated churn throughout Q1. And this is pretty small. So retention was still very good, but we're talking about it like 0.2 to 0.3 percentage point, but on our big member base, that has a pretty big flow through. It's a combination of factors there. We talked about interrelated factors in the letter, but one very directly, that Russia's invasion of Ukraine had some spillover effect in other parts of EMEA. We saw that in the Central and Eastern European countries. There were some elevated churn. We also saw probably some -- a little bit more macro strain in some countries, some parts of the world, like Latin America, we mentioned that on the last call, but that was elevated, and just a little bit more seasonality in the business. We suspect some of that is those macro factors we mentioned and maybe a little bit of competition on the margin as well. So that's really what we saw in Q2 -- I'm sorry, in Q1. And that's really what's reflected in Q2, which is sort of the continued trends we're seeing in acquisition and this -- it's a -- that slightly elevated churn to probably continue through the quarter. It's just a softer seasonal quarter for us typically, and that's what's reflected in the guide, is a little bit of softer seasonality and the same -- essentially the same acquisition and retention trends. And maybe I could pick it up and talk about the first 2 factors you want a little bit more detail on. And we have this addressable market that's expanding over time in every country that we're operating in. It's a bunch of enabling factors, like broadband and smart TVs. And then in some countries that we're operating in, where we've been operating the longest, like the U.S. is a great example, we have really significant high penetration of viewers into that near-term market potential. And that was really boosted by sort of this growth at the beginning period of COVID and the lockdown. Now that viewer penetration is made up of 2 groups. One is a group that's paying us, which is great. And then there is a group of viewers that are not paying us, and they're sharing someone else's account credential. And we really see that second group is a tremendous opportunity because they're clearly well- qualified. They have everything they need to do to get to Netflix. They know what the service is. They found titles that they want to watch. And so now, our job is really to better translate that viewing and the value that those consumers are getting into revenue. And the principal way we've got of going after that is asking our members to pay a bit more to share the service with folks outside their home. So if you've got a sister, let's say, that's living in a different city, you want to share Netflix with her, that's great. We're not trying to shut down that sharing, but we're going to ask you to pay a bit more to be able to share with her and so that she gets the benefit and the value of the service, but we also get the revenue associated with that viewing.",
+      "deterministic_read": "explicit explanation of the Q1 miss and qualified Q2 pressure",
+      "nlp_sidecar_read": {
+        "moment_id": "qa_q1_miss_explanation",
+        "rank": 2,
+        "top_8_showcase": true,
+        "unit_type": "qa_answers",
+        "deterministic_signal_category": "guidance_pressure",
+        "expected_sidecar_polarity": "negative",
+        "consensus_label": "negative",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "guidance maintained",
+            "top_score": 0.997002,
+            "comparable_label": "positive",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "balanced management tone",
+                "score": 0.896167
+              },
+              "guidance_direction": {
+                "label": "guidance maintained",
+                "score": 0.997002
+              },
+              "qa_answer_style": {
+                "label": "qualified answer",
+                "score": 0.781455
+              },
+              "tone": {
+                "label": "positive",
+                "score": 0.993988
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "negative",
+            "top_score": 0.997162,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Negative",
+            "top_score": 0.976232,
+            "comparable_label": "negative",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "mixed_vs_expected_category",
+        "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e..."
+      },
+      "audio_support": {
+        "moment_id": "qa_q1_miss_explanation",
+        "status": "aligned",
+        "question_time_range": "03:18-03:52",
+        "answer_time_range": "03:52-07:13",
+        "pause_before_answer_ms": 380.0,
+        "filler_density": 0.3215,
+        "hesitation_label": "high",
+        "qa_shift_label": "stronger",
+        "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
+        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_q1_miss_explanation",
+        "status": "aligned",
+        "start_time_s": 232.24,
+        "end_time_s": 433.0,
+        "visual_stability_label": "stable",
+        "support_direction": "supportive",
+        "support_note": "visible delivery stayed comparatively steady in this window",
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.059,
+        "head_motion_energy": 0.0523
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only."
+    },
+    {
+      "moment_id": "qa_ad_supported_option",
+      "rank": 4,
+      "analyst_question": "Got it. And is it fair to think that it would be something you would test in a few small markets to start out and then kind of move along?",
+      "executive_answer": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't think we have a lot of doubt that it works, that all those companies have figured it out. I'm sure we'll just get in and figure it out as opposed to test it and maybe do it or not do it. So I think we'll really get in. But again, it would be a plan layer, like it is at Hulu. So if you still want the ad-free option, you'll be able to have that as a consumer. And if you would rather pay a lower price and you're ad-tolerant, that's also -- we're going to cater to you also.",
+      "deterministic_read": "ad-supported option surfaced as a future strategic path",
+      "nlp_sidecar_read": {
+        "moment_id": "qa_ad_supported_option",
+        "rank": 4,
+        "top_8_showcase": true,
+        "unit_type": "qa_answers",
+        "deterministic_signal_category": "strategic_option",
+        "expected_sidecar_polarity": null,
+        "consensus_label": "neutral",
+        "model_outputs": {
+          "deberta_zero_shot": {
+            "top_label": "confident management tone",
+            "top_score": 0.999346,
+            "comparable_label": "positive",
+            "group_top_labels": {
+              "caution_signal": {
+                "label": "confident management tone",
+                "score": 0.999346
+              },
+              "guidance_direction": {
+                "label": "guidance lowered",
+                "score": 0.993067
+              },
+              "qa_answer_style": {
+                "label": "evasive answer",
+                "score": 0.868639
+              },
+              "tone": {
+                "label": "positive",
+                "score": 0.952362
+              }
+            },
+            "output_kind": "classification"
+          },
+          "financial_roberta": {
+            "top_label": "neutral",
+            "top_score": 0.516437,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "finbert_tone": {
+            "top_label": "Neutral",
+            "top_score": 0.999753,
+            "comparable_label": "neutral",
+            "group_top_labels": {},
+            "output_kind": "classification"
+          },
+          "mpnet_embeddings": {
+            "top_label": "",
+            "top_score": 0.0,
+            "comparable_label": "",
+            "group_top_labels": {},
+            "output_kind": "embedding"
+          }
+        },
+        "pairwise_disagreement": true,
+        "deterministic_alignment": "supporting_only_non_polar_category",
+        "quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript..."
+      },
+      "audio_support": {
+        "moment_id": "qa_ad_supported_option",
+        "status": "aligned",
+        "question_time_range": "21:12-21:24",
+        "answer_time_range": "21:24-22:03",
+        "pause_before_answer_ms": 0.0,
+        "filler_density": 0.0,
+        "hesitation_label": "medium",
+        "qa_shift_label": "stronger",
+        "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
+        "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      },
+      "visual_support": {
+        "moment_id": "qa_ad_supported_option",
+        "status": "aligned",
+        "start_time_s": 1284.2,
+        "end_time_s": 1323.4,
+        "visual_stability_label": "stable",
+        "support_direction": "supportive",
+        "support_note": "visible delivery stayed comparatively steady in this window",
+        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "face_visible_pct": 1.0,
+        "visual_change_score": 0.0312,
+        "head_motion_energy": 0.0805
+      },
+      "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only."
+    }
+  ]
+}

@@ -190,6 +190,37 @@ Branch-local reduced real-case validations completed:
 
 These were reduced branch-local validation runs only. They demonstrate runtime wiring and output generation, not model validation.
 
+## Netflix Multimodal Evidence Panel
+The repo now includes a bounded Netflix Q1 2022 multimodal review bundle under `data/demo_cases/netflix_q1_2022/demo/multimodal/`.
+
+What it does:
+- keeps deterministic transcript-backed outputs canonical
+- selects a fixed curated set of 11 Netflix moments with a top-8 showcase subset
+- compares optional NLP sidecars against those moments without re-labeling the case
+- reuses the committed curated audio review rows for the timed Q&A windows
+- adds a bounded visual pass only for the windows with real local video support
+
+Primary builder:
+
+```bash
+PYTHONPATH=src python3 scripts/build_netflix_multimodal_panel.py \
+  --device auto \
+  --visual-sample-fps 0.25
+```
+
+Primary reviewer artifacts:
+- `data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_multimodal_panel.json`
+- `data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_multimodal_panel.md`
+- `data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_model_comparison.json`
+- `data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_disagreement_hotspots.json`
+- `docs/netflix_multimodal_asset_audit.md`
+- `docs/netflix_multimodal_panel_summary.md`
+
+What this does not do:
+- it does not change the canonical deterministic Netflix demo payloads
+- it does not treat NLP, audio, or visual layers as primary evidence
+- it does not claim predictive edge, alpha, or statistical significance
+
 ## Conservative Multimodal Status
 The repo remains transcript-first. Multimodal artifacts are supporting evidence layers and do not replace the deterministic transcript-backed outputs.
 
