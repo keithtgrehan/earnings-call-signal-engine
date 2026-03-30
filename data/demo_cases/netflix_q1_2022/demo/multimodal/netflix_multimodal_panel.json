@@ -1,8 +1,25 @@
 {
   "case_id": "netflix_q1_2022",
+  "case_scope": "Netflix Q1 2022",
   "status": "ok",
+  "deterministic_transcript_first_is_canonical": true,
+  "support_layers_are_supporting_only": true,
+  "no_predictive_claims": true,
+  "no_statistical_claims": true,
   "selected_moment_count": 11,
   "showcase_moment_count": 8,
+  "top_8_showcase_moment_ids": [
+    "qa_growth_headwinds",
+    "qa_q1_miss_explanation",
+    "guidance_negative_q2_net_adds",
+    "qa_ad_supported_option",
+    "chunk_monetize_sharing_competition",
+    "chunk_long_term_market_unchanged",
+    "letter_growth_slowdown",
+    "chunk_opening_analyst_skepticism"
+  ],
+  "visual_support_status": "ok",
+  "visual_support_reason": null,
   "panel_rows": [
     {
       "moment_id": "qa_growth_headwinds",

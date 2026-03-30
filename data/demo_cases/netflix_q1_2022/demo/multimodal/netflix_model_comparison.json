@@ -1034,5 +1034,6 @@
     "Expected direction from the deterministic layer is only filled when the category maps cleanly to an obvious positive or negative read.",
     "Leading sidecar labels are left blank when comparable labels are tied, so mixed rows do not pretend to have consensus.",
     "Non-polar rows can still show sidecar spread, but that should be treated as context rather than contradiction."
-  ]
+  ],
+  "case_scope": "Netflix Q1 2022"
 }

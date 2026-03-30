@@ -16,6 +16,7 @@ from earnings_call_sentiment.nlp_sidecars import (
 from earnings_call_sentiment.visual.summary import write_visual_behavior_outputs
 
 CASE_ID = "netflix_q1_2022"
+CASE_SCOPE = "Netflix Q1 2022"
 CASE_DIR = Path("data/demo_cases") / CASE_ID
 MULTIMODAL_DIR = CASE_DIR / "demo" / "multimodal"
 CURATED_OUTPUT_DIR = Path("outputs") / CASE_ID / "model_sidecars_curated"
@@ -842,6 +843,7 @@ def build_model_comparison(
 
     comparison_payload = {
         "case_id": CASE_ID,
+        "case_scope": CASE_SCOPE,
         "status": "ok" if sidecar_outputs else "no_sidecar_outputs",
         "models_run": [
             {
@@ -865,6 +867,7 @@ def build_model_comparison(
     }
     disagreement_payload = {
         "case_id": CASE_ID,
+        "case_scope": CASE_SCOPE,
         "status": "ok" if sidecar_outputs else "no_sidecar_outputs",
         "pairwise_model_disagreements": disagreements,
         "embedding_similarity_hotspots": similarity_hotspots[:8],
@@ -1272,9 +1275,17 @@ def build_panel_payload(
     ]
     panel_payload = {
         "case_id": CASE_ID,
+        "case_scope": CASE_SCOPE,
         "status": "ok",
+        "deterministic_transcript_first_is_canonical": True,
+        "support_layers_are_supporting_only": True,
+        "no_predictive_claims": True,
+        "no_statistical_claims": True,
         "selected_moment_count": len(rows),
         "showcase_moment_count": sum(1 for row in rows if row["top_8_showcase"]),
+        "top_8_showcase_moment_ids": [row["moment_id"] for row in rows if row["top_8_showcase"]],
+        "visual_support_status": str(visual_payload.get("status") or "unavailable"),
+        "visual_support_reason": visual_payload.get("reason"),
         "panel_rows": rows,
         "top_disagreement_hotspots": disagreement_rows[:8],
         "cleaner_sidecar_examples": [
@@ -1305,11 +1316,13 @@ def build_panel_payload(
     }
     pressure_panel = {
         "case_id": CASE_ID,
+        "case_scope": CASE_SCOPE,
         "status": "ok",
         "rows": pressure_rows,
     }
     disagreement_panel = {
         "case_id": CASE_ID,
+        "case_scope": CASE_SCOPE,
         "status": "ok",
         "rows": disagreement_rows,
     }

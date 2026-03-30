@@ -179,9 +179,18 @@ def test_build_panel_payload_returns_pressure_rows() -> None:
         visual_payload,
     )
 
+    assert panel_payload["case_scope"] == "Netflix Q1 2022"
+    assert panel_payload["deterministic_transcript_first_is_canonical"] is True
+    assert panel_payload["support_layers_are_supporting_only"] is True
+    assert panel_payload["no_predictive_claims"] is True
+    assert panel_payload["no_statistical_claims"] is True
+    assert panel_payload["visual_support_status"] == "skipped"
+    assert panel_payload["top_8_showcase_moment_ids"][0] == "qa_growth_headwinds"
     assert panel_payload["selected_moment_count"] == manifest["primary_moment_count"]
     assert "cleaner_sidecar_examples" in panel_payload
     assert "strong_supporting_alignment_moments" not in panel_payload
+    assert pressure_panel["case_scope"] == "Netflix Q1 2022"
+    assert disagreement_panel["case_scope"] == "Netflix Q1 2022"
     assert len(pressure_panel["rows"]) == 3
     assert disagreement_panel["rows"][0]["moment_id"] == "qa_q1_miss_explanation"
 
@@ -193,6 +202,8 @@ def test_build_model_comparison_adds_review_priority_metadata() -> None:
     rows = {row["moment_id"]: row for row in comparison_payload["moment_rows"]}
     priorities = {"high": 0, "medium": 1, "low": 2}
 
+    assert comparison_payload["case_scope"] == "Netflix Q1 2022"
+    assert disagreement_payload["case_scope"] == "Netflix Q1 2022"
     assert rows["qa_ad_supported_option"]["review_bucket"] == "non_polar_context_only"
     assert rows["qa_ad_supported_option"]["review_priority"] == "low"
     assert rows["chunk_long_term_market_unchanged"]["review_priority"] == "high"
