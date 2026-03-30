@@ -1,43 +1,76 @@
 # Netflix Reference Case Handoff
 
-## What Changed In This Hardening Pass
+## What Was Run
 
-- Replaced reviewer-risky field names in the persisted bundle where words like `consensus`, `alignment`, `confidence`, and `support` were stronger than intended.
-- Made tied sidecar rows explicit instead of implying a settled sidecar view.
-- Added blunt interpretation rules to the panel summary, evidence panel, and README.
-- Tightened visual wording so heuristic fallback is unmistakably context-only and non-canonical.
-- Tightened audio wording so it stays on measured pause, filler, and qualification cues.
+- bounded Netflix manifest generation for `netflix_q1_2022`
+- optional NLP sidecar comparison using `finbert_tone`, `financial_roberta`, `deberta_zero_shot`, and `mpnet_embeddings`
+- reuse of the committed curated audio support rows for the aligned Q&A moments
+- a bounded visual pass using the resolved local fallback Netflix MP4
+- focused branch-relevant tests plus `git diff --check`
 
-## Reviewer-Interpretation Risks Reduced
+## Exact Commands
 
-- Mixed sidecar rows are less likely to be mistaken for proof or validation.
-- Pairwise comparison stats are less likely to be mistaken for model quality claims.
-- Visual rows are less likely to be mistaken for model-backed scoring or stronger evidence than the transcript-backed read.
-- Audio rows are less likely to be mistaken for certainty, intent, or psychological inference.
+```bash
+PYTHONPATH=src python3 scripts/build_netflix_multimodal_panel.py --device auto --visual-sample-fps 0.25
+PYTHONPATH=src pytest -q tests/test_netflix_multimodal_panel.py tests/test_nlp_sidecars_config.py tests/test_nlp_sidecars_evaluate.py tests/test_nlp_sidecars_io.py tests/test_nlp_sidecars_runner.py tests/test_run_nlp_sidecars.py
+git diff --check
+```
 
-## What Still Remains Inherently Limited
+## Media Actually Available
 
-- This is still a fixed Netflix Q1 2022 case, not a generalized multimodal framework.
-- Audio remains limited to the curated Q&A windows already aligned in the repo.
-- The committed visual layer remains heuristic fallback only.
-- Letter and financial-anchor rows still do not have timed media windows.
+- requested exact local MP4 path:
+  - `/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix Q1 2022 Earnings Interview.mp4`
+- resolved local MP4 actually used:
+  - `/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4`
+- repo-local source files available:
+  - main earnings call transcript PDF
+  - shareholder letter PDF
+  - financial workbook and income-statement CSV
+  - committed audio status and audio summary artifacts
+- repo-local committed timed media support available:
+  - curated Q&A audio windows reused in the final bundle
+  - bounded visual windows for the same aligned Q&A answers
 
-## Why Netflix Is Now The Reference-Quality Bounded Demo Case
+## What Was Skipped
 
-- The pack is transcript-first, bounded, and honest about what each supporting layer can and cannot add.
-- Reviewer docs now state how to read the bundle before a reviewer reaches any moment-level output.
-- Persisted JSON now carries lower-risk terminology that matches the intended reviewer mental model.
-- The requested-path versus fallback-path distinction and heuristic-versus-model-backed distinction are both explicit.
+- final persisted visual output:
+  - not skipped
+  - the bundle keeps a bounded heuristic-fallback visual artifact
+- model-backed visual scoring:
+  - unavailable
+  - reason: the committed visual layer is heuristic fallback only and must remain context-only
+- timed media coverage for some deterministic rows:
+  - unavailable
+  - affected rows include shareholder-letter and financial-anchor moments without timed media windows
 
-## What Must Be Preserved When Porting This Standard Later
+## Outputs To Inspect First
 
-- Keep deterministic transcript-backed outputs canonical.
-- Keep sidecars, audio, and visual as supporting-only inspection layers.
-- Keep the exact requested-path versus fallback-path distinction explicit whenever local media differs.
-- Keep heuristic visual output visibly separate from any future model-backed scoring.
-- Keep disagreement rows framed as review priorities, not winners, losers, or proof.
-- Keep the scope bounded to one case at a time until the same quality bar is met again.
+- `docs/netflix_multimodal_asset_audit.md`
+- `docs/netflix_multimodal_evidence_panel.md`
+- `docs/netflix_multimodal_panel_summary.md`
+- `data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_multimodal_panel.json`
+- `data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_model_comparison.json`
+- `data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_disagreement_hotspots.json`
+- `data/demo_cases/netflix_q1_2022/demo/multimodal/netflix_supporting_only_caveats.json`
 
-## Recommendation
+## Known Limitations
 
-Freeze Netflix after this pass and use it as the quality bar for any later Nvidia or other-case port. Do not add more novelty to the Netflix pack unless a future review finds a concrete truthfulness issue.
+- this is still a fixed Netflix Q1 2022 case, not a generalized multimodal framework
+- audio remains limited to the curated Q&A windows already aligned in the repo
+- the exact requested MP4 path did not match; the bounded visual pass used a fallback local MP4 instead
+- the committed visual layer remains heuristic fallback only
+- letter and financial-anchor rows still do not have timed media windows
+
+## Why This Pack Is Bounded And Reviewer-Safe
+
+- deterministic transcript-backed outputs remain canonical
+- sidecars, audio, and visual remain supporting-only inspection layers
+- the requested-path versus fallback-path distinction is explicit in the asset audit
+- heuristic visual output stays visibly separate from any model-backed scoring claim
+- disagreement rows are framed as review priorities, not proof or adjudication
+- no predictive-edge or statistical-significance claims are made
+
+## Recommendation After Review
+
+- keep Netflix frozen as the reference-quality bounded case unless a future review finds a concrete truthfulness issue
+- use this pack as the quality bar for later case ports only if the same transcript-first and supporting-only rules are preserved
