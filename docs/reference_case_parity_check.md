@@ -22,6 +22,7 @@
 - Meta already exposed panel-level canonical/supporting-only flags, `case_scope`, explicit top-8 ids, and case-level visual status in its persisted panel payloads.
 - Netflix still relied on row-level caveats and summary docs for the same contract, which made the two reference cases less directly comparable than they should be.
 - Netflix comparison, disagreement, and pressure subpanel payloads also lacked `case_scope`, which made structural parity checks unnecessarily indirect.
+- Netflix did have a handoff doc, but it did not use the same explicit `what ran` / `media available` / `what was skipped` / `open first` / `limitations` structure already used by Meta, which left the handoff requirement satisfied only indirectly.
 
 ## What Was Corrected
 
@@ -36,18 +37,27 @@
   - `visual_support_reason`
 - Netflix `model_comparison`, `disagreement_hotspots`, `pressure_moments_panel`, and `disagreement_hotspots_panel` now also carry `case_scope`.
 - The persisted Netflix panel JSON was regenerated from the existing bounded bundle artifacts so the checked-in reference pack matches the safer schema.
+- The Netflix handoff doc was rewritten into an explicit handoff summary structure so it now states:
+  - what actually ran
+  - what media was actually available
+  - what was skipped versus merely unavailable
+  - what reviewers should open first
+  - what remains limited or heuristic
+  - why the pack remains bounded and reviewer-safe
 
 ## What Remains Acceptable But Worth Reviewer Attention
 
 - Netflix still uses the legacy grouped caveat payload shape while Meta uses the flat id-list caveat payload. The shared validator accepts both, and both remain reviewer-safe.
 - Netflix persists a bounded heuristic-fallback visual artifact with `status: ok`; Meta persists an explicit case-level visual skip artifact with `status: skipped`. This is an intentional case difference, not a parity bug.
 - Meta uses `strong_supporting_context_moments` while Netflix still exposes `cleaner_sidecar_examples`. The intent is similar, but the field names are not yet identical.
+- Netflix still uses the filename `docs/netflix_reference_case_handoff.md` while Meta uses `docs/meta_multimodal_handoff_summary.md`. The content gap is corrected; the filename difference is acceptable for now.
 - Markdown structure is already materially aligned across the two cases and did not require further changes in this pass.
 
 ## Exact Commands Run
 
 ```bash
 git worktree list --porcelain
+rg --files docs | rg 'netflix.*handoff|handoff.*netflix|netflix.*summary'
 python3 - <<'PY'
 import json
 from pathlib import Path
