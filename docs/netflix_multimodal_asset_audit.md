@@ -1,6 +1,7 @@
 # Netflix Multimodal Asset Audit
 
 - Case: `netflix_q1_2022`
+- Requested exact MP4 path: `/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix Q1 2022 Earnings Interview.mp4`
 - Requested exact MP4 path matched directly: `False`
 - Resolved local MP4 fallback found: `/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4`
 - Bounded visual analysis usable: `True`

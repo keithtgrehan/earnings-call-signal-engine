@@ -29,3 +29,5 @@ PYTHONPATH=src python3 scripts/build_netflix_multimodal_panel.py \
   --device auto \
   --visual-sample-fps 0.25
 ```
+
+For the committed review bundle, the exact requested local MP4 path did not match. A fallback local Netflix MP4 was found and used for the bounded supporting-only visual pass, and the resulting visual support stayed in heuristic fallback mode rather than model-backed scoring.

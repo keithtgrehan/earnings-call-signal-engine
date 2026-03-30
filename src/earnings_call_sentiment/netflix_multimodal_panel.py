@@ -269,6 +269,15 @@ def build_asset_audit(root: Path | None = None, *, video_path: str | Path | None
     audio_summary = _read_json(case_dir / "processed" / "audio_behavior" / "audio_behavior_summary.json")
 
     video_usable = bool(video_source["resolved_video_path"])
+    if video_usable and video_source["resolved_from_fallback"]:
+        video_usability_reason = (
+            "The exact requested file path did not match, but a local Netflix MP4 fallback was found and used for a bounded supporting-only visual pass."
+        )
+    elif video_usable:
+        video_usability_reason = "The exact requested file path matched directly and was used for a bounded supporting-only visual pass."
+    else:
+        video_usability_reason = "No local MP4 was found, so visual support should be skipped."
+
     return {
         "case_id": CASE_ID,
         "review_generated_at": datetime.now(UTC).isoformat(),
@@ -303,11 +312,7 @@ def build_asset_audit(root: Path | None = None, *, video_path: str | Path | None
             "The repo does not track the extracted WAV in data/demo_cases/netflix_q1_2022/raw/audio/.",
         ],
         "video_usable_for_bounded_visual_analysis": video_usable,
-        "video_usability_reason": (
-            "A local MP4 was found and can be used for a bounded supporting-only visual pass."
-            if video_usable
-            else "No local MP4 was found, so visual support should be skipped."
-        ),
+        "video_usability_reason": video_usability_reason,
     }
 
 
@@ -1084,12 +1089,17 @@ def build_panel_payload(
 
 
 def _render_asset_audit_markdown(audit: dict[str, Any]) -> str:
+    preferred_video = audit["preferred_video_check"]
+    resolved_video = preferred_video["resolved_video_path"] or "not found"
+    requested_matched_directly = bool(resolved_video != "not found" and not preferred_video["resolved_from_fallback"])
+    fallback_video = resolved_video if preferred_video["resolved_from_fallback"] else "not needed"
     lines = [
         "# Netflix Multimodal Asset Audit",
         "",
         f"- Case: `{audit['case_id']}`",
-        f"- Requested MP4 path exists: `{audit['preferred_video_check']['requested_exists']}`",
-        f"- Resolved local MP4: `{audit['preferred_video_check']['resolved_video_path'] or 'not found'}`",
+        f"- Requested exact MP4 path: `{preferred_video['requested_path']}`",
+        f"- Requested exact MP4 path matched directly: `{requested_matched_directly}`",
+        f"- Resolved local MP4 fallback found: `{fallback_video}`",
         f"- Bounded visual analysis usable: `{audit['video_usable_for_bounded_visual_analysis']}`",
         "",
         "## What Exists",
@@ -1178,7 +1188,18 @@ def _render_summary_markdown(
     sample_fps: float,
     pairwise_summary: list[dict[str, Any]] | None = None,
 ) -> str:
-    resolved_video = audit["preferred_video_check"]["resolved_video_path"] or "not found"
+    preferred_video = audit["preferred_video_check"]
+    resolved_video = preferred_video["resolved_video_path"] or "not found"
+    requested_matched_directly = bool(resolved_video != "not found" and not preferred_video["resolved_from_fallback"])
+    fallback_video = resolved_video if preferred_video["resolved_from_fallback"] else "not needed"
+    visual_support_mode = None
+    visual_support_note = None
+    if visual_payload.get("status") == "ok":
+        visual_summary = visual_payload.get("summary", {})
+        visual_support_mode = visual_summary.get("support_mode")
+        if visual_support_mode == "heuristic_fallback" and not visual_summary.get("model_support", {}).get("available", False):
+            visual_support_note = "observational fallback only; no model-backed visual scoring"
+
     lines = [
         "# Netflix Multimodal Panel Summary",
         "",
@@ -1187,15 +1208,22 @@ def _render_summary_markdown(
         f"- Curated moment manifest generated for `{CASE_ID}` with `{len(MOMENT_SPECS)}` bounded moments and a top-8 showcase subset.",
         f"- Sidecar models requested: `{', '.join(models)}`",
         f"- Visual sample FPS: `{sample_fps}`",
-        f"- Resolved local MP4: `{resolved_video}`",
+        f"- Requested exact MP4 path: `{preferred_video['requested_path']}`",
+        f"- Requested exact MP4 path matched directly: `{requested_matched_directly}`",
+        f"- Resolved local MP4 fallback used: `{fallback_video}`",
         "",
         "## Exact Commands",
         "",
         "- `PYTHONPATH=src python3 scripts/build_netflix_multimodal_panel.py --device auto --visual-sample-fps 0.25`",
         "",
-        "## A/B-Style Sidecar Check",
+        "## Pairwise Sidecar Comparison",
         "",
     ]
+    if visual_support_mode:
+        visual_mode_line = f"- Visual support mode: `{visual_support_mode}`"
+        if visual_support_note:
+            visual_mode_line += f" ({visual_support_note})"
+        lines.append(visual_mode_line)
     if pairwise_summary:
         for row in pairwise_summary[:3]:
             lines.append(
@@ -1228,7 +1256,15 @@ def _render_summary_markdown(
             "## Known Limitations",
             "",
             "- Audio remains limited to the curated Q&A windows already aligned in the repo.",
-            "- Visual coverage is bounded to those timed Q&A windows and should be suppressed if the quality gate is weak.",
+        ]
+    )
+    if preferred_video["resolved_from_fallback"]:
+        lines.append("- The exact requested local MP4 path did not match; this bundle used a fallback local Netflix MP4 for the bounded visual pass.")
+    lines.append("- Visual coverage is bounded to those timed Q&A windows and should be suppressed if the quality gate is weak.")
+    if visual_support_mode == "heuristic_fallback":
+        lines.append("- Visual support is currently heuristic fallback only and does not include model-backed visual scoring.")
+    lines.extend(
+        [
             "- Sidecars are supporting-only and do not replace the deterministic Netflix demo artifacts.",
             "",
             "## Recommended Next Step",
