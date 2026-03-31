@@ -23,6 +23,10 @@ def _repo_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
+def _script_env() -> dict[str, str]:
+    return {key: value for key, value in os.environ.items() if key != "PYTHONPATH"}
+
+
 @lru_cache(maxsize=1)
 def _netflix_retrieval_bundle():
     return load_retrieval_bundle(_repo_root() / "data" / "demo_cases" / "netflix_q1_2022" / "demo" / "retrieval")
@@ -410,7 +414,7 @@ def test_build_case_retrieval_cli_smoke(tmp_path: Path) -> None:
             "--no-embeddings",
         ],
         cwd=_repo_root(),
-        env=os.environ | {"PYTHONPATH": "src"},
+        env=_script_env(),
         capture_output=True,
         text=True,
         check=True,
@@ -444,7 +448,7 @@ def test_search_case_retrieval_cli_smoke(tmp_path: Path) -> None:
             "2",
         ],
         cwd=_repo_root(),
-        env=os.environ | {"PYTHONPATH": "src"},
+        env=_script_env(),
         capture_output=True,
         text=True,
         check=True,
@@ -481,7 +485,7 @@ def test_search_case_retrieval_cli_supports_query_flag_and_case_alias(tmp_path: 
             "2",
         ],
         cwd=_repo_root(),
-        env=os.environ | {"PYTHONPATH": "src"},
+        env=_script_env(),
         capture_output=True,
         text=True,
         check=True,
@@ -500,7 +504,7 @@ def test_search_case_retrieval_help_mentions_hybrid_reviewer_mode() -> None:
             "--help",
         ],
         cwd=_repo_root(),
-        env=os.environ | {"PYTHONPATH": "src"},
+        env=_script_env(),
         capture_output=True,
         text=True,
         check=True,

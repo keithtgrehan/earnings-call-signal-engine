@@ -5,6 +5,10 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+import sys
+
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from earnings_call_sentiment.retrieval_support import (
     DEFAULT_EMBEDDING_BATCH_SIZE,
