@@ -38,7 +38,7 @@
 ### Sidecars
 
 ```bash
-PYTHONPATH=src python -m earnings_call_sentiment sidecars \
+PYTHONPATH=src python3 -m earnings_call_sentiment sidecars \
   --case-id nvidia_q4_fy2024 \
   --models finbert_tone financial_roberta deberta_zero_shot mpnet_embeddings \
   --units chunks guidance_spans qa_answers \
@@ -49,7 +49,7 @@ PYTHONPATH=src python -m earnings_call_sentiment sidecars \
 ### Evaluation
 
 ```bash
-PYTHONPATH=src python scripts/evaluate_model_sidecars.py \
+PYTHONPATH=src python3 scripts/evaluate_model_sidecars.py \
   --case-id nvidia_q4_fy2024 \
   --sidecar-root outputs
 ```
@@ -66,4 +66,4 @@ PYTHONPATH=src python scripts/evaluate_model_sidecars.py \
 
 - The current sidecar branch spans code, docs, manifests, dependency metadata, benchmark helpers, and focused tests.
 - It is narrower than the multimodal or demo-surface branches and should be reviewed as optional runtime/comparison support only.
-- Use `git diff 4dcfb38..HEAD --stat` if you need the exact current branch footprint rather than a hand-picked file summary.
+- Use the sidecar commit history and `git show --stat` if you need the original feature-only footprint rather than a hand-picked file summary.

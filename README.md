@@ -330,7 +330,7 @@ PYTHONPATH=src PORT=7872 python app/site_server.py
 
 Current shell structure:
 - hero framing and review-surface selection
-- `Demo mode` for fixed Netflix / Meta presentation cases
+- `Demo mode` for fixed Netflix, Meta, and NVIDIA presentation cases
 - `Input mode` for real YouTube, media, and transcript review
 - centerpiece evidence workspace for `Raw source vs extracted signal`
 - supporting panels for management caution, audio support, market context, artifacts, and recent local runs
