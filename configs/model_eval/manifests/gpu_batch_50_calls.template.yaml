@@ -1,0 +1,73 @@
+name: GPU Batch 50-Call Template
+case_ids:
+  - meta_q3_2022
+  - netflix_q1_2022
+  - nvidia_q4_fy2024
+  - REPLACE_WITH_CASE_ID_04
+  - REPLACE_WITH_CASE_ID_05
+  - REPLACE_WITH_CASE_ID_06
+  - REPLACE_WITH_CASE_ID_07
+  - REPLACE_WITH_CASE_ID_08
+  - REPLACE_WITH_CASE_ID_09
+  - REPLACE_WITH_CASE_ID_10
+  - REPLACE_WITH_CASE_ID_11
+  - REPLACE_WITH_CASE_ID_12
+  - REPLACE_WITH_CASE_ID_13
+  - REPLACE_WITH_CASE_ID_14
+  - REPLACE_WITH_CASE_ID_15
+  - REPLACE_WITH_CASE_ID_16
+  - REPLACE_WITH_CASE_ID_17
+  - REPLACE_WITH_CASE_ID_18
+  - REPLACE_WITH_CASE_ID_19
+  - REPLACE_WITH_CASE_ID_20
+  - REPLACE_WITH_CASE_ID_21
+  - REPLACE_WITH_CASE_ID_22
+  - REPLACE_WITH_CASE_ID_23
+  - REPLACE_WITH_CASE_ID_24
+  - REPLACE_WITH_CASE_ID_25
+  - REPLACE_WITH_CASE_ID_26
+  - REPLACE_WITH_CASE_ID_27
+  - REPLACE_WITH_CASE_ID_28
+  - REPLACE_WITH_CASE_ID_29
+  - REPLACE_WITH_CASE_ID_30
+  - REPLACE_WITH_CASE_ID_31
+  - REPLACE_WITH_CASE_ID_32
+  - REPLACE_WITH_CASE_ID_33
+  - REPLACE_WITH_CASE_ID_34
+  - REPLACE_WITH_CASE_ID_35
+  - REPLACE_WITH_CASE_ID_36
+  - REPLACE_WITH_CASE_ID_37
+  - REPLACE_WITH_CASE_ID_38
+  - REPLACE_WITH_CASE_ID_39
+  - REPLACE_WITH_CASE_ID_40
+  - REPLACE_WITH_CASE_ID_41
+  - REPLACE_WITH_CASE_ID_42
+  - REPLACE_WITH_CASE_ID_43
+  - REPLACE_WITH_CASE_ID_44
+  - REPLACE_WITH_CASE_ID_45
+  - REPLACE_WITH_CASE_ID_46
+  - REPLACE_WITH_CASE_ID_47
+  - REPLACE_WITH_CASE_ID_48
+  - REPLACE_WITH_CASE_ID_49
+  - REPLACE_WITH_CASE_ID_50
+models:
+  - finbert_tone
+  - financial_roberta
+  - deberta_zero_shot
+  - mpnet_embeddings
+units:
+  - chunks
+  - guidance_spans
+  - qa_answers
+device_expectation: cuda
+batch_size: 16
+max_length: 512
+sample_strategy: head
+seed: 7
+run_mode: warm
+zero_shot_label_config: configs/model_eval/zero_shot_labels.finance.yaml
+output_root: ./outputs
+notes:
+  - This is a scale-run template, not a claim that 50 processed cases already exist in the current repo.
+  - Replace every placeholder case id with a real processed case before launch.
+  - Intended for higher-throughput NVIDIA hardware after CPU-side correctness and runtime validation.

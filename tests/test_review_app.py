@@ -40,11 +40,16 @@ def test_site_app_index_renders() -> None:
     text = response.get_data(as_text=True)
     assert "Earnings Call Signal Engine" in text
     assert "Evidence-backed reviewer workspace" in text
+    assert (
+        "Transcript-first reviewer workspace for evidence-backed earnings call signal review."
+        in text
+    )
     assert "Raw source vs extracted signal" in text
     assert "Netflix Q1 2022" in text
     assert "Meta Platforms" in text
     assert "Q3 2022" in text
     assert "NVIDIA" in text
+    assert "switch to live uploads" in text
     assert 'action="/analyze"' in text
     assert 'name="view_mode" value="input"' in text
 

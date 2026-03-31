@@ -215,6 +215,112 @@ Optional heuristic outputs still exist, but they are not the current benchmark f
 - optional summary/eval utilities
 - offline backtest scripts
 
+## Optional Model Sidecars
+An additive model-sidecar layer is available for optional NLP comparison on existing processed cases. It keeps the deterministic transcript-first outputs unchanged and writes separate artifacts under `outputs/<case_id>/model_sidecars/`.
+
+What sidecars are:
+- optional comparison and inspection layers
+- local-first model behavior utilities for already processed cases
+- a way to benchmark runtime and disagreement hotspots before larger GPU batch runs
+
+What sidecars are not:
+- not a replacement for deterministic transcript-backed outputs
+- not a rewrite of the canonical pipeline
+- not a claim of predictive lift, alpha, or statistical significance
+
+Included sidecar models:
+- `finbert_tone`
+- `financial_roberta`
+- `deberta_zero_shot`
+- `mpnet_embeddings`
+- `distilbart_zero_shot_smoke` as an optional lighter zero-shot fallback for CPU smoke tests
+
+Prewarm model caches before benchmarking:
+
+```bash
+PYTHONPATH=src python3 -m earnings_call_sentiment sidecars-prewarm \
+  --models finbert_tone financial_roberta deberta_zero_shot mpnet_embeddings \
+  --device cpu
+```
+
+Run sidecars:
+
+```bash
+PYTHONPATH=src python3 -m earnings_call_sentiment sidecars \
+  --case-id nvidia_q4_fy2024 \
+  --models finbert_tone financial_roberta deberta_zero_shot mpnet_embeddings \
+  --units chunks guidance_spans qa_answers \
+  --zero-shot-label-config configs/model_eval/zero_shot_labels.finance.yaml \
+  --output-dir outputs
+```
+
+Reduced CPU validation for slower models:
+
+```bash
+PYTHONPATH=src python3 -m earnings_call_sentiment sidecars \
+  --case-id nvidia_q4_fy2024 \
+  --models deberta_zero_shot mpnet_embeddings \
+  --units guidance_spans qa_answers \
+  --sample-size 4 \
+  --sample-strategy random \
+  --seed 7 \
+  --batch-size 2 \
+  --device cpu \
+  --prewarm
+```
+
+Benchmark runtime behavior:
+
+```bash
+PYTHONPATH=src python3 scripts/benchmark_model_sidecars.py \
+  --case-id nvidia_q4_fy2024 \
+  --models finbert_tone financial_roberta \
+  --units chunks guidance_spans \
+  --batch-size 4 \
+  --device cpu \
+  --run-mode warm
+```
+
+Or use a manifest template:
+
+```bash
+PYTHONPATH=src python3 -m earnings_call_sentiment sidecars-benchmark \
+  --manifest configs/model_eval/manifests/cpu_smoke_5_calls.template.yaml
+```
+
+Resume and retry behavior:
+- sidecars skip already complete model/unit artifacts by default
+- use `--force` to recompute
+- use `--no-resume` to disable skip logic for a run
+- classification outputs count as complete when the final unit JSONL parses cleanly and contains at least one record per selected unit
+- embedding outputs count as complete when the final embedding JSONL parses cleanly with at least one record per selected unit and the similarity JSON parses with the expected metadata
+- temporary `.inprogress` files do not count as complete
+
+Outputs are written under:
+- `outputs/<case_id>/model_sidecars/<model_name>/...`
+- `outputs/<case_id>/model_sidecars/benchmarks/model_sidecars_benchmark.json`
+- `outputs/<case_id>/model_sidecars/benchmarks/model_sidecars_benchmark.md`
+- `outputs/<case_id>/model_sidecars/model_sidecars_evaluation.json`
+- `outputs/<case_id>/model_sidecars/model_sidecars_evaluation.md`
+
+Evaluation report:
+
+```bash
+PYTHONPATH=src python3 scripts/evaluate_model_sidecars.py \
+  --case-id nvidia_q4_fy2024 \
+  --sidecar-root outputs
+```
+
+Current claim boundaries:
+- deterministic transcript-first outputs remain primary
+- sidecars remain optional support layers only
+- finance classifiers and CPU runtime controls can be validated locally on real processed cases
+- slower zero-shot and embedding runs may still require reduced CPU validation or stronger hardware
+- broader throughput benchmarking is better suited to NVIDIA hardware after CPU-side validation
+- manifest templates are templates only; they are not a claim that those larger processed-case batches already exist in this repo
+
+See `docs/model_sidecars.md` for the model list, manifests, artifact schema, and current limitations.
+
 ## UI / Local Review Shell
 The active local review shell is the primary interface served by:
 
