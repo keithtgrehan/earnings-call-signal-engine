@@ -16,10 +16,10 @@
 
 ## Pairwise Sidecar Comparison
 
-- Visual support mode: `heuristic_fallback` (observational fallback only; no model-backed visual scoring)
-- `deberta_zero_shot` vs `financial_roberta`: comparable-label agreement `0.4545` across `11` curated moments.
-- `deberta_zero_shot` vs `finbert_tone`: comparable-label agreement `0.2727` across `11` curated moments.
-- `financial_roberta` vs `finbert_tone`: comparable-label agreement `0.6364` across `11` curated moments.
+- Visual review mode: `heuristic_fallback` (observational fallback only; no model-backed visual scoring)
+- `deberta_zero_shot` vs `financial_roberta`: same broad label rate `0.4545` across `11` curated moments.
+- `deberta_zero_shot` vs `finbert_tone`: same broad label rate `0.2727` across `11` curated moments.
+- `financial_roberta` vs `finbert_tone`: same broad label rate `0.6364` across `11` curated moments.
 
 ## What Was Skipped
 

@@ -63,8 +63,8 @@
             "output_kind": "embedding"
           }
         },
-        "pairwise_disagreement": true,
-        "deterministic_alignment": "mixed_vs_expected_category",
+        "sidecars_split": true,
+        "comparison_note": "sidecars split around the deterministic read",
         "quote_or_span": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million guidance, I think that was consistent with our thesis. And the lower acquisition really forced us to kind of tease apart what's going on. And as we put in the letter, COVID created a ..."
       },
       "audio_support": {
@@ -78,7 +78,7 @@
         "qa_shift_label": "weaker",
         "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
         "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
-        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not a full transcript-to-media map."
       },
       "visual_support": {
         "moment_id": "qa_growth_headwinds",
@@ -156,8 +156,8 @@
             "output_kind": "embedding"
           }
         },
-        "pairwise_disagreement": true,
-        "deterministic_alignment": "mixed_vs_expected_category",
+        "sidecars_split": true,
+        "comparison_note": "sidecars split around the deterministic read",
         "quote_or_span": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million, if you exclude Russia. So there's really a 2 million miss in our Q1 actuals versus guidance. And what's really reflected there is acquisition growth was consistent with what we e..."
       },
       "audio_support": {
@@ -171,7 +171,7 @@
         "qa_shift_label": "stronger",
         "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
         "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
-        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not a full transcript-to-media map."
       },
       "visual_support": {
         "moment_id": "qa_q1_miss_explanation",
@@ -249,8 +249,8 @@
             "output_kind": "embedding"
           }
         },
-        "pairwise_disagreement": true,
-        "deterministic_alignment": "supporting_only_non_polar_category",
+        "sidecars_split": true,
+        "comparison_note": "non-polar framing moment; sidecars add color only",
         "quote_or_span": "Related to that, Greg has done great work on the price spread. And one way to increase the price spread is advertising on low-end plans and to have lower prices with advertising. And those who have followed Netflix know that I've been against the complexity of advertising and a big fan of the simplicity of subscript..."
       },
       "audio_support": {
@@ -264,7 +264,7 @@
         "qa_shift_label": "stronger",
         "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
         "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
-        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+        "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not a full transcript-to-media map."
       },
       "visual_support": {
         "moment_id": "qa_ad_supported_option",

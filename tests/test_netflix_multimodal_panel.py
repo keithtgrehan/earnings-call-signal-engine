@@ -52,6 +52,9 @@ def test_build_audio_support_marks_only_curated_rows_as_aligned() -> None:
     assert payload["audio_available"] is True
     assert len(aligned) == 3
     assert len(unavailable) >= 1
+    assert "audio_usability_note" in payload["summary"]
+    assert "audio_confidence_support" not in payload["summary"]
+    assert "full transcript-to-media alignment" not in aligned[0]["timing_note"]
 
 
 def test_build_visual_support_skips_cleanly_when_video_missing(monkeypatch) -> None:
@@ -76,14 +79,14 @@ def test_build_panel_payload_returns_pressure_rows() -> None:
             {
                 "moment_id": "qa_growth_headwinds",
                 "consensus_label": "negative",
-                "pairwise_disagreement": False,
-                "deterministic_alignment": "aligned_with_expected_category",
+                "sidecars_split": False,
+                "comparison_note": "sidecars broadly moved with the deterministic read",
             },
             {
                 "moment_id": "qa_q1_miss_explanation",
                 "consensus_label": "negative",
-                "pairwise_disagreement": True,
-                "deterministic_alignment": "mixed_vs_expected_category",
+                "sidecars_split": True,
+                "comparison_note": "sidecars split around the deterministic read",
             },
         ]
     }
@@ -92,7 +95,7 @@ def test_build_panel_payload_returns_pressure_rows() -> None:
             {
                 "moment_id": "qa_q1_miss_explanation",
                 "quote_or_span": "A disagreement hotspot.",
-                "alignment": "mixed_vs_expected_category",
+                "comparison_note": "sidecars split around the deterministic read",
             }
         ]
     }
@@ -242,8 +245,8 @@ def test_render_panel_markdown_includes_full_review_sections() -> None:
                 "deterministic_signal": {"category": "growth_pressure", "label": "pressure", "summary": "summary"},
                 "sidecar_outputs": {
                     "consensus_label": "negative",
-                    "deterministic_alignment": "mixed_vs_expected_category",
-                    "pairwise_disagreement": True,
+                    "comparison_note": "sidecars split around the deterministic read",
+                    "sidecars_split": True,
                 },
                 "audio_support": {"status": "aligned", "plain_english_audio_summary": "hesitant answer", "answer_time_range": "00:48-03:16"},
                 "visual_support": {
@@ -256,8 +259,8 @@ def test_render_panel_markdown_includes_full_review_sections() -> None:
                 "caveat": "Deterministic transcript-backed artifacts stay canonical.",
             }
         ],
-        "strong_supporting_alignment_moments": [
-            {"moment_id": "letter_growth_slowdown", "consensus_label": "negative", "reviewer_note": "Cleaner optional-support example."}
+        "cleaner_optional_context_moments": [
+            {"moment_id": "letter_growth_slowdown", "consensus_label": "negative", "reviewer_note": "Cleaner optional-context moment."}
         ],
         "what_sidecars_added": ["A disagreement shortlist."],
         "what_sidecars_did_not_add": ["No adjudication."],
@@ -287,7 +290,7 @@ def test_render_panel_markdown_includes_full_review_sections() -> None:
             {
                 "moment_id": "qa_growth_headwinds",
                 "observed_labels": ["negative", "neutral"],
-                "alignment": "mixed_vs_expected_category",
+                "comparison_note": "sidecars split around the deterministic read",
                 "quote_or_span": "Quote.",
                 "audio_support": {"status": "aligned", "plain_english_audio_summary": "hesitant answer", "answer_time_range": "00:48-03:16"},
                 "visual_support": {
@@ -303,7 +306,7 @@ def test_render_panel_markdown_includes_full_review_sections() -> None:
     rendered = _render_panel_markdown(panel_payload, pressure_panel, disagreement_panel)
 
     assert "## Selected Moments" in rendered
-    assert "- Sidecar read: consensus `negative` | alignment `mixed_vs_expected_category` | pairwise disagreement `True`" in rendered
+    assert "- Sidecar read: consensus `negative` | comparison note `sidecars split around the deterministic read` | sidecars split `yes`" in rendered
     assert "- Visual support: steady_visible_delivery: visible delivery stayed comparatively steady in this window (quality note: pose coverage is limited for shoulder and hand features)" in rendered
     assert "## What Sidecars Added" in rendered
     assert "## Later UI Surfacing" in rendered

@@ -22,7 +22,7 @@
       "level": "high",
       "label": "more_paused_under_questions"
     },
-    "audio_confidence_support": {
+    "audio_usability_note": {
       "level": "high",
       "suppressed": false,
       "reason": "usable answer-level audio support"
@@ -40,7 +40,7 @@
       "qa_shift_label": "weaker",
       "plain_english_audio_summary": "answer opened after a noticeable pause; used filler language; opened with hedging or qualification; overall hesitation scored high",
       "plain_english_interpretation": "Analyst asked a direct question; there was a noticeable pause before the answer and opened with hedging language. Transcript-only Q&A shift stayed weaker.",
-      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not a full transcript-to-media map."
     },
     {
       "moment_id": "qa_q1_miss_explanation",
@@ -53,7 +53,7 @@
       "qa_shift_label": "stronger",
       "plain_english_audio_summary": "used filler language; opened with hedging or qualification; overall hesitation scored high",
       "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
-      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not a full transcript-to-media map."
     },
     {
       "moment_id": "guidance_negative_q2_net_adds",
@@ -71,7 +71,7 @@
       "qa_shift_label": "stronger",
       "plain_english_audio_summary": "opened with hedging or qualification; overall hesitation scored medium",
       "plain_english_interpretation": "Analyst asked a direct question; opened with hedging language. Transcript-only Q&A shift stayed stronger.",
-      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment."
+      "timing_note": "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not a full transcript-to-media map."
     },
     {
       "moment_id": "chunk_monetize_sharing_competition",

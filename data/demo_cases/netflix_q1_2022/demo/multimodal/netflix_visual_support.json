@@ -24,15 +24,15 @@
       "stable_face_frame_pct_ok": true,
       "stable_face_tracking_pct": 0.9954,
       "stable_face_tracking_ok": true,
-      "mean_landmark_confidence": 0.5972,
-      "landmark_confidence_ok": true,
       "face_size_ratio_mean": 0.1307,
       "face_size_ratio_ok": true,
       "pose_frame_pct": 0.0,
       "pose_frame_pct_ok": false,
       "frame_resolution_ok": true,
       "sampled_frame_count": 650,
-      "min_face_frame_count_ok": true
+      "min_face_frame_count_ok": true,
+      "mean_landmark_coverage": 0.5972,
+      "landmark_coverage_ok": true
     },
     "video_metadata": {
       "path": "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4",

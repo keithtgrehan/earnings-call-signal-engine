@@ -40,6 +40,14 @@ EXPECTED_POLARITY_BY_CATEGORY = {
     "long_term_reassurance": "positive",
 }
 
+COMPARISON_NOTE_BY_CODE = {
+    "no_expected_polarity": "no directional comparison note was applied",
+    "aligned_with_expected_category": "sidecars broadly moved with the deterministic read",
+    "mixed_vs_expected_category": "sidecars split around the deterministic read",
+    "diverged_from_expected_category": "sidecars pointed away from the deterministic read",
+    "supporting_only_non_polar_category": "non-polar framing moment; sidecars add color only",
+}
+
 SUPPORTING_CAVEATS = {
     "deterministic": [
         "Transcript-backed deterministic artifacts remain the canonical review path for this case.",
@@ -289,6 +297,21 @@ def _sanitize_visual_quality_note(note: str | None) -> str:
     return replacements.get(cleaned, cleaned)
 
 
+def _sanitize_audio_timing_note(note: str | None) -> str:
+    cleaned = str(note or "").strip()
+    replacements = {
+        "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. They are supporting review cues, not full transcript-to-media alignment.": (
+            "Audio timings are attached only to a few curated Q&A moments matched against an ASR transcript. "
+            "They are supporting review cues, not a full transcript-to-media map."
+        ),
+    }
+    return replacements.get(cleaned, cleaned)
+
+
+def _comparison_note(code: str) -> str:
+    return COMPARISON_NOTE_BY_CODE.get(code, COMPARISON_NOTE_BY_CODE["no_expected_polarity"])
+
+
 def _visual_observation_tag(direction: str | None) -> str:
     mapping = {
         "supportive": "steady_visible_delivery",
@@ -322,6 +345,17 @@ def _sanitize_visual_summary_items(items: list[dict[str, Any]]) -> list[dict[str
     return sanitized
 
 
+def _sanitize_visual_quality_gate(quality_gate: dict[str, Any]) -> dict[str, Any]:
+    if not isinstance(quality_gate, dict):
+        return {}
+    sanitized = dict(quality_gate)
+    if "mean_landmark_confidence" in sanitized:
+        sanitized["mean_landmark_coverage"] = sanitized.pop("mean_landmark_confidence")
+    if "landmark_confidence_ok" in sanitized:
+        sanitized["landmark_coverage_ok"] = sanitized.pop("landmark_confidence_ok")
+    return sanitized
+
+
 def _sanitize_visual_summary(summary: dict[str, Any]) -> dict[str, Any]:
     quality_assessment = dict(summary.get("visual_confidence_support", {}))
     model_backed = dict(summary.get("model_support", {}))
@@ -330,7 +364,7 @@ def _sanitize_visual_summary(summary: dict[str, Any]) -> dict[str, Any]:
         "video_available": summary.get("video_available"),
         "visual_features_available": summary.get("visual_features_available"),
         "video_quality_ok": summary.get("video_quality_ok"),
-        "quality_gate": summary.get("quality_gate", {}),
+        "quality_gate": _sanitize_visual_quality_gate(summary.get("quality_gate", {})),
         "video_metadata": summary.get("video_metadata"),
         "face_visibility_overall": summary.get("face_visibility_overall"),
         "prepared_baseline_visual_stability": summary.get("prepared_baseline_visual_stability"),
@@ -780,6 +814,7 @@ def build_model_comparison(
 
     panel_rows: list[dict[str, Any]] = []
     disagreements: list[dict[str, Any]] = []
+    noisy_moment_ids: set[str] = set()
     for moment in manifest["moments"]:
         per_model: dict[str, Any] = {}
         comparable_labels: list[str] = []
@@ -810,16 +845,18 @@ def build_model_comparison(
         label_counts = pd.Series(comparable_labels).value_counts().to_dict() if comparable_labels else {}
         consensus_label = max(label_counts, key=label_counts.get) if label_counts else ""
         expected_polarity = str(moment.get("expected_sidecar_polarity") or "")
-        alignment = "no_expected_polarity"
+        comparison_code = "no_expected_polarity"
         if expected_polarity and comparable_labels:
             if all(label == expected_polarity for label in comparable_labels):
-                alignment = "aligned_with_expected_category"
+                comparison_code = "aligned_with_expected_category"
             elif any(label == expected_polarity for label in comparable_labels):
-                alignment = "mixed_vs_expected_category"
+                comparison_code = "mixed_vs_expected_category"
             else:
-                alignment = "diverged_from_expected_category"
+                comparison_code = "diverged_from_expected_category"
         elif comparable_labels:
-            alignment = "supporting_only_non_polar_category"
+            comparison_code = "supporting_only_non_polar_category"
+
+        sidecars_split = len(set(comparable_labels)) > 1 if comparable_labels else False
 
         panel_row = {
             "moment_id": moment["moment_id"],
@@ -830,13 +867,15 @@ def build_model_comparison(
             "expected_sidecar_polarity": expected_polarity or None,
             "consensus_label": consensus_label or None,
             "model_outputs": per_model,
-            "pairwise_disagreement": len(set(comparable_labels)) > 1 if comparable_labels else False,
-            "deterministic_alignment": alignment,
+            "sidecars_split": sidecars_split,
+            "comparison_note": _comparison_note(comparison_code),
             "quote_or_span": moment["quote_or_span"],
         }
         panel_rows.append(panel_row)
 
-        if panel_row["pairwise_disagreement"] or alignment == "diverged_from_expected_category":
+        if sidecars_split or comparison_code == "diverged_from_expected_category":
+            if comparison_code in {"mixed_vs_expected_category", "diverged_from_expected_category"}:
+                noisy_moment_ids.add(str(moment["moment_id"]))
             disagreements.append(
                 {
                     "moment_id": moment["moment_id"],
@@ -844,7 +883,7 @@ def build_model_comparison(
                     "deterministic_signal_category": moment["deterministic_signal_category"],
                     "expected_sidecar_polarity": expected_polarity or None,
                     "observed_labels": comparable_labels,
-                    "alignment": alignment,
+                    "comparison_note": _comparison_note(comparison_code),
                     "quote_or_span": _truncate(moment["quote_or_span"]),
                 }
             )
@@ -855,6 +894,22 @@ def build_model_comparison(
         if disagreement_report.get("similarity_hotspots"):
             for item in disagreement_report["similarity_hotspots"]:
                 similarity_hotspots.append({"model_name": model_name, **item})
+
+    pairwise_summary = []
+    for row in evaluation_summary.get("pairwise_classification", []):
+        if not isinstance(row, dict):
+            continue
+        pairwise_summary.append(
+            {
+                "left_model": row.get("left_model"),
+                "right_model": row.get("right_model"),
+                "moments_compared": row.get("rows_compared"),
+                "same_top_label_rate": row.get("top_label_agreement_rate"),
+                "same_broad_label_rate": row.get("comparable_label_agreement_rate"),
+                "hotspots": row.get("hotspots", []),
+                "review_note": "These rates only describe how often the sidecars landed on the same broad label within the curated Netflix moment set.",
+            }
+        )
 
     comparison_payload = {
         "case_id": CASE_ID,
@@ -870,11 +925,11 @@ def build_model_comparison(
             }
             for model_name, output in sidecar_outputs.items()
         ],
-        "pairwise_summary": evaluation_summary.get("pairwise_classification", []),
+        "pairwise_summary": pairwise_summary,
         "moment_rows": panel_rows,
         "notes": [
             "Deterministic categories remain canonical; these comparisons are supporting-only review aids.",
-            "Expected sidecar polarity is only applied when the deterministic category maps cleanly to an obvious directional read.",
+            "Comparison notes are reviewer aids only and do not override the transcript-backed deterministic read.",
         ],
     }
     disagreement_payload = {
@@ -883,7 +938,7 @@ def build_model_comparison(
         "pairwise_model_disagreements": disagreements,
         "embedding_similarity_hotspots": similarity_hotspots[:8],
         "noisy_or_unhelpful_sidecars": [
-            item for item in disagreements if item["alignment"] in {"mixed_vs_expected_category", "diverged_from_expected_category"}
+            item for item in disagreements if str(item["moment_id"]) in noisy_moment_ids
         ],
         "notes": [
             "Disagreement hotspots are review priorities, not proof that one layer is better than another.",
@@ -917,7 +972,7 @@ def build_audio_support(
                     "qa_shift_label": row.get("qa_shift_label"),
                     "plain_english_audio_summary": row.get("plain_english_audio_summary"),
                     "plain_english_interpretation": row.get("plain_english_interpretation"),
-                    "timing_note": row.get("timing_note"),
+                    "timing_note": _sanitize_audio_timing_note(row.get("timing_note")),
                 }
             )
         else:
@@ -937,7 +992,7 @@ def build_audio_support(
             "hesitation_overall": audio_summary.get("hesitation_overall"),
             "qa_hesitation_shift": audio_summary.get("qa_hesitation_shift"),
             "pause_pressure_delta": audio_summary.get("pause_pressure_delta"),
-            "audio_confidence_support": audio_summary.get("audio_confidence_support"),
+            "audio_usability_note": audio_summary.get("audio_confidence_support"),
         },
         "moments": moments,
         "notes": [
@@ -1095,16 +1150,16 @@ def _moment_lookup(rows: list[dict[str, Any]], *, key: str = "moment_id") -> dic
 
 
 def _reviewer_note(moment: dict[str, Any], comparison_row: dict[str, Any], audio_row: dict[str, Any] | None, visual_row: dict[str, Any] | None) -> str:
-    alignment = str(comparison_row.get("deterministic_alignment", ""))
-    if comparison_row.get("pairwise_disagreement"):
+    comparison_note = str(comparison_row.get("comparison_note", ""))
+    if comparison_row.get("sidecars_split"):
         return "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only."
-    if alignment == "aligned_with_expected_category" and audio_row and audio_row.get("status") == "aligned":
+    if comparison_note == _comparison_note("aligned_with_expected_category") and audio_row and audio_row.get("status") == "aligned":
         return "Transcript-first pressure read stays primary here, and the bounded audio cues move in the same general direction."
-    if alignment == "aligned_with_expected_category":
-        return "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot."
+    if comparison_note == _comparison_note("aligned_with_expected_category"):
+        return "Optional sidecars broadly moved with the deterministic read here, which makes this a cleaner optional-context moment than a hotspot."
     if visual_row and visual_row.get("status") == "aligned":
         return "Visual cues were usable for this timed window, but they remain observational context rather than a determinative read."
-    if alignment == "supporting_only_non_polar_category":
+    if comparison_note == _comparison_note("supporting_only_non_polar_category"):
         return "This is a non-polar management framing moment, so sidecars add color but should not be treated as a categorical override."
     return "This moment is best reviewed transcript-first because the optional support layers are either mixed or only partially available."
 
@@ -1180,7 +1235,7 @@ def build_panel_payload(
         "showcase_moment_count": sum(1 for row in rows if row["top_8_showcase"]),
         "panel_rows": rows,
         "top_disagreement_hotspots": disagreement_rows[:8],
-        "strong_supporting_alignment_moments": [
+        "cleaner_optional_context_moments": [
             {
                 "moment_id": row["moment_id"],
                 "rank": row["rank"],
@@ -1188,10 +1243,10 @@ def build_panel_payload(
                 "reviewer_note": row["reviewer_note"],
             }
             for row in rows
-            if row["sidecar_outputs"].get("deterministic_alignment") == "aligned_with_expected_category"
+            if row["sidecar_outputs"].get("comparison_note") == _comparison_note("aligned_with_expected_category")
         ][:8],
         "what_sidecars_added": [
-            "Fast cross-model agreement checks on the bounded Netflix moment set.",
+            "Fast cross-model comparison checks on the bounded Netflix moment set.",
             "A shortlist of disagreement hotspots to review before any future UI surfacing.",
             "Optional semantic grouping via embeddings where similarity helps cluster noisy moments.",
         ],
@@ -1318,8 +1373,8 @@ def _render_panel_markdown(panel_payload: dict[str, Any], pressure_panel: dict[s
                 ),
                 (
                     f"- Sidecar read: consensus `{sidecars.get('consensus_label') or 'unavailable'}` | "
-                    f"alignment `{sidecars.get('deterministic_alignment') or 'unavailable'}` | "
-                    f"pairwise disagreement `{sidecars.get('pairwise_disagreement')}`"
+                    f"comparison note `{sidecars.get('comparison_note') or 'unavailable'}` | "
+                    f"sidecars split `{'yes' if sidecars.get('sidecars_split') else 'no'}`"
                 ),
                 f"- Audio support: {_audio_support_markdown(row['audio_support'])}",
                 f"- Visual support: {_visual_support_markdown(row['visual_support'])}",
@@ -1360,7 +1415,7 @@ def _render_panel_markdown(panel_payload: dict[str, Any], pressure_panel: dict[s
                     f"### {row['moment_id']}",
                     "",
                     f"- Observed labels: `{', '.join(row.get('observed_labels', [])) or 'unavailable'}`",
-                    f"- Alignment: `{row.get('alignment', 'unavailable')}`",
+                    f"- Comparison note: `{row.get('comparison_note', 'unavailable')}`",
                     f"- Quote: {_truncate(str(row['quote_or_span']), limit=220)}",
                     f"- Audio support: {_audio_support_markdown(row['audio_support'])}",
                     f"- Visual support: {_visual_support_markdown(row['visual_support'])}",
@@ -1371,16 +1426,16 @@ def _render_panel_markdown(panel_payload: dict[str, Any], pressure_panel: dict[s
         lines.append("- No material pairwise sidecar disagreement hotspots were written for this run.")
     lines.extend(
         [
-            "## Cleaner Optional-Support Examples",
+            "## Cleaner Optional-Context Moments",
             "",
         ]
     )
-    for row in panel_payload.get("strong_supporting_alignment_moments", []):
+    for row in panel_payload.get("cleaner_optional_context_moments", []):
         lines.append(
             f"- `{row['moment_id']}`: consensus `{row.get('consensus_label') or 'unavailable'}` | {row.get('reviewer_note', '')}"
         )
-    if not panel_payload.get("strong_supporting_alignment_moments"):
-        lines.append("- No cleaner optional-support examples were recorded for this run.")
+    if not panel_payload.get("cleaner_optional_context_moments"):
+        lines.append("- No cleaner optional-context moments were recorded for this run.")
     lines.extend(
         [
             "",
@@ -1478,7 +1533,7 @@ def _render_summary_markdown(
             f"- Sidecar execution statuses: `{', '.join(sidecar_statuses)}`",
         )
     if visual_support_mode:
-        visual_mode_line = f"- Visual support mode: `{visual_support_mode}`"
+        visual_mode_line = f"- Visual review mode: `{visual_support_mode}`"
         if visual_support_note:
             visual_mode_line += f" ({visual_support_note})"
         lines.append(visual_mode_line)
@@ -1486,8 +1541,8 @@ def _render_summary_markdown(
         for row in pairwise_summary[:3]:
             lines.append(
                 f"- `{row.get('left_model')}` vs `{row.get('right_model')}`: "
-                f"comparable-label agreement `{row.get('comparable_label_agreement_rate')}` across "
-                f"`{row.get('rows_compared')}` curated moments."
+                f"same broad label rate `{row.get('same_broad_label_rate')}` across "
+                f"`{row.get('moments_compared')}` curated moments."
             )
     else:
         lines.append("- No pairwise sidecar summary was available.")
