@@ -8,6 +8,7 @@
 - Requested exact MP4 path: `/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix Q1 2022 Earnings Interview.mp4`
 - Requested exact MP4 path matched directly: `False`
 - Resolved local MP4 fallback used: `/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4`
+- Sidecar execution mode: reused existing curated intermediate outputs for all requested models (`skipped_resume`).
 
 ## Exact Commands
 
@@ -23,6 +24,8 @@
 ## What Was Skipped
 
 - Visual skipped: `False`
+- Uploaded transcript fallback present: `False`
+- Uploaded shareholder-letter fallback present: `False`
 
 ## Outputs To Inspect First
 
@@ -35,6 +38,7 @@
 
 - Audio remains limited to the curated Q&A windows already aligned in the repo.
 - The exact requested local MP4 path did not match; this bundle used a fallback local Netflix MP4 for the bounded visual pass.
+- The provided `/mnt/data` fallback PDFs were not present in this environment, so the repo-local transcript and shareholder-letter sources were used.
 - Visual coverage is bounded to those timed Q&A windows and should be suppressed if the quality gate is weak.
 - Visual support is currently heuristic fallback only and does not include model-backed visual scoring.
 - Sidecars are supporting-only and do not replace the deterministic Netflix demo artifacts.

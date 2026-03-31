@@ -1,6 +1,15 @@
 {
   "case_id": "netflix_q1_2022",
   "status": "ok",
+  "video_source": {
+    "requested_path": "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix Q1 2022 Earnings Interview.mp4",
+    "requested_exists": false,
+    "fallback_candidates": [
+      "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4"
+    ],
+    "resolved_video_path": "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4",
+    "resolved_from_fallback": true
+  },
   "video_source_path": "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4",
   "sample_fps": 0.25,
   "summary": {
@@ -60,21 +69,18 @@
       "score": 0.9499,
       "level": "high"
     },
-    "visual_support_direction": "supportive",
-    "visual_confidence_support": {
+    "observation_mode": "heuristic_fallback",
+    "quality_assessment": {
       "level": "high",
       "suppressed": false,
-      "reason": "usable face visibility and landmark support"
+      "reason": "face visibility and landmark coverage were usable for a bounded visual pass"
     },
-    "support_mode": "heuristic_fallback",
-    "model_support": {
+    "model_backed_scoring": {
       "available": false,
       "mode": "heuristic_fallback",
-      "support_direction": "unavailable",
-      "calibrated_support_score": 0.0,
-      "reason": "No usable visual segments were available for model-backed scoring."
+      "reason": "no usable segments were available for model-backed visual scoring"
     },
-    "strongest_visual_evidence": [
+    "most_usable_visual_windows": [
       {
         "segment_id": 1,
         "section": "q_and_a",
@@ -86,8 +92,8 @@
         "head_pose_drift_mean": 0.0,
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
         "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
       },
       {
@@ -101,8 +107,8 @@
         "head_pose_drift_mean": 0.0,
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
         "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
       },
       {
@@ -116,8 +122,8 @@
         "head_pose_drift_mean": 0.0,
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
         "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
       }
     ],
@@ -133,8 +139,8 @@
         "head_pose_drift_mean": 0.0,
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
         "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
       },
       {
@@ -148,8 +154,8 @@
         "head_pose_drift_mean": 0.0,
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
         "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
       },
       {
@@ -163,65 +169,18 @@
         "head_pose_drift_mean": 0.0,
         "blink_rate_per_10s": 0.0,
         "face_visible_pct": 1.0,
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
         "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
       }
     ],
-    "most_confident_visual_segments": [
-      {
-        "segment_id": 1,
-        "section": "q_and_a",
-        "speaker_role": "management",
-        "start_time_s": 48.16,
-        "end_time_s": 196.24,
-        "visual_change_score": 0.0601,
-        "head_motion_energy": 0.0698,
-        "head_pose_drift_mean": 0.0,
-        "blink_rate_per_10s": 0.0,
-        "face_visible_pct": 1.0,
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
-        "text": "Yes, Doug. I mean I think our views are a little different because our numbers are a little different. If we had made our 2.5 million gui..."
-      },
-      {
-        "segment_id": 2,
-        "section": "q_and_a",
-        "speaker_role": "management",
-        "start_time_s": 232.24,
-        "end_time_s": 433.0,
-        "visual_change_score": 0.059,
-        "head_motion_energy": 0.0523,
-        "head_pose_drift_mean": 0.0,
-        "blink_rate_per_10s": 0.0,
-        "face_visible_pct": 1.0,
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
-        "text": "Sure. I'll take that, and then others can fill in. So as you said, Doug, we guided to 2.5 million paid net adds. We delivered 0.5 million..."
-      },
-      {
-        "segment_id": 4,
-        "section": "q_and_a",
-        "speaker_role": "management",
-        "start_time_s": 1284.2,
-        "end_time_s": 1323.4,
-        "visual_change_score": 0.0312,
-        "head_motion_energy": 0.0805,
-        "head_pose_drift_mean": 0.0,
-        "blink_rate_per_10s": 0.0,
-        "face_visible_pct": 1.0,
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
-        "support_direction": "supportive",
-        "text": "We're probably not that advanced, but no, I think it's pretty clear that it's working for Hulu. Disney is doing it. HBO did it. I don't t..."
-      }
-    ],
-    "notable_low_confidence_segments": [],
+    "notable_limited_quality_segments": [],
     "limitations": [
       "Upper-body coverage is limited, so shoulder and hand signals remain secondary."
     ],
     "notes": [
-      "Visual behavior signals are observational proxies only; they are not emotion or deception inference.",
-      "Frame features are sampled at a low rate and aggregated into transcript-aligned segments for reviewer decision support."
+      "Visual rows are bounded observational notes only and should not be read as corroboration of transcript or sidecar reads.",
+      "Pose coverage is limited in this recording, so visible-delivery notes stay narrow even when face visibility is usable."
     ]
   },
   "moments": [
@@ -231,9 +190,9 @@
       "start_time_s": 48.16,
       "end_time_s": 196.24,
       "visual_stability_label": "stable",
-      "support_direction": "supportive",
-      "support_note": "visible delivery stayed comparatively steady in this window",
-      "confidence_note": "pose coverage is limited for shoulder and hand features",
+      "observation_tag": "steady_visible_delivery",
+      "observation_note": "visible delivery stayed comparatively steady in this window",
+      "quality_note": "pose coverage is limited for shoulder and hand features",
       "face_visible_pct": 1.0,
       "visual_change_score": 0.0601,
       "head_motion_energy": 0.0698
@@ -244,9 +203,9 @@
       "start_time_s": 232.24,
       "end_time_s": 433.0,
       "visual_stability_label": "stable",
-      "support_direction": "supportive",
-      "support_note": "visible delivery stayed comparatively steady in this window",
-      "confidence_note": "pose coverage is limited for shoulder and hand features",
+      "observation_tag": "steady_visible_delivery",
+      "observation_note": "visible delivery stayed comparatively steady in this window",
+      "quality_note": "pose coverage is limited for shoulder and hand features",
       "face_visible_pct": 1.0,
       "visual_change_score": 0.059,
       "head_motion_energy": 0.0523
@@ -257,9 +216,9 @@
       "start_time_s": 1284.2,
       "end_time_s": 1323.4,
       "visual_stability_label": "stable",
-      "support_direction": "supportive",
-      "support_note": "visible delivery stayed comparatively steady in this window",
-      "confidence_note": "pose coverage is limited for shoulder and hand features",
+      "observation_tag": "steady_visible_delivery",
+      "observation_note": "visible delivery stayed comparatively steady in this window",
+      "quality_note": "pose coverage is limited for shoulder and hand features",
       "face_visible_pct": 1.0,
       "visual_change_score": 0.0312,
       "head_motion_energy": 0.0805
@@ -272,6 +231,7 @@
   },
   "notes": [
     "Visual behavior remains supporting-only and was run on the bounded timed Q&A answer windows.",
-    "Only the windows with existing curated audio timing were used for the visual pass."
+    "Only the windows with existing curated audio timing were used for the visual pass.",
+    "Visible-delivery notes are observational only and do not corroborate transcript or sidecar interpretations."
   ]
 }

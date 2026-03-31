@@ -25,6 +25,12 @@ REQUESTED_VIDEO_PATH = Path(
 FALLBACK_VIDEO_PATH = Path(
     "/Users/keith/Desktop/Netflix Meta Nvidia Capstone FINAL SOURCE/Netflix/Netflix Q1 2022 Earnings Interview.mp4"
 )
+UPLOADED_TRANSCRIPT_FALLBACK_PATH = Path(
+    "/mnt/data/Netflix-Inc.-Q1-2022-Pre-Recorded-Earnings-Call-Apr-19-2022.pdf"
+)
+UPLOADED_SHAREHOLDER_FALLBACK_PATH = Path(
+    "/mnt/data/netflix-Q1-22-Shareholder-Letter (1).pdf"
+)
 
 EXPECTED_POLARITY_BY_CATEGORY = {
     "growth_pressure": "negative",
@@ -257,6 +263,113 @@ def resolve_video_source(video_path: str | Path | None = None) -> dict[str, Any]
     }
 
 
+def _uploaded_source_checks() -> dict[str, dict[str, Any]]:
+    checks = {
+        "uploaded_transcript_pdf": UPLOADED_TRANSCRIPT_FALLBACK_PATH,
+        "uploaded_shareholder_letter_pdf": UPLOADED_SHAREHOLDER_FALLBACK_PATH,
+    }
+    return {
+        key: {"path": str(path), "exists": path.exists()}
+        for key, path in checks.items()
+    }
+
+
+def _sanitize_visual_quality_note(note: str | None) -> str:
+    cleaned = str(note or "").strip()
+    replacements = {
+        "low face visibility reduces confidence": "low face visibility limits visual usability",
+        "unstable face tracking reduces confidence": "unstable face tracking limits visual usability",
+        "low landmark confidence reduces confidence": "low landmark coverage limits visual usability",
+        "small on-screen face reduces confidence": "small on-screen face limits visual usability",
+        "usable visual segment": "usable visual segment for bounded observation",
+        "usable face visibility and landmark support": "face visibility and landmark coverage were usable for a bounded visual pass",
+        "quality gate suppressed confidence uplift": "quality gate suppressed visual carry-through",
+        "No usable visual segments were available for model-backed scoring.": "no usable segments were available for model-backed visual scoring",
+    }
+    return replacements.get(cleaned, cleaned)
+
+
+def _visual_observation_tag(direction: str | None) -> str:
+    mapping = {
+        "supportive": "steady_visible_delivery",
+        "cautionary": "raised_visible_change",
+        "neutral": "mixed_visible_change",
+        "unavailable": "unavailable",
+    }
+    return mapping.get(str(direction or "").strip().lower(), "unavailable")
+
+
+def _sanitize_visual_summary_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    sanitized: list[dict[str, Any]] = []
+    for item in items:
+        sanitized.append(
+            {
+                "segment_id": int(item.get("segment_id", 0)),
+                "section": str(item.get("section", "")),
+                "speaker_role": str(item.get("speaker_role", "")),
+                "start_time_s": float(item.get("start_time_s", 0.0)),
+                "end_time_s": float(item.get("end_time_s", 0.0)),
+                "visual_change_score": float(item.get("visual_change_score", 0.0)),
+                "head_motion_energy": float(item.get("head_motion_energy", 0.0)),
+                "head_pose_drift_mean": float(item.get("head_pose_drift_mean", 0.0)),
+                "blink_rate_per_10s": float(item.get("blink_rate_per_10s", 0.0)),
+                "face_visible_pct": float(item.get("face_visible_pct", 0.0)),
+                "quality_note": _sanitize_visual_quality_note(item.get("confidence_note")),
+                "observation_tag": _visual_observation_tag(item.get("support_direction")),
+                "text": str(item.get("text", "")),
+            }
+        )
+    return sanitized
+
+
+def _sanitize_visual_summary(summary: dict[str, Any]) -> dict[str, Any]:
+    quality_assessment = dict(summary.get("visual_confidence_support", {}))
+    model_backed = dict(summary.get("model_support", {}))
+    return {
+        "schema_version": summary.get("schema_version"),
+        "video_available": summary.get("video_available"),
+        "visual_features_available": summary.get("visual_features_available"),
+        "video_quality_ok": summary.get("video_quality_ok"),
+        "quality_gate": summary.get("quality_gate", {}),
+        "video_metadata": summary.get("video_metadata"),
+        "face_visibility_overall": summary.get("face_visibility_overall"),
+        "prepared_baseline_visual_stability": summary.get("prepared_baseline_visual_stability"),
+        "qa_visual_shift_score": summary.get("qa_visual_shift_score"),
+        "facial_tension_level": summary.get("facial_tension_level"),
+        "head_motion_pressure": summary.get("head_motion_pressure"),
+        "visual_stability": summary.get("visual_stability"),
+        "observation_mode": summary.get("support_mode"),
+        "quality_assessment": {
+            "level": quality_assessment.get("level"),
+            "suppressed": quality_assessment.get("suppressed"),
+            "reason": _sanitize_visual_quality_note(quality_assessment.get("reason")),
+        },
+        "model_backed_scoring": {
+            "available": model_backed.get("available"),
+            "mode": model_backed.get("mode"),
+            "reason": _sanitize_visual_quality_note(model_backed.get("reason")),
+        },
+        "most_usable_visual_windows": _sanitize_visual_summary_items(
+            list(summary.get("strongest_visual_evidence", []))
+        ),
+        "most_visually_changed_segments": _sanitize_visual_summary_items(
+            list(summary.get("most_visually_changed_segments", []))
+        ),
+        "notable_limited_quality_segments": [
+            {
+                **item,
+                "quality_note": _sanitize_visual_quality_note(item.get("confidence_note")),
+            }
+            for item in list(summary.get("notable_low_confidence_segments", []))
+        ],
+        "limitations": list(summary.get("limitations", [])),
+        "notes": [
+            "Visual rows are bounded observational notes only and should not be read as corroboration of transcript or sidecar reads.",
+            "Pose coverage is limited in this recording, so visible-delivery notes stay narrow even when face visibility is usable.",
+        ],
+    }
+
+
 def build_asset_audit(root: Path | None = None, *, video_path: str | Path | None = None) -> dict[str, Any]:
     case_dir = case_root(root)
     video_source = resolve_video_source(video_path)
@@ -307,6 +420,7 @@ def build_asset_audit(root: Path | None = None, *, video_path: str | Path | None
                 },
             },
         },
+        "requested_external_fallback_sources": _uploaded_source_checks(),
         "missing_or_untracked_items": [
             "The repo does not track the raw Netflix MP4 in data/demo_cases/netflix_q1_2022/raw/video/.",
             "The repo does not track the extracted WAV in data/demo_cases/netflix_q1_2022/raw/audio/.",
@@ -848,7 +962,10 @@ def build_visual_support(
                 "case_id": CASE_ID,
                 "status": "skipped",
                 "reason": "No usable local Netflix MP4 was available for the bounded visual pass.",
-                "video_source_check": resolved_video,
+                "video_source": resolved_video,
+                "notes": [
+                    "Visual review was skipped instead of inventing scene-level observations.",
+                ],
             },
             True,
         )
@@ -879,7 +996,10 @@ def build_visual_support(
                 "case_id": CASE_ID,
                 "status": "skipped",
                 "reason": "No curated answer-level timestamps were available for a bounded visual pass.",
-                "video_source_check": resolved_video,
+                "video_source": resolved_video,
+                "notes": [
+                    "Visual review was skipped because the curated answer windows could not be aligned safely.",
+                ],
             },
             True,
         )
@@ -906,18 +1026,25 @@ def build_visual_support(
             {
                 "case_id": CASE_ID,
                 "status": "skipped",
-                "reason": str(summary.get("visual_confidence_support", {}).get("reason", "Visual quality gate failed.")),
+                "reason": _sanitize_visual_quality_note(
+                    str(summary.get("visual_confidence_support", {}).get("reason", "Visual quality gate failed."))
+                ),
+                "video_source": resolved_video,
                 "video_source_path": str(video_file),
-                "summary": summary,
+                "summary": _sanitize_visual_summary(summary),
                 "intermediate_paths": {
                     "frames_csv": str(outputs["frames_path"]),
                     "segments_csv": str(outputs["segments_path"]),
                     "summary_json": str(outputs["summary_path"]),
                 },
+                "notes": [
+                    "Visual review was skipped because the quality gate did not support a bounded observational read.",
+                ],
             },
             True,
         )
 
+    sanitized_summary = _sanitize_visual_summary(summary)
     moment_rows: list[dict[str, Any]] = []
     for row in outputs["segments_df"].to_dict(orient="records"):
         moment_id = segment_to_moment.get(int(row["segment_id"]))
@@ -930,9 +1057,9 @@ def build_visual_support(
                 "start_time_s": float(row["start_time_s"]),
                 "end_time_s": float(row["end_time_s"]),
                 "visual_stability_label": str(row["visual_stability_label"]),
-                "support_direction": str(row["support_direction"]),
-                "support_note": str(row["support_note"]),
-                "confidence_note": str(row["confidence_note"]),
+                "observation_tag": _visual_observation_tag(row.get("support_direction")),
+                "observation_note": str(row["support_note"]),
+                "quality_note": _sanitize_visual_quality_note(row.get("confidence_note")),
                 "face_visible_pct": float(row["face_visible_pct"]),
                 "visual_change_score": float(row["visual_change_score"]),
                 "head_motion_energy": float(row["head_motion_energy"]),
@@ -943,9 +1070,10 @@ def build_visual_support(
         {
             "case_id": CASE_ID,
             "status": "ok",
+            "video_source": resolved_video,
             "video_source_path": str(video_file),
             "sample_fps": sample_fps,
-            "summary": summary,
+            "summary": sanitized_summary,
             "moments": moment_rows,
             "intermediate_paths": {
                 "frames_csv": str(outputs["frames_path"]),
@@ -955,6 +1083,7 @@ def build_visual_support(
             "notes": [
                 "Visual behavior remains supporting-only and was run on the bounded timed Q&A answer windows.",
                 "Only the windows with existing curated audio timing were used for the visual pass.",
+                "Visible-delivery notes are observational only and do not corroborate transcript or sidecar interpretations.",
             ],
         },
         False,
@@ -999,7 +1128,7 @@ def build_panel_payload(
         audio_row = audio_by_id.get(moment_id)
         visual_row = visual_by_id.get(moment_id)
         caveat = (
-            "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+            "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
         )
         row = {
             "moment_id": moment_id,
@@ -1111,6 +1240,16 @@ def _render_asset_audit_markdown(audit: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
+            "## Requested External Fallbacks",
+            "",
+        ]
+    )
+    for key, item in audit.get("requested_external_fallback_sources", {}).items():
+        lines.append(f"- `{key}`: `{item['exists']}`")
+        lines.append(f"  path: `{item['path']}`")
+    lines.extend(
+        [
+            "",
             "## Missing Or Untracked",
             "",
         ]
@@ -1128,6 +1267,23 @@ def _render_asset_audit_markdown(audit: dict[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def _audio_support_markdown(audio_row: dict[str, Any]) -> str:
+    if not audio_row or audio_row.get("status") != "aligned":
+        return "unavailable for this moment"
+    summary = str(audio_row.get("plain_english_audio_summary", "")).strip() or "bounded audio cues available"
+    return f"{summary}; timing window `{audio_row.get('answer_time_range', 'n/a')}`"
+
+
+def _visual_support_markdown(visual_row: dict[str, Any]) -> str:
+    if not visual_row or visual_row.get("status") != "aligned":
+        return "unavailable for this moment"
+    return (
+        f"{visual_row.get('observation_tag', 'unavailable')}: "
+        f"{visual_row.get('observation_note', '')} "
+        f"(quality note: {visual_row.get('quality_note', 'n/a')})"
+    ).strip()
+
+
 def _render_panel_markdown(panel_payload: dict[str, Any], pressure_panel: dict[str, Any], disagreement_panel: dict[str, Any]) -> str:
     lines = [
         "# Netflix Multimodal Evidence Panel",
@@ -1139,21 +1295,45 @@ def _render_panel_markdown(panel_payload: dict[str, Any], pressure_panel: dict[s
         "",
     ]
     for row in panel_payload["panel_rows"]:
-        if not row["top_8_showcase"]:
-            continue
+        if row["top_8_showcase"]:
+            lines.append(f"- `{row['moment_id']}`")
+    lines.extend(
+        [
+            "",
+            "## Selected Moments",
+            "",
+        ]
+    )
+    for row in panel_payload["panel_rows"]:
+        sidecars = row["sidecar_outputs"]
         lines.extend(
             [
                 f"### {row['rank']}. {row['moment_id']}",
                 "",
-                f"- Deterministic label: `{row['deterministic_signal']['label']}`",
-                f"- Category: `{row['deterministic_signal']['category']}`",
+                f"- Top-8 showcase: `{row['top_8_showcase']}`",
                 f"- Quote: {row['raw_quote_or_span']}",
+                (
+                    f"- Deterministic signal: `{row['deterministic_signal']['category']}` | "
+                    f"`{row['deterministic_signal']['label']}`"
+                ),
+                (
+                    f"- Sidecar read: consensus `{sidecars.get('consensus_label') or 'unavailable'}` | "
+                    f"alignment `{sidecars.get('deterministic_alignment') or 'unavailable'}` | "
+                    f"pairwise disagreement `{sidecars.get('pairwise_disagreement')}`"
+                ),
+                f"- Audio support: {_audio_support_markdown(row['audio_support'])}",
+                f"- Visual support: {_visual_support_markdown(row['visual_support'])}",
                 f"- Reviewer note: {row['reviewer_note']}",
                 f"- Caveat: {row['caveat']}",
                 "",
             ]
         )
-    lines.extend(["## Pressure Moments Panel", ""])
+    lines.extend(
+        [
+            "## Pressure Moments Panel",
+            "",
+        ]
+    )
     for row in pressure_panel["rows"]:
         lines.extend(
             [
@@ -1161,6 +1341,13 @@ def _render_panel_markdown(panel_payload: dict[str, Any], pressure_panel: dict[s
                 "",
                 f"- Analyst question: {_truncate(str(row.get('analyst_question', '')), limit=180)}",
                 f"- Executive answer: {_truncate(str(row.get('executive_answer', '')), limit=180)}",
+                f"- Deterministic read: {_truncate(str(row.get('deterministic_read', '')), limit=180)}",
+                (
+                    f"- NLP sidecar read: consensus "
+                    f"`{row.get('nlp_sidecar_read', {}).get('consensus_label') or 'unavailable'}`"
+                ),
+                f"- Audio support: {_audio_support_markdown(row['audio_support'])}",
+                f"- Visual support: {_visual_support_markdown(row['visual_support'])}",
                 f"- Reviewer note: {row['reviewer_note']}",
                 "",
             ]
@@ -1170,11 +1357,57 @@ def _render_panel_markdown(panel_payload: dict[str, Any], pressure_panel: dict[s
         for row in disagreement_panel["rows"]:
             lines.extend(
                 [
-                    f"- `{row['moment_id']}`: {_truncate(str(row['quote_or_span']), limit=160)}",
+                    f"### {row['moment_id']}",
+                    "",
+                    f"- Observed labels: `{', '.join(row.get('observed_labels', [])) or 'unavailable'}`",
+                    f"- Alignment: `{row.get('alignment', 'unavailable')}`",
+                    f"- Quote: {_truncate(str(row['quote_or_span']), limit=220)}",
+                    f"- Audio support: {_audio_support_markdown(row['audio_support'])}",
+                    f"- Visual support: {_visual_support_markdown(row['visual_support'])}",
+                    "",
                 ]
             )
     else:
         lines.append("- No material pairwise sidecar disagreement hotspots were written for this run.")
+    lines.extend(
+        [
+            "## Cleaner Optional-Support Examples",
+            "",
+        ]
+    )
+    for row in panel_payload.get("strong_supporting_alignment_moments", []):
+        lines.append(
+            f"- `{row['moment_id']}`: consensus `{row.get('consensus_label') or 'unavailable'}` | {row.get('reviewer_note', '')}"
+        )
+    if not panel_payload.get("strong_supporting_alignment_moments"):
+        lines.append("- No cleaner optional-support examples were recorded for this run.")
+    lines.extend(
+        [
+            "",
+            "## What Sidecars Added",
+            "",
+        ]
+    )
+    for item in panel_payload.get("what_sidecars_added", []):
+        lines.append(f"- {item}")
+    lines.extend(
+        [
+            "",
+            "## What Sidecars Did Not Add",
+            "",
+        ]
+    )
+    for item in panel_payload.get("what_sidecars_did_not_add", []):
+        lines.append(f"- {item}")
+    lines.extend(
+        [
+            "",
+            "## Later UI Surfacing",
+            "",
+        ]
+    )
+    for item in panel_payload.get("future_ui_surface_notes", []):
+        lines.append(f"- {item}")
     return "\n".join(lines) + "\n"
 
 
@@ -1186,6 +1419,8 @@ def _render_summary_markdown(
     bundle_paths: BundlePaths,
     models: list[str],
     sample_fps: float,
+    device: str,
+    video_path: str | Path | None = None,
     pairwise_summary: list[dict[str, Any]] | None = None,
 ) -> str:
     preferred_video = audit["preferred_video_check"]
@@ -1196,9 +1431,22 @@ def _render_summary_markdown(
     visual_support_note = None
     if visual_payload.get("status") == "ok":
         visual_summary = visual_payload.get("summary", {})
-        visual_support_mode = visual_summary.get("support_mode")
-        if visual_support_mode == "heuristic_fallback" and not visual_summary.get("model_support", {}).get("available", False):
+        visual_support_mode = visual_summary.get("observation_mode")
+        if visual_support_mode == "heuristic_fallback" and not visual_summary.get("model_backed_scoring", {}).get("available", False):
             visual_support_note = "observational fallback only; no model-backed visual scoring"
+
+    command_parts = [
+        "PYTHONPATH=src python3 scripts/build_netflix_multimodal_panel.py",
+        f"--device {device}",
+        f"--visual-sample-fps {sample_fps}",
+    ]
+    default_models = ["finbert_tone", "financial_roberta", "deberta_zero_shot", "mpnet_embeddings"]
+    if models != default_models:
+        command_parts.append(f"--models {' '.join(models)}")
+    if video_path:
+        command_parts.append(f"--video-path \"{Path(video_path).expanduser()}\"")
+    sidecar_run_models = sidecar_runtime.get("run_payload", {}).get("models", []) if isinstance(sidecar_runtime, dict) else []
+    sidecar_statuses = [str(item.get("status", "")) for item in sidecar_run_models if isinstance(item, dict)]
 
     lines = [
         "# Netflix Multimodal Panel Summary",
@@ -1214,11 +1462,21 @@ def _render_summary_markdown(
         "",
         "## Exact Commands",
         "",
-        "- `PYTHONPATH=src python3 scripts/build_netflix_multimodal_panel.py --device auto --visual-sample-fps 0.25`",
+        f"- `{' '.join(command_parts)}`",
         "",
         "## Pairwise Sidecar Comparison",
         "",
     ]
+    if sidecar_statuses and all(status == "skipped_resume" for status in sidecar_statuses):
+        lines.insert(
+            10,
+            "- Sidecar execution mode: reused existing curated intermediate outputs for all requested models (`skipped_resume`).",
+        )
+    elif sidecar_statuses:
+        lines.insert(
+            10,
+            f"- Sidecar execution statuses: `{', '.join(sidecar_statuses)}`",
+        )
     if visual_support_mode:
         visual_mode_line = f"- Visual support mode: `{visual_support_mode}`"
         if visual_support_note:
@@ -1236,13 +1494,19 @@ def _render_summary_markdown(
     lines.extend(
         [
             "",
-        "## What Was Skipped",
-        "",
-        f"- Visual skipped: `{visual_payload.get('status') == 'skipped'}`",
+            "## What Was Skipped",
+            "",
+            f"- Visual skipped: `{visual_payload.get('status') == 'skipped'}`",
         ]
     )
     if visual_payload.get("status") == "skipped":
         lines.append(f"- Visual skip reason: {visual_payload.get('reason')}")
+    uploaded_fallbacks = audit.get("requested_external_fallback_sources", {})
+    if uploaded_fallbacks:
+        transcript_exists = uploaded_fallbacks.get("uploaded_transcript_pdf", {}).get("exists")
+        shareholder_exists = uploaded_fallbacks.get("uploaded_shareholder_letter_pdf", {}).get("exists")
+        lines.append(f"- Uploaded transcript fallback present: `{transcript_exists}`")
+        lines.append(f"- Uploaded shareholder-letter fallback present: `{shareholder_exists}`")
     lines.extend(
         [
             "",
@@ -1260,6 +1524,8 @@ def _render_summary_markdown(
     )
     if preferred_video["resolved_from_fallback"]:
         lines.append("- The exact requested local MP4 path did not match; this bundle used a fallback local Netflix MP4 for the bounded visual pass.")
+    if any(not item.get("exists") for item in uploaded_fallbacks.values()):
+        lines.append("- The provided `/mnt/data` fallback PDFs were not present in this environment, so the repo-local transcript and shareholder-letter sources were used.")
     lines.append("- Visual coverage is bounded to those timed Q&A windows and should be suppressed if the quality gate is weak.")
     if visual_support_mode == "heuristic_fallback":
         lines.append("- Visual support is currently heuristic fallback only and does not include model-backed visual scoring.")
@@ -1376,6 +1642,8 @@ def write_review_bundle(
             bundle_paths=paths,
             models=resolved_models,
             sample_fps=sample_fps,
+            device=device,
+            video_path=video_path,
             pairwise_summary=comparison_payload.get("pairwise_summary", []),
         ),
         encoding="utf-8",

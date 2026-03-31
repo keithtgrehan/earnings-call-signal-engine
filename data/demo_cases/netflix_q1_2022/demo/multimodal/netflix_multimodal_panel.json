@@ -93,15 +93,15 @@
         "start_time_s": 48.16,
         "end_time_s": 196.24,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
+        "observation_note": "visible delivery stayed comparatively steady in this window",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.0601,
         "head_motion_energy": 0.0698
       },
       "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "qa_q1_miss_explanation",
@@ -192,15 +192,15 @@
         "start_time_s": 232.24,
         "end_time_s": 433.0,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
+        "observation_note": "visible delivery stayed comparatively steady in this window",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.059,
         "head_motion_energy": 0.0523
       },
       "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "guidance_negative_q2_net_adds",
@@ -281,7 +281,7 @@
         "status": "unavailable"
       },
       "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "qa_ad_supported_option",
@@ -372,15 +372,15 @@
         "start_time_s": 1284.2,
         "end_time_s": 1323.4,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
+        "observation_note": "visible delivery stayed comparatively steady in this window",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.0312,
         "head_motion_energy": 0.0805
       },
       "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "chunk_monetize_sharing_competition",
@@ -461,7 +461,7 @@
         "status": "unavailable"
       },
       "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "chunk_long_term_market_unchanged",
@@ -542,7 +542,7 @@
         "status": "unavailable"
       },
       "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "letter_growth_slowdown",
@@ -623,7 +623,7 @@
         "status": "unavailable"
       },
       "reviewer_note": "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "chunk_opening_analyst_skepticism",
@@ -704,7 +704,7 @@
         "status": "unavailable"
       },
       "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "letter_headwinds",
@@ -785,7 +785,7 @@
         "status": "unavailable"
       },
       "reviewer_note": "Optional sidecars broadly move with the deterministic category, which makes this a cleaner support example than a hotspot.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "letter_margin_framing",
@@ -866,7 +866,7 @@
         "status": "unavailable"
       },
       "reviewer_note": "This is a non-polar management framing moment, so sidecars add color but should not be treated as a categorical override.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     },
     {
       "moment_id": "financial_anchor_q1",
@@ -947,7 +947,7 @@
         "status": "unavailable"
       },
       "reviewer_note": "Sidecars split on this span, so the deterministic read should stay primary and the support layers should be treated as inspection cues only.",
-      "caveat": "Deterministic evidence stays canonical; supporting layers here are optional reviewer context only."
+      "caveat": "Deterministic transcript-backed artifacts stay canonical; supporting layers here are optional reviewer context only."
     }
   ],
   "top_disagreement_hotspots": [
@@ -982,9 +982,9 @@
         "start_time_s": 48.16,
         "end_time_s": 196.24,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
+        "observation_note": "visible delivery stayed comparatively steady in this window",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.0601,
         "head_motion_energy": 0.0698
@@ -1021,9 +1021,9 @@
         "start_time_s": 232.24,
         "end_time_s": 433.0,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
+        "observation_note": "visible delivery stayed comparatively steady in this window",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.059,
         "head_motion_energy": 0.0523
@@ -1081,9 +1081,9 @@
         "start_time_s": 1284.2,
         "end_time_s": 1323.4,
         "visual_stability_label": "stable",
-        "support_direction": "supportive",
-        "support_note": "visible delivery stayed comparatively steady in this window",
-        "confidence_note": "pose coverage is limited for shoulder and hand features",
+        "observation_tag": "steady_visible_delivery",
+        "observation_note": "visible delivery stayed comparatively steady in this window",
+        "quality_note": "pose coverage is limited for shoulder and hand features",
         "face_visible_pct": 1.0,
         "visual_change_score": 0.0312,
         "head_motion_energy": 0.0805

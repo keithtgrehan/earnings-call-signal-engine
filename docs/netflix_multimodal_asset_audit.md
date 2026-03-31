@@ -23,6 +23,13 @@
 - `processed_audio_summary`: `True`
   path: `/Users/keith/Documents/New project/main-demo-wt/data/demo_cases/netflix_q1_2022/processed/audio_behavior/audio_behavior_summary.json`
 
+## Requested External Fallbacks
+
+- `uploaded_transcript_pdf`: `False`
+  path: `/mnt/data/Netflix-Inc.-Q1-2022-Pre-Recorded-Earnings-Call-Apr-19-2022.pdf`
+- `uploaded_shareholder_letter_pdf`: `False`
+  path: `/mnt/data/netflix-Q1-22-Shareholder-Letter (1).pdf`
+
 ## Missing Or Untracked
 
 - The repo does not track the raw Netflix MP4 in data/demo_cases/netflix_q1_2022/raw/video/.
