@@ -184,6 +184,7 @@ def test_build_panel_payload_returns_pressure_rows() -> None:
     assert "strong_supporting_context_moments" in panel_payload
     assert len(pressure_panel["rows"]) >= 4
     assert disagreement_panel["rows"][0]["moment_id"] == "qa_reels_transition_pressure"
+    assert pressure_panel["rows"][0]["why_selected"]
 
     reels_row = next(row for row in panel_payload["panel_rows"] if row["moment_id"] == "qa_reels_transition_pressure")
     assert reels_row["visual_support"]["status"] == "skipped"

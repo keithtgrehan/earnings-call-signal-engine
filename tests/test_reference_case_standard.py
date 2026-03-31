@@ -157,3 +157,55 @@ def test_validate_reference_case_package_accepts_legacy_netflix_style_layout(tmp
     )
 
     assert validate_reference_case_package(package_dir, prefix) == []
+
+
+def test_validate_reference_case_package_requires_legacy_nlp_sidecars_when_model_comparison_exists(
+    tmp_path: Path,
+) -> None:
+    package_dir = tmp_path / "case"
+    package_dir.mkdir()
+    prefix = "netflix"
+
+    (package_dir / f"{prefix}_multimodal_moment_manifest.json").write_text("[]", encoding="utf-8")
+    (package_dir / f"{prefix}_multimodal_panel.md").write_text("# Panel\n", encoding="utf-8")
+    (package_dir / f"{prefix}_clip_manifest.json").write_text("[]", encoding="utf-8")
+    (package_dir / f"{prefix}_model_comparison.json").write_text(
+        json.dumps({"case_id": "netflix_q1_2022", "status": "ok"}, indent=2),
+        encoding="utf-8",
+    )
+    (package_dir / f"{prefix}_supporting_only_caveats.json").write_text(
+        json.dumps(
+            {
+                "deterministic": [
+                    "Transcript-backed deterministic artifacts remain the canonical review path for this case."
+                ],
+                "audio": [
+                    "Audio behavior remains supporting-only reviewer context."
+                ],
+                "visual": [
+                    "Visual behavior is observational only and heuristic fallback should be suppressed when weak."
+                ],
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    (package_dir / f"{prefix}_visual_support.json").write_text(
+        json.dumps({"status": "ok", "moments": []}, indent=2),
+        encoding="utf-8",
+    )
+    (package_dir / f"{prefix}_multimodal_panel.json").write_text(
+        json.dumps(
+            {
+                "case_id": "netflix_q1_2022",
+                "status": "ok",
+                "panel_rows": [{"moment_id": "m01", "caveat": "supporting-only"}],
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+    errors = validate_reference_case_package(package_dir, prefix)
+
+    assert any("legacy caveats must include `nlp_sidecars`" in error for error in errors)

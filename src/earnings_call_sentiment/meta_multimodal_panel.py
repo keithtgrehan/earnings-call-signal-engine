@@ -1333,6 +1333,7 @@ def build_panel_payload(
                 {
                     "moment_id": moment_id,
                     "rank": moment["rank"],
+                    "why_selected": moment["why_selected"],
                     "analyst_question": moment.get("question_text"),
                     "executive_answer": moment["text"],
                     "deterministic_read": moment["deterministic_signal_summary"],

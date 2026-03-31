@@ -28,6 +28,7 @@ def expected_reference_case_paths(package_dir: Path, prefix: str) -> dict[str, P
         "panel_markdown": package_dir / f"{prefix}_multimodal_panel.md",
         "clip_manifest": package_dir / f"{prefix}_clip_manifest.json",
         "caveats_json": package_dir / f"{prefix}_supporting_only_caveats.json",
+        "model_comparison": package_dir / f"{prefix}_model_comparison.json",
         "pressure_panel": package_dir / f"{prefix}_pressure_moments_panel.json",
         "disagreement_panel": package_dir / f"{prefix}_disagreement_hotspots_panel.json",
         "visual_support": package_dir / f"{prefix}_visual_support.json",
@@ -139,7 +140,7 @@ def _validate_panel_payload(payload: Any, panel_path: Path) -> list[str]:
     return errors
 
 
-def _validate_caveat_payload(payload: Any, caveat_path: Path) -> list[str]:
+def _validate_caveat_payload(payload: Any, caveat_path: Path, *, requires_nlp_sidecars: bool = False) -> list[str]:
     errors: list[str] = []
     if isinstance(payload, list):
         caveat_ids = _collect_caveat_ids(payload)
@@ -151,6 +152,10 @@ def _validate_caveat_payload(payload: Any, caveat_path: Path) -> list[str]:
     if isinstance(payload, dict):
         keys = {str(key).strip() for key in payload.keys() if str(key).strip()}
         if set(LEGACY_REQUIRED_CAVEAT_GROUPS).issubset(keys):
+            if requires_nlp_sidecars and "nlp_sidecars" not in keys:
+                errors.append(
+                    f"legacy caveats must include `nlp_sidecars` when a model comparison artifact is present: {caveat_path}"
+                )
             if not _has_phrase(payload.get("deterministic", []), "transcript", "canonical"):
                 errors.append(
                     f"legacy deterministic caveats must state that transcript-backed artifacts remain canonical: {caveat_path}"
@@ -195,7 +200,13 @@ def validate_reference_case_package(package_dir: Path, prefix: str) -> list[str]
         errors.extend(_validate_panel_payload(_read_json(paths["panel_json"]), paths["panel_json"]))
 
     if paths["caveats_json"].exists():
-        errors.extend(_validate_caveat_payload(_read_json(paths["caveats_json"]), paths["caveats_json"]))
+        errors.extend(
+            _validate_caveat_payload(
+                _read_json(paths["caveats_json"]),
+                paths["caveats_json"],
+                requires_nlp_sidecars=paths["model_comparison"].exists(),
+            )
+        )
 
     if paths["visual_skip"].exists():
         payload = _read_json(paths["visual_skip"])
