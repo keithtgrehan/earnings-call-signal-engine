@@ -121,6 +121,33 @@ def test_visual_moment_row_softens_heuristic_fallback_language() -> None:
     assert "confidence_note" not in softened
 
 
+def test_soften_heuristic_visual_summary_clarifies_model_backed_gate_reason() -> None:
+    softened = netflix_panel._soften_heuristic_visual_summary(
+        {
+            "support_mode": "heuristic_fallback",
+            "visual_confidence_support": {
+                "level": "high",
+                "suppressed": False,
+                "reason": "usable face visibility and landmark support",
+            },
+            "model_support": {
+                "available": False,
+                "mode": "heuristic_fallback",
+                "support_direction": "unavailable",
+                "calibrated_support_score": 0.0,
+                "reason": "No usable visual segments were available for model-backed scoring.",
+            },
+            "strongest_visual_evidence": [],
+            "most_visually_changed_segments": [],
+            "most_confident_visual_segments": [],
+            "notable_low_confidence_segments": [],
+        }
+    )
+
+    assert softened["visual_signal_usability"]["reason"] == "usable face visibility and landmark support"
+    assert softened["model_support"]["reason"] == "No segments met the model-backed scoring gate, so heuristic fallback remains active."
+
+
 def test_support_signal_metadata_downgrades_non_polar_spread() -> None:
     metadata = netflix_panel._support_signal_metadata(
         expected_direction="",

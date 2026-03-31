@@ -65,7 +65,7 @@
       "available": false,
       "mode": "heuristic_fallback",
       "calibrated_support_score": 0.0,
-      "reason": "No usable visual segments were available for model-backed scoring.",
+      "reason": "No segments met the model-backed scoring gate, so heuristic fallback remains active.",
       "context_role": "unavailable"
     },
     "most_visually_changed_segments": [

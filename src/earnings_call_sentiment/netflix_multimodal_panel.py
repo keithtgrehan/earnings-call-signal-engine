@@ -953,6 +953,13 @@ def _soften_heuristic_visual_summary(summary: dict[str, Any]) -> dict[str, Any]:
     if softened.get("support_mode") != "heuristic_fallback" or softened.get("model_support", {}).get("available"):
         return _normalize_visual_summary(softened)
 
+    model_support = softened.get("model_support")
+    if (
+        isinstance(model_support, dict)
+        and str(model_support.get("reason", "")).strip() == "No usable visual segments were available for model-backed scoring."
+    ):
+        model_support["reason"] = "No segments met the model-backed scoring gate, so heuristic fallback remains active."
+
     softened["visual_support_direction"] = "context_only"
     softened.setdefault("limitations", []).append(
         "This run is heuristic fallback only, so visually steady delivery should be treated as bounded context and does not change the transcript-backed read."
