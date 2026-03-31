@@ -334,6 +334,7 @@ def _run_single_model_for_case(
             model_name=model_name,
             unit_type=unit_type,
             output_kind=model.output_kind,
+            expected_item_count=len(units),
         ):
             output_path = expected_artifacts["output"]
             similarity_path = expected_artifacts.get("similarity")

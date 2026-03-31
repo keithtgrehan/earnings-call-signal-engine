@@ -480,8 +480,51 @@ def benchmark_markdown_path(case_id: str, *, output_root: str | Path | None = No
     return build_case_benchmark_output_dir(case_id, output_dir=output_root) / "model_sidecars_benchmark.md"
 
 
-def artifact_is_complete(path: Path) -> bool:
-    return path.exists() and path.is_file() and path.stat().st_size > 0
+def _jsonl_record_count(path: Path) -> int:
+    record_count = 0
+    with path.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            line = line.strip()
+            if not line:
+                continue
+            json.loads(line)
+            record_count += 1
+    return record_count
+
+
+def artifact_is_complete(
+    path: Path,
+    *,
+    minimum_records: int | None = None,
+    required_keys: set[str] | None = None,
+) -> bool:
+    if not path.exists() or not path.is_file() or path.stat().st_size <= 0:
+        return False
+
+    try:
+        if path.suffix == ".jsonl":
+            record_count = _jsonl_record_count(path)
+            if record_count <= 0:
+                return False
+            if minimum_records is not None and record_count < minimum_records:
+                return False
+            return True
+
+        if path.suffix == ".json":
+            payload = _read_json(path)
+            if isinstance(payload, dict):
+                if not payload:
+                    return False
+                if required_keys is not None and not required_keys.issubset(payload):
+                    return False
+                return True
+            if isinstance(payload, list):
+                return bool(payload)
+            return payload is not None
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        return False
+
+    return True
 
 
 def expected_unit_artifact_paths(
@@ -507,6 +550,7 @@ def unit_output_complete(
     model_name: str,
     unit_type: str,
     output_kind: str,
+    expected_item_count: int | None = None,
 ) -> bool:
     artifacts = expected_unit_artifact_paths(
         output_root=output_root,
@@ -514,16 +558,34 @@ def unit_output_complete(
         unit_type=unit_type,
         output_kind=output_kind,
     )
-    return all(artifact_is_complete(path) for path in artifacts.values())
+    minimum_records = max(int(expected_item_count or 1), 1)
+    if output_kind == "classification":
+        return artifact_is_complete(
+            artifacts["output"],
+            minimum_records=minimum_records,
+        )
+    if output_kind == "embedding":
+        return artifact_is_complete(
+            artifacts["output"],
+            minimum_records=minimum_records,
+        ) and artifact_is_complete(
+            artifacts["similarity"],
+            required_keys={"mode"},
+        )
+    raise RuntimeError(f"Unsupported output kind '{output_kind}'.")
 
 
 def completion_rule_for(output_kind: str) -> str:
     if output_kind == "classification":
-        return "Complete when the final unit JSONL exists and is non-empty."
+        return (
+            "Complete when the final unit JSONL parses successfully and contains "
+            "at least one record per selected unit."
+        )
     if output_kind == "embedding":
         return (
-            "Complete when the final embedding JSONL and similarity JSON both exist "
-            "and are non-empty."
+            "Complete when the final embedding JSONL parses successfully with at "
+            "least one record per selected unit and the similarity JSON parses with "
+            "the expected metadata."
         )
     raise RuntimeError(f"Unsupported output kind '{output_kind}'.")
 

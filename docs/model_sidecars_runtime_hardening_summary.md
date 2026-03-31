@@ -12,31 +12,12 @@
 - manifest loader plus 5, 15, and 50 call manifest templates
 - optional lighter zero-shot fallback: `distilbart_zero_shot_smoke`
 
-## Commands Run
+## Cleanup Notes
 
-```bash
-PYTHONPATH=src python3 -m pytest -q
-PYTHONPATH=src python3 -m earnings_call_sentiment sidecars-prewarm --models finbert_tone financial_roberta deberta_zero_shot mpnet_embeddings --device cpu
-PYTHONPATH=src python3 scripts/benchmark_model_sidecars.py --case-id nvidia_q4_fy2024 --models finbert_tone --units chunks --sample-size 4 --sample-strategy head --batch-size 4 --device cpu --run-mode warm --output-dir outputs
-PYTHONPATH=src python3 -m earnings_call_sentiment sidecars --case-id nvidia_q4_fy2024 --models deberta_zero_shot --units guidance_spans qa_answers --zero-shot-label-config configs/model_eval/zero_shot_labels.finance.yaml --output-dir outputs --device cpu --batch-size 2 --sample-size 3 --sample-strategy random --seed 7 --prewarm
-PYTHONPATH=src python3 -m earnings_call_sentiment sidecars --case-id nvidia_q4_fy2024 --models mpnet_embeddings --units guidance_spans qa_answers --output-dir outputs --device cpu --batch-size 2 --sample-size 3 --sample-strategy random --seed 7 --prewarm
-PYTHONPATH=src python3 scripts/evaluate_model_sidecars.py --case-id nvidia_q4_fy2024 --sidecar-root outputs
-```
-
-## Artifacts Produced
-
-- `outputs/nvidia_q4_fy2024/model_sidecars/benchmarks/model_sidecars_benchmark.json`
-- `outputs/nvidia_q4_fy2024/model_sidecars/benchmarks/model_sidecars_benchmark.md`
-- `outputs/nvidia_q4_fy2024/model_sidecars/deberta_zero_shot/guidance_span_scores.jsonl`
-- `outputs/nvidia_q4_fy2024/model_sidecars/deberta_zero_shot/qa_answer_scores.jsonl`
-- `outputs/nvidia_q4_fy2024/model_sidecars/deberta_zero_shot/run_summary.json`
-- `outputs/nvidia_q4_fy2024/model_sidecars/mpnet_embeddings/guidance_span_embeddings.jsonl`
-- `outputs/nvidia_q4_fy2024/model_sidecars/mpnet_embeddings/guidance_similarity.json`
-- `outputs/nvidia_q4_fy2024/model_sidecars/mpnet_embeddings/qa_answer_embeddings.jsonl`
-- `outputs/nvidia_q4_fy2024/model_sidecars/mpnet_embeddings/qa_similarity.json`
-- `outputs/nvidia_q4_fy2024/model_sidecars/mpnet_embeddings/run_summary.json`
-- `outputs/nvidia_q4_fy2024/model_sidecars/model_sidecars_evaluation.json`
-- `outputs/nvidia_q4_fy2024/model_sidecars/model_sidecars_evaluation.md`
+- The original hardening summary overstated branch scope and treated non-empty artifacts as complete.
+- The cleanup pass narrows scope by reverting unrelated app copy changes.
+- Completion checks now require parseable sidecar JSON or JSONL artifacts, plus at least one JSONL record per selected unit before resume can skip work.
+- Benchmark and evaluation outputs remain untracked runtime artifacts under `outputs/`.
 
 ## Known Limitations
 

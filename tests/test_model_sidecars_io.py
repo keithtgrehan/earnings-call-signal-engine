@@ -6,8 +6,10 @@ from pathlib import Path
 import pandas as pd
 
 from earnings_call_sentiment.model_sidecars.io import (
+    artifact_is_complete,
     load_units_for_case,
     resolve_case_artifacts,
+    unit_output_complete,
     write_classification_outputs,
 )
 from earnings_call_sentiment.model_sidecars.models.base import (
@@ -173,3 +175,41 @@ def test_write_classification_outputs_writes_expected_schema(tmp_path: Path) -> 
     assert row["label"] == "positive"
     assert row["rank"] == 1
     assert row["metadata"]["source_metadata"]["topic"] == "demand"
+
+
+def test_artifact_is_complete_rejects_invalid_jsonl_and_empty_json(tmp_path: Path) -> None:
+    invalid_jsonl = tmp_path / "chunk_scores.jsonl"
+    invalid_jsonl.write_text("{not-json}\n", encoding="utf-8")
+    assert artifact_is_complete(invalid_jsonl) is False
+
+    empty_similarity = tmp_path / "chunk_similarity.json"
+    empty_similarity.write_text("{}", encoding="utf-8")
+    assert artifact_is_complete(empty_similarity, required_keys={"mode"}) is False
+
+
+def test_unit_output_complete_requires_expected_record_count_and_similarity_metadata(
+    tmp_path: Path,
+) -> None:
+    output_root = tmp_path / "outputs" / "synthetic_case" / "model_sidecars"
+    model_dir = output_root / "mpnet_embeddings"
+    model_dir.mkdir(parents=True, exist_ok=True)
+
+    (model_dir / "chunk_embeddings.jsonl").write_text(
+        json.dumps({"source_id": "row-1"}) + "\n",
+        encoding="utf-8",
+    )
+    (model_dir / "chunk_similarity.json").write_text(
+        json.dumps({"mode": "within_case", "neighbors": []}),
+        encoding="utf-8",
+    )
+
+    assert (
+        unit_output_complete(
+            output_root=output_root,
+            model_name="mpnet_embeddings",
+            unit_type="chunks",
+            output_kind="embedding",
+            expected_item_count=2,
+        )
+        is False
+    )

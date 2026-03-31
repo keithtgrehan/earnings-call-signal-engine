@@ -182,6 +182,44 @@ def test_run_model_sidecars_recomputes_after_partial_inprogress_artifact(
     assert (model_dir / "chunk_scores.jsonl").exists()
 
 
+def test_run_model_sidecars_recomputes_after_corrupt_existing_output(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    units = [
+        TextUnit(
+            case_id="synthetic_case",
+            unit_type="chunks",
+            source_id="chunk-1",
+            text="Demand remains stable.",
+        )
+    ]
+    _patch_case(monkeypatch, tmp_path, units)
+    instances: list[FakeClassificationSidecar] = []
+
+    def _build_model(name: str, *, device: str = "auto") -> FakeClassificationSidecar:
+        del name
+        instance = FakeClassificationSidecar(device=device)
+        instances.append(instance)
+        return instance
+
+    monkeypatch.setattr(runner, "build_model", _build_model)
+
+    model_dir = tmp_path / "outputs" / "synthetic_case" / "model_sidecars" / "finbert_tone"
+    model_dir.mkdir(parents=True, exist_ok=True)
+    (model_dir / "chunk_scores.jsonl").write_text("{not-json}\n", encoding="utf-8")
+
+    payload = runner.run_model_sidecars(
+        case_ids=["synthetic_case"],
+        model_names=["finbert_tone"],
+        unit_types=["chunks"],
+        output_dir=tmp_path / "outputs",
+    )
+
+    assert payload["cases"][0]["models"]["finbert_tone"]["unit_results"]["chunks"]["status"] == "completed"
+    assert instances[0].predict_calls == 1
+
+
 def test_run_model_sidecars_applies_limit_and_seeded_random_sampling(
     monkeypatch,
     tmp_path: Path,

@@ -120,8 +120,8 @@ Recommended CPU pattern:
 Resume/skip behavior is enabled by default.
 
 Completion rules:
-- classification output is complete when the final unit JSONL exists and is non-empty
-- embedding output is complete when the final embedding JSONL and similarity JSON both exist and are non-empty
+- classification output is complete when the final unit JSONL parses successfully and contains at least one record per selected unit
+- embedding output is complete when the final embedding JSONL parses successfully with at least one record per selected unit and the similarity JSON parses with the expected metadata
 - temporary `.inprogress` files do not count as complete
 
 Write safety:

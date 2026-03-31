@@ -292,8 +292,8 @@ Resume and retry behavior:
 - sidecars skip already complete model/unit artifacts by default
 - use `--force` to recompute
 - use `--no-resume` to disable skip logic for a run
-- classification outputs count as complete when the final unit JSONL exists and is non-empty
-- embedding outputs count as complete when the final embedding JSONL and similarity JSON both exist and are non-empty
+- classification outputs count as complete when the final unit JSONL parses cleanly and contains at least one record per selected unit
+- embedding outputs count as complete when the final embedding JSONL parses cleanly with at least one record per selected unit and the similarity JSON parses with the expected metadata
 - temporary `.inprogress` files do not count as complete
 
 Outputs are written under:
@@ -317,6 +317,7 @@ Current claim boundaries:
 - finance classifiers and CPU runtime controls can be validated locally on real processed cases
 - slower zero-shot and embedding runs may still require reduced CPU validation or stronger hardware
 - broader throughput benchmarking is better suited to NVIDIA hardware after CPU-side validation
+- manifest templates are templates only; they are not a claim that those larger processed-case batches already exist in this repo
 
 See `docs/model_sidecars.md` for the model list, manifests, artifact schema, and current limitations.
 
