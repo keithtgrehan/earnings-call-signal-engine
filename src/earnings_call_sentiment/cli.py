@@ -873,7 +873,10 @@ def _write_report_markdown(
     guidance_revision_df: pd.DataFrame,
     behavioral_summary: dict[str, Any],
     qa_shift_summary: dict[str, Any],
+    audio_summary: dict[str, Any] | None = None,
     visual_summary: dict[str, Any] | None = None,
+    media_quality: dict[str, Any] | None = None,
+    multimodal_summary: dict[str, Any] | None = None,
 ) -> None:
     lines = [
         "# Earnings Call Sentiment Report",
@@ -1071,6 +1074,95 @@ def _write_report_markdown(
                 lines.append(f"- {item.get('confidence_note', 'low confidence visual segment')}")
         else:
             lines.append("- _none_")
+        lines.append("")
+
+    if isinstance(audio_summary, dict) and audio_summary.get("audio_features_available"):
+        lines.extend(
+            [
+                "## Audio Behavior Signals",
+                f"- hesitation: {audio_summary.get('hesitation_overall', {}).get('level', 'low')}",
+                f"- pauses before answers: {audio_summary.get('pauses_before_answers', {}).get('level', 'low')}",
+                (
+                    "- prepared baseline audio stability: "
+                    f"{audio_summary.get('prepared_baseline_audio_stability', {}).get('level', 'low')}"
+                ),
+                f"- Q&A hesitation shift: {audio_summary.get('qa_hesitation_shift', {}).get('level', 'low')}",
+                f"- support mode: {audio_summary.get('support_mode', 'heuristic_fallback')}",
+                "",
+            ]
+        )
+        hesitant_answers = audio_summary.get("most_hesitant_answers", [])
+        lines.append("### Audio caution examples")
+        if isinstance(hesitant_answers, list) and hesitant_answers:
+            for item in hesitant_answers[:2]:
+                lines.append(
+                    f"- {item.get('section', 'segment')} "
+                    f"{float(item.get('start_time_s', 0.0)):.1f}-{float(item.get('end_time_s', 0.0)):.1f}s "
+                    f"hesitation={item.get('hesitation_label', 'unknown')} "
+                    f"pause_ms={float(item.get('pause_before_answer_ms', 0.0)):.1f}"
+                )
+        else:
+            lines.append("- _none_")
+        low_confidence = audio_summary.get("low_confidence_segments", [])
+        lines.append("")
+        lines.append("### Audio quality notes")
+        if isinstance(low_confidence, list) and low_confidence:
+            for item in low_confidence[:2]:
+                lines.append(f"- {item.get('confidence_note', 'limited audio quality segment')}")
+        else:
+            lines.append("- _none_")
+        lines.append("")
+
+    if isinstance(media_quality, dict):
+        lines.extend(
+            [
+                "## Media Quality",
+                f"- audio quality ok: {media_quality.get('audio_quality_ok')}",
+                f"- video quality ok: {media_quality.get('video_quality_ok')}",
+            ]
+        )
+        quality_notes = media_quality.get("quality_notes", [])
+        if isinstance(quality_notes, list) and quality_notes:
+            for note in quality_notes[:3]:
+                lines.append(f"- quality note: {note}")
+        lines.append("")
+
+    if isinstance(multimodal_summary, dict):
+        lines.extend(
+            [
+                "## Multimodal Support",
+                (
+                    "- transcript primary assessment: "
+                    f"{multimodal_summary.get('transcript_primary_assessment', 'unknown')}"
+                ),
+                (
+                    "- audio support direction: "
+                    f"{multimodal_summary.get('audio_support_direction', 'unavailable')}"
+                ),
+                (
+                    "- video support direction: "
+                    f"{multimodal_summary.get('video_support_direction', 'unavailable')}"
+                ),
+                f"- fusion mode: {multimodal_summary.get('fusion_mode', 'unknown')}",
+                (
+                    "- calibrated support score: "
+                    f"{multimodal_summary.get('calibrated_support_score', 'unknown')}"
+                ),
+                (
+                    "- multimodal alignment: "
+                    f"{multimodal_summary.get('multimodal_alignment', 'unknown')}"
+                ),
+                (
+                    "- multimodal confidence adjustment: "
+                    f"{multimodal_summary.get('multimodal_confidence_adjustment', 'unknown')}"
+                ),
+                "",
+            ]
+        )
+        notes = multimodal_summary.get("notes", [])
+        if isinstance(notes, list) and notes:
+            for note in notes[:3]:
+                lines.append(f"- note: {note}")
         lines.append("")
 
     lines.extend(
