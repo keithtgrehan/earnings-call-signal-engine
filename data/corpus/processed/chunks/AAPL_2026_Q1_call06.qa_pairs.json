@@ -1,0 +1,444 @@
+{
+  "qa_pairs": [
+    {
+      "qa_pair_id": 1,
+      "question_speaker": "",
+      "question_text": "products and services in the world. Now I'd like to take a closer look at results from across our",
+      "question_segment_ids": [
+        29
+      ],
+      "question_start": 195.92000000000002,
+      "question_end": 202.48000000000002,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 2,
+      "question_speaker": "",
+      "question_text": "I'd like to review your outlook, which includes a types of forward-looking information that's",
+      "question_segment_ids": [
+        204
+      ],
+      "question_start": 1339.44,
+      "question_end": 1343.84,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 3,
+      "question_speaker": "",
+      "question_text": "memory inflation, flowing through Apple's model over time?",
+      "question_segment_ids": [
+        225
+      ],
+      "question_start": 1466.32,
+      "question_end": 1469.4399999999998,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 4,
+      "question_speaker": "",
+      "question_text": "that flow through an apex. Can you help us understand maybe what the revenue upside potential",
+      "question_segment_ids": [
+        266
+      ],
+      "question_start": 1768.8000000000002,
+      "question_end": 1774.48,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 5,
+      "question_speaker": "",
+      "question_text": "So how do you monetize AI and what's the timeline to realizing that ROI? Then a quick follow-up. Thank you.",
+      "question_segment_ids": [
+        270
+      ],
+      "question_start": 1789.76,
+      "question_end": 1795.6,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 6,
+      "question_speaker": "",
+      "question_text": "and data to evaluate this cycle, can you maybe help us understand what the primary factors are driving",
+      "question_segment_ids": [
+        276
+      ],
+      "question_start": 1838.24,
+      "question_end": 1844.88,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 7,
+      "question_speaker": "",
+      "question_text": "Awesome. Thank you, Eric. Operator. Can we get the next question, please?",
+      "question_segment_ids": [
+        284
+      ],
+      "question_start": 1900.8,
+      "question_end": 1904.48,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 8,
+      "question_speaker": "",
+      "question_text": "the questions. I have two as well if I could. First, you know, we're encouraging to hear about the revenue growth outlook of 13 to 16% for the March quarter. I was just wondering if you could",
+      "question_segment_ids": [
+        286,
+        287
+      ],
+      "question_start": 1913.76,
+      "question_end": 1925.6000000000001,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 9,
+      "question_speaker": "",
+      "question_text": "and in advertising. I know you guys are doing the new ad slots in the App Store. Maybe you could just",
+      "question_segment_ids": [
+        299
+      ],
+      "question_start": 1993.04,
+      "question_end": 2000.08,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 10,
+      "question_speaker": "",
+      "question_text": "Thank you, Mike. Operator, can we get the next question, please?",
+      "question_segment_ids": [
+        315
+      ],
+      "question_start": 2065.44,
+      "question_end": 2068.48,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 11,
+      "question_speaker": "",
+      "question_text": "Yeah, hey, guys, how are you?",
+      "question_segment_ids": [
+        317
+      ],
+      "question_start": 2078.1600000000003,
+      "question_end": 2079.44,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 12,
+      "question_speaker": "",
+      "question_text": "can you help us understand how you're thinking about the overall kind of smartphone market demand,",
+      "question_segment_ids": [
+        352
+      ],
+      "question_start": 2290.3199999999997,
+      "question_end": 2294.8799999999997,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 13,
+      "question_speaker": "",
+      "question_text": "and then ultimately what that might mean for demand for iPhones as we move through the rest of this",
+      "question_segment_ids": [
+        358
+      ],
+      "question_start": 2320.08,
+      "question_end": 2323.68,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 14,
+      "question_speaker": "",
+      "question_text": "Got it at the risk of not getting the answer that I'm going to follow up with. Can you maybe help us",
+      "question_segment_ids": [
+        371
+      ],
+      "question_start": 2445.04,
+      "question_end": 2450.72,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 15,
+      "question_speaker": "",
+      "question_text": "should we think about kind of like LPAs in the marketplace? I mean, is that an option as we move through the year or is it more spot-based from a on a perspective, particularly around memory?",
+      "question_segment_ids": [
+        373,
+        374
+      ],
+      "question_start": 2455.92,
+      "question_end": 2465.92,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 16,
+      "question_speaker": "",
+      "question_text": "on the December quarter, a lot of two year or 14 percent growth. We're hoping if you could maybe confirm that in secondarily, if it's correct, what might be some of the drivers of that, and what could be things that you could do to reverse that in future quarters that I'm a follow-up?",
+      "question_segment_ids": [
+        383,
+        384,
+        385
+      ],
+      "question_start": 2524.32,
+      "question_end": 2540.7200000000003,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 17,
+      "question_speaker": "",
+      "question_text": "Okay, thanks. Thanks, Womsey. Operator, could we have the next question, please?",
+      "question_segment_ids": [
+        399
+      ],
+      "question_start": 2620.56,
+      "question_end": 2625.6,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 18,
+      "question_speaker": "",
+      "question_text": "And when you sort of highlighted makes as a driver, can you just sort of talk through what are the",
+      "question_segment_ids": [
+        421
+      ],
+      "question_start": 2740.2400000000002,
+      "question_end": 2746.0800000000004,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 19,
+      "question_speaker": "",
+      "question_text": "Thank you. Awesome. Thank you, Samik. Operator, could we have the next question, please?",
+      "question_segment_ids": [
+        432
+      ],
+      "question_start": 2804.32,
+      "question_end": 2809.28,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 20,
+      "question_speaker": "",
+      "question_text": "Mac at the expense of competition who might have more constraints in getting access to memory?",
+      "question_segment_ids": [
+        446
+      ],
+      "question_start": 2893.44,
+      "question_end": 2898.4800000000005,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 21,
+      "question_speaker": "",
+      "question_text": "our position. Thanks, Tim. Yeah. Thank you, Chris. Operator, could we have the next question, please?",
+      "question_segment_ids": [
+        450
+      ],
+      "question_start": 2920.8799999999997,
+      "question_end": 2930.0,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 22,
+      "question_speaker": "",
+      "question_text": "Very helpful. Thanks. All right. Thank you, Otis. Operator, could we have the next question,",
+      "question_segment_ids": [
+        473
+      ],
+      "question_start": 3095.1200000000003,
+      "question_end": 3099.44,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 23,
+      "question_speaker": "",
+      "question_text": "memory question. I'm curious and, you know, obviously a lot of focus on the China demand, but I'm curious, you also call about India and so can you maybe unpack some of the things that you're",
+      "question_segment_ids": [
+        476,
+        477
+      ],
+      "question_start": 3112.0800000000004,
+      "question_end": 3121.84,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 24,
+      "question_speaker": "",
+      "question_text": "that product. And so it speaks very well to opportunity there. Yeah, and I know, and how do you",
+      "question_segment_ids": [
+        488
+      ],
+      "question_start": 3190.32,
+      "question_end": 3198.0800000000004,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 25,
+      "question_speaker": "",
+      "question_text": "is you clearly deepen some of your own internal silicon capabilities on the device. I'm curious",
+      "question_segment_ids": [
+        492
+      ],
+      "question_start": 3214.08,
+      "question_end": 3220.56,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 26,
+      "question_speaker": "",
+      "question_text": "Yeah, thank you. Awesome. Thank you, Erin. Operator, could we have our last question, please?",
+      "question_segment_ids": [
+        506
+      ],
+      "question_start": 3291.92,
+      "question_end": 3297.2,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 27,
+      "question_speaker": "",
+      "question_text": "because of our privacy approach. In terms of, do we have enough capacity?",
+      "question_segment_ids": [
+        515
+      ],
+      "question_start": 3347.6,
+      "question_end": 3352.8,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 28,
+      "question_speaker": "",
+      "question_text": "features have only been available since the 15 pros. So can you speak at all to roughly",
+      "question_segment_ids": [
+        519
+      ],
+      "question_start": 3379.6800000000003,
+      "question_end": 3384.4,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    },
+    {
+      "qa_pair_id": 29,
+      "question_speaker": "",
+      "question_text": "been a factor in maybe a more gradual pace of launching wider AI services?",
+      "question_segment_ids": [
+        521
+      ],
+      "question_start": 3391.1200000000003,
+      "question_end": 3395.36,
+      "answer_speakers": [],
+      "answer_text": "",
+      "answer_segment_ids": [],
+      "answer_start": null,
+      "answer_end": null
+    }
+  ]
+}

@@ -1,0 +1,2893 @@
+{
+  "case_id": "PLTR_2025_Q4_call01",
+  "audio_verified": true,
+  "video_verified": false,
+  "audio_behavior_summary_path": "outputs/PLTR_2025_Q4_call01/audio_behavior_summary.json",
+  "multimodal_support_summary_path": "",
+  "flagged_windows": [
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0002_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0002",
+      "window_start_s": 75.0,
+      "window_end_s": 133.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0005_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0005",
+      "window_start_s": 115.0,
+      "window_end_s": 148.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0006_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0006",
+      "window_start_s": 118.0,
+      "window_end_s": 152.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0007_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0007",
+      "window_start_s": 122.0,
+      "window_end_s": 155.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0008_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0008",
+      "window_start_s": 125.0,
+      "window_end_s": 162.0,
+      "reason": {
+        "guidance_related": false,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0009_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0009",
+      "window_start_s": 132.0,
+      "window_end_s": 169.0,
+      "reason": {
+        "guidance_related": false,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0017_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0017",
+      "window_start_s": 177.0,
+      "window_end_s": 211.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0019_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0019",
+      "window_start_s": 189.0,
+      "window_end_s": 223.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0021_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0021",
+      "window_start_s": 196.0,
+      "window_end_s": 233.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0022_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0022",
+      "window_start_s": 203.0,
+      "window_end_s": 240.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0023_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0023",
+      "window_start_s": 210.0,
+      "window_end_s": 247.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0024_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0024",
+      "window_start_s": 217.0,
+      "window_end_s": 252.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0025_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0025",
+      "window_start_s": 222.0,
+      "window_end_s": 259.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0026_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0026",
+      "window_start_s": 229.0,
+      "window_end_s": 266.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0028_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0028",
+      "window_start_s": 242.0,
+      "window_end_s": 277.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0029_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0029",
+      "window_start_s": 247.0,
+      "window_end_s": 283.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0042_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0042",
+      "window_start_s": 319.0,
+      "window_end_s": 356.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0046_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0046",
+      "window_start_s": 342.0,
+      "window_end_s": 377.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0052_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0052",
+      "window_start_s": 365.0,
+      "window_end_s": 402.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0053_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0053",
+      "window_start_s": 372.0,
+      "window_end_s": 408.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0054_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0054",
+      "window_start_s": 378.0,
+      "window_end_s": 414.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0055_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0055",
+      "window_start_s": 384.0,
+      "window_end_s": 418.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0064_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0064",
+      "window_start_s": 418.0,
+      "window_end_s": 458.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0065_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0065",
+      "window_start_s": 428.0,
+      "window_end_s": 465.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0069_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0069",
+      "window_start_s": 447.0,
+      "window_end_s": 481.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0071_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0071",
+      "window_start_s": 454.0,
+      "window_end_s": 488.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0076_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0076",
+      "window_start_s": 477.0,
+      "window_end_s": 513.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0086_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0086",
+      "window_start_s": 521.0,
+      "window_end_s": 555.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0091_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0091",
+      "window_start_s": 541.0,
+      "window_end_s": 574.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0098_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0098",
+      "window_start_s": 566.0,
+      "window_end_s": 598.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0112_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0112",
+      "window_start_s": 619.0,
+      "window_end_s": 653.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0121_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0121",
+      "window_start_s": 654.0,
+      "window_end_s": 688.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0148_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0148",
+      "window_start_s": 741.0,
+      "window_end_s": 774.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0178_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0178",
+      "window_start_s": 836.0,
+      "window_end_s": 868.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0179_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0179",
+      "window_start_s": 838.0,
+      "window_end_s": 873.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0180_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0180",
+      "window_start_s": 843.0,
+      "window_end_s": 876.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0181_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0181",
+      "window_start_s": 846.0,
+      "window_end_s": 879.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0182_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0182",
+      "window_start_s": 849.0,
+      "window_end_s": 883.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0184_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0184",
+      "window_start_s": 855.0,
+      "window_end_s": 889.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0185_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0185",
+      "window_start_s": 859.0,
+      "window_end_s": 893.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0187_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0187",
+      "window_start_s": 865.0,
+      "window_end_s": 901.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0188_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0188",
+      "window_start_s": 871.0,
+      "window_end_s": 904.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0189_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0189",
+      "window_start_s": 874.0,
+      "window_end_s": 906.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0190_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0190",
+      "window_start_s": 876.0,
+      "window_end_s": 910.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0192_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0192",
+      "window_start_s": 884.0,
+      "window_end_s": 918.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0193_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0193",
+      "window_start_s": 888.0,
+      "window_end_s": 921.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0194_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0194",
+      "window_start_s": 891.0,
+      "window_end_s": 924.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0196_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0196",
+      "window_start_s": 896.0,
+      "window_end_s": 929.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0199_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0199",
+      "window_start_s": 906.0,
+      "window_end_s": 941.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0200_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0200",
+      "window_start_s": 911.0,
+      "window_end_s": 946.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0201_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0201",
+      "window_start_s": 916.0,
+      "window_end_s": 950.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0202_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0202",
+      "window_start_s": 920.0,
+      "window_end_s": 952.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0204_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0204",
+      "window_start_s": 926.0,
+      "window_end_s": 960.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0205_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0205",
+      "window_start_s": 930.0,
+      "window_end_s": 965.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0207_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0207",
+      "window_start_s": 937.0,
+      "window_end_s": 970.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0209_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0209",
+      "window_start_s": 944.0,
+      "window_end_s": 977.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0211_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0211",
+      "window_start_s": 950.0,
+      "window_end_s": 983.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0213_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0213",
+      "window_start_s": 958.0,
+      "window_end_s": 991.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0215_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0215",
+      "window_start_s": 964.0,
+      "window_end_s": 997.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0216_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0216",
+      "window_start_s": 967.0,
+      "window_end_s": 1000.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0218_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0218",
+      "window_start_s": 972.0,
+      "window_end_s": 1005.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0219_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0219",
+      "window_start_s": 975.0,
+      "window_end_s": 1008.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0220_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0220",
+      "window_start_s": 978.0,
+      "window_end_s": 1012.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0221_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0221",
+      "window_start_s": 982.0,
+      "window_end_s": 1015.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0222_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0222",
+      "window_start_s": 985.0,
+      "window_end_s": 1018.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0223_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0223",
+      "window_start_s": 988.0,
+      "window_end_s": 1021.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0225_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0225",
+      "window_start_s": 995.0,
+      "window_end_s": 1028.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0226_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0226",
+      "window_start_s": 998.0,
+      "window_end_s": 1031.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0227_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0227",
+      "window_start_s": 1001.0,
+      "window_end_s": 1034.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0230_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0230",
+      "window_start_s": 1009.0,
+      "window_end_s": 1042.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0232_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0232",
+      "window_start_s": 1016.0,
+      "window_end_s": 1049.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0235_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0235",
+      "window_start_s": 1025.0,
+      "window_end_s": 1057.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0236_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0236",
+      "window_start_s": 1027.0,
+      "window_end_s": 1059.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0238_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0238",
+      "window_start_s": 1031.0,
+      "window_end_s": 1063.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0239_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0239",
+      "window_start_s": 1033.0,
+      "window_end_s": 1065.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0241_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0241",
+      "window_start_s": 1038.0,
+      "window_end_s": 1069.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0242_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0242",
+      "window_start_s": 1039.0,
+      "window_end_s": 1072.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0246_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0246",
+      "window_start_s": 1050.0,
+      "window_end_s": 1082.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0247_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0247",
+      "window_start_s": 1052.0,
+      "window_end_s": 1085.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0249_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0249",
+      "window_start_s": 1058.0,
+      "window_end_s": 1090.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0250_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0250",
+      "window_start_s": 1060.0,
+      "window_end_s": 1092.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0252_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0252",
+      "window_start_s": 1065.0,
+      "window_end_s": 1098.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0253_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0253",
+      "window_start_s": 1068.0,
+      "window_end_s": 1100.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0254_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0254",
+      "window_start_s": 1070.0,
+      "window_end_s": 1102.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0256_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0256",
+      "window_start_s": 1074.0,
+      "window_end_s": 1106.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0257_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0257",
+      "window_start_s": 1076.0,
+      "window_end_s": 1109.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0258_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0258",
+      "window_start_s": 1079.0,
+      "window_end_s": 1110.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0260_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0260",
+      "window_start_s": 1083.0,
+      "window_end_s": 1117.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0263_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0263",
+      "window_start_s": 1092.0,
+      "window_end_s": 1125.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0268_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0268",
+      "window_start_s": 1103.0,
+      "window_end_s": 1135.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0272_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0272",
+      "window_start_s": 1111.0,
+      "window_end_s": 1143.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0274_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0274",
+      "window_start_s": 1115.0,
+      "window_end_s": 1147.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0275_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0275",
+      "window_start_s": 1117.0,
+      "window_end_s": 1149.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0277_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0277",
+      "window_start_s": 1122.0,
+      "window_end_s": 1154.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0278_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0278",
+      "window_start_s": 1124.0,
+      "window_end_s": 1156.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0279_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0279",
+      "window_start_s": 1126.0,
+      "window_end_s": 1158.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0285_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0285",
+      "window_start_s": 1138.0,
+      "window_end_s": 1170.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0286_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0286",
+      "window_start_s": 1140.0,
+      "window_end_s": 1172.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0287_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0287",
+      "window_start_s": 1142.0,
+      "window_end_s": 1174.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0288_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0288",
+      "window_start_s": 1144.0,
+      "window_end_s": 1176.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0289_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0289",
+      "window_start_s": 1146.0,
+      "window_end_s": 1178.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0293_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0293",
+      "window_start_s": 1154.0,
+      "window_end_s": 1186.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0296_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0296",
+      "window_start_s": 1160.0,
+      "window_end_s": 1192.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0298_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0298",
+      "window_start_s": 1164.0,
+      "window_end_s": 1196.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0299_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0299",
+      "window_start_s": 1166.0,
+      "window_end_s": 1198.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0302_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0302",
+      "window_start_s": 1172.0,
+      "window_end_s": 1204.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0303_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0303",
+      "window_start_s": 1174.0,
+      "window_end_s": 1206.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0305_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0305",
+      "window_start_s": 1178.0,
+      "window_end_s": 1210.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0306_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0306",
+      "window_start_s": 1180.0,
+      "window_end_s": 1212.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0309_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0309",
+      "window_start_s": 1186.0,
+      "window_end_s": 1218.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0310_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0310",
+      "window_start_s": 1188.0,
+      "window_end_s": 1220.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0316_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0316",
+      "window_start_s": 1200.0,
+      "window_end_s": 1232.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0317_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0317",
+      "window_start_s": 1202.0,
+      "window_end_s": 1234.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0321_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0321",
+      "window_start_s": 1210.0,
+      "window_end_s": 1242.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0322_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0322",
+      "window_start_s": 1212.0,
+      "window_end_s": 1244.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0324_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0324",
+      "window_start_s": 1216.0,
+      "window_end_s": 1248.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0327_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0327",
+      "window_start_s": 1222.0,
+      "window_end_s": 1254.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0331_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0331",
+      "window_start_s": 1230.0,
+      "window_end_s": 1262.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0334_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0334",
+      "window_start_s": 1236.0,
+      "window_end_s": 1268.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0337_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0337",
+      "window_start_s": 1242.0,
+      "window_end_s": 1274.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0340_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0340",
+      "window_start_s": 1248.0,
+      "window_end_s": 1280.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0344_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0344",
+      "window_start_s": 1256.0,
+      "window_end_s": 1288.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0345_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0345",
+      "window_start_s": 1258.0,
+      "window_end_s": 1290.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0348_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0348",
+      "window_start_s": 1264.0,
+      "window_end_s": 1296.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0351_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0351",
+      "window_start_s": 1270.0,
+      "window_end_s": 1302.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0353_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0353",
+      "window_start_s": 1274.0,
+      "window_end_s": 1306.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0364_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0364",
+      "window_start_s": 1296.0,
+      "window_end_s": 1328.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0365_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0365",
+      "window_start_s": 1298.0,
+      "window_end_s": 1330.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0367_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0367",
+      "window_start_s": 1302.0,
+      "window_end_s": 1334.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0368_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0368",
+      "window_start_s": 1304.0,
+      "window_end_s": 1336.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0372_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0372",
+      "window_start_s": 1312.0,
+      "window_end_s": 1344.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0373_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0373",
+      "window_start_s": 1314.0,
+      "window_end_s": 1346.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0375_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0375",
+      "window_start_s": 1318.0,
+      "window_end_s": 1350.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0377_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0377",
+      "window_start_s": 1322.0,
+      "window_end_s": 1354.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0378_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0378",
+      "window_start_s": 1324.0,
+      "window_end_s": 1356.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0381_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0381",
+      "window_start_s": 1330.0,
+      "window_end_s": 1362.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0384_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0384",
+      "window_start_s": 1336.0,
+      "window_end_s": 1368.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0386_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0386",
+      "window_start_s": 1340.0,
+      "window_end_s": 1372.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0387_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0387",
+      "window_start_s": 1342.0,
+      "window_end_s": 1374.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0393_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0393",
+      "window_start_s": 1354.0,
+      "window_end_s": 1386.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0395_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0395",
+      "window_start_s": 1358.0,
+      "window_end_s": 1390.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0396_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0396",
+      "window_start_s": 1360.0,
+      "window_end_s": 1392.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0398_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0398",
+      "window_start_s": 1364.0,
+      "window_end_s": 1396.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0399_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0399",
+      "window_start_s": 1366.0,
+      "window_end_s": 1398.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0401_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0401",
+      "window_start_s": 1370.0,
+      "window_end_s": 1402.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0402_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0402",
+      "window_start_s": 1372.0,
+      "window_end_s": 1404.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0404_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0404",
+      "window_start_s": 1376.0,
+      "window_end_s": 1408.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0405_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0405",
+      "window_start_s": 1378.0,
+      "window_end_s": 1410.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0410_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0410",
+      "window_start_s": 1388.0,
+      "window_end_s": 1420.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0414_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0414",
+      "window_start_s": 1396.0,
+      "window_end_s": 1428.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0416_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0416",
+      "window_start_s": 1400.0,
+      "window_end_s": 1432.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0418_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0418",
+      "window_start_s": 1404.0,
+      "window_end_s": 1436.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0419_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0419",
+      "window_start_s": 1406.0,
+      "window_end_s": 1438.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0422_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0422",
+      "window_start_s": 1412.0,
+      "window_end_s": 1444.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0424_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0424",
+      "window_start_s": 1416.0,
+      "window_end_s": 1448.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0426_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0426",
+      "window_start_s": 1420.0,
+      "window_end_s": 1452.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0427_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0427",
+      "window_start_s": 1422.0,
+      "window_end_s": 1454.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0429_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0429",
+      "window_start_s": 1426.0,
+      "window_end_s": 1458.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0431_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0431",
+      "window_start_s": 1430.0,
+      "window_end_s": 1462.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0433_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0433",
+      "window_start_s": 1434.0,
+      "window_end_s": 1466.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0435_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0435",
+      "window_start_s": 1438.0,
+      "window_end_s": 1470.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0438_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0438",
+      "window_start_s": 1444.0,
+      "window_end_s": 1476.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0439_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0439",
+      "window_start_s": 1446.0,
+      "window_end_s": 1478.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0441_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0441",
+      "window_start_s": 1450.0,
+      "window_end_s": 1482.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0444_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0444",
+      "window_start_s": 1456.0,
+      "window_end_s": 1488.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0445_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0445",
+      "window_start_s": 1458.0,
+      "window_end_s": 1490.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0447_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0447",
+      "window_start_s": 1462.0,
+      "window_end_s": 1494.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0450_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0450",
+      "window_start_s": 1468.0,
+      "window_end_s": 1500.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0451_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0451",
+      "window_start_s": 1470.0,
+      "window_end_s": 1502.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0452_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0452",
+      "window_start_s": 1472.0,
+      "window_end_s": 1504.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0457_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0457",
+      "window_start_s": 1484.0,
+      "window_end_s": 1516.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0458_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0458",
+      "window_start_s": 1486.0,
+      "window_end_s": 1518.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0461_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0461",
+      "window_start_s": 1492.0,
+      "window_end_s": 1524.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0468_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0468",
+      "window_start_s": 1506.0,
+      "window_end_s": 1538.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0471_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0471",
+      "window_start_s": 1512.0,
+      "window_end_s": 1544.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0472_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0472",
+      "window_start_s": 1514.0,
+      "window_end_s": 1546.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0473_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0473",
+      "window_start_s": 1516.0,
+      "window_end_s": 1548.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0497_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0497",
+      "window_start_s": 1566.0,
+      "window_end_s": 1598.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0505_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0505",
+      "window_start_s": 1582.0,
+      "window_end_s": 1614.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0508_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0508",
+      "window_start_s": 1588.0,
+      "window_end_s": 1620.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0512_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0512",
+      "window_start_s": 1596.0,
+      "window_end_s": 1628.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0513_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0513",
+      "window_start_s": 1598.0,
+      "window_end_s": 1630.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0529_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0529",
+      "window_start_s": 1630.0,
+      "window_end_s": 1662.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0547_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0547",
+      "window_start_s": 1666.0,
+      "window_end_s": 1698.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0554_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0554",
+      "window_start_s": 1680.0,
+      "window_end_s": 1712.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0576_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0576",
+      "window_start_s": 1724.0,
+      "window_end_s": 1756.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0585_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0585",
+      "window_start_s": 1742.0,
+      "window_end_s": 1774.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0621_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0621",
+      "window_start_s": 1814.0,
+      "window_end_s": 1846.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0627_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0627",
+      "window_start_s": 1826.0,
+      "window_end_s": 1858.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0635_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0635",
+      "window_start_s": 1842.0,
+      "window_end_s": 1874.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0639_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0639",
+      "window_start_s": 1850.0,
+      "window_end_s": 1882.0,
+      "reason": {
+        "guidance_related": false,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0768_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0768",
+      "window_start_s": 2110.0,
+      "window_end_s": 2142.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0774_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0774",
+      "window_start_s": 2122.0,
+      "window_end_s": 2154.0,
+      "reason": {
+        "guidance_related": false,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0780_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0780",
+      "window_start_s": 2134.0,
+      "window_end_s": 2166.0,
+      "reason": {
+        "guidance_related": false,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0781_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0781",
+      "window_start_s": 2136.0,
+      "window_end_s": 2168.0,
+      "reason": {
+        "guidance_related": false,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0794_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0794",
+      "window_start_s": 2162.0,
+      "window_end_s": 2194.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0877_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0877",
+      "window_start_s": 2334.0,
+      "window_end_s": 2366.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0927_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0927",
+      "window_start_s": 2434.0,
+      "window_end_s": 2466.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0952_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0952",
+      "window_start_s": 2486.0,
+      "window_end_s": 2518.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_0992_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_0992",
+      "window_start_s": 2574.0,
+      "window_end_s": 2606.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_1009_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_1009",
+      "window_start_s": 2608.0,
+      "window_end_s": 2640.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_1011_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_1011",
+      "window_start_s": 2612.0,
+      "window_end_s": 2644.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_1091_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_1091",
+      "window_start_s": 2772.0,
+      "window_end_s": 2804.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_1092_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_1092",
+      "window_start_s": 2774.0,
+      "window_end_s": 2806.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_1093_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_1093",
+      "window_start_s": 2776.0,
+      "window_end_s": 2808.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "PLTR_2025_Q4_call01_event_chunk_1116_window",
+      "event_object_id": "PLTR_2025_Q4_call01_event_chunk_1116",
+      "window_start_s": 2822.0,
+      "window_end_s": 2854.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    }
+  ]
+}

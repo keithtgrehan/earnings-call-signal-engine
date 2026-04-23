@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://keithtgrehan.github.io/earnings-call-signal-engine/pilot_corpus_manifest.schema.json",
+  "title": "Pilot Corpus Manifest Row",
+  "type": "object",
+  "required": [
+    "case_id",
+    "company",
+    "ticker",
+    "fiscal_period",
+    "event_date",
+    "transcript_verified",
+    "audio_verified",
+    "video_verified",
+    "transcript_source_type",
+    "transcript_parse_status",
+    "audio_fetch_status",
+    "video_fetch_status",
+    "provenance"
+  ],
+  "properties": {
+    "case_id": { "type": "string", "minLength": 1 },
+    "company": { "type": "string", "minLength": 1 },
+    "ticker": { "type": "string", "minLength": 1 },
+    "fiscal_period": { "type": "string", "minLength": 1 },
+    "event_date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "transcript_url": { "type": "string" },
+    "transcript_local_path": { "type": "string" },
+    "audio_url": { "type": "string" },
+    "audio_local_path": { "type": "string" },
+    "video_url": { "type": "string" },
+    "video_local_path": { "type": "string" },
+    "transcript_verified": { "type": "boolean" },
+    "audio_verified": { "type": "boolean" },
+    "video_verified": { "type": "boolean" },
+    "transcript_source_type": { "type": "string", "minLength": 1 },
+    "audio_source_type": { "type": "string" },
+    "video_source_type": { "type": "string" },
+    "transcript_parse_status": {
+      "type": "string",
+      "enum": [
+        "timed_segments_available",
+        "synthetic_segments_generated",
+        "raw_text_only",
+        "missing"
+      ]
+    },
+    "audio_fetch_status": {
+      "type": "string",
+      "enum": [
+        "verified_local",
+        "derived_outputs_available",
+        "source_page_only",
+        "not_fetched",
+        "not_available",
+        "missing"
+      ]
+    },
+    "video_fetch_status": {
+      "type": "string",
+      "enum": [
+        "verified_local",
+        "derived_outputs_available",
+        "source_page_only",
+        "not_fetched",
+        "not_available",
+        "missing"
+      ]
+    },
+    "official_source_url": { "type": "string" },
+    "official_source_type": { "type": "string" },
+    "source_url": { "type": "string" },
+    "origin_manifest_path": { "type": "string" },
+    "notes": { "type": "string" },
+    "provenance": { "type": "object" }
+  },
+  "additionalProperties": true
+}

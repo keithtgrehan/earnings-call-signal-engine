@@ -1,0 +1,1535 @@
+{
+  "case_id": "MSFT_2026_Q2_call05",
+  "audio_verified": true,
+  "video_verified": false,
+  "audio_behavior_summary_path": "outputs/MSFT_2026_Q2_call05/audio_behavior_summary.json",
+  "multimodal_support_summary_path": "outputs/MSFT_2026_Q2_call05/multimodal_support_summary.json",
+  "flagged_windows": [
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0028_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0028",
+      "window_start_s": 141.56,
+      "window_end_s": 176.12,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0029_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0029",
+      "window_start_s": 146.6,
+      "window_end_s": 181.4,
+      "reason": {
+        "guidance_related": false,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0030_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0030",
+      "window_start_s": 151.4,
+      "window_end_s": 186.52,
+      "reason": {
+        "guidance_related": false,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0034_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0034",
+      "window_start_s": 175.4,
+      "window_end_s": 211.64,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0072_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0072",
+      "window_start_s": 405.56,
+      "window_end_s": 441.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0091_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0091",
+      "window_start_s": 517.48,
+      "window_end_s": 553.08,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0093_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0093",
+      "window_start_s": 529.48,
+      "window_end_s": 566.44,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0182_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0182",
+      "window_start_s": 1096.12,
+      "window_end_s": 1129.88,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0184_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0184",
+      "window_start_s": 1106.04,
+      "window_end_s": 1141.64,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0186_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0186",
+      "window_start_s": 1116.92,
+      "window_end_s": 1153.16,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0187_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0187",
+      "window_start_s": 1123.16,
+      "window_end_s": 1159.08,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0190_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0190",
+      "window_start_s": 1144.6,
+      "window_end_s": 1179.56,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0191_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0191",
+      "window_start_s": 1150.44,
+      "window_end_s": 1184.36,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0194_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0194",
+      "window_start_s": 1164.68,
+      "window_end_s": 1199.24,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0197_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0197",
+      "window_start_s": 1179.72,
+      "window_end_s": 1216.28,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0203_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0203",
+      "window_start_s": 1212.76,
+      "window_end_s": 1247.16,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0205_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0205",
+      "window_start_s": 1223.0,
+      "window_end_s": 1259.96,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0213_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0213",
+      "window_start_s": 1272.84,
+      "window_end_s": 1308.84,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0222_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0222",
+      "window_start_s": 1328.68,
+      "window_end_s": 1366.28,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0225_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0225",
+      "window_start_s": 1351.24,
+      "window_end_s": 1387.64,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0226_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0226",
+      "window_start_s": 1357.64,
+      "window_end_s": 1394.92,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0227_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0227",
+      "window_start_s": 1364.92,
+      "window_end_s": 1400.76,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0229_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0229",
+      "window_start_s": 1377.88,
+      "window_end_s": 1415.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0230_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0230",
+      "window_start_s": 1385.0,
+      "window_end_s": 1422.2,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0235_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0235",
+      "window_start_s": 1418.2,
+      "window_end_s": 1454.36,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0236_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0236",
+      "window_start_s": 1424.36,
+      "window_end_s": 1460.76,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0238_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0238",
+      "window_start_s": 1438.6,
+      "window_end_s": 1476.04,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0239_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0239",
+      "window_start_s": 1446.04,
+      "window_end_s": 1482.04,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0240_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0240",
+      "window_start_s": 1452.04,
+      "window_end_s": 1488.92,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0241_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0241",
+      "window_start_s": 1458.92,
+      "window_end_s": 1494.6,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0244_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0244",
+      "window_start_s": 1476.28,
+      "window_end_s": 1513.08,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0245_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0245",
+      "window_start_s": 1483.08,
+      "window_end_s": 1517.72,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0246_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0246",
+      "window_start_s": 1488.44,
+      "window_end_s": 1526.2,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0247_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0247",
+      "window_start_s": 1496.2,
+      "window_end_s": 1533.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0248_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0248",
+      "window_start_s": 1503.0,
+      "window_end_s": 1538.36,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0252_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0252",
+      "window_start_s": 1525.08,
+      "window_end_s": 1559.8,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0253_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0253",
+      "window_start_s": 1529.8,
+      "window_end_s": 1564.84,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0255_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0255",
+      "window_start_s": 1541.32,
+      "window_end_s": 1575.64,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0256_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0256",
+      "window_start_s": 1545.64,
+      "window_end_s": 1580.04,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0259_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0259",
+      "window_start_s": 1561.72,
+      "window_end_s": 1598.76,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0261_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0261",
+      "window_start_s": 1573.4,
+      "window_end_s": 1608.84,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0262_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0262",
+      "window_start_s": 1579.56,
+      "window_end_s": 1615.48,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0264_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0264",
+      "window_start_s": 1591.16,
+      "window_end_s": 1626.12,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0265_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0265",
+      "window_start_s": 1596.12,
+      "window_end_s": 1630.52,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0266_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0266",
+      "window_start_s": 1600.52,
+      "window_end_s": 1636.28,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0267_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0267",
+      "window_start_s": 1606.28,
+      "window_end_s": 1641.48,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0268_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0268",
+      "window_start_s": 1611.48,
+      "window_end_s": 1648.04,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0269_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0269",
+      "window_start_s": 1618.04,
+      "window_end_s": 1653.32,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0270_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0270",
+      "window_start_s": 1623.32,
+      "window_end_s": 1657.8,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0271_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0271",
+      "window_start_s": 1627.8,
+      "window_end_s": 1662.44,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0272_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0272",
+      "window_start_s": 1632.44,
+      "window_end_s": 1667.24,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0276_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0276",
+      "window_start_s": 1652.92,
+      "window_end_s": 1689.4,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0277_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0277",
+      "window_start_s": 1659.4,
+      "window_end_s": 1695.4,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0278_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0278",
+      "window_start_s": 1665.4,
+      "window_end_s": 1700.92,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0279_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0279",
+      "window_start_s": 1670.92,
+      "window_end_s": 1705.88,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0280_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0280",
+      "window_start_s": 1675.88,
+      "window_end_s": 1711.08,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0281_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0281",
+      "window_start_s": 1681.08,
+      "window_end_s": 1717.48,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0282_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0282",
+      "window_start_s": 1687.48,
+      "window_end_s": 1725.96,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0284_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0284",
+      "window_start_s": 1702.76,
+      "window_end_s": 1740.28,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0287_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0287",
+      "window_start_s": 1726.68,
+      "window_end_s": 1762.04,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0288_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0288",
+      "window_start_s": 1732.76,
+      "window_end_s": 1767.64,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0291_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0291",
+      "window_start_s": 1747.56,
+      "window_end_s": 1783.88,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0292_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0292",
+      "window_start_s": 1754.6,
+      "window_end_s": 1789.56,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0294_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0294",
+      "window_start_s": 1764.84,
+      "window_end_s": 1799.8,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0295_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0295",
+      "window_start_s": 1769.8,
+      "window_end_s": 1805.88,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0299_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0299",
+      "window_start_s": 1792.76,
+      "window_end_s": 1829.32,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0300_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0300",
+      "window_start_s": 1799.32,
+      "window_end_s": 1834.92,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0301_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0301",
+      "window_start_s": 1804.92,
+      "window_end_s": 1843.24,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0302_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0302",
+      "window_start_s": 1813.8,
+      "window_end_s": 1849.48,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0305_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0305",
+      "window_start_s": 1831.72,
+      "window_end_s": 1866.92,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0307_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0307",
+      "window_start_s": 1842.52,
+      "window_end_s": 1877.72,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0308_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0308",
+      "window_start_s": 1847.88,
+      "window_end_s": 1883.8,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0310_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0310",
+      "window_start_s": 1858.28,
+      "window_end_s": 1893.08,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0311_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0311",
+      "window_start_s": 1863.08,
+      "window_end_s": 1897.88,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0312_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0312",
+      "window_start_s": 1868.68,
+      "window_end_s": 1907.48,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0313_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0313",
+      "window_start_s": 1877.48,
+      "window_end_s": 1915.24,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0318_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0318",
+      "window_start_s": 1907.16,
+      "window_end_s": 1941.96,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0319_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0319",
+      "window_start_s": 1911.96,
+      "window_end_s": 1946.12,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0322_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0322",
+      "window_start_s": 1927.72,
+      "window_end_s": 1962.36,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0323_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0323",
+      "window_start_s": 1932.92,
+      "window_end_s": 1967.96,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0325_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0325",
+      "window_start_s": 1943.32,
+      "window_end_s": 1978.84,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0327_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0327",
+      "window_start_s": 1953.8,
+      "window_end_s": 1989.08,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0328_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0328",
+      "window_start_s": 1959.08,
+      "window_end_s": 1994.6,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0329_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0329",
+      "window_start_s": 1964.6,
+      "window_end_s": 2000.36,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0331_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0331",
+      "window_start_s": 1974.92,
+      "window_end_s": 2009.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0333_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0333",
+      "window_start_s": 1983.0,
+      "window_end_s": 2018.36,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0335_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0335",
+      "window_start_s": 1995.4,
+      "window_end_s": 2030.36,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0336_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0336",
+      "window_start_s": 2000.36,
+      "window_end_s": 2036.04,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0337_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0337",
+      "window_start_s": 2006.04,
+      "window_end_s": 2041.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0338_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0338",
+      "window_start_s": 2011.0,
+      "window_end_s": 2046.28,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0339_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0339",
+      "window_start_s": 2016.28,
+      "window_end_s": 2051.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0340_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0340",
+      "window_start_s": 2021.0,
+      "window_end_s": 2057.72,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0343_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0343",
+      "window_start_s": 2037.24,
+      "window_end_s": 2071.88,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0357_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0357",
+      "window_start_s": 2122.6,
+      "window_end_s": 2157.16,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0359_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0359",
+      "window_start_s": 2134.76,
+      "window_end_s": 2170.04,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0367_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0367",
+      "window_start_s": 2178.28,
+      "window_end_s": 2214.92,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0370_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0370",
+      "window_start_s": 2198.52,
+      "window_end_s": 2235.08,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0371_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0371",
+      "window_start_s": 2205.08,
+      "window_end_s": 2241.16,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0384_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0384",
+      "window_start_s": 2297.56,
+      "window_end_s": 2332.84,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0399_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0399",
+      "window_start_s": 2393.56,
+      "window_end_s": 2431.0,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0400_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0400",
+      "window_start_s": 2401.0,
+      "window_end_s": 2437.16,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0402_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0402",
+      "window_start_s": 2414.04,
+      "window_end_s": 2449.96,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0403_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0403",
+      "window_start_s": 2419.96,
+      "window_end_s": 2455.08,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0404_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0404",
+      "window_start_s": 2425.08,
+      "window_end_s": 2459.88,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0414_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0414",
+      "window_start_s": 2496.68,
+      "window_end_s": 2535.08,
+      "reason": {
+        "guidance_related": false,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0419_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0419",
+      "window_start_s": 2532.2,
+      "window_end_s": 2567.64,
+      "reason": {
+        "guidance_related": false,
+        "uncertainty_flag": false,
+        "pushback_flag": true
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0428_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0428",
+      "window_start_s": 2591.32,
+      "window_end_s": 2626.76,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0477_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0477",
+      "window_start_s": 2906.52,
+      "window_end_s": 2943.48,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    },
+    {
+      "window_id": "MSFT_2026_Q2_call05_event_chunk_0505_window",
+      "event_object_id": "MSFT_2026_Q2_call05_event_chunk_0505",
+      "window_start_s": 3088.84,
+      "window_end_s": 3123.4,
+      "reason": {
+        "guidance_related": true,
+        "uncertainty_flag": false,
+        "pushback_flag": false
+      },
+      "audio_alignment_status": "ready",
+      "video_alignment_status": "not_available",
+      "sparse_keyframe_plan": "skip_until_video_verified"
+    }
+  ]
+}

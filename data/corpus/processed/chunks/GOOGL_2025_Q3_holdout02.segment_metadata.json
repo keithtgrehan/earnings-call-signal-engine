@@ -1,0 +1,20 @@
+{
+  "segments": [
+    {
+      "segment_id": 0,
+      "source_doc": "transcript_txt",
+      "speaker": "",
+      "speaker_role": "management",
+      "section": "prepared_remarks",
+      "start": 0.0,
+      "end": 10.0,
+      "text": "We now expect CapEx to be in the range of $91 billion to $93 billion in 2025, up from our previous estimate of $85 billion.",
+      "word_count": 25,
+      "guidance_related": true,
+      "uncertainty_flag": false,
+      "pushback_flag": false,
+      "question_like": false
+    }
+  ],
+  "transcript_parse_status": "raw_text_only"
+}

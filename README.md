@@ -45,7 +45,7 @@ Fixed UI demo cases for Netflix, Meta, and NVIDIA still exist in the repo, but t
 ## Proof (current state)
 <!-- proof:begin -->
 - Frozen benchmark label: `raised` for Eli Lilly (`call08`, 2025-08-07, confidence 0.78).
-- Proof check runtime: 0.074471 seconds for `verify_outputs.py` against the committed bundle.
+- Proof check runtime: 0.386975 seconds for `verify_outputs.py` against the committed bundle.
 - Recorded run cost: not yet measured.
 - Extracted signals in the committed bundle: 93 guidance rows, 19 uncertainty rows, 4 reassurance rows, 1 analyst-skepticism row(s).
 - Example outputs: reviewer report at `outputs/LLY_2025_Q2_call08/report.md`.
@@ -66,6 +66,27 @@ Fixed UI demo cases for Netflix, Meta, and NVIDIA still exist in the repo, but t
 - optional supporting artifacts: `qa_shift_summary.json`, `audio_behavior_summary.json`, `multimodal_support_summary.json`
 
 The scorecard in `metrics.json` is a deterministic presentation layer over extracted evidence. It is meant to route reviewer attention into concrete categories, not replace the underlying files.
+
+## Pilot Corpus And Retrieval
+As of April 23, 2026, the repo also contains a transcript-first pilot corpus scaffold under [`data/corpus/`](data/corpus/):
+- strict manifest rows with explicit transcript/audio/video verification fields
+- committed transcript copies for a 20-call pilot set
+- retrieval-ready artifacts such as `transcript_sectioned.json`, `qa_pairs.json`, `event_chunks.jsonl`, and `evidence_objects.jsonl`
+- a local vector baseline at `data/corpus/retrieval/pilot_event_index/`
+
+Rebuild it with:
+
+```bash
+PYTHONPATH=src python3 scripts/build_pilot_corpus.py --target-count 20 --embedding-provider hashing
+PYTHONPATH=src python3 scripts/validate_pilot_corpus.py
+```
+
+Current pilot verification counts:
+- transcript verified: `20`
+- audio verified: `7`
+- video verified: `0`
+
+Those counts are intentionally strict. Transcript-backed evidence remains canonical, audio is only marked verified when committed derived review outputs exist, and video stays unverified until a real local video asset or replay artifact is present.
 
 ## What Makes It Credible
 - Frozen labels are committed under [`data/gold_guidance_calls/`](data/gold_guidance_calls/).
@@ -99,6 +120,7 @@ It is useful for walkthroughs and product demos, but the canonical portfolio pro
 
 ## Repo Structure
 - `app/`: local review shell
+- `data/corpus/`: transcript-first pilot corpus manifests, normalized transcripts, retrieval artifacts, and corpus reports
 - `data/gold_guidance_calls/`: frozen benchmark labels and source manifests
 - `docs/`: demo path, current status, evaluation notes, and proof framing
 - `outputs/LLY_2025_Q2_call08/`: canonical recruiter-facing proof bundle
@@ -111,6 +133,7 @@ It is useful for walkthroughs and product demos, but the canonical portfolio pro
 - [`docs/current-status.md`](docs/current-status.md)
 - [`docs/evaluation-summary.md`](docs/evaluation-summary.md)
 - [`docs/evidence-map.md`](docs/evidence-map.md)
+- [`docs/pilot-corpus.md`](docs/pilot-corpus.md)
 
 ## Why This Matters
 For technical pre-sales, workflow design, and AI-systems conversations, this repo shows a useful pattern:

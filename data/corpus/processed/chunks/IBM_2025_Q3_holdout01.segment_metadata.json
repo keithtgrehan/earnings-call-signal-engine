@@ -1,0 +1,20 @@
+{
+  "segments": [
+    {
+      "segment_id": 0,
+      "source_doc": "transcript_txt",
+      "speaker": "",
+      "speaker_role": "management",
+      "section": "prepared_remarks",
+      "start": 0.0,
+      "end": 8.0,
+      "text": "Given the strength of our business, we are raising our full-year outlook for revenue growth and free cash flow.",
+      "word_count": 20,
+      "guidance_related": true,
+      "uncertainty_flag": false,
+      "pushback_flag": false,
+      "question_like": false
+    }
+  ],
+  "transcript_parse_status": "raw_text_only"
+}
