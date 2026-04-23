@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "proof_generated_at": "2026-04-23T13:37:28.245229+00:00",
+  "canonical_case_id": "LLY_2025_Q2_call08",
+  "canonical_demo_command": "python scripts/verify_outputs.py --out-dir outputs/LLY_2025_Q2_call08 --require-run-meta",
+  "canonical_output_dir": "outputs/LLY_2025_Q2_call08",
+  "wall_clock_seconds": 0.074471,
+  "cost_per_case": "not yet measured",
+  "cost_status": "not_yet_measured",
+  "benchmark_label": {
+    "call_id": "call08",
+    "ticker": "LLY",
+    "company": "Eli Lilly",
+    "event_date": "2025-08-07",
+    "guidance_change_label": "raised",
+    "label_confidence": 0.78,
+    "notes": "Transcript explicitly states that the company raised revenue and earnings-per-share guidance; ASR quality is imperfect (guides / earnings for share), so confidence is conservative; offsets are 0-based [start,end).",
+    "source_path": "data/gold_guidance_calls/raw_calls/LLY_2025_Q2_call08.txt"
+  },
+  "artifacts_verified": true,
+  "required_artifacts": {
+    "transcript.json": true,
+    "transcript.txt": true,
+    "sentiment_segments.csv": true,
+    "chunks_scored.jsonl": true,
+    "guidance.csv": true,
+    "metrics.json": true,
+    "report.md": true,
+    "run_meta.json": true
+  },
+  "signal_counts": {
+    "guidance_rows": 93,
+    "uncertainty_rows": 19,
+    "reassurance_rows": 4,
+    "analyst_skepticism_rows": 1
+  },
+  "example_outputs": [
+    "outputs/LLY_2025_Q2_call08/report.md",
+    "outputs/LLY_2025_Q2_call08/metrics.json",
+    "outputs/LLY_2025_Q2_call08/guidance.csv"
+  ],
+  "run_meta": {
+    "generated_at": "2026-03-12T17:00:59.258487+00:00",
+    "run_id": "LLY_20250701000000_20260312T170059Z",
+    "version": "git:7a1d3b4"
+  },
+  "verification_stdout": "Verifying outputs in: /Users/keith/GitHub/earnings-call-sentiment-from-voice-transcript-with-an-optional-video-24-02-2026/outputs/LLY_2025_Q2_call08\nOK  transcript.json\nOK  transcript.txt\nOK  sentiment_segments.csv\nOK  chunks_scored.jsonl\nOK  guidance.csv\nOK  metrics.json\nOK  report.md\nOK  run_meta.json\n\nAll required artifacts are present and non-empty.",
+  "verification_stderr": ""
+}

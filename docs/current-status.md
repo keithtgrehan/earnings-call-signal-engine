@@ -1,9 +1,16 @@
 # Current Status
 
 ## Reviewer Quick Links
+- [Portfolio proof](portfolio-proof.md)
 - [Evidence map](evidence-map.md)
 - [End-to-end demo path](demo-path.md)
 - [Evaluation summary](evaluation-summary.md)
+
+## Canonical Portfolio Proof
+- Use `outputs/LLY_2025_Q2_call08/` as the single recruiter-facing proof bundle.
+- Verify it with `python scripts/verify_outputs.py --out-dir outputs/LLY_2025_Q2_call08 --require-run-meta`.
+- Fixed demo cases for Netflix, Meta, and NVIDIA remain useful UI walkthrough assets, but they are not the primary public proof path.
+- The canonical benchmark row is `call08` in `data/gold_guidance_calls/labels.csv`, which is intentionally presented with its confidence and ASR-quality caveat.
 
 ## Implemented Now
 - Transcript-first pipeline from call input to structured artifacts, with audio/video remaining optional supporting layers.
