@@ -1,0 +1,21 @@
+{
+  "blocks": [
+    {
+      "source_doc": "transcript_txt",
+      "section": "prepared_remarks",
+      "speaker": "",
+      "speaker_role": "management",
+      "speaker_title": "",
+      "start": 0.0,
+      "end": 5.0,
+      "segment_ids": [
+        0
+      ],
+      "guidance_related": true,
+      "uncertainty_flag": false,
+      "pushback_flag": false,
+      "block_id": 0,
+      "text": "Revenue is expected to be $65.0 billion, plus or minus 2%."
+    }
+  ]
+}

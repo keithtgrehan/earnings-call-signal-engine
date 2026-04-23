@@ -1,0 +1,21 @@
+{
+  "blocks": [
+    {
+      "source_doc": "transcript_txt",
+      "section": "prepared_remarks",
+      "speaker": "",
+      "speaker_role": "management",
+      "speaker_title": "",
+      "start": 0.0,
+      "end": 13.6,
+      "segment_ids": [
+        0
+      ],
+      "guidance_related": true,
+      "uncertainty_flag": false,
+      "pushback_flag": false,
+      "block_id": 0,
+      "text": "We expect continued momentum from Windows 10 end of support, although growth rates will be impacted by elevated inventory levels at the end of Q1 that we expect to come down through the quarter."
+    }
+  ]
+}
