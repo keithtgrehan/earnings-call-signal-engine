@@ -1,131 +1,148 @@
-# Signal Engine
+# Earnings Call Signal Engine
+Transcript-first local review workflow for turning one earnings call into deterministic, auditable artifacts for analyst review.
 
-Signal Engine is a deterministic-first signal extraction and evaluation system for long-form business communication.
+This repo is a decision-support tool, not a trading system. It does not execute orders, does not claim predictive edge, and does not treat optional model or multimodal layers as the source of truth.
 
-The strongest proof path is earnings-call transcripts because public-company sources, explicit guidance language, analyst Q&A, and evidence-span review create a credible route to repeatable evaluation. Broader domains are supported or scaffolded where the same transcript-first pattern applies: customer support, sales calls, account management, churn risk, and general dialogue tone/emotion benchmarks.
+## What It Is
+- A local workflow for ingesting one earnings call from transcript text, YouTube/media, or document text.
+- A deterministic extraction layer that writes structured review artifacts such as `guidance.csv`, `metrics.json`, and `report.md`.
+- A local review shell for inspecting source excerpts, extracted signals, ambiguity notes, and supporting context.
+- An additive sidecar layer for audio, NLP, and video support when available, kept explicitly secondary to transcript-backed outputs.
 
-This repo does not claim production ML, statistical significance, market-reaction proof, production retrieval, or validated multimodal intelligence.
+## Why It Exists
+Earnings calls are long, noisy, and easy to skim poorly. Reviewers need a fast way to answer:
+- what changed
+- where the supporting evidence lives
+- which moments deserve attention first
+- what is deterministic versus what is only supportive context
 
-## What Works Now
+This repo packages that workflow into inspectable artifacts instead of relying on a black-box summary.
 
-- Deterministic transcript and signal scaffolds for evidence-backed review.
-- Earnings-call corpus manifest validation.
-- Gold-label JSONL validation.
-- Model, dataset, and NLP tools registries.
-- SEC 8-K metadata-only intake.
-- Manual corpus case setup.
-- Deterministic weak-label keyword baseline for local `.txt` transcripts.
-- First 3 earnings-call intake cases: `NVDA_2026_Q4`, `META_2025_Q4`, and `AMZN_2025_Q4`.
-- Repo validation and documentation checks.
-
-## Scaffolded Only
-
-- Sales, support, and account-management use cases beyond the deterministic demo/sample layer.
-- Public dataset and model candidates.
-- Embeddings, rerankers, and long-context model candidates.
-- Optional local sklearn training scaffold.
-- Emotion/tone dataset references.
-
-Scaffolded means tracked, documented, or locally runnable as a smoke check. It does not mean validated, production-ready, or trained.
-
-## Not Proven
-
-- No real 30-call corpus yet.
-- No validated ML.
-- No statistical significance.
-- No market-reaction proof.
-- No production retrieval stack.
-- No validated sales/support/account benchmark.
-- No committed raw transcripts, datasets, model weights, audio, video, or API outputs.
-
-## Why Earnings Calls Remain The Proof Path
-
-- Public-company source availability makes provenance review possible.
-- Signal types such as guidance revision, uncertainty, analyst pressure, and Q&A friction can be tied to explicit transcript evidence.
-- Manual evidence-span review is practical before scaling.
-- The repo has a clear path from the first 3 manually reviewed calls to a 30-call benchmark, then a 100-150-call benchmark.
-
-## Broader Use-Case Map
-
-- Earnings calls: guidance, uncertainty, analyst pressure, Q&A friction.
-- Customer support: escalation, unresolved issue, directness, deflection, tone shift.
-- Sales calls: objections, buying intent, pricing concern, next-step clarity.
-- Account management: churn risk, renewal concern, expansion opportunity, stakeholder friction.
-- General dialogue: emotion/tone labels as benchmark aids, not product proof.
-
-## Lightweight Validation
+## Canonical Portfolio Proof
+The public proof path for this repo is the checked-in Eli Lilly case bundle:
+- output directory: `outputs/LLY_2025_Q2_call08/`
+- quick verification:
 
 ```bash
-python -m py_compile scripts/*.py
+python scripts/verify_outputs.py --out-dir outputs/LLY_2025_Q2_call08 --require-run-meta
 ```
+
+- full portfolio check:
 
 ```bash
-python -m pytest tests/test_validate_corpus_manifest.py tests/test_validate_gold_labels.py tests/test_evaluate_signal_outputs.py tests/test_validate_model_registry.py tests/test_validate_training_sets_registry.py tests/test_run_weak_label_baseline.py tests/test_train_text_classifier_baseline_smoke.py tests/test_validate_nlp_tools_registry.py -q
+make portfolio-ci
 ```
+
+Open these files in order:
+- [`outputs/LLY_2025_Q2_call08/report.md`](outputs/LLY_2025_Q2_call08/report.md)
+- [`outputs/LLY_2025_Q2_call08/metrics.json`](outputs/LLY_2025_Q2_call08/metrics.json)
+- [`outputs/LLY_2025_Q2_call08/guidance.csv`](outputs/LLY_2025_Q2_call08/guidance.csv)
+- [`docs/demo-path.md`](docs/demo-path.md)
+- [`docs/portfolio-proof.md`](docs/portfolio-proof.md)
+
+Fixed UI demo cases for Netflix, Meta, and NVIDIA still exist in the repo, but the Lilly bundle is the single recruiter-facing proof path because it is frozen, inspectable, and tied to a committed benchmark row. The benchmark note itself also records that the ASR text is imperfect, which is exactly the kind of limitation this repo is meant to surface instead of hiding.
+
+## Proof (current state)
+<!-- proof:begin -->
+- Frozen benchmark label: `raised` for Eli Lilly (`call08`, 2025-08-07, confidence 0.78).
+- Proof check runtime: 0.074471 seconds for `verify_outputs.py` against the committed bundle.
+- Recorded run cost: not yet measured.
+- Extracted signals in the committed bundle: 93 guidance rows, 19 uncertainty rows, 4 reassurance rows, 1 analyst-skepticism row(s).
+- Example outputs: reviewer report at `outputs/LLY_2025_Q2_call08/report.md`.
+- Example outputs: structured scorecard at `outputs/LLY_2025_Q2_call08/metrics.json`.
+- Example outputs: extracted guidance table at `outputs/LLY_2025_Q2_call08/guidance.csv`.
+<!-- proof:end -->
+
+## What Goes In
+- transcript text
+- YouTube or local media
+- local document text
+
+## What Comes Out
+- transcript artifacts: `transcript.json`, `transcript.txt`
+- deterministic scoring artifacts: `chunks_scored.jsonl`, `guidance.csv`, `guidance_revision.csv`, `tone_changes.csv`
+- signal tables: `uncertainty_signals.csv`, `reassurance_signals.csv`, `analyst_skepticism.csv`
+- reviewer outputs: `metrics.json`, `report.md`, `run_meta.json`
+- optional supporting artifacts: `qa_shift_summary.json`, `audio_behavior_summary.json`, `multimodal_support_summary.json`
+
+The scorecard in `metrics.json` is a deterministic presentation layer over extracted evidence. It is meant to route reviewer attention into concrete categories, not replace the underlying files.
+
+## Pilot Corpus And Retrieval
+As of April 23, 2026, the repo also contains a transcript-first pilot corpus scaffold under [`data/corpus/`](data/corpus/):
+- strict manifest rows with explicit transcript/audio/video verification fields
+- a committed 20-call pilot manifest plus tiny representative transcript/evidence samples
+- retrieval-ready artifacts such as `transcript_sectioned.json`, `qa_pairs.json`, `event_chunks.jsonl`, and `evidence_objects.jsonl`
+- scripts that regenerate the full local vector baseline at `data/corpus/retrieval/pilot_event_index/`
+
+Rebuild it with:
 
 ```bash
-python scripts/check_markdown_links.py README.md docs/*.md
+PYTHONPATH=src python3 scripts/build_pilot_corpus.py --target-count 20 --embedding-provider hashing
+PYTHONPATH=src python3 scripts/validate_pilot_corpus.py
 ```
 
-## Current Deterministic Demo Commands
+Current pilot verification counts:
+- transcript verified: `20`
+- audio verified: `7`
+- video verified: `0`
+
+Committed representative samples on this branch are intentionally small:
+- transcript samples: `GOOGL_2025_Q4_call03`, `LLY_2025_Q2_call08`
+- processed sample artifacts: `LLY_2025_Q2_call08.event_chunks.jsonl`, `LLY_2025_Q2_call08.segment_metadata.json`, and `LLY_2025_Q2_call08.evidence_objects.jsonl`
+
+Those counts are intentionally strict. Transcript-backed evidence remains canonical, audio is only marked verified when committed derived review outputs exist, video stays unverified until a real local video asset or replay artifact is present, and the larger generated corpus tree is meant to be rebuilt locally rather than committed.
+
+## What Makes It Credible
+- Frozen labels are committed under [`data/gold_guidance_calls/`](data/gold_guidance_calls/).
+- Current evaluation checkpoints are documented in [`docs/evaluation-summary.md`](docs/evaluation-summary.md).
+- The canonical LLY proof bundle is committed under [`outputs/LLY_2025_Q2_call08/`](outputs/LLY_2025_Q2_call08/).
+- The repo keeps explicit boundaries around what is demonstrated, partial, and unproven in [`docs/current-status.md`](docs/current-status.md) and [`docs/portfolio-proof.md`](docs/portfolio-proof.md).
+
+Current repo-level checkpoints:
+- frozen benchmark agreement: `9/9`
+- unseen holdout agreement: `7/7`
+- watchlist-derived unseen holdout agreement: `7/7`
+- behavior rule-QA set: `58/58`
+
+These numbers support deterministic review-tool positioning only. They do not establish predictive edge, statistical significance, or trading performance.
+
+## Deterministic-First Boundary
+- Transcript-backed deterministic artifacts are the source of truth.
+- Audio, NLP, and video outputs are supporting layers only.
+- Optional model sidecars do not overwrite deterministic labels or benchmark truth.
+- Review confidence is confidence in the interpretation of available evidence, not investment confidence.
+- The repo should be presented as workflow and evidence-packaging infrastructure, not as hidden-state inference.
+
+## Local Review Shell
+The main local shell is served by `app/site_server.py`:
 
 ```bash
-python scripts/signal_engine_analyze.py --domain support data/signal_engine_2_0/sample_support.json
-python scripts/signal_engine_analyze.py --domain sales data/signal_engine_2_0/sample_sales.json
-python scripts/signal_engine_analyze.py --domain account_management data/signal_engine_2_0/sample_account_management.json
+PYTHONPATH=src PORT=7872 python app/site_server.py
 ```
 
-```bash
-python scripts/run_signal_engine_2_0_demo.py
-```
+It is useful for walkthroughs and product demos, but the canonical portfolio proof still lives in the checked-in LLY output bundle and supporting docs linked above.
 
-## Registry And Corpus Checks
+## Repo Structure
+- `app/`: local review shell
+- `data/corpus/`: transcript-first pilot corpus manifests, normalized transcripts, retrieval artifacts, and corpus reports
+- `data/gold_guidance_calls/`: frozen benchmark labels and source manifests
+- `docs/`: demo path, current status, evaluation notes, and proof framing
+- `outputs/LLY_2025_Q2_call08/`: canonical recruiter-facing proof bundle
+- `scripts/`: verification and portfolio-proof helpers
+- `src/earnings_call_sentiment/`: CLI and extraction pipeline
 
-```bash
-python scripts/validate_corpus_manifest.py --path data/corpus/manifests/first_30_working_manifest.csv
-python scripts/validate_gold_labels.py --path data/gold_labels.example.jsonl
-python scripts/validate_model_registry.py --path data/model_registry.example.json
-python scripts/validate_training_sets_registry.py --path data/training_sets_registry.example.csv
-python scripts/validate_nlp_tools_registry.py --path data/nlp_tools_registry.example.json
-```
+## Additional References
+- [`docs/demo-path.md`](docs/demo-path.md)
+- [`docs/portfolio-proof.md`](docs/portfolio-proof.md)
+- [`docs/current-status.md`](docs/current-status.md)
+- [`docs/evaluation-summary.md`](docs/evaluation-summary.md)
+- [`docs/evidence-map.md`](docs/evidence-map.md)
+- [`docs/pilot-corpus.md`](docs/pilot-corpus.md)
 
-Registries track candidate tools, datasets, and model families. They are not implementation proof and do not download anything.
-
-## First Real Proof Command
-
-First, manually place a legally safe local transcript here:
-
-```text
-data/corpus/manual_cases/NVDA_2026_Q4/raw/transcript.txt
-```
-
-Then run:
-
-```bash
-python scripts/run_weak_label_baseline.py --input data/corpus/manual_cases/NVDA_2026_Q4/raw/transcript.txt --case-id NVDA_2026_Q4 --out data/corpus/manual_cases/NVDA_2026_Q4/processed/weak_predictions.jsonl
-```
-
-The weak-label output is deterministic and review-only. It is not a final gold label file.
-
-## NLP Research Map
-
-- [NLP tools and research map](docs/nlp-tools-and-research-map.md)
-- [Training set plan](docs/training-set-plan.md)
-- [Model registry](docs/model-registry.md)
-- [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
-
-Tools and datasets are tracked only. Nothing is downloaded by adding registry rows, no ML is validated, and deterministic transcript-first extraction remains the system core.
-
-## Key Docs
-
-- [First real case proof](docs/first-real-case-proof.md)
-- [GitHub repo hygiene report](docs/github-repo-hygiene-report.md)
-- [Branch hygiene action plan](docs/branch-hygiene-action-plan.md)
-- [Default branch transition plan](docs/default-branch-transition-plan.md)
-- [NLP tools and research map](docs/nlp-tools-and-research-map.md)
-- [Training set plan](docs/training-set-plan.md)
-- [Model registry](docs/model-registry.md)
-- [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
-- [Transcript sectioning and labeling playbook](docs/transcript-sectioning-and-labeling-playbook.md)
-- [Corpus build plan](docs/corpus-build-plan.md)
-- [Ideal 30-call download list](docs/ideal-30-call-download-list.md)
+## Why This Matters
+For technical pre-sales, workflow design, and AI-systems conversations, this repo shows a useful pattern:
+- start with deterministic extraction
+- preserve auditable intermediate artifacts
+- keep optional model layers additive
+- make non-claims explicit
+- give reviewers a reproducible proof path instead of a vague product story

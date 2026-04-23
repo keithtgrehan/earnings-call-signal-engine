@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "proof_generated_at": "2026-04-23T18:19:38.991731+00:00",
+  "proof_generated_at": "2026-04-23T13:37:28.245229+00:00",
   "canonical_case_id": "LLY_2025_Q2_call08",
   "canonical_demo_command": "python scripts/verify_outputs.py --out-dir outputs/LLY_2025_Q2_call08 --require-run-meta",
   "canonical_output_dir": "outputs/LLY_2025_Q2_call08",
-  "wall_clock_seconds": 0.386975,
+  "wall_clock_seconds": 0.074471,
   "cost_per_case": "not yet measured",
   "cost_status": "not_yet_measured",
   "benchmark_label": {
