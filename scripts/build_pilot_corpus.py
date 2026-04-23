@@ -29,6 +29,15 @@ LEGACY_MANIFEST_DIRS = [
     Path("data/watchlist_earnings_candidates"),
 ]
 
+COMMITTED_SAMPLE_TRANSCRIPT_CASE_IDS = {
+    "GOOGL_2025_Q4_call03",
+    "LLY_2025_Q2_call08",
+}
+
+COMMITTED_SAMPLE_ARTIFACT_CASE_IDS = {
+    "LLY_2025_Q2_call08",
+}
+
 
 def _read_csv(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8", newline="") as handle:
@@ -179,12 +188,14 @@ def _reset_generated_outputs() -> None:
                 path.unlink()
 
 
-def _copy_transcript_source(
+def _refresh_sample_transcript_copy(
     *,
     case_id: str,
     raw_transcript_path: Path | None,
     processed_case_dir: Path | None,
-) -> Path:
+) -> Path | None:
+    if case_id not in COMMITTED_SAMPLE_TRANSCRIPT_CASE_IDS:
+        return None
     layout = ensure_corpus_layout()
     target_path = layout["raw_transcripts"] / f"{case_id}.txt"
     if raw_transcript_path is not None and raw_transcript_path.exists():
@@ -194,6 +205,18 @@ def _copy_transcript_source(
         shutil.copy2(processed_case_dir / "transcript.txt", target_path)
         return target_path
     raise RuntimeError(f"No transcript source available for {case_id}")
+
+
+def _resolve_manifest_transcript_path(
+    *,
+    raw_transcript_path: Path | None,
+    processed_case_dir: Path | None,
+) -> Path:
+    if raw_transcript_path is not None and raw_transcript_path.exists():
+        return raw_transcript_path
+    if processed_case_dir is not None and (processed_case_dir / "transcript.txt").exists():
+        return processed_case_dir / "transcript.txt"
+    raise RuntimeError("No transcript source available for manifest row")
 
 
 def _is_youtube_url(url: str) -> bool:
@@ -207,8 +230,12 @@ def _build_case_row(candidate: dict[str, Any]) -> CorpusCase:
     case_id = str(candidate["case_id"])
     processed_case_dir: Path | None = candidate["processed_case_dir"]
     raw_transcript_path: Path | None = candidate["raw_transcript_path"]
-    transcript_copy_path = _copy_transcript_source(
+    _refresh_sample_transcript_copy(
         case_id=case_id,
+        raw_transcript_path=raw_transcript_path,
+        processed_case_dir=processed_case_dir,
+    )
+    manifest_transcript_path = _resolve_manifest_transcript_path(
         raw_transcript_path=raw_transcript_path,
         processed_case_dir=processed_case_dir,
     )
@@ -244,7 +271,7 @@ def _build_case_row(candidate: dict[str, Any]) -> CorpusCase:
         fiscal_period=str(row.get("quarter", "")).strip(),
         event_date=str(row.get("event_date", "")).strip(),
         transcript_url=transcript_url,
-        transcript_local_path=to_repo_relative(transcript_copy_path),
+        transcript_local_path=to_repo_relative(manifest_transcript_path),
         audio_url=audio_url,
         audio_local_path="",
         video_url=video_url,
@@ -385,6 +412,10 @@ def main() -> None:
         "manifest_csv_path": to_repo_relative(manifest_csv_path),
         "manifest_jsonl_path": to_repo_relative(manifest_jsonl_path),
         "retrieval_index": {key: to_repo_relative(path) for key, path in index_paths.items()},
+        "committed_samples": {
+            "transcripts": sorted(COMMITTED_SAMPLE_TRANSCRIPT_CASE_IDS),
+            "processed_artifacts": sorted(COMMITTED_SAMPLE_ARTIFACT_CASE_IDS),
+        },
         "validation": validation,
         "selected_cases": [
             {

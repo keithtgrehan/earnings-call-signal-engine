@@ -45,7 +45,7 @@ Fixed UI demo cases for Netflix, Meta, and NVIDIA still exist in the repo, but t
 ## Proof (current state)
 <!-- proof:begin -->
 - Frozen benchmark label: `raised` for Eli Lilly (`call08`, 2025-08-07, confidence 0.78).
-- Proof check runtime: 0.386975 seconds for `verify_outputs.py` against the committed bundle.
+- Proof check runtime: 0.074471 seconds for `verify_outputs.py` against the committed bundle.
 - Recorded run cost: not yet measured.
 - Extracted signals in the committed bundle: 93 guidance rows, 19 uncertainty rows, 4 reassurance rows, 1 analyst-skepticism row(s).
 - Example outputs: reviewer report at `outputs/LLY_2025_Q2_call08/report.md`.
@@ -70,9 +70,9 @@ The scorecard in `metrics.json` is a deterministic presentation layer over extra
 ## Pilot Corpus And Retrieval
 As of April 23, 2026, the repo also contains a transcript-first pilot corpus scaffold under [`data/corpus/`](data/corpus/):
 - strict manifest rows with explicit transcript/audio/video verification fields
-- committed transcript copies for a 20-call pilot set
+- a committed 20-call pilot manifest plus tiny representative transcript/evidence samples
 - retrieval-ready artifacts such as `transcript_sectioned.json`, `qa_pairs.json`, `event_chunks.jsonl`, and `evidence_objects.jsonl`
-- a local vector baseline at `data/corpus/retrieval/pilot_event_index/`
+- scripts that regenerate the full local vector baseline at `data/corpus/retrieval/pilot_event_index/`
 
 Rebuild it with:
 
@@ -86,7 +86,11 @@ Current pilot verification counts:
 - audio verified: `7`
 - video verified: `0`
 
-Those counts are intentionally strict. Transcript-backed evidence remains canonical, audio is only marked verified when committed derived review outputs exist, and video stays unverified until a real local video asset or replay artifact is present.
+Committed representative samples on this branch are intentionally small:
+- transcript samples: `GOOGL_2025_Q4_call03`, `LLY_2025_Q2_call08`
+- processed sample artifacts: `LLY_2025_Q2_call08.event_chunks.jsonl`, `LLY_2025_Q2_call08.segment_metadata.json`, and `LLY_2025_Q2_call08.evidence_objects.jsonl`
+
+Those counts are intentionally strict. Transcript-backed evidence remains canonical, audio is only marked verified when committed derived review outputs exist, video stays unverified until a real local video asset or replay artifact is present, and the larger generated corpus tree is meant to be rebuilt locally rather than committed.
 
 ## What Makes It Credible
 - Frozen labels are committed under [`data/gold_guidance_calls/`](data/gold_guidance_calls/).

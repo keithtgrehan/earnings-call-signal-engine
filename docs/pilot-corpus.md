@@ -22,6 +22,12 @@ Current strict counts:
 
 Those numbers come from [`data/corpus/manifests/pilot_corpus_manifest.csv`](../data/corpus/manifests/pilot_corpus_manifest.csv) and are validated by [`scripts/validate_pilot_corpus.py`](../scripts/validate_pilot_corpus.py).
 
+This branch intentionally keeps only tiny representative samples under `data/corpus/`:
+- transcript samples: `GOOGL_2025_Q4_call03.txt` and `LLY_2025_Q2_call08.txt`
+- processed samples: `LLY_2025_Q2_call08.event_chunks.jsonl`, `LLY_2025_Q2_call08.segment_metadata.json`, and `LLY_2025_Q2_call08.evidence_objects.jsonl`
+
+The full generated corpus tree is meant to be rebuilt locally with the scripts below and is ignored from git on purpose.
+
 ## Canonical Layout
 ```text
 data/
@@ -43,14 +49,14 @@ data/
 ```
 
 ## Verification Rules
-- `transcript_verified=true` means the manifest row has a committed local transcript copy and a recorded provenance trail.
+- `transcript_verified=true` means the manifest row resolves to a repo-local transcript source and a recorded provenance trail.
 - `audio_verified=true` is only used when the repo already contains committed audio-derived review outputs for that call.
 - `video_verified=true` is reserved for calls with a real verified local video or replay artifact path. The current pilot does not claim that yet.
 - `transcript_parse_status=timed_segments_available` means the repo already had a processed `transcript.json`.
 - `transcript_parse_status=raw_text_only` means the row is still useful for retrieval and manifest coverage, but the call only has transcript text right now.
 
 ## Retrieval Artifacts
-For each pilot case, the export path writes:
+For each pilot case, the local build path writes:
 - `segment_metadata.json`
 - `transcript_sectioned.json`
 - `qa_pairs.json`
@@ -69,7 +75,7 @@ These exports preserve:
 The first-pass retrieval baseline is local and cheap by design:
 - default provider: deterministic hashing vectors
 - optional provider: `sentence_transformers`
-- current output: [`data/corpus/retrieval/pilot_event_index/index_summary.json`](../data/corpus/retrieval/pilot_event_index/index_summary.json)
+- runtime output directory: `data/corpus/retrieval/pilot_event_index/`
 
 This is meant to stand up the retrieval contract and query path before introducing heavier embedding backends.
 

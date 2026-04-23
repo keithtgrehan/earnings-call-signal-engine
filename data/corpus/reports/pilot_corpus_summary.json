@@ -3,11 +3,6 @@
   "selected_case_count": 20,
   "manifest_csv_path": "data/corpus/manifests/pilot_corpus_manifest.csv",
   "manifest_jsonl_path": "data/corpus/manifests/pilot_corpus_manifest.jsonl",
-  "retrieval_index": {
-    "vectors_path": "data/corpus/retrieval/pilot_event_index/vectors.npy",
-    "records_path": "data/corpus/retrieval/pilot_event_index/records.json",
-    "summary_path": "data/corpus/retrieval/pilot_event_index/index_summary.json"
-  },
   "validation": {
     "generated_at": "2026-04-23T18:17:36.049862+00:00",
     "case_count": 20,
@@ -178,5 +173,17 @@
       "audio_verified": "false",
       "video_verified": "false"
     }
-  ]
+  ],
+  "retrieval_index_output_dir": "data/corpus/retrieval/pilot_event_index/",
+  "committed_samples": {
+    "transcripts": [
+      "data/corpus/raw/transcripts/GOOGL_2025_Q4_call03.txt",
+      "data/corpus/raw/transcripts/LLY_2025_Q2_call08.txt"
+    ],
+    "processed_artifacts": [
+      "data/corpus/processed/chunks/LLY_2025_Q2_call08.event_chunks.jsonl",
+      "data/corpus/processed/chunks/LLY_2025_Q2_call08.segment_metadata.json",
+      "data/corpus/processed/evidence_objects/LLY_2025_Q2_call08.evidence_objects.jsonl"
+    ]
+  }
 }
