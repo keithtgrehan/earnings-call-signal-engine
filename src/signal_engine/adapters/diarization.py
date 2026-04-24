@@ -17,7 +17,7 @@ def is_available() -> bool:
 def require_available() -> None:
     require_dependencies(
         adapter_name="signal_engine.adapters.diarization",
-        optional_group=OPTIONAL_GROUP,
+        optional_groups=OPTIONAL_GROUP,
         dependencies=DEPENDENCIES,
         purpose="speaker diarization experiments",
     )

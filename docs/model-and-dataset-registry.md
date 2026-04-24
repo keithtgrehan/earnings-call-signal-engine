@@ -60,8 +60,8 @@ This document tracks optional roadmap components only. Nothing in this registry 
 | ID | Modality | Task | Access | Added Now vs Later | Why Not Committed |
 | --- | --- | --- | --- | --- | --- |
 | `GoEmotions` | text | emotion classification | public | reference now | keep repo lightweight and avoid automatic downloads |
-| `customer-support-sentiment-placeholder` | text | sentiment classification | license required | placeholder now | no approved dataset selected in this run |
-| `sales-support-synthetic-fixtures` | text | smoke tests | public | tiny local fixtures later | prefer hand-authored fixtures over large corpora |
+| `customer-support sentiment datasets placeholder` | text | sentiment classification | license required | placeholder now | no approved dataset selected in this run |
+| `sales/support synthetic fixtures` | text | smoke tests | public | tiny local fixtures later | prefer hand-authored fixtures over large corpora |
 | `MSP-Podcast` | audio | speech emotion recognition | license required | reference now | large licensed audio corpus |
 | `IEMOCAP` | multimodal | speech and multimodal emotion | license required | reference now | redistribution and size constraints |
 | `MSP-IMPROV` | multimodal | speech emotion recognition | license required | reference now | gated academic-style dataset |
@@ -70,8 +70,8 @@ This document tracks optional roadmap components only. Nothing in this registry 
 | `CMU-MOSI` | multimodal | multimodal sentiment | license required | reference now | benchmark reference only |
 | `MTEB` | text | embedding benchmark reference | benchmark reference | reference now | large external benchmark suite |
 | `BEIR` | text | retrieval benchmark reference | benchmark reference | reference now | large external benchmark suite |
-| `Open-ASR-Leaderboard-ESB-reference` | audio | ASR benchmark reference | benchmark reference | reference now | public benchmark metadata only |
-| `Open-Speech-Emotion-Recognition-Leaderboard` | audio | SER benchmark reference | benchmark reference | reference now | leaderboard metadata only |
+| `Open ASR Leaderboard (ESB-style reference)` | audio | ASR benchmark reference | benchmark reference | reference now | public benchmark metadata only |
+| `Open Speech Emotion Recognition Leaderboard` | audio | SER benchmark reference | benchmark reference | reference now | leaderboard metadata only |
 
 ## Guardrails
 

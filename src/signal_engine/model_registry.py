@@ -193,3 +193,12 @@ def get_model_registry_entry(model_id: str) -> dict[str, Any]:
         raise KeyError(
             f"Unknown model registry id '{model_id}'. Supported ids: {supported}."
         ) from exc
+
+
+__all__ = [
+    "MODEL_REGISTRY",
+    "MODEL_REGISTRY_BY_ID",
+    "ModelRegistryEntry",
+    "get_model_registry_entry",
+    "list_model_registry",
+]

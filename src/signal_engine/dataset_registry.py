@@ -33,7 +33,7 @@ DATASET_REGISTRY: tuple[DatasetRegistryEntry, ...] = (
         not_committed_reason="Dataset artifacts are intentionally excluded to keep the repo lightweight and deterministic.",
     ),
     DatasetRegistryEntry(
-        id="customer-support-sentiment-placeholder",
+        id="customer-support sentiment datasets placeholder",
         modality="text",
         task="sentiment_classification",
         access="license_required",
@@ -43,7 +43,7 @@ DATASET_REGISTRY: tuple[DatasetRegistryEntry, ...] = (
         not_committed_reason="No dataset was selected or licensed in this run, so only a placeholder card is tracked.",
     ),
     DatasetRegistryEntry(
-        id="sales-support-synthetic-fixtures",
+        id="sales/support synthetic fixtures",
         modality="text",
         task="emotion_and_intent_smoke_tests",
         access="public",
@@ -133,7 +133,7 @@ DATASET_REGISTRY: tuple[DatasetRegistryEntry, ...] = (
         not_committed_reason="Benchmark corpora are external and intentionally not mirrored in-repo.",
     ),
     DatasetRegistryEntry(
-        id="Open-ASR-Leaderboard-ESB-reference",
+        id="Open ASR Leaderboard (ESB-style reference)",
         modality="audio",
         task="automatic_speech_recognition",
         access="benchmark_reference",
@@ -143,7 +143,7 @@ DATASET_REGISTRY: tuple[DatasetRegistryEntry, ...] = (
         not_committed_reason="Reference-only entry; no benchmark payloads or audio are downloaded.",
     ),
     DatasetRegistryEntry(
-        id="Open-Speech-Emotion-Recognition-Leaderboard",
+        id="Open Speech Emotion Recognition Leaderboard",
         modality="audio",
         task="speech_emotion_recognition",
         access="benchmark_reference",
@@ -171,3 +171,12 @@ def get_dataset_registry_entry(dataset_id: str) -> dict[str, Any]:
         raise KeyError(
             f"Unknown dataset registry id '{dataset_id}'. Supported ids: {supported}."
         ) from exc
+
+
+__all__ = [
+    "DATASET_REGISTRY",
+    "DATASET_REGISTRY_BY_ID",
+    "DatasetRegistryEntry",
+    "get_dataset_registry_entry",
+    "list_dataset_registry",
+]

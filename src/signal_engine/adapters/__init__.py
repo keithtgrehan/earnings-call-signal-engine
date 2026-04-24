@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import importlib.util
+from typing import Iterable
 
 
 @dataclass(frozen=True)
@@ -27,23 +28,49 @@ def module_available(module_name: str) -> bool:
 def missing_dependencies(
     dependencies: tuple[AdapterDependency, ...],
 ) -> list[AdapterDependency]:
-    return [dependency for dependency in dependencies if not module_available(dependency.module_name)]
+    return [
+        dependency
+        for dependency in dependencies
+        if not module_available(dependency.module_name)
+    ]
+
+
+def _normalize_optional_groups(
+    optional_groups: str | Iterable[str],
+) -> tuple[str, ...]:
+    if isinstance(optional_groups, str):
+        return tuple(
+            group.strip() for group in optional_groups.split(",") if group.strip()
+        )
+    return tuple(group for group in optional_groups if group)
 
 
 def require_dependencies(
     *,
     adapter_name: str,
-    optional_group: str,
+    optional_groups: str | Iterable[str],
     dependencies: tuple[AdapterDependency, ...],
     purpose: str,
 ) -> None:
     missing = missing_dependencies(dependencies)
     if not missing:
         return
-    missing_modules = ", ".join(sorted(dependency.module_name for dependency in missing))
+
+    normalized_groups = _normalize_optional_groups(optional_groups)
+    missing_modules = ", ".join(
+        sorted(dependency.module_name for dependency in missing)
+    )
+    missing_packages = ", ".join(
+        sorted(dependency.package_name for dependency in missing)
+    )
+    group_label = "group" if len(normalized_groups) == 1 else "groups"
+    group_text = ", ".join(normalized_groups)
+    install_groups = ",".join(normalized_groups)
     raise ImportError(
-        f"{adapter_name} requires optional dependency group '{optional_group}' for {purpose}. "
-        f"Missing modules: {missing_modules}. Install with `pip install .[{optional_group}]`."
+        f"{adapter_name} requires optional dependency {group_label} "
+        f"'{group_text}' for {purpose}. Missing modules: {missing_modules}. "
+        f"Missing packages: {missing_packages}. Install with "
+        f"`pip install .[{install_groups}]`."
     )
 
 
