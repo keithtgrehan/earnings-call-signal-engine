@@ -19,36 +19,42 @@
       "message_index": 0,
       "speaker_id": "cust_1",
       "role": "customer",
-      "text": "Our renewal is in six weeks and we're still dealing with two unresolved onboarding issues."
+      "text": "Our renewal is in about 45 days, and we're still dealing with two unresolved onboarding issues from the launch."
     },
     {
       "message_index": 1,
       "speaker_id": "am_1",
       "role": "account_manager",
-      "text": "I own the action items and will send a recovery plan by Friday."
+      "text": "I own the action items and will send a recovery plan by Friday with owners for each open item."
     },
     {
       "message_index": 2,
       "speaker_id": "cust_1",
       "role": "customer",
-      "text": "If the rollout stabilizes, we may add the support team and upgrade to the enterprise package."
+      "text": "If the rollout stabilizes this quarter, we may add the support team and upgrade to the enterprise package."
     },
     {
       "message_index": 3,
       "speaker_id": "cust_1",
       "role": "customer",
-      "text": "But if these issues stay open, we may cut seats or look at another vendor."
+      "text": "But if these issues stay open into renewal, we may cut seats, delay the renewal, or look at another vendor."
     },
     {
       "message_index": 4,
       "speaker_id": "am_1",
       "role": "account_manager",
-      "text": "Understood. I'll confirm owners today and schedule a renewal review next week."
+      "text": "Understood. I'll confirm owners today and schedule a renewal review next week so we can decide whether expansion is still realistic."
+    },
+    {
+      "message_index": 5,
+      "speaker_id": "cust_1",
+      "role": "customer",
+      "text": "Okay, but if this slips again finance will ask whether we should downgrade or switch."
     }
   ],
   "source": {
     "source_type": "synthetic_sample",
     "source_path": "data/signal_engine_2_0/sample_account_management.json",
-    "notes": "Tiny deterministic account-management example with renewal, churn, and expansion cues."
+    "notes": "Tiny deterministic account-management example with renewal risk, unresolved issues, churn pressure, and expansion upside."
   }
 }

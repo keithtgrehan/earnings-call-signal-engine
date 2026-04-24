@@ -108,28 +108,28 @@ def evidence_for_terms(
     limit: int = 5,
 ) -> list[Evidence]:
     evidence: list[Evidence] = []
-    seen: set[tuple[int | None, str]] = set()
     term_list = list(terms)
     for segment in segments:
         if roles is not None and segment.role not in roles:
             continue
+        matched_term: str | None = None
         for term in term_list:
             if not term_found(segment.text, term):
                 continue
-            key = (segment.message_index, term.lower())
-            if key in seen:
-                continue
-            evidence.append(
-                Evidence(
-                    signal_name=signal_name,
-                    message_index=segment.message_index,
-                    matched_text=excerpt(segment.text, term),
-                    reason=reason,
-                )
+            matched_term = term
+            break
+        if matched_term is None:
+            continue
+        evidence.append(
+            Evidence(
+                signal_name=signal_name,
+                message_index=segment.message_index,
+                matched_text=excerpt(segment.text, matched_term),
+                reason=reason,
             )
-            seen.add(key)
-            if len(evidence) >= limit:
-                return evidence
+        )
+        if len(evidence) >= limit:
+            return evidence
     return evidence
 
 

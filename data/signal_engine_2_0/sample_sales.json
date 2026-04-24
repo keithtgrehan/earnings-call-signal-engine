@@ -19,36 +19,36 @@
       "message_index": 0,
       "speaker_id": "rep_1",
       "role": "rep",
-      "text": "Thanks for joining. Happy to walk through the platform and the rollout plan."
+      "text": "Thanks for making time. I can walk through the pilot scope, rollout plan, and how teams usually evaluate the workflow."
     },
     {
       "message_index": 1,
       "speaker_id": "buyer_1",
       "role": "buyer",
-      "text": "We want to run a pilot next month if the security review goes well."
+      "text": "We're interested in a pilot next month if the security review goes well and the onboarding looks lighter than what we've seen before."
     },
     {
       "message_index": 2,
       "speaker_id": "buyer_1",
       "role": "buyer",
-      "text": "My main concern is price. The seat cost feels expensive versus Zendesk."
+      "text": "My main concern is price. The seat cost feels expensive versus Zendesk, and the team is also comparing you to Intercom."
     },
     {
       "message_index": 3,
       "speaker_id": "rep_1",
       "role": "rep",
-      "text": "I can send a pilot plan, pricing options, and a proposal by Tuesday."
+      "text": "Understood. I can send a pilot plan, pricing options, and a proposal by Tuesday, and I can include the security packet for procurement."
     },
     {
       "message_index": 4,
       "speaker_id": "buyer_1",
       "role": "buyer",
-      "text": "Great. If the discount works, we can bring procurement in next week."
+      "text": "If the discount works and security signs off, we can bring procurement in next week."
     }
   ],
   "source": {
     "source_type": "synthetic_sample",
     "source_path": "data/signal_engine_2_0/sample_sales.json",
-    "notes": "Tiny deterministic sales example with intent, pricing, and competitor pressure."
+    "notes": "Tiny deterministic sales example with buyer intent, pricing pressure, competitor mentions, and a concrete next step."
   }
 }

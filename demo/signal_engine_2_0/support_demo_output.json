@@ -1,0 +1,118 @@
+{
+  "schema_version": "signal_engine_2.0",
+  "domain": "support",
+  "conversation_id": "support_refund_escalation_001",
+  "scores": {
+    "directness_score": 0.0,
+    "deflection_score": 1.0,
+    "frustration_score": 0.5,
+    "resolution_clarity_score": 0.0,
+    "escalation_risk_score": 0.675
+  },
+  "risk_flags": [
+    "support_low_directness",
+    "support_deflection",
+    "support_frustration",
+    "support_escalation_risk"
+  ],
+  "opportunity_flags": [],
+  "evidence": [
+    {
+      "signal_name": "directness",
+      "message_index": 1,
+      "matched_text": "Refund timing sits with another team, so please refer to the billing FAQ for now while we look into it on our side.",
+      "reason": "Low lexical overlap and few direct-answer cues in the response."
+    },
+    {
+      "signal_name": "directness",
+      "message_index": 3,
+      "matched_text": "We are still looking into it and someone will reach out later once billing has an update.",
+      "reason": "Low lexical overlap and few direct-answer cues in the response."
+    },
+    {
+      "signal_name": "deflection",
+      "message_index": 1,
+      "matched_text": "Refund timing sits with another team, so please refer to the billing FAQ for now while we look into it on our side.",
+      "reason": "Support deflection language detected."
+    },
+    {
+      "signal_name": "deflection",
+      "message_index": 3,
+      "matched_text": "...are still looking into it and someone will reach out later once billing has an update.",
+      "reason": "Support deflection language detected."
+    },
+    {
+      "signal_name": "deflection",
+      "message_index": 1,
+      "matched_text": "Refund timing sits with another team, so please refer to the billing FAQ for now while we look into it on our side.",
+      "reason": "Response uses a deflection phrase instead of resolving the prompt."
+    },
+    {
+      "signal_name": "frustration",
+      "message_index": 0,
+      "matched_text": "Hi, I'm honestly pretty frustrated. Ticket 78421 has been open for 11 days and the refund still hasn't posted to our card.",
+      "reason": "Customer frustration language detected."
+    },
+    {
+      "signal_name": "escalation_risk",
+      "message_index": 2,
+      "matched_text": "...s still unresolved today I'll escalate it to your manager and dispute the charge.",
+      "reason": "Escalation language detected in the support exchange."
+    }
+  ],
+  "metadata": {
+    "participant_count": 2,
+    "transcript_segment_count": 4,
+    "source": {
+      "source_type": "synthetic_sample",
+      "source_path": "data/signal_engine_2_0/sample_support.json",
+      "notes": "Tiny deterministic support escalation example with frustration, deflection, unresolved status, and escalation risk."
+    },
+    "audio_metadata": {},
+    "video_metadata": {},
+    "deterministic": true,
+    "external_api_required": false,
+    "llm_required_for_canonical_scoring": false,
+    "built_now": [
+      "deterministic transcript analysis",
+      "domain-specific lexicon and role rules",
+      "offline unified JSON output"
+    ],
+    "roadmap": [
+      "optional ASR",
+      "optional diarization",
+      "optional audio features",
+      "optional video keyframes",
+      "optional retrieval and long-context review"
+    ],
+    "canonical_path": "text_first_offline",
+    "audio_metadata_present": false,
+    "video_metadata_present": false,
+    "optional_components": [
+      {
+        "name": "asr_transcription",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional offline speech-to-text when the input is audio rather than transcript text."
+      },
+      {
+        "name": "speaker_diarization",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional speaker separation before role mapping and per-speaker turn analysis."
+      },
+      {
+        "name": "audio_features",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional prosody and pause features for later review workflows."
+      },
+      {
+        "name": "video_keyframes",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional keyframe extraction for multimodal investigations, not canonical scoring."
+      }
+    ]
+  }
+}

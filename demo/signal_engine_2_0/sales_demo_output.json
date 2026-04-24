@@ -1,0 +1,127 @@
+{
+  "schema_version": "signal_engine_2.0",
+  "domain": "sales",
+  "conversation_id": "sales_pilot_pricing_001",
+  "scores": {
+    "buyer_intent_score": 0.6667,
+    "objection_count": 1,
+    "pricing_concern_mentions": 2,
+    "next_step_clarity_score": 0.9067,
+    "competitor_mentions": 1,
+    "rep_overtalk_ratio": 0.4216
+  },
+  "risk_flags": [
+    "sales_pricing_risk",
+    "sales_objection_pressure",
+    "sales_competitor_pressure"
+  ],
+  "opportunity_flags": [
+    "sales_buyer_intent",
+    "sales_next_step_defined"
+  ],
+  "evidence": [
+    {
+      "signal_name": "pricing_concern",
+      "message_index": 2,
+      "matched_text": "...in concern is price. The seat cost feels expensive versus Zendesk, and the team is also comparing you to Intercom.",
+      "reason": "Buyer raised pricing or budget concerns."
+    },
+    {
+      "signal_name": "pricing_concern",
+      "message_index": 4,
+      "matched_text": "If the discount works and security signs off, we can bring procurement in next week.",
+      "reason": "Buyer raised pricing or budget concerns."
+    },
+    {
+      "signal_name": "objection_count",
+      "message_index": 2,
+      "matched_text": "My main concern is price. The seat cost feels expensive versus Zendesk, and the team is also comparing yo...",
+      "reason": "Buyer objection language detected."
+    },
+    {
+      "signal_name": "competitor_mentions",
+      "message_index": 2,
+      "matched_text": "...team is also comparing you to Intercom.",
+      "reason": "Competitor or alternative mention detected."
+    },
+    {
+      "signal_name": "buyer_intent",
+      "message_index": 1,
+      "matched_text": "We're interested in a pilot next month if the security review goes well and the onboarding looks lighter than what we...",
+      "reason": "Buyer intent language detected."
+    },
+    {
+      "signal_name": "buyer_intent",
+      "message_index": 4,
+      "matched_text": "...urity signs off, we can bring procurement in next week.",
+      "reason": "Buyer intent language detected."
+    },
+    {
+      "signal_name": "next_step_clarity",
+      "message_index": 3,
+      "matched_text": "Understood. I can send a pilot plan, pricing options, and a proposal by Tuesday, and I can include the security packet for pr...",
+      "reason": "Concrete next-step language detected."
+    },
+    {
+      "signal_name": "next_step_clarity",
+      "message_index": 4,
+      "matched_text": "...urity signs off, we can bring procurement in next week.",
+      "reason": "Concrete next-step language detected."
+    }
+  ],
+  "metadata": {
+    "participant_count": 2,
+    "transcript_segment_count": 5,
+    "source": {
+      "source_type": "synthetic_sample",
+      "source_path": "data/signal_engine_2_0/sample_sales.json",
+      "notes": "Tiny deterministic sales example with buyer intent, pricing pressure, competitor mentions, and a concrete next step."
+    },
+    "audio_metadata": {},
+    "video_metadata": {},
+    "deterministic": true,
+    "external_api_required": false,
+    "llm_required_for_canonical_scoring": false,
+    "built_now": [
+      "deterministic transcript analysis",
+      "domain-specific lexicon and role rules",
+      "offline unified JSON output"
+    ],
+    "roadmap": [
+      "optional ASR",
+      "optional diarization",
+      "optional audio features",
+      "optional video keyframes",
+      "optional retrieval and long-context review"
+    ],
+    "canonical_path": "text_first_offline",
+    "audio_metadata_present": false,
+    "video_metadata_present": false,
+    "optional_components": [
+      {
+        "name": "asr_transcription",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional offline speech-to-text when the input is audio rather than transcript text."
+      },
+      {
+        "name": "speaker_diarization",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional speaker separation before role mapping and per-speaker turn analysis."
+      },
+      {
+        "name": "audio_features",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional prosody and pause features for later review workflows."
+      },
+      {
+        "name": "video_keyframes",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional keyframe extraction for multimodal investigations, not canonical scoring."
+      }
+    ]
+  }
+}
