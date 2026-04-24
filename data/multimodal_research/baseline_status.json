@@ -1,0 +1,21 @@
+{
+  "status": "transcript_only_scaffold",
+  "source_mode": "transcript_only_weak_labels",
+  "transcript_only": true,
+  "multimodal_training_ready": false,
+  "label_support": {
+    "risk_friction": 14,
+    "opportunity_commitment": 9,
+    "uncertainty_hedging": 1,
+    "neutral": 0
+  },
+  "reason": "No aligned multimodal fixtures are committed, and the local transcript-only weak-label corpus is not strong enough for an honest 4-class split.",
+  "source_paths": [
+    "data/signal_engine_2_0/fixtures/account_management_realistic.jsonl",
+    "data/signal_engine_2_0/fixtures/sales_calls_realistic.jsonl",
+    "data/signal_engine_2_0/fixtures/support_tickets_realistic.jsonl",
+    "data/signal_engine_2_0/sample_account_management.json",
+    "data/signal_engine_2_0/sample_sales.json",
+    "data/signal_engine_2_0/sample_support.json"
+  ]
+}

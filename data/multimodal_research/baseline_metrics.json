@@ -1,0 +1,4 @@
+{
+  "status": "not_run",
+  "reason": "No aligned multimodal fixtures are committed, and the local transcript-only weak-label corpus is not strong enough for an honest 4-class split."
+}

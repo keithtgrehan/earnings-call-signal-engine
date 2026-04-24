@@ -8,6 +8,7 @@ import signal_engine.adapters as adapter_helpers
 
 ADAPTER_MODULES = [
     "signal_engine.adapters.text_emotion",
+    "signal_engine.adapters.optional_transformer_emotion",
     "signal_engine.adapters.asr",
     "signal_engine.adapters.diarization",
     "signal_engine.adapters.audio_features",
@@ -32,6 +33,7 @@ def test_optional_adapters_import_safely_and_expose_dependency_hints() -> None:
     ("module_name", "expected_install_hint"),
     [
         ("signal_engine.adapters.text_emotion", "pip install .[text-emotion]"),
+        ("signal_engine.adapters.optional_transformer_emotion", "pip install .[text-emotion]"),
         ("signal_engine.adapters.asr", "pip install .[audio]"),
         ("signal_engine.adapters.audio_features", "pip install .[audio,prosody]"),
         ("signal_engine.adapters.video_features", "pip install .[video]"),

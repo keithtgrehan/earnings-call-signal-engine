@@ -2,6 +2,8 @@
 
 Signal Engine 2.0 is a transcript-first, deterministic signal extraction engine for messy business conversations. Earnings calls are the primary portfolio and capstone use case, while support, sales, and account-management examples show that the same evidence-backed architecture generalizes to other review workflows.
 
+The system extracts specific, reviewable signals with evidence snippets rather than broad black-box sentiment claims. It is not trading automation, truth detection, or unsupported sentiment magic.
+
 ## Positioning
 
 Built now:
@@ -36,6 +38,15 @@ Core constraints:
 - messy conversations and transcripts are hard to review consistently at scale
 - generic AI summaries are broad, hard to audit, and easy to over-trust
 - this system produces structured, evidence-backed signals with reproducible outputs that a reviewer can inspect and challenge
+
+## Review Package
+
+- simple architecture: [`docs/architecture-simple.md`](docs/architecture-simple.md)
+- evaluation proof: [`docs/evaluation-proof.md`](docs/evaluation-proof.md)
+- hero output: [`docs/hero-output.md`](docs/hero-output.md)
+- recruiter/buyer examples: [`demo/signal_engine_2_0/polished_examples.md`](demo/signal_engine_2_0/polished_examples.md)
+- NLP research manifest: [`docs/nlp-research-manifest.md`](docs/nlp-research-manifest.md)
+- final review summary: [`docs/signal-engine-2.0-final-review.md`](docs/signal-engine-2.0-final-review.md)
 
 ## Quick Start
 
@@ -121,6 +132,22 @@ python scripts/run_text_emotion_benchmark.py --input data/signal_engine_2_0/emot
 - optional audio features and escalation-only video review
 - optional retrieval and later multimodal fusion
 - optional model sidecars remain adapters and benchmarks, not canonical truth
+
+## Multimodal Signal Engine Direction
+
+- transcript remains canonical
+- audio and video remain optional review cues
+- success is measured by reviewer usefulness, evidence quality, and auditability, not emotion certainty
+- optional pretrained adapters are benchmark-only and off by default
+
+Supporting docs:
+
+- [`docs/multimodal-signal-taxonomy.md`](docs/multimodal-signal-taxonomy.md)
+- [`docs/dataset-and-research-map.md`](docs/dataset-and-research-map.md)
+- [`docs/multimodal-architecture.md`](docs/multimodal-architecture.md)
+- [`docs/multimodal-evaluation-protocol.md`](docs/multimodal-evaluation-protocol.md)
+- [`docs/multimodal-roadmap.md`](docs/multimodal-roadmap.md)
+- [`docs/multimodal-signal-engine-review.md`](docs/multimodal-signal-engine-review.md)
 
 ### Known legacy note
 
@@ -228,6 +255,19 @@ No LLMs sit in the core scoring path. No external APIs are required. No UI is re
 
 ## Docs
 
+- [`docs/architecture-simple.md`](docs/architecture-simple.md)
+- [`docs/evaluation-proof.md`](docs/evaluation-proof.md)
+- [`docs/hero-output.md`](docs/hero-output.md)
+- [`docs/nlp-research-plan.md`](docs/nlp-research-plan.md)
+- [`docs/nlp-research-manifest.md`](docs/nlp-research-manifest.md)
+- [`docs/nlp-baseline-report.md`](docs/nlp-baseline-report.md)
+- [`docs/signal-engine-2.0-final-review.md`](docs/signal-engine-2.0-final-review.md)
+- [`docs/multimodal-signal-taxonomy.md`](docs/multimodal-signal-taxonomy.md)
+- [`docs/dataset-and-research-map.md`](docs/dataset-and-research-map.md)
+- [`docs/multimodal-architecture.md`](docs/multimodal-architecture.md)
+- [`docs/multimodal-evaluation-protocol.md`](docs/multimodal-evaluation-protocol.md)
+- [`docs/multimodal-roadmap.md`](docs/multimodal-roadmap.md)
+- [`docs/multimodal-signal-engine-review.md`](docs/multimodal-signal-engine-review.md)
 - [`docs/signal-engine-2.0.md`](docs/signal-engine-2.0.md)
 - [`docs/signal-engine-2.0-review-package.md`](docs/signal-engine-2.0-review-package.md)
 - [`docs/signal-engine-2.0-architecture.md`](docs/signal-engine-2.0-architecture.md)

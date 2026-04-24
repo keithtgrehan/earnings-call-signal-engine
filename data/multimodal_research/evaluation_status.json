@@ -1,0 +1,22 @@
+{
+  "status": "scaffold_only",
+  "transcript_only_canonical": true,
+  "multimodal_fixture_count": 0,
+  "reason": "No aligned multimodal fixtures with gold reviewer labels are committed in the current Signal Engine 2.0 path.",
+  "supported_metrics": [
+    "precision",
+    "recall",
+    "f1",
+    "false_positive_rate",
+    "evidence_citation_quality",
+    "time_to_first_useful_signal",
+    "reviewer_clarity_rating",
+    "reviewer_actionability_rating",
+    "incremental_lift_over_transcript_only"
+  ],
+  "next_step": [
+    "Create a small aligned transcript+audio(+video) fixture set with gold review labels.",
+    "Measure transcript-only review first.",
+    "Only compare sidecar lift after the transcript-only baseline is stable."
+  ]
+}
