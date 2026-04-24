@@ -1,0 +1,56 @@
+{
+  "conversation_id": "support_refund_escalation_001",
+  "participants": [
+    {
+      "participant_id": "cust_1",
+      "name": "Jordan",
+      "role": "customer",
+      "organization": "Northwind"
+    },
+    {
+      "participant_id": "agent_1",
+      "name": "Maya",
+      "role": "agent",
+      "organization": "Signal Support"
+    }
+  ],
+  "transcript_segments": [
+    {
+      "message_index": 0,
+      "speaker_id": "cust_1",
+      "role": "customer",
+      "text": "I'm frustrated. This is the third time I've asked why my refund still hasn't posted.",
+      "timestamp_start": "00:00:01",
+      "timestamp_end": "00:00:08"
+    },
+    {
+      "message_index": 1,
+      "speaker_id": "agent_1",
+      "role": "agent",
+      "text": "Another team handles refunds, so please refer to the billing FAQ while we look into it.",
+      "timestamp_start": "00:00:09",
+      "timestamp_end": "00:00:15"
+    },
+    {
+      "message_index": 2,
+      "speaker_id": "cust_1",
+      "role": "customer",
+      "text": "That doesn't answer my question. I need a clear date or I will escalate this to your manager.",
+      "timestamp_start": "00:00:16",
+      "timestamp_end": "00:00:25"
+    },
+    {
+      "message_index": 3,
+      "speaker_id": "agent_1",
+      "role": "agent",
+      "text": "We are looking into it and someone will reach out later.",
+      "timestamp_start": "00:00:26",
+      "timestamp_end": "00:00:31"
+    }
+  ],
+  "source": {
+    "source_type": "synthetic_sample",
+    "source_path": "data/signal_engine_2_0/sample_support.json",
+    "notes": "Tiny deterministic support escalation example."
+  }
+}

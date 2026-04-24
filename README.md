@@ -1,28 +1,57 @@
-# Deterministic, Explainable Conversation Signal Engine
+# Signal Engine 2.0
 
-This repository is now positioned as a deterministic signal extraction engine for messy conversations.
+Signal Engine 2.0 is the forward product branch for deterministic, explainable conversation intelligence across support, sales, account management, and earnings-call workflows.
 
-Primary use case:
-- customer support QA
-- service-risk detection
-- escalation and deflection review
+## Positioning
 
-Secondary use case:
-- earnings-call Q&A analysis as a reference domain and proof layer
+Built now:
 
-The repo name stays as-is for now. The product direction has shifted, but the earnings-call assets remain in place as evidence that the same deterministic workflow can handle long, noisy conversations.
+- deterministic transcript-first conversation analysis
+- support / sales / account-management domain scoring
+- legacy support-QA MVP preserved
+- earnings calls preserved as a reference vertical and proof layer
+
+Roadmap:
+
+- optional ASR
+- optional diarization
+- optional audio features
+- optional video keyframes
+- optional semantic retrieval and long-context review
+
+Core constraints:
+
+- deterministic core first
+- transcript path works offline
+- no LLM dependency in canonical scoring
+- no external APIs required
+- no UI required
+- evidence-backed outputs only
 
 ## Quick Start
-Single conversation:
+
+Legacy support-QA MVP:
 
 ```bash
 python scripts/analyze_conversation.py data/sample_conversations.json
 ```
 
-Batch dataset build:
+Signal Engine 2.0 support analysis:
 
 ```bash
-python scripts/build_dataset.py data/sample_conversations.json
+python scripts/signal_engine_analyze.py --domain support data/signal_engine_2_0/sample_support.json
+```
+
+Signal Engine 2.0 sales analysis:
+
+```bash
+python scripts/signal_engine_analyze.py --domain sales data/signal_engine_2_0/sample_sales.json
+```
+
+Signal Engine 2.0 account-management analysis:
+
+```bash
+python scripts/signal_engine_analyze.py --domain account_management data/signal_engine_2_0/sample_account_management.json
 ```
 
 Canonical earnings-call proof check:
@@ -31,55 +60,50 @@ Canonical earnings-call proof check:
 python scripts/verify_outputs.py --out-dir outputs/PVH_2025_Q1_call09 --require-run-meta
 ```
 
-## Sample Output
+## Built Now
+
+- `src/parser.py`, `src/features.py`, and `src/pipeline.py` keep the original support-QA MVP intact
+- `src/signal_engine/` adds unified schemas and deterministic domain scoring for support, sales, account management, and earnings calls
+- sample transcript JSON inputs live in `data/signal_engine_2_0/`
+- `scripts/signal_engine_analyze.py` emits unified JSON to stdout
+
+## Unified Output
 
 ```json
 {
-  "conversation_id": "support_good_001",
-  "qa_score": 0.7096,
-  "directness_score": 0.6405,
-  "consistency_score": 0.5413,
-  "negative_language_ratio": 0.0,
-  "positive_language_ratio": 0.0,
-  "hedging_ratio": 0.0,
-  "verbosity_ratio": 0.6374,
-  "qa_deflection_rate": 0.0,
-  "risk_flags": []
+  "schema_version": "signal_engine_2.0",
+  "domain": "support",
+  "conversation_id": "support_refund_escalation_001",
+  "scores": {
+    "directness_score": 0.12,
+    "deflection_score": 0.75
+  },
+  "risk_flags": [
+    "support_deflection"
+  ],
+  "opportunity_flags": [],
+  "evidence": [
+    {
+      "signal_name": "deflection",
+      "message_index": 1,
+      "matched_text": "Another team handles refunds...",
+      "reason": "Support deflection language detected."
+    }
+  ],
+  "metadata": {
+    "deterministic": true,
+    "external_api_required": false
+  }
 }
 ```
 
-## What It Does
-- validates a simple `conversation_id` plus `messages[]` schema
-- normalizes messy JSON or JSONL conversation inputs
-- pairs customer prompts with the next agent reply deterministically
-- extracts explainable lexical and Q&A behavior features
-- emits one output row per conversation
-- raises deterministic risk flags for frustration, deflection, low directness, and inconsistent messaging
-
-## Deterministic Feature Set
-- `positive_language_ratio`
-- `negative_language_ratio`
-- `hedging_ratio`
-- `directness_score`
-- `qa_deflection_rate`
-- `verbosity_ratio`
-- `consistency_score` using TF-IDF only
-- `qa_score` from a weighted deterministic formula
-
-## Reference Domain: Earnings Calls
-The historical earnings-call workflow remains in the repository as a reference domain, not the primary product. That path still matters because analyst-management Q&A is a strong stress test for:
-
-- noisy multi-turn conversations
-- indirect answers
-- consistency across replies
-- domain-specific risk language
-
 ## Portfolio CI
+
 ```bash
 make portfolio-ci
 ```
 
-This keeps the canonical PVH_2025_Q1_call09 earnings-call proof path fresh while the repo pivots toward support QA.
+This keeps the canonical PVH_2025_Q1_call09 earnings-call proof path fresh while Signal Engine 2.0 grows around it.
 
 ## Proof (current state)
 <!-- proof:begin -->
@@ -92,11 +116,12 @@ This keeps the canonical PVH_2025_Q1_call09 earnings-call proof path fresh while
 <!-- proof:end -->
 
 ## How It Works
-1. Load JSON or JSONL conversations into a generic agent/customer schema.
-2. Normalize text and pair customer prompts with the next agent response.
-3. Compute deterministic lexical and Q&A behavior features.
-4. Write one structured row per conversation for downstream QA or risk review.
-5. Keep the legacy earnings-call workflow available as a reference proof path.
+
+1. Load transcript JSON or JSONL into a normalized conversation schema.
+2. Preserve ordered roles, turns, timestamps, and provenance.
+3. Apply deterministic lexicons, regexes, and turn-structure rules.
+4. Emit domain scores, flags, and evidence in one unified output schema.
+5. Keep the legacy support-QA MVP and earnings-call proof path available in parallel.
 
 ## Architecture
 ```mermaid
@@ -110,18 +135,12 @@ flowchart LR
 No LLMs sit in the core scoring path. No external APIs are required. No UI is required.
 
 ## Docs
-- [`docs/conversation-schema.md`](docs/conversation-schema.md)
-- [`docs/support-qa-mvp.md`](docs/support-qa-mvp.md)
-- [`docs/positioning.md`](docs/positioning.md)
-- [`docs/demo-path.md`](docs/demo-path.md)
-- [`docs/case-study.md`](docs/case-study.md)
-- [`docs/capstone-evaluation-summary.md`](docs/capstone-evaluation-summary.md)
 
-## Links To Deeper Docs
-- [`docs/demo-path.md`](docs/demo-path.md)
-- [`docs/case-study.md`](docs/case-study.md)
-- [`docs/retrieval-boundary.md`](docs/retrieval-boundary.md)
+- [`docs/signal-engine-2.0.md`](docs/signal-engine-2.0.md)
+- [`docs/domain-schemas.md`](docs/domain-schemas.md)
+- [`docs/multimodal-stack.md`](docs/multimodal-stack.md)
+- [`docs/library-evaluation-matrix.md`](docs/library-evaluation-matrix.md)
+- [`docs/support-qa-mvp.md`](docs/support-qa-mvp.md)
+- [`docs/conversation-schema.md`](docs/conversation-schema.md)
 - [`docs/architecture-diagram.md`](docs/architecture-diagram.md)
-- [`docs/capstone-evaluation-summary.md`](docs/capstone-evaluation-summary.md)
 - [`docs/current-status.md`](docs/current-status.md)
-- [`app/README.md`](app/README.md)

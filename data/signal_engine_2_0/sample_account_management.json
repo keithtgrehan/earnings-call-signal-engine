@@ -1,0 +1,54 @@
+{
+  "conversation_id": "account_renewal_review_001",
+  "participants": [
+    {
+      "participant_id": "cust_1",
+      "name": "Morgan",
+      "role": "customer",
+      "organization": "Northwind"
+    },
+    {
+      "participant_id": "am_1",
+      "name": "Riley",
+      "role": "account_manager",
+      "organization": "Signal Engine"
+    }
+  ],
+  "transcript_segments": [
+    {
+      "message_index": 0,
+      "speaker_id": "cust_1",
+      "role": "customer",
+      "text": "Our renewal is in six weeks and we're still dealing with two unresolved onboarding issues."
+    },
+    {
+      "message_index": 1,
+      "speaker_id": "am_1",
+      "role": "account_manager",
+      "text": "I own the action items and will send a recovery plan by Friday."
+    },
+    {
+      "message_index": 2,
+      "speaker_id": "cust_1",
+      "role": "customer",
+      "text": "If the rollout stabilizes, we may add the support team and upgrade to the enterprise package."
+    },
+    {
+      "message_index": 3,
+      "speaker_id": "cust_1",
+      "role": "customer",
+      "text": "But if these issues stay open, we may cut seats or look at another vendor."
+    },
+    {
+      "message_index": 4,
+      "speaker_id": "am_1",
+      "role": "account_manager",
+      "text": "Understood. I'll confirm owners today and schedule a renewal review next week."
+    }
+  ],
+  "source": {
+    "source_type": "synthetic_sample",
+    "source_path": "data/signal_engine_2_0/sample_account_management.json",
+    "notes": "Tiny deterministic account-management example with renewal, churn, and expansion cues."
+  }
+}
