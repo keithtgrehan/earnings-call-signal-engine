@@ -1,8 +1,13 @@
-"""Future adapter for optional embedding and retrieval-side benchmarks."""
+"""Optional readiness helpers for benchmark-only retrieval experiments."""
 
 from __future__ import annotations
 
-from . import AdapterDependency, missing_dependencies, require_dependencies
+from . import (
+    AdapterDependency,
+    dependency_hint as build_dependency_hint,
+    missing_dependencies,
+    require_dependencies,
+)
 
 OPTIONAL_GROUP = "embeddings"
 DEPENDENCIES = (
@@ -14,6 +19,14 @@ DEPENDENCIES = (
 
 def is_available() -> bool:
     return not missing_dependencies(DEPENDENCIES)
+
+
+def dependency_hint() -> str:
+    return build_dependency_hint(
+        optional_groups=OPTIONAL_GROUP,
+        dependencies=DEPENDENCIES,
+        extra_note="Retrieval remains optional enrichment and never replaces transcript evidence.",
+    )
 
 
 def require_available() -> None:

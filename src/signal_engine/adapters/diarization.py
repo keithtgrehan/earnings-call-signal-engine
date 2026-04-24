@@ -1,8 +1,13 @@
-"""Future adapter for optional speaker diarization on raw audio inputs."""
+"""Optional readiness helpers for future speaker diarization experiments."""
 
 from __future__ import annotations
 
-from . import AdapterDependency, missing_dependencies, require_dependencies
+from . import (
+    AdapterDependency,
+    dependency_hint as build_dependency_hint,
+    missing_dependencies,
+    require_dependencies,
+)
 
 OPTIONAL_GROUP = "diarization"
 DEPENDENCIES = (
@@ -12,6 +17,14 @@ DEPENDENCIES = (
 
 def is_available() -> bool:
     return not missing_dependencies(DEPENDENCIES)
+
+
+def dependency_hint() -> str:
+    return build_dependency_hint(
+        optional_groups=OPTIONAL_GROUP,
+        dependencies=DEPENDENCIES,
+        extra_note="Some pyannote assets are token-gated and are intentionally not required by default.",
+    )
 
 
 def require_available() -> None:

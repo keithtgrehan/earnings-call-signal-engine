@@ -54,6 +54,12 @@ Signal Engine 2.0 account-management analysis:
 python scripts/signal_engine_analyze.py --domain account_management data/signal_engine_2_0/sample_account_management.json
 ```
 
+Signal Engine 2.0 text emotion benchmark:
+
+```bash
+python scripts/run_text_emotion_benchmark.py --input data/signal_engine_2_0/emotion_benchmark/sample_emotion_cases.jsonl --manifest data/signal_engine_2_0/dataset_manifests/emotion_benchmark_manifest.json --mode deterministic --redact-pii --out-dir outputs/signal_engine_2_0/text_emotion_benchmark
+```
+
 Canonical earnings-call proof check:
 
 ```bash
@@ -76,6 +82,9 @@ Built now:
 - optional registries
 - benchmark harness skeleton
 - adapter placeholders
+- deterministic text emotion benchmark baseline
+- privacy redaction fallback
+- dataset ingestion and manifest validation
 
 Not built yet:
 
@@ -91,6 +100,10 @@ Constraints:
 - no truth-detection claims
 - no black-box emotion score as canonical output
 - deterministic output remains source of truth
+- production text emotion models require optional deps
+- ASR/diarization/audio/video remain adapter-ready roadmap
+- PII redaction fallback exists now
+- Presidio remains optional enhancement
 
 ## Unified Output
 
@@ -164,6 +177,9 @@ No LLMs sit in the core scoring path. No external APIs are required. No UI is re
 - [`docs/signal-engine-2.0.md`](docs/signal-engine-2.0.md)
 - [`docs/emotion-inference-roadmap.md`](docs/emotion-inference-roadmap.md)
 - [`docs/model-and-dataset-registry.md`](docs/model-and-dataset-registry.md)
+- [`docs/text-emotion-benchmark.md`](docs/text-emotion-benchmark.md)
+- [`docs/privacy-redaction.md`](docs/privacy-redaction.md)
+- [`docs/dataset-ingestion.md`](docs/dataset-ingestion.md)
 - [`docs/domain-schemas.md`](docs/domain-schemas.md)
 - [`docs/multimodal-stack.md`](docs/multimodal-stack.md)
 - [`docs/library-evaluation-matrix.md`](docs/library-evaluation-matrix.md)

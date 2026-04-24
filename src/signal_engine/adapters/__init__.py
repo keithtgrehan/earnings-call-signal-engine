@@ -45,6 +45,23 @@ def _normalize_optional_groups(
     return tuple(group for group in optional_groups if group)
 
 
+def dependency_hint(
+    *,
+    optional_groups: str | Iterable[str],
+    dependencies: tuple[AdapterDependency, ...],
+    extra_note: str | None = None,
+) -> str:
+    normalized_groups = _normalize_optional_groups(optional_groups)
+    install_groups = ",".join(normalized_groups)
+    packages = ", ".join(sorted(dependency.package_name for dependency in dependencies))
+    hint = f"Install with `pip install .[{install_groups}]`."
+    if packages:
+        hint += f" Expected packages: {packages}."
+    if extra_note:
+        hint += f" {extra_note}"
+    return hint
+
+
 def require_dependencies(
     *,
     adapter_name: str,
@@ -65,17 +82,17 @@ def require_dependencies(
     )
     group_label = "group" if len(normalized_groups) == 1 else "groups"
     group_text = ", ".join(normalized_groups)
-    install_groups = ",".join(normalized_groups)
     raise ImportError(
         f"{adapter_name} requires optional dependency {group_label} "
         f"'{group_text}' for {purpose}. Missing modules: {missing_modules}. "
-        f"Missing packages: {missing_packages}. Install with "
-        f"`pip install .[{install_groups}]`."
+        f"Missing packages: {missing_packages}. "
+        f"{dependency_hint(optional_groups=normalized_groups, dependencies=dependencies)}"
     )
 
 
 __all__ = [
     "AdapterDependency",
+    "dependency_hint",
     "missing_dependencies",
     "module_available",
     "require_dependencies",

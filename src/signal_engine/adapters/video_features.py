@@ -1,19 +1,31 @@
-"""Future adapter for optional escalation-only video feature extraction."""
+"""Optional readiness helpers for escalation-only video preprocessing."""
 
 from __future__ import annotations
 
-from . import AdapterDependency, missing_dependencies, require_dependencies
+from . import (
+    AdapterDependency,
+    dependency_hint as build_dependency_hint,
+    missing_dependencies,
+    require_dependencies,
+)
 
 OPTIONAL_GROUP = "video"
 DEPENDENCIES = (
     AdapterDependency("cv2", "opencv-python"),
     AdapterDependency("scenedetect", "scenedetect"),
-    AdapterDependency("moviepy", "moviepy"),
 )
 
 
 def is_available() -> bool:
     return not missing_dependencies(DEPENDENCIES)
+
+
+def dependency_hint() -> str:
+    return build_dependency_hint(
+        optional_groups=OPTIONAL_GROUP,
+        dependencies=DEPENDENCIES,
+        extra_note="MoviePy remains optional later if clip assembly is needed.",
+    )
 
 
 def require_available() -> None:
