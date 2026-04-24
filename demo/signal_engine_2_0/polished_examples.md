@@ -1,109 +1,63 @@
 # Signal Engine 2.0 Polished Examples
 
-## 1. Support QA
+These examples are recruiter-, buyer-, and reviewer-facing summaries of deterministic Signal Engine 2.0 outputs. They are meant to show how the system surfaces structured, evidence-backed signals from messy transcripts without claiming hidden intent certainty, truth detection, or black-box emotional truth.
 
-Input summary:
-Support customer reports a billing error, unresolved refund timing, and escalating frustration.
+## 1. Support Review Example
+
+Short input context:
+A customer contacts support about a billing error, says the issue has already been raised twice, and shares synthetic contact details so the case can be traced.
+
+Structured output summary:
+- domain: `support`
+- detected review state: unresolved billing issue with escalation risk
+- output style: deterministic flags, evidence snippets, and redaction-aware metadata
 
 Detected signals:
-- support low directness
 - support deflection
 - support frustration
 - support escalation risk
+- weak resolution clarity
 
 Evidence snippets:
-- "Refund timing sits with another team..."
-- "I'm honestly pretty frustrated..."
-- "I'll escalate it to your manager..."
+- "Refund timing sits with another team, so I can't change it here."
+- "I've already asked twice and the problem is still open."
+- "I'm pretty frustrated at this point."
 
-Business interpretation:
-Useful for surfacing unresolved support interactions where the response quality and escalation risk matter more than a generic sentiment score.
+Recommended next action:
+Route to a human reviewer or team lead, confirm billing ownership, and provide a concrete resolution or timeline instead of another handoff.
 
-Limitation:
-This is deterministic transcript analysis, not customer intent certainty or deception detection.
+Redaction note:
+When `--redact-pii` is enabled, synthetic email and phone details are replaced before analysis and only hash-based redaction records are retained in metadata.
 
-## 2. Sales Call Review
+Why the output is useful:
+It gives a reviewer a compact, auditable explanation of why the conversation suggests service risk, without relying on a broad summary or unsupported certainty claims.
 
-Input summary:
-Prospective buyer signals pilot interest but raises pricing pressure, competitor comparison, and weak next-step concerns.
+## 2. Sales Review Example
+
+Short input context:
+A prospective buyer is interested in moving forward, but raises pricing pressure, compares the product to a competitor, and leaves the next step weaker than ideal.
+
+Structured output summary:
+- domain: `sales`
+- detected review state: active deal motion with pricing and competitive pressure
+- output style: deterministic opportunity/risk flags with transcript evidence
 
 Detected signals:
 - sales pricing risk
-- sales objection pressure
 - sales competitor pressure
-- sales buyer intent
+- buyer intent
+- weak next-step discipline
 
 Evidence snippets:
-- "The seat cost feels expensive versus Zendesk..."
-- "The team is also comparing you to Intercom."
-- "We can bring procurement in next week."
+- "The seat cost still feels high for where we are."
+- "We're also comparing this against Intercom."
+- "Let's try to regroup sometime next week."
 
-Business interpretation:
-Useful for identifying whether a deal is real but blocked, and whether the rep created enough clarity to progress.
+Recommended next action:
+Tighten the next-step commitment, answer the pricing objection directly, and equip the rep with a concrete competitor comparison for the next review.
 
-Limitation:
-The output does not estimate win probability from hidden variables outside the transcript.
+Redaction note:
+No raw PII should be exposed in polished output examples; examples here use role-level context and short evidence snippets only.
 
-## 3. Account Management / CS
-
-Input summary:
-Renewal is close, onboarding issues remain open, and expansion stays possible if recovery succeeds.
-
-Detected signals:
-- account churn risk
-- account renewal risk
-- account unresolved issues
-- account expansion opportunity
-
-Evidence snippets:
-- "Our renewal is in about 45 days..."
-- "We may cut seats, delay the renewal..."
-- "We may still expand analytics seats..."
-
-Business interpretation:
-Useful for separating account risk from upside so a team can prioritize save motions and expansion motions together.
-
-Limitation:
-This is a transcript-backed workflow signal, not a contractual forecast.
-
-## 4. Text Emotion Benchmark
-
-Input summary:
-A tiny handcrafted benchmark checks whether deterministic emotion labeling and reporting infrastructure behave correctly.
-
-Detected signals:
-- label prediction with evidence terms
-- confusion matrix counts
-- macro F1
-- per-label precision/recall/F1
-
-Evidence snippets:
-- "urgent"
-- "frustrated"
-- "thank you"
-
-Business interpretation:
-Useful as harness validation for future optional text emotion comparisons without making models canonical.
-
-Limitation:
-Tiny handcrafted fixtures are not production proof and do not validate psychological diagnosis.
-
-## 5. PII Redaction
-
-Input summary:
-Support transcript includes synthetic email and phone details before analysis.
-
-Detected signals:
-- email redacted to `[EMAIL]`
-- phone redacted to `[PHONE]`
-- hash-only redaction records stored
-
-Evidence snippets:
-- output preserves the redacted sentence shape
-- metadata records redaction summary only
-
-Business interpretation:
-Useful for privacy-aware benchmarking and demos where evidence should remain readable without leaking raw identifiers.
-
-Limitation:
-This is a deterministic fallback redactor, not a full compliance or entity-resolution system.
+Why the output is useful:
+It helps a manager or buyer see what was detected, why it was detected, and what requires review next, without pretending to predict closed-won outcomes from the transcript alone.

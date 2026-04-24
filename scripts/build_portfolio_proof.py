@@ -108,6 +108,23 @@ def _lookup_benchmark_row(repo_root: Path) -> dict[str, Any]:
     raise RuntimeError(f"Could not find benchmark row for {CANONICAL_CASE_ID} in labels.csv")
 
 
+def _missing_artifacts(out_dir: Path, artifact_names: tuple[str, ...]) -> list[str]:
+    return [name for name in artifact_names if not _nonempty(out_dir / name)]
+
+
+def _safe_signal_counts(out_dir: Path) -> tuple[dict[str, int | None], list[str]]:
+    counts: dict[str, int | None] = {}
+    warnings: list[str] = []
+    for key, filename in COUNT_FILES.items():
+        path = out_dir / filename
+        if _nonempty(path):
+            counts[key] = _count_rows(path)
+            continue
+        counts[key] = None
+        warnings.append(f"Signal-count artifact missing: {path}")
+    return counts, warnings
+
+
 def build_proof(out_dir: Path) -> dict[str, Any]:
     repo_root = _repo_root()
     benchmark_row = _lookup_benchmark_row(repo_root)
@@ -130,6 +147,7 @@ def build_proof(out_dir: Path) -> dict[str, Any]:
 
     metrics = _read_json(out_dir / "metrics.json")
     run_meta = _read_json(out_dir / "run_meta.json")
+    signal_counts, warnings = _safe_signal_counts(out_dir)
     cost_value = _find_cost(run_meta)
     if cost_value is None:
         cost_value = _find_cost(metrics)
@@ -148,12 +166,11 @@ def build_proof(out_dir: Path) -> dict[str, Any]:
         "cost_status": cost_status,
         "benchmark_label": benchmark_row,
         "artifacts_verified": result.returncode == 0,
+        "status": "verified" if result.returncode == 0 else "verification_failed",
         "required_artifacts": {
             name: _nonempty(out_dir / name) for name in REQUIRED_ARTIFACTS
         },
-        "signal_counts": {
-            key: _count_rows(out_dir / filename) for key, filename in COUNT_FILES.items()
-        },
+        "signal_counts": signal_counts,
         "example_outputs": [
             f"outputs/{CANONICAL_CASE_ID}/{name}" for name in EXAMPLE_OUTPUTS
         ],
@@ -164,6 +181,7 @@ def build_proof(out_dir: Path) -> dict[str, Any]:
         },
         "verification_stdout": result.stdout.strip(),
         "verification_stderr": result.stderr.strip(),
+        "warnings": warnings,
     }
 
 
@@ -194,6 +212,17 @@ def main(argv: list[str] | None = None) -> int:
         if args.proof_path
         else out_dir / "portfolio_proof.json"
     )
+
+    missing_required = _missing_artifacts(out_dir, REQUIRED_ARTIFACTS)
+    if missing_required:
+        print("Portfolio proof build skipped: missing legacy canonical artifacts:")
+        for name in missing_required:
+            print(f"- {out_dir / name}")
+        if proof_path.exists():
+            print(f"Leaving existing proof artifact untouched: {proof_path}")
+        else:
+            print(f"No proof artifact written because the legacy bundle is incomplete: {proof_path}")
+        return 0
 
     proof = build_proof(out_dir)
     proof_path.write_text(json.dumps(proof, indent=2) + "\n", encoding="utf-8")

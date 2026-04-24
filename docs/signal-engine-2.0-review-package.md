@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-Signal Engine 2.0 is a deterministic, transcript-first conversation analysis layer for support, sales, account management, and earnings-call review workflows. Canonical output remains evidence-backed and inspectable. Emotion models, audio tooling, video tooling, and multimodal layers are optional benchmark or roadmap components only.
+Signal Engine 2.0 is a transcript-first, deterministic signal extraction layer for messy business conversations. Earnings calls are the primary portfolio and capstone use case, while support, sales, and account-management examples show that the same evidence-backed architecture generalizes to other business review workflows. Canonical output remains inspectable and reproducible. Emotion models, audio tooling, video tooling, and multimodal layers are optional benchmark or roadmap components only.
 
 ## What Works Now
 
@@ -53,15 +53,16 @@ python scripts/run_signal_engine_2_0_demo.py
 - privacy redaction, dataset ingestion, benchmark runner, and demo script are covered by focused tests
 - optional transformer benchmark was not run because dependency/model cache availability could not be confirmed quickly without risking a slow demo pass
 
-## Known Legacy Blocker
+## Legacy Portfolio CI Status
 
-- `make portfolio-ci` fails immediately in `scripts/build_portfolio_proof.py`
-- exact failing path: `outputs/LLY_2025_Q2_call08/metrics.json`
-- exact error class: `FileNotFoundError`
-- this pass does not alter unrelated proof artifacts unless the fix is trivially safe
+- `make portfolio-ci` no longer crashes when the local legacy `outputs/LLY_2025_Q2_call08/` artifact bundle is incomplete
+- legacy proof refresh, freshness, and doc-audit steps now warn and skip cleanly when required local files such as `metrics.json` are missing
+- the current Signal Engine 2.0 demo path stays deterministic and separate from that legacy proof bundle
 
 ## Business Value
 
+- messy conversations and transcripts are hard to review consistently
+- generic AI summaries are broad and difficult to audit
 - converts raw transcripts into auditable support, sales, and account-management signals
 - preserves evidence snippets for reviewer trust and downstream workflow design
 - supports privacy-aware benchmarking without requiring external APIs
@@ -83,5 +84,6 @@ python scripts/run_signal_engine_2_0_demo.py
 
 - no truth-detection claim
 - no black-box emotion score as canonical truth
+- no alpha claim or unsupported statistical significance claim
 - no production ASR, production diarization, or production multimodal fusion
 - no heavy required dependencies in the default path
