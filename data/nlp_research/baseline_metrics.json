@@ -1,0 +1,26 @@
+{
+  "status": "insufficient_data",
+  "task": "signal_family",
+  "total_examples": 24,
+  "label_support": {
+    "risk_friction": 14,
+    "opportunity_commitment": 9,
+    "uncertainty_hedging": 1,
+    "neutral": 0
+  },
+  "minimum_examples_per_class": 2,
+  "minimum_total_examples": 12,
+  "insufficient_labels": [
+    "uncertainty_hedging",
+    "neutral"
+  ],
+  "reason": "local weak-label corpus is too small or imbalanced for an honest 4-class benchmark split",
+  "source_paths": [
+    "data/signal_engine_2_0/fixtures/account_management_realistic.jsonl",
+    "data/signal_engine_2_0/fixtures/sales_calls_realistic.jsonl",
+    "data/signal_engine_2_0/fixtures/support_tickets_realistic.jsonl",
+    "data/signal_engine_2_0/sample_account_management.json",
+    "data/signal_engine_2_0/sample_sales.json",
+    "data/signal_engine_2_0/sample_support.json"
+  ]
+}
