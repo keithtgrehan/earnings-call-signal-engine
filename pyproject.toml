@@ -96,6 +96,45 @@ visualization = [
   "seaborn",
   "plotly",
 ]
+nlp = [
+  "spacy",
+  "scikit-learn",
+  "rapidfuzz",
+  "textstat",
+  "yake",
+]
+privacy = [
+  "presidio-analyzer",
+  "presidio-anonymizer",
+]
+embeddings = [
+  "sentence-transformers",
+  "faiss-cpu",
+  "chromadb",
+]
+text-emotion = [
+  "transformers",
+  "torch",
+  "datasets",
+  "evaluate",
+]
+audio = [
+  "faster-whisper",
+  "librosa",
+  "torchaudio",
+  "ffmpeg-python",
+]
+diarization = [
+  "pyannote.audio",
+]
+video = [
+  "opencv-python",
+  "scenedetect",
+  "moviepy",
+]
+prosody = [
+  "opensmile",
+]
 
 [project.scripts]
 earnings-call-sentiment = "earnings_call_sentiment.cli:main"

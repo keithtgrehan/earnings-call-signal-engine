@@ -67,6 +67,31 @@ python scripts/verify_outputs.py --out-dir outputs/PVH_2025_Q1_call09 --require-
 - sample transcript JSON inputs live in `data/signal_engine_2_0/`
 - `scripts/signal_engine_analyze.py` emits unified JSON to stdout
 
+## Emotion and Multimodal Roadmap
+
+Built now:
+
+- deterministic transcript signals
+- buyer demo pack
+- optional registries
+- benchmark harness skeleton
+- adapter placeholders
+
+Not built yet:
+
+- production ASR
+- diarization
+- text emotion inference
+- speech emotion inference
+- video emotion inference
+- multimodal fusion
+
+Constraints:
+
+- no truth-detection claims
+- no black-box emotion score as canonical output
+- deterministic output remains source of truth
+
 ## Unified Output
 
 ```json
@@ -137,6 +162,8 @@ No LLMs sit in the core scoring path. No external APIs are required. No UI is re
 ## Docs
 
 - [`docs/signal-engine-2.0.md`](docs/signal-engine-2.0.md)
+- [`docs/emotion-inference-roadmap.md`](docs/emotion-inference-roadmap.md)
+- [`docs/model-and-dataset-registry.md`](docs/model-and-dataset-registry.md)
 - [`docs/domain-schemas.md`](docs/domain-schemas.md)
 - [`docs/multimodal-stack.md`](docs/multimodal-stack.md)
 - [`docs/library-evaluation-matrix.md`](docs/library-evaluation-matrix.md)
