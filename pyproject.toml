@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "earnings-call-sentiment"
 version = "0.1.0"
-description = "Earnings call sentiment from voice transcript with optional video input."
+description = "Deterministic, explainable conversation signal engine for QA and risk detection."
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [{ name = "Keith" }]
@@ -43,6 +43,7 @@ earnings-call-sentiment = "earnings_call_sentiment.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
+py-modules = ["parser", "features", "pipeline"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

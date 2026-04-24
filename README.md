@@ -1,148 +1,127 @@
-# Earnings Call Signal Engine
-Transcript-first local review workflow for turning one earnings call into deterministic, auditable artifacts for analyst review.
+# Deterministic, Explainable Conversation Signal Engine
 
-This repo is a decision-support tool, not a trading system. It does not execute orders, does not claim predictive edge, and does not treat optional model or multimodal layers as the source of truth.
+This repository is now positioned as a deterministic signal extraction engine for messy conversations.
 
-## What It Is
-- A local workflow for ingesting one earnings call from transcript text, YouTube/media, or document text.
-- A deterministic extraction layer that writes structured review artifacts such as `guidance.csv`, `metrics.json`, and `report.md`.
-- A local review shell for inspecting source excerpts, extracted signals, ambiguity notes, and supporting context.
-- An additive sidecar layer for audio, NLP, and video support when available, kept explicitly secondary to transcript-backed outputs.
+Primary use case:
+- customer support QA
+- service-risk detection
+- escalation and deflection review
 
-## Why It Exists
-Earnings calls are long, noisy, and easy to skim poorly. Reviewers need a fast way to answer:
-- what changed
-- where the supporting evidence lives
-- which moments deserve attention first
-- what is deterministic versus what is only supportive context
+Secondary use case:
+- earnings-call Q&A analysis as a reference domain and proof layer
 
-This repo packages that workflow into inspectable artifacts instead of relying on a black-box summary.
+The repo name stays as-is for now. The product direction has shifted, but the earnings-call assets remain in place as evidence that the same deterministic workflow can handle long, noisy conversations.
 
-## Canonical Portfolio Proof
-The public proof path for this repo is the checked-in Eli Lilly case bundle:
-- output directory: `outputs/LLY_2025_Q2_call08/`
-- quick verification:
+## Quick Start
+Single conversation:
 
 ```bash
-python scripts/verify_outputs.py --out-dir outputs/LLY_2025_Q2_call08 --require-run-meta
+python scripts/analyze_conversation.py data/sample_conversations.json
 ```
 
-- full portfolio check:
+Batch dataset build:
 
+```bash
+python scripts/build_dataset.py data/sample_conversations.json
+```
+
+Canonical earnings-call proof check:
+
+```bash
+python scripts/verify_outputs.py --out-dir outputs/PVH_2025_Q1_call09 --require-run-meta
+```
+
+## Sample Output
+
+```json
+{
+  "conversation_id": "support_good_001",
+  "qa_score": 0.7096,
+  "directness_score": 0.6405,
+  "consistency_score": 0.5413,
+  "negative_language_ratio": 0.0,
+  "positive_language_ratio": 0.0,
+  "hedging_ratio": 0.0,
+  "verbosity_ratio": 0.6374,
+  "qa_deflection_rate": 0.0,
+  "risk_flags": []
+}
+```
+
+## What It Does
+- validates a simple `conversation_id` plus `messages[]` schema
+- normalizes messy JSON or JSONL conversation inputs
+- pairs customer prompts with the next agent reply deterministically
+- extracts explainable lexical and Q&A behavior features
+- emits one output row per conversation
+- raises deterministic risk flags for frustration, deflection, low directness, and inconsistent messaging
+
+## Deterministic Feature Set
+- `positive_language_ratio`
+- `negative_language_ratio`
+- `hedging_ratio`
+- `directness_score`
+- `qa_deflection_rate`
+- `verbosity_ratio`
+- `consistency_score` using TF-IDF only
+- `qa_score` from a weighted deterministic formula
+
+## Reference Domain: Earnings Calls
+The historical earnings-call workflow remains in the repository as a reference domain, not the primary product. That path still matters because analyst-management Q&A is a strong stress test for:
+
+- noisy multi-turn conversations
+- indirect answers
+- consistency across replies
+- domain-specific risk language
+
+## Portfolio CI
 ```bash
 make portfolio-ci
 ```
 
-Open these files in order:
-- [`outputs/LLY_2025_Q2_call08/report.md`](outputs/LLY_2025_Q2_call08/report.md)
-- [`outputs/LLY_2025_Q2_call08/metrics.json`](outputs/LLY_2025_Q2_call08/metrics.json)
-- [`outputs/LLY_2025_Q2_call08/guidance.csv`](outputs/LLY_2025_Q2_call08/guidance.csv)
-- [`docs/demo-path.md`](docs/demo-path.md)
-- [`docs/portfolio-proof.md`](docs/portfolio-proof.md)
-
-Fixed UI demo cases for Netflix, Meta, and NVIDIA still exist in the repo, but the Lilly bundle is the single recruiter-facing proof path because it is frozen, inspectable, and tied to a committed benchmark row. The benchmark note itself also records that the ASR text is imperfect, which is exactly the kind of limitation this repo is meant to surface instead of hiding.
+This keeps the canonical PVH_2025_Q1_call09 earnings-call proof path fresh while the repo pivots toward support QA.
 
 ## Proof (current state)
 <!-- proof:begin -->
-- Frozen benchmark label: `raised` for Eli Lilly (`call08`, 2025-08-07, confidence 0.78).
-- Proof check runtime: 0.074471 seconds for `verify_outputs.py` against the committed bundle.
-- Recorded run cost: not yet measured.
-- Extracted signals in the committed bundle: 93 guidance rows, 19 uncertainty rows, 4 reassurance rows, 1 analyst-skepticism row(s).
-- Example outputs: reviewer report at `outputs/LLY_2025_Q2_call08/report.md`.
-- Example outputs: structured scorecard at `outputs/LLY_2025_Q2_call08/metrics.json`.
-- Example outputs: extracted guidance table at `outputs/LLY_2025_Q2_call08/guidance.csv`.
+- PVH runtime per case: 0.293191 seconds.
+- PVH cost per case: not yet measured.
+- PVH extracted signals: 199 guidance rows, 4 uncertainty rows, 2 reassurance rows, 1 analyst-skepticism row(s).
+- Example outputs: reviewer report at `outputs/PVH_2025_Q1_call09/report.md`.
+- Example outputs: structured scorecard at `outputs/PVH_2025_Q1_call09/metrics.json`.
+- Example outputs: extracted guidance table at `outputs/PVH_2025_Q1_call09/guidance.csv`.
 <!-- proof:end -->
 
-## What Goes In
-- transcript text
-- YouTube or local media
-- local document text
+## How It Works
+1. Load JSON or JSONL conversations into a generic agent/customer schema.
+2. Normalize text and pair customer prompts with the next agent response.
+3. Compute deterministic lexical and Q&A behavior features.
+4. Write one structured row per conversation for downstream QA or risk review.
+5. Keep the legacy earnings-call workflow available as a reference proof path.
 
-## What Comes Out
-- transcript artifacts: `transcript.json`, `transcript.txt`
-- deterministic scoring artifacts: `chunks_scored.jsonl`, `guidance.csv`, `guidance_revision.csv`, `tone_changes.csv`
-- signal tables: `uncertainty_signals.csv`, `reassurance_signals.csv`, `analyst_skepticism.csv`
-- reviewer outputs: `metrics.json`, `report.md`, `run_meta.json`
-- optional supporting artifacts: `qa_shift_summary.json`, `audio_behavior_summary.json`, `multimodal_support_summary.json`
-
-The scorecard in `metrics.json` is a deterministic presentation layer over extracted evidence. It is meant to route reviewer attention into concrete categories, not replace the underlying files.
-
-## Pilot Corpus And Retrieval
-As of April 23, 2026, the repo also contains a transcript-first pilot corpus scaffold under [`data/corpus/`](data/corpus/):
-- strict manifest rows with explicit transcript/audio/video verification fields
-- a committed 20-call pilot manifest plus tiny representative transcript/evidence samples
-- retrieval-ready artifacts such as `transcript_sectioned.json`, `qa_pairs.json`, `event_chunks.jsonl`, and `evidence_objects.jsonl`
-- scripts that regenerate the full local vector baseline at `data/corpus/retrieval/pilot_event_index/`
-
-Rebuild it with:
-
-```bash
-PYTHONPATH=src python3 scripts/build_pilot_corpus.py --target-count 20 --embedding-provider hashing
-PYTHONPATH=src python3 scripts/validate_pilot_corpus.py
+## Architecture
+```mermaid
+flowchart LR
+    A["JSON / JSONL Conversations"] --> B["Parser + Normalization"]
+    B --> C["Deterministic Feature Engine"]
+    C --> D["Per-Conversation Output Row"]
+    E["Earnings-Call Assets"] -. reference domain .-> B
 ```
 
-Current pilot verification counts:
-- transcript verified: `20`
-- audio verified: `7`
-- video verified: `0`
+No LLMs sit in the core scoring path. No external APIs are required. No UI is required.
 
-Committed representative samples on this branch are intentionally small:
-- transcript samples: `GOOGL_2025_Q4_call03`, `LLY_2025_Q2_call08`
-- processed sample artifacts: `LLY_2025_Q2_call08.event_chunks.jsonl`, `LLY_2025_Q2_call08.segment_metadata.json`, and `LLY_2025_Q2_call08.evidence_objects.jsonl`
-
-Those counts are intentionally strict. Transcript-backed evidence remains canonical, audio is only marked verified when committed derived review outputs exist, video stays unverified until a real local video asset or replay artifact is present, and the larger generated corpus tree is meant to be rebuilt locally rather than committed.
-
-## What Makes It Credible
-- Frozen labels are committed under [`data/gold_guidance_calls/`](data/gold_guidance_calls/).
-- Current evaluation checkpoints are documented in [`docs/evaluation-summary.md`](docs/evaluation-summary.md).
-- The canonical LLY proof bundle is committed under [`outputs/LLY_2025_Q2_call08/`](outputs/LLY_2025_Q2_call08/).
-- The repo keeps explicit boundaries around what is demonstrated, partial, and unproven in [`docs/current-status.md`](docs/current-status.md) and [`docs/portfolio-proof.md`](docs/portfolio-proof.md).
-
-Current repo-level checkpoints:
-- frozen benchmark agreement: `9/9`
-- unseen holdout agreement: `7/7`
-- watchlist-derived unseen holdout agreement: `7/7`
-- behavior rule-QA set: `58/58`
-
-These numbers support deterministic review-tool positioning only. They do not establish predictive edge, statistical significance, or trading performance.
-
-## Deterministic-First Boundary
-- Transcript-backed deterministic artifacts are the source of truth.
-- Audio, NLP, and video outputs are supporting layers only.
-- Optional model sidecars do not overwrite deterministic labels or benchmark truth.
-- Review confidence is confidence in the interpretation of available evidence, not investment confidence.
-- The repo should be presented as workflow and evidence-packaging infrastructure, not as hidden-state inference.
-
-## Local Review Shell
-The main local shell is served by `app/site_server.py`:
-
-```bash
-PYTHONPATH=src PORT=7872 python app/site_server.py
-```
-
-It is useful for walkthroughs and product demos, but the canonical portfolio proof still lives in the checked-in LLY output bundle and supporting docs linked above.
-
-## Repo Structure
-- `app/`: local review shell
-- `data/corpus/`: transcript-first pilot corpus manifests, normalized transcripts, retrieval artifacts, and corpus reports
-- `data/gold_guidance_calls/`: frozen benchmark labels and source manifests
-- `docs/`: demo path, current status, evaluation notes, and proof framing
-- `outputs/LLY_2025_Q2_call08/`: canonical recruiter-facing proof bundle
-- `scripts/`: verification and portfolio-proof helpers
-- `src/earnings_call_sentiment/`: CLI and extraction pipeline
-
-## Additional References
+## Docs
+- [`docs/conversation-schema.md`](docs/conversation-schema.md)
+- [`docs/support-qa-mvp.md`](docs/support-qa-mvp.md)
+- [`docs/positioning.md`](docs/positioning.md)
 - [`docs/demo-path.md`](docs/demo-path.md)
-- [`docs/portfolio-proof.md`](docs/portfolio-proof.md)
-- [`docs/current-status.md`](docs/current-status.md)
-- [`docs/evaluation-summary.md`](docs/evaluation-summary.md)
-- [`docs/evidence-map.md`](docs/evidence-map.md)
-- [`docs/pilot-corpus.md`](docs/pilot-corpus.md)
+- [`docs/case-study.md`](docs/case-study.md)
+- [`docs/capstone-evaluation-summary.md`](docs/capstone-evaluation-summary.md)
 
-## Why This Matters
-For technical pre-sales, workflow design, and AI-systems conversations, this repo shows a useful pattern:
-- start with deterministic extraction
-- preserve auditable intermediate artifacts
-- keep optional model layers additive
-- make non-claims explicit
-- give reviewers a reproducible proof path instead of a vague product story
+## Links To Deeper Docs
+- [`docs/demo-path.md`](docs/demo-path.md)
+- [`docs/case-study.md`](docs/case-study.md)
+- [`docs/retrieval-boundary.md`](docs/retrieval-boundary.md)
+- [`docs/architecture-diagram.md`](docs/architecture-diagram.md)
+- [`docs/capstone-evaluation-summary.md`](docs/capstone-evaluation-summary.md)
+- [`docs/current-status.md`](docs/current-status.md)
+- [`app/README.md`](app/README.md)
