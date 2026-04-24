@@ -13,7 +13,7 @@ This is not:
 - a deception detector
 - a truth detector
 - an emotion-product
-- a trading or alpha system
+- a trading or return-seeking system
 
 Audio and video should help reviewers inspect delivery under questioning. They should never replace the transcript evidence or force a conclusion when media quality is weak.
 

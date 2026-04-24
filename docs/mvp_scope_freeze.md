@@ -1,6 +1,8 @@
 # MVP Scope Freeze
 
-“A deterministic earnings-call guidance-change assistant that helps a retail user review a transcript faster and more consistently than unaided manual review.”
+Historical MVP note: this page captures an earlier scope target. The current public claim boundary is defined in `docs/freeze-boundaries.md`.
+
+“A deterministic earnings-call guidance-change assistant for structured, transcript-first review.”
 
 ## In Scope
 - Deterministic guidance-change labeling with a closed label set.

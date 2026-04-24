@@ -1,7 +1,12 @@
 # Current Status
 
+## Freeze Status
+- The transcript-first deterministic core is currently frozen unless a real bug is found.
+- The gold benchmark, active holdout, watchlist holdout, and behavior eval packages are currently frozen unless corruption or inconsistency is found.
+- The current freeze boundary is documented in `docs/freeze-boundaries.md`.
+
 ## Implemented Now
-- Transcript/audio-first pipeline from call input to structured artifacts.
+- Transcript-first pipeline from call input to structured artifacts, with audio/video as optional supporting layers.
 - Deterministic post-processing for guidance extraction, guidance revision comparison, and tone-change detection.
 - Standard artifact outputs (`transcript.*`, `sentiment_segments.csv`, `chunks_scored.jsonl`, `guidance*.csv`, `tone_changes.csv`, `metrics.json`, `report.md`, `run_meta.json`).
 - CLI stage controls (`--download-only`, `--transcribe-only`, `--score-only`) and output checks (`--strict`, `scripts/verify_outputs.py`).
@@ -42,4 +47,4 @@
 - No claim that external dataset scaffolding proves finance-specific transfer performance.
 
 ## Practical Positioning
-This project should be presented as a **signal-extraction prototype** for faster, more structured earnings-call review. The strongest current value is deterministic, evidence-linked output generation rather than return prediction.
+This project should be presented as a **transcript-first validated prototype** and deterministic evidence-backed review tool. The strongest current value is deterministic, evidence-linked output generation plus internal benchmark agreement checkpoints rather than return prediction.

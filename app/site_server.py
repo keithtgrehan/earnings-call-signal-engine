@@ -15,10 +15,10 @@ def create_app():
         repo_root=REPO_ROOT,
         ui_meta={
             'title': 'Earnings Call Signal Engine',
-            'eyebrow': 'Transcript-first AI review',
+            'eyebrow': 'Local review workspace',
             'lede': (
-                'Transcript-first AI tool for extracting structured signals from earnings call audio '
-                'and video sources using NLP.'
+                'Transcript-first local workspace for reviewing deterministic earnings-call '
+                'artifacts, with optional audio and video support layers.'
             ),
             'variant': 'site',
         },

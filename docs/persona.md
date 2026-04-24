@@ -1,5 +1,7 @@
 # Primary Persona
 
+This persona is a design target for reviewer workflow. It should not be read as a validated claim about user speed, trading outcomes, or decision quality.
+
 ## Persona Name
 Alex Morgan
 
@@ -10,7 +12,7 @@ Alex is a self-directed retail trader who actively follows U.S. earnings season 
 - Identify meaningful guidance and tone changes quickly after an earnings call.
 - Focus attention on the small set of transcript moments that are most signal-relevant.
 - Compare current call signals with prior-call context to detect real change.
-- Make faster, better-informed trade decisions with clear evidence.
+- Reach an evidence-backed review view before making a decision.
 
 ## Frustrations
 - Earnings calls are long, repetitive, and hard to parse under time pressure.
@@ -22,14 +24,14 @@ Alex is a self-directed retail trader who actively follows U.S. earnings season 
 Alex currently skims press releases, reads fragmented social commentary, and jumps through call transcripts looking for guidance language and tone clues. This process is slow, inconsistent, and easy to miss key moments, especially when several companies report in the same window.
 
 ## Needs From the Product
-- A fast, structured signal summary from one earnings call.
+- A structured, evidence-backed review summary from one earnings call.
 - Clear extraction of guidance statements and meaningful guidance changes.
 - Reliable identification of tone-change moments tied to transcript evidence.
-- Auditable outputs that show what changed, why it matters, and where it appears.
+- Auditable outputs that show what changed and where it appears.
 
-## Success Looks Like
-- Alex can review one call’s key signals in minutes instead of an hour-plus.
-- The summary consistently surfaces guidance/tone changes Alex would otherwise miss.
+## Target Reviewer Experience
+- Alex can inspect one call’s key signals from a compact evidence bundle instead of rereading the full transcript end to end.
+- The summary surfaces guidance and tone-change evidence in a repeatable format.
 - Every flagged signal is traceable to transcript snippets for quick validation.
 - Alex leaves each review with a prioritized list of what to investigate first.
 

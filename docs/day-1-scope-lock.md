@@ -1,5 +1,7 @@
 # Day 1 Scope Lock
 
+Historical scope note: this page captures the original Day 1 framing. It should be read as design intent, not as a current validated performance claim.
+
 ## One feature
 **Earnings Call Signal Extraction Engine**
 
@@ -7,19 +9,19 @@
 A tool that converts an earnings call into a structured signal summary for a retail trader.
 
 ## Primary user
-Retail traders who follow earnings announcements and want a faster, more structured way to detect meaningful changes in management tone and guidance.
+Retail traders who follow earnings announcements and want a more structured way to detect meaningful changes in management tone and guidance.
 
 ## Core pain
 Retail traders cannot reliably process long, noisy earnings calls fast enough to spot the few signal-bearing moments that matter, especially changes in guidance, confidence, and tone.
 
 ## Product promise
-Turn a long earnings call into a fast, structured, auditable signal summary that helps a retail trader see what changed, why it matters, and where to look first.
+Turn a long earnings call into a structured, auditable signal summary that helps a retail trader see what changed and where to look first.
 
 ## One-sentence problem
-Retail traders struggle to extract the few important signal-bearing moments from long, noisy earnings calls quickly enough to act with confidence.
+Retail traders struggle to extract the few important signal-bearing moments from long, noisy earnings calls in a consistent and reviewable way.
 
 ## One-sentence value proposition
-The Earnings Call Signal Extraction Engine turns a complex earnings call into a fast, structured, auditable signal summary that highlights guidance shifts, tone changes, and the evidence behind them.
+The Earnings Call Signal Extraction Engine aims to turn a complex earnings call into a structured, auditable signal summary that highlights guidance shifts, tone changes, and the evidence behind them.
 
 ## Baseline definition
 A deterministic pipeline that processes one earnings call and outputs sentiment trend, extracted guidance statements, and a simple structured summary.

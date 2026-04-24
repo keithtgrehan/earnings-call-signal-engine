@@ -1,0 +1,47 @@
+name: Portfolio CI
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "README.md"
+      - "Makefile"
+      - ".github/workflows/portfolio-ci.yml"
+      - "docs/**"
+      - "scripts/**"
+      - "app/site_server.py"
+  pull_request:
+    paths:
+      - "README.md"
+      - "Makefile"
+      - ".github/workflows/portfolio-ci.yml"
+      - "docs/**"
+      - "scripts/**"
+      - "app/site_server.py"
+
+jobs:
+  portfolio-ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Require canonical PVH output bundle
+        run: |
+          test -d outputs/PVH_2025_Q1_call09 || {
+            echo "::error::Missing outputs/PVH_2025_Q1_call09. Portfolio CI expects the canonical PVH output bundle to be present in the checkout."
+            exit 1
+          }
+
+      - name: Run portfolio CI
+        run: make portfolio-ci
+
+      - name: Ensure refreshed proof is committed
+        run: git diff --exit-code -- README.md

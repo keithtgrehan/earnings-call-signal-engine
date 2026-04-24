@@ -1,5 +1,7 @@
 # Evaluation Baseline
 
+- Canonical portfolio demo case: `PVH_2025_Q1_call09`
+
 ## Frozen benchmark
 - Source of truth: `data/gold_guidance_calls/labels.csv`
 - Scope: 9 calls
@@ -53,11 +55,11 @@
 - Watchlist-derived unseen holdout agreement: `7/7`
 - Behavior mini-eval agreement: `58/58`
 - This is evidence of closed-label agreement on the current benchmark packages only.
-- It is not evidence of predictive edge, alpha, or statistical significance.
+- It is not evidence of predictive edge, return advantage, or statistical significance.
 
 ## Limits
 - This is a label-agreement baseline only.
-- It is not evidence of predictive edge, alpha, or statistical significance.
+- It is not evidence of predictive edge, return advantage, or statistical significance.
 - The holdout remains small and uses a mix of transcript excerpts and official-source excerpts where direct media collection was blocked.
 - The watchlist-derived unseen holdout is also small and excerpt-heavy.
 - The behavior eval set is also small and manually selected for deterministic QA, not for broad statistical claims.

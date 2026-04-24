@@ -1,6 +1,7 @@
 # Capstone Evaluation Summary
 
 ## Setup
+- Canonical portfolio demo case: `PVH_2025_Q1_call09`
 - Frozen benchmark: `data/gold_guidance_calls/labels.csv` with 9 canonical gold rows
 - Holdout benchmark: `data/gold_guidance_calls_holdout/labels.csv` with 7 currently labeled unseen rows
 - Watchlist-derived unseen holdout: `data/gold_guidance_calls_holdout_watchlist/labels.csv` with 7 currently labeled unseen rows
@@ -48,9 +49,9 @@
 - There is still no unseen `lowered` holdout row in the current package.
 - The behavior eval set is also small and manually curated for auditable rule QA.
 - The new Q&A shift output is useful for review and demo flow, but it is not a validated trading or forecasting signal.
-- These results support decision-support positioning only. They do not support any predictive, alpha, or statistical-significance claim.
+- These results support decision-support positioning only. They do not support any predictive, return-advantage, or statistical-significance claim.
 
 ## Final positioning
 - This project is a transcript-first deterministic review tool for structured earnings-call guidance analysis.
 - The current evidence supports local benchmark agreement on a small frozen set and a small unseen holdout.
-- It does not support live trading, alpha, or statistical-significance claims.
+- It does not support live trading, return-advantage, or statistical-significance claims.

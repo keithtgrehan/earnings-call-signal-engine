@@ -1,7 +1,9 @@
 # Competitive Analysis
 
+This note is a positioning document, not a validation claim. Comparative language here should be read as workflow positioning rather than proven performance superiority.
+
 ## Current Alternatives
-Retail traders trying to interpret earnings calls usually rely on a small set of practical options that trade off speed, depth, and trust. The most common alternatives are manual transcript review, generic LLM summaries, third-party recap content, and institutional-style research workflows; each helps in some way, but each also leaves clear gaps for fast, evidence-backed signal review.
+Retail traders trying to interpret earnings calls usually rely on a small set of practical options that trade off speed, depth, and trust. The most common alternatives are manual transcript review, generic LLM summaries, third-party recap content, and institutional-style research workflows; each helps in some way, but each also leaves clear gaps for structured, evidence-backed review.
 
 1. Manual transcript review
 2. Generic LLM summarization
@@ -22,8 +24,8 @@ The Earnings Call Signal Extraction Engine sits between manual review and instit
 ## Why This Product Is Different
 - Uses structured earnings-call signal extraction focused on guidance shifts, tone-change moments, and transcript evidence.
 - Keeps outputs auditable by linking conclusions back to source transcript snippets.
-- Prioritizes fast retail-user review workflows without requiring institutional tooling.
+- Prioritizes compact retail-user review workflows without requiring institutional tooling.
 - Stays deterministic and scoped for decision support rather than open-ended analysis.
 
 ## Scope Reminder
-This product is a focused retail trader decision-support tool for interpreting earnings calls faster and more consistently. It does not replace full institutional research workflows and is not an autonomous trading system. The scope is transcript-first signal extraction with clear, auditable outputs.
+This product is a focused retail trader decision-support tool for structured earnings-call review. It does not replace full institutional research workflows and is not an autonomous trading system. The scope is transcript-first signal extraction with clear, auditable outputs.
