@@ -167,6 +167,23 @@ def _render_confusion_table(
     return "\n".join([header, divider, *rows])
 
 
+def _render_label_distribution_table(support_counts: dict[str, int], labels: list[str]) -> str:
+    header = "| label | support |"
+    divider = "| --- | --- |"
+    rows = [f"| {label} | {support_counts.get(label, 0)} |" for label in labels]
+    return "\n".join([header, divider, *rows])
+
+
+def _render_manifest_file_table(files: list[dict[str, Any]]) -> str:
+    header = "| path | size_bytes | record_count |"
+    divider = "| --- | --- | --- |"
+    rows = [
+        f"| `{item['path']}` | {item['size_bytes']} | {item['record_count']} |"
+        for item in files
+    ]
+    return "\n".join([header, divider, *rows])
+
+
 def _write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
     payload = "\n".join(json.dumps(row, ensure_ascii=False) for row in rows)
     path.write_text(payload + ("\n" if payload else ""), encoding="utf-8")
@@ -317,9 +334,15 @@ def run_benchmark(
 - record_count: {summary['record_count']}
 - pii_status: {summary['pii_status']}
 
+{_render_manifest_file_table(summary['files'])}
+
 ## Label Set
 
 `{", ".join(labels)}`
+
+## Label Distribution
+
+{_render_label_distribution_table(support_counts, labels)}
 
 ## Macro F1
 
@@ -340,6 +363,7 @@ def run_benchmark(
 - enabled: `{str(redact_pii).lower()}`
 - total redactions: {redaction_summary['total_redactions']}
 - by_type: `{json.dumps(redaction_summary['by_type'], sort_keys=True)}`
+- unique_hashes: {redaction_summary['unique_hashes']}
 
 ## Limitations
 

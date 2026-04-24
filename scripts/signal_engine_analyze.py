@@ -12,7 +12,32 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from signal_engine.domains import SUPPORTED_DOMAINS
-from signal_engine.pipeline import analyze_path
+from signal_engine.pipeline import _load_records, analyze_conversation_record
+from signal_engine.privacy import redact_conversation, summarize_redactions
+
+
+def _analyze_records(
+    input_path: str | Path,
+    *,
+    domain: str,
+    redact_pii: bool,
+) -> list[dict]:
+    results: list[dict] = []
+    for record in _load_records(Path(input_path)):
+        record_for_analysis = record
+        redaction_summary: dict | None = None
+        if redact_pii:
+            redacted = redact_conversation(record)
+            record_for_analysis = redacted["conversation"]
+            redaction_summary = summarize_redactions(redacted["redactions"])
+        result = analyze_conversation_record(record_for_analysis, domain=domain)
+        if redaction_summary is not None:
+            result["metadata"]["pii_redaction"] = {
+                "enabled": True,
+                "summary": redaction_summary,
+            }
+        results.append(result)
+    return results
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -30,9 +55,18 @@ def main(argv: list[str] | None = None) -> int:
         "--conversation-id",
         help="Optional conversation id to select when the input file contains multiple records.",
     )
+    parser.add_argument(
+        "--redact-pii",
+        action="store_true",
+        help="Apply deterministic fallback PII redaction before analysis.",
+    )
     args = parser.parse_args(argv)
 
-    results = analyze_path(args.input_path, domain=args.domain)
+    results = _analyze_records(
+        args.input_path,
+        domain=args.domain,
+        redact_pii=args.redact_pii,
+    )
     if not results:
         raise RuntimeError("No analyzable conversations found.")
 

@@ -68,4 +68,6 @@ def test_benchmark_runner_writes_outputs(tmp_path: Path) -> None:
     assert metrics["macro_f1"] >= 0.0
     assert metrics["pii_redaction"]["enabled"] is True
     assert "Text Emotion Benchmark Report" in report
+    assert "Label Distribution" in report
+    assert "Dataset Manifest" in report
     assert redactions["summary"]["total_redactions"] >= 1

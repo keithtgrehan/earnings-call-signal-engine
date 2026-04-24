@@ -73,6 +73,49 @@ python scripts/verify_outputs.py --out-dir outputs/PVH_2025_Q1_call09 --require-
 - sample transcript JSON inputs live in `data/signal_engine_2_0/`
 - `scripts/signal_engine_analyze.py` emits unified JSON to stdout
 
+## Signal Engine 2.0 status
+
+### Works now
+
+- deterministic support, sales, and account-management transcript analysis
+- optional deterministic PII redaction in `signal_engine_analyze.py`
+- deterministic text emotion benchmark harness with dataset manifest validation
+- final demo runner via `python scripts/run_signal_engine_2_0_demo.py`
+
+### How to run the full demo
+
+```bash
+python scripts/run_signal_engine_2_0_demo.py
+```
+
+CLI examples:
+
+```bash
+python scripts/signal_engine_analyze.py --domain support data/signal_engine_2_0/sample_support.json
+python scripts/signal_engine_analyze.py --domain sales data/signal_engine_2_0/sample_sales.json
+python scripts/signal_engine_analyze.py --domain account_management data/signal_engine_2_0/sample_account_management.json
+python scripts/signal_engine_analyze.py --domain support --redact-pii data/signal_engine_2_0/fixtures/support_tickets_realistic.jsonl
+python scripts/run_text_emotion_benchmark.py --input data/signal_engine_2_0/emotion_benchmark/sample_emotion_cases.jsonl --manifest data/signal_engine_2_0/dataset_manifests/emotion_benchmark_manifest.json --mode deterministic --redact-pii --out-dir outputs/signal_engine_2_0/text_emotion_benchmark
+```
+
+### Output examples
+
+- final demo bundle: `outputs/signal_engine_2_0/final_demo/`
+- polished recruiter/buyer examples: `demo/signal_engine_2_0/polished_examples.md`
+- benchmark outputs: `outputs/signal_engine_2_0/text_emotion_benchmark/`
+
+### Roadmap
+
+- optional transformer text emotion comparisons
+- optional ASR and diarization
+- optional audio features and escalation-only video review
+- optional retrieval and later multimodal fusion
+
+### Known blocker
+
+- `make portfolio-ci` currently fails in `scripts/build_portfolio_proof.py`
+- exact missing legacy artifact: `outputs/LLY_2025_Q2_call08/metrics.json`
+
 ## Emotion and Multimodal Roadmap
 
 Built now:
@@ -175,6 +218,8 @@ No LLMs sit in the core scoring path. No external APIs are required. No UI is re
 ## Docs
 
 - [`docs/signal-engine-2.0.md`](docs/signal-engine-2.0.md)
+- [`docs/signal-engine-2.0-review-package.md`](docs/signal-engine-2.0-review-package.md)
+- [`docs/signal-engine-2.0-architecture.md`](docs/signal-engine-2.0-architecture.md)
 - [`docs/emotion-inference-roadmap.md`](docs/emotion-inference-roadmap.md)
 - [`docs/model-and-dataset-registry.md`](docs/model-and-dataset-registry.md)
 - [`docs/text-emotion-benchmark.md`](docs/text-emotion-benchmark.md)
