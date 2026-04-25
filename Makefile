@@ -9,7 +9,7 @@ SMOKE_URL ?= https://www.youtube.com/watch?v=BaW_jenozKc
 SMOKE_OUT := ./_smoke_out
 SMOKE_CACHE := ./_smoke_cache
 
-.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh
+.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -85,6 +85,28 @@ first-proof-refresh:
 	$(PYTHON) scripts/validate_audio_pilot_assets.py
 	$(PYTHON) scripts/evaluate_multimodal_pilot.py
 	$(PYTHON) scripts/evaluate_multimodal_lift.py
+
+resource-fit-refresh:
+	$(PYTHON) scripts/build_public_resource_fit_manifest.py
+
+error-analysis:
+	$(PYTHON) scripts/analyze_signal_errors.py
+
+gold-holdout-refresh:
+	$(PYTHON) scripts/build_gold_holdout_set.py
+
+retrieval-refresh:
+	$(PYTHON) scripts/build_signal_retrieval_index.py
+
+best-in-class-refresh: first-proof-refresh
+	$(PYTHON) scripts/build_public_resource_fit_manifest.py
+	$(PYTHON) scripts/evaluate_signal_baseline.py
+	$(PYTHON) scripts/analyze_signal_errors.py
+	$(PYTHON) scripts/build_gold_holdout_set.py
+	$(PYTHON) scripts/build_signal_retrieval_index.py
+	$(PYTHON) scripts/prioritize_second_review.py
+	$(PYTHON) scripts/evaluate_label_agreement.py
+	$(PYTHON) scripts/evaluate_multimodal_pilot.py
 
 clean:
 	rm -rf ./_smoke_out ./_smoke_cache build dist

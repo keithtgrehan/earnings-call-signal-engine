@@ -22,6 +22,14 @@ This update automates the next proof loop without inventing reviewer input or me
 - blocked-or-ready audio asset validation
 - one-command proof refresh via `make first-proof-refresh`
 
+## Best-In-Class Backbone v1
+
+- public resource fit report ranks near-term versus later research assets conservatively
+- error analysis now separates rules-only wins, classifier-only wins, and both-wrong cases
+- gold holdout candidates are locked for training but still pending second review
+- retrieval scaffold supports similar-example lookup without requiring heavy embeddings
+- second-review priority queue focuses reviewer time on the highest-value disagreements first
+
 ## What Changed In This Run
 
 - added `data/nlp_research/review_packets/signal_labels_review_packet.csv`
@@ -58,6 +66,26 @@ This update automates the next proof loop without inventing reviewer input or me
 - updated `README.md`
 - updated `src/signal_engine/signal_baseline.py`
 - added tests for human-reviewed labels, transcript baseline evaluation, pilot cases, and pilot status
+- added `docs/public-resource-fit-report.md`
+- added `data/research_resource_fit/public_resource_fit_manifest.json`
+- added `scripts/build_public_resource_fit_manifest.py`
+- added `docs/signal-error-analysis.md`
+- added `data/nlp_research/signal_error_analysis.json`
+- added `data/nlp_research/signal_error_analysis.csv`
+- added `scripts/analyze_signal_errors.py`
+- added `data/nlp_research/gold_holdout_candidates.jsonl`
+- added `docs/gold-holdout-set-guide.md`
+- added `scripts/build_gold_holdout_set.py`
+- added `data/nlp_research/signal_retrieval_index.json`
+- added `data/nlp_research/signal_retrieval_status.json`
+- added `docs/signal-retrieval-scaffold.md`
+- added `scripts/build_signal_retrieval_index.py`
+- added `scripts/query_signal_retrieval_index.py`
+- added `data/nlp_research/second_review_priority_queue.csv`
+- added `docs/second-review-priority.md`
+- added `scripts/prioritize_second_review.py`
+- added `docs/best-in-class-nlp-roadmap.md`
+- added `Makefile` targets `resource-fit-refresh`, `error-analysis`, `gold-holdout-refresh`, `retrieval-refresh`, and `best-in-class-refresh`
 
 ## Labeled Dataset Status
 
@@ -94,16 +122,18 @@ Headline results:
 
 | system | accuracy | macro_f1 |
 | --- | --- | --- |
+| majority_baseline | 0.2500 | 0.1000 |
 | deterministic_rules | 0.5000 | 0.4048 |
-| tfidf_logistic_regression | 0.5000 | 0.5000 |
+| tfidf_linear_svc_bigram_balanced | 0.5625 | 0.5706 |
 
 Interpretation:
 
 - this is an early labeled benchmark, not statistical proof
 - the classifier is a research benchmark only
 - deterministic rules remain canonical unless a stronger benchmark proves otherwise
-- in this small held-out split, the classifier improved macro F1 while tying on accuracy
-- deterministic rules remained stronger on explicit friction recall and weaker on uncertainty handling in this sample
+- in this small held-out split, the best exploratory classifier improved both accuracy and macro F1
+- majority baseline remains weak, which helps frame the task but does not prove generalization
+- see `docs/signal-error-analysis.md` for failure-mode review rather than treating the headline result as proof
 
 ## Multimodal Pilot Status
 
@@ -131,6 +161,7 @@ Exact blocker:
 Exact blocker:
 
 - no `reviewer_label` values are filled in yet, so inter-rater agreement cannot be measured honestly
+- a prioritized second-review queue is now available at `data/nlp_research/second_review_priority_queue.csv`
 
 ## Audio Pilot Intake Status
 
@@ -163,6 +194,7 @@ Build and benchmark:
 - `python scripts/evaluate_multimodal_pilot.py`
 - `python scripts/evaluate_multimodal_lift.py`
 - `make first-proof-refresh`
+- `make best-in-class-refresh`
 
 Validation:
 
@@ -217,6 +249,7 @@ Validation:
 - optional deterministic PII redaction
 - human-reviewable `signal_family` benchmark seed
 - transcript-only deterministic-vs-classifier comparison
+- evaluation backbone v1 with resource-fit ranking, error analysis, gold holdout candidates, retrieval scaffold, and second-review prioritization
 - multimodal pilot schema and status reporting
 - automated review packet and agreement scaffold
 - automated audio pilot intake and asset validation scaffold
@@ -241,4 +274,4 @@ Validation:
 
 ## Next Recommended Task
 
-Add a second tiny reviewer pass over the `48` seeded labels and collect a very small approved aligned media set for `4` to `6` pilot cases so the next benchmark can measure inter-rater agreement and the first honest transcript-plus-audio lift comparison.
+Complete second review on the priority queue and promote a reviewed holdout into a true gold set before expanding the labeled set toward `100` examples.

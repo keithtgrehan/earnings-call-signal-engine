@@ -56,12 +56,14 @@ def test_evaluate_signal_baseline_runs_on_seeded_dataset(tmp_path: Path) -> None
     report = report_path.read_text(encoding="utf-8")
 
     assert metrics["status"] == "ok"
+    assert metrics["majority_baseline"]["macro_f1"] >= 0.0
     assert metrics["deterministic_rules"]["macro_f1"] >= 0.0
     assert metrics["classifier"]["macro_f1"] >= 0.0
+    assert len(metrics["benchmark_runs"]) >= 6
     assert predictions
     assert "This is an early labeled benchmark, not statistical proof." in report
     assert "The classifier is a research benchmark only." in report
-    assert "Deterministic rules remain canonical unless the benchmark proves otherwise." in report
+    assert "Deterministic rules remain canonical unless a larger and independently reviewed benchmark proves otherwise." in report
 
 
 def test_evaluate_signal_baseline_handles_insufficient_dataset(tmp_path: Path) -> None:

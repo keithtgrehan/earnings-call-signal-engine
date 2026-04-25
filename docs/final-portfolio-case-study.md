@@ -83,6 +83,16 @@ Interpretation:
 - the classifier is a research benchmark only
 - deterministic rules remain canonical unless a stronger benchmark proves otherwise
 
+### Best-In-Class Backbone v1
+
+- public resource fit report completed
+- signal error analysis review queue generated
+- gold holdout candidates selected pending second review
+- retrieval scaffold available for reviewer support and similar-example lookup
+- second-review priority queue generated
+
+These assets strengthen evaluation discipline, but they do not convert the current benchmark into statistical proof.
+
 Multimodal status:
 
 - multimodal pilot cases seeded: `10`
@@ -102,6 +112,7 @@ Multimodal status:
 - a small human-reviewable label set for first benchmark work
 - automated reviewer packet generation and agreement scaffolding
 - a reproducible transcript-only benchmark
+- an evaluation backbone that now supports resource triage, error review, holdout discipline, and label-review prioritization
 - a bounded multimodal pilot scaffold with explicit blockers
 - a one-command proof refresh path via `make first-proof-refresh`
 

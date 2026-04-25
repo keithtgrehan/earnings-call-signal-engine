@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "backend": "tfidf_cosine",
+  "example_count": 48,
+  "optional_sentence_transformers_available": true,
+  "supported_use_cases": [
+    "label reviewer support",
+    "similar past signals",
+    "error analysis slices"
+  ]
+}
