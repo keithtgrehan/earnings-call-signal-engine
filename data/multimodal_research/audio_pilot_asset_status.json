@@ -1,0 +1,7 @@
+{
+  "status": "blocked",
+  "input_path": "/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa/data/multimodal_research/audio_pilot_intake.csv",
+  "reason": "No aligned approved audio assets are available yet.",
+  "usable_case_ids": [],
+  "invalid_rows": []
+}

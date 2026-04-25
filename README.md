@@ -55,6 +55,22 @@ Core constraints:
 - human-reviewed labeling guide: [`docs/human-reviewed-labeling-guide.md`](docs/human-reviewed-labeling-guide.md)
 - human-reviewed signal labels: [`data/nlp_research/human_reviewed_signal_labels.jsonl`](data/nlp_research/human_reviewed_signal_labels.jsonl)
 - multimodal pilot status: [`docs/multimodal-pilot-status.md`](docs/multimodal-pilot-status.md)
+- label review workflow: [`docs/label-review-workflow.md`](docs/label-review-workflow.md)
+- label agreement status: [`docs/label-agreement-status.md`](docs/label-agreement-status.md)
+- audio pilot intake guide: [`docs/audio-pilot-intake-guide.md`](docs/audio-pilot-intake-guide.md)
+- audio pilot asset status: [`docs/audio-pilot-asset-status.md`](docs/audio-pilot-asset-status.md)
+
+Refresh command:
+
+```bash
+make first-proof-refresh
+```
+
+Current automation status:
+
+- reviewer packet generation is automated
+- second-review agreement stays in a blocked state until reviewer labels are filled
+- audio pilot intake and validation stay blocked until approved aligned clips are added
 
 ## Quick Start
 

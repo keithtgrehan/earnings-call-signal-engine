@@ -9,7 +9,7 @@ SMOKE_URL ?= https://www.youtube.com/watch?v=BaW_jenozKc
 SMOKE_OUT := ./_smoke_out
 SMOKE_CACHE := ./_smoke_cache
 
-.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci
+.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -74,6 +74,17 @@ portfolio-ci:
 	$(PYTHON) -m py_compile app/site_server.py scripts/build_portfolio_proof.py scripts/audit_portfolio_docs.py scripts/refresh_readme_proof.py scripts/check_markdown_links.py scripts/check_proof_freshness.py; \
 	rm -f $$VERIFY_LOG; \
 	echo "PORTFOLIO CI PASS: link integrity and syntax checks completed, with legacy proof steps run when the canonical LLY bundle is present or skipped with a warning when it is incomplete."
+
+first-proof-refresh:
+	$(PYTHON) scripts/build_human_reviewed_signal_labels.py
+	$(PYTHON) scripts/build_label_review_packet.py
+	$(PYTHON) scripts/evaluate_signal_baseline.py
+	$(PYTHON) scripts/evaluate_label_agreement.py
+	$(PYTHON) scripts/build_multimodal_pilot_cases.py
+	$(PYTHON) scripts/build_audio_pilot_intake.py
+	$(PYTHON) scripts/validate_audio_pilot_assets.py
+	$(PYTHON) scripts/evaluate_multimodal_pilot.py
+	$(PYTHON) scripts/evaluate_multimodal_lift.py
 
 clean:
 	rm -rf ./_smoke_out ./_smoke_cache build dist

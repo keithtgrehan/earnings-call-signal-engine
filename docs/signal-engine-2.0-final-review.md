@@ -11,8 +11,35 @@ This pass moves Signal Engine 2.0 from foundation work into a first honest proof
 
 Transcript-first deterministic output remains canonical throughout.
 
+## Next Proof Loop Automation
+
+This update automates the next proof loop without inventing reviewer input or media:
+
+- review packet CSV and Markdown generation
+- blank second-review template refresh
+- blocked-or-measured label agreement reporting
+- audio pilot intake sheet generation
+- blocked-or-ready audio asset validation
+- one-command proof refresh via `make first-proof-refresh`
+
 ## What Changed In This Run
 
+- added `data/nlp_research/review_packets/signal_labels_review_packet.csv`
+- added `data/nlp_research/review_packets/signal_labels_review_packet.md`
+- added `data/nlp_research/second_review_template.csv`
+- added `data/nlp_research/label_agreement_status.json`
+- added `docs/label-review-workflow.md`
+- added `docs/label-agreement-status.md`
+- added `scripts/build_label_review_packet.py`
+- added `scripts/import_second_review_labels.py`
+- added `scripts/evaluate_label_agreement.py`
+- added `data/multimodal_research/audio_pilot_intake.csv`
+- added `data/multimodal_research/audio_pilot_asset_status.json`
+- added `docs/audio-pilot-intake-guide.md`
+- added `docs/audio-pilot-asset-status.md`
+- added `scripts/build_audio_pilot_intake.py`
+- added `scripts/validate_audio_pilot_assets.py`
+- added `Makefile` target `first-proof-refresh`
 - added `data/nlp_research/human_reviewed_signal_labels.jsonl`
 - added `docs/human-reviewed-labeling-guide.md`
 - added `scripts/build_human_reviewed_signal_labels.py`
@@ -93,6 +120,28 @@ Exact blocker:
 
 - no aligned audio or video media is committed for the seeded pilot cases yet, so multimodal lift cannot be measured honestly
 
+## Reviewer Packet And Agreement Status
+
+- review packet rows: `48`
+- review packet CSV: `data/nlp_research/review_packets/signal_labels_review_packet.csv`
+- review packet Markdown: `data/nlp_research/review_packets/signal_labels_review_packet.md`
+- second-review template: `data/nlp_research/second_review_template.csv`
+- agreement status: `blocked`
+
+Exact blocker:
+
+- no `reviewer_label` values are filled in yet, so inter-rater agreement cannot be measured honestly
+
+## Audio Pilot Intake Status
+
+- audio intake rows: `10`
+- audio intake CSV: `data/multimodal_research/audio_pilot_intake.csv`
+- audio asset status: `blocked`
+
+Exact blocker:
+
+- no aligned approved audio assets are available yet
+
 What the pilot already proves:
 
 - the repo now has a shared transcript-plus-media case schema
@@ -104,10 +153,16 @@ What the pilot already proves:
 Build and benchmark:
 
 - `python scripts/build_human_reviewed_signal_labels.py`
+- `python scripts/build_label_review_packet.py`
+- `python scripts/import_second_review_labels.py`
 - `python scripts/evaluate_signal_baseline.py`
+- `python scripts/evaluate_label_agreement.py`
 - `python scripts/build_multimodal_pilot_cases.py`
+- `python scripts/build_audio_pilot_intake.py`
+- `python scripts/validate_audio_pilot_assets.py`
 - `python scripts/evaluate_multimodal_pilot.py`
 - `python scripts/evaluate_multimodal_lift.py`
+- `make first-proof-refresh`
 
 Validation:
 
@@ -115,7 +170,12 @@ Validation:
 - `make portfolio-ci`
 - `python scripts/run_signal_engine_2_0_demo.py`
 - `pytest tests/test_human_reviewed_signal_labels.py`
+- `pytest tests/test_build_label_review_packet.py`
+- `pytest tests/test_import_second_review_labels.py`
+- `pytest tests/test_evaluate_label_agreement.py`
 - `pytest tests/test_evaluate_signal_baseline.py`
+- `pytest tests/test_build_audio_pilot_intake.py`
+- `pytest tests/test_validate_audio_pilot_assets.py`
 - `pytest tests/test_multimodal_pilot_cases.py`
 - `pytest tests/test_evaluate_multimodal_pilot.py`
 - `pytest tests/test_nlp_research_manifest.py`
@@ -158,6 +218,8 @@ Validation:
 - human-reviewable `signal_family` benchmark seed
 - transcript-only deterministic-vs-classifier comparison
 - multimodal pilot schema and status reporting
+- automated review packet and agreement scaffold
+- automated audio pilot intake and asset validation scaffold
 - recruiter- and buyer-facing case study grounded in real repo outputs
 
 ## What Remains Roadmap
@@ -174,6 +236,7 @@ Validation:
 - many labels were selected with help from deterministic lexicons, so the benchmark is not an independent superiority proof
 - no statistical significance claim is appropriate
 - no multimodal lift claim is appropriate without aligned media
+- no second-review agreement claim is appropriate until reviewer labels are filled
 - no truth-detection, hidden-intent, lie-detection, or emotion-certainty claim is made anywhere in the canonical path
 
 ## Next Recommended Task

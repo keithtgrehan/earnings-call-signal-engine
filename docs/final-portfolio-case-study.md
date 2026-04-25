@@ -91,6 +91,8 @@ Multimodal status:
 - ready-for-video cases: `2`
 - complete aligned transcript+audio+video cases: `0`
 - measured multimodal lift: not available yet
+- second-review agreement status: blocked until reviewer labels are added
+- audio pilot asset status: blocked until approved aligned audio clips are added
 
 ## 6. What Works Now
 
@@ -98,8 +100,10 @@ Multimodal status:
 - evidence snippets attached to detected signals
 - optional deterministic PII redaction
 - a small human-reviewable label set for first benchmark work
+- automated reviewer packet generation and agreement scaffolding
 - a reproducible transcript-only benchmark
 - a bounded multimodal pilot scaffold with explicit blockers
+- a one-command proof refresh path via `make first-proof-refresh`
 
 ## 7. What Remains Roadmap
 

@@ -1,0 +1,15 @@
+{
+  "status": "blocked",
+  "input_path": "/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa/data/nlp_research/second_review_template.csv",
+  "raw_agreement_percent": null,
+  "cohen_kappa": null,
+  "reviewed_example_count": 0,
+  "reason": "No reviewer_label values are filled in yet, so inter-rater agreement cannot be measured.",
+  "disagreements": [],
+  "per_class_disagreement_counts": {
+    "risk_friction": 0,
+    "opportunity_commitment": 0,
+    "uncertainty_hedging": 0,
+    "neutral": 0
+  }
+}
