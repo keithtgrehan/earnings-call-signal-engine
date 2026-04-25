@@ -102,8 +102,11 @@ Current automation status:
 Supporting docs:
 
 - [`docs/loughran-mcdonald-integration.md`](docs/loughran-mcdonald-integration.md)
+- [`docs/loughran-mcdonald-signal-mapping.md`](docs/loughran-mcdonald-signal-mapping.md)
 - [`docs/financial-phrasebank-benchmark.md`](docs/financial-phrasebank-benchmark.md)
 - [`docs/signal-label-candidate-mining.md`](docs/signal-label-candidate-mining.md)
+- [`docs/label-review-fast-pass-guide.md`](docs/label-review-fast-pass-guide.md)
+- [`data/nlp_research/candidate_review_priority_30.csv`](data/nlp_research/candidate_review_priority_30.csv)
 - [`docs/label-promotion-workflow.md`](docs/label-promotion-workflow.md)
 - [`docs/label-dataset-growth-report.md`](docs/label-dataset-growth-report.md)
 
