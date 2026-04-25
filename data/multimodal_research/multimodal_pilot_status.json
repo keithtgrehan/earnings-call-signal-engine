@@ -1,0 +1,97 @@
+{
+  "status": "scaffold_only",
+  "case_count": 10,
+  "status_counts": {
+    "ready_for_audio": 3,
+    "ready_for_video": 2,
+    "transcript_only_seed": 5
+  },
+  "cases_with_audio": 0,
+  "cases_with_video": 0,
+  "cases_complete": 0,
+  "transcript_signal_coverage": 9,
+  "can_measure_multimodal_lift": false,
+  "blocker": "No aligned audio or video media is committed for the pilot cases yet, so multimodal lift cannot be measured honestly.",
+  "transcript_only_canonical": true,
+  "transcript_signal_examples": [
+    {
+      "id": "pilot_support_dispute_audio_001",
+      "signal_count": 4,
+      "matched_signals": [
+        "reassurance",
+        "pressure",
+        "contradiction",
+        "escalation_risk"
+      ]
+    },
+    {
+      "id": "pilot_sales_procurement_block_audio_001",
+      "signal_count": 2,
+      "matched_signals": [
+        "pressure",
+        "contradiction"
+      ]
+    },
+    {
+      "id": "pilot_sales_probably_audio_001",
+      "signal_count": 3,
+      "matched_signals": [
+        "uncertainty",
+        "hedging",
+        "pressure"
+      ]
+    },
+    {
+      "id": "pilot_account_renewal_video_001",
+      "signal_count": 3,
+      "matched_signals": [
+        "hedging",
+        "contradiction",
+        "escalation_risk"
+      ]
+    },
+    {
+      "id": "pilot_account_recovery_video_001",
+      "signal_count": 1,
+      "matched_signals": [
+        "reassurance"
+      ]
+    },
+    {
+      "id": "pilot_sales_plan_transcript_001",
+      "signal_count": 2,
+      "matched_signals": [
+        "reassurance",
+        "pressure"
+      ]
+    },
+    {
+      "id": "pilot_support_resolution_transcript_001",
+      "signal_count": 0,
+      "matched_signals": []
+    },
+    {
+      "id": "pilot_support_waiting_transcript_001",
+      "signal_count": 1,
+      "matched_signals": [
+        "contradiction"
+      ]
+    },
+    {
+      "id": "pilot_sales_status_transcript_001",
+      "signal_count": 3,
+      "matched_signals": [
+        "pressure",
+        "contradiction",
+        "escalation_risk"
+      ]
+    },
+    {
+      "id": "pilot_account_status_transcript_001",
+      "signal_count": 1,
+      "matched_signals": [
+        "escalation_risk"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "status": "ok",
+  "task": "signal_family",
+  "dataset_kind": "human_reviewed_signal_labels",
+  "dataset_size": 48,
+  "label_support": {
+    "risk_friction": 12,
+    "opportunity_commitment": 13,
+    "uncertainty_hedging": 12,
+    "neutral": 11
+  },
+  "evaluation_set_size": 16,
+  "evaluation_label_support": {
+    "neutral": 4,
+    "risk_friction": 4,
+    "opportunity_commitment": 4,
+    "uncertainty_hedging": 4
+  },
+  "split_strategy": "train_test_split",
+  "split_details": {
+    "train_size": 32,
+    "test_size": 16,
+    "random_seed": 42
+  },
+  "deterministic_rules": {
+    "accuracy": 0.5,
+    "macro_f1": 0.4047619047619047,
+    "per_label": {
+      "risk_friction": {
+        "tp": 4,
+        "fp": 4,
+        "fn": 0,
+        "support": 4,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666
+      },
+      "opportunity_commitment": {
+        "tp": 3,
+        "fp": 2,
+        "fn": 1,
+        "support": 4,
+        "precision": 0.6,
+        "recall": 0.75,
+        "f1": 0.6666666666666665
+      },
+      "uncertainty_hedging": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "support": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "neutral": {
+        "tp": 1,
+        "fp": 2,
+        "fn": 3,
+        "support": 4,
+        "precision": 0.3333333333333333,
+        "recall": 0.25,
+        "f1": 0.28571428571428575
+      }
+    },
+    "confusion_matrix": {
+      "risk_friction": {
+        "risk_friction": 4,
+        "opportunity_commitment": 0,
+        "uncertainty_hedging": 0,
+        "neutral": 0
+      },
+      "opportunity_commitment": {
+        "risk_friction": 0,
+        "opportunity_commitment": 3,
+        "uncertainty_hedging": 0,
+        "neutral": 1
+      },
+      "uncertainty_hedging": {
+        "risk_friction": 2,
+        "opportunity_commitment": 1,
+        "uncertainty_hedging": 0,
+        "neutral": 1
+      },
+      "neutral": {
+        "risk_friction": 2,
+        "opportunity_commitment": 1,
+        "uncertainty_hedging": 0,
+        "neutral": 1
+      }
+    }
+  },
+  "classifier": {
+    "accuracy": 0.5,
+    "macro_f1": 0.5,
+    "per_label": {
+      "risk_friction": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 3,
+        "support": 4,
+        "precision": 0.5,
+        "recall": 0.25,
+        "f1": 0.3333333333333333
+      },
+      "opportunity_commitment": {
+        "tp": 2,
+        "fp": 4,
+        "fn": 2,
+        "support": 4,
+        "precision": 0.3333333333333333,
+        "recall": 0.5,
+        "f1": 0.4
+      },
+      "uncertainty_hedging": {
+        "tp": 3,
+        "fp": 3,
+        "fn": 1,
+        "support": 4,
+        "precision": 0.5,
+        "recall": 0.75,
+        "f1": 0.6
+      },
+      "neutral": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 2,
+        "support": 4,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      }
+    },
+    "confusion_matrix": {
+      "risk_friction": {
+        "risk_friction": 1,
+        "opportunity_commitment": 3,
+        "uncertainty_hedging": 0,
+        "neutral": 0
+      },
+      "opportunity_commitment": {
+        "risk_friction": 0,
+        "opportunity_commitment": 2,
+        "uncertainty_hedging": 2,
+        "neutral": 0
+      },
+      "uncertainty_hedging": {
+        "risk_friction": 0,
+        "opportunity_commitment": 1,
+        "uncertainty_hedging": 3,
+        "neutral": 0
+      },
+      "neutral": {
+        "risk_friction": 1,
+        "opportunity_commitment": 0,
+        "uncertainty_hedging": 1,
+        "neutral": 2
+      }
+    }
+  },
+  "classifier_model": "tfidf_logistic_regression",
+  "canonical_system": "deterministic_rules",
+  "limitations": [
+    "This is an early labeled benchmark, not statistical proof.",
+    "The classifier is a research benchmark only.",
+    "Deterministic rules remain canonical unless the benchmark proves otherwise."
+  ],
+  "dataset_path": "/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa/data/nlp_research/human_reviewed_signal_labels.jsonl"
+}

@@ -34,6 +34,7 @@ SIGNAL_FAMILY_LABELS: tuple[str, ...] = (
     "uncertainty_hedging",
     "neutral",
 )
+HUMAN_REVIEWED_LABELS_RELATIVE_PATH = "data/nlp_research/human_reviewed_signal_labels.jsonl"
 DEFAULT_RANDOM_SEED = 42
 DEFAULT_TEST_SIZE = 0.33
 MIN_CLASS_SUPPORT = 2
@@ -205,6 +206,14 @@ def build_weak_labeled_examples(root: Path | None = None) -> list[dict[str, Any]
     return labeled_examples
 
 
+def predict_deterministic_signal_family(
+    text: str,
+    *,
+    domain: str | None = None,
+) -> dict[str, Any]:
+    return weak_label_signal_family(text, domain=domain)
+
+
 def label_support_counts(examples: list[dict[str, Any]]) -> dict[str, int]:
     counts = {label: 0 for label in SIGNAL_FAMILY_LABELS}
     for example in examples:
@@ -248,13 +257,19 @@ def load_supervised_examples(path: Path) -> list[dict[str, Any]]:
             raise ValueError(f"Invalid labeled example in {path}: {row}")
         examples.append(
             {
+                "id": str(row.get("id") or f"{path.stem}:{len(examples)}"),
                 "text": text,
                 "signal_family": label,
                 "source_path": str(row.get("source_path") or path.name),
+                "source_file": str(row.get("source_file") or row.get("source_path") or path.name),
                 "conversation_id": str(row.get("conversation_id") or row.get("source_path") or path.stem),
                 "message_index": int(row.get("message_index", 0)),
                 "domain": str(row.get("domain") or "unknown"),
                 "evidence_terms": list(row.get("evidence_terms") or []),
+                "label_source": str(row.get("label_source") or "unknown"),
+                "rationale": str(row.get("rationale") or ""),
+                "pii_redacted": bool(row.get("pii_redacted", False)),
+                "notes": str(row.get("notes") or ""),
             }
         )
     return examples
@@ -270,12 +285,14 @@ def render_support_markdown_table(label_support: dict[str, int]) -> str:
 __all__ = [
     "DEFAULT_RANDOM_SEED",
     "DEFAULT_TEST_SIZE",
+    "HUMAN_REVIEWED_LABELS_RELATIVE_PATH",
     "SIGNAL_FAMILY_LABELS",
     "build_weak_labeled_examples",
     "collect_local_signal_examples",
     "fixture_paths",
     "label_support_counts",
     "load_supervised_examples",
+    "predict_deterministic_signal_family",
     "render_support_markdown_table",
     "training_readiness",
     "weak_label_signal_family",

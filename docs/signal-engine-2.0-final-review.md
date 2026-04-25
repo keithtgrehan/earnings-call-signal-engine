@@ -1,85 +1,181 @@
 # Signal Engine 2.0 Final Review
 
-## What Changed
+## First Proof Package Summary
 
-- added proof-oriented docs for evaluation, hero output, and a simple recruiter-readable architecture summary
-- added an offline-safe NLP research manifest with 22 transcript-first research entries
-- added a text-baseline training workflow that reports insufficient data honestly instead of inventing metrics
-- added a multimodal research manifest with 35 transcript/audio/video/multimodal references
-- added bounded multimodal schemas, text/audio/video feature extraction, conservative fusion, and scaffold evaluation scripts
-- kept transcript-first deterministic output canonical throughout
+This pass moves Signal Engine 2.0 from foundation work into a first honest proof package:
 
-## Files Changed
+- a small human-reviewed `signal_family` label set built from committed local fixtures
+- a transcript-only benchmark that compares deterministic rules with a lightweight classifier
+- a multimodal pilot schema that is ready for aligned media later without pretending lift already exists
+- a recruiter- and buyer-facing case study that stays bounded and evidence-backed
 
-Primary areas:
+Transcript-first deterministic output remains canonical throughout.
 
-- `README.md`
-- `docs/`
-- `scripts/`
-- `src/signal_engine/`
-- `tests/`
-- `data/nlp_research/`
-- `data/multimodal_research/`
+## What Changed In This Run
+
+- added `data/nlp_research/human_reviewed_signal_labels.jsonl`
+- added `docs/human-reviewed-labeling-guide.md`
+- added `scripts/build_human_reviewed_signal_labels.py`
+- added `scripts/evaluate_signal_baseline.py`
+- added `docs/transcript-baseline-benchmark.md`
+- added `data/nlp_research/transcript_baseline_metrics.json`
+- added `data/nlp_research/transcript_baseline_predictions.jsonl`
+- added `data/multimodal_research/multimodal_pilot_cases.jsonl`
+- added `docs/multimodal-pilot-case-guide.md`
+- added `scripts/build_multimodal_pilot_cases.py`
+- added `scripts/evaluate_multimodal_pilot.py`
+- added `docs/multimodal-pilot-status.md`
+- added `data/multimodal_research/multimodal_pilot_status.json`
+- updated `docs/multimodal-evaluation-protocol.md`
+- added `docs/final-portfolio-case-study.md`
+- updated `README.md`
+- updated `src/signal_engine/signal_baseline.py`
+- added tests for human-reviewed labels, transcript baseline evaluation, pilot cases, and pilot status
+
+## Labeled Dataset Status
+
+- dataset size: `48`
+- redacted rows: `2`
+- label source: `human_seeded_v1`
+
+Class counts:
+
+| label | count |
+| --- | --- |
+| risk_friction | 12 |
+| opportunity_commitment | 13 |
+| uncertainty_hedging | 12 |
+| neutral | 11 |
+
+Notes:
+
+- the target was a small human-reviewable seed, not a statistically powerful corpus
+- the label set is conservative and built only from committed local fixtures
+- neutral operational examples were added deliberately to keep the first proof package honest
+
+## Transcript Benchmark Status
+
+Evaluation setup:
+
+- benchmark dataset: `data/nlp_research/human_reviewed_signal_labels.jsonl`
+- split strategy: `train_test_split`
+- random seed: `42`
+- train size: `32`
+- held-out test size: `16`
+
+Headline results:
+
+| system | accuracy | macro_f1 |
+| --- | --- | --- |
+| deterministic_rules | 0.5000 | 0.4048 |
+| tfidf_logistic_regression | 0.5000 | 0.5000 |
+
+Interpretation:
+
+- this is an early labeled benchmark, not statistical proof
+- the classifier is a research benchmark only
+- deterministic rules remain canonical unless a stronger benchmark proves otherwise
+- in this small held-out split, the classifier improved macro F1 while tying on accuracy
+- deterministic rules remained stronger on explicit friction recall and weaker on uncertainty handling in this sample
+
+## Multimodal Pilot Status
+
+- pilot case count: `10`
+- transcript_only_seed: `5`
+- ready_for_audio: `3`
+- ready_for_video: `2`
+- complete: `0`
+- cases_with_audio: `0`
+- cases_with_video: `0`
+- can_measure_multimodal_lift: `false`
+
+Exact blocker:
+
+- no aligned audio or video media is committed for the seeded pilot cases yet, so multimodal lift cannot be measured honestly
+
+What the pilot already proves:
+
+- the repo now has a shared transcript-plus-media case schema
+- expected review actions are explicit
+- future audio and video remain optional supporting cues rather than hidden-truth claims
 
 ## Commands Run
 
-- `python scripts/build_nlp_research_manifest.py`
-- `python scripts/train_signal_text_baseline.py`
-- `python scripts/build_research_manifest.py`
-- `python scripts/train_signal_baseline.py`
+Build and benchmark:
+
+- `python scripts/build_human_reviewed_signal_labels.py`
+- `python scripts/evaluate_signal_baseline.py`
+- `python scripts/build_multimodal_pilot_cases.py`
+- `python scripts/evaluate_multimodal_pilot.py`
 - `python scripts/evaluate_multimodal_lift.py`
-- `python scripts/extract_multimodal_features.py --text-file data/signal_engine_2_0/fixtures/support_tickets_realistic.jsonl --domain support --redact-pii --out outputs/signal_engine_2_0/multimodal_feature_report.json`
-- validation commands listed in the repo task plan
 
-## Validation Results
+Validation:
 
-Completed in this branch:
-
-- `python -m py_compile src/signal_engine/*.py src/signal_engine/adapters/*.py scripts/*.py`
-- `python -m py_compile src/signal_engine/multimodal/*.py`
+- `python -m py_compile src/signal_engine/*.py src/signal_engine/adapters/*.py src/signal_engine/multimodal/*.py scripts/*.py`
 - `make portfolio-ci`
 - `python scripts/run_signal_engine_2_0_demo.py`
-- all requested tranche-one and tranche-two pytest slices passed
+- `pytest tests/test_human_reviewed_signal_labels.py`
+- `pytest tests/test_evaluate_signal_baseline.py`
+- `pytest tests/test_multimodal_pilot_cases.py`
+- `pytest tests/test_evaluate_multimodal_pilot.py`
+- `pytest tests/test_nlp_research_manifest.py`
+- `pytest tests/test_train_signal_text_baseline.py`
+- `pytest tests/test_research_manifest.py`
+- `pytest tests/test_multimodal_schemas.py`
+- `pytest tests/test_text_features.py`
+- `pytest tests/test_audio_features.py`
+- `pytest tests/test_video_features.py`
+- `pytest tests/test_fusion.py`
+- `pytest tests/test_extract_multimodal_features_cli.py`
+- `pytest tests/test_train_signal_baseline.py`
+- `pytest tests/test_evaluate_multimodal_lift.py`
+- `pytest tests/test_signal_engine_final_demo.py`
+- `pytest tests/test_signal_engine_analyze_redaction.py`
+- `pytest tests/test_text_emotion_benchmark.py`
+- `pytest tests/test_privacy_redaction.py`
+- `pytest tests/test_dataset_ingestion.py`
+- `pytest tests/test_optional_adapters.py`
+- `pytest tests/test_signal_engine_registries_and_benchmark.py`
+- `pytest tests/test_signal_engine_2_0.py`
+- `pytest tests/test_features.py`
 
-Observed outcomes:
+## Validation Table
 
-- `make portfolio-ci` passed
-- final demo passed
-- deterministic text-emotion benchmark remained green
-- optional transformer benchmark ran successfully from local cache during the demo run
+| check | result | notes |
+| --- | --- | --- |
+| `py_compile` | pass | core modules, adapters, multimodal package, and scripts compiled cleanly |
+| `make portfolio-ci` | pass | legacy LLY artifact path still warns and skips refresh, as designed |
+| `run_signal_engine_2_0_demo.py` | pass | final demo bundle regenerated successfully |
+| new proof tests | pass | label builder, baseline eval, pilot builder, pilot status |
+| recent NLP/multimodal tests | pass | research manifest, schemas, features, training, lift scaffold |
+| key deterministic regression tests | pass | demo, redaction, privacy, dataset ingestion, registries, engine core |
 
 ## What Works Now
 
-- transcript-first deterministic review for support, sales, account management, and earnings-call proof bundles
-- optional PII redaction before deterministic analysis
-- deterministic text-emotion benchmark workflow
-- offline-safe NLP research manifest
-- weak-label text-baseline training path with honest insufficient-data handling
-- multimodal taxonomy, research map, feature schemas, and bounded text/audio/video scaffolds
+- transcript-first deterministic signal extraction
+- support, sales, account-management, and earnings-call architecture proof
+- optional deterministic PII redaction
+- human-reviewable `signal_family` benchmark seed
+- transcript-only deterministic-vs-classifier comparison
+- multimodal pilot schema and status reporting
+- recruiter- and buyer-facing case study grounded in real repo outputs
 
 ## What Remains Roadmap
 
-- stronger labeled corpora for transcript benchmark work
-- aligned multimodal fixtures for real lift measurement
+- larger human-reviewed transcript label sets
+- second-reviewer agreement checks on the seed labels
+- aligned transcript+audio and transcript+video pilot media
+- real multimodal lift measurement on matched cases
 - production ASR, diarization, and richer audio/video sidecars
-- optional transformer and retrieval benchmarks backed by approved local caches
 
-## NLP Research / Modeling Status
+## Known Limitations
 
-- transcript-focused research manifest exists and is reproducible
-- current local weak-label corpus contains 24 utterance-level examples from committed Signal Engine 2.0 fixtures
-- current weak-label support:
-  - `risk_friction`: 14
-  - `opportunity_commitment`: 9
-  - `uncertainty_hedging`: 1
-  - `neutral`: 0
-- the text baseline therefore exits with `insufficient_data` instead of training a misleading 4-class model
+- the labeled dataset is small and locally seeded
+- many labels were selected with help from deterministic lexicons, so the benchmark is not an independent superiority proof
+- no statistical significance claim is appropriate
+- no multimodal lift claim is appropriate without aligned media
+- no truth-detection, hidden-intent, lie-detection, or emotion-certainty claim is made anywhere in the canonical path
 
-## Known Blockers
+## Next Recommended Task
 
-- no aligned multimodal gold fixtures are committed in the current Signal Engine 2.0 path
-- optional transformer benchmarking still depends on local cache and dependency availability outside machines like this one
-
-## Recommended Next Step
-
-Create a small human-reviewed transcript label set for `signal_family` and run a first honest transcript-only benchmark before claiming any model lift.
+Add a second tiny reviewer pass over the `48` seeded labels and collect a very small approved aligned media set for `4` to `6` pilot cases so the next benchmark can measure inter-rater agreement and the first honest transcript-plus-audio lift comparison.

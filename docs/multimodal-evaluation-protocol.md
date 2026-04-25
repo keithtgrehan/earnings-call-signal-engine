@@ -48,11 +48,38 @@ Evaluate whether optional audio or video review cues improve reviewer usefulness
 3. Capture timing, evidence quality, and reviewer ratings.
 4. Compare lift only when the same tasks and labels exist for both conditions.
 
+## Pilot Case Schema
+
+- `transcript_text`
+- `expected_signal_family`
+- `expected_review_action`
+- `audio_file`
+- `video_file`
+- `transcript_evidence`
+- `audio_expected_cues`
+- `video_expected_cues`
+- `status`
+- `limitations`
+
 ## Success Criteria
 
 - improved reviewer speed without loss of evidence quality
 - improved evidence traceability
 - lower false positives than a naive sidecar interpretation
+
+## What Counts As Real Multimodal Lift
+
+- the same case has transcript-only and transcript-plus-media review results
+- audio or video exists locally and is aligned to the transcript evidence window
+- reviewer usefulness improves without hiding the underlying transcript rationale
+
+## Minimum Evidence Before Any Claim
+
+- committed aligned media or approved local media roots
+- gold review labels for the same cases
+- transcript-first baseline results
+- sidecar results on the same evaluation cases
+- clear reviewer timing and evidence-quality notes
 
 ## What Counts As Failure
 
