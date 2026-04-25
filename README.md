@@ -48,6 +48,14 @@ Core constraints:
 - NLP research manifest: [`docs/nlp-research-manifest.md`](docs/nlp-research-manifest.md)
 - final review summary: [`docs/signal-engine-2.0-final-review.md`](docs/signal-engine-2.0-final-review.md)
 
+## First Proof Package
+
+- final portfolio case study: [`docs/final-portfolio-case-study.md`](docs/final-portfolio-case-study.md)
+- transcript baseline benchmark: [`docs/transcript-baseline-benchmark.md`](docs/transcript-baseline-benchmark.md)
+- human-reviewed labeling guide: [`docs/human-reviewed-labeling-guide.md`](docs/human-reviewed-labeling-guide.md)
+- human-reviewed signal labels: [`data/nlp_research/human_reviewed_signal_labels.jsonl`](data/nlp_research/human_reviewed_signal_labels.jsonl)
+- multimodal pilot status: [`docs/multimodal-pilot-status.md`](docs/multimodal-pilot-status.md)
+
 ## Quick Start
 
 Legacy support-QA MVP:
