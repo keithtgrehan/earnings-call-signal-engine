@@ -47,6 +47,7 @@ Core constraints:
 - recruiter/buyer examples: [`demo/signal_engine_2_0/polished_examples.md`](demo/signal_engine_2_0/polished_examples.md)
 - NLP research manifest: [`docs/nlp-research-manifest.md`](docs/nlp-research-manifest.md)
 - final review summary: [`docs/signal-engine-2.0-final-review.md`](docs/signal-engine-2.0-final-review.md)
+- best-in-class roadmap: [`docs/best-in-class-nlp-roadmap.md`](docs/best-in-class-nlp-roadmap.md)
 
 ## First Proof Package
 
@@ -59,6 +60,11 @@ Core constraints:
 - label agreement status: [`docs/label-agreement-status.md`](docs/label-agreement-status.md)
 - audio pilot intake guide: [`docs/audio-pilot-intake-guide.md`](docs/audio-pilot-intake-guide.md)
 - audio pilot asset status: [`docs/audio-pilot-asset-status.md`](docs/audio-pilot-asset-status.md)
+- public resource fit report: [`docs/public-resource-fit-report.md`](docs/public-resource-fit-report.md)
+- signal error analysis: [`docs/signal-error-analysis.md`](docs/signal-error-analysis.md)
+- gold holdout candidates: [`docs/gold-holdout-set-guide.md`](docs/gold-holdout-set-guide.md)
+- retrieval scaffold: [`docs/signal-retrieval-scaffold.md`](docs/signal-retrieval-scaffold.md)
+- second-review priority queue: [`docs/second-review-priority.md`](docs/second-review-priority.md)
 
 Refresh command:
 
@@ -66,11 +72,18 @@ Refresh command:
 make first-proof-refresh
 ```
 
+Best-in-class backbone refresh:
+
+```bash
+make best-in-class-refresh
+```
+
 Current automation status:
 
 - reviewer packet generation is automated
 - second-review agreement stays in a blocked state until reviewer labels are filled
 - audio pilot intake and validation stay blocked until approved aligned clips are added
+- best-in-class backbone status: resource fit ranking, error analysis, gold holdout candidates, retrieval scaffold, and second-review prioritization are now refreshable
 
 ## Quick Start
 
