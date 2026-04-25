@@ -7,6 +7,7 @@ Best-in-class here means rigorous, measurable, defensible transcript evaluation.
 ## 2. What Is Measured Now
 
 - transcript-first deterministic benchmark on `48` human-seeded labels
+- candidate mining queue on `321` local snippets awaiting review
 - majority baseline, deterministic rules, and exploratory TF-IDF classifier variants
 - error analysis slices and reviewer-facing queues
 - candidate gold holdout discipline
@@ -48,8 +49,9 @@ Best-in-class here means rigorous, measurable, defensible transcript evaluation.
 
 ## 8. Research Source Priority
 
-- Loughran-McDonald now
-- Financial PhraseBank next
+- local project fixtures first for canonical training data
+- Loughran-McDonald now as canonical lexical support when a local reviewed export is available
+- Financial PhraseBank next as benchmark-only
 - Switchboard / MRDA next if access is justified
 - FinBERT later as benchmark only
 - openSMILE and OpenCV later as optional adapters
@@ -58,10 +60,13 @@ Best-in-class here means rigorous, measurable, defensible transcript evaluation.
 ## 9. Next 30-Day Execution Plan
 
 1. complete second review on the priority queue
-2. promote a reviewed holdout into a real gold set
-3. grow the labeled dataset toward `100`
-4. rerun benchmark and error analysis
-5. add `4` to `6` approved aligned audio clips for the pilot
+2. promote accepted candidate rows from the mined review queue
+3. promote a reviewed holdout into a real gold set
+4. grow the labeled dataset toward `100`
+5. import a local reviewed Loughran-McDonald export if licensing is cleared
+6. keep PhraseBank isolated as benchmark-only if a local export is added
+7. rerun benchmark and error analysis
+8. add `4` to `6` approved aligned audio clips for the pilot
 
 ## 10. Failure Criteria
 

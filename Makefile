@@ -9,7 +9,7 @@ SMOKE_URL ?= https://www.youtube.com/watch?v=BaW_jenozKc
 SMOKE_OUT := ./_smoke_out
 SMOKE_CACHE := ./_smoke_cache
 
-.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh
+.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -107,6 +107,17 @@ best-in-class-refresh: first-proof-refresh
 	$(PYTHON) scripts/prioritize_second_review.py
 	$(PYTHON) scripts/evaluate_label_agreement.py
 	$(PYTHON) scripts/evaluate_multimodal_pilot.py
+
+data-growth-refresh:
+	$(PYTHON) scripts/import_loughran_mcdonald.py
+	$(PYTHON) scripts/import_financial_phrasebank.py
+	$(PYTHON) scripts/mine_signal_label_candidates.py
+	$(PYTHON) scripts/promote_reviewed_label_candidates.py
+	$(PYTHON) scripts/report_label_dataset_growth.py
+	$(PYTHON) scripts/evaluate_signal_baseline.py
+	$(PYTHON) scripts/analyze_signal_errors.py || true
+	$(PYTHON) scripts/build_label_review_packet.py
+	$(PYTHON) scripts/prioritize_second_review.py || true
 
 clean:
 	rm -rf ./_smoke_out ./_smoke_cache build dist

@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 
 from . import text_features as base_text_features
+from .lexicons import load_loughran_mcdonald_lexicon, match_loughran_mcdonald_terms
 from .domains import (
     ACCOUNT_CHURN_RISK_TERMS,
     ACCOUNT_COMMITMENT_TERMS,
@@ -154,6 +155,21 @@ def _matched_terms(text: str, terms: tuple[str, ...]) -> list[str]:
     return matches[:8]
 
 
+def _loughran_mcdonald_scores(text: str) -> dict[str, Any]:
+    lexicon = load_loughran_mcdonald_lexicon()
+    matches = match_loughran_mcdonald_terms(text, lexicon=lexicon)
+    negative_terms = list(dict.fromkeys([*matches["negative"], *matches["litigious"], *matches["constraining"]]))
+    positive_terms = list(dict.fromkeys(matches["positive"]))
+    uncertainty_terms = list(dict.fromkeys([*matches["uncertainty"], *matches["modal"]]))
+    return {
+        "matches": matches,
+        "risk_friction_terms": negative_terms[:8],
+        "opportunity_commitment_terms": positive_terms[:8],
+        "uncertainty_hedging_terms": uncertainty_terms[:8],
+        "available": any(bool(lexicon.get(category)) for category in lexicon),
+    }
+
+
 def weak_label_signal_family(
     text: str,
     *,
@@ -162,11 +178,15 @@ def weak_label_signal_family(
     risk_matches = _matched_terms(text, RISK_FRICTION_TERMS)
     opportunity_matches = _matched_terms(text, OPPORTUNITY_COMMITMENT_TERMS)
     uncertainty_matches = _matched_terms(text, UNCERTAINTY_HEDGING_TERMS)
+    lm_support = _loughran_mcdonald_scores(text)
+    lm_risk_matches = lm_support["risk_friction_terms"]
+    lm_opportunity_matches = lm_support["opportunity_commitment_terms"]
+    lm_uncertainty_matches = lm_support["uncertainty_hedging_terms"]
 
     scores = {
-        "risk_friction": len(risk_matches),
-        "opportunity_commitment": len(opportunity_matches),
-        "uncertainty_hedging": len(uncertainty_matches),
+        "risk_friction": (len(risk_matches) * 2) + len(lm_risk_matches),
+        "opportunity_commitment": (len(opportunity_matches) * 2) + len(lm_opportunity_matches),
+        "uncertainty_hedging": (len(uncertainty_matches) * 2) + len(lm_uncertainty_matches),
         "neutral": 0,
     }
 
@@ -175,9 +195,9 @@ def weak_label_signal_family(
     if scores["risk_friction"] > 0 or scores["opportunity_commitment"] > 0 or scores["uncertainty_hedging"] > 0:
         ordered = sorted(
             (
-                ("risk_friction", risk_matches),
-                ("opportunity_commitment", opportunity_matches),
-                ("uncertainty_hedging", uncertainty_matches),
+                ("risk_friction", list(dict.fromkeys([*risk_matches, *lm_risk_matches]))),
+                ("opportunity_commitment", list(dict.fromkeys([*opportunity_matches, *lm_opportunity_matches]))),
+                ("uncertainty_hedging", list(dict.fromkeys([*uncertainty_matches, *lm_uncertainty_matches]))),
             ),
             key=lambda item: (len(item[1]), item[0] == "risk_friction", item[0] == "uncertainty_hedging"),
             reverse=True,
@@ -195,6 +215,8 @@ def weak_label_signal_family(
         "evidence_terms": evidence_terms,
         "reason": reason,
         "domain": domain,
+        "loughran_mcdonald_available": lm_support["available"],
+        "loughran_mcdonald_matches": lm_support["matches"],
     }
 
 

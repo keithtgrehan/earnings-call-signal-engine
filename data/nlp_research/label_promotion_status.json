@@ -1,0 +1,10 @@
+{
+  "status": "blocked_no_accepted_rows",
+  "input_review_csv": "data/nlp_research/signal_label_candidates_review.csv",
+  "label_dataset_path": "data/nlp_research/human_reviewed_signal_labels.jsonl",
+  "existing_rows_before": 48,
+  "accepted_rows": 0,
+  "promoted_rows": 0,
+  "duplicate_rows_skipped": 0,
+  "label_dataset_size_after": 48
+}

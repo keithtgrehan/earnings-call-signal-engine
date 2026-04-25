@@ -93,6 +93,19 @@ Interpretation:
 
 These assets strengthen evaluation discipline, but they do not convert the current benchmark into statistical proof.
 
+### Data Growth Path
+
+- current mined candidate queue: `321` rows
+- accepted candidate rows promoted: `0`
+- local fixtures remain the primary training source
+- Loughran-McDonald is the intended canonical finance lexicon extension path, but import is currently blocked until a local reviewed CSV is supplied
+- Financial PhraseBank remains benchmark-only and is also currently blocked until a local export is supplied
+
+Interpretation:
+
+- the repo can now grow the reviewed dataset through a manual promotion workflow without mixing weak suggestions directly into canonical labels
+- candidate mining improves labeling throughput, but manual review is still required before anything enters the benchmark set
+
 Multimodal status:
 
 - multimodal pilot cases seeded: `10`
@@ -113,8 +126,10 @@ Multimodal status:
 - automated reviewer packet generation and agreement scaffolding
 - a reproducible transcript-only benchmark
 - an evaluation backbone that now supports resource triage, error review, holdout discipline, and label-review prioritization
+- a conservative data-growth loop with optional finance-resource adapters and review-only candidate mining
 - a bounded multimodal pilot scaffold with explicit blockers
 - a one-command proof refresh path via `make first-proof-refresh`
+- a one-command data-growth refresh path via `make data-growth-refresh`
 
 ## 7. What Remains Roadmap
 
@@ -137,3 +152,4 @@ This project shows practical AI systems work rather than prompt-only prototyping
 ## Boundary Note
 
 This system does not claim truth detection, lie detection, hidden-intent detection, psychological diagnosis, or emotion certainty. Audio and video remain optional review cues, and transcript-backed deterministic output remains the source of truth.
+Mined candidate labels remain suggestions until a human reviewer accepts them.

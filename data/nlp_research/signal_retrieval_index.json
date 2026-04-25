@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "generated_at": "2026-04-25T05:04:50.166331+00:00",
+  "generated_at": "2026-04-25T14:44:49.029123+00:00",
   "backend": "tfidf_cosine",
   "optional_sentence_transformers_available": true,
   "example_count": 48,

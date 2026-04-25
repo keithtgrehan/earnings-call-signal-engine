@@ -30,6 +30,14 @@ This update automates the next proof loop without inventing reviewer input or me
 - retrieval scaffold supports similar-example lookup without requiring heavy embeddings
 - second-review priority queue focuses reviewer time on the highest-value disagreements first
 
+## Data Growth Path
+
+- local project fixtures remain the primary training source
+- Loughran-McDonald is now wired as optional canonical finance lexicon support when a local reviewed CSV is available
+- Financial PhraseBank is wired as a benchmark-only adapter and is not mixed into canonical training
+- candidate mining now creates a review queue from committed local fixtures, demos, and outputs
+- promotion remains human-gated and blocked until accepted reviewer rows exist
+
 ## What Changed In This Run
 
 - added `data/nlp_research/review_packets/signal_labels_review_packet.csv`
@@ -86,6 +94,24 @@ This update automates the next proof loop without inventing reviewer input or me
 - added `scripts/prioritize_second_review.py`
 - added `docs/best-in-class-nlp-roadmap.md`
 - added `Makefile` targets `resource-fit-refresh`, `error-analysis`, `gold-holdout-refresh`, `retrieval-refresh`, and `best-in-class-refresh`
+- added `src/signal_engine/lexicons/__init__.py`
+- added `src/signal_engine/lexicons/loughran_mcdonald.py`
+- added `scripts/import_loughran_mcdonald.py`
+- added `docs/loughran-mcdonald-integration.md`
+- added `scripts/import_financial_phrasebank.py`
+- added `docs/financial-phrasebank-benchmark.md`
+- added `scripts/mine_signal_label_candidates.py`
+- added `data/nlp_research/signal_label_candidates.jsonl`
+- added `data/nlp_research/signal_label_candidates_review.csv`
+- added `docs/signal-label-candidate-mining.md`
+- added `scripts/promote_reviewed_label_candidates.py`
+- added `data/nlp_research/label_promotion_status.json`
+- added `docs/label-promotion-workflow.md`
+- added `docs/label-promotion-status.md`
+- added `scripts/report_label_dataset_growth.py`
+- added `data/nlp_research/label_dataset_growth.json`
+- added `docs/label-dataset-growth-report.md`
+- added `Makefile` target `data-growth-refresh`
 
 ## Labeled Dataset Status
 
@@ -163,6 +189,36 @@ Exact blocker:
 - no `reviewer_label` values are filled in yet, so inter-rater agreement cannot be measured honestly
 - a prioritized second-review queue is now available at `data/nlp_research/second_review_priority_queue.csv`
 
+## Finance Lexicon And External Benchmark Status
+
+- Loughran-McDonald import status: `blocked_missing_source`
+- expected input dir: `data/external/loughran_mcdonald`
+- normalized lexicon artifact path: `data/lexicons/loughran_mcdonald_lexicon.json`
+- PhraseBank import status: `blocked_missing_source`
+- expected input dir: `data/external/financial_phrasebank`
+- normalized benchmark path: `data/benchmark_external/financial_phrasebank_normalized.jsonl`
+
+Interpretation:
+
+- the repo is ready to ingest both resources safely when local reviewed exports are provided
+- external finance resources remain optional and do not block CI
+- only Loughran-McDonald is positioned for canonical lexical support
+- PhraseBank remains benchmark-only by design
+
+## Dataset Growth Status
+
+- reviewed label count: `48`
+- mined candidate count: `321`
+- accepted candidate count: `0`
+- promoted candidate count: `0`
+- gap to `100`: `52`
+- gap to `300`: `252`
+- gap to `1000`: `952`
+
+Current recommendation:
+
+- prioritize the next `20-30` reviewed rows from the candidate queue, starting with neutral support and then friction support, while keeping at least `20%` of the batch neutral
+
 ## Audio Pilot Intake Status
 
 - audio intake rows: `10`
@@ -186,6 +242,11 @@ Build and benchmark:
 - `python scripts/build_human_reviewed_signal_labels.py`
 - `python scripts/build_label_review_packet.py`
 - `python scripts/import_second_review_labels.py`
+- `python scripts/import_loughran_mcdonald.py`
+- `python scripts/import_financial_phrasebank.py`
+- `python scripts/mine_signal_label_candidates.py`
+- `python scripts/promote_reviewed_label_candidates.py`
+- `python scripts/report_label_dataset_growth.py`
 - `python scripts/evaluate_signal_baseline.py`
 - `python scripts/evaluate_label_agreement.py`
 - `python scripts/build_multimodal_pilot_cases.py`
@@ -199,6 +260,8 @@ Build and benchmark:
 Validation:
 
 - `python -m py_compile src/signal_engine/*.py src/signal_engine/adapters/*.py src/signal_engine/multimodal/*.py scripts/*.py`
+- `python -m py_compile src/signal_engine/lexicons/*.py`
+- `make data-growth-refresh`
 - `make portfolio-ci`
 - `python scripts/run_signal_engine_2_0_demo.py`
 - `pytest tests/test_human_reviewed_signal_labels.py`

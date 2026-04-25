@@ -44,3 +44,7 @@ data/corpus/processed/chunks/*
 data/corpus/processed/evidence_objects/*
 !data/corpus/processed/evidence_objects/LLY_2025_Q2_call08.evidence_objects.jsonl
 data/corpus/retrieval/pilot_event_index/*
+data/external/loughran_mcdonald/*
+!data/external/loughran_mcdonald/.gitkeep
+data/external/financial_phrasebank/*
+!data/external/financial_phrasebank/.gitkeep

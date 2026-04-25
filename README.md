@@ -78,12 +78,34 @@ Best-in-class backbone refresh:
 make best-in-class-refresh
 ```
 
+Data growth refresh:
+
+```bash
+make data-growth-refresh
+```
+
 Current automation status:
 
 - reviewer packet generation is automated
 - second-review agreement stays in a blocked state until reviewer labels are filled
 - audio pilot intake and validation stay blocked until approved aligned clips are added
 - best-in-class backbone status: resource fit ranking, error analysis, gold holdout candidates, retrieval scaffold, and second-review prioritization are now refreshable
+
+## Data Growth Path
+
+- local support, sales, account-management, and earnings-call fixtures remain the primary training source
+- Loughran-McDonald is the canonical finance lexicon support path when a local, license-reviewed dictionary export is available
+- Financial PhraseBank stays benchmark-only and is never mixed into canonical training data automatically
+- candidate mining creates review queues, not automatic truth
+- manual review is still required before promotion into `data/nlp_research/human_reviewed_signal_labels.jsonl`
+
+Supporting docs:
+
+- [`docs/loughran-mcdonald-integration.md`](docs/loughran-mcdonald-integration.md)
+- [`docs/financial-phrasebank-benchmark.md`](docs/financial-phrasebank-benchmark.md)
+- [`docs/signal-label-candidate-mining.md`](docs/signal-label-candidate-mining.md)
+- [`docs/label-promotion-workflow.md`](docs/label-promotion-workflow.md)
+- [`docs/label-dataset-growth-report.md`](docs/label-dataset-growth-report.md)
 
 ## Quick Start
 
