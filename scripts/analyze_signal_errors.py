@@ -181,10 +181,16 @@ def main(argv: list[str] | None = None) -> int:
         default=str(ROOT / "docs" / "signal-error-analysis.md"),
     )
     args = parser.parse_args(argv)
+    labels_path = Path(args.labels_path)
+    predictions_path = Path(args.predictions_path)
+    metrics_path = Path(args.metrics_path)
+    json_out = Path(args.json_out)
+    csv_out = Path(args.csv_out)
+    report_out = Path(args.report_out)
 
-    labels_by_id = _load_labels(Path(args.labels_path))
-    predictions = load_jsonl(Path(args.predictions_path))
-    metrics = json.loads(Path(args.metrics_path).read_text(encoding="utf-8"))
+    labels_by_id = _load_labels(labels_path)
+    predictions = load_jsonl(predictions_path)
+    metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
 
     grouped = {
         "by_true_label": Counter(),
@@ -301,8 +307,14 @@ def main(argv: list[str] | None = None) -> int:
     payload = {
         "status": "ok",
         "task": "signal_family_error_analysis",
-        "dataset_path": str(args.labels_path),
-        "predictions_path": str(args.predictions_path),
+        "dataset_path": (
+            labels_path.relative_to(ROOT).as_posix() if labels_path.is_absolute() else labels_path.as_posix()
+        ),
+        "predictions_path": (
+            predictions_path.relative_to(ROOT).as_posix()
+            if predictions_path.is_absolute()
+            else predictions_path.as_posix()
+        ),
         "dataset_size": len(labels_by_id),
         "evaluation_scope": metrics.get("split_strategy"),
         "split_details": metrics.get("split_details", {}),
@@ -330,9 +342,9 @@ def main(argv: list[str] | None = None) -> int:
         ],
     }
 
-    write_json(Path(args.json_out), payload)
+    write_json(json_out, payload)
     write_csv(
-        Path(args.csv_out),
+        csv_out,
         fieldnames=[
             "id",
             "domain",
@@ -385,9 +397,9 @@ def main(argv: list[str] | None = None) -> int:
             for row in sorted(case_rows, key=lambda item: (-item["priority_score"], item["id"]))
         ],
     )
-    Path(args.report_out).parent.mkdir(parents=True, exist_ok=True)
-    Path(args.report_out).write_text(_render_report(payload), encoding="utf-8")
-    print(json.dumps({"status": "ok", "case_count": len(case_rows), "json_out": args.json_out}, indent=2))
+    report_out.parent.mkdir(parents=True, exist_ok=True)
+    report_out.write_text(_render_report(payload), encoding="utf-8")
+    print(json.dumps({"status": "ok", "case_count": len(case_rows), "json_out": str(json_out)}, indent=2))
     return 0
 
 

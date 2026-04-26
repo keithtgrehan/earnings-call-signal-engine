@@ -6,8 +6,8 @@ Classifier variants are exploratory benchmark aids only.
 
 ## Dataset And Evaluation Context
 
-- dataset_path: `/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa/data/nlp_research/human_reviewed_signal_labels.jsonl`
-- predictions_path: `/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa/data/nlp_research/transcript_baseline_predictions.jsonl`
+- dataset_path: `data/nlp_research/human_reviewed_signal_labels.jsonl`
+- predictions_path: `data/nlp_research/transcript_baseline_predictions.jsonl`
 - dataset_size: `48`
 - evaluation_scope: `train_test_split`
 - canonical_system: `deterministic_rules`

@@ -14,21 +14,21 @@ It is the cleanest proof path because it combines:
 - deterministic pipeline stages that score chunks and extract guidance, tone, and behavior rows
 
 ## What Comes Out
-- reviewer report: [`outputs/LLY_2025_Q2_call08/report.md`](../outputs/LLY_2025_Q2_call08/report.md)
-- structured scorecard: [`outputs/LLY_2025_Q2_call08/metrics.json`](../outputs/LLY_2025_Q2_call08/metrics.json)
-- extracted guidance rows: [`outputs/LLY_2025_Q2_call08/guidance.csv`](../outputs/LLY_2025_Q2_call08/guidance.csv)
-- uncertainty and skepticism rows: [`uncertainty_signals.csv`](../outputs/LLY_2025_Q2_call08/uncertainty_signals.csv), [`analyst_skepticism.csv`](../outputs/LLY_2025_Q2_call08/analyst_skepticism.csv)
-- supporting summaries: [`audio_behavior_summary.json`](../outputs/LLY_2025_Q2_call08/audio_behavior_summary.json), [`multimodal_support_summary.json`](../outputs/LLY_2025_Q2_call08/multimodal_support_summary.json)
+- reviewer report: `outputs/LLY_2025_Q2_call08/report.md`
+- structured scorecard: `outputs/LLY_2025_Q2_call08/metrics.json`
+- extracted guidance rows: `outputs/LLY_2025_Q2_call08/guidance.csv`
+- uncertainty and skepticism rows: `outputs/LLY_2025_Q2_call08/uncertainty_signals.csv`, `outputs/LLY_2025_Q2_call08/analyst_skepticism.csv`
+- supporting summaries: `outputs/LLY_2025_Q2_call08/audio_behavior_summary.json`, `outputs/LLY_2025_Q2_call08/multimodal_support_summary.json`
 
 ## Claim To Evidence Map
 
 | Claim | Exact evidence | Why it matters |
 | --- | --- | --- |
-| The repo is transcript-first and deterministic-first. | [`README.md`](../README.md), [`docs/current-status.md`](current-status.md), [`outputs/LLY_2025_Q2_call08/transcript.txt`](../outputs/LLY_2025_Q2_call08/transcript.txt) | The review truth is inspectable and local. |
+| The repo is transcript-first and deterministic-first. | [`README.md`](../README.md), [`docs/current-status.md`](current-status.md), `outputs/LLY_2025_Q2_call08/transcript.txt` | The review truth is inspectable and local. |
 | A frozen benchmark label exists in-repo. | [`data/gold_guidance_calls/labels.csv`](../data/gold_guidance_calls/labels.csv), [`data/gold_guidance_calls/raw_calls/LLY_2025_Q2_call08.txt`](../data/gold_guidance_calls/raw_calls/LLY_2025_Q2_call08.txt) | The proof case is tied to a committed label package, not a verbal claim. |
-| The repo produces auditable reviewer outputs. | [`report.md`](../outputs/LLY_2025_Q2_call08/report.md), [`metrics.json`](../outputs/LLY_2025_Q2_call08/metrics.json), [`guidance.csv`](../outputs/LLY_2025_Q2_call08/guidance.csv) | A reviewer can move from summary to structured evidence. |
-| Deterministic behavior cues are visible as files, not hidden scoring. | [`uncertainty_signals.csv`](../outputs/LLY_2025_Q2_call08/uncertainty_signals.csv), [`analyst_skepticism.csv`](../outputs/LLY_2025_Q2_call08/analyst_skepticism.csv) | The repo exposes exactly what the reviewer is meant to inspect. |
-| Supporting layers are explicitly bounded. | [`audio_behavior_summary.json`](../outputs/LLY_2025_Q2_call08/audio_behavior_summary.json), [`multimodal_support_summary.json`](../outputs/LLY_2025_Q2_call08/multimodal_support_summary.json), [`docs/evaluation-summary.md`](evaluation-summary.md) | Optional layers add context without replacing deterministic truth. |
+| The repo produces auditable reviewer outputs. | `outputs/LLY_2025_Q2_call08/report.md`, `outputs/LLY_2025_Q2_call08/metrics.json`, `outputs/LLY_2025_Q2_call08/guidance.csv` | A reviewer can move from summary to structured evidence. |
+| Deterministic behavior cues are visible as files, not hidden scoring. | `outputs/LLY_2025_Q2_call08/uncertainty_signals.csv`, `outputs/LLY_2025_Q2_call08/analyst_skepticism.csv` | The repo exposes exactly what the reviewer is meant to inspect. |
+| Supporting layers are explicitly bounded. | `outputs/LLY_2025_Q2_call08/audio_behavior_summary.json`, `outputs/LLY_2025_Q2_call08/multimodal_support_summary.json`, [`docs/evaluation-summary.md`](evaluation-summary.md) | Optional layers add context without replacing deterministic truth. |
 
 ## Deterministic-First Boundary
 - Deterministic transcript-backed artifacts are canonical.

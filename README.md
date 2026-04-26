@@ -31,13 +31,36 @@ Core constraints:
 - no UI required
 - evidence-backed outputs only
 - no truth-detection claims
-- no alpha claims or unsupported statistical significance claims
+- no unsupported trading or statistical-significance claims
 
 ## Why This Matters
 
 - messy conversations and transcripts are hard to review consistently at scale
 - generic AI summaries are broad, hard to audit, and easy to over-trust
 - this system produces structured, evidence-backed signals with reproducible outputs that a reviewer can inspect and challenge
+
+## Current State vs Roadmap
+
+### Works now
+
+- deterministic transcript-first analysis is the canonical path
+- local support, sales, account-management, and earnings-call fixtures back the current proof surface
+- reviewer packets, benchmark artifacts, and proof-refresh scripts are committed and reproducible
+
+### Validation available now
+
+- `make first-proof-refresh`
+- `make best-in-class-refresh`
+- `make data-growth-refresh`
+- `make portfolio-ci`
+- `python scripts/run_signal_engine_2_0_demo.py`
+
+### Roadmap / not yet claimed
+
+- audio and video remain optional supporting review cues
+- second-review agreement remains blocked until a reviewer fills the packet
+- multimodal lift is not yet measured because aligned approved media is still missing
+- optional external finance resources require local reviewed source files before import
 
 ## Review Package
 
