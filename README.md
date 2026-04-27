@@ -1,7 +1,33 @@
 # Earnings Call Signal Engine
-Transcript-first local review workflow for turning one earnings call into deterministic, auditable artifacts for analyst review.
 
-This repo is a decision-support tool, not a trading system. It does not execute orders, does not claim predictive edge, and does not treat optional model or multimodal layers as the source of truth.
+Deterministic-first system that converts earnings call transcripts into structured, decision-ready outputs.
+
+Built to take messy, multi-speaker conversations and turn them into:
+- clear signals (tone shifts, guidance changes, pressure)
+- linked evidence (exact excerpts)
+- outputs you can actually review and act on
+
+Deterministic-first. AI only where it adds value.
+
+This is a decision-support workflow, not a trading system. It does not execute trades, does not claim predictive edge, and does not treat optional model or multimodal layers as the source of truth.
+
+## What this produces (at a glance)
+
+From one call, the system outputs:
+
+- Tone shifts → where sentiment or positioning changes  
+- Guidance signals → forward-looking vs prior stance  
+- Q&A pressure → analyst challenge, defensiveness, uncertainty  
+- Evidence-backed outputs → every signal tied to exact transcript excerpts  
+
+Everything is structured (JSON / CSV / report), reproducible, and inspectable.
+
+## Demo (quickest way to see it)
+
+Run:
+
+```bash
+python scripts/run_signal_engine_2_0_demo.py
 
 ## What It Is
 - A local workflow for ingesting one earnings call from transcript text, YouTube/media, or document text.
