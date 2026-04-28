@@ -1,39 +1,73 @@
-# Signal Engine 2.0
+# Signal Engine
 
-Signal Engine 2.0 is a transcript-first, deterministic conversation intelligence scaffold for evidence-backed review of earnings calls, support conversations, sales calls, and account-management conversations.
+Signal Engine is a deterministic-first signal extraction and evaluation system for long-form business communication.
 
-The current branch prioritizes reproducible local analysis and evaluation readiness. It does not claim validated ML, statistical significance, market prediction, production retrieval, or production multimodal intelligence.
+The strongest proof path is earnings-call transcripts because public-company sources, explicit guidance language, analyst Q&A, and evidence-span review create a credible route to repeatable evaluation. Broader domains are supported or scaffolded where the same transcript-first pattern applies: customer support, sales calls, account management, churn risk, and general dialogue tone/emotion benchmarks.
+
+This repo does not claim production ML, statistical significance, market-reaction proof, production retrieval, or validated multimodal intelligence.
 
 ## What Works Now
 
-- Deterministic support, sales, and account-management transcript analysis through `scripts/signal_engine_analyze.py`.
-- Legacy support-QA MVP paths remain available through `src/parser.py`, `src/features.py`, and `src/pipeline.py`.
-- Corpus manifest validation, gold-label validation, model registry validation, and training/evaluation-set registry validation.
-- Deterministic weak-label keyword baseline for local `.txt` excerpts.
-- Manual corpus case scaffolding from manifest rows.
-- Metadata-only SEC 8-K intake helper that requires a user agent and does not fetch transcripts or exhibits.
-- Buyer/demo artifacts under `demo/signal_engine_2_0/`.
+- Deterministic transcript and signal scaffolds for evidence-backed review.
+- Earnings-call corpus manifest validation.
+- Gold-label JSONL validation.
+- Model, dataset, and NLP tools registries.
+- SEC 8-K metadata-only intake.
+- Manual corpus case setup.
+- Deterministic weak-label keyword baseline for local `.txt` transcripts.
+- First 3 earnings-call intake cases: `NVDA_2026_Q4`, `META_2025_Q4`, and `AMZN_2025_Q4`.
+- Repo validation and documentation checks.
 
 ## Scaffolded Only
 
-- Model and dataset registries are planning/audit surfaces, not proof of implementation or validation.
-- Weak-label outputs are deterministic review aids, not manual gold labels or validated training data.
-- Handcrafted fixtures are smoke-test examples, not real validated training data.
-- Optional sklearn training is local-only smoke scaffolding and writes no model artifact unless explicitly requested.
-- SEC metadata intake saves only small metadata files when invoked; it does not create a corpus.
+- Sales, support, and account-management use cases beyond the deterministic demo/sample layer.
+- Public dataset and model candidates.
+- Embeddings, rerankers, and long-context model candidates.
+- Optional local sklearn training scaffold.
+- Emotion/tone dataset references.
+
+Scaffolded means tracked, documented, or locally runnable as a smoke check. It does not mean validated, production-ready, or trained.
 
 ## Not Proven
 
-- No full real earnings-call corpus is committed.
-- No model weights are committed.
-- No production ML exists on this branch.
-- No statistical significance or market-reaction correlation is claimed.
-- No validated embedding retrieval, reranker benchmark, or long-context benchmark exists yet.
-- The first credible milestone remains 30 manually reviewed real earnings calls, followed later by a 100-150 call benchmark.
+- No real 30-call corpus yet.
+- No validated ML.
+- No statistical significance.
+- No market-reaction proof.
+- No production retrieval stack.
+- No validated sales/support/account benchmark.
+- No committed raw transcripts, datasets, model weights, audio, video, or API outputs.
 
-## Quick Start
+## Why Earnings Calls Remain The Proof Path
 
-Run the current deterministic conversation demos:
+- Public-company source availability makes provenance review possible.
+- Signal types such as guidance revision, uncertainty, analyst pressure, and Q&A friction can be tied to explicit transcript evidence.
+- Manual evidence-span review is practical before scaling.
+- The repo has a clear path from the first 3 manually reviewed calls to a 30-call benchmark, then a 100-150-call benchmark.
+
+## Broader Use-Case Map
+
+- Earnings calls: guidance, uncertainty, analyst pressure, Q&A friction.
+- Customer support: escalation, unresolved issue, directness, deflection, tone shift.
+- Sales calls: objections, buying intent, pricing concern, next-step clarity.
+- Account management: churn risk, renewal concern, expansion opportunity, stakeholder friction.
+- General dialogue: emotion/tone labels as benchmark aids, not product proof.
+
+## Lightweight Validation
+
+```bash
+python -m py_compile scripts/*.py
+```
+
+```bash
+python -m pytest tests/test_validate_corpus_manifest.py tests/test_validate_gold_labels.py tests/test_evaluate_signal_outputs.py tests/test_validate_model_registry.py tests/test_validate_training_sets_registry.py tests/test_run_weak_label_baseline.py tests/test_train_text_classifier_baseline_smoke.py tests/test_validate_nlp_tools_registry.py -q
+```
+
+```bash
+python scripts/check_markdown_links.py README.md docs/*.md
+```
+
+## Current Deterministic Demo Commands
 
 ```bash
 python scripts/signal_engine_analyze.py --domain support data/signal_engine_2_0/sample_support.json
@@ -41,135 +75,61 @@ python scripts/signal_engine_analyze.py --domain sales data/signal_engine_2_0/sa
 python scripts/signal_engine_analyze.py --domain account_management data/signal_engine_2_0/sample_account_management.json
 ```
 
-Run the buyer demo pack:
-
 ```bash
 python scripts/run_signal_engine_2_0_demo.py
 ```
 
-Run the legacy support-QA MVP:
+## Registry And Corpus Checks
 
 ```bash
-python scripts/analyze_conversation.py data/sample_conversations.json
-```
-
-## Lightweight Validation
-
-Compile the current script surface:
-
-```bash
-python -m py_compile scripts/*.py
-```
-
-Run the focused evaluation-readiness tests:
-
-```bash
-python -m pytest tests/test_validate_corpus_manifest.py tests/test_validate_gold_labels.py tests/test_evaluate_signal_outputs.py tests/test_validate_model_registry.py tests/test_validate_training_sets_registry.py tests/test_run_weak_label_baseline.py tests/test_train_text_classifier_baseline_smoke.py -q
-```
-
-Check README and docs links:
-
-```bash
-python scripts/check_markdown_links.py README.md docs/*.md
-```
-
-## Corpus And Label Validation
-
-Validate example corpus manifests:
-
-```bash
-python scripts/validate_corpus_manifest.py --path data/corpus_manifest.example.csv
-python scripts/validate_corpus_manifest.py --path data/corpus_manifest.example.json
-```
-
-Validate example gold-label rows:
-
-```bash
+python scripts/validate_corpus_manifest.py --path data/corpus/manifests/first_30_working_manifest.csv
 python scripts/validate_gold_labels.py --path data/gold_labels.example.jsonl
-```
-
-These examples are schema and evaluator fixtures only. They are not a validated training set.
-
-## Model And Dataset Registry Validation
-
-Validate the model registry:
-
-```bash
 python scripts/validate_model_registry.py --path data/model_registry.example.json
-```
-
-Validate the training/evaluation-set registry:
-
-```bash
 python scripts/validate_training_sets_registry.py --path data/training_sets_registry.example.csv
-python scripts/validate_training_sets_registry.py --path data/training_sets_registry.example.json
+python scripts/validate_nlp_tools_registry.py --path data/nlp_tools_registry.example.json
 ```
 
-Tracked model and dataset candidates are not automatically implemented, downloaded, licensed, or validated.
+Registries track candidate tools, datasets, and model families. They are not implementation proof and do not download anything.
 
-## Weak-Label Baseline
+## First Real Proof Command
 
-Run the deterministic weak-label baseline on a local transcript text file:
+First, manually place a legally safe local transcript here:
+
+```text
+data/corpus/manual_cases/NVDA_2026_Q4/raw/transcript.txt
+```
+
+Then run:
 
 ```bash
-python scripts/run_weak_label_baseline.py --input tests/fixtures/tiny_realistic_earnings_excerpt.txt --case-id TEST_2026_Q1 --out /tmp/tiny_predictions.jsonl
+python scripts/run_weak_label_baseline.py --input data/corpus/manual_cases/NVDA_2026_Q4/raw/transcript.txt --case-id NVDA_2026_Q4 --out data/corpus/manual_cases/NVDA_2026_Q4/processed/weak_predictions.jsonl
 ```
 
-Compare predictions against a gold-label JSONL file:
-
-```bash
-python scripts/evaluate_signal_outputs.py --gold-labels data/gold_labels.example.jsonl --predictions /tmp/tiny_predictions.jsonl --report-out /tmp/tiny_eval.md --json-out /tmp/tiny_eval.json
-```
-
-The weak-label baseline is deterministic keyword/rule logic, not trained ML.
-
-## Manual 30-Call Corpus Intake
-
-Start from the manual target list and example manifest:
-
-```bash
-python scripts/build_manual_corpus_case.py --manifest data/corpus_manifest.example.csv --case-id NVDA_2026_Q4 --out-root /tmp/manual_cases
-```
-
-Manual intake still requires source confirmation, licensing checks, local transcript handling, section review, speaker-role review, manual labels, and evidence-span review. Do not commit raw transcripts unless explicitly approved.
-
-## SEC Metadata Intake
-
-Fetch small SEC 8-K metadata only when you have a valid SEC user agent:
-
-```bash
-python scripts/fetch_sec_8k_index.py --ticker NVDA --user-agent "Your Name your.email@example.com" --limit 5 --json-out /tmp/nvda_8k.json
-```
-
-This helper does not fetch transcript text, exhibits, PDFs, audio, video, or paid/API outputs.
+The weak-label output is deterministic and review-only. It is not a final gold label file.
 
 ## NLP Research Map
 
-The repo now tracks NLP tools, research references, model candidates, and training/evaluation set candidates so future work can be evaluated deliberately.
-
 - [NLP tools and research map](docs/nlp-tools-and-research-map.md)
 - [Training set plan](docs/training-set-plan.md)
 - [Model registry](docs/model-registry.md)
 - [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
 
-These registries are tracking surfaces only. Nothing is downloaded by adding a registry row, no datasets or models are shipped, no ML is validated, and deterministic transcript-first extraction remains the core system.
+Tools and datasets are tracked only. Nothing is downloaded by adding registry rows, no ML is validated, and deterministic transcript-first extraction remains the system core.
 
 ## Key Docs
 
+- [First real case proof](docs/first-real-case-proof.md)
+- [GitHub repo hygiene report](docs/github-repo-hygiene-report.md)
+- [Branch hygiene action plan](docs/branch-hygiene-action-plan.md)
+- [Default branch transition plan](docs/default-branch-transition-plan.md)
+- [NLP tools and research map](docs/nlp-tools-and-research-map.md)
+- [Training set plan](docs/training-set-plan.md)
+- [Model registry](docs/model-registry.md)
+- [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
+- [Transcript sectioning and labeling playbook](docs/transcript-sectioning-and-labeling-playbook.md)
 - [Corpus build plan](docs/corpus-build-plan.md)
 - [Ideal 30-call download list](docs/ideal-30-call-download-list.md)
-- [Corpus evaluation implementation report](docs/corpus-evaluation-implementation-report.md)
-- [NLP tools and research map](docs/nlp-tools-and-research-map.md)
-- [Model registry](docs/model-registry.md)
-- [Training set plan](docs/training-set-plan.md)
-- [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
-- [Manual transcript download guide](docs/manual-transcript-download-guide.md)
-- [SEC EDGAR intake guide](docs/sec-edgar-intake-guide.md)
-- [Signal Engine 2.0 product notes](docs/signal-engine-2.0.md)
-- [Domain schemas](docs/domain-schemas.md)
-- [Multimodal stack notes](docs/multimodal-stack.md)
-- [Library evaluation matrix](docs/library-evaluation-matrix.md)
 
-## Architecture Boundary
+## Branch Presentation Note
 
-Transcript-first deterministic extraction remains canonical. Optional audio, video, retrieval, embeddings, rerankers, long-context review, and sklearn experiments are roadmap or scaffolded evaluation surfaces only unless separately validated against a manually reviewed corpus.
+GitHub currently reports `main` as the default branch. The best work lives on `signal-engine-2.0`. To make the public README show the current Signal Engine positioning, either set `signal-engine-2.0` as the default branch or open a PR from `signal-engine-2.0` into `main`.
