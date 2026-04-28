@@ -37,6 +37,7 @@ data/corpus/raw/video/*
 data/corpus/raw/transcripts/*
 !data/corpus/raw/transcripts/GOOGL_2025_Q4_call03.txt
 !data/corpus/raw/transcripts/LLY_2025_Q2_call08.txt
+data/corpus/manual_cases/*/raw/*.txt
 data/corpus/processed/alignments/*
 data/corpus/processed/chunks/*
 !data/corpus/processed/chunks/LLY_2025_Q2_call08.event_chunks.jsonl
