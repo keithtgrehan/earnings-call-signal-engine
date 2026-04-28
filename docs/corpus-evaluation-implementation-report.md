@@ -9,6 +9,11 @@
 - Standard-library error-analysis report generator.
 - Documentation for corpus buildout, evaluation rubric, guidance extraction, Q&A friction, false-positive control, provenance, and model/retrieval roadmap.
 - Targeted tests and a tiny prediction fixture.
+- Model and training/evaluation-set registries.
+- Metadata-only SEC 8-K intake helper.
+- Manual corpus case folder/checklist builder.
+- Deterministic weak-label keyword baseline.
+- Optional local sklearn smoke-training scaffold.
 
 ## Scaffold Only
 
@@ -18,6 +23,10 @@
 - No canonical extraction behavior was changed.
 - No dependencies were added.
 - No production ML system was implemented.
+- No full real corpus is committed.
+- No model weights are committed.
+- Registries, weak labels, handcrafted fixtures, and optional sklearn smoke tests are scaffolds only.
+- Weak-label outputs are deterministic review aids, not manual gold labels or validated training data.
 
 ## Blunt Boundaries
 
@@ -26,6 +35,9 @@
 - No statistical significance exists yet.
 - Next credibility unlock is a real manually reviewed 30-call corpus, then 100-150 calls.
 - Retrieval and embeddings should wait until deterministic benchmarking and error analysis are working.
+- No production ML exists.
+- Optional local sklearn smoke tests do not prove ML quality.
+- Models should only be benchmarked after deterministic labels and error analysis are stable.
 
 ## Validation Results
 
@@ -37,6 +49,14 @@
 - `python scripts/validate_gold_labels.py --path data/gold_labels.example.jsonl`: passed, 7 rows.
 - `python scripts/evaluate_signal_outputs.py --gold-labels data/gold_labels.example.jsonl --predictions tests/fixtures/tiny_signal_predictions.jsonl --report-out /tmp/signal_engine_eval_report.md --json-out /tmp/signal_engine_eval_summary.json`: passed, 5 matched, 2 unmatched, 1 potential false positive, 1 missing evidence, 1 direction mismatch.
 - `python scripts/build_error_analysis.py --evaluation-json /tmp/signal_engine_eval_summary.json --out /tmp/signal_engine_error_analysis.md`: passed.
+- `python -m py_compile scripts/fetch_sec_8k_index.py scripts/build_manual_corpus_case.py scripts/run_weak_label_baseline.py scripts/train_text_classifier_baseline.py scripts/validate_model_registry.py scripts/validate_training_sets_registry.py`: passed.
+- `python -m pytest tests/test_run_weak_label_baseline.py tests/test_train_text_classifier_baseline_smoke.py tests/test_validate_model_registry.py tests/test_validate_training_sets_registry.py -q`: passed, 13 tests.
+- `python scripts/validate_model_registry.py --path data/model_registry.example.json`: passed, 13 rows.
+- `python scripts/validate_training_sets_registry.py --path data/training_sets_registry.example.csv`: passed, 15 rows.
+- `python scripts/validate_training_sets_registry.py --path data/training_sets_registry.example.json`: passed, 15 rows.
+- `python scripts/run_weak_label_baseline.py --input tests/fixtures/tiny_realistic_earnings_excerpt.txt --case-id TEST_2026_Q1 --out /tmp/tiny_predictions.jsonl`: passed, 6 deterministic predictions.
+- `python scripts/evaluate_signal_outputs.py --gold-labels data/gold_labels.example.jsonl --predictions /tmp/tiny_predictions.jsonl --report-out /tmp/tiny_eval.md --json-out /tmp/tiny_eval.json`: passed, 0 matched, 7 unmatched, 6 potential false positives. This is expected because the tiny weak-label fixture uses `TEST_2026_Q1`, not the example gold-label case IDs.
+- `python scripts/check_markdown_links.py docs/sec-edgar-intake-guide.md docs/manual-transcript-download-guide.md docs/local-ml-baseline-plan.md docs/training-set-plan.md docs/model-registry.md docs/benchmark-matrix-plan.md`: passed.
 
 ## Files Changed
 
@@ -60,6 +80,28 @@
 - `tests/test_validate_gold_labels.py`
 - `tests/test_evaluate_signal_outputs.py`
 - `tests/fixtures/tiny_signal_predictions.jsonl`
+- `data/model_registry.example.json`
+- `data/training_sets_registry.example.csv`
+- `data/training_sets_registry.example.json`
+- `data/sec_8k_index.example.json`
+- `docs/model-registry.md`
+- `docs/training-set-plan.md`
+- `docs/sec-edgar-intake-guide.md`
+- `docs/manual-transcript-download-guide.md`
+- `docs/local-ml-baseline-plan.md`
+- `docs/benchmark-matrix-plan.md`
+- `scripts/validate_model_registry.py`
+- `scripts/validate_training_sets_registry.py`
+- `scripts/fetch_sec_8k_index.py`
+- `scripts/build_manual_corpus_case.py`
+- `scripts/run_weak_label_baseline.py`
+- `scripts/train_text_classifier_baseline.py`
+- `tests/test_validate_model_registry.py`
+- `tests/test_validate_training_sets_registry.py`
+- `tests/test_run_weak_label_baseline.py`
+- `tests/test_train_text_classifier_baseline_smoke.py`
+- `tests/fixtures/tiny_realistic_earnings_excerpt.txt`
+- `tests/fixtures/tiny_weak_baseline_expected.jsonl`
 
 ## Next 10 Tasks
 

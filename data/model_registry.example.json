@@ -1,0 +1,161 @@
+{
+  "schema_version": "signal_engine_model_registry_0.1",
+  "models": [
+    {
+      "model_id": "deterministic_rules_baseline",
+      "model_name": "Deterministic rules baseline",
+      "model_type": "deterministic_rules",
+      "status": "implemented",
+      "intended_use": "Canonical deterministic signal extraction and evaluation reference.",
+      "requires_external_api": false,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "Implemented deterministic logic is not trained ML and is not a validated production model."
+    },
+    {
+      "model_id": "weak_label_keyword_baseline",
+      "model_name": "Weak-label keyword baseline",
+      "model_type": "deterministic_weak_label",
+      "status": "implemented",
+      "intended_use": "Local keyword/rule baseline for producing reviewable weak-label predictions.",
+      "requires_external_api": false,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "Deterministic weak-label scaffold only; outputs are not gold labels or validated training data."
+    },
+    {
+      "model_id": "local_sklearn_text_classifier",
+      "model_name": "Local scikit-learn text classifier",
+      "model_type": "local_ml_candidate",
+      "status": "candidate",
+      "intended_use": "Optional local baseline after manually reviewed labels exist.",
+      "requires_external_api": false,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "Local-only smoke scaffold; no model artifact is committed by default."
+    },
+    {
+      "model_id": "sentence_transformers_local_candidate",
+      "model_name": "Sentence Transformers local candidate",
+      "model_type": "embedding_candidate",
+      "status": "planned",
+      "intended_use": "Future local semantic similarity benchmark candidate.",
+      "requires_external_api": false,
+      "requires_local_download": true,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "Planned only; no model weights are committed."
+    },
+    {
+      "model_id": "openai_text_embedding_3_large_candidate",
+      "model_name": "OpenAI text-embedding-3-large candidate",
+      "model_type": "embedding_candidate",
+      "status": "planned",
+      "intended_use": "Future embedding benchmark candidate after deterministic labels stabilize.",
+      "requires_external_api": true,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "API candidate only; no paid/API output is required or committed."
+    },
+    {
+      "model_id": "voyage_embedding_candidate",
+      "model_name": "Voyage embedding candidate",
+      "model_type": "embedding_candidate",
+      "status": "planned",
+      "intended_use": "Future embedding benchmark candidate.",
+      "requires_external_api": true,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "API candidate only; no paid/API output is required or committed."
+    },
+    {
+      "model_id": "cohere_embed_candidate",
+      "model_name": "Cohere Embed candidate",
+      "model_type": "embedding_candidate",
+      "status": "planned",
+      "intended_use": "Future embedding benchmark candidate.",
+      "requires_external_api": true,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "API candidate only; no paid/API output is required or committed."
+    },
+    {
+      "model_id": "jina_embedding_candidate",
+      "model_name": "Jina embedding candidate",
+      "model_type": "embedding_candidate",
+      "status": "planned",
+      "intended_use": "Future embedding benchmark candidate.",
+      "requires_external_api": true,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "API candidate only; no paid/API output is required or committed."
+    },
+    {
+      "model_id": "cohere_rerank_candidate",
+      "model_name": "Cohere Rerank candidate",
+      "model_type": "reranker_candidate",
+      "status": "planned",
+      "intended_use": "Future reranker benchmark candidate after retrieval metrics exist.",
+      "requires_external_api": true,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "Planned only; not benchmarked or validated."
+    },
+    {
+      "model_id": "jina_reranker_candidate",
+      "model_name": "Jina reranker candidate",
+      "model_type": "reranker_candidate",
+      "status": "planned",
+      "intended_use": "Future reranker benchmark candidate after retrieval metrics exist.",
+      "requires_external_api": true,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "Planned only; not benchmarked or validated."
+    },
+    {
+      "model_id": "openai_long_context_candidate",
+      "model_name": "OpenAI long-context candidate",
+      "model_type": "long_context_candidate",
+      "status": "planned",
+      "intended_use": "Future long-context review benchmark candidate.",
+      "requires_external_api": true,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "Future review candidate only; not canonical scoring."
+    },
+    {
+      "model_id": "anthropic_long_context_candidate",
+      "model_name": "Anthropic long-context candidate",
+      "model_type": "long_context_candidate",
+      "status": "planned",
+      "intended_use": "Future long-context review benchmark candidate.",
+      "requires_external_api": true,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "Future review candidate only; not canonical scoring."
+    },
+    {
+      "model_id": "google_long_context_candidate",
+      "model_name": "Google long-context candidate",
+      "model_type": "long_context_candidate",
+      "status": "planned",
+      "intended_use": "Future long-context review benchmark candidate.",
+      "requires_external_api": true,
+      "requires_local_download": false,
+      "model_weights_committed": false,
+      "validated": false,
+      "notes": "Future review candidate only; not canonical scoring."
+    }
+  ]
+}
