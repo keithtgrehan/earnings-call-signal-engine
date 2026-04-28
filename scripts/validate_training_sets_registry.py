@@ -31,6 +31,11 @@ VALID_SOURCE_CATEGORIES = {
     "sec_edgar",
     "kaggle",
     "transcript_vendor",
+    "crm_export",
+    "sales_call_export",
+    "support_export",
+    "account_export",
+    "user_owned_labels",
 }
 BOOLEAN_FIELDS = {"license_check_required", "contains_real_company_data", "contains_pii_risk"}
 

@@ -143,11 +143,23 @@ python scripts/fetch_sec_8k_index.py --ticker NVDA --user-agent "Your Name your.
 
 This helper does not fetch transcript text, exhibits, PDFs, audio, video, or paid/API outputs.
 
+## NLP Research Map
+
+The repo now tracks NLP tools, research references, model candidates, and training/evaluation set candidates so future work can be evaluated deliberately.
+
+- [NLP tools and research map](docs/nlp-tools-and-research-map.md)
+- [Training set plan](docs/training-set-plan.md)
+- [Model registry](docs/model-registry.md)
+- [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
+
+These registries are tracking surfaces only. Nothing is downloaded by adding a registry row, no datasets or models are shipped, no ML is validated, and deterministic transcript-first extraction remains the core system.
+
 ## Key Docs
 
 - [Corpus build plan](docs/corpus-build-plan.md)
 - [Ideal 30-call download list](docs/ideal-30-call-download-list.md)
 - [Corpus evaluation implementation report](docs/corpus-evaluation-implementation-report.md)
+- [NLP tools and research map](docs/nlp-tools-and-research-map.md)
 - [Model registry](docs/model-registry.md)
 - [Training set plan](docs/training-set-plan.md)
 - [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
