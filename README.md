@@ -2,134 +2,144 @@
 
 Signal Engine is a deterministic-first signal extraction and evaluation system for long-form business communication.
 
-The strongest proof path is earnings-call transcripts because public-company sources, explicit guidance language, analyst Q&A, and evidence-span review create a credible route to repeatable evaluation. Broader domains are supported or scaffolded where the same transcript-first pattern applies: customer support, sales calls, account management, churn risk, and general dialogue tone/emotion benchmarks.
+The current proof path is earnings-call transcripts because public-company sources, explicit guidance language, analyst Q&A, and evidence-span review create a credible route to repeatable evaluation. This repo does not claim production ML, statistical significance, market-reaction proof, alpha, trading edge, stock prediction, or investment advice.
 
-This repo does not claim production ML, statistical significance, market-reaction proof, production retrieval, or validated multimodal intelligence.
+## Signal Engine 2.0
 
-## What Works Now
+Signal Engine 2.0 is a transcript-first, deterministic signal extraction system that turns earnings-call transcripts into structured, evidence-backed signals using explainable NLP, exact transcript spans, human-reviewed labels, and conservative evaluation.
 
-- Deterministic transcript and signal scaffolds for evidence-backed review.
-- Earnings-call corpus manifest validation.
-- Gold-label JSONL validation.
-- Model, dataset, and NLP tools registries.
-- SEC 8-K metadata-only intake.
-- Manual corpus case setup.
-- Deterministic weak-label keyword baseline for local `.txt` transcripts.
-- First 3 earnings-call intake cases: `NVDA_2026_Q4`, `META_2025_Q4`, and `AMZN_2025_Q4`.
-- Repo validation and documentation checks.
-
-## Scaffolded Only
-
-- Sales, support, and account-management use cases beyond the deterministic demo/sample layer.
-- Public dataset and model candidates.
-- Embeddings, rerankers, and long-context model candidates.
-- Optional local sklearn training scaffold.
-- Emotion/tone dataset references.
-
-Scaffolded means tracked, documented, or locally runnable as a smoke check. It does not mean validated, production-ready, or trained.
-
-## Not Proven
-
-- No real 30-call corpus yet.
-- No validated ML.
-- No statistical significance.
-- No market-reaction proof.
-- No production retrieval stack.
-- No validated sales/support/account benchmark.
-- No committed raw transcripts, datasets, model weights, audio, video, or API outputs.
-
-## Why Earnings Calls Remain The Proof Path
-
-- Public-company source availability makes provenance review possible.
-- Signal types such as guidance revision, uncertainty, analyst pressure, and Q&A friction can be tied to explicit transcript evidence.
-- Manual evidence-span review is practical before scaling.
-- The repo has a clear path from the first 3 manually reviewed calls to a 30-call benchmark, then a 100-150-call benchmark.
-
-## Broader Use-Case Map
-
-- Earnings calls: guidance, uncertainty, analyst pressure, Q&A friction.
-- Customer support: escalation, unresolved issue, directness, deflection, tone shift.
-- Sales calls: objections, buying intent, pricing concern, next-step clarity.
-- Account management: churn risk, renewal concern, expansion opportunity, stakeholder friction.
-- General dialogue: emotion/tone labels as benchmark aids, not product proof.
-
-## Lightweight Validation
-
-```bash
-python -m py_compile scripts/*.py
-```
-
-```bash
-python -m pytest tests/test_validate_corpus_manifest.py tests/test_validate_gold_labels.py tests/test_evaluate_signal_outputs.py tests/test_validate_model_registry.py tests/test_validate_training_sets_registry.py tests/test_run_weak_label_baseline.py tests/test_train_text_classifier_baseline_smoke.py tests/test_validate_nlp_tools_registry.py -q
-```
-
-```bash
-python scripts/check_markdown_links.py README.md docs/*.md
-```
-
-## Current Deterministic Demo Commands
-
-```bash
-python scripts/signal_engine_analyze.py --domain support data/signal_engine_2_0/sample_support.json
-python scripts/signal_engine_analyze.py --domain sales data/signal_engine_2_0/sample_sales.json
-python scripts/signal_engine_analyze.py --domain account_management data/signal_engine_2_0/sample_account_management.json
-```
-
-```bash
-python scripts/run_signal_engine_2_0_demo.py
-```
-
-## Registry And Corpus Checks
-
-```bash
-python scripts/validate_corpus_manifest.py --path data/corpus/manifests/first_30_working_manifest.csv
-python scripts/validate_gold_labels.py --path data/gold_labels.example.jsonl
-python scripts/validate_model_registry.py --path data/model_registry.example.json
-python scripts/validate_training_sets_registry.py --path data/training_sets_registry.example.csv
-python scripts/validate_nlp_tools_registry.py --path data/nlp_tools_registry.example.json
-```
-
-Registries track candidate tools, datasets, and model families. They are not implementation proof and do not download anything.
-
-## First Real Proof Command
-
-First, manually place a legally safe local transcript here:
+The system is designed around this path:
 
 ```text
-data/corpus/manual_cases/NVDA_2026_Q4/raw/transcript.txt
+transcript -> deterministic signals -> human review -> gold labels -> evaluation
 ```
 
-Then run:
+Raw transcripts remain canonical. Derived outputs are audit artifacts, weak-label suggestions, review packets, gold-label files created only from explicit human selections, and conservative evaluation reports.
+
+## Current System (Important)
+
+The current implementation is earnings-call focused.
+
+- One-command case pipeline: `tools/run_case_pipeline.py`
+- Pipeline flow: validate -> weak labels -> human packet -> gold conversion if a selected-candidates CSV exists -> evaluation if valid gold labels exist.
+- `31/31` active cases processed successfully.
+- `0` invalid, failed, or quarantined cases in the latest corpus analysis run.
+- Raw transcript mutation check passed.
+- Test suite passed at approximately `283` tests.
+- `5` gold-label scaffold files exist.
+- Current valid gold-label rows: `0`.
+- Evaluation is intentionally skipped until human-reviewed labels are added.
+- Weak labels are suggestions only and are never automatically promoted to gold labels.
+
+Gold-label evaluation is scaffolded but currently inactive until human-reviewed labels are added. This is intentional.
+
+## Human-in-the-loop Workflow
+
+Run the one-command pipeline for a case:
 
 ```bash
-python scripts/run_weak_label_baseline.py --input data/corpus/manual_cases/NVDA_2026_Q4/raw/transcript.txt --case-id NVDA_2026_Q4 --out data/corpus/manual_cases/NVDA_2026_Q4/processed/weak_predictions.jsonl
+python tools/run_case_pipeline.py --case AAPL_2026_Q1
 ```
 
-The weak-label output is deterministic and review-only. It is not a final gold label file.
+Then review the generated packet:
 
-## NLP Research Map
+```text
+/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts/AAPL_2026_Q1/labels/human_labeling_packet.md
+```
 
-- [NLP tools and research map](docs/nlp-tools-and-research-map.md)
-- [Training set plan](docs/training-set-plan.md)
-- [Model registry](docs/model-registry.md)
-- [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
+Fill a selected-candidates CSV using:
 
-Tools and datasets are tracked only. Nothing is downloaded by adding registry rows, no ML is validated, and deterministic transcript-first extraction remains the system core.
+```text
+docs/selected_gold_candidates_template.csv
+```
+
+Convert only the approved candidate IDs into gold labels:
+
+```bash
+python tools/run_case_pipeline.py --case AAPL_2026_Q1 --stage gold --selected-csv /path/to/selected_gold_candidates.csv
+```
+
+After valid non-empty gold labels exist, rerun the case pipeline or corpus analysis to produce weak-vs-gold evaluation rows. The evaluation layer skips cleanly when valid gold labels are absent.
+
+## What is Proven
+
+- The deterministic earnings-call pipeline executes end to end.
+- `31` active earnings-call cases have been processed.
+- Raw transcript mutation is avoided and checked.
+- Weak-label packet workflow exists.
+- Selected-candidate approval workflow exists.
+- Evaluation safely skips when no valid gold labels exist.
+- The test suite passed at approximately `283` tests.
+- Weak labels and gold labels remain separate by design.
+
+## What is Not Proven
+
+- No valid gold-label benchmark exists yet.
+- No precision, recall, or F1 claim is made.
+- No statistical significance claim is made.
+- No alpha, trading edge, stock prediction, or investment-advice claim is made.
+- No production ML performance claim is made.
+- Sales, support, customer-success, and renewal generalization has not been validated.
+
+## Expanded Scope / Roadmap
+
+The same future architecture can be extended beyond earnings calls:
+
+```text
+transcript -> deterministic signals -> human review -> gold labels -> evaluation
+```
+
+Roadmap domains:
+
+- Sales: buyer intent, objections, deal risk.
+- Customer Success: satisfaction, usage risk, expansion signal.
+- Support: issue severity, escalation risk, recurring issue.
+- Renewals: churn risk, blockers, value perception.
+
+These domains are roadmap scope only. They are not validated production workflows in the current repo state.
+
+## Validation Commands
+
+Markdown and documentation validation:
+
+```bash
+python scripts/check_markdown_links.py
+```
+
+Python compile check:
+
+```bash
+python3 -m py_compile tools/*.py tools/transcript_downloader/*.py scripts/*.py
+```
+
+Test suite:
+
+```bash
+pytest -q
+```
+
+Gold-label scaffold validation:
+
+```bash
+python tools/transcript_downloader/validate_gold_labels.py --root "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts"
+```
+
+Corpus analysis:
+
+```bash
+python tools/transcript_downloader/run_corpus_analysis.py --root "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts"
+```
 
 ## Key Docs
 
-- [First real case proof](docs/first-real-case-proof.md)
-- [GitHub repo hygiene report](docs/github-repo-hygiene-report.md)
-- [Branch hygiene action plan](docs/branch-hygiene-action-plan.md)
-- [Default branch transition plan](docs/default-branch-transition-plan.md)
-- [NLP tools and research map](docs/nlp-tools-and-research-map.md)
-- [Training set plan](docs/training-set-plan.md)
-- [Model registry](docs/model-registry.md)
-- [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
+- [Label taxonomy](docs/label-taxonomy.md)
+- [Proof of intelligence](docs/proof-of-intelligence.md)
+- [Corpus validation report](docs/corpus-validation-report.md)
+- [Gold-label JSONL template](docs/gold-label-jsonl-template.md)
+- [Gold-labeling review packet](docs/gold-labeling-review-packet.md)
+- [Selected-candidates example](docs/selected_gold_candidates_example.md)
 - [Transcript sectioning and labeling playbook](docs/transcript-sectioning-and-labeling-playbook.md)
-- [Corpus build plan](docs/corpus-build-plan.md)
-- [Ideal 30-call download list](docs/ideal-30-call-download-list.md)
 
 ## Branch Presentation Note
 
-GitHub currently reports `main` as the default branch. The best work lives on `signal-engine-2.0`. To make the public README show the current Signal Engine positioning, either set `signal-engine-2.0` as the default branch or open a PR from `signal-engine-2.0` into `main`.
+GitHub currently reports `main` as the default branch. The current Signal Engine 2.0 transcript corpus pipeline work lives on `codex/transcript-corpus-pipeline`.
