@@ -20,6 +20,8 @@ import yaml
 APPROVED_REPO = Path("/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa")
 APPROVED_BRANCH_BASE = "signal-engine-2.0"
 APPROVED_BRANCH_PREFIX = "codex/transcript-corpus-pipeline"
+APPROVED_GOLD_LABEL_CYCLE_PREFIX = "codex/"
+APPROVED_GOLD_LABEL_CYCLE_SUFFIX = "-gold-label-cycle"
 APPROVED_ORIGIN_SUFFIX = "keithtgrehan/earnings-call-signal-engine.git"
 APPROVED_CORPUS_ROOT = Path("/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts")
 EXPECTED_ACTIVE_CASES = 31
@@ -121,6 +123,17 @@ def run_git(args: list[str], cwd: Path | None = None) -> str:
     return subprocess.check_output(["git", *args], cwd=str(cwd or repo_root()), text=True).strip()
 
 
+def is_approved_tool_branch(branch: str) -> bool:
+    return (
+        branch == APPROVED_BRANCH_BASE
+        or branch.startswith(APPROVED_BRANCH_PREFIX)
+        or (
+            branch.startswith(APPROVED_GOLD_LABEL_CYCLE_PREFIX)
+            and branch.endswith(APPROVED_GOLD_LABEL_CYCLE_SUFFIX)
+        )
+    )
+
+
 def enforce_repo_safety(*, require_base_branch: bool = False) -> None:
     root = repo_root().resolve()
     if root != APPROVED_REPO:
@@ -128,7 +141,7 @@ def enforce_repo_safety(*, require_base_branch: bool = False) -> None:
     branch = run_git(["branch", "--show-current"], root)
     if require_base_branch and branch != APPROVED_BRANCH_BASE:
         raise SystemExit(f"Safety stop: branch must be {APPROVED_BRANCH_BASE}, got {branch}")
-    if not (branch == APPROVED_BRANCH_BASE or branch.startswith(APPROVED_BRANCH_PREFIX)):
+    if not is_approved_tool_branch(branch):
         raise SystemExit(f"Safety stop: unexpected branch {branch}")
     origin = run_git(["remote", "get-url", "origin"], root)
     if not origin.endswith(APPROVED_ORIGIN_SUFFIX):
