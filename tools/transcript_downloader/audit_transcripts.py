@@ -19,6 +19,7 @@ from corpus_common import (  # noqa: E402
     marker_flags,
     sha256_file,
     source_type_for,
+    split_sections,
     write_csv,
 )
 
@@ -29,14 +30,44 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def repeated_boilerplate_warning(text: str) -> bool:
+BOILERPLATE_LINE_PATTERNS = (
+    "copyright",
+    "callstreet",
+    "factset",
+    "lseg",
+    "global market intelligence",
+    "all rights reserved",
+    "www.",
+    "corrected transcript",
+    "edited transcript",
+    "earnings call |",
+    " - q4 2025 ",
+    " - q1 2026 ",
+)
+
+
+def repeated_boilerplate_evidence(text: str) -> list[str]:
     counts: dict[str, int] = {}
     for line in text.splitlines():
         line = line.strip().lower()
         if not line or len(line) > 120:
             continue
+        if line.endswith(":") or re_looks_like_speaker_name(line):
+            continue
+        if not any(pattern in line for pattern in BOILERPLATE_LINE_PATTERNS):
+            continue
         counts[line] = counts.get(line, 0) + 1
-    return any(count >= 8 for count in counts.values())
+    return [line for line, count in counts.items() if count >= 4][:5]
+
+
+def re_looks_like_speaker_name(line: str) -> bool:
+    words = line.replace(".", "").replace("-", " ").split()
+    if not 1 <= len(words) <= 6:
+        return False
+    title_words = {"chief", "officer", "president", "executive", "chair", "analyst", "director", "founder"}
+    if any(word in title_words for word in words):
+        return False
+    return all(word[:1].isalpha() for word in words)
 
 
 def audit_case(case_dir: Path, source_map: dict[str, object]) -> dict[str, object]:
@@ -53,11 +84,16 @@ def audit_case(case_dir: Path, source_map: dict[str, object]) -> dict[str, objec
     if exists and len(text) < 15000:
         warnings.append("transcript < 15,000 chars")
     if exists and not flags["contains_operator"]:
-        warnings.append("no Operator marker")
+        warnings.append("no Operator marker (host-led call flow possible)")
     if exists and not flags["contains_q_and_a"]:
-        warnings.append("no Q&A marker")
-    if exists and repeated_boilerplate_warning(text):
-        warnings.append("repeated boilerplate/navigation text appears")
+        inferred = bool(split_sections(text).get("q_and_a"))
+        if inferred:
+            warnings.append("formal Q&A marker missing (Q&A inferred from transition)")
+        else:
+            warnings.append("no Q&A marker")
+    boilerplate = repeated_boilerplate_evidence(text) if exists else []
+    if boilerplate:
+        warnings.append("repeated vendor/page boilerplate appears")
     if exists and contains_block_phrase(text):
         warnings.append("critical: login/paywall/block detected")
     likely_complete = bool(

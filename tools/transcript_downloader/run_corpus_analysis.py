@@ -589,7 +589,7 @@ def write_global_reports(root: Path, source_map: dict[str, Any], analysis_rows: 
     (root / "baseline_comparison.md").write_text("\n".join(baseline_lines) + "\n", encoding="utf-8")
 
     write_csv(root / "label_evaluation.csv", [], ["case_id", "status", "false_positive", "missed_signal", "misclassification", "weak_evidence", "duplicate_signal", "schema_issue"])
-    (root / "label_error_analysis.md").write_text("# Label Error Analysis\n\nNo real gold labels were present for statistical evaluation. Weak-label outputs are deterministic scaffolds only.\n\n## Recommended Rule Refinements\n\n- Review low-confidence neutral and uncertainty matches first.\n- Add human labels before claiming precision or recall.\n", encoding="utf-8")
+    (root / "label_error_analysis.md").write_text("# Label Error Analysis\n\nNo real gold labels were present for statistical evaluation. Weak-label outputs are deterministic scaffolds only.\n\nWeak-label counts are not model accuracy, and no precision, recall, F1, or statistical performance claim is valid until human-reviewed gold labels exist.\n\n## Recommended Rule Refinements\n\n- Review low-confidence neutral and uncertainty matches first.\n- Add human labels before claiming precision, recall, or F1.\n", encoding="utf-8")
     labels_root = root / "labels"
     labels_root.mkdir(exist_ok=True)
     (labels_root / "gold_labeling_guide.md").write_text(

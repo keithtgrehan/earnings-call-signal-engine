@@ -34,6 +34,13 @@ Audit outputs are written to the corpus root:
 
 Warnings include missing transcripts, short transcripts, missing Operator or Q&A markers, repeated navigation text, and blocked/login/paywall markers.
 
+Warning review outputs may be written locally as:
+
+- `audit_warning_review.csv`
+- `audit_warning_review.md`
+
+Use these to distinguish real quality issues from cosmetic source boilerplate, expected source-format limitations, and tooling false positives. Do not suppress a warning unless the review evidence shows it is cosmetic or false positive.
+
 ## Analyze
 
 ```bash
@@ -85,6 +92,17 @@ Suggested row shape:
 ```
 
 Do not fake labels. Use at least 5-10 reviewed labels per selected case before treating evaluation outputs as meaningful.
+
+Validate gold-label scaffolds with:
+
+```bash
+python tools/transcript_downloader/validate_gold_labels.py \
+  --root "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts"
+```
+
+Empty scaffold files are reported as `needs_human_labeling`. The validator never converts weak labels into gold labels.
+
+Label evaluation is scaffold-only until human gold labels exist. Weak-label counts are not accuracy, precision, recall, or F1.
 
 ## Outputs
 
