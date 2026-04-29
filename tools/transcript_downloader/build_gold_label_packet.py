@@ -39,6 +39,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", required=True)
     parser.add_argument("--limit", type=int, default=12)
+    parser.add_argument("--target-per-case", type=int, default=None, help="Preferred candidate count per case.")
     return parser.parse_args()
 
 
@@ -64,11 +65,20 @@ def sentence_bounds(text: str, pos: int) -> tuple[int, int]:
     return start, end
 
 
+def is_low_quality_quote(quote: str) -> bool:
+    lowered = quote.lower()
+    if re.search(r"\b(operator|you may disconnect|replay|forward-looking|actual results may differ)\b", lowered):
+        return True
+    if len(quote.split()) < 8:
+        return True
+    return False
+
+
 def candidates_from_weak_labels(case_id: str, rows: list[dict[str, Any]]) -> list[dict[str, str]]:
     candidates: list[dict[str, str]] = []
     for row in rows:
         quote = normalize_quote(str(row.get("text_span") or row.get("evidence_text") or ""))
-        if len(quote) < 40:
+        if len(quote) < 40 or is_low_quality_quote(quote):
             continue
         raw_label = str(row.get("type") or row.get("signal_type") or "neutral")
         label = LABEL_MAP.get(raw_label, "neutral")
@@ -93,7 +103,7 @@ def candidates_from_raw(case_id: str, raw_text: str, needed: int) -> list[dict[s
             if (start, end) in used_spans:
                 continue
             quote = normalize_quote(raw_text[start:end])
-            if len(quote) < 50 or len(quote) > 600:
+            if len(quote) < 50 or len(quote) > 600 or is_low_quality_quote(quote):
                 continue
             used_spans.add((start, end))
             candidates.append(
@@ -182,17 +192,17 @@ def main() -> int:
     args = parse_args()
     enforce_repo_safety()
     root = enforce_exact_root(Path(args.root))
-    scaffold_paths = sorted(root.glob("*/labels/gold_labels.jsonl"))
+    limit = int(args.target_per_case or args.limit)
+    case_dirs = sorted([path for path in root.iterdir() if path.is_dir() and (path / "raw" / "transcript.txt").exists()])
     case_ids: list[str] = []
-    for scaffold in scaffold_paths:
-        case_dir = scaffold.parents[1]
+    for case_dir in case_dirs:
         case_id = case_dir.name
         case_ids.append(case_id)
         weak_rows = load_jsonl(case_dir / "labels" / "weak_labels.jsonl")
         raw_text = (case_dir / "raw" / "transcript.txt").read_text(encoding="utf-8", errors="replace")
         candidates = candidates_from_weak_labels(case_id, weak_rows)
-        candidates.extend(candidates_from_raw(case_id, raw_text, max(0, args.limit - len(candidates))))
-        selected = dedupe(candidates, args.limit)
+        candidates.extend(candidates_from_raw(case_id, raw_text, max(0, limit - len(candidates))))
+        selected = dedupe(candidates, limit)
         packet_path = case_dir / "labels" / "human_labeling_packet.md"
         packet_path.write_text(render_packet(case_id, selected), encoding="utf-8")
         print(f"Wrote {packet_path} ({len(selected)} candidate(s))")

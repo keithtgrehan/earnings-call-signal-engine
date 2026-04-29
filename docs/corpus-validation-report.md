@@ -16,6 +16,9 @@
 - Analysis status: 31 success, 0 failed, 0 invalid
 - Raw mutation verification: pass
 - Excluded-case reference verification: pass
+- Gold-label detection: reports valid non-empty files when `gold_labels.jsonl` contains human-reviewed rows
+- Label evaluation status: weak-vs-gold span-overlap comparison is implemented, but benchmark claims require non-empty valid gold labels
+- Label distribution check status: implemented via `tools/transcript_downloader/check_label_distribution.py`
 
 ## Warning Review
 
@@ -50,13 +53,14 @@ Warnings should become blockers only when they indicate missing transcripts, sho
 
 ## Label Evaluation Limits
 
-Current gold-label files are scaffolds. Human labeling is still required.
+Gold-label files must contain human-reviewed rows with `type`, `text_span`, `start_char`, and `end_char`. Empty scaffold files are not treated as gold labels.
 
 - Weak labels are deterministic rule outputs, not gold labels.
 - Weak-label counts are not model accuracy.
 - No precision, recall, F1, or statistical performance claim is valid until human-reviewed gold labels are added.
 - Empty gold-label files should be treated as `needs_human_labeling`.
+- A 25-label starter set is useful for workflow validation, but it is not statistically significant.
 
 ## Next Corpus Expansion Criteria
 
-Add cases only when a full public earnings-call transcript is available, provenance is recorded, raw transcript hashing is in place, audit gates pass, and derived section/speaker outputs are usable. New cases should not be included in evaluation claims until human gold labels exist for a representative subset.
+Add cases only when a full public earnings-call transcript is available, provenance is recorded, raw transcript hashing is in place, audit gates pass, and derived section/speaker outputs are usable. Expand each labeled case toward 15-25 human-reviewed labels, including neutral examples, before making stronger benchmark claims.

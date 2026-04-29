@@ -296,7 +296,9 @@ def write_gold_scaffold(case_dir: Path, case_id: str) -> bool:
         + "\n",
         encoding="utf-8",
     )
-    (case_dir / "labels" / "gold_labels.jsonl").write_text("", encoding="utf-8")
+    gold_path = case_dir / "labels" / "gold_labels.jsonl"
+    if not gold_path.exists():
+        gold_path.write_text("", encoding="utf-8")
     return True
 
 
@@ -318,6 +320,152 @@ def weak_labels_from_signals(signals: list[dict[str, Any]]) -> list[dict[str, An
             }
         )
     return labels
+
+
+def load_jsonl(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    rows: list[dict[str, Any]] = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.strip():
+            payload = json.loads(line)
+            if isinstance(payload, dict):
+                rows.append(payload)
+    return rows
+
+
+def valid_gold_labels(path: Path) -> list[dict[str, Any]]:
+    labels: list[dict[str, Any]] = []
+    for row in load_jsonl(path):
+        if not {"type", "text_span", "start_char", "end_char"}.issubset(row):
+            continue
+        if not isinstance(row.get("start_char"), int) or not isinstance(row.get("end_char"), int):
+            continue
+        if int(row["start_char"]) < 0 or int(row["end_char"]) <= int(row["start_char"]):
+            continue
+        if not str(row.get("text_span", "")).strip():
+            continue
+        labels.append(row)
+    return labels
+
+
+def spans_overlap(a_start: int, a_end: int, b_start: int, b_end: int) -> int:
+    return max(0, min(a_end, b_end) - max(a_start, b_start))
+
+
+def evaluate_case_labels(case_dir: Path) -> tuple[dict[str, Any] | None, list[dict[str, Any]]]:
+    gold_rows = valid_gold_labels(case_dir / "labels" / "gold_labels.jsonl")
+    if not gold_rows:
+        return None, []
+    weak_rows = load_jsonl(case_dir / "labels" / "weak_labels.jsonl")
+    matched_weak: set[int] = set()
+    matched_count = 0
+    type_match_count = 0
+    type_mismatch_count = 0
+    overlap_match_count = 0
+    exact_match_count = 0
+    missed_gold_count = 0
+    error_rows: list[dict[str, Any]] = []
+
+    for gold in gold_rows:
+        g_start = int(gold["start_char"])
+        g_end = int(gold["end_char"])
+        best_index: int | None = None
+        best_overlap = 0
+        best_row: dict[str, Any] | None = None
+        for index, weak in enumerate(weak_rows):
+            if index in matched_weak:
+                continue
+            try:
+                w_start = int(weak.get("start_char"))
+                w_end = int(weak.get("end_char"))
+            except (TypeError, ValueError):
+                continue
+            overlap = spans_overlap(g_start, g_end, w_start, w_end)
+            if overlap > best_overlap:
+                best_index = index
+                best_overlap = overlap
+                best_row = weak
+        if best_row is None or best_index is None or best_overlap <= 0:
+            missed_gold_count += 1
+            error_rows.append(
+                {
+                    "case_id": case_dir.name,
+                    "error_type": "missed_signal",
+                    "gold_type": gold.get("type", ""),
+                    "weak_type": "",
+                    "evidence_text": gold.get("text_span", ""),
+                    "notes": "Gold label had no overlapping weak-label span.",
+                }
+            )
+            continue
+        matched_weak.add(best_index)
+        matched_count += 1
+        same_type = str(best_row.get("type")) == str(gold.get("type"))
+        exactish = same_type and abs(int(best_row.get("start_char")) - g_start) <= 5 and abs(int(best_row.get("end_char")) - g_end) <= 5
+        if exactish:
+            exact_match_count += 1
+        elif same_type:
+            overlap_match_count += 1
+        if same_type:
+            type_match_count += 1
+        else:
+            type_mismatch_count += 1
+            error_rows.append(
+                {
+                    "case_id": case_dir.name,
+                    "error_type": "misclassification",
+                    "gold_type": gold.get("type", ""),
+                    "weak_type": best_row.get("type", ""),
+                    "evidence_text": gold.get("text_span", ""),
+                    "notes": "Weak-label span overlapped gold evidence but type differed.",
+                }
+            )
+
+    extra_weak_count = max(0, len(weak_rows) - len(matched_weak))
+    if extra_weak_count:
+        for index, weak in enumerate(weak_rows):
+            if index in matched_weak:
+                continue
+            text = str(weak.get("text_span", ""))
+            error_type = "boilerplate_noise" if re.search(r"\b(forward-looking|may disconnect|operator|replay)\b", text, re.I) else "false_positive"
+            error_rows.append(
+                {
+                    "case_id": case_dir.name,
+                    "error_type": error_type,
+                    "gold_type": "",
+                    "weak_type": weak.get("type", ""),
+                    "evidence_text": text,
+                    "notes": "Weak label had no overlapping gold label in the starter benchmark.",
+                }
+            )
+    return (
+        {
+            "case_id": case_dir.name,
+            "gold_label_count": len(gold_rows),
+            "weak_label_count": len(weak_rows),
+            "matched_count": matched_count,
+            "missed_gold_count": missed_gold_count,
+            "extra_weak_count": extra_weak_count,
+            "type_match_count": type_match_count,
+            "type_mismatch_count": type_mismatch_count,
+            "overlap_match_count": overlap_match_count,
+            "exact_match_count": exact_match_count,
+            "status": "evaluated",
+        },
+        error_rows,
+    )
+
+
+def evaluate_gold_corpus(root: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    rows: list[dict[str, Any]] = []
+    errors: list[dict[str, Any]] = []
+    for case_dir in active_case_dirs(root):
+        row, case_errors = evaluate_case_labels(case_dir)
+        if row is not None:
+            rows.append(row)
+            errors.extend(case_errors)
+    return rows, errors
 
 
 def render_top_signals(case_id: str, signals: list[dict[str, Any]], guidance: list[dict[str, Any]]) -> str:
@@ -588,8 +736,69 @@ def write_global_reports(root: Path, source_map: dict[str, Any], analysis_rows: 
         baseline_lines.append(f"| {row['case_id']} | {naive_hits} | {full} | full transcript | transcript evidence spans |")
     (root / "baseline_comparison.md").write_text("\n".join(baseline_lines) + "\n", encoding="utf-8")
 
-    write_csv(root / "label_evaluation.csv", [], ["case_id", "status", "false_positive", "missed_signal", "misclassification", "weak_evidence", "duplicate_signal", "schema_issue"])
-    (root / "label_error_analysis.md").write_text("# Label Error Analysis\n\nNo real gold labels were present for statistical evaluation. Weak-label outputs are deterministic scaffolds only.\n\nWeak-label counts are not model accuracy, and no precision, recall, F1, or statistical performance claim is valid until human-reviewed gold labels exist.\n\n## Recommended Rule Refinements\n\n- Review low-confidence neutral and uncertainty matches first.\n- Add human labels before claiming precision, recall, or F1.\n", encoding="utf-8")
+    evaluation_rows, error_rows = evaluate_gold_corpus(root)
+    write_csv(
+        root / "label_evaluation.csv",
+        evaluation_rows,
+        [
+            "case_id",
+            "gold_label_count",
+            "weak_label_count",
+            "matched_count",
+            "missed_gold_count",
+            "extra_weak_count",
+            "type_match_count",
+            "type_mismatch_count",
+            "overlap_match_count",
+            "exact_match_count",
+            "status",
+        ],
+    )
+    write_csv(root / "label_error_details.csv", error_rows, ["case_id", "error_type", "gold_type", "weak_type", "evidence_text", "notes"])
+    error_counts = Counter(str(row.get("error_type", "")) for row in error_rows)
+    total_gold = sum(int(row["gold_label_count"]) for row in evaluation_rows)
+    total_weak = sum(int(row["weak_label_count"]) for row in evaluation_rows)
+    total_matched = sum(int(row["matched_count"]) for row in evaluation_rows)
+    total_missed = sum(int(row["missed_gold_count"]) for row in evaluation_rows)
+    total_extra = sum(int(row["extra_weak_count"]) for row in evaluation_rows)
+    total_mismatch = sum(int(row["type_mismatch_count"]) for row in evaluation_rows)
+    if evaluation_rows:
+        analysis_text = [
+            "# Label Error Analysis",
+            "",
+            "This is an early benchmark layer comparing deterministic weak labels with human-reviewed gold labels.",
+            "It is not a production ML evaluation, does not claim statistical significance, and does not measure investment accuracy.",
+            "",
+            f"- active_cases: {len(active_case_dirs(root))}",
+            f"- gold_labeled_cases: {len(evaluation_rows)}",
+            f"- total_gold_labels: {total_gold}",
+            f"- total_weak_labels_in_labeled_cases: {total_weak}",
+            f"- matched_overlap_count: {total_matched}",
+            f"- missed_gold_count: {total_missed}",
+            f"- extra_weak_count: {total_extra}",
+            f"- type_mismatch_count: {total_mismatch}",
+            "",
+            "Weak-label counts are not model accuracy, and no precision, recall, F1, alpha, or trading-edge claim is valid from this starter set.",
+            "The current gold set is a starter benchmark, not a final statistically powered benchmark.",
+            "",
+            "## Error Themes",
+        ]
+        for key in ("false_positive", "missed_signal", "misclassification", "weak_evidence", "duplicate_signal", "schema_issue", "boilerplate_noise"):
+            analysis_text.append(f"- {key}: {error_counts.get(key, 0)}")
+        analysis_text.extend(
+            [
+                "",
+                "## Recommended Rule Refinements",
+                "",
+                "- Reduce boilerplate/operator uncertainty matches before expanding the benchmark.",
+                "- Review extra weak labels with no gold overlap for false-positive patterns.",
+                "- Add neutral examples in each labeled case to test suppression behavior.",
+                "- Expand each starter case to 15-25 human-reviewed labels before making stronger benchmark claims.",
+            ]
+        )
+        (root / "label_error_analysis.md").write_text("\n".join(analysis_text) + "\n", encoding="utf-8")
+    else:
+        (root / "label_error_analysis.md").write_text("# Label Error Analysis\n\nGold-label evaluation found 0 valid non-empty human-reviewed label files in the active corpus. Weak-label outputs are deterministic scaffolds only.\n\nWeak-label counts are not model accuracy, and no precision, recall, F1, or statistical performance claim is valid until human-reviewed gold labels exist.\n", encoding="utf-8")
     labels_root = root / "labels"
     labels_root.mkdir(exist_ok=True)
     (labels_root / "gold_labeling_guide.md").write_text(
