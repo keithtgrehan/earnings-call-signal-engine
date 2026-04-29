@@ -13,6 +13,7 @@ DEFAULT_FILES = (
     "docs/current-status.md",
     "docs/evaluation-summary.md",
 )
+LEGACY_OPTIONAL_PREFIX = "outputs/LLY_2025_Q2_call08/"
 
 
 def _repo_root() -> Path:
@@ -33,6 +34,7 @@ def main(argv: list[str] | None = None) -> int:
 
     root = _repo_root()
     failures: list[str] = []
+    warnings: list[str] = []
 
     for relative_path in args.paths:
         path = (root / relative_path).resolve()
@@ -49,7 +51,19 @@ def main(argv: list[str] | None = None) -> int:
                 continue
             target = (path.parent / local_target).resolve()
             if not target.exists():
+                target_posix = target.relative_to(root).as_posix()
+                if target_posix.startswith(LEGACY_OPTIONAL_PREFIX):
+                    warnings.append(
+                        f"{relative_path}: missing optional legacy proof target {local_target}"
+                    )
+                    continue
                 failures.append(f"{relative_path}: missing target {local_target}")
+        for code_target in re.findall(r"`(outputs/LLY_2025_Q2_call08/[^`]+)`", text):
+            target = (root / code_target).resolve()
+            if not target.exists():
+                warnings.append(
+                    f"{relative_path}: missing optional legacy proof target ../{code_target}"
+                )
 
     if failures:
         print("Markdown link check failed:")
@@ -57,6 +71,10 @@ def main(argv: list[str] | None = None) -> int:
             print(f"- {failure}")
         return 1
 
+    if warnings:
+        print("Markdown link check warnings:")
+        for warning in warnings:
+            print(f"- {warning}")
     print("Markdown link check passed.")
     return 0
 

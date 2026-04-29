@@ -1,0 +1,27 @@
+{
+  "dataset_id": "signal_engine_2_0_emotion_benchmark_fixture",
+  "name": "Signal Engine 2.0 handcrafted text emotion benchmark fixture",
+  "modality": "text",
+  "task": "emotion_classification",
+  "source_type": "handcrafted_fixture",
+  "file_paths": [
+    "../emotion_benchmark/sample_emotion_cases.jsonl"
+  ],
+  "labels": [
+    "anger",
+    "frustration",
+    "confusion",
+    "satisfaction",
+    "neutral",
+    "concern",
+    "urgency"
+  ],
+  "license": "MIT",
+  "pii_status": "Contains synthetic placeholder contact details for redaction validation only.",
+  "intended_use": "Lightweight harness validation for deterministic text emotion benchmarking in support, sales, and account-management workflows.",
+  "limitations": [
+    "Tiny handcrafted fixture only.",
+    "Not a production benchmark or domain proof.",
+    "Includes synthetic placeholder PII patterns solely to exercise redaction behavior."
+  ]
+}

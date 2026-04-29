@@ -1,0 +1,140 @@
+{
+  "schema_version": "signal_engine_2.0",
+  "domain": "account_management",
+  "conversation_id": "account_renewal_review_001",
+  "scores": {
+    "churn_risk_score": 0.6667,
+    "renewal_risk_score": 1.0,
+    "expansion_opportunity_score": 0.6667,
+    "unresolved_issue_count": 3,
+    "customer_sentiment_score": 0.25,
+    "commitment_clarity_score": 0.7375
+  },
+  "risk_flags": [
+    "account_churn_risk",
+    "account_renewal_risk",
+    "account_unresolved_issues",
+    "account_negative_sentiment"
+  ],
+  "opportunity_flags": [
+    "account_expansion_opportunity",
+    "account_commitment_defined"
+  ],
+  "evidence": [
+    {
+      "signal_name": "churn_risk",
+      "message_index": 3,
+      "matched_text": "...tay open into renewal, we may cut seats, delay the renewal, or look at another vendor.",
+      "reason": "Customer language indicates possible churn or seat reduction risk."
+    },
+    {
+      "signal_name": "churn_risk",
+      "message_index": 5,
+      "matched_text": "...ce will ask whether we should downgrade or switch.",
+      "reason": "Customer language indicates possible churn or seat reduction risk."
+    },
+    {
+      "signal_name": "renewal_risk",
+      "message_index": 0,
+      "matched_text": "Our renewal is in about 45 days, and we're still dealing with two unresolved onboarding issues from t...",
+      "reason": "Renewal risk language detected."
+    },
+    {
+      "signal_name": "renewal_risk",
+      "message_index": 3,
+      "matched_text": "...f these issues stay open into renewal, we may cut seats, delay the renewal, or look at another vendor.",
+      "reason": "Renewal risk language detected."
+    },
+    {
+      "signal_name": "unresolved_issue_count",
+      "message_index": 0,
+      "matched_text": "...s in about 45 days, and we're still dealing with two unresolved onboarding issues from the launch.",
+      "reason": "Unresolved issue language detected."
+    },
+    {
+      "signal_name": "customer_sentiment_score",
+      "message_index": 0,
+      "matched_text": "Our renewal is in about 45 days, and we're still dealing with two unresolved onboarding issues from the launch.",
+      "reason": "Customer sentiment skews negative alongside churn or renewal risk cues."
+    },
+    {
+      "signal_name": "expansion_opportunity",
+      "message_index": 2,
+      "matched_text": "...pport team and upgrade to the enterprise package.",
+      "reason": "Expansion or upgrade language detected."
+    },
+    {
+      "signal_name": "expansion_opportunity",
+      "message_index": 4,
+      "matched_text": "...week so we can decide whether expansion is still realistic.",
+      "reason": "Expansion or upgrade language detected."
+    },
+    {
+      "signal_name": "commitment_clarity",
+      "message_index": 1,
+      "matched_text": "I own the action items and will send a recovery plan by Friday with owners for each open item.",
+      "reason": "Account team commitment language detected."
+    },
+    {
+      "signal_name": "commitment_clarity",
+      "message_index": 4,
+      "matched_text": "...m owners today and schedule a renewal review next week so we can decide whether expansion is still realistic.",
+      "reason": "Account team commitment language detected."
+    }
+  ],
+  "metadata": {
+    "participant_count": 2,
+    "transcript_segment_count": 6,
+    "source": {
+      "source_type": "synthetic_sample",
+      "source_path": "data/signal_engine_2_0/sample_account_management.json",
+      "notes": "Tiny deterministic account-management example with renewal risk, unresolved issues, churn pressure, and expansion upside."
+    },
+    "audio_metadata": {},
+    "video_metadata": {},
+    "deterministic": true,
+    "external_api_required": false,
+    "llm_required_for_canonical_scoring": false,
+    "built_now": [
+      "deterministic transcript analysis",
+      "domain-specific lexicon and role rules",
+      "offline unified JSON output"
+    ],
+    "roadmap": [
+      "optional ASR",
+      "optional diarization",
+      "optional audio features",
+      "optional video keyframes",
+      "optional retrieval and long-context review"
+    ],
+    "canonical_path": "text_first_offline",
+    "audio_metadata_present": false,
+    "video_metadata_present": false,
+    "optional_components": [
+      {
+        "name": "asr_transcription",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional offline speech-to-text when the input is audio rather than transcript text."
+      },
+      {
+        "name": "speaker_diarization",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional speaker separation before role mapping and per-speaker turn analysis."
+      },
+      {
+        "name": "audio_features",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional prosody and pause features for later review workflows."
+      },
+      {
+        "name": "video_keyframes",
+        "enabled": false,
+        "required_for_canonical_scoring": false,
+        "purpose": "Optional keyframe extraction for multimodal investigations, not canonical scoring."
+      }
+    ]
+  }
+}

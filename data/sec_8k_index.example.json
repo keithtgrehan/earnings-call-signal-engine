@@ -1,0 +1,30 @@
+{
+  "schema_version": "signal_engine_sec_8k_index_0.1",
+  "source": "SEC EDGAR metadata example only",
+  "metadata_only": true,
+  "notes": "This tiny example is for schema/docs only. It is not a transcript, exhibit, PDF, audio, video, or paid/API output.",
+  "filings": [
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "company_name": "NVIDIA CORP",
+      "form": "8-K",
+      "filing_date": "2026-02-25",
+      "accession_number": "0001045810-26-000000",
+      "primary_document": "placeholder-8k.htm",
+      "filing_detail_url": "https://www.sec.gov/Archives/edgar/data/1045810/placeholder/",
+      "metadata_only": true
+    },
+    {
+      "ticker": "MSFT",
+      "cik": "0000789019",
+      "company_name": "MICROSOFT CORP",
+      "form": "8-K",
+      "filing_date": "2025-10-29",
+      "accession_number": "0000789019-25-000000",
+      "primary_document": "placeholder-8k.htm",
+      "filing_detail_url": "https://www.sec.gov/Archives/edgar/data/789019/placeholder/",
+      "metadata_only": true
+    }
+  ]
+}

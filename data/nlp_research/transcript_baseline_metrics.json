@@ -1,0 +1,956 @@
+{
+  "status": "ok",
+  "task": "signal_family",
+  "dataset_kind": "human_reviewed_signal_labels",
+  "dataset_size": 48,
+  "label_support": {
+    "risk_friction": 12,
+    "opportunity_commitment": 13,
+    "uncertainty_hedging": 12,
+    "neutral": 11
+  },
+  "evaluation_set_size": 16,
+  "evaluation_label_support": {
+    "neutral": 4,
+    "risk_friction": 4,
+    "opportunity_commitment": 4,
+    "uncertainty_hedging": 4
+  },
+  "split_strategy": "train_test_split",
+  "split_details": {
+    "train_size": 32,
+    "test_size": 16,
+    "random_seed": 42,
+    "train_ids": [
+      "opp_account_expand_realistic_001",
+      "risk_support_anger_seed_001",
+      "neut_sales_status_full_001",
+      "opp_account_confirm_owners_001",
+      "unc_sales_unknown_after_pilot_001",
+      "risk_sales_procurement_block_001",
+      "opp_support_resolution_seed_001",
+      "neut_sales_opening_thanks_001",
+      "risk_support_billing_delay_001",
+      "opp_account_followthrough_seed_001",
+      "unc_support_concern_seed_001",
+      "risk_sales_pricing_objection_001",
+      "unc_account_expansion_realistic_001",
+      "neut_account_status_intro_001",
+      "unc_account_if_recovery_lands_001",
+      "neut_sales_acknowledgement_001",
+      "risk_account_reduce_seats_001",
+      "opp_sales_pilot_interest_001",
+      "opp_sales_plan_commitment_001",
+      "unc_support_waiting_update_001",
+      "opp_sales_security_packet_001",
+      "risk_support_escalation_001",
+      "neut_sales_opening_full_001",
+      "risk_support_dispute_001",
+      "unc_sales_details_later_001",
+      "unc_sales_confusion_seed_001",
+      "opp_account_expand_support_001",
+      "unc_sales_security_review_001",
+      "neut_sales_legal_status_001",
+      "risk_support_help_center_001",
+      "neut_account_review_schedule_001",
+      "opp_account_named_owners_001"
+    ],
+    "test_ids": [
+      "neut_sales_status_procurement_001",
+      "risk_account_vendor_risk_001",
+      "opp_sales_security_review_path_001",
+      "unc_account_rollout_condition_001",
+      "neut_account_status_full_001",
+      "risk_account_unresolved_001",
+      "opp_account_recovery_plan_001",
+      "opp_sales_procurement_path_001",
+      "opp_account_own_recovery_001",
+      "neut_account_status_meeting_001",
+      "unc_sales_probably_001",
+      "unc_support_confusion_seed_001",
+      "risk_support_deflection_001",
+      "risk_support_refund_delay_001",
+      "neut_account_status_agenda_001",
+      "unc_sales_discount_signoff_001"
+    ]
+  },
+  "majority_baseline": {
+    "accuracy": 0.25,
+    "macro_f1": 0.1,
+    "weighted_f1": 0.1,
+    "per_label": {
+      "risk_friction": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "support": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "opportunity_commitment": {
+        "tp": 4,
+        "fp": 12,
+        "fn": 0,
+        "support": 4,
+        "precision": 0.25,
+        "recall": 1.0,
+        "f1": 0.4
+      },
+      "uncertainty_hedging": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "support": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "neutral": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "support": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "confusion_matrix": {
+      "risk_friction": {
+        "risk_friction": 0,
+        "opportunity_commitment": 4,
+        "uncertainty_hedging": 0,
+        "neutral": 0
+      },
+      "opportunity_commitment": {
+        "risk_friction": 0,
+        "opportunity_commitment": 4,
+        "uncertainty_hedging": 0,
+        "neutral": 0
+      },
+      "uncertainty_hedging": {
+        "risk_friction": 0,
+        "opportunity_commitment": 4,
+        "uncertainty_hedging": 0,
+        "neutral": 0
+      },
+      "neutral": {
+        "risk_friction": 0,
+        "opportunity_commitment": 4,
+        "uncertainty_hedging": 0,
+        "neutral": 0
+      }
+    },
+    "majority_label": "opportunity_commitment"
+  },
+  "deterministic_rules": {
+    "accuracy": 0.5,
+    "macro_f1": 0.4047619047619047,
+    "weighted_f1": 0.4047619047619047,
+    "per_label": {
+      "risk_friction": {
+        "tp": 4,
+        "fp": 4,
+        "fn": 0,
+        "support": 4,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666
+      },
+      "opportunity_commitment": {
+        "tp": 3,
+        "fp": 2,
+        "fn": 1,
+        "support": 4,
+        "precision": 0.6,
+        "recall": 0.75,
+        "f1": 0.6666666666666665
+      },
+      "uncertainty_hedging": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "support": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "neutral": {
+        "tp": 1,
+        "fp": 2,
+        "fn": 3,
+        "support": 4,
+        "precision": 0.3333333333333333,
+        "recall": 0.25,
+        "f1": 0.28571428571428575
+      }
+    },
+    "confusion_matrix": {
+      "risk_friction": {
+        "risk_friction": 4,
+        "opportunity_commitment": 0,
+        "uncertainty_hedging": 0,
+        "neutral": 0
+      },
+      "opportunity_commitment": {
+        "risk_friction": 0,
+        "opportunity_commitment": 3,
+        "uncertainty_hedging": 0,
+        "neutral": 1
+      },
+      "uncertainty_hedging": {
+        "risk_friction": 2,
+        "opportunity_commitment": 1,
+        "uncertainty_hedging": 0,
+        "neutral": 1
+      },
+      "neutral": {
+        "risk_friction": 2,
+        "opportunity_commitment": 1,
+        "uncertainty_hedging": 0,
+        "neutral": 1
+      }
+    }
+  },
+  "classifier": {
+    "accuracy": 0.5625,
+    "macro_f1": 0.5706349206349206,
+    "weighted_f1": 0.5706349206349206,
+    "per_label": {
+      "risk_friction": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 2,
+        "support": 4,
+        "precision": 0.6666666666666666,
+        "recall": 0.5,
+        "f1": 0.5714285714285715
+      },
+      "opportunity_commitment": {
+        "tp": 2,
+        "fp": 3,
+        "fn": 2,
+        "support": 4,
+        "precision": 0.4,
+        "recall": 0.5,
+        "f1": 0.4444444444444445
+      },
+      "uncertainty_hedging": {
+        "tp": 3,
+        "fp": 3,
+        "fn": 1,
+        "support": 4,
+        "precision": 0.5,
+        "recall": 0.75,
+        "f1": 0.6
+      },
+      "neutral": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 2,
+        "support": 4,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      }
+    },
+    "confusion_matrix": {
+      "risk_friction": {
+        "risk_friction": 2,
+        "opportunity_commitment": 2,
+        "uncertainty_hedging": 0,
+        "neutral": 0
+      },
+      "opportunity_commitment": {
+        "risk_friction": 0,
+        "opportunity_commitment": 2,
+        "uncertainty_hedging": 2,
+        "neutral": 0
+      },
+      "uncertainty_hedging": {
+        "risk_friction": 0,
+        "opportunity_commitment": 1,
+        "uncertainty_hedging": 3,
+        "neutral": 0
+      },
+      "neutral": {
+        "risk_friction": 1,
+        "opportunity_commitment": 0,
+        "uncertainty_hedging": 1,
+        "neutral": 2
+      }
+    }
+  },
+  "classifier_model": "tfidf_linear_svc_bigram_balanced",
+  "selected_classifier": {
+    "variant_id": "tfidf_linear_svc_bigram_balanced",
+    "label": "TF-IDF + LinearSVC balanced (1,2)",
+    "selection_metric": "macro_f1",
+    "exploratory": true
+  },
+  "canonical_system": "deterministic_rules",
+  "benchmark_runs": [
+    {
+      "variant_id": "majority_baseline",
+      "label": "Majority baseline",
+      "system_type": "baseline",
+      "canonical": false,
+      "exploratory": false,
+      "model_family": "majority_class",
+      "ngram_range": null,
+      "class_weight": null,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_f1": 0.1,
+        "weighted_f1": 0.1,
+        "per_label": {
+          "risk_friction": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 4,
+            "support": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "opportunity_commitment": {
+            "tp": 4,
+            "fp": 12,
+            "fn": 0,
+            "support": 4,
+            "precision": 0.25,
+            "recall": 1.0,
+            "f1": 0.4
+          },
+          "uncertainty_hedging": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 4,
+            "support": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "neutral": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 4,
+            "support": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        },
+        "confusion_matrix": {
+          "risk_friction": {
+            "risk_friction": 0,
+            "opportunity_commitment": 4,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "opportunity_commitment": {
+            "risk_friction": 0,
+            "opportunity_commitment": 4,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "uncertainty_hedging": {
+            "risk_friction": 0,
+            "opportunity_commitment": 4,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "neutral": {
+            "risk_friction": 0,
+            "opportunity_commitment": 4,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          }
+        }
+      }
+    },
+    {
+      "variant_id": "deterministic_rules",
+      "label": "Deterministic rules",
+      "system_type": "rules",
+      "canonical": true,
+      "exploratory": false,
+      "model_family": "deterministic_lexical_rules",
+      "ngram_range": null,
+      "class_weight": null,
+      "metrics": {
+        "accuracy": 0.5,
+        "macro_f1": 0.4047619047619047,
+        "weighted_f1": 0.4047619047619047,
+        "per_label": {
+          "risk_friction": {
+            "tp": 4,
+            "fp": 4,
+            "fn": 0,
+            "support": 4,
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666
+          },
+          "opportunity_commitment": {
+            "tp": 3,
+            "fp": 2,
+            "fn": 1,
+            "support": 4,
+            "precision": 0.6,
+            "recall": 0.75,
+            "f1": 0.6666666666666665
+          },
+          "uncertainty_hedging": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 4,
+            "support": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "neutral": {
+            "tp": 1,
+            "fp": 2,
+            "fn": 3,
+            "support": 4,
+            "precision": 0.3333333333333333,
+            "recall": 0.25,
+            "f1": 0.28571428571428575
+          }
+        },
+        "confusion_matrix": {
+          "risk_friction": {
+            "risk_friction": 4,
+            "opportunity_commitment": 0,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "opportunity_commitment": {
+            "risk_friction": 0,
+            "opportunity_commitment": 3,
+            "uncertainty_hedging": 0,
+            "neutral": 1
+          },
+          "uncertainty_hedging": {
+            "risk_friction": 2,
+            "opportunity_commitment": 1,
+            "uncertainty_hedging": 0,
+            "neutral": 1
+          },
+          "neutral": {
+            "risk_friction": 2,
+            "opportunity_commitment": 1,
+            "uncertainty_hedging": 0,
+            "neutral": 1
+          }
+        }
+      }
+    },
+    {
+      "variant_id": "tfidf_logreg_unigram",
+      "label": "TF-IDF + LogisticRegression (1,1)",
+      "system_type": "classifier",
+      "canonical": false,
+      "exploratory": true,
+      "model_family": "logistic_regression",
+      "ngram_range": [
+        1,
+        1
+      ],
+      "class_weight": null,
+      "metrics": {
+        "accuracy": 0.3125,
+        "macro_f1": 0.32692307692307687,
+        "weighted_f1": 0.32692307692307687,
+        "per_label": {
+          "risk_friction": {
+            "tp": 1,
+            "fp": 1,
+            "fn": 3,
+            "support": 4,
+            "precision": 0.5,
+            "recall": 0.25,
+            "f1": 0.3333333333333333
+          },
+          "opportunity_commitment": {
+            "tp": 2,
+            "fp": 7,
+            "fn": 2,
+            "support": 4,
+            "precision": 0.2222222222222222,
+            "recall": 0.5,
+            "f1": 0.30769230769230765
+          },
+          "uncertainty_hedging": {
+            "tp": 0,
+            "fp": 3,
+            "fn": 4,
+            "support": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "neutral": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 2,
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+          }
+        },
+        "confusion_matrix": {
+          "risk_friction": {
+            "risk_friction": 1,
+            "opportunity_commitment": 3,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "opportunity_commitment": {
+            "risk_friction": 0,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 2,
+            "neutral": 0
+          },
+          "uncertainty_hedging": {
+            "risk_friction": 1,
+            "opportunity_commitment": 3,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "neutral": {
+            "risk_friction": 0,
+            "opportunity_commitment": 1,
+            "uncertainty_hedging": 1,
+            "neutral": 2
+          }
+        }
+      }
+    },
+    {
+      "variant_id": "tfidf_logreg_bigram",
+      "label": "TF-IDF + LogisticRegression (1,2)",
+      "system_type": "classifier",
+      "canonical": false,
+      "exploratory": true,
+      "model_family": "logistic_regression",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "class_weight": null,
+      "metrics": {
+        "accuracy": 0.4375,
+        "macro_f1": 0.46111111111111114,
+        "weighted_f1": 0.46111111111111114,
+        "per_label": {
+          "risk_friction": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 3,
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.25,
+            "f1": 0.4
+          },
+          "opportunity_commitment": {
+            "tp": 2,
+            "fp": 6,
+            "fn": 2,
+            "support": 4,
+            "precision": 0.25,
+            "recall": 0.5,
+            "f1": 0.3333333333333333
+          },
+          "uncertainty_hedging": {
+            "tp": 2,
+            "fp": 3,
+            "fn": 2,
+            "support": 4,
+            "precision": 0.4,
+            "recall": 0.5,
+            "f1": 0.4444444444444445
+          },
+          "neutral": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 2,
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+          }
+        },
+        "confusion_matrix": {
+          "risk_friction": {
+            "risk_friction": 1,
+            "opportunity_commitment": 3,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "opportunity_commitment": {
+            "risk_friction": 0,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 2,
+            "neutral": 0
+          },
+          "uncertainty_hedging": {
+            "risk_friction": 0,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 2,
+            "neutral": 0
+          },
+          "neutral": {
+            "risk_friction": 0,
+            "opportunity_commitment": 1,
+            "uncertainty_hedging": 1,
+            "neutral": 2
+          }
+        }
+      }
+    },
+    {
+      "variant_id": "tfidf_logreg_unigram_balanced",
+      "label": "TF-IDF + LogisticRegression balanced (1,1)",
+      "system_type": "classifier",
+      "canonical": false,
+      "exploratory": true,
+      "model_family": "logistic_regression",
+      "ngram_range": [
+        1,
+        1
+      ],
+      "class_weight": "balanced",
+      "metrics": {
+        "accuracy": 0.375,
+        "macro_f1": 0.3857142857142857,
+        "weighted_f1": 0.3857142857142857,
+        "per_label": {
+          "risk_friction": {
+            "tp": 1,
+            "fp": 2,
+            "fn": 3,
+            "support": 4,
+            "precision": 0.3333333333333333,
+            "recall": 0.25,
+            "f1": 0.28571428571428575
+          },
+          "opportunity_commitment": {
+            "tp": 2,
+            "fp": 4,
+            "fn": 2,
+            "support": 4,
+            "precision": 0.3333333333333333,
+            "recall": 0.5,
+            "f1": 0.4
+          },
+          "uncertainty_hedging": {
+            "tp": 0,
+            "fp": 4,
+            "fn": 4,
+            "support": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "neutral": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 1,
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571
+          }
+        },
+        "confusion_matrix": {
+          "risk_friction": {
+            "risk_friction": 1,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 1,
+            "neutral": 0
+          },
+          "opportunity_commitment": {
+            "risk_friction": 0,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 2,
+            "neutral": 0
+          },
+          "uncertainty_hedging": {
+            "risk_friction": 2,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "neutral": {
+            "risk_friction": 0,
+            "opportunity_commitment": 0,
+            "uncertainty_hedging": 1,
+            "neutral": 3
+          }
+        }
+      }
+    },
+    {
+      "variant_id": "tfidf_logreg_bigram_balanced",
+      "label": "TF-IDF + LogisticRegression balanced (1,2)",
+      "system_type": "classifier",
+      "canonical": false,
+      "exploratory": true,
+      "model_family": "logistic_regression",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "class_weight": "balanced",
+      "metrics": {
+        "accuracy": 0.5,
+        "macro_f1": 0.5,
+        "weighted_f1": 0.5,
+        "per_label": {
+          "risk_friction": {
+            "tp": 1,
+            "fp": 1,
+            "fn": 3,
+            "support": 4,
+            "precision": 0.5,
+            "recall": 0.25,
+            "f1": 0.3333333333333333
+          },
+          "opportunity_commitment": {
+            "tp": 2,
+            "fp": 4,
+            "fn": 2,
+            "support": 4,
+            "precision": 0.3333333333333333,
+            "recall": 0.5,
+            "f1": 0.4
+          },
+          "uncertainty_hedging": {
+            "tp": 3,
+            "fp": 3,
+            "fn": 1,
+            "support": 4,
+            "precision": 0.5,
+            "recall": 0.75,
+            "f1": 0.6
+          },
+          "neutral": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 2,
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+          }
+        },
+        "confusion_matrix": {
+          "risk_friction": {
+            "risk_friction": 1,
+            "opportunity_commitment": 3,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "opportunity_commitment": {
+            "risk_friction": 0,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 2,
+            "neutral": 0
+          },
+          "uncertainty_hedging": {
+            "risk_friction": 0,
+            "opportunity_commitment": 1,
+            "uncertainty_hedging": 3,
+            "neutral": 0
+          },
+          "neutral": {
+            "risk_friction": 1,
+            "opportunity_commitment": 0,
+            "uncertainty_hedging": 1,
+            "neutral": 2
+          }
+        }
+      }
+    },
+    {
+      "variant_id": "tfidf_linear_svc_unigram_balanced",
+      "label": "TF-IDF + LinearSVC balanced (1,1)",
+      "system_type": "classifier",
+      "canonical": false,
+      "exploratory": true,
+      "model_family": "linear_svc",
+      "ngram_range": [
+        1,
+        1
+      ],
+      "class_weight": "balanced",
+      "metrics": {
+        "accuracy": 0.4375,
+        "macro_f1": 0.45039682539682535,
+        "weighted_f1": 0.45039682539682535,
+        "per_label": {
+          "risk_friction": {
+            "tp": 2,
+            "fp": 2,
+            "fn": 2,
+            "support": 4,
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5
+          },
+          "opportunity_commitment": {
+            "tp": 2,
+            "fp": 3,
+            "fn": 2,
+            "support": 4,
+            "precision": 0.4,
+            "recall": 0.5,
+            "f1": 0.4444444444444445
+          },
+          "uncertainty_hedging": {
+            "tp": 0,
+            "fp": 4,
+            "fn": 4,
+            "support": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "neutral": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 1,
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571
+          }
+        },
+        "confusion_matrix": {
+          "risk_friction": {
+            "risk_friction": 2,
+            "opportunity_commitment": 1,
+            "uncertainty_hedging": 1,
+            "neutral": 0
+          },
+          "opportunity_commitment": {
+            "risk_friction": 0,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 2,
+            "neutral": 0
+          },
+          "uncertainty_hedging": {
+            "risk_friction": 2,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "neutral": {
+            "risk_friction": 0,
+            "opportunity_commitment": 0,
+            "uncertainty_hedging": 1,
+            "neutral": 3
+          }
+        }
+      }
+    },
+    {
+      "variant_id": "tfidf_linear_svc_bigram_balanced",
+      "label": "TF-IDF + LinearSVC balanced (1,2)",
+      "system_type": "classifier",
+      "canonical": false,
+      "exploratory": true,
+      "model_family": "linear_svc",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "class_weight": "balanced",
+      "metrics": {
+        "accuracy": 0.5625,
+        "macro_f1": 0.5706349206349206,
+        "weighted_f1": 0.5706349206349206,
+        "per_label": {
+          "risk_friction": {
+            "tp": 2,
+            "fp": 1,
+            "fn": 2,
+            "support": 4,
+            "precision": 0.6666666666666666,
+            "recall": 0.5,
+            "f1": 0.5714285714285715
+          },
+          "opportunity_commitment": {
+            "tp": 2,
+            "fp": 3,
+            "fn": 2,
+            "support": 4,
+            "precision": 0.4,
+            "recall": 0.5,
+            "f1": 0.4444444444444445
+          },
+          "uncertainty_hedging": {
+            "tp": 3,
+            "fp": 3,
+            "fn": 1,
+            "support": 4,
+            "precision": 0.5,
+            "recall": 0.75,
+            "f1": 0.6
+          },
+          "neutral": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 2,
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+          }
+        },
+        "confusion_matrix": {
+          "risk_friction": {
+            "risk_friction": 2,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 0,
+            "neutral": 0
+          },
+          "opportunity_commitment": {
+            "risk_friction": 0,
+            "opportunity_commitment": 2,
+            "uncertainty_hedging": 2,
+            "neutral": 0
+          },
+          "uncertainty_hedging": {
+            "risk_friction": 0,
+            "opportunity_commitment": 1,
+            "uncertainty_hedging": 3,
+            "neutral": 0
+          },
+          "neutral": {
+            "risk_friction": 1,
+            "opportunity_commitment": 0,
+            "uncertainty_hedging": 1,
+            "neutral": 2
+          }
+        }
+      }
+    }
+  ],
+  "historical_context": {
+    "note": "The earlier first-proof report compared deterministic rules with a single TF-IDF + LogisticRegression classifier. This refreshed report adds a majority baseline and multiple exploratory variants."
+  },
+  "limitations": [
+    "This is an early labeled benchmark, not statistical proof.",
+    "The classifier is a research benchmark only.",
+    "Deterministic rules remain canonical unless a larger and independently reviewed benchmark proves otherwise.",
+    "The dataset is small, hand-seeded, and drawn from committed local fixtures only.",
+    "Exploratory variants improve error analysis context, not product certainty."
+  ],
+  "dataset_path": "/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa/data/nlp_research/human_reviewed_signal_labels.jsonl"
+}

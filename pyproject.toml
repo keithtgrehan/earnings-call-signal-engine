@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "earnings-call-sentiment"
 version = "0.1.0"
-description = "Earnings call sentiment from voice transcript with optional video input."
+description = "Deterministic, explainable conversation signal engine for QA and risk detection."
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [{ name = "Keith" }]
@@ -13,17 +13,10 @@ license = { text = "MIT" }
 
 dependencies = [
   "flask",
-  "faster-whisper",
-  "transformers",
-  "torch",
-  "sentence-transformers",
   "pandas",
   "numpy",
   "scipy",
   "soundfile",
-  "librosa",
-  "ffmpeg-python",
-  "opensmile",
   "yt-dlp",
   "typer",
   "rich",
@@ -37,12 +30,52 @@ dependencies = [
 dev = [
   "pytest>=8",
 ]
+nlp = [
+  "spacy",
+  "scikit-learn",
+  "rapidfuzz",
+  "textstat",
+  "yake",
+]
+privacy = [
+  "presidio-analyzer",
+  "presidio-anonymizer",
+]
+embeddings = [
+  "sentence-transformers",
+  "faiss-cpu",
+  "chromadb",
+]
+text-emotion = [
+  "transformers",
+  "torch",
+  "datasets",
+  "evaluate",
+]
+audio = [
+  "faster-whisper",
+  "librosa",
+  "torchaudio",
+  "ffmpeg-python",
+]
+diarization = [
+  "pyannote.audio",
+]
+video = [
+  "opencv-python",
+  "scenedetect",
+  "moviepy",
+]
+prosody = [
+  "opensmile",
+]
 
 [project.scripts]
 earnings-call-sentiment = "earnings_call_sentiment.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
+py-modules = ["parser", "features", "pipeline"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

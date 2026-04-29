@@ -1,0 +1,77 @@
+[
+  {
+    "conversation_id": "support_good_001",
+    "messages": [
+      {
+        "role": "customer",
+        "timestamp": "2026-04-23T09:00:00Z",
+        "text": "Hi, I cannot access my account after the password reset email expired. Can you help me get back in today?"
+      },
+      {
+        "role": "agent",
+        "timestamp": "2026-04-23T09:01:00Z",
+        "text": "Yes. I can confirm the reset link expired. Here are the steps: open a new reset request, use the most recent email, and sign in within 15 minutes. If it still fails, reply here and we will unlock the account."
+      },
+      {
+        "role": "customer",
+        "timestamp": "2026-04-23T09:03:00Z",
+        "text": "That worked. Can you also confirm whether my billing profile stayed the same?"
+      },
+      {
+        "role": "agent",
+        "timestamp": "2026-04-23T09:04:00Z",
+        "text": "I checked the billing profile and it stayed the same. Your current plan, card, and renewal date are unchanged."
+      }
+    ]
+  },
+  {
+    "conversation_id": "support_bad_001",
+    "messages": [
+      {
+        "role": "customer",
+        "timestamp": "2026-04-23T10:00:00Z",
+        "text": "I was charged twice and this is frustrating. The issue is still unresolved and the delay is unacceptable."
+      },
+      {
+        "role": "agent",
+        "timestamp": "2026-04-23T10:02:00Z",
+        "text": "We are looking into it. Another team will reach out later."
+      },
+      {
+        "role": "customer",
+        "timestamp": "2026-04-23T10:05:00Z",
+        "text": "That does not answer my refund question. I need to know when the incorrect charge will be fixed."
+      },
+      {
+        "role": "agent",
+        "timestamp": "2026-04-23T10:07:00Z",
+        "text": "As previously stated, someone will reach out. I cannot comment on timing."
+      }
+    ]
+  },
+  {
+    "conversation_id": "support_mixed_001",
+    "messages": [
+      {
+        "role": "customer",
+        "timestamp": "2026-04-23T11:00:00Z",
+        "text": "Can you tell me why my export failed and whether I can retry without losing data?"
+      },
+      {
+        "role": "agent",
+        "timestamp": "2026-04-23T11:01:00Z",
+        "text": "The export failed because the file exceeded the current size limit. You can retry after splitting the file into smaller batches."
+      },
+      {
+        "role": "customer",
+        "timestamp": "2026-04-23T11:03:00Z",
+        "text": "Will the retry take effect immediately?"
+      },
+      {
+        "role": "agent",
+        "timestamp": "2026-04-23T11:04:00Z",
+        "text": "It should usually take effect immediately, although there could be a short delay while the queue clears."
+      }
+    ]
+  }
+]

@@ -30,3 +30,31 @@ outputs/
 *.egg-info/
 
 .python-version
+
+# generated pilot corpus outputs
+data/corpus/raw/audio/*
+data/corpus/raw/video/*
+data/corpus/raw/transcripts/*
+!data/corpus/raw/transcripts/GOOGL_2025_Q4_call03.txt
+!data/corpus/raw/transcripts/LLY_2025_Q2_call08.txt
+data/corpus/manual_cases/*/raw/*.txt
+data/corpus/processed/alignments/*
+data/corpus/processed/chunks/*
+!data/corpus/processed/chunks/LLY_2025_Q2_call08.event_chunks.jsonl
+!data/corpus/processed/chunks/LLY_2025_Q2_call08.segment_metadata.json
+data/corpus/processed/evidence_objects/*
+!data/corpus/processed/evidence_objects/LLY_2025_Q2_call08.evidence_objects.jsonl
+data/corpus/retrieval/pilot_event_index/*
+data/external/loughran_mcdonald/*
+!data/external/loughran_mcdonald/.gitkeep
+data/external/financial_phrasebank/*
+!data/external/financial_phrasebank/.gitkeep
+
+# local transcript corpus outputs and bulky source artifacts
+*.pdf
+transcripts/
+transcripts_backup_*/
+tools/transcript_downloader/**/raw/
+tools/transcript_downloader/**/quarantine/
+tools/transcript_downloader/**/transcript.pdf
+tools/transcript_downloader/**/transcript.txt

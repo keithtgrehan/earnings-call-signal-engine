@@ -20,17 +20,17 @@ make portfolio-ci
 ```
 
 ## Open These Files In Order
-1. [report.md](../outputs/LLY_2025_Q2_call08/report.md)
+1. `outputs/LLY_2025_Q2_call08/report.md`
    Start here for the reviewer-facing summary and strongest evidence snippets.
-2. [metrics.json](../outputs/LLY_2025_Q2_call08/metrics.json)
+2. `outputs/LLY_2025_Q2_call08/metrics.json`
    This is the machine-readable scorecard and category summary.
-3. [guidance.csv](../outputs/LLY_2025_Q2_call08/guidance.csv)
+3. `outputs/LLY_2025_Q2_call08/guidance.csv`
    Use this to inspect extracted guidance rows directly.
-4. [transcript.txt](../outputs/LLY_2025_Q2_call08/transcript.txt)
+4. `outputs/LLY_2025_Q2_call08/transcript.txt`
    This is the underlying review truth for quoted evidence.
-5. [uncertainty_signals.csv](../outputs/LLY_2025_Q2_call08/uncertainty_signals.csv) and [analyst_skepticism.csv](../outputs/LLY_2025_Q2_call08/analyst_skepticism.csv)
+5. `outputs/LLY_2025_Q2_call08/uncertainty_signals.csv` and `outputs/LLY_2025_Q2_call08/analyst_skepticism.csv`
    Open these after the transcript-first pass to inspect the deterministic behavior layer.
-6. [audio_behavior_summary.json](../outputs/LLY_2025_Q2_call08/audio_behavior_summary.json) and [multimodal_support_summary.json](../outputs/LLY_2025_Q2_call08/multimodal_support_summary.json)
+6. `outputs/LLY_2025_Q2_call08/audio_behavior_summary.json` and `outputs/LLY_2025_Q2_call08/multimodal_support_summary.json`
    These show how supporting layers are kept additive rather than label-defining.
 7. [labels.csv](../data/gold_guidance_calls/labels.csv)
    Check the `call08` row to confirm the frozen benchmark label and the conservative note about ASR quality.

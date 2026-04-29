@@ -1,0 +1,6 @@
+{"case_id":"TEST_2026_Q1","signal_type":"guidance_revision","direction":"positive","evidence_text":"Management: We are raising our revenue outlook for fiscal Q1 based on stronger enterprise demand."}
+{"case_id":"TEST_2026_Q1","signal_type":"analyst_pressure","direction":"negative","evidence_text":"Analyst: Can you explain why investors should believe the margin recovery after another spending step-up?"}
+{"case_id":"TEST_2026_Q1","signal_type":"management_hedging","direction":"mixed","evidence_text":"Management: We expect improvement, but timing remains dependent on customer deployment schedules."}
+{"case_id":"TEST_2026_Q1","signal_type":"uncertainty","direction":"negative","evidence_text":"Management: Visibility remains limited in Europe and the recovery path is uncertain."}
+{"case_id":"TEST_2026_Q1","signal_type":"opportunity_commitment","direction":"positive","evidence_text":"Management: We will continue investing in cloud capacity to meet contracted demand."}
+{"case_id":"TEST_2026_Q1","signal_type":"risk_friction","direction":"negative","evidence_text":"Analyst: Several investors are asking whether AI capital spending is masking slower core growth."}

@@ -1,0 +1,189 @@
+{
+  "generated_at": "2026-04-23T18:17:36.049965+00:00",
+  "selected_case_count": 20,
+  "manifest_csv_path": "data/corpus/manifests/pilot_corpus_manifest.csv",
+  "manifest_jsonl_path": "data/corpus/manifests/pilot_corpus_manifest.jsonl",
+  "validation": {
+    "generated_at": "2026-04-23T18:17:36.049862+00:00",
+    "case_count": 20,
+    "transcript_verified_count": 20,
+    "audio_verified_count": 7,
+    "video_verified_count": 0,
+    "errors": [],
+    "warnings": []
+  },
+  "selected_cases": [
+    {
+      "case_id": "NVDA_2026_Q4_call07",
+      "ticker": "NVDA",
+      "event_date": "2026-02-25",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "GOOGL_2025_Q4_call03",
+      "ticker": "GOOGL",
+      "event_date": "2026-02-04",
+      "transcript_verified": "true",
+      "audio_verified": "true",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "PLTR_2025_Q4_call01",
+      "ticker": "PLTR",
+      "event_date": "2026-02-02",
+      "transcript_verified": "true",
+      "audio_verified": "true",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "AAPL_2026_Q1_call06",
+      "ticker": "AAPL",
+      "event_date": "2026-01-29",
+      "transcript_verified": "true",
+      "audio_verified": "true",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "MSFT_2026_Q2_call05",
+      "ticker": "MSFT",
+      "event_date": "2026-01-28",
+      "transcript_verified": "true",
+      "audio_verified": "true",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "LLY_2025_Q2_call08",
+      "ticker": "LLY",
+      "event_date": "2025-08-07",
+      "transcript_verified": "true",
+      "audio_verified": "true",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "LEU_2025_Q4_call02",
+      "ticker": "LEU",
+      "event_date": "2026-02-11",
+      "transcript_verified": "true",
+      "audio_verified": "true",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "IBM_2025_Q4_call04",
+      "ticker": "IBM",
+      "event_date": "2026-01-28",
+      "transcript_verified": "true",
+      "audio_verified": "true",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "LMND_2025_Q4_watchhold04",
+      "ticker": "LMND",
+      "event_date": "2026-02-19",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "AMZN_2025_Q4_watchhold01",
+      "ticker": "AMZN",
+      "event_date": "2026-02-05",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "BE_2025_Q4_watchhold05",
+      "ticker": "BE",
+      "event_date": "2026-02-05",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "ETN_2025_Q4_watchhold02",
+      "ticker": "ETN",
+      "event_date": "2026-02-03",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "NVDA_2026_Q3_holdout03",
+      "ticker": "NVDA",
+      "event_date": "2025-11-19",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "GOOGL_2025_Q3_holdout02",
+      "ticker": "GOOGL",
+      "event_date": "2025-10-29",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "MSFT_2026_Q1_holdout04",
+      "ticker": "MSFT",
+      "event_date": "2025-10-29",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "IBM_2025_Q3_holdout01",
+      "ticker": "IBM",
+      "event_date": "2025-10-22",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "VRT_2025_Q3_watchhold03",
+      "ticker": "VRT",
+      "event_date": "2025-10-22",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "EVER_2025_Q2_holdout07",
+      "ticker": "EVER",
+      "event_date": "2025-08-12",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "BE_2025_Q2_watchhold06",
+      "ticker": "BE",
+      "event_date": "2025-08-07",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    },
+    {
+      "case_id": "NBIS_2025_Q2_watchhold07",
+      "ticker": "NBIS",
+      "event_date": "2025-08-07",
+      "transcript_verified": "true",
+      "audio_verified": "false",
+      "video_verified": "false"
+    }
+  ],
+  "retrieval_index_output_dir": "data/corpus/retrieval/pilot_event_index/",
+  "committed_samples": {
+    "transcripts": [
+      "data/corpus/raw/transcripts/GOOGL_2025_Q4_call03.txt",
+      "data/corpus/raw/transcripts/LLY_2025_Q2_call08.txt"
+    ],
+    "processed_artifacts": [
+      "data/corpus/processed/chunks/LLY_2025_Q2_call08.event_chunks.jsonl",
+      "data/corpus/processed/chunks/LLY_2025_Q2_call08.segment_metadata.json",
+      "data/corpus/processed/evidence_objects/LLY_2025_Q2_call08.evidence_objects.jsonl"
+    ]
+  }
+}

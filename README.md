@@ -1,147 +1,145 @@
-# Earnings Call Signal Engine
+# Signal Engine
 
-Deterministic-first system that converts earnings call transcripts into structured, decision-ready outputs.
+Signal Engine is a deterministic-first signal extraction and evaluation system for long-form business communication.
 
-Built to take messy, multi-speaker conversations and turn them into:
-- clear signals (tone shifts, guidance changes, pressure)
-- linked evidence (exact excerpts)
-- outputs you can actually review and act on
+The current proof path is earnings-call transcripts because public-company sources, explicit guidance language, analyst Q&A, and evidence-span review create a credible route to repeatable evaluation. This repo does not claim production ML, statistical significance, market-reaction proof, alpha, trading edge, stock prediction, or investment advice.
 
-Deterministic-first. AI only where it adds value.
+## Signal Engine 2.0
 
-This is a decision-support workflow, not a trading system. It does not execute trades, does not claim predictive edge, and does not treat optional model or multimodal layers as the source of truth.
+Signal Engine 2.0 is a transcript-first, deterministic signal extraction system that turns earnings-call transcripts into structured, evidence-backed signals using explainable NLP, exact transcript spans, human-reviewed labels, and conservative evaluation.
 
-## What this produces (at a glance)
+The system is designed around this path:
 
-From one call, the system outputs:
-
-- Tone shifts → where sentiment or positioning changes  
-- Guidance signals → forward-looking vs prior stance  
-- Q&A pressure → analyst challenge, defensiveness, uncertainty  
-- Evidence-backed outputs → every signal tied to exact transcript excerpts  
-
-Everything is structured (JSON / CSV / report), reproducible, and inspectable.
-
-## Demo (quickest way to see it)
-
-Run:
-
-```bash
-python scripts/run_signal_engine_2_0_demo.py
-
-## What It Is
-- A local workflow for ingesting one earnings call from transcript text, YouTube/media, or document text.
-- A deterministic extraction layer that writes structured review artifacts such as `guidance.csv`, `metrics.json`, and `report.md`.
-- A local review shell for inspecting source excerpts, extracted signals, ambiguity notes, and supporting context.
-- An additive sidecar layer for audio, NLP, and video support when available, kept explicitly secondary to transcript-backed outputs.
-
-## Why It Exists
-Earnings calls are long, noisy, and easy to skim poorly. Reviewers need a fast way to answer:
-- what changed
-- where the supporting evidence lives
-- which moments deserve attention first
-- what is deterministic versus what is only supportive context
-
-This repo packages that workflow into inspectable artifacts instead of relying on a black-box summary.
-
-## Canonical Portfolio Proof
-The public proof path for this repo is the checked-in Eli Lilly case bundle:
-- output directory: `outputs/LLY_2025_Q2_call08/`
-- quick verification:
-
-```bash
-python scripts/verify_outputs.py --out-dir outputs/LLY_2025_Q2_call08 --require-run-meta
+```text
+transcript -> deterministic signals -> human review -> gold labels -> evaluation
 ```
 
-- full portfolio check:
+Raw transcripts remain canonical. Derived outputs are audit artifacts, weak-label suggestions, review packets, gold-label files created only from explicit human selections, and conservative evaluation reports.
+
+## Current System (Important)
+
+The current implementation is earnings-call focused.
+
+- One-command case pipeline: `tools/run_case_pipeline.py`
+- Pipeline flow: validate -> weak labels -> human packet -> gold conversion if a selected-candidates CSV exists -> evaluation if valid gold labels exist.
+- `31/31` active cases processed successfully.
+- `0` invalid, failed, or quarantined cases in the latest corpus analysis run.
+- Raw transcript mutation check passed.
+- Test suite passed at approximately `283` tests.
+- `5` gold-label scaffold files exist.
+- Current valid gold-label rows: `0`.
+- Evaluation is intentionally skipped until human-reviewed labels are added.
+- Weak labels are suggestions only and are never automatically promoted to gold labels.
+
+Gold-label evaluation is scaffolded but currently inactive until human-reviewed labels are added. This is intentional.
+
+## Human-in-the-loop Workflow
+
+Run the one-command pipeline for a case:
 
 ```bash
-make portfolio-ci
+python tools/run_case_pipeline.py --case AAPL_2026_Q1
 ```
 
-Open these files in order:
-- [`outputs/LLY_2025_Q2_call08/report.md`](outputs/LLY_2025_Q2_call08/report.md)
-- [`outputs/LLY_2025_Q2_call08/metrics.json`](outputs/LLY_2025_Q2_call08/metrics.json)
-- [`outputs/LLY_2025_Q2_call08/guidance.csv`](outputs/LLY_2025_Q2_call08/guidance.csv)
-- [`docs/demo-path.md`](docs/demo-path.md)
-- [`docs/portfolio-proof.md`](docs/portfolio-proof.md)
+Then review the generated packet:
 
-Fixed UI demo cases for Netflix, Meta, and NVIDIA still exist in the repo, but the Lilly bundle is the single recruiter-facing proof path because it is frozen, inspectable, and tied to a committed benchmark row. The benchmark note itself also records that the ASR text is imperfect, which is exactly the kind of limitation this repo is meant to surface instead of hiding.
+```text
+/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts/AAPL_2026_Q1/labels/human_labeling_packet.md
+```
 
-## Proof (current state)
-<!-- proof:begin -->
-- Frozen benchmark label: `raised` for Eli Lilly (`call08`, 2025-08-07, confidence 0.78).
-- Proof check runtime: 0.074471 seconds for `verify_outputs.py` against the committed bundle.
-- Recorded run cost: not yet measured.
-- Extracted signals in the committed bundle: 93 guidance rows, 19 uncertainty rows, 4 reassurance rows, 1 analyst-skepticism row(s).
-- Example outputs: reviewer report at `outputs/LLY_2025_Q2_call08/report.md`.
-- Example outputs: structured scorecard at `outputs/LLY_2025_Q2_call08/metrics.json`.
-- Example outputs: extracted guidance table at `outputs/LLY_2025_Q2_call08/guidance.csv`.
-<!-- proof:end -->
+Fill a selected-candidates CSV using:
 
-## What Goes In
-- transcript text
-- YouTube or local media
-- local document text
+```text
+docs/selected_gold_candidates_template.csv
+```
 
-## What Comes Out
-- transcript artifacts: `transcript.json`, `transcript.txt`
-- deterministic scoring artifacts: `chunks_scored.jsonl`, `guidance.csv`, `guidance_revision.csv`, `tone_changes.csv`
-- signal tables: `uncertainty_signals.csv`, `reassurance_signals.csv`, `analyst_skepticism.csv`
-- reviewer outputs: `metrics.json`, `report.md`, `run_meta.json`
-- optional supporting artifacts: `qa_shift_summary.json`, `audio_behavior_summary.json`, `multimodal_support_summary.json`
-
-The scorecard in `metrics.json` is a deterministic presentation layer over extracted evidence. It is meant to route reviewer attention into concrete categories, not replace the underlying files.
-
-## What Makes It Credible
-- Frozen labels are committed under [`data/gold_guidance_calls/`](data/gold_guidance_calls/).
-- Current evaluation checkpoints are documented in [`docs/evaluation-summary.md`](docs/evaluation-summary.md).
-- The canonical LLY proof bundle is committed under [`outputs/LLY_2025_Q2_call08/`](outputs/LLY_2025_Q2_call08/).
-- The repo keeps explicit boundaries around what is demonstrated, partial, and unproven in [`docs/current-status.md`](docs/current-status.md) and [`docs/portfolio-proof.md`](docs/portfolio-proof.md).
-
-Current repo-level checkpoints:
-- frozen benchmark agreement: `9/9`
-- unseen holdout agreement: `7/7`
-- watchlist-derived unseen holdout agreement: `7/7`
-- behavior rule-QA set: `58/58`
-
-These numbers support deterministic review-tool positioning only. They do not establish predictive edge, statistical significance, or trading performance.
-
-## Deterministic-First Boundary
-- Transcript-backed deterministic artifacts are the source of truth.
-- Audio, NLP, and video outputs are supporting layers only.
-- Optional model sidecars do not overwrite deterministic labels or benchmark truth.
-- Review confidence is confidence in the interpretation of available evidence, not investment confidence.
-- The repo should be presented as workflow and evidence-packaging infrastructure, not as hidden-state inference.
-
-## Local Review Shell
-The main local shell is served by `app/site_server.py`:
+Convert only the approved candidate IDs into gold labels:
 
 ```bash
-PYTHONPATH=src PORT=7872 python app/site_server.py
+python tools/run_case_pipeline.py --case AAPL_2026_Q1 --stage gold --selected-csv /path/to/selected_gold_candidates.csv
 ```
 
-It is useful for walkthroughs and product demos, but the canonical portfolio proof still lives in the checked-in LLY output bundle and supporting docs linked above.
+After valid non-empty gold labels exist, rerun the case pipeline or corpus analysis to produce weak-vs-gold evaluation rows. The evaluation layer skips cleanly when valid gold labels are absent.
 
-## Repo Structure
-- `app/`: local review shell
-- `data/gold_guidance_calls/`: frozen benchmark labels and source manifests
-- `docs/`: demo path, current status, evaluation notes, and proof framing
-- `outputs/LLY_2025_Q2_call08/`: canonical recruiter-facing proof bundle
-- `scripts/`: verification and portfolio-proof helpers
-- `src/earnings_call_sentiment/`: CLI and extraction pipeline
+## What is Proven
 
-## Additional References
-- [`docs/demo-path.md`](docs/demo-path.md)
-- [`docs/portfolio-proof.md`](docs/portfolio-proof.md)
-- [`docs/current-status.md`](docs/current-status.md)
-- [`docs/evaluation-summary.md`](docs/evaluation-summary.md)
-- [`docs/evidence-map.md`](docs/evidence-map.md)
+- The deterministic earnings-call pipeline executes end to end.
+- `31` active earnings-call cases have been processed.
+- Raw transcript mutation is avoided and checked.
+- Weak-label packet workflow exists.
+- Selected-candidate approval workflow exists.
+- Evaluation safely skips when no valid gold labels exist.
+- The test suite passed at approximately `283` tests.
+- Weak labels and gold labels remain separate by design.
 
-## Why This Matters
-For technical pre-sales, workflow design, and AI-systems conversations, this repo shows a useful pattern:
-- start with deterministic extraction
-- preserve auditable intermediate artifacts
-- keep optional model layers additive
-- make non-claims explicit
-- give reviewers a reproducible proof path instead of a vague product story
+## What is Not Proven
+
+- No valid gold-label benchmark exists yet.
+- No precision, recall, or F1 claim is made.
+- No statistical significance claim is made.
+- No alpha, trading edge, stock prediction, or investment-advice claim is made.
+- No production ML performance claim is made.
+- Sales, support, customer-success, and renewal generalization has not been validated.
+
+## Expanded Scope / Roadmap
+
+The same future architecture can be extended beyond earnings calls:
+
+```text
+transcript -> deterministic signals -> human review -> gold labels -> evaluation
+```
+
+Roadmap domains:
+
+- Sales: buyer intent, objections, deal risk.
+- Customer Success: satisfaction, usage risk, expansion signal.
+- Support: issue severity, escalation risk, recurring issue.
+- Renewals: churn risk, blockers, value perception.
+
+These domains are roadmap scope only. They are not validated production workflows in the current repo state.
+
+## Validation Commands
+
+Markdown and documentation validation:
+
+```bash
+python scripts/check_markdown_links.py
+```
+
+Python compile check:
+
+```bash
+python3 -m py_compile tools/*.py tools/transcript_downloader/*.py scripts/*.py
+```
+
+Test suite:
+
+```bash
+pytest -q
+```
+
+Gold-label scaffold validation:
+
+```bash
+python tools/transcript_downloader/validate_gold_labels.py --root "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts"
+```
+
+Corpus analysis:
+
+```bash
+python tools/transcript_downloader/run_corpus_analysis.py --root "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts"
+```
+
+## Key Docs
+
+- [Label taxonomy](docs/label-taxonomy.md)
+- [Proof of intelligence](docs/proof-of-intelligence.md)
+- [Corpus validation report](docs/corpus-validation-report.md)
+- [Gold-label JSONL template](docs/gold-label-jsonl-template.md)
+- [Gold-labeling review packet](docs/gold-labeling-review-packet.md)
+- [Selected-candidates example](docs/selected_gold_candidates_example.md)
+- [Transcript sectioning and labeling playbook](docs/transcript-sectioning-and-labeling-playbook.md)
+
+## Branch Presentation Note
+
+GitHub currently reports `main` as the default branch. The current Signal Engine 2.0 transcript corpus pipeline work lives on `codex/transcript-corpus-pipeline`.

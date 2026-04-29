@@ -1,0 +1,56 @@
+{
+  "conversation_id": "support_refund_escalation_001",
+  "participants": [
+    {
+      "participant_id": "cust_1",
+      "name": "Jordan",
+      "role": "customer",
+      "organization": "Northwind"
+    },
+    {
+      "participant_id": "agent_1",
+      "name": "Maya",
+      "role": "agent",
+      "organization": "Signal Support"
+    }
+  ],
+  "transcript_segments": [
+    {
+      "message_index": 0,
+      "speaker_id": "cust_1",
+      "role": "customer",
+      "text": "Hi, I'm honestly pretty frustrated. Ticket 78421 has been open for 11 days and the refund still hasn't posted to our card.",
+      "timestamp_start": "00:00:01",
+      "timestamp_end": "00:00:10"
+    },
+    {
+      "message_index": 1,
+      "speaker_id": "agent_1",
+      "role": "agent",
+      "text": "Refund timing sits with another team, so please refer to the billing FAQ for now while we look into it on our side.",
+      "timestamp_start": "00:00:11",
+      "timestamp_end": "00:00:18"
+    },
+    {
+      "message_index": 2,
+      "speaker_id": "cust_1",
+      "role": "customer",
+      "text": "That still doesn't answer the question. I need a real date, not a FAQ, and if this is still unresolved today I'll escalate it to your manager and dispute the charge.",
+      "timestamp_start": "00:00:19",
+      "timestamp_end": "00:00:31"
+    },
+    {
+      "message_index": 3,
+      "speaker_id": "agent_1",
+      "role": "agent",
+      "text": "We are still looking into it and someone will reach out later once billing has an update.",
+      "timestamp_start": "00:00:32",
+      "timestamp_end": "00:00:39"
+    }
+  ],
+  "source": {
+    "source_type": "synthetic_sample",
+    "source_path": "data/signal_engine_2_0/sample_support.json",
+    "notes": "Tiny deterministic support escalation example with frustration, deflection, unresolved status, and escalation risk."
+  }
+}

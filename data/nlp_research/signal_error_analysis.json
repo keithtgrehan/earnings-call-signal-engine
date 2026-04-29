@@ -1,0 +1,1440 @@
+{
+  "status": "ok",
+  "task": "signal_family_error_analysis",
+  "dataset_path": "data/nlp_research/human_reviewed_signal_labels.jsonl",
+  "predictions_path": "data/nlp_research/transcript_baseline_predictions.jsonl",
+  "dataset_size": 48,
+  "evaluation_scope": "train_test_split",
+  "split_details": {
+    "train_size": 32,
+    "test_size": 16,
+    "random_seed": 42,
+    "train_ids": [
+      "opp_account_expand_realistic_001",
+      "risk_support_anger_seed_001",
+      "neut_sales_status_full_001",
+      "opp_account_confirm_owners_001",
+      "unc_sales_unknown_after_pilot_001",
+      "risk_sales_procurement_block_001",
+      "opp_support_resolution_seed_001",
+      "neut_sales_opening_thanks_001",
+      "risk_support_billing_delay_001",
+      "opp_account_followthrough_seed_001",
+      "unc_support_concern_seed_001",
+      "risk_sales_pricing_objection_001",
+      "unc_account_expansion_realistic_001",
+      "neut_account_status_intro_001",
+      "unc_account_if_recovery_lands_001",
+      "neut_sales_acknowledgement_001",
+      "risk_account_reduce_seats_001",
+      "opp_sales_pilot_interest_001",
+      "opp_sales_plan_commitment_001",
+      "unc_support_waiting_update_001",
+      "opp_sales_security_packet_001",
+      "risk_support_escalation_001",
+      "neut_sales_opening_full_001",
+      "risk_support_dispute_001",
+      "unc_sales_details_later_001",
+      "unc_sales_confusion_seed_001",
+      "opp_account_expand_support_001",
+      "unc_sales_security_review_001",
+      "neut_sales_legal_status_001",
+      "risk_support_help_center_001",
+      "neut_account_review_schedule_001",
+      "opp_account_named_owners_001"
+    ],
+    "test_ids": [
+      "neut_sales_status_procurement_001",
+      "risk_account_vendor_risk_001",
+      "opp_sales_security_review_path_001",
+      "unc_account_rollout_condition_001",
+      "neut_account_status_full_001",
+      "risk_account_unresolved_001",
+      "opp_account_recovery_plan_001",
+      "opp_sales_procurement_path_001",
+      "opp_account_own_recovery_001",
+      "neut_account_status_meeting_001",
+      "unc_sales_probably_001",
+      "unc_support_confusion_seed_001",
+      "risk_support_deflection_001",
+      "risk_support_refund_delay_001",
+      "neut_account_status_agenda_001",
+      "unc_sales_discount_signoff_001"
+    ]
+  },
+  "canonical_system": "deterministic_rules",
+  "benchmark_context": {
+    "warning": "Early labeled benchmark only, not statistical proof.",
+    "benchmark_runs": [
+      {
+        "variant_id": "majority_baseline",
+        "label": "Majority baseline",
+        "system_type": "baseline",
+        "canonical": false,
+        "exploratory": false,
+        "model_family": "majority_class",
+        "ngram_range": null,
+        "class_weight": null,
+        "metrics": {
+          "accuracy": 0.25,
+          "macro_f1": 0.1,
+          "weighted_f1": 0.1,
+          "per_label": {
+            "risk_friction": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "support": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "opportunity_commitment": {
+              "tp": 4,
+              "fp": 12,
+              "fn": 0,
+              "support": 4,
+              "precision": 0.25,
+              "recall": 1.0,
+              "f1": 0.4
+            },
+            "uncertainty_hedging": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "support": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "neutral": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "support": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "confusion_matrix": {
+            "risk_friction": {
+              "risk_friction": 0,
+              "opportunity_commitment": 4,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "opportunity_commitment": {
+              "risk_friction": 0,
+              "opportunity_commitment": 4,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "uncertainty_hedging": {
+              "risk_friction": 0,
+              "opportunity_commitment": 4,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "neutral": {
+              "risk_friction": 0,
+              "opportunity_commitment": 4,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            }
+          }
+        }
+      },
+      {
+        "variant_id": "deterministic_rules",
+        "label": "Deterministic rules",
+        "system_type": "rules",
+        "canonical": true,
+        "exploratory": false,
+        "model_family": "deterministic_lexical_rules",
+        "ngram_range": null,
+        "class_weight": null,
+        "metrics": {
+          "accuracy": 0.5,
+          "macro_f1": 0.4047619047619047,
+          "weighted_f1": 0.4047619047619047,
+          "per_label": {
+            "risk_friction": {
+              "tp": 4,
+              "fp": 4,
+              "fn": 0,
+              "support": 4,
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666
+            },
+            "opportunity_commitment": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 1,
+              "support": 4,
+              "precision": 0.6,
+              "recall": 0.75,
+              "f1": 0.6666666666666665
+            },
+            "uncertainty_hedging": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "support": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "neutral": {
+              "tp": 1,
+              "fp": 2,
+              "fn": 3,
+              "support": 4,
+              "precision": 0.3333333333333333,
+              "recall": 0.25,
+              "f1": 0.28571428571428575
+            }
+          },
+          "confusion_matrix": {
+            "risk_friction": {
+              "risk_friction": 4,
+              "opportunity_commitment": 0,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "opportunity_commitment": {
+              "risk_friction": 0,
+              "opportunity_commitment": 3,
+              "uncertainty_hedging": 0,
+              "neutral": 1
+            },
+            "uncertainty_hedging": {
+              "risk_friction": 2,
+              "opportunity_commitment": 1,
+              "uncertainty_hedging": 0,
+              "neutral": 1
+            },
+            "neutral": {
+              "risk_friction": 2,
+              "opportunity_commitment": 1,
+              "uncertainty_hedging": 0,
+              "neutral": 1
+            }
+          }
+        }
+      },
+      {
+        "variant_id": "tfidf_logreg_unigram",
+        "label": "TF-IDF + LogisticRegression (1,1)",
+        "system_type": "classifier",
+        "canonical": false,
+        "exploratory": true,
+        "model_family": "logistic_regression",
+        "ngram_range": [
+          1,
+          1
+        ],
+        "class_weight": null,
+        "metrics": {
+          "accuracy": 0.3125,
+          "macro_f1": 0.32692307692307687,
+          "weighted_f1": 0.32692307692307687,
+          "per_label": {
+            "risk_friction": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 3,
+              "support": 4,
+              "precision": 0.5,
+              "recall": 0.25,
+              "f1": 0.3333333333333333
+            },
+            "opportunity_commitment": {
+              "tp": 2,
+              "fp": 7,
+              "fn": 2,
+              "support": 4,
+              "precision": 0.2222222222222222,
+              "recall": 0.5,
+              "f1": 0.30769230769230765
+            },
+            "uncertainty_hedging": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 4,
+              "support": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "neutral": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2,
+              "support": 4,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            }
+          },
+          "confusion_matrix": {
+            "risk_friction": {
+              "risk_friction": 1,
+              "opportunity_commitment": 3,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "opportunity_commitment": {
+              "risk_friction": 0,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 2,
+              "neutral": 0
+            },
+            "uncertainty_hedging": {
+              "risk_friction": 1,
+              "opportunity_commitment": 3,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "neutral": {
+              "risk_friction": 0,
+              "opportunity_commitment": 1,
+              "uncertainty_hedging": 1,
+              "neutral": 2
+            }
+          }
+        }
+      },
+      {
+        "variant_id": "tfidf_logreg_bigram",
+        "label": "TF-IDF + LogisticRegression (1,2)",
+        "system_type": "classifier",
+        "canonical": false,
+        "exploratory": true,
+        "model_family": "logistic_regression",
+        "ngram_range": [
+          1,
+          2
+        ],
+        "class_weight": null,
+        "metrics": {
+          "accuracy": 0.4375,
+          "macro_f1": 0.46111111111111114,
+          "weighted_f1": 0.46111111111111114,
+          "per_label": {
+            "risk_friction": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3,
+              "support": 4,
+              "precision": 1.0,
+              "recall": 0.25,
+              "f1": 0.4
+            },
+            "opportunity_commitment": {
+              "tp": 2,
+              "fp": 6,
+              "fn": 2,
+              "support": 4,
+              "precision": 0.25,
+              "recall": 0.5,
+              "f1": 0.3333333333333333
+            },
+            "uncertainty_hedging": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 2,
+              "support": 4,
+              "precision": 0.4,
+              "recall": 0.5,
+              "f1": 0.4444444444444445
+            },
+            "neutral": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2,
+              "support": 4,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            }
+          },
+          "confusion_matrix": {
+            "risk_friction": {
+              "risk_friction": 1,
+              "opportunity_commitment": 3,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "opportunity_commitment": {
+              "risk_friction": 0,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 2,
+              "neutral": 0
+            },
+            "uncertainty_hedging": {
+              "risk_friction": 0,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 2,
+              "neutral": 0
+            },
+            "neutral": {
+              "risk_friction": 0,
+              "opportunity_commitment": 1,
+              "uncertainty_hedging": 1,
+              "neutral": 2
+            }
+          }
+        }
+      },
+      {
+        "variant_id": "tfidf_logreg_unigram_balanced",
+        "label": "TF-IDF + LogisticRegression balanced (1,1)",
+        "system_type": "classifier",
+        "canonical": false,
+        "exploratory": true,
+        "model_family": "logistic_regression",
+        "ngram_range": [
+          1,
+          1
+        ],
+        "class_weight": "balanced",
+        "metrics": {
+          "accuracy": 0.375,
+          "macro_f1": 0.3857142857142857,
+          "weighted_f1": 0.3857142857142857,
+          "per_label": {
+            "risk_friction": {
+              "tp": 1,
+              "fp": 2,
+              "fn": 3,
+              "support": 4,
+              "precision": 0.3333333333333333,
+              "recall": 0.25,
+              "f1": 0.28571428571428575
+            },
+            "opportunity_commitment": {
+              "tp": 2,
+              "fp": 4,
+              "fn": 2,
+              "support": 4,
+              "precision": 0.3333333333333333,
+              "recall": 0.5,
+              "f1": 0.4
+            },
+            "uncertainty_hedging": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 4,
+              "support": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "neutral": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 1,
+              "support": 4,
+              "precision": 1.0,
+              "recall": 0.75,
+              "f1": 0.8571428571428571
+            }
+          },
+          "confusion_matrix": {
+            "risk_friction": {
+              "risk_friction": 1,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 1,
+              "neutral": 0
+            },
+            "opportunity_commitment": {
+              "risk_friction": 0,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 2,
+              "neutral": 0
+            },
+            "uncertainty_hedging": {
+              "risk_friction": 2,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "neutral": {
+              "risk_friction": 0,
+              "opportunity_commitment": 0,
+              "uncertainty_hedging": 1,
+              "neutral": 3
+            }
+          }
+        }
+      },
+      {
+        "variant_id": "tfidf_logreg_bigram_balanced",
+        "label": "TF-IDF + LogisticRegression balanced (1,2)",
+        "system_type": "classifier",
+        "canonical": false,
+        "exploratory": true,
+        "model_family": "logistic_regression",
+        "ngram_range": [
+          1,
+          2
+        ],
+        "class_weight": "balanced",
+        "metrics": {
+          "accuracy": 0.5,
+          "macro_f1": 0.5,
+          "weighted_f1": 0.5,
+          "per_label": {
+            "risk_friction": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 3,
+              "support": 4,
+              "precision": 0.5,
+              "recall": 0.25,
+              "f1": 0.3333333333333333
+            },
+            "opportunity_commitment": {
+              "tp": 2,
+              "fp": 4,
+              "fn": 2,
+              "support": 4,
+              "precision": 0.3333333333333333,
+              "recall": 0.5,
+              "f1": 0.4
+            },
+            "uncertainty_hedging": {
+              "tp": 3,
+              "fp": 3,
+              "fn": 1,
+              "support": 4,
+              "precision": 0.5,
+              "recall": 0.75,
+              "f1": 0.6
+            },
+            "neutral": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2,
+              "support": 4,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            }
+          },
+          "confusion_matrix": {
+            "risk_friction": {
+              "risk_friction": 1,
+              "opportunity_commitment": 3,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "opportunity_commitment": {
+              "risk_friction": 0,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 2,
+              "neutral": 0
+            },
+            "uncertainty_hedging": {
+              "risk_friction": 0,
+              "opportunity_commitment": 1,
+              "uncertainty_hedging": 3,
+              "neutral": 0
+            },
+            "neutral": {
+              "risk_friction": 1,
+              "opportunity_commitment": 0,
+              "uncertainty_hedging": 1,
+              "neutral": 2
+            }
+          }
+        }
+      },
+      {
+        "variant_id": "tfidf_linear_svc_unigram_balanced",
+        "label": "TF-IDF + LinearSVC balanced (1,1)",
+        "system_type": "classifier",
+        "canonical": false,
+        "exploratory": true,
+        "model_family": "linear_svc",
+        "ngram_range": [
+          1,
+          1
+        ],
+        "class_weight": "balanced",
+        "metrics": {
+          "accuracy": 0.4375,
+          "macro_f1": 0.45039682539682535,
+          "weighted_f1": 0.45039682539682535,
+          "per_label": {
+            "risk_friction": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 2,
+              "support": 4,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5
+            },
+            "opportunity_commitment": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 2,
+              "support": 4,
+              "precision": 0.4,
+              "recall": 0.5,
+              "f1": 0.4444444444444445
+            },
+            "uncertainty_hedging": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 4,
+              "support": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "neutral": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 1,
+              "support": 4,
+              "precision": 1.0,
+              "recall": 0.75,
+              "f1": 0.8571428571428571
+            }
+          },
+          "confusion_matrix": {
+            "risk_friction": {
+              "risk_friction": 2,
+              "opportunity_commitment": 1,
+              "uncertainty_hedging": 1,
+              "neutral": 0
+            },
+            "opportunity_commitment": {
+              "risk_friction": 0,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 2,
+              "neutral": 0
+            },
+            "uncertainty_hedging": {
+              "risk_friction": 2,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "neutral": {
+              "risk_friction": 0,
+              "opportunity_commitment": 0,
+              "uncertainty_hedging": 1,
+              "neutral": 3
+            }
+          }
+        }
+      },
+      {
+        "variant_id": "tfidf_linear_svc_bigram_balanced",
+        "label": "TF-IDF + LinearSVC balanced (1,2)",
+        "system_type": "classifier",
+        "canonical": false,
+        "exploratory": true,
+        "model_family": "linear_svc",
+        "ngram_range": [
+          1,
+          2
+        ],
+        "class_weight": "balanced",
+        "metrics": {
+          "accuracy": 0.5625,
+          "macro_f1": 0.5706349206349206,
+          "weighted_f1": 0.5706349206349206,
+          "per_label": {
+            "risk_friction": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 2,
+              "support": 4,
+              "precision": 0.6666666666666666,
+              "recall": 0.5,
+              "f1": 0.5714285714285715
+            },
+            "opportunity_commitment": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 2,
+              "support": 4,
+              "precision": 0.4,
+              "recall": 0.5,
+              "f1": 0.4444444444444445
+            },
+            "uncertainty_hedging": {
+              "tp": 3,
+              "fp": 3,
+              "fn": 1,
+              "support": 4,
+              "precision": 0.5,
+              "recall": 0.75,
+              "f1": 0.6
+            },
+            "neutral": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2,
+              "support": 4,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            }
+          },
+          "confusion_matrix": {
+            "risk_friction": {
+              "risk_friction": 2,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 0,
+              "neutral": 0
+            },
+            "opportunity_commitment": {
+              "risk_friction": 0,
+              "opportunity_commitment": 2,
+              "uncertainty_hedging": 2,
+              "neutral": 0
+            },
+            "uncertainty_hedging": {
+              "risk_friction": 0,
+              "opportunity_commitment": 1,
+              "uncertainty_hedging": 3,
+              "neutral": 0
+            },
+            "neutral": {
+              "risk_friction": 1,
+              "opportunity_commitment": 0,
+              "uncertainty_hedging": 1,
+              "neutral": 2
+            }
+          }
+        }
+      }
+    ]
+  },
+  "error_buckets": {
+    "counts": {
+      "total_evaluated": 16,
+      "deterministic_rule_errors": 8,
+      "classifier_errors": 7,
+      "both_wrong": 3,
+      "classifier_only_correct": 5,
+      "rules_only_correct": 4,
+      "both_correct": 4,
+      "ambiguous_or_low_confidence": 10
+    },
+    "definitions": {
+      "both_wrong": "Neither deterministic rules nor classifier matched the gold label.",
+      "classifier_only_correct": "Classifier matched gold label and rules did not.",
+      "rules_only_correct": "Rules matched gold label and classifier did not.",
+      "ambiguous_or_low_confidence": "Low classifier confidence, weak rule evidence, or near-tie signal."
+    }
+  },
+  "grouped_summary": {
+    "by_true_label": {
+      "neutral": 4,
+      "risk_friction": 4,
+      "opportunity_commitment": 4,
+      "uncertainty_hedging": 4
+    },
+    "by_predicted_label": {
+      "neutral": 2,
+      "opportunity_commitment": 5,
+      "uncertainty_hedging": 6,
+      "risk_friction": 3
+    },
+    "by_error_pair": {
+      "neutral->neutral": 2,
+      "risk_friction->opportunity_commitment": 2,
+      "opportunity_commitment->uncertainty_hedging": 2,
+      "uncertainty_hedging->opportunity_commitment": 1,
+      "risk_friction->risk_friction": 2,
+      "opportunity_commitment->opportunity_commitment": 2,
+      "neutral->uncertainty_hedging": 1,
+      "uncertainty_hedging->uncertainty_hedging": 3,
+      "neutral->risk_friction": 1
+    },
+    "by_domain": {
+      "sales": 5,
+      "account_management": 8,
+      "support": 3
+    },
+    "by_source_file": {
+      "data/signal_engine_2_0/emotion_benchmark/sample_emotion_cases.jsonl": 5,
+      "data/signal_engine_2_0/sample_account_management.json": 4,
+      "data/signal_engine_2_0/sample_sales.json": 3,
+      "data/signal_engine_2_0/fixtures/account_management_realistic.jsonl": 1,
+      "data/signal_engine_2_0/fixtures/sales_calls_realistic.jsonl": 1,
+      "data/signal_engine_2_0/sample_support.json": 2
+    },
+    "by_evidence_term": {
+      "procurement": 2,
+      "cut seats": 1,
+      "look at another vendor": 1,
+      "renewal": 3,
+      "rollout": 1,
+      "still dealing with": 1,
+      "unresolved": 1,
+      "send": 1,
+      "action items": 1,
+      "i own": 2,
+      "recovery plan": 2,
+      "pricing": 1,
+      "another team": 1,
+      "frustrated": 1,
+      "discount": 1
+    },
+    "by_text_length_bucket": {
+      "short": 11,
+      "medium": 5
+    },
+    "by_confidence_bucket": {
+      "unknown": 16
+    }
+  },
+  "recommended_action_summary": {
+    "tighten_lexicon_term": 9,
+    "improve_neutral_examples": 4,
+    "needs_second_reviewer": 11,
+    "benchmark_only_no_label_change": 4,
+    "hold_for_gold_set_review": 3,
+    "review_conditionals_and_hedges": 4,
+    "no_action_clear_ok": 1
+  },
+  "cases": [
+    {
+      "id": "neut_sales_status_procurement_001",
+      "domain": "sales",
+      "source_file": "data/signal_engine_2_0/emotion_benchmark/sample_emotion_cases.jsonl",
+      "text": "the current status is that procurement is scheduled for next Tuesday",
+      "text_length_bucket": "short",
+      "gold_label": "neutral",
+      "deterministic_label": "opportunity_commitment",
+      "deterministic_correct": false,
+      "deterministic_evidence_terms": [
+        "procurement"
+      ],
+      "deterministic_evidence_count": 1,
+      "classifier_label": "neutral",
+      "classifier_correct": true,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": true,
+      "rules_only_correct": false,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": true,
+      "label_source": "human_seeded_v1",
+      "rationale": "This clause is a plain process update without clear friction or commitment strength on its own.",
+      "notes": "Clause split from a neutral operational update.",
+      "recommended_actions": [
+        "tighten_lexicon_term",
+        "improve_neutral_examples",
+        "needs_second_reviewer"
+      ],
+      "priority_score": 6,
+      "priority_reason": "classifier recovers the gold label where rules miss; confidence or evidence pattern looks ambiguous; neutral coverage still needs tightening",
+      "error_bucket": "classifier_only_correct",
+      "bucket_tags": [
+        "classifier_only_correct",
+        "ambiguous_or_low_confidence"
+      ]
+    },
+    {
+      "id": "risk_account_vendor_risk_001",
+      "domain": "account_management",
+      "source_file": "data/signal_engine_2_0/sample_account_management.json",
+      "text": "But if these issues stay open into renewal, we may cut seats, delay the renewal, or look at another vendor.",
+      "text_length_bucket": "medium",
+      "gold_label": "risk_friction",
+      "deterministic_label": "risk_friction",
+      "deterministic_correct": true,
+      "deterministic_evidence_terms": [
+        "cut seats",
+        "look at another vendor",
+        "renewal"
+      ],
+      "deterministic_evidence_count": 3,
+      "classifier_label": "opportunity_commitment",
+      "classifier_correct": false,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": false,
+      "rules_only_correct": true,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": false,
+      "label_source": "human_seeded_v1",
+      "rationale": "The customer explicitly names downgrade and competitive-switch risk.",
+      "notes": "Full churn-pressure turn from the account-management sample.",
+      "recommended_actions": [
+        "benchmark_only_no_label_change",
+        "tighten_lexicon_term"
+      ],
+      "priority_score": 3,
+      "priority_reason": "rules outperform the selected classifier on this example",
+      "error_bucket": "rules_only_correct",
+      "bucket_tags": [
+        "rules_only_correct"
+      ]
+    },
+    {
+      "id": "opp_sales_security_review_path_001",
+      "domain": "sales",
+      "source_file": "data/signal_engine_2_0/sample_sales.json",
+      "text": "the onboarding looks lighter than what we've seen before.",
+      "text_length_bucket": "short",
+      "gold_label": "opportunity_commitment",
+      "deterministic_label": "neutral",
+      "deterministic_correct": false,
+      "deterministic_evidence_terms": [],
+      "deterministic_evidence_count": 0,
+      "classifier_label": "uncertainty_hedging",
+      "classifier_correct": false,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": true,
+      "classifier_only_correct": false,
+      "rules_only_correct": false,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": true,
+      "label_source": "human_seeded_v1",
+      "rationale": "This clause suggests positive comparative fit, which supports forward motion without standing alone as a close signal.",
+      "notes": "Clause split from a buyer-interest turn; labeled conservatively as weak opportunity.",
+      "recommended_actions": [
+        "needs_second_reviewer",
+        "hold_for_gold_set_review"
+      ],
+      "priority_score": 8,
+      "priority_reason": "both systems miss the gold label; confidence or evidence pattern looks ambiguous",
+      "error_bucket": "both_wrong",
+      "bucket_tags": [
+        "both_wrong",
+        "ambiguous_or_low_confidence"
+      ]
+    },
+    {
+      "id": "unc_account_rollout_condition_001",
+      "domain": "account_management",
+      "source_file": "data/signal_engine_2_0/sample_account_management.json",
+      "text": "If the rollout stabilizes this quarter",
+      "text_length_bucket": "short",
+      "gold_label": "uncertainty_hedging",
+      "deterministic_label": "opportunity_commitment",
+      "deterministic_correct": false,
+      "deterministic_evidence_terms": [
+        "rollout"
+      ],
+      "deterministic_evidence_count": 1,
+      "classifier_label": "opportunity_commitment",
+      "classifier_correct": false,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": true,
+      "classifier_only_correct": false,
+      "rules_only_correct": false,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": false,
+      "label_source": "human_seeded_v1",
+      "rationale": "The customer frames expansion upside as conditional on future stability.",
+      "notes": "Condition clause from an expansion turn.",
+      "recommended_actions": [
+        "needs_second_reviewer",
+        "hold_for_gold_set_review",
+        "review_conditionals_and_hedges"
+      ],
+      "priority_score": 6,
+      "priority_reason": "both systems miss the gold label",
+      "error_bucket": "both_wrong",
+      "bucket_tags": [
+        "both_wrong"
+      ]
+    },
+    {
+      "id": "neut_account_status_full_001",
+      "domain": "account_management",
+      "source_file": "data/signal_engine_2_0/emotion_benchmark/sample_emotion_cases.jsonl",
+      "text": "Sharing the update from finance: the meeting starts at 09:00 CET and the agenda is attached in the renewal folder.",
+      "text_length_bucket": "medium",
+      "gold_label": "neutral",
+      "deterministic_label": "risk_friction",
+      "deterministic_correct": false,
+      "deterministic_evidence_terms": [
+        "renewal"
+      ],
+      "deterministic_evidence_count": 1,
+      "classifier_label": "neutral",
+      "classifier_correct": true,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": true,
+      "rules_only_correct": false,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": true,
+      "label_source": "human_seeded_v1",
+      "rationale": "This is an operational scheduling update rather than a risk or opportunity signal.",
+      "notes": "Emotion benchmark neutral case reused as a process-update label.",
+      "recommended_actions": [
+        "tighten_lexicon_term",
+        "improve_neutral_examples",
+        "needs_second_reviewer"
+      ],
+      "priority_score": 5,
+      "priority_reason": "classifier recovers the gold label where rules miss; confidence or evidence pattern looks ambiguous; neutral coverage still needs tightening",
+      "error_bucket": "classifier_only_correct",
+      "bucket_tags": [
+        "classifier_only_correct",
+        "ambiguous_or_low_confidence"
+      ]
+    },
+    {
+      "id": "risk_account_unresolved_001",
+      "domain": "account_management",
+      "source_file": "data/signal_engine_2_0/sample_account_management.json",
+      "text": "we're still dealing with two unresolved onboarding issues from the launch.",
+      "text_length_bucket": "short",
+      "gold_label": "risk_friction",
+      "deterministic_label": "risk_friction",
+      "deterministic_correct": true,
+      "deterministic_evidence_terms": [
+        "still dealing with",
+        "unresolved"
+      ],
+      "deterministic_evidence_count": 2,
+      "classifier_label": "risk_friction",
+      "classifier_correct": true,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": false,
+      "rules_only_correct": false,
+      "both_correct": true,
+      "ambiguous_or_low_confidence": true,
+      "label_source": "human_seeded_v1",
+      "rationale": "The account context is still carrying unresolved launch issues, which is a direct friction signal.",
+      "notes": "Clause split from a renewal-risk turn.",
+      "recommended_actions": [
+        "needs_second_reviewer"
+      ],
+      "priority_score": 3,
+      "priority_reason": "confidence or evidence pattern looks ambiguous",
+      "error_bucket": "low_confidence_correct",
+      "bucket_tags": [
+        "both_correct",
+        "ambiguous_or_low_confidence"
+      ]
+    },
+    {
+      "id": "opp_account_recovery_plan_001",
+      "domain": "account_management",
+      "source_file": "data/signal_engine_2_0/sample_account_management.json",
+      "text": "I own the action items and will send a recovery plan by Friday with owners for each open item.",
+      "text_length_bucket": "medium",
+      "gold_label": "opportunity_commitment",
+      "deterministic_label": "opportunity_commitment",
+      "deterministic_correct": true,
+      "deterministic_evidence_terms": [
+        "send",
+        "action items",
+        "i own",
+        "recovery plan"
+      ],
+      "deterministic_evidence_count": 4,
+      "classifier_label": "opportunity_commitment",
+      "classifier_correct": true,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": false,
+      "rules_only_correct": false,
+      "both_correct": true,
+      "ambiguous_or_low_confidence": false,
+      "label_source": "human_seeded_v1",
+      "rationale": "The account manager takes ownership and gives a dated recovery commitment.",
+      "notes": "Full owner-commitment turn from the account-management sample.",
+      "recommended_actions": [
+        "tighten_lexicon_term"
+      ],
+      "priority_score": 0,
+      "priority_reason": "clear agreement case",
+      "error_bucket": "both_correct_clear",
+      "bucket_tags": [
+        "both_correct"
+      ]
+    },
+    {
+      "id": "opp_sales_procurement_path_001",
+      "domain": "sales",
+      "source_file": "data/signal_engine_2_0/sample_sales.json",
+      "text": "we can bring procurement in next week.",
+      "text_length_bucket": "short",
+      "gold_label": "opportunity_commitment",
+      "deterministic_label": "opportunity_commitment",
+      "deterministic_correct": true,
+      "deterministic_evidence_terms": [
+        "procurement"
+      ],
+      "deterministic_evidence_count": 1,
+      "classifier_label": "opportunity_commitment",
+      "classifier_correct": true,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": false,
+      "rules_only_correct": false,
+      "both_correct": true,
+      "ambiguous_or_low_confidence": true,
+      "label_source": "human_seeded_v1",
+      "rationale": "The buyer names a concrete next step if the commercial conditions land.",
+      "notes": "Clause split from a buyer next-step turn.",
+      "recommended_actions": [
+        "tighten_lexicon_term",
+        "needs_second_reviewer"
+      ],
+      "priority_score": 3,
+      "priority_reason": "confidence or evidence pattern looks ambiguous",
+      "error_bucket": "low_confidence_correct",
+      "bucket_tags": [
+        "both_correct",
+        "ambiguous_or_low_confidence"
+      ]
+    },
+    {
+      "id": "opp_account_own_recovery_001",
+      "domain": "account_management",
+      "source_file": "data/signal_engine_2_0/fixtures/account_management_realistic.jsonl",
+      "text": "I own the recovery plan",
+      "text_length_bucket": "short",
+      "gold_label": "opportunity_commitment",
+      "deterministic_label": "opportunity_commitment",
+      "deterministic_correct": true,
+      "deterministic_evidence_terms": [
+        "i own",
+        "recovery plan"
+      ],
+      "deterministic_evidence_count": 2,
+      "classifier_label": "uncertainty_hedging",
+      "classifier_correct": false,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": false,
+      "rules_only_correct": true,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": false,
+      "label_source": "human_seeded_v1",
+      "rationale": "This clause contains explicit ownership language.",
+      "notes": "Short ownership clause from the realistic account-management fixture.",
+      "recommended_actions": [
+        "benchmark_only_no_label_change"
+      ],
+      "priority_score": 4,
+      "priority_reason": "rules outperform the selected classifier on this example",
+      "error_bucket": "rules_only_correct",
+      "bucket_tags": [
+        "rules_only_correct"
+      ]
+    },
+    {
+      "id": "neut_account_status_meeting_001",
+      "domain": "account_management",
+      "source_file": "data/signal_engine_2_0/emotion_benchmark/sample_emotion_cases.jsonl",
+      "text": "the meeting starts at 09:00 CET",
+      "text_length_bucket": "short",
+      "gold_label": "neutral",
+      "deterministic_label": "neutral",
+      "deterministic_correct": true,
+      "deterministic_evidence_terms": [],
+      "deterministic_evidence_count": 0,
+      "classifier_label": "uncertainty_hedging",
+      "classifier_correct": false,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": false,
+      "rules_only_correct": true,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": true,
+      "label_source": "human_seeded_v1",
+      "rationale": "This is a scheduling fact without directional review meaning on its own.",
+      "notes": "Neutral schedule clause.",
+      "recommended_actions": [
+        "benchmark_only_no_label_change",
+        "improve_neutral_examples",
+        "needs_second_reviewer"
+      ],
+      "priority_score": 6,
+      "priority_reason": "rules outperform the selected classifier on this example; confidence or evidence pattern looks ambiguous; neutral coverage still needs tightening",
+      "error_bucket": "rules_only_correct",
+      "bucket_tags": [
+        "rules_only_correct",
+        "ambiguous_or_low_confidence"
+      ]
+    },
+    {
+      "id": "unc_sales_probably_001",
+      "domain": "sales",
+      "source_file": "data/signal_engine_2_0/fixtures/sales_calls_realistic.jsonl",
+      "text": "We can probably work something out on pricing",
+      "text_length_bucket": "short",
+      "gold_label": "uncertainty_hedging",
+      "deterministic_label": "risk_friction",
+      "deterministic_correct": false,
+      "deterministic_evidence_terms": [
+        "pricing"
+      ],
+      "deterministic_evidence_count": 1,
+      "classifier_label": "uncertainty_hedging",
+      "classifier_correct": true,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": true,
+      "rules_only_correct": false,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": true,
+      "label_source": "human_seeded_v1",
+      "rationale": "The rep uses explicitly hedged pricing language.",
+      "notes": "Clause split from a vague rep response.",
+      "recommended_actions": [
+        "tighten_lexicon_term",
+        "review_conditionals_and_hedges",
+        "needs_second_reviewer"
+      ],
+      "priority_score": 6,
+      "priority_reason": "classifier recovers the gold label where rules miss; confidence or evidence pattern looks ambiguous",
+      "error_bucket": "classifier_only_correct",
+      "bucket_tags": [
+        "classifier_only_correct",
+        "ambiguous_or_low_confidence"
+      ]
+    },
+    {
+      "id": "unc_support_confusion_seed_001",
+      "domain": "support",
+      "source_file": "data/signal_engine_2_0/emotion_benchmark/sample_emotion_cases.jsonl",
+      "text": "I'm confused about which invoice version is final because the portal and the email summary do not match.",
+      "text_length_bucket": "medium",
+      "gold_label": "uncertainty_hedging",
+      "deterministic_label": "neutral",
+      "deterministic_correct": false,
+      "deterministic_evidence_terms": [],
+      "deterministic_evidence_count": 0,
+      "classifier_label": "uncertainty_hedging",
+      "classifier_correct": true,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": true,
+      "rules_only_correct": false,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": true,
+      "label_source": "human_seeded_v1",
+      "rationale": "The utterance expresses concrete ambiguity about the current billing state.",
+      "notes": "Emotion benchmark confusion case reused as an ambiguity label.",
+      "recommended_actions": [
+        "tighten_lexicon_term",
+        "review_conditionals_and_hedges",
+        "needs_second_reviewer"
+      ],
+      "priority_score": 5,
+      "priority_reason": "classifier recovers the gold label where rules miss; confidence or evidence pattern looks ambiguous",
+      "error_bucket": "classifier_only_correct",
+      "bucket_tags": [
+        "classifier_only_correct",
+        "ambiguous_or_low_confidence"
+      ]
+    },
+    {
+      "id": "risk_support_deflection_001",
+      "domain": "support",
+      "source_file": "data/signal_engine_2_0/sample_support.json",
+      "text": "Refund timing sits with another team",
+      "text_length_bucket": "short",
+      "gold_label": "risk_friction",
+      "deterministic_label": "risk_friction",
+      "deterministic_correct": true,
+      "deterministic_evidence_terms": [
+        "another team"
+      ],
+      "deterministic_evidence_count": 1,
+      "classifier_label": "opportunity_commitment",
+      "classifier_correct": false,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": false,
+      "rules_only_correct": true,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": true,
+      "label_source": "human_seeded_v1",
+      "rationale": "The response deflects ownership instead of answering the customer's timing question.",
+      "notes": "Clause split from an agent deflection turn.",
+      "recommended_actions": [
+        "benchmark_only_no_label_change",
+        "needs_second_reviewer"
+      ],
+      "priority_score": 6,
+      "priority_reason": "rules outperform the selected classifier on this example; confidence or evidence pattern looks ambiguous",
+      "error_bucket": "rules_only_correct",
+      "bucket_tags": [
+        "rules_only_correct",
+        "ambiguous_or_low_confidence"
+      ]
+    },
+    {
+      "id": "risk_support_refund_delay_001",
+      "domain": "support",
+      "source_file": "data/signal_engine_2_0/sample_support.json",
+      "text": "Hi, I'm honestly pretty frustrated. Ticket 78421 has been open for 11 days and the refund still hasn't posted to our card.",
+      "text_length_bucket": "medium",
+      "gold_label": "risk_friction",
+      "deterministic_label": "risk_friction",
+      "deterministic_correct": true,
+      "deterministic_evidence_terms": [
+        "frustrated"
+      ],
+      "deterministic_evidence_count": 1,
+      "classifier_label": "risk_friction",
+      "classifier_correct": true,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": false,
+      "rules_only_correct": false,
+      "both_correct": true,
+      "ambiguous_or_low_confidence": false,
+      "label_source": "human_seeded_v1",
+      "rationale": "Explicit frustration plus an unresolved refund delay creates a clear operational friction signal.",
+      "notes": "Full customer turn from the synthetic support sample.",
+      "recommended_actions": [
+        "no_action_clear_ok"
+      ],
+      "priority_score": 0,
+      "priority_reason": "clear agreement case",
+      "error_bucket": "both_correct_clear",
+      "bucket_tags": [
+        "both_correct"
+      ]
+    },
+    {
+      "id": "neut_account_status_agenda_001",
+      "domain": "account_management",
+      "source_file": "data/signal_engine_2_0/emotion_benchmark/sample_emotion_cases.jsonl",
+      "text": "the agenda is attached in the renewal folder.",
+      "text_length_bucket": "short",
+      "gold_label": "neutral",
+      "deterministic_label": "risk_friction",
+      "deterministic_correct": false,
+      "deterministic_evidence_terms": [
+        "renewal"
+      ],
+      "deterministic_evidence_count": 1,
+      "classifier_label": "risk_friction",
+      "classifier_correct": false,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": true,
+      "classifier_only_correct": false,
+      "rules_only_correct": false,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": true,
+      "label_source": "human_seeded_v1",
+      "rationale": "This is a purely operational document-reference clause.",
+      "notes": "Neutral attachment reference clause.",
+      "recommended_actions": [
+        "needs_second_reviewer",
+        "hold_for_gold_set_review",
+        "improve_neutral_examples",
+        "tighten_lexicon_term"
+      ],
+      "priority_score": 8,
+      "priority_reason": "both systems miss the gold label; confidence or evidence pattern looks ambiguous; neutral coverage still needs tightening",
+      "error_bucket": "both_wrong",
+      "bucket_tags": [
+        "both_wrong",
+        "ambiguous_or_low_confidence"
+      ]
+    },
+    {
+      "id": "unc_sales_discount_signoff_001",
+      "domain": "sales",
+      "source_file": "data/signal_engine_2_0/sample_sales.json",
+      "text": "If the discount works and security signs off",
+      "text_length_bucket": "short",
+      "gold_label": "uncertainty_hedging",
+      "deterministic_label": "risk_friction",
+      "deterministic_correct": false,
+      "deterministic_evidence_terms": [
+        "discount"
+      ],
+      "deterministic_evidence_count": 1,
+      "classifier_label": "uncertainty_hedging",
+      "classifier_correct": true,
+      "classifier_confidence": null,
+      "classifier_confidence_bucket": "unknown",
+      "classifier_top2_labels": [],
+      "classifier_margin": null,
+      "both_wrong": false,
+      "classifier_only_correct": true,
+      "rules_only_correct": false,
+      "both_correct": false,
+      "ambiguous_or_low_confidence": false,
+      "label_source": "human_seeded_v1",
+      "rationale": "The next step depends on commercial and security contingencies.",
+      "notes": "Conditional clause from a next-step turn.",
+      "recommended_actions": [
+        "tighten_lexicon_term",
+        "review_conditionals_and_hedges"
+      ],
+      "priority_score": 4,
+      "priority_reason": "classifier recovers the gold label where rules miss",
+      "error_bucket": "classifier_only_correct",
+      "bucket_tags": [
+        "classifier_only_correct"
+      ]
+    }
+  ],
+  "limitations": [
+    "Small seeded dataset.",
+    "Classifier variants are exploratory only.",
+    "Deterministic rules remain canonical."
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "status": "ok",
+  "generated_at": "2026-04-25T14:44:30.937168+00:00",
+  "resource_count": 8,
+  "resources": [
+    {
+      "id": "loughran_mcdonald_dictionary",
+      "name": "Loughran-McDonald Master Dictionary",
+      "resource_type": "dictionary",
+      "modality": "transcript",
+      "primary_url": "https://sraf.nd.edu/loughranmcdonald-master-dictionary/",
+      "secondary_urls": [
+        "https://www3.nd.edu/~mcdonald/Word_Lists_files/Documentation_MasterandDocumentDictionaries.pdf",
+        "https://ssrn.com/abstract=1331573"
+      ],
+      "license_or_access_notes": "Official Notre Dame academic distribution is public; review terms before vendoring dictionary files.",
+      "current_access_status": "available",
+      "fit_score_1_to_10": 9,
+      "why_fit": "Best fit for deterministic finance-language extension, especially uncertainty, modal strength, and constraint cues that can stay auditable.",
+      "why_not_score_1_to_10": 3,
+      "why_not": "Dictionary counts still need conversational context and do not solve dialogue structure or multi-domain review on their own.",
+      "best_use_in_signal_engine": "Extend canonical deterministic finance lexicons and benchmark transcript-only feature coverage.",
+      "recommended_phase": "now",
+      "implementation_effort": "low",
+      "risk_level": "low",
+      "default_path": "canonical",
+      "notes": "Strongest immediate fit for earnings-call terminology without adding model dependencies."
+    },
+    {
+      "id": "financial_phrasebank",
+      "name": "Financial PhraseBank",
+      "resource_type": "dataset",
+      "modality": "transcript",
+      "primary_url": "https://arxiv.org/abs/1307.5336",
+      "secondary_urls": [
+        "https://huggingface.co/datasets/ArtGarfunkel/FinancialPhraseBank",
+        "https://doi.org/10.48550/arXiv.1307.5336"
+      ],
+      "license_or_access_notes": "Original paper is public; mirrors often expose separate dataset terms, so reuse should be re-checked before local benchmarking.",
+      "current_access_status": "needs_verification",
+      "fit_score_1_to_10": 7,
+      "why_fit": "Useful small finance benchmark for sanity-checking sentiment behavior on short financial text.",
+      "why_not_score_1_to_10": 5,
+      "why_not": "Short headline sentiment does not map cleanly to transcript evidence, analyst pressure, or reviewer actionability.",
+      "best_use_in_signal_engine": "Benchmark-only transcript sanity checks for finance sentiment, not canonical scoring.",
+      "recommended_phase": "next",
+      "implementation_effort": "medium",
+      "risk_level": "medium",
+      "default_path": "benchmark_only",
+      "notes": "Helpful evaluation reference, but weaker fit than transcript-specific lexicon work."
+    },
+    {
+      "id": "switchboard_mrda",
+      "name": "Switchboard Dialog Act Corpus / MRDA",
+      "resource_type": "corpus",
+      "modality": "transcript_audio",
+      "primary_url": "https://catalog.ldc.upenn.edu/LDC97S62",
+      "secondary_urls": [
+        "https://aclanthology.org/W04-2319.pdf",
+        "https://compprag.christopherpotts.net/swda.html"
+      ],
+      "license_or_access_notes": "Core corpora are gated through LDC or research distribution; metadata and papers are accessible.",
+      "current_access_status": "gated",
+      "fit_score_1_to_10": 6,
+      "why_fit": "Strong conceptual fit for question-answer structure, interruptions, and conversational move taxonomies.",
+      "why_not_score_1_to_10": 6,
+      "why_not": "Access is gated and the domains are not earnings, support, or sales, so direct adoption would add friction.",
+      "best_use_in_signal_engine": "Dialogue-act taxonomy reference and later benchmark-only experiments if access becomes available.",
+      "recommended_phase": "next",
+      "implementation_effort": "medium",
+      "risk_level": "medium",
+      "default_path": "benchmark_only",
+      "notes": "Good methodology reference, but not a default-path dependency."
+    },
+    {
+      "id": "finbert",
+      "name": "FinBERT",
+      "resource_type": "model",
+      "modality": "transcript",
+      "primary_url": "https://huggingface.co/ProsusAI/finbert",
+      "secondary_urls": [
+        "https://arxiv.org/abs/1908.10063",
+        "https://huggingface.co/papers/1908.10063"
+      ],
+      "license_or_access_notes": "Model card is public; downstream commercial and data-provenance review is still advisable before broader use.",
+      "current_access_status": "available",
+      "fit_score_1_to_10": 6,
+      "why_fit": "Good optional finance-domain comparison point for transcript sentiment benchmarking.",
+      "why_not_score_1_to_10": 7,
+      "why_not": "Black-box sentiment scores are too narrow and too opaque to become canonical signal extraction in this repo.",
+      "best_use_in_signal_engine": "Optional benchmark-only comparator for finance text, especially earnings-call phrasing.",
+      "recommended_phase": "later",
+      "implementation_effort": "medium",
+      "risk_level": "medium",
+      "default_path": "benchmark_only",
+      "notes": "Useful as a measured comparator, not as product truth."
+    },
+    {
+      "id": "opensmile",
+      "name": "openSMILE",
+      "resource_type": "tool",
+      "modality": "audio",
+      "primary_url": "https://www.audeering.com/research/opensmile/",
+      "secondary_urls": [
+        "https://audeering.github.io/opensmile/",
+        "https://pypi.org/project/opensmile/"
+      ],
+      "license_or_access_notes": "audEERING documents research-oriented usage; commercial usage requires care.",
+      "current_access_status": "available",
+      "fit_score_1_to_10": 5,
+      "why_fit": "Strong bounded fit for pauses, energy, and prosodic review cues without claiming hidden-state inference.",
+      "why_not_score_1_to_10": 7,
+      "why_not": "Audio features add dependency and rights complexity and should not be interpreted as internal-state truth.",
+      "best_use_in_signal_engine": "Optional audio adapter for sparse prosody cues in later pilot cases.",
+      "recommended_phase": "later",
+      "implementation_effort": "medium",
+      "risk_level": "medium",
+      "default_path": "optional_adapter",
+      "notes": "Only useful once aligned approved audio exists."
+    },
+    {
+      "id": "meld",
+      "name": "MELD",
+      "resource_type": "dataset",
+      "modality": "multimodal",
+      "primary_url": "https://affective-meld.github.io/",
+      "secondary_urls": [
+        "https://arxiv.org/abs/1810.02508",
+        "https://github.com/declare-lab/MELD"
+      ],
+      "license_or_access_notes": "Public project resources exist, but media provenance and downstream reuse posture should be treated carefully.",
+      "current_access_status": "available",
+      "fit_score_1_to_10": 4,
+      "why_fit": "Useful research reference for multimodal conversation emotion benchmarks and evaluation language.",
+      "why_not_score_1_to_10": 8,
+      "why_not": "Friends-based emotion labels are a weak fit for enterprise transcript review and recruiter-facing proof.",
+      "best_use_in_signal_engine": "Benchmark framing only for future multimodal comparisons, not core pipeline work.",
+      "recommended_phase": "later",
+      "implementation_effort": "high",
+      "risk_level": "high",
+      "default_path": "benchmark_only",
+      "notes": "Keep this in documentation until aligned business-conversation media exists."
+    },
+    {
+      "id": "opencv",
+      "name": "OpenCV",
+      "resource_type": "library",
+      "modality": "video",
+      "primary_url": "https://opencv.org/",
+      "secondary_urls": [
+        "https://docs.opencv.org/master/index.html",
+        "https://opencv.org/license/"
+      ],
+      "license_or_access_notes": "OpenCV 4.5.0+ is Apache 2.0; older versions are BSD-licensed.",
+      "current_access_status": "available",
+      "fit_score_1_to_10": 4,
+      "why_fit": "Lightweight fit for frame stats, motion proxies, and simple video preprocessing if sparse visual review is added later.",
+      "why_not_score_1_to_10": 8,
+      "why_not": "Basic vision utilities do not justify body-language certainty claims and are far from canonical transcript evaluation.",
+      "best_use_in_signal_engine": "Optional video utility layer for later sparse cue extraction only.",
+      "recommended_phase": "later",
+      "implementation_effort": "low",
+      "risk_level": "medium",
+      "default_path": "optional_adapter",
+      "notes": "Best treated as infrastructure, not as inference evidence on its own."
+    },
+    {
+      "id": "cmu_mosei",
+      "name": "CMU-MOSEI",
+      "resource_type": "dataset",
+      "modality": "multimodal",
+      "primary_url": "https://github.com/CMU-MultiComp-Lab/CMU-MultimodalSDK",
+      "secondary_urls": [
+        "https://audeering.github.io/datasets/datasets/cmu-mosei.html",
+        "https://github.com/CMU-MultiComp-Lab/CMU-MultimodalSDK"
+      ],
+      "license_or_access_notes": "Widely cited research benchmark, but current practical access/download path should be re-verified before use.",
+      "current_access_status": "needs_verification",
+      "fit_score_1_to_10": 3,
+      "why_fit": "Only useful as a broad multimodal sentiment benchmark reference.",
+      "why_not_score_1_to_10": 9,
+      "why_not": "Generic multimodal sentiment/emotion is a poor fit for transcript-first, evidence-backed business signal extraction.",
+      "best_use_in_signal_engine": "Documentation-only cautionary reference for later multimodal benchmarking decisions.",
+      "recommended_phase": "avoid_for_now",
+      "implementation_effort": "high",
+      "risk_level": "high",
+      "default_path": "documentation_only",
+      "notes": "Low portfolio fit for the current repo direction."
+    }
+  ]
+}
