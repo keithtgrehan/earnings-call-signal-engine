@@ -334,10 +334,12 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
-def valid_gold_labels(path: Path) -> list[dict[str, Any]]:
+def valid_label_rows(path: Path, *, require_human_label: bool) -> list[dict[str, Any]]:
     labels: list[dict[str, Any]] = []
     for row in load_jsonl(path):
         if not {"type", "text_span", "start_char", "end_char"}.issubset(row):
+            continue
+        if require_human_label and row.get("human_label") is not True:
             continue
         if not isinstance(row.get("start_char"), int) or not isinstance(row.get("end_char"), int):
             continue
@@ -349,12 +351,28 @@ def valid_gold_labels(path: Path) -> list[dict[str, Any]]:
     return labels
 
 
+def valid_gold_labels(path: Path) -> list[dict[str, Any]]:
+    """Return final benchmark labels only.
+
+    Final evaluation intentionally requires explicit human_label=true metadata
+    so assistant-reviewed draft rows cannot become benchmark truth by accident.
+    """
+
+    return valid_label_rows(path, require_human_label=True)
+
+
 def spans_overlap(a_start: int, a_end: int, b_start: int, b_end: int) -> int:
     return max(0, min(a_end, b_end) - max(a_start, b_start))
 
 
-def evaluate_case_labels(case_dir: Path) -> tuple[dict[str, Any] | None, list[dict[str, Any]]]:
-    gold_rows = valid_gold_labels(case_dir / "labels" / "gold_labels.jsonl")
+def evaluate_case_labels(
+    case_dir: Path,
+    *,
+    label_filename: str = "gold_labels.jsonl",
+    require_human_label: bool = True,
+    label_count_field: str = "gold_label_count",
+) -> tuple[dict[str, Any] | None, list[dict[str, Any]]]:
+    gold_rows = valid_label_rows(case_dir / "labels" / label_filename, require_human_label=require_human_label)
     if not gold_rows:
         return None, []
     weak_rows = load_jsonl(case_dir / "labels" / "weak_labels.jsonl")
@@ -442,7 +460,7 @@ def evaluate_case_labels(case_dir: Path) -> tuple[dict[str, Any] | None, list[di
     return (
         {
             "case_id": case_dir.name,
-            "gold_label_count": len(gold_rows),
+            label_count_field: len(gold_rows),
             "weak_label_count": len(weak_rows),
             "matched_count": matched_count,
             "missed_gold_count": missed_gold_count,
@@ -457,11 +475,22 @@ def evaluate_case_labels(case_dir: Path) -> tuple[dict[str, Any] | None, list[di
     )
 
 
-def evaluate_gold_corpus(root: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def evaluate_gold_corpus(
+    root: Path,
+    *,
+    label_filename: str = "gold_labels.jsonl",
+    require_human_label: bool = True,
+    label_count_field: str = "gold_label_count",
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     rows: list[dict[str, Any]] = []
     errors: list[dict[str, Any]] = []
     for case_dir in active_case_dirs(root):
-        row, case_errors = evaluate_case_labels(case_dir)
+        row, case_errors = evaluate_case_labels(
+            case_dir,
+            label_filename=label_filename,
+            require_human_label=require_human_label,
+            label_count_field=label_count_field,
+        )
         if row is not None:
             rows.append(row)
             errors.extend(case_errors)
@@ -799,6 +828,57 @@ def write_global_reports(root: Path, source_map: dict[str, Any], analysis_rows: 
         (root / "label_error_analysis.md").write_text("\n".join(analysis_text) + "\n", encoding="utf-8")
     else:
         (root / "label_error_analysis.md").write_text("# Label Error Analysis\n\nGold-label evaluation found 0 valid non-empty human-reviewed label files in the active corpus. Weak-label outputs are deterministic scaffolds only.\n\nWeak-label counts are not model accuracy, and no precision, recall, F1, or statistical performance claim is valid until human-reviewed gold labels exist.\n", encoding="utf-8")
+
+    draft_rows, draft_error_rows = evaluate_gold_corpus(
+        root,
+        label_filename="draft_gold_labels.jsonl",
+        require_human_label=False,
+        label_count_field="draft_label_count",
+    )
+    write_csv(
+        root / "draft_label_evaluation.csv",
+        draft_rows,
+        [
+            "case_id",
+            "draft_label_count",
+            "weak_label_count",
+            "matched_count",
+            "missed_gold_count",
+            "extra_weak_count",
+            "type_match_count",
+            "type_mismatch_count",
+            "overlap_match_count",
+            "exact_match_count",
+            "status",
+        ],
+    )
+    write_csv(root / "draft_label_error_details.csv", draft_error_rows, ["case_id", "error_type", "gold_type", "weak_type", "evidence_text", "notes"])
+    draft_total = sum(int(row["draft_label_count"]) for row in draft_rows)
+    if draft_rows:
+        draft_counts = Counter(str(row.get("error_type", "")) for row in draft_error_rows)
+        draft_text = [
+            "# Draft Label Evaluation",
+            "",
+            "This report compares deterministic weak labels with assistant-reviewed draft labels only.",
+            "Draft labels are review-pending and are not final benchmark truth. Do not use this report for precision, recall, F1, statistical, or investment claims.",
+            "",
+            f"- draft_labeled_cases: {len(draft_rows)}",
+            f"- total_draft_labels: {draft_total}",
+            f"- matched_overlap_count: {sum(int(row['matched_count']) for row in draft_rows)}",
+            f"- missed_draft_count: {sum(int(row['missed_gold_count']) for row in draft_rows)}",
+            f"- extra_weak_count: {sum(int(row['extra_weak_count']) for row in draft_rows)}",
+            f"- type_mismatch_count: {sum(int(row['type_mismatch_count']) for row in draft_rows)}",
+            "",
+            "## Draft Error Themes",
+        ]
+        for key in ("false_positive", "missed_signal", "misclassification", "weak_evidence", "duplicate_signal", "schema_issue", "boilerplate_noise"):
+            draft_text.append(f"- {key}: {draft_counts.get(key, 0)}")
+        (root / "draft_label_error_analysis.md").write_text("\n".join(draft_text) + "\n", encoding="utf-8")
+    else:
+        (root / "draft_label_error_analysis.md").write_text(
+            "# Draft Label Evaluation\n\nNo draft_gold_labels.jsonl rows were available for draft-only evaluation.\n",
+            encoding="utf-8",
+        )
     labels_root = root / "labels"
     labels_root.mkdir(exist_ok=True)
     (labels_root / "gold_labeling_guide.md").write_text(

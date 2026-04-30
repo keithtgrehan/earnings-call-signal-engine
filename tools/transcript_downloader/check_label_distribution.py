@@ -46,6 +46,17 @@ def count_by_type(rows: list[dict[str, Any]], key: str = "type") -> Counter[str]
     return counts
 
 
+def structurally_valid_label_rows(rows: list[dict[str, Any]], *, require_human_label: bool) -> list[dict[str, Any]]:
+    valid: list[dict[str, Any]] = []
+    for row in rows:
+        if require_human_label and row.get("human_label") is not True:
+            continue
+        if not {"type", "text_span", "start_char", "end_char"}.issubset(row):
+            continue
+        valid.append(row)
+    return valid
+
+
 def warnings_for(case_id: str, gold_rows: list[dict[str, Any]], weak_rows: list[dict[str, Any]], target: int) -> list[str]:
     warnings: list[str] = []
     gold_counts = count_by_type(gold_rows)
@@ -83,7 +94,8 @@ def render_markdown(rows: list[dict[str, Any]]) -> str:
     lines = [
         "# Label Distribution Report",
         "",
-        "Conservative distribution checks for human gold labels and deterministic weak labels.",
+        "Conservative distribution checks for human-approved gold labels, draft labels, and deterministic weak labels.",
+        "Final benchmark coverage counts only gold labels with `human_label=true`.",
         "",
         f"- labeled_cases: {labeled_cases}",
         f"- total_gold_labels: {gold_total}",
@@ -94,9 +106,9 @@ def render_markdown(rows: list[dict[str, Any]]) -> str:
     ]
     for label in LABELS:
         lines.append(f"- {label}: {global_counts[label]}")
-    lines.extend(["", "| case_id | gold_total | weak_total | warnings |", "| --- | ---: | ---: | --- |"])
+    lines.extend(["", "| case_id | gold_total | draft_total | weak_total | warnings |", "| --- | ---: | ---: | ---: | --- |"])
     for row in rows:
-        lines.append(f"| {row['case_id']} | {row['gold_total']} | {row['weak_total']} | {row['warnings']} |")
+        lines.append(f"| {row['case_id']} | {row['gold_total']} | {row['draft_total']} | {row['weak_total']} | {row['warnings']} |")
     lines.extend(
         [
             "",
@@ -112,21 +124,34 @@ def main() -> int:
     root = enforce_exact_root(Path(args.root))
     rows: list[dict[str, Any]] = []
     for case_dir in active_case_dirs(root):
-        gold_rows = load_jsonl(case_dir / "labels" / "gold_labels.jsonl")
+        gold_rows = structurally_valid_label_rows(load_jsonl(case_dir / "labels" / "gold_labels.jsonl"), require_human_label=True)
+        draft_rows = structurally_valid_label_rows(load_jsonl(case_dir / "labels" / "draft_gold_labels.jsonl"), require_human_label=False)
         weak_rows = load_jsonl(case_dir / "labels" / "weak_labels.jsonl")
         gold_counts = count_by_type(gold_rows)
+        draft_counts = count_by_type(draft_rows)
         weak_counts = count_by_type(weak_rows)
         row: dict[str, Any] = {
             "case_id": case_dir.name,
             "gold_total": len(gold_rows),
+            "draft_total": len(draft_rows),
             "weak_total": len(weak_rows),
             "warnings": "; ".join(warnings_for(case_dir.name, gold_rows, weak_rows, args.target_label_count)),
         }
         for label in LABELS:
             row[f"gold_{label}"] = gold_counts[label]
+            row[f"draft_{label}"] = draft_counts[label]
             row[f"weak_{label}"] = weak_counts[label]
         rows.append(row)
-    fieldnames = ["case_id", "gold_total", "weak_total", *[f"gold_{label}" for label in LABELS], *[f"weak_{label}" for label in LABELS], "warnings"]
+    fieldnames = [
+        "case_id",
+        "gold_total",
+        "draft_total",
+        "weak_total",
+        *[f"gold_{label}" for label in LABELS],
+        *[f"draft_{label}" for label in LABELS],
+        *[f"weak_{label}" for label in LABELS],
+        "warnings",
+    ]
     write_csv(root / "label_distribution_report.csv", rows, fieldnames)
     (root / "label_distribution_report.md").write_text(render_markdown(rows), encoding="utf-8")
     warning_count = sum(1 for row in rows if row["warnings"])

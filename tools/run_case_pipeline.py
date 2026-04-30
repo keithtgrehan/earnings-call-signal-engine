@@ -15,7 +15,7 @@ TOOL_DIR = Path(__file__).resolve().parent / "transcript_downloader"
 if str(TOOL_DIR) not in sys.path:
     sys.path.insert(0, str(TOOL_DIR))
 
-from apply_selected_gold_labels import ALLOWED_CONFIDENCE, ALLOWED_TYPES, find_quote_span, load_selected, parse_packet  # noqa: E402
+from apply_selected_gold_labels import build_labels_for_case, load_selected, write_labels_for_case  # noqa: E402
 from build_gold_label_packet import candidates_from_raw, candidates_from_weak_labels, dedupe, load_jsonl, render_packet  # noqa: E402
 from run_corpus_analysis import evaluate_case_labels  # noqa: E402
 from validate_gold_labels import validate_file  # noqa: E402
@@ -124,42 +124,8 @@ def apply_selected_for_case(root: Path, case_id: str, selected_csv: Path | None,
     selected = [row for row in load_selected(selected_csv) if row["case_id"].strip() == case_id]
     if not selected:
         return {"status": "skipped", "notes": f"gold-label conversion skipped: no rows for {case_id}"}
-    packet = labels_dir(root, case_id) / "human_labeling_packet.md"
-    raw = raw_transcript_path(root, case_id)
-    if not packet.exists():
-        raise SystemExit(f"packet missing for {case_id}: {packet}")
-    if not raw.exists():
-        raise SystemExit(f"raw transcript missing for {case_id}: {raw}")
-    candidates = parse_packet(packet)
-    raw_text = raw.read_text(encoding="utf-8", errors="replace")
-    labels: list[dict[str, Any]] = []
-    for row in selected:
-        candidate_id = row["candidate_id"].strip()
-        label_type = row["type"].strip()
-        confidence = row["confidence"].strip()
-        if candidate_id not in candidates:
-            raise SystemExit(f"unknown candidate_id for {case_id}: {candidate_id}")
-        if label_type not in ALLOWED_TYPES:
-            raise SystemExit(f"invalid type for {candidate_id}: {label_type}")
-        if confidence not in ALLOWED_CONFIDENCE:
-            raise SystemExit(f"invalid confidence for {candidate_id}: {confidence}")
-        quote = candidates[candidate_id]
-        start, end = find_quote_span(raw_text, quote)
-        labels.append(
-            {
-                "type": label_type,
-                "text_span": quote,
-                "start_char": start,
-                "end_char": end,
-                "human_label": True,
-                "confidence": confidence,
-                "reviewer": reviewer,
-                "notes": row.get("notes", "").strip(),
-                "candidate_id": candidate_id,
-            }
-        )
-    out = labels_dir(root, case_id) / "gold_labels.jsonl"
-    out.write_text("".join(json.dumps(label, ensure_ascii=False) + "\n" for label in labels), encoding="utf-8")
+    labels = build_labels_for_case(root, case_id, selected, label_status="human_approved", reviewer=reviewer)
+    out = write_labels_for_case(case_dir(root, case_id), labels, label_status="human_approved")
     return {"status": "written", "path": str(out), "gold_label_count": len(labels)}
 
 
