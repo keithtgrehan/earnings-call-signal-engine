@@ -129,7 +129,3 @@ Tools and datasets are tracked only. Nothing is downloaded by adding registry ro
 - [Transcript sectioning and labeling playbook](docs/transcript-sectioning-and-labeling-playbook.md)
 - [Corpus build plan](docs/corpus-build-plan.md)
 - [Ideal 30-call download list](docs/ideal-30-call-download-list.md)
-
-## Branch Presentation Note
-
-GitHub currently reports `main` as the default branch. The best work lives on `signal-engine-2.0`. To make the public README show the current Signal Engine positioning, either set `signal-engine-2.0` as the default branch or open a PR from `signal-engine-2.0` into `main`.
