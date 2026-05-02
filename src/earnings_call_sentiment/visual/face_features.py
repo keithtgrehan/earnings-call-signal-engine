@@ -114,8 +114,6 @@ class FaceFeatureExtractor:
         right_face = lmk[454]
         nose_tip = lmk[1]
         left_eye_outer = lmk[33]
-        left_eye_inner = lmk[133]
-        right_eye_inner = lmk[362]
         right_eye_outer = lmk[263]
         mouth_top = lmk[13]
         mouth_bottom = lmk[14]

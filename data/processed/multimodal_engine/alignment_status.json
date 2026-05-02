@@ -1,0 +1,13 @@
+{
+  "stage": "align",
+  "status": "completed",
+  "dry_run": false,
+  "input_records": 38,
+  "segments": 38,
+  "asr_available": true,
+  "diarization_available": true,
+  "notes": [
+    "Transcript-first alignment is canonical for local smoke validation.",
+    "faster-whisper and pyannote readiness are reported but no model download is required."
+  ]
+}

@@ -15,6 +15,7 @@ dependencies = [
   "flask",
   "pandas",
   "numpy",
+  "pydantic",
   "scipy",
   "soundfile",
   "yt-dlp",
@@ -29,13 +30,17 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
   "pytest>=8",
+  "ruff",
 ]
 nlp = [
   "spacy",
   "scikit-learn",
+  "regex",
   "rapidfuzz",
   "textstat",
   "yake",
+  "nltk",
+  "snorkel",
 ]
 privacy = [
   "presidio-analyzer",
@@ -51,6 +56,7 @@ text-emotion = [
   "torch",
   "datasets",
   "evaluate",
+  "sentence-transformers",
 ]
 audio = [
   "faster-whisper",
@@ -65,9 +71,30 @@ video = [
   "opencv-python",
   "scenedetect",
   "moviepy",
+  "mediapipe",
+  "deepface",
+  "torchvision",
 ]
 prosody = [
   "opensmile",
+]
+training = [
+  "pytorch-lightning",
+  "mlflow",
+  "pyarrow",
+  "orjson",
+]
+evaluation = [
+  "deepeval",
+  "promptfoo",
+]
+retrieval = [
+  "faiss-cpu",
+  "rank-bm25",
+]
+visualization = [
+  "seaborn",
+  "plotly",
 ]
 
 [project.scripts]
@@ -82,3 +109,11 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 earnings_call_sentiment = ["py.typed"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 140
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*.py" = ["E402", "F401", "F541", "F841"]
+"tools/transcript_downloader/*.py" = ["F401", "F841"]

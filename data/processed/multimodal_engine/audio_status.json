@@ -1,0 +1,10 @@
+{
+  "stage": "audio",
+  "status": "completed",
+  "dry_run": false,
+  "segments": 38,
+  "available_rows": 0,
+  "notes": [
+    "Audio cues are augmentation only and never override transcript evidence."
+  ]
+}
