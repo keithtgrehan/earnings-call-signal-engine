@@ -1,0 +1,13 @@
+{
+  "status": "no_gold_labels_available",
+  "dataset_snapshot": null,
+  "dataset_sha256": null,
+  "training_config": "/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa/configs/training/remote_gpu_plan.yaml",
+  "do_not_run_conditions": [
+    "gold_labels < 500 for full train/dev/test",
+    "no saved splits",
+    "no MLflow tracking destination",
+    "unreviewed weak labels only",
+    "unaligned audio/video media"
+  ]
+}
