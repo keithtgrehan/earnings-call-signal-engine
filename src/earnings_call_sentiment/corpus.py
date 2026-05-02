@@ -201,27 +201,27 @@ def build_manifest_validation_summary(rows: list[dict[str, Any]]) -> dict[str, A
             errors.append(f"{prefix} duplicated in manifest")
         seen_case_ids.add(case_id)
 
-        for field in ("company", "ticker", "fiscal_period", "event_date", "transcript_source_type"):
-            if not str(row.get(field, "")).strip():
-                errors.append(f"{prefix} missing {field}")
+        for required_field in ("company", "ticker", "fiscal_period", "event_date", "transcript_source_type"):
+            if not str(row.get(required_field, "")).strip():
+                errors.append(f"{prefix} missing {required_field}")
 
         if str(row.get("transcript_parse_status", "")) not in TRANSCRIPT_PARSE_STATUSES:
             errors.append(
                 f"{prefix} invalid transcript_parse_status: {row.get('transcript_parse_status', '')}"
             )
-        for field in ("audio_fetch_status", "video_fetch_status"):
-            if str(row.get(field, "")) not in FETCH_STATUSES:
-                errors.append(f"{prefix} invalid {field}: {row.get(field, '')}")
+        for status_field in ("audio_fetch_status", "video_fetch_status"):
+            if str(row.get(status_field, "")) not in FETCH_STATUSES:
+                errors.append(f"{prefix} invalid {status_field}: {row.get(status_field, '')}")
 
-        for field in ("transcript_verified", "audio_verified", "video_verified"):
-            value = str(row.get(field, "")).strip().lower()
+        for verified_field in ("transcript_verified", "audio_verified", "video_verified"):
+            value = str(row.get(verified_field, "")).strip().lower()
             if value not in {"true", "false"}:
-                errors.append(f"{prefix} invalid {field}: {row.get(field, '')}")
+                errors.append(f"{prefix} invalid {verified_field}: {row.get(verified_field, '')}")
 
-        for field in ("transcript_local_path", "audio_local_path", "video_local_path"):
-            path = resolve_repo_path(row.get(field))
+        for local_path_field in ("transcript_local_path", "audio_local_path", "video_local_path"):
+            path = resolve_repo_path(row.get(local_path_field))
             if path is not None and not path.exists():
-                errors.append(f"{prefix} missing local artifact: {field} -> {path}")
+                errors.append(f"{prefix} missing local artifact: {local_path_field} -> {path}")
 
         transcript_verified = parse_bool(row.get("transcript_verified"))
         transcript_local_path = str(row.get("transcript_local_path", "")).strip()

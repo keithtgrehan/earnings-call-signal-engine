@@ -1,0 +1,9 @@
+{
+  "stage": "fusion",
+  "status": "completed",
+  "dry_run": false,
+  "rows": 38,
+  "notes": [
+    "Fusion keeps text as anchor and treats audio/video as bounded adjustments."
+  ]
+}

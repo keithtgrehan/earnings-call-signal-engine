@@ -1,0 +1,13 @@
+{
+  "stage": "active-learning",
+  "status": "completed",
+  "dry_run": false,
+  "candidate_rows": 25,
+  "review_batch_rows": 25,
+  "selection_rules": [
+    "low confidence",
+    "model disagreement",
+    "rare labels",
+    "high-value segments"
+  ]
+}

@@ -1,145 +1,156 @@
-# Signal Engine
+# Multimodal Communication Intelligence Engine
 
-Signal Engine is a deterministic-first signal extraction and evaluation system for long-form business communication.
+This project is a transcript-first multimodal NLP engine for measurable communication signals across business conversations. It combines deterministic text signals, sentiment and emotion inference, audio behavioral features, video engagement features, multimodal fusion, ensemble voting, active learning, and conservative evaluation.
 
-The current proof path is earnings-call transcripts because public-company sources, explicit guidance language, analyst Q&A, and evidence-span review create a credible route to repeatable evaluation. This repo does not claim production ML, statistical significance, market-reaction proof, alpha, trading edge, stock prediction, or investment advice.
+The current system is a working v1 scaffold and fixture baseline. It is not yet a serious trained multimodal model, not a production-ready system, and not evidence of state-of-the-art performance.
 
-## Signal Engine 2.0
+## Product Scope
 
-Signal Engine 2.0 is a transcript-first, deterministic signal extraction system that turns earnings-call transcripts into structured, evidence-backed signals using explainable NLP, exact transcript spans, human-reviewed labels, and conservative evaluation.
+Target domains:
 
-The system is designed around this path:
+- Earnings calls / finance.
+- B2B sales.
+- Account management / customer success.
+- Customer support.
+- HR / internal communication.
 
-```text
-transcript -> deterministic signals -> human review -> gold labels -> evaluation
-```
+Core tasks:
 
-Raw transcripts remain canonical. Derived outputs are audit artifacts, weak-label suggestions, review packets, gold-label files created only from explicit human selections, and conservative evaluation reports.
+- Text signal detection.
+- Sentiment classification.
+- Probabilistic emotion inference.
+- Intent, commitment, uncertainty, risk, and friction detection.
+- Audio behavioral feature extraction.
+- Video behavioral and engagement feature extraction.
+- Multimodal fusion.
+- Ensemble decisioning with visible disagreement.
+- Active-learning review selection.
+- Cross-domain evaluation.
 
-## Current System (Important)
+## Current State
 
-The current implementation is earnings-call focused.
+The repo now contains a working multimodal v1 pipeline:
 
-- One-command case pipeline: `tools/run_case_pipeline.py`
-- Pipeline flow: validate -> weak labels -> human packet -> gold conversion if a selected-candidates CSV exists -> evaluation if valid gold labels exist.
-- `31/31` active cases processed successfully.
-- `0` invalid, failed, or quarantined cases in the latest corpus analysis run.
-- Raw transcript mutation check passed.
-- Test suite passed at approximately `283` tests.
-- `5` gold-label scaffold files exist.
-- Current valid gold-label rows: `0`.
-- Evaluation is intentionally skipped until human-reviewed labels are added.
-- Weak labels are suggestions only and are never automatically promoted to gold labels.
+- `src/data_layer`
+- `src/alignment`
+- `src/text_engine`
+- `src/audio_engine`
+- `src/video_engine`
+- `src/fusion`
+- `src/ensemble`
+- `src/training`
+- `src/active_learning`
+- `tools/run_full_pipeline.py`
+- `tools/export_review_batch.py`
+- `tools/import_review_labels.py`
 
-Gold-label evaluation is scaffolded but currently inactive until human-reviewed labels are added. This is intentional.
+The latest fixture-backed pipeline run produced:
 
-## Human-in-the-loop Workflow
+- `38` normalized records.
+- `38` aligned segments.
+- `38` ensemble outputs.
+- `25` active-learning review candidates plus CSV header.
+- A text baseline artifact at `models/multimodal_engine/text_signal_baseline.joblib`.
+- MLflow tracking artifacts under `data/processed/multimodal_engine/mlruns`.
 
-Run the one-command pipeline for a case:
+Large or gated datasets are connector-tracked and explicitly marked skipped unless local files are available. Missing data is not silently dropped.
 
-```bash
-python tools/run_case_pipeline.py --case AAPL_2026_Q1
-```
+## What Works Now
 
-Then review the generated packet:
+- Manifest-driven ingestion for the requested dataset families.
+- Canonical normalized record and segment contracts.
+- Transcript-first alignment for fixture and local text data.
+- Deterministic business signal labeling for `risk_friction`, `opportunity_commitment`, `uncertainty_hedging`, and `neutral`.
+- Baseline sentiment and emotion proxy scoring.
+- Audio and video stage outputs with explicit `available`, `limitations`, and adapter metadata.
+- Text-anchored fusion.
+- Ensemble outputs with visible votes, confidence, uncertainty, evidence, and disagreement flags.
+- Active-learning review batch generation.
+- Local text baseline training when the existing human-reviewed seed labels meet support gates.
+- Reproducible local validation through `pytest` and `ruff`.
 
-```text
-/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts/AAPL_2026_Q1/labels/human_labeling_packet.md
-```
+## What Is Not Proven Yet
 
-Fill a selected-candidates CSV using:
+- No validated multimodal benchmark exists yet.
+- No real local audio/video-backed training set exists yet unless media is added.
+- No cross-domain generalization claim is valid yet.
+- No production ML performance claim is valid yet.
+- No unsupported emotion certainty claims are made.
+- No alpha, live trading, market reaction, stock prediction, or investment advice claims are made.
+- Weak labels, model predictions, and optional LLM triage are not gold labels.
 
-```text
-docs/selected_gold_candidates_template.csv
-```
+## How To Run Locally
 
-Convert only the approved candidate IDs into gold labels:
-
-```bash
-python tools/run_case_pipeline.py --case AAPL_2026_Q1 --stage gold --selected-csv /path/to/selected_gold_candidates.csv
-```
-
-After valid non-empty gold labels exist, rerun the case pipeline or corpus analysis to produce weak-vs-gold evaluation rows. The evaluation layer skips cleanly when valid gold labels are absent.
-
-## What is Proven
-
-- The deterministic earnings-call pipeline executes end to end.
-- `31` active earnings-call cases have been processed.
-- Raw transcript mutation is avoided and checked.
-- Weak-label packet workflow exists.
-- Selected-candidate approval workflow exists.
-- Evaluation safely skips when no valid gold labels exist.
-- The test suite passed at approximately `283` tests.
-- Weak labels and gold labels remain separate by design.
-
-## What is Not Proven
-
-- No valid gold-label benchmark exists yet.
-- No precision, recall, or F1 claim is made.
-- No statistical significance claim is made.
-- No alpha, trading edge, stock prediction, or investment-advice claim is made.
-- No production ML performance claim is made.
-- Sales, support, customer-success, and renewal generalization has not been validated.
-
-## Expanded Scope / Roadmap
-
-The same future architecture can be extended beyond earnings calls:
-
-```text
-transcript -> deterministic signals -> human review -> gold labels -> evaluation
-```
-
-Roadmap domains:
-
-- Sales: buyer intent, objections, deal risk.
-- Customer Success: satisfaction, usage risk, expansion signal.
-- Support: issue severity, escalation risk, recurring issue.
-- Renewals: churn risk, blockers, value perception.
-
-These domains are roadmap scope only. They are not validated production workflows in the current repo state.
-
-## Validation Commands
-
-Markdown and documentation validation:
+Readiness check:
 
 ```bash
-python scripts/check_markdown_links.py
+python tools/run_full_pipeline.py --dry-run
 ```
 
-Python compile check:
+Run the bounded local pipeline:
 
 ```bash
-python3 -m py_compile tools/*.py tools/transcript_downloader/*.py scripts/*.py
+python tools/run_full_pipeline.py --stage all
 ```
 
-Test suite:
+Run validation:
 
 ```bash
 pytest -q
+ruff check .
 ```
 
-Gold-label scaffold validation:
+Primary outputs:
 
-```bash
-python tools/transcript_downloader/validate_gold_labels.py --root "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts"
-```
+- `data/processed/multimodal_engine/normalized_records.jsonl`
+- `data/processed/multimodal_engine/aligned_segments.jsonl`
+- `data/processed/multimodal_engine/text_predictions.jsonl`
+- `data/processed/multimodal_engine/audio_features.jsonl`
+- `data/processed/multimodal_engine/video_features.jsonl`
+- `data/processed/multimodal_engine/fusion_predictions.jsonl`
+- `data/processed/multimodal_engine/ensemble_outputs.jsonl`
+- `data/processed/multimodal_engine/next_review_batch.csv`
+- `data/processed/multimodal_engine/evaluation_results.json`
+- `data/processed/multimodal_engine/training_status.json`
 
-Corpus analysis:
+## Current Baseline Meaning
 
-```bash
-python tools/transcript_downloader/run_corpus_analysis.py --root "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts"
-```
+The trained text baseline is a local fixture/seed-label baseline. It is useful for proving the training path, artifact writing, metrics plumbing, and MLflow integration.
+
+It does not mean:
+
+- The model is ready for production.
+- The model generalizes across target domains.
+- The reported smoke/self-consistency metrics are real-world accuracy.
+- Multimodal uplift has been demonstrated.
+- Emotion inference is certain or directly observed.
+
+## Maturity Definitions
+
+- Scaffold: Code paths, schemas, stages, artifacts, and validation exist.
+- Trained baseline: A model is trained on a bounded local dataset with recorded splits and metrics.
+- Validated model: A model is evaluated on a real held-out benchmark with human gold labels and known limitations.
+- Production-ready system: A validated model plus monitoring, calibration, privacy controls, failure handling, reproducible deployments, and operational review processes.
+
+The current project is between scaffold and fixture baseline. It is not yet a validated model.
+
+## Next Milestones
+
+1. Build a real labeled benchmark from current call packets and review queues.
+2. Scale the text dataset with provenance-preserving ingestion and human gold review.
+3. Add local audio/video examples with aligned timestamps.
+4. Train a meaningful text baseline and compare TF-IDF, transformer, FinBERT, DeBERTa, and RoBERTa candidates.
+5. Run cross-domain evaluation across earnings, support, sales, account management, and HR/internal communication.
+6. Prepare remote GPU training only after benchmark, splits, configs, and MLflow tracking are stable.
 
 ## Key Docs
 
-- [Label taxonomy](docs/label-taxonomy.md)
-- [Proof of intelligence](docs/proof-of-intelligence.md)
-- [Corpus validation report](docs/corpus-validation-report.md)
-- [Gold-label JSONL template](docs/gold-label-jsonl-template.md)
-- [Gold-labeling review packet](docs/gold-labeling-review-packet.md)
-- [Selected-candidates example](docs/selected_gold_candidates_example.md)
-- [Transcript sectioning and labeling playbook](docs/transcript-sectioning-and-labeling-playbook.md)
-
-## Branch Presentation Note
-
-GitHub currently reports `main` as the default branch. The current Signal Engine 2.0 transcript corpus pipeline work lives on `codex/transcript-corpus-pipeline`.
+- [Project goals and scope](docs/project_goals_and_scope.md)
+- [Roadmap to trained model](docs/roadmap_to_trained_model.md)
+- [Compute strategy](docs/compute_strategy.md)
+- [Codex project context](docs/codex_project_context.md)
+- [Implementation handoff](docs/implementation_handoff.md)
+- [System architecture](docs/system_architecture.md)
+- [Evaluation results](docs/evaluation_results.md)
+- [Model performance](docs/model_performance.md)
+- [Multimodal analysis](docs/multimodal_analysis.md)

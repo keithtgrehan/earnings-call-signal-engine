@@ -1,0 +1,11 @@
+{
+  "stage": "video",
+  "status": "completed",
+  "dry_run": false,
+  "segments": 38,
+  "flagged_segments": 25,
+  "available_rows": 0,
+  "notes": [
+    "Video runs only on flagged segments in v1."
+  ]
+}

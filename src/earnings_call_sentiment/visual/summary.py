@@ -237,7 +237,7 @@ def _quality_gate(frames_df: pd.DataFrame, segments_df: pd.DataFrame, metadata: 
     pose_frame_pct = float(frames_df["pose_visible"].mean()) if "pose_visible" in frames_df.columns and not frames_df.empty else 0.0
     frame_resolution_ok = bool(metadata.width >= 320 and metadata.height >= 240)
     sampled_frame_count = int(len(frames_df))
-    min_face_frame_count = int((frames_df["face_visible"] == True).sum()) if not frames_df.empty else 0
+    min_face_frame_count = int(frames_df["face_visible"].sum()) if not frames_df.empty else 0
     quality_ok = (
         stable_face_pct >= 0.45
         and stable_tracking_pct >= 0.35
