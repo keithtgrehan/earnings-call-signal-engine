@@ -16,21 +16,21 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from corpus_common import enforce_exact_root, enforce_repo_safety  # noqa: E402
 
-ALLOWED_LABELS = {"risk_friction", "opportunity_commitment", "uncertainty_hedging", "neutral"}
+ALLOWED_LABELS = {"guidance_revision", "analyst_pressure", "uncertainty", "commitment", "neutral"}
 LABEL_MAP = {
-    "risk_friction": "risk_friction",
-    "analyst_pressure": "risk_friction",
-    "opportunity_commitment": "opportunity_commitment",
-    "commitment": "opportunity_commitment",
-    "uncertainty": "uncertainty_hedging",
-    "uncertainty_hedging": "uncertainty_hedging",
-    "guidance_revision": "opportunity_commitment",
+    "risk_friction": "analyst_pressure",
+    "analyst_pressure": "analyst_pressure",
+    "opportunity_commitment": "commitment",
+    "commitment": "commitment",
+    "uncertainty": "uncertainty",
+    "uncertainty_hedging": "uncertainty",
+    "guidance_revision": "guidance_revision",
     "neutral": "neutral",
 }
 PATTERN_CANDIDATES: tuple[tuple[str, str, str], ...] = (
-    ("uncertainty_hedging", "medium", r"\b(?:uncertain|uncertainty|difficult to predict|limited visibility|subject to|depends on|could|may|might)\b"),
-    ("risk_friction", "medium", r"\b(?:pressure|headwind|weakness|constraint|risk|decline|challenging|slowdown)\b"),
-    ("opportunity_commitment", "medium", r"\b(?:confident|committed|we expect|we will|on track|strong demand|well positioned)\b"),
+    ("uncertainty", "medium", r"\b(?:uncertain|uncertainty|difficult to predict|limited visibility|subject to|depends on|could|may|might)\b"),
+    ("analyst_pressure", "medium", r"\b(?:pressure|headwind|weakness|constraint|risk|decline|challenging|slowdown)\b"),
+    ("commitment", "medium", r"\b(?:confident|committed|we expect|we will|on track|strong demand|well positioned)\b"),
     ("neutral", "low", r"\b(?:revenue|gross margin|operating expenses|capital expenditures|cash flow)\b"),
 )
 

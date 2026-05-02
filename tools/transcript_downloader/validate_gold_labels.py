@@ -29,6 +29,8 @@ def validate_row(row: dict[str, Any], *, line_no: int) -> list[str]:
         errors.append(f"line {line_no}: missing fields {','.join(missing)}")
     if row.get("type") not in ALLOWED_TYPES:
         errors.append(f"line {line_no}: invalid type")
+    if row.get("human_label") is not True:
+        errors.append(f"line {line_no}: human_label must be true for final gold labels")
     if not str(row.get("text_span", "")).strip():
         errors.append(f"line {line_no}: empty text_span")
     start = row.get("start_char")

@@ -49,6 +49,9 @@ data/external/loughran_mcdonald/*
 !data/external/loughran_mcdonald/.gitkeep
 data/external/financial_phrasebank/*
 !data/external/financial_phrasebank/.gitkeep
+data/external/financial_twitter_sentiment/*
+!data/external/financial_twitter_sentiment/.gitkeep
+tmp/
 
 # local transcript corpus outputs and bulky source artifacts
 *.pdf

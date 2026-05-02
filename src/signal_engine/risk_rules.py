@@ -13,6 +13,9 @@ from .domains import (
     EARNINGS_FOLLOW_UP_TERMS,
     EARNINGS_GUIDANCE_CAUTION_TERMS,
     HEDGING_TERMS,
+    HR_COMMITMENT_TERMS,
+    HR_ENGAGEMENT_RISK_TERMS,
+    HR_POLICY_CONCERN_TERMS,
     NEGATIVE_TERMS,
     POSITIVE_TERMS,
     SALES_BUYER_INTENT_TERMS,
@@ -525,11 +528,58 @@ def analyze_earnings_call(record: ConversationRecord) -> dict[str, object]:
     return _build_result(scores, risk_flags, opportunity_flags, evidence)
 
 
+def analyze_hr(record: ConversationRecord) -> dict[str, object]:
+    employee_segments = segments_for_group(record, "employee")
+    internal_segments = segments_for_group(record, "internal")
+
+    engagement_evidence = evidence_for_terms(
+        employee_segments,
+        HR_ENGAGEMENT_RISK_TERMS,
+        signal_name="hr_engagement_risk",
+        reason="Employee engagement or retention-risk language detected.",
+    )
+    policy_evidence = evidence_for_terms(
+        record.transcript_segments,
+        HR_POLICY_CONCERN_TERMS,
+        signal_name="hr_policy_concern",
+        reason="Policy, compensation, benefits, or manager concern language detected.",
+    )
+    commitment_evidence = evidence_for_terms(
+        internal_segments,
+        HR_COMMITMENT_TERMS,
+        signal_name="hr_follow_up_commitment",
+        reason="HR or manager follow-up commitment language detected.",
+    )
+
+    scores = {
+        "engagement_risk_score": bounded_score(len(engagement_evidence), cap=2),
+        "policy_concern_score": bounded_score(len(policy_evidence), cap=2),
+        "follow_up_commitment_score": bounded_score(len(commitment_evidence), cap=2),
+    }
+    risk_flags: list[str] = []
+    opportunity_flags: list[str] = []
+    evidence: list[Evidence] = []
+
+    if scores["engagement_risk_score"] >= 0.35:
+        risk_flags.append("hr_engagement_risk")
+        evidence.extend(engagement_evidence[:2])
+    if scores["policy_concern_score"] >= 0.35:
+        risk_flags.append("hr_policy_concern")
+        evidence.extend(policy_evidence[:2])
+    if scores["follow_up_commitment_score"] >= 0.35:
+        opportunity_flags.append("hr_follow_up_commitment")
+        evidence.extend(commitment_evidence[:2])
+
+    return _build_result(scores, risk_flags, opportunity_flags, evidence)
+
+
 DOMAIN_ANALYZERS = {
     "support": analyze_support,
     "sales": analyze_sales,
     "account_management": analyze_account_management,
+    "renewals": analyze_account_management,
     "earnings_call": analyze_earnings_call,
+    "hr": analyze_hr,
 }
 
 

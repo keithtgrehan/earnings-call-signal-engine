@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-SUPPORTED_DOMAINS = ("support", "sales", "account_management", "earnings_call")
+SUPPORTED_DOMAINS = ("support", "sales", "account_management", "renewals", "earnings_call", "hr")
 
 ROLE_ALIASES = {
     "user": "customer",
@@ -19,7 +19,12 @@ ROLE_ALIASES = {
     "customer_success_manager": "account_manager",
     "csm": "account_manager",
     "customer_success": "account_manager",
+    "renewal_manager": "account_manager",
     "executive_sponsor": "account_manager",
+    "human_resources": "hr",
+    "people_ops": "hr",
+    "people_partner": "hr",
+    "hrbp": "hr",
     "management": "executive",
     "ceo": "executive",
     "cfo": "executive",
@@ -247,6 +252,34 @@ ACCOUNT_COMMITMENT_TERMS = (
     "we will deliver",
 )
 
+HR_ENGAGEMENT_RISK_TERMS = (
+    "burned out",
+    "burnout",
+    "disengaged",
+    "overloaded",
+    "retention risk",
+    "thinking about leaving",
+    "turnover",
+)
+
+HR_POLICY_CONCERN_TERMS = (
+    "benefits",
+    "compensation",
+    "harassment",
+    "leave policy",
+    "manager concern",
+    "policy",
+    "promotion",
+)
+
+HR_COMMITMENT_TERMS = (
+    "follow up",
+    "i will check",
+    "next steps",
+    "support plan",
+    "we will review",
+)
+
 EARNINGS_ANALYST_PRESSURE_TERMS = (
     "can you clarify",
     "follow up on",
@@ -317,6 +350,15 @@ DOMAIN_PROFILES = {
             "internal": frozenset({"account_manager"}),
         },
     ),
+    "renewals": DomainProfile(
+        name="renewals",
+        prompt_group="customer",
+        response_group="internal",
+        role_groups={
+            "customer": frozenset({"customer"}),
+            "internal": frozenset({"account_manager"}),
+        },
+    ),
     "earnings_call": DomainProfile(
         name="earnings_call",
         prompt_group="analyst",
@@ -325,6 +367,15 @@ DOMAIN_PROFILES = {
             "analyst": frozenset({"analyst"}),
             "internal": frozenset({"executive"}),
             "neutral": frozenset({"operator"}),
+        },
+    ),
+    "hr": DomainProfile(
+        name="hr",
+        prompt_group="employee",
+        response_group="internal",
+        role_groups={
+            "employee": frozenset({"employee", "candidate"}),
+            "internal": frozenset({"hr", "manager"}),
         },
     ),
 }

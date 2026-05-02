@@ -9,8 +9,8 @@ It is a review-queue builder, not an automatic source of truth.
 
 - `risk_friction`: `106`
 - `opportunity_commitment`: `45`
-- `uncertainty_hedging`: `5`
-- `neutral`: `165`
+- `uncertainty_hedging`: `4`
+- `neutral`: `166`
 
 ## Boundaries
 
