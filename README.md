@@ -1,156 +1,135 @@
-# Multimodal Communication Intelligence Engine
+# Signal Engine
 
-This project is a transcript-first multimodal NLP engine for measurable communication signals across business conversations. It combines deterministic text signals, sentiment and emotion inference, audio behavioral features, video engagement features, multimodal fusion, ensemble voting, active learning, and conservative evaluation.
+Signal Engine is a deterministic-first signal extraction and evaluation system for long-form business communication.
 
-The current system is a working v1 scaffold and fixture baseline. It is not yet a serious trained multimodal model, not a production-ready system, and not evidence of state-of-the-art performance.
+The strongest proof path is earnings-call transcripts because public-company sources, explicit guidance language, analyst Q&A, and evidence-span review create a credible route to repeatable evaluation. Broader domains are supported or scaffolded where the same transcript-first pattern applies: customer support, sales calls, account management, churn risk, and general dialogue tone/emotion benchmarks.
 
-## Product Scope
-
-Target domains:
-
-- Earnings calls / finance.
-- B2B sales.
-- Account management / customer success.
-- Customer support.
-- HR / internal communication.
-
-Core tasks:
-
-- Text signal detection.
-- Sentiment classification.
-- Probabilistic emotion inference.
-- Intent, commitment, uncertainty, risk, and friction detection.
-- Audio behavioral feature extraction.
-- Video behavioral and engagement feature extraction.
-- Multimodal fusion.
-- Ensemble decisioning with visible disagreement.
-- Active-learning review selection.
-- Cross-domain evaluation.
-
-## Current State
-
-The repo now contains a working multimodal v1 pipeline:
-
-- `src/data_layer`
-- `src/alignment`
-- `src/text_engine`
-- `src/audio_engine`
-- `src/video_engine`
-- `src/fusion`
-- `src/ensemble`
-- `src/training`
-- `src/active_learning`
-- `tools/run_full_pipeline.py`
-- `tools/export_review_batch.py`
-- `tools/import_review_labels.py`
-
-The latest fixture-backed pipeline run produced:
-
-- `38` normalized records.
-- `38` aligned segments.
-- `38` ensemble outputs.
-- `25` active-learning review candidates plus CSV header.
-- A text baseline artifact at `models/multimodal_engine/text_signal_baseline.joblib`.
-- MLflow tracking artifacts under `data/processed/multimodal_engine/mlruns`.
-
-Large or gated datasets are connector-tracked and explicitly marked skipped unless local files are available. Missing data is not silently dropped.
+This repo does not claim production ML, statistical significance, market-reaction proof, production retrieval, or validated multimodal intelligence.
 
 ## What Works Now
 
-- Manifest-driven ingestion for the requested dataset families.
-- Canonical normalized record and segment contracts.
-- Transcript-first alignment for fixture and local text data.
-- Deterministic business signal labeling for `risk_friction`, `opportunity_commitment`, `uncertainty_hedging`, and `neutral`.
-- Baseline sentiment and emotion proxy scoring.
-- Audio and video stage outputs with explicit `available`, `limitations`, and adapter metadata.
-- Text-anchored fusion.
-- Ensemble outputs with visible votes, confidence, uncertainty, evidence, and disagreement flags.
-- Active-learning review batch generation.
-- Local text baseline training when the existing human-reviewed seed labels meet support gates.
-- Reproducible local validation through `pytest` and `ruff`.
+- Deterministic transcript and signal scaffolds for evidence-backed review.
+- Earnings-call corpus manifest validation.
+- Gold-label JSONL validation.
+- Model, dataset, and NLP tools registries.
+- SEC 8-K metadata-only intake.
+- Manual corpus case setup.
+- Deterministic weak-label keyword baseline for local `.txt` transcripts.
+- First 3 earnings-call intake cases: `NVDA_2026_Q4`, `META_2025_Q4`, and `AMZN_2025_Q4`.
+- Repo validation and documentation checks.
 
-## What Is Not Proven Yet
+## Scaffolded Only
 
-- No validated multimodal benchmark exists yet.
-- No real local audio/video-backed training set exists yet unless media is added.
-- No cross-domain generalization claim is valid yet.
-- No production ML performance claim is valid yet.
-- No unsupported emotion certainty claims are made.
-- No alpha, live trading, market reaction, stock prediction, or investment advice claims are made.
-- Weak labels, model predictions, and optional LLM triage are not gold labels.
+- Sales, support, and account-management use cases beyond the deterministic demo/sample layer.
+- Public dataset and model candidates.
+- Embeddings, rerankers, and long-context model candidates.
+- Optional local sklearn training scaffold.
+- Emotion/tone dataset references.
 
-## How To Run Locally
+Scaffolded means tracked, documented, or locally runnable as a smoke check. It does not mean validated, production-ready, or trained.
 
-Readiness check:
+## Not Proven
+
+- No real 30-call corpus yet.
+- No validated ML.
+- No statistical significance.
+- No market-reaction proof.
+- No production retrieval stack.
+- No validated sales/support/account benchmark.
+- No committed raw transcripts, datasets, model weights, audio, video, or API outputs.
+
+## Why Earnings Calls Remain The Proof Path
+
+- Public-company source availability makes provenance review possible.
+- Signal types such as guidance revision, uncertainty, analyst pressure, and Q&A friction can be tied to explicit transcript evidence.
+- Manual evidence-span review is practical before scaling.
+- The repo has a clear path from the first 3 manually reviewed calls to a 30-call benchmark, then a 100-150-call benchmark.
+
+## Broader Use-Case Map
+
+- Earnings calls: guidance, uncertainty, analyst pressure, Q&A friction.
+- Customer support: escalation, unresolved issue, directness, deflection, tone shift.
+- Sales calls: objections, buying intent, pricing concern, next-step clarity.
+- Account management: churn risk, renewal concern, expansion opportunity, stakeholder friction.
+- General dialogue: emotion/tone labels as benchmark aids, not product proof.
+
+## Lightweight Validation
 
 ```bash
-python tools/run_full_pipeline.py --dry-run
+python -m py_compile scripts/*.py
 ```
-
-Run the bounded local pipeline:
 
 ```bash
-python tools/run_full_pipeline.py --stage all
+python -m pytest tests/test_validate_corpus_manifest.py tests/test_validate_gold_labels.py tests/test_evaluate_signal_outputs.py tests/test_validate_model_registry.py tests/test_validate_training_sets_registry.py tests/test_run_weak_label_baseline.py tests/test_train_text_classifier_baseline_smoke.py tests/test_validate_nlp_tools_registry.py -q
 ```
-
-Run validation:
 
 ```bash
-pytest -q
-ruff check .
+python scripts/check_markdown_links.py README.md docs/*.md
 ```
 
-Primary outputs:
+## Current Deterministic Demo Commands
 
-- `data/processed/multimodal_engine/normalized_records.jsonl`
-- `data/processed/multimodal_engine/aligned_segments.jsonl`
-- `data/processed/multimodal_engine/text_predictions.jsonl`
-- `data/processed/multimodal_engine/audio_features.jsonl`
-- `data/processed/multimodal_engine/video_features.jsonl`
-- `data/processed/multimodal_engine/fusion_predictions.jsonl`
-- `data/processed/multimodal_engine/ensemble_outputs.jsonl`
-- `data/processed/multimodal_engine/next_review_batch.csv`
-- `data/processed/multimodal_engine/evaluation_results.json`
-- `data/processed/multimodal_engine/training_status.json`
+```bash
+python scripts/signal_engine_analyze.py --domain support data/signal_engine_2_0/sample_support.json
+python scripts/signal_engine_analyze.py --domain sales data/signal_engine_2_0/sample_sales.json
+python scripts/signal_engine_analyze.py --domain account_management data/signal_engine_2_0/sample_account_management.json
+```
 
-## Current Baseline Meaning
+```bash
+python scripts/run_signal_engine_2_0_demo.py
+```
 
-The trained text baseline is a local fixture/seed-label baseline. It is useful for proving the training path, artifact writing, metrics plumbing, and MLflow integration.
+## Registry And Corpus Checks
 
-It does not mean:
+```bash
+python scripts/validate_corpus_manifest.py --path data/corpus/manifests/first_30_working_manifest.csv
+python scripts/validate_gold_labels.py --path data/gold_labels.example.jsonl
+python scripts/validate_model_registry.py --path data/model_registry.example.json
+python scripts/validate_training_sets_registry.py --path data/training_sets_registry.example.csv
+python scripts/validate_nlp_tools_registry.py --path data/nlp_tools_registry.example.json
+```
 
-- The model is ready for production.
-- The model generalizes across target domains.
-- The reported smoke/self-consistency metrics are real-world accuracy.
-- Multimodal uplift has been demonstrated.
-- Emotion inference is certain or directly observed.
+Registries track candidate tools, datasets, and model families. They are not implementation proof and do not download anything.
 
-## Maturity Definitions
+## First Real Proof Command
 
-- Scaffold: Code paths, schemas, stages, artifacts, and validation exist.
-- Trained baseline: A model is trained on a bounded local dataset with recorded splits and metrics.
-- Validated model: A model is evaluated on a real held-out benchmark with human gold labels and known limitations.
-- Production-ready system: A validated model plus monitoring, calibration, privacy controls, failure handling, reproducible deployments, and operational review processes.
+First, manually place a legally safe local transcript here:
 
-The current project is between scaffold and fixture baseline. It is not yet a validated model.
+```text
+data/corpus/manual_cases/NVDA_2026_Q4/raw/transcript.txt
+```
 
-## Next Milestones
+Then run:
 
-1. Build a real labeled benchmark from current call packets and review queues.
-2. Scale the text dataset with provenance-preserving ingestion and human gold review.
-3. Add local audio/video examples with aligned timestamps.
-4. Train a meaningful text baseline and compare TF-IDF, transformer, FinBERT, DeBERTa, and RoBERTa candidates.
-5. Run cross-domain evaluation across earnings, support, sales, account management, and HR/internal communication.
-6. Prepare remote GPU training only after benchmark, splits, configs, and MLflow tracking are stable.
+```bash
+python scripts/run_weak_label_baseline.py --input data/corpus/manual_cases/NVDA_2026_Q4/raw/transcript.txt --case-id NVDA_2026_Q4 --out data/corpus/manual_cases/NVDA_2026_Q4/processed/weak_predictions.jsonl
+```
+
+The weak-label output is deterministic and review-only. It is not a final gold label file.
+
+## NLP Research Map
+
+- [NLP tools and research map](docs/nlp-tools-and-research-map.md)
+- [Training set plan](docs/training-set-plan.md)
+- [Model registry](docs/model-registry.md)
+- [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
+
+Tools and datasets are tracked only. Nothing is downloaded by adding registry rows, no ML is validated, and deterministic transcript-first extraction remains the system core.
 
 ## Key Docs
 
-- [Project goals and scope](docs/project_goals_and_scope.md)
-- [Roadmap to trained model](docs/roadmap_to_trained_model.md)
-- [Compute strategy](docs/compute_strategy.md)
-- [Codex project context](docs/codex_project_context.md)
-- [Implementation handoff](docs/implementation_handoff.md)
-- [System architecture](docs/system_architecture.md)
-- [Evaluation results](docs/evaluation_results.md)
-- [Model performance](docs/model_performance.md)
-- [Multimodal analysis](docs/multimodal_analysis.md)
+- [First real case proof](docs/first-real-case-proof.md)
+- [GitHub repo hygiene report](docs/github-repo-hygiene-report.md)
+- [Branch hygiene action plan](docs/branch-hygiene-action-plan.md)
+- [Default branch transition plan](docs/default-branch-transition-plan.md)
+- [NLP tools and research map](docs/nlp-tools-and-research-map.md)
+- [Training set plan](docs/training-set-plan.md)
+- [Model registry](docs/model-registry.md)
+- [Benchmark matrix plan](docs/benchmark-matrix-plan.md)
+- [Transcript sectioning and labeling playbook](docs/transcript-sectioning-and-labeling-playbook.md)
+- [Corpus build plan](docs/corpus-build-plan.md)
+- [Ideal 30-call download list](docs/ideal-30-call-download-list.md)
+
+## Branch Presentation Note
+
+GitHub currently reports `main` as the default branch. The best work lives on `signal-engine-2.0`. To make the public README show the current Signal Engine positioning, either set `signal-engine-2.0` as the default branch or open a PR from `signal-engine-2.0` into `main`.
