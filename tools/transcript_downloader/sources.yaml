@@ -1,0 +1,181 @@
+cases:
+  NVDA_2026_Q4:
+    ticker: NVDA
+    fiscal_year: 2026
+    quarter: Q4
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/02/25/nvidia-nvda-q4-2026-earnings-call-transcript/"
+    notes: "Public full transcript HTML."
+  META_2025_Q4:
+    ticker: META
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s21.q4cdn.com/399680738/files/doc_financials/2025/q4/META-Q4-2025-Earnings-Call-Transcript.pdf"
+    notes: "Investor relations PDF transcript."
+  AMZN_2025_Q4:
+    ticker: AMZN
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/02/05/amazon-amzn-q4-2025-earnings-call-transcript/"
+    notes: "Public full transcript HTML."
+  CRM_2025_Q4:
+    ticker: CRM
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s205.q4cdn.com/626266368/files/doc_financials/2025/q4/Salesforce_Inc_Q4_2025_Earnings_Call_Feb_26_2025_1.pdf"
+  SNOW_2025_Q4:
+    ticker: SNOW
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s26.q4cdn.com/463892824/files/doc_financials/2025/q4/CORRECTED-TRANSCRIPT_-Snowflake-Inc-SNOW-US-Q4-2025-Earnings-Call-26-February-2025-5_00-PM-ET.pdf"
+  FDX_2025_Q4:
+    ticker: FDX
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s21.q4cdn.com/665674268/files/doc_financials/2025/q4/FDX-Q4-FY25-Earnings-Call-Transcript_Final.pdf"
+  NKE_2025_Q4:
+    ticker: NKE
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s1.q4cdn.com/806093406/files/doc_financials/2025/q4/NIKE-Inc-Q4FY25-OFFICIAL-Transcript_-FINAL.pdf"
+  SBUX_2025_Q1:
+    ticker: SBUX
+    fiscal_year: 2025
+    quarter: Q1
+    source_url: "https://s203.q4cdn.com/326826266/files/doc_financials/2025/q1/SBUX_Q1_2025_Corrected_Transcript.pdf"
+    notes: "Investor relations PDF transcript from the event page."
+  CAT_2025_Q4:
+    ticker: CAT
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s25.q4cdn.com/358376879/files/doc_financials/2025/q4/4Q-2025-Caterpillar-Inc-Earnings-Conference-Call_Transcript.pdf"
+    notes: "Investor relations PDF transcript from the event page."
+  LLY_2025_Q4:
+    ticker: LLY
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/02/04/eli-lilly-lly-q4-2025-earnings-call-transcript/"
+    notes: "Public full transcript HTML."
+  PFE_2025_Q4:
+    ticker: PFE
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s206.q4cdn.com/795948973/files/doc_financials/2025/q4/PFE-USQ_Transcript_2026-02-03.pdf"
+  DE_2025_Q4:
+    ticker: DE
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s22.q4cdn.com/253594569/files/doc_financials/2025/q4/DE-4Q-Earnings-Call-Transcript.pdf"
+  MSFT_2026_Q1:
+    ticker: MSFT
+    fiscal_year: 2026
+    quarter: Q1
+    source_url: "https://www.fool.com/earnings/call-transcripts/2025/10/29/microsoft-msft-q1-2026-earnings-call-transcript/"
+    notes: "Public full transcript HTML; Microsoft official transcript is DOCX, not PDF."
+  AAPL_2026_Q1:
+    ticker: AAPL
+    fiscal_year: 2026
+    quarter: Q1
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/01/29/apple-aapl-q1-2026-earnings-call-transcript/"
+    notes: "Public full transcript HTML."
+  WMT_2025_Q4:
+    ticker: WMT
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://corporate.walmart.com/content/dam/corporate/documents/newsroom/2025/02/20/walmart-releases-q4-fy25-earnings/q4-fy25-earnings-call-transcript.pdf"
+    notes: "Official Walmart PDF transcript."
+  JPM_2025_Q4:
+    ticker: JPM
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/01/15/j-p-morgan-chase-jpm-q4-2025-earnings-call-transcript/"
+    notes: "Public full transcript HTML."
+  JNJ_2025_Q4:
+    ticker: JNJ
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s203.q4cdn.com/636242992/files/doc_events/2026/Jan/21/JNJ-USQ_Transcript_2026-01-21.pdf"
+    notes: "Investor relations PDF transcript."
+  ORCL_2026_Q1:
+    ticker: ORCL
+    fiscal_year: 2026
+    quarter: Q1
+    source_url: "https://www.insidermonkey.com/blog/oracle-corporation-nyseorcl-q1-2026-earnings-call-transcript-1606257/"
+    notes: "Public full transcript HTML."
+  NOW_2025_Q4:
+    ticker: NOW
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/01/28/servicenow-now-q4-2025-earnings-call-transcript/"
+    notes: "Public full transcript HTML."
+  ADBE_2025_Q4:
+    ticker: ADBE
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://www.adobe.com/cc-shared/assets/investor-relations/pdfs/adbe-q4fy25-transcript.pdf"
+    notes: "Official Adobe PDF transcript."
+  BAC_2025_Q4:
+    ticker: BAC
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://d1io3yog0oux5.cloudfront.net/_340970fe090ca286d9efb02a861db84d/bankofamerica/db/775/10471/webcast_transcript/2026-01-15+BAC+4Q+Earnings+Call_ADA.pdf"
+    notes: "Investor relations PDF transcript."
+  GOOGL_2025_Q4:
+    ticker: GOOGL
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s206.q4cdn.com/479360582/files/doc_events/2026/Feb/04/2025_Q4_Earnings_Transcript.pdf"
+    notes: "Alphabet investor relations PDF transcript."
+  TGT_2025_Q4:
+    ticker: TGT
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://corporate.target.com/getmedia/5cee0409-4109-4619-a932-6f445031426b/Target-Corporation-2026-Financial-Community-Meeting.pdf"
+    notes: "Official Target PDF transcript for the financial community meeting including Q4 and full-year 2025 earnings."
+  UPS_2025_Q4:
+    ticker: UPS
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/01/27/ups-ups-q4-2025-earnings-call-transcript/"
+    notes: "Public full transcript HTML."
+  INTC_2025_Q4:
+    ticker: INTC
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/01/23/intel-intc-q4-2025-earnings-call-transcript/"
+    notes: "Public full transcript HTML; Intel official PDF found was prepared remarks only."
+  TSLA_2025_Q4:
+    ticker: TSLA
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/01/28/tesla-tsla-q4-2025-earnings-call-transcript/"
+    notes: "Public full transcript HTML."
+  AMD_2025_Q4:
+    ticker: AMD
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/02/03/amd-amd-q4-2025-earnings-call-transcript/"
+    notes: "Public full transcript HTML."
+  PYPL_2025_Q4:
+    ticker: PYPL
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s205.q4cdn.com/875401827/files/doc_financials/2025/q4/PayPal-4Q-25-Earnings-Transcript.pdf"
+    notes: "Investor relations PDF transcript."
+  DIS_2025_Q4:
+    ticker: DIS
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://s206.q4cdn.com/979796730/files/doc_events/2025/11/q4-fy25-earnings-transcript.pdf"
+    notes: "Disney investor relations PDF transcript."
+  BA_2025_Q4:
+    ticker: BA
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://www.fool.com/earnings/call-transcripts/2026/01/27/boeing-ba-q4-2025-earnings-call-transcript/"
+    notes: "Public full transcript HTML."
+  HD_2025_Q4:
+    ticker: HD
+    fiscal_year: 2025
+    quarter: Q4
+    source_url: "https://ir.homedepot.com/~/media/Files/H/HomeDepot-IR/reports-and-presentations/quarterly-earnings/hd-4q25-transcript.pdf"
+    notes: "Home Depot investor relations PDF transcript."

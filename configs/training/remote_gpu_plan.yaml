@@ -1,0 +1,36 @@
+plan_name: text_signal_remote_gpu_plan
+status: prepared_do_not_run
+current_gate: local_only_until_gold_benchmark_exists
+expected_compute_cost:
+  colab_or_runpod_smoke: "$0-10"
+  short_transformer_trial: "$10-40"
+  larger_batch_run: "requires explicit approval"
+do_not_run_conditions:
+  - gold_labels_less_than_500_for_full_train_dev_test
+  - no_saved_splits
+  - no_mlflow_tracking_destination
+  - unreviewed_weak_labels_only
+  - unaligned_audio_video_media
+local_prerequisites:
+  - python tools/check_gold_coverage.py
+  - python tools/evaluate_gold_labels.py
+  - python tools/train_text_signal_model.py
+remote_candidate_jobs:
+  - name: transformer_text_baseline
+    trigger: more_than_2000_gold_text_labels
+    hardware: single_t4_or_a10
+    max_initial_runtime_hours: 2
+  - name: batch_audio_video_embedding
+    trigger: 100_plus_calls_with_aligned_media
+    hardware: single_a10_or_l4
+    max_initial_runtime_hours: 4
+artifact_sync:
+  include:
+    - data/gold/gold_labels.jsonl
+    - saved_splits
+    - configs/training
+    - docs/model_eval
+    - mlflow_metrics
+  exclude:
+    - raw_private_media
+    - unreviewed_bulk_labels

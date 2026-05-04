@@ -1,0 +1,10 @@
+{
+  "stage": "text",
+  "status": "completed",
+  "dry_run": false,
+  "segments": 38,
+  "scored_rows": 38,
+  "notes": [
+    "Deterministic text rules anchor all v1 predictions; transformer adapters are optional."
+  ]
+}

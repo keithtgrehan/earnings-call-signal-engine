@@ -58,6 +58,12 @@ def main(argv: list[str] | None = None) -> int:
                     )
                     continue
                 failures.append(f"{relative_path}: missing target {local_target}")
+        for code_target in re.findall(r"`(outputs/LLY_2025_Q2_call08/[^`]+)`", text):
+            target = (root / code_target).resolve()
+            if not target.exists():
+                warnings.append(
+                    f"{relative_path}: missing optional legacy proof target ../{code_target}"
+                )
 
     if failures:
         print("Markdown link check failed:")

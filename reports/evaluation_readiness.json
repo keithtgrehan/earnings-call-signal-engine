@@ -1,0 +1,29 @@
+{
+  "gold_labels": 0,
+  "label_counts": {
+    "neutral": 0,
+    "opportunity_commitment": 0,
+    "risk_friction": 0,
+    "uncertainty_hedging": 0
+  },
+  "missing_labels": [
+    "neutral",
+    "opportunity_commitment",
+    "risk_friction",
+    "uncertainty_hedging"
+  ],
+  "duplicate_gold_ids": [],
+  "invalid_label_rows": [],
+  "reviewed_batch": {
+    "accepted": 0,
+    "rejected": 0,
+    "unclear": 0,
+    "skipped": 0,
+    "unreviewed": 0
+  },
+  "evaluation_gate": "insufficient_data",
+  "metrics_allowed": false,
+  "training_gate": "skip_training",
+  "training_allowed": false,
+  "benchmark_claims_allowed": false
+}

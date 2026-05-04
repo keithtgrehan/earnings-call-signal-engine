@@ -27,6 +27,15 @@ from signal_engine.signal_baseline import HUMAN_REVIEWED_LABELS_RELATIVE_PATH
 GENERIC_OPERATIONAL_TERMS = {"renewal", "procurement", "send", "meeting", "review"}
 
 
+def _display_path(path: Path) -> str:
+    if path.is_absolute():
+        try:
+            return path.relative_to(ROOT).as_posix()
+        except ValueError:
+            return path.as_posix()
+    return path.as_posix()
+
+
 def _load_labels(path: Path) -> dict[str, dict[str, Any]]:
     return {row["id"]: row for row in load_jsonl(path)}
 
@@ -307,14 +316,8 @@ def main(argv: list[str] | None = None) -> int:
     payload = {
         "status": "ok",
         "task": "signal_family_error_analysis",
-        "dataset_path": (
-            labels_path.relative_to(ROOT).as_posix() if labels_path.is_absolute() else labels_path.as_posix()
-        ),
-        "predictions_path": (
-            predictions_path.relative_to(ROOT).as_posix()
-            if predictions_path.is_absolute()
-            else predictions_path.as_posix()
-        ),
+        "dataset_path": _display_path(labels_path),
+        "predictions_path": _display_path(predictions_path),
         "dataset_size": len(labels_by_id),
         "evaluation_scope": metrics.get("split_strategy"),
         "split_details": metrics.get("split_details", {}),

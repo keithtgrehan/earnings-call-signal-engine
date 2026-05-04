@@ -49,3 +49,16 @@ data/external/loughran_mcdonald/*
 !data/external/loughran_mcdonald/.gitkeep
 data/external/financial_phrasebank/*
 !data/external/financial_phrasebank/.gitkeep
+data/external/financial_twitter_sentiment/*
+!data/external/financial_twitter_sentiment/.gitkeep
+data/processed/multimodal_engine/mlruns/
+tmp/
+
+# local transcript corpus outputs and bulky source artifacts
+*.pdf
+transcripts/
+transcripts_backup_*/
+tools/transcript_downloader/**/raw/
+tools/transcript_downloader/**/quarantine/
+tools/transcript_downloader/**/transcript.pdf
+tools/transcript_downloader/**/transcript.txt

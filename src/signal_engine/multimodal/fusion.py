@@ -3,8 +3,6 @@ from __future__ import annotations
 from typing import Iterable
 
 from .schemas import (
-    EvidenceSpan,
-    EvidenceWindow,
     FusedSignal,
     ModalityFeatureSet,
     MultimodalSignalReport,
