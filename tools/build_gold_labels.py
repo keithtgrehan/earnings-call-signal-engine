@@ -20,7 +20,7 @@ def build_gold(rows: list[dict[str, str]]) -> tuple[list[dict[str, object]], lis
     unclear: list[dict[str, object]] = []
     for row in rows:
         decision = review_decision(row)
-        final_label = str(row.get("final_label") or row.get("weak_label") or "").strip()
+        final_label = str(row.get("final_label") or "").strip()
         if decision == "accepted" and final_label in SIGNAL_LABELS:
             accepted.append(
                 {
