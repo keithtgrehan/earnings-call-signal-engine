@@ -9,7 +9,7 @@ SMOKE_URL ?= https://www.youtube.com/watch?v=BaW_jenozKc
 SMOKE_OUT := ./_smoke_out
 SMOKE_CACHE := ./_smoke_cache
 
-.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh
+.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -118,6 +118,29 @@ data-growth-refresh:
 	$(PYTHON) scripts/analyze_signal_errors.py || true
 	$(PYTHON) scripts/build_label_review_packet.py
 	$(PYTHON) scripts/prioritize_second_review.py || true
+
+review-summary:
+	$(PYTHON) tools/review_next_batch.py --summary
+
+validate-reviewed:
+	$(PYTHON) tools/validate_reviewed_batch.py
+
+promote-gold:
+	$(PYTHON) tools/update_gold_from_review.py
+
+eval-labels:
+	$(PYTHON) tools/report_evaluation_readiness.py
+	$(PYTHON) tools/evaluate_gold_labels.py
+
+benchmark-report:
+	$(PYTHON) tools/report_evaluation_readiness.py
+
+labeling-ci:
+	$(PYTHON) tools/review_next_batch.py --summary
+	$(PYTHON) tools/validate_reviewed_batch.py || true
+	$(PYTHON) tools/update_gold_from_review.py --dry-run || true
+	$(PYTHON) tools/report_evaluation_readiness.py
+	$(PYTHON) tools/evaluate_gold_labels.py
 
 clean:
 	rm -rf ./_smoke_out ./_smoke_cache build dist

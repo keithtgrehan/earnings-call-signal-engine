@@ -12,7 +12,7 @@ if str(TOOLS) not in sys.path:
 
 from build_gold_labels import build_gold  # noqa: E402
 from build_review_queue import build_review_queue  # noqa: E402
-from evaluate_gold_labels import evaluate, gate_for_count  # noqa: E402
+from evaluate_gold_labels import evaluate, gate_for_count, main as evaluate_main  # noqa: E402
 from labeling_common import parse_packet  # noqa: E402
 from train_text_signal_model import train, training_gate  # noqa: E402
 
@@ -74,6 +74,19 @@ def test_gold_builder_accepts_only_accepted_rows() -> None:
     assert len(unclear) == 1
 
 
+def test_gold_builder_never_auto_promotes_weak_label_without_final_label() -> None:
+    rows = [
+        {"candidate_id": "a", "case_id": "c1", "text": "risk", "weak_label": "risk_friction", "final_label": "", "review_decision": "accept"},
+        {"candidate_id": "b", "case_id": "c1", "text": "risk", "weak_label": "risk_friction", "final_label": "risk_friction", "review_decision": "reject"},
+    ]
+
+    accepted, rejected, unclear = build_gold(rows)
+
+    assert accepted == []
+    assert len(rejected) == 1
+    assert unclear == []
+
+
 def test_evaluation_gate_thresholds_and_training_guard(tmp_path: Path) -> None:
     assert gate_for_count(19) == ("insufficient_data", False)
     assert gate_for_count(20) == ("preliminary_metrics_only", True)
@@ -90,6 +103,19 @@ def test_evaluation_gate_thresholds_and_training_guard(tmp_path: Path) -> None:
     assert summary["training_ran"] is False
     assert errors == []
     assert not (tmp_path / "latest.joblib").exists()
+
+
+def test_evaluate_gold_labels_empty_file_skips_safely(tmp_path: Path) -> None:
+    gold = tmp_path / "gold_labels.jsonl"
+    out = tmp_path / "benchmark_status.md"
+    gold.write_text("", encoding="utf-8")
+
+    exit_code = evaluate_main(["--gold", str(gold), "--out", str(out)])
+
+    assert exit_code == 0
+    report = out.read_text(encoding="utf-8")
+    assert "metrics_computed: `False`" in report
+    assert "Insufficient data" in report
 
 
 def test_reviewed_label_csv_roundtrip_shape(tmp_path: Path) -> None:

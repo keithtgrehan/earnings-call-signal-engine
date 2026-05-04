@@ -26,6 +26,8 @@ def test_report_label_dataset_growth_summarizes_current_counts(tmp_path: Path) -
             str(review_csv_path),
             "--jsonl-out",
             str(tmp_path / "signal_label_candidates.jsonl"),
+            "--report-out",
+            str(tmp_path / "signal-label-candidate-mining.md"),
         ],
         cwd=ROOT,
         check=True,

@@ -30,7 +30,10 @@ def import_reviewed_rows(path: Path) -> list[dict[str, str]]:
         rows = [dict(row) for row in csv.DictReader(handle)]
     imported = []
     for row in rows:
-        imported.append({field: str(row.get(field) or "") for field in FIELDS})
+        item = {field: str(row.get(field) or "") for field in FIELDS}
+        if not item["reviewer_notes"]:
+            item["reviewer_notes"] = str(row.get("review_notes") or "")
+        imported.append(item)
     return imported
 
 
