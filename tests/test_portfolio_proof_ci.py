@@ -39,7 +39,7 @@ def test_build_portfolio_proof_skips_missing_legacy_bundle_without_overwriting_e
     assert proof_path.read_text(encoding="utf-8") == original
 
 
-def test_markdown_link_checker_warns_for_missing_legacy_llly_outputs() -> None:
+def test_markdown_link_checker_passes_when_legacy_lly_outputs_are_not_referenced() -> None:
     completed = subprocess.run(
         [
             sys.executable,
@@ -53,6 +53,5 @@ def test_markdown_link_checker_warns_for_missing_legacy_llly_outputs() -> None:
         text=True,
     )
 
-    assert "Markdown link check warnings:" in completed.stdout
-    assert "missing optional legacy proof target ../outputs/LLY_2025_Q2_call08/metrics.json" in completed.stdout
+    assert "Markdown link check warnings:" not in completed.stdout
     assert "Markdown link check passed." in completed.stdout

@@ -275,11 +275,10 @@ def load_candidates(path: Path) -> list[dict[str, Any]]:
 def review_decision(row: dict[str, Any]) -> str:
     for key in ("review_decision", "accepted"):
         decision = str(row.get(key) or "").strip().lower()
-        if decision in {"accept", "accepted", "yes", "true", "1"}:
+        if decision in {"accept", "accepted", "edit", "edit_label", "corrected", "yes", "true", "1"}:
             return "accepted"
         if decision in {"reject", "rejected", "no", "false", "0"}:
             return "rejected"
         if decision in {"unclear", "unsure", "maybe"}:
             return "unclear"
     return ""
-
