@@ -1,0 +1,209 @@
+# Label Import Summary
+
+- gold_output: `data/gold/gold_labels.jsonl`
+- rows_imported: `57`
+- rows_rejected_or_skipped: `1031`
+
+## Sources
+
+- `data/labeling/reviewed_labels.csv` schema=`reviewed_csv` found=`979` valid=`0` imported=`0` rejected=`979`
+- `data/nlp_research/human_reviewed_signal_labels.jsonl` schema=`human_reviewed_jsonl` found=`48` valid=`48` imported=`48` rejected=`0`
+- `data/gold_guidance_calls/labels.csv` schema=`guidance_labels_csv` found=`9` valid=`9` imported=`9` rejected=`0`
+- `data/gold_guidance_calls/draft_labels.csv` schema=`guidance_labels_csv` found=`9` valid=`9` imported=`0` rejected=`9`
+- `data/gold_guidance_calls/call_manifest.csv` schema=`metadata_or_unsupported` found=`9` valid=`0` imported=`0` rejected=`9`
+- `data/gold_guidance_calls/official_source_manifest.csv` schema=`metadata_or_unsupported` found=`9` valid=`0` imported=`0` rejected=`9`
+- `data/gold_guidance_calls/prior_quarter_sources.csv` schema=`metadata_or_unsupported` found=`7` valid=`0` imported=`0` rejected=`7`
+- `data/gold_guidance_calls/transcript_inventory.csv` schema=`metadata_or_unsupported` found=`9` valid=`0` imported=`0` rejected=`9`
+- `data/gold_guidance_calls/transcription_status.csv` schema=`metadata_or_unsupported` found=`9` valid=`0` imported=`0` rejected=`9`
+
+## Source Quality Notes
+
+- Imported labels have mixed provenance and should be filterable before stronger benchmark claims are made.
+- `data/nlp_research/human_reviewed_signal_labels.jsonl` rows were already labeled in the four-label Signal Engine taxonomy.
+- `data/gold_guidance_calls/labels.csv` rows were conservatively mapped from guidance-change labels into the four-label Signal Engine taxonomy.
+- `data/labeling/reviewed_labels.csv` contained no accepted review decisions at import time, so no rows were promoted from that source.
+- Metadata-only guidance CSVs were intentionally rejected as non-label sources.
+
+## Imported Rows
+
+- `risk_support_refund_delay_001` case=`sample_support` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_support_deflection_001` case=`sample_support` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_support_escalation_001` case=`sample_support` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_sales_pricing_objection_001` case=`sample_sales` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_account_unresolved_001` case=`sample_account_management` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_account_vendor_risk_001` case=`sample_account_management` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_support_billing_delay_001` case=`support_tickets_realistic` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_support_help_center_001` case=`support_tickets_realistic` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_support_dispute_001` case=`support_tickets_realistic` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_sales_procurement_block_001` case=`sales_calls_realistic` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_account_reduce_seats_001` case=`account_management_realistic` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `risk_support_anger_seed_001` case=`sample_emotion_cases` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_sales_pilot_interest_001` case=`sample_sales` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_sales_plan_commitment_001` case=`sample_sales` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_sales_security_packet_001` case=`sample_sales` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_sales_procurement_path_001` case=`sample_sales` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_account_recovery_plan_001` case=`sample_account_management` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_account_expand_support_001` case=`sample_account_management` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_account_confirm_owners_001` case=`sample_account_management` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_account_own_recovery_001` case=`account_management_realistic` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_account_named_owners_001` case=`account_management_realistic` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_account_expand_realistic_001` case=`account_management_realistic` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_support_resolution_seed_001` case=`sample_emotion_cases` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_account_followthrough_seed_001` case=`sample_emotion_cases` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `opp_sales_security_review_path_001` case=`sample_sales` label=`opportunity_commitment` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_support_waiting_update_001` case=`sample_support` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_sales_security_review_001` case=`sample_sales` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_sales_discount_signoff_001` case=`sample_sales` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_account_rollout_condition_001` case=`sample_account_management` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_account_expansion_realistic_001` case=`sample_account_management` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_sales_unknown_after_pilot_001` case=`sales_calls_realistic` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_sales_probably_001` case=`sales_calls_realistic` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_sales_details_later_001` case=`sales_calls_realistic` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_account_if_recovery_lands_001` case=`account_management_realistic` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_support_confusion_seed_001` case=`sample_emotion_cases` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_sales_confusion_seed_001` case=`sample_emotion_cases` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `unc_support_concern_seed_001` case=`sample_emotion_cases` label=`uncertainty_hedging` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_sales_opening_full_001` case=`sample_sales` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_sales_opening_thanks_001` case=`sample_sales` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_sales_status_full_001` case=`sample_emotion_cases` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_sales_status_procurement_001` case=`sample_emotion_cases` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_account_status_full_001` case=`sample_emotion_cases` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_account_status_intro_001` case=`sample_emotion_cases` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_account_status_meeting_001` case=`sample_emotion_cases` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_account_status_agenda_001` case=`sample_emotion_cases` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_account_review_schedule_001` case=`account_management_realistic` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_sales_acknowledgement_001` case=`sample_sales` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `neut_sales_legal_status_001` case=`sample_emotion_cases` label=`neutral` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
+- `guidance_call01_6cf66737f8de` case=`call01` label=`uncertainty_hedging` source=`data/gold_guidance_calls/labels.csv`
+- `guidance_call02_9860ae4d461d` case=`call02` label=`opportunity_commitment` source=`data/gold_guidance_calls/labels.csv`
+- `guidance_call03_abac7f32543f` case=`call03` label=`uncertainty_hedging` source=`data/gold_guidance_calls/labels.csv`
+- `guidance_call04_eda5eff6ad87` case=`call04` label=`uncertainty_hedging` source=`data/gold_guidance_calls/labels.csv`
+- `guidance_call05_fb70e4dc4f3f` case=`call05` label=`uncertainty_hedging` source=`data/gold_guidance_calls/labels.csv`
+- `guidance_call06_6e1c15f19dfe` case=`call06` label=`uncertainty_hedging` source=`data/gold_guidance_calls/labels.csv`
+- `guidance_call07_49e9183290eb` case=`call07` label=`uncertainty_hedging` source=`data/gold_guidance_calls/labels.csv`
+- `guidance_call08_864ffeb99f4c` case=`call08` label=`opportunity_commitment` source=`data/gold_guidance_calls/labels.csv`
+- `guidance_call09_42126dfb1bf0` case=`call09` label=`risk_friction` source=`data/gold_guidance_calls/labels.csv`
+
+## Rejected / Skipped Rows
+
+- `data/labeling/reviewed_labels.csv` row `2`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `3`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `4`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `5`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `6`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `7`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `8`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `9`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `10`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `11`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `12`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `13`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `14`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `15`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `16`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `17`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `18`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `19`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `20`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `21`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `22`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `23`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `24`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `25`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `26`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `27`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `28`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `29`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `30`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `31`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `32`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `33`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `34`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `35`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `36`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `37`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `38`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `39`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `40`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `41`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `42`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `43`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `44`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `45`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `46`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `47`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `48`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `49`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `50`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `51`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `52`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `53`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `54`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `55`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `56`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `57`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `58`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `59`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `60`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `61`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `62`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `63`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `64`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `65`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `66`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `67`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `68`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `69`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `70`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `71`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `72`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `73`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `74`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `75`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `76`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `77`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `78`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `79`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `80`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `81`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `82`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `83`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `84`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `85`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `86`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `87`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `88`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `89`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `90`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `91`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `92`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `93`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `94`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `95`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `96`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `97`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `98`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `99`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `100`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `101`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `102`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `103`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `104`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `105`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `106`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `107`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `108`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `109`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `110`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `111`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `112`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `113`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `114`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `115`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `116`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `117`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `118`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `119`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `120`: not_imported - row is not an accepted human/guidance label
+- `data/labeling/reviewed_labels.csv` row `121`: not_imported - row is not an accepted human/guidance label
+- ... 911 additional rejected/skipped rows omitted from summary view.

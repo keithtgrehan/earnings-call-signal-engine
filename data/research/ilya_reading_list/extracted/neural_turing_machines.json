@@ -1,0 +1,60 @@
+{
+  "id": "neural_turing_machines",
+  "title": "Neural Turing Machines",
+  "authors": [
+    "Alex Graves",
+    "Greg Wayne",
+    "Ivo Danihelka"
+  ],
+  "year": 2014,
+  "source_url": "https://arxiv.org/abs/1410.5401",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 53963,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Model",
+    "Experiments",
+    "Results",
+    "Conclusion",
+    "References"
+  ],
+  "abstract": "We extend the capabilities of neural networks by coupling them to external memory re-\nsources, which they can interact with by attentional processes. The combined system is\nanalogous to a Turing Machine or V on Neumann architecture but is differentiable end-to-\nend, allowing it to be ef\ufb01ciently trained with gradient descent. Preliminary results demon-\nstrate that Neural Turing Machines can infer simple algorithms such as copying, sorting,\nand associative recall from input and output examples.\n1 Introduction\nComputer programs make use of three fundamental mechanisms: elementary operations\n(e.g., arithmetic operations), logical \ufb02ow control (branching), and external memory, which\ncan be writte",
+  "introduction": "Computer programs make use of three fundamental mechanisms: elementary operations\n(e.g., arithmetic operations), logical \ufb02ow control (branching), and external memory, which\ncan be written to and read from in the course of computation (V on Neumann, 1945). De-\nspite its wide-ranging success in modelling complicated data, modern machine learning\nhas largely neglected the use of logical \ufb02ow control and external memory.\nRecurrent neural networks (RNNs) stand out from other machine learning methods\nfor their ability to learn and carry out complicated transformations of data over extended\nperiods of time. Moreover, it is known that RNNs are Turing-Complete (Siegelmann and\nSontag, 1995), and there",
+  "conclusion": "We have introduced the Neural Turing Machine, a neural network architecture that takes\ninspiration from both models of biological working memory and the design of digital com-\nputers. Like conventional neural networks, the architecture is differentiable end-to-end and\ncan be trained with gradient descent. Our experiments demonstrate that it is capable of\nlearning simple algorithms from example data and of using these algorithms to generalise\nwell outside its training regime.\n22\nTask #Heads Controller Size Memory Size Learning Rate #Parameters\nCopy 1 100 128 \u00d720 10\u22124 67,561\nRepeat Copy 1 100 128 \u00d720 10\u22124 66,111\nAssociative 1 100 128 \u00d720 10\u22124 70,330\nN-Grams 1 100 128 \u00d720 3 \u00d710\u22125 61,749\nPriori",
+  "key_terms": [
+    "differentiable memory",
+    "content addressing",
+    "location addressing",
+    "read/write heads",
+    "memory",
+    "sequence",
+    "network",
+    "controller",
+    "neural",
+    "figure",
+    "location",
+    "input",
+    "weighting",
+    "networks",
+    "write",
+    "vectors",
+    "learning",
+    "number"
+  ],
+  "references_sample": [
+    "Baddeley, A., Eysenck, M., and Anderson, M. (2009). Memory. Psychology Press.",
+    "Bahdanau, D., Cho, K., and Bengio, Y . (2014). Neural machine translation by jointly",
+    "learning to align and translate. abs/1409.0473.",
+    "Barrouillet, P., Bernardin, S., and Camos, V . (2004). Time constraints and resource shar-",
+    "ing in adults\u2019 working memory spans. Journal of Experimental Psychology: General ,",
+    "Chomsky, N. (1956). Three models for the description of language. Information Theory,",
+    "IEEE Transactions on, 2(3):113\u2013124.",
+    "Das, S., Giles, C. L., and Sun, G.-Z. (1992). Learning context-free grammars: Capabil-"
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

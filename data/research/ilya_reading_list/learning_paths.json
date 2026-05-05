@@ -1,0 +1,111 @@
+{
+  "learning_paths": [
+    {
+      "name": "Deep Learning Fundamentals",
+      "ordered_papers": [
+        "imagenet_classification_deep_cnn",
+        "deep_residual_learning_image_recognition",
+        "identity_mappings_deep_residual_networks",
+        "stanford_cs231n_convolutional_neural_networks"
+      ],
+      "why_this_order": "Start with the breakthrough, then learn residual refinements and the broader practical course material.",
+      "expected_outcome": "Understand data, architecture, optimization, and ablation discipline before touching multimodal models.",
+      "relevance_to_earnings_call_project": "Keeps future visual/audio-sidecar work honest and benchmark-driven."
+    },
+    {
+      "name": "RNNs and Sequence Models",
+      "ordered_papers": [
+        "unreasonable_effectiveness_rnns",
+        "understanding_lstm_networks",
+        "rnn_regularization",
+        "order_matters_seq2seq_sets"
+      ],
+      "why_this_order": "Move from intuition to memory mechanics, then regularization and ordering pitfalls.",
+      "expected_outcome": "Design transcript sequence features with chronology, memory, and overfitting risk in view.",
+      "relevance_to_earnings_call_project": "Supports section-aware prepared remarks/Q&A modeling and 30/100/500 transcript gates."
+    },
+    {
+      "name": "Attention and Transformers",
+      "ordered_papers": [
+        "nmt_jointly_learning_align_translate",
+        "pointer_networks",
+        "attention_is_all_you_need"
+      ],
+      "why_this_order": "Begin with alignment attention, then pointer-style extraction, then full self-attention.",
+      "expected_outcome": "Understand why retrieval, evidence pointers, and rerankers should be citation-first.",
+      "relevance_to_earnings_call_project": "Directly informs RAG, semantic retrieval, and evidence-span interfaces."
+    },
+    {
+      "name": "Scaling and Systems",
+      "ordered_papers": [
+        "scaling_laws_neural_language_models",
+        "gpipe_scaling_microbatch_pipeline_parallelism"
+      ],
+      "why_this_order": "Plan why to scale before studying how to scale.",
+      "expected_outcome": "Separate data/evaluation scaling from expensive training infrastructure.",
+      "relevance_to_earnings_call_project": "Defines when the project should move from deterministic baselines to local ML and later GPU experiments."
+    },
+    {
+      "name": "Multimodal AI",
+      "ordered_papers": [
+        "stanford_cs231n_convolutional_neural_networks",
+        "imagenet_classification_deep_cnn",
+        "deep_residual_learning_image_recognition",
+        "multi_scale_context_aggregation_dilated_convolutions"
+      ],
+      "why_this_order": "Learn practical vision basics, then landmark architectures and multi-scale context.",
+      "expected_outcome": "Understand visual feature extraction as a measured sidecar, not a magic replacement.",
+      "relevance_to_earnings_call_project": "Supports future video/status/prosody fusion only after transcript evaluation is stable."
+    },
+    {
+      "name": "Speech and Audio",
+      "ordered_papers": [
+        "deep_speech_2_end_to_end_speech_recognition",
+        "understanding_lstm_networks",
+        "rnn_regularization"
+      ],
+      "why_this_order": "Start with the applied ASR system, then revisit sequence memory and regularization.",
+      "expected_outcome": "Treat ASR quality, acoustic coverage, and WER-style gates as prerequisites.",
+      "relevance_to_earnings_call_project": "Frames audio as transcript provenance and later prosody evidence, not current production proof."
+    },
+    {
+      "name": "Complexity, MDL, and Compression",
+      "ordered_papers": [
+        "tutorial_minimum_description_length_principle",
+        "keeping_neural_networks_simple_mdl_weights",
+        "kolmogorov_complexity_algorithmic_randomness",
+        "first_law_complexodynamics",
+        "coffee_automaton_complexity_closed_systems"
+      ],
+      "why_this_order": "Move from applied model selection to neural simplicity, then theoretical complexity and dynamic complexity.",
+      "expected_outcome": "Use compression and simplicity as evaluation guardrails, not as unsupported intelligence claims.",
+      "relevance_to_earnings_call_project": "Guides boilerplate detection, weak-label governance, and model selection discipline."
+    },
+    {
+      "name": "Memory and Reasoning",
+      "ordered_papers": [
+        "neural_turing_machines",
+        "relational_recurrent_neural_networks",
+        "simple_module_relational_reasoning",
+        "neural_message_passing_quantum_chemistry"
+      ],
+      "why_this_order": "Study external memory, relational memory, pairwise relation modules, then graph message passing.",
+      "expected_outcome": "Design future conversation intelligence around explicit memory, speaker relations, and evidence graphs.",
+      "relevance_to_earnings_call_project": "Supports Q&A relation graphs, topic-thread tracking, and analyst-management interaction features."
+    },
+    {
+      "name": "Signal Engine 2.0 Practical Roadmap",
+      "ordered_papers": [
+        "tutorial_minimum_description_length_principle",
+        "attention_is_all_you_need",
+        "pointer_networks",
+        "scaling_laws_neural_language_models",
+        "deep_speech_2_end_to_end_speech_recognition",
+        "neural_message_passing_quantum_chemistry"
+      ],
+      "why_this_order": "Start with evaluation humility, then retrieval/evidence, data scaling, audio provenance, and relation graphs.",
+      "expected_outcome": "Convert research into staged, evidence-backed product architecture.",
+      "relevance_to_earnings_call_project": "This is the shortest path from research layer to portfolio-grade Signal Engine 2.0 decisions."
+    }
+  ]
+}

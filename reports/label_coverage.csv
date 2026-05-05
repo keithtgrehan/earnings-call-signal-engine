@@ -1,5 +1,5 @@
 label,gold_count,share,status
-neutral,0,0.0,missing
-opportunity_commitment,0,0.0,missing
-risk_friction,0,0.0,missing
-uncertainty_hedging,0,0.0,missing
+risk_friction,13,0.2281,present
+opportunity_commitment,15,0.2632,present
+uncertainty_hedging,18,0.3158,present
+neutral,11,0.193,present

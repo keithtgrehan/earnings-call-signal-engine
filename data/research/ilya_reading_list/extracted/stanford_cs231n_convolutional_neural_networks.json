@@ -1,0 +1,43 @@
+{
+  "id": "stanford_cs231n_convolutional_neural_networks",
+  "title": "Stanford's CS231n Convolutional Neural Networks for Visual Recognition",
+  "authors": [
+    "Fei-Fei Li",
+    "Andrej Karpathy",
+    "Justin Johnson"
+  ],
+  "year": 2015,
+  "source_url": "https://cs231n.stanford.edu/",
+  "extraction_status": "abstract_only",
+  "extraction_method": "beautifulsoup_html",
+  "raw_text_committed": false,
+  "text_length_chars": 7849,
+  "sections_detected": [],
+  "abstract": "Stanford University CS231n: Deep Learning for Computer Vision\nCS231n: Deep Learning for Computer Vision\nStanford - Spring 2026\n*This network is running live in your browser\nThe Convolutional Neural Network in this example is classifying images live in your browser using Javascript, at\n about 10 milliseconds per image. It takes an input image and transforms it through a series of functions into\n class probabilities at the end. The transformed representations in this visualization can be loosely thought of\n as\n the activations of the neurons along the way. The parameters of this function are learned with backpropagation\n on\n a dataset of (image, label) pairs. This particular network is classif",
+  "introduction": "",
+  "conclusion": "",
+  "key_terms": [
+    "CNN fundamentals",
+    "optimization",
+    "backpropagation",
+    "computer vision",
+    "practical training",
+    "course",
+    "project",
+    "spring",
+    "final",
+    "learning",
+    "students",
+    "stanford",
+    "image",
+    "assignments",
+    "should",
+    "staff",
+    "vision",
+    "class"
+  ],
+  "references_sample": [],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

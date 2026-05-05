@@ -1,0 +1,37 @@
+# The Unreasonable Effectiveness of Recurrent Neural Networks
+
+Source URL: https://karpathy.github.io/2015/05/21/rnn-effectiveness/
+Extraction status: full_text_parsed
+Text length parsed locally: 48097
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Background
+- Model
+- Experiments
+- Results
+- Discussion
+- Conclusion
+
+## Abstract / Opening Digest
+
+The Unreasonable Effectiveness of Recurrent Neural Networks
+Andrej Karpathy blog
+The Unreasonable Effectiveness of Recurrent Neural Networks
+May 21, 2015
+There’s something magical about Recurrent Neural Networks (RNNs). I still remember when I trained my first recurrent network for
+Image Captioning
+. Within a few dozen minutes of training my first baby model (with rather arbitrarily-chosen hyperparameters) started to generate very nice looking descriptions of images that were on the edge of maki
+
+## Introduction Digest
+
+
+
+## Conclusion Digest
+
+We’ve learned about RNNs, how they work, why they have become a big deal, we’ve trained an RNN character-level language model on several fun datasets, and we’ve seen where RNNs are going. You can confidently expect a large amount of innovation in the space of RNNs, and I believe they will become a pervasive and critical component to intelligent systems.
+Lastly, to add some
+meta
+to this post, I trained an RNN on the source file of this blog post. Unfortunately, at about 46K characters I haven’t w

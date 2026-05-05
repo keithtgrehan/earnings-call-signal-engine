@@ -1,0 +1,37 @@
+# A Simple Neural Network Module for Relational Reasoning
+
+Source URL: https://arxiv.org/abs/1706.01427
+Extraction status: full_text_parsed
+Text length parsed locally: 53439
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Background
+- Model
+- Results
+- Discussion
+- References
+
+## Abstract / Opening Digest
+
+Relational reasoning is a central component of generally intelligent behavior, but has proven
+diﬃcult for neural networks to learn. In this paper we describe how to use Relation Networks
+(RNs) as a simple plug-and-play module to solve problems that fundamentally hinge on relational
+reasoning. We tested RN-augmented networks on three tasks: visual question answering
+using a challenging dataset called CLEVR, on which we achieve state-of-the-art, super-human
+performance; text-based question answeri
+
+## Introduction Digest
+
+The ability to reason about the relations between entities and their properties is central to generally
+intelligent behavior (Figure 1) [ 18, 15]. Consider a child proposing a race between the two trees
+in the park that are furthest apart: the pairwise distances between every tree in the park must be
+inferred and compared to know where to run. Or, consider a reader piecing together evidence to
+predict the culprit in a murder-mystery novel: each clue must be considered in its broader context to
+b
+
+## Conclusion Digest

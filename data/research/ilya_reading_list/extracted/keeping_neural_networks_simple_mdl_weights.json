@@ -1,0 +1,56 @@
+{
+  "id": "keeping_neural_networks_simple_mdl_weights",
+  "title": "Keeping Neural Networks Simple by Minimizing the Description Length of the Weights",
+  "authors": [
+    "Geoffrey E. Hinton",
+    "Drew van Camp"
+  ],
+  "year": 1993,
+  "source_url": "https://www.cs.toronto.edu/~hinton/absps/colt93.html",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 41575,
+  "sections_detected": [
+    "Abstract",
+    "Results",
+    "Discussion",
+    "References"
+  ],
+  "abstract": "Sup ervised neural net w orks generalize w ell if\nthere is m uc h less information in the w eigh ts\nthan there is in the output v ectors of the train/-\ning cases/. So during learning/, it is imp or/-\ntan tt ok eep the w eigh ts simple b y p enaliz/-\ning the amoun t of information they con tain/.\nThe amoun t of information in a w eigh t can\nb e con trolled b y adding Gaussian noise and\nthe noise lev el can b e adapted during learning\nto optimize the trade/-o/#0B b et w een the exp ected\nsquared error of the net w ork and the amoun t\nof information in the w eigh ts/. W e describ e\na metho d of computing the deriv ativ es of the\nexp ected squared error and of the amoun to f\ninformation in the",
+  "introduction": "",
+  "conclusion": "",
+  "key_terms": [
+    "minimum description length",
+    "weight noise",
+    "regularization",
+    "model simplicity",
+    "distribution",
+    "output",
+    "gaussian",
+    "prior",
+    "training",
+    "ariance",
+    "probabilit",
+    "osterior",
+    "metho",
+    "hidden",
+    "mixture",
+    "ected",
+    "error",
+    "units"
+  ],
+  "references_sample": [
+    "Hin ton/, G/. E/. /#28/1/9/8/7/#29 Learning translation in v arian t",
+    "recognition in a massiv ely parallel net w ork/. In Go os/, G/.",
+    "and Hartmanis/, J/./, editors/, P ARLE/: Par al lel A r chite c/-",
+    "tur es and L anguages Eur op e /, pages /1/#7B/1/3/, Lecture Notes",
+    "in Computer Science/, Springer/-V erlag/, Berlin/.",
+    "Lang/, K/./, W aib el/, A/. and Hin ton/, G/. E/. /#28/1/9/9/0/#29 A Time/-",
+    "Dela y Neural Net w ork Arc hitecture for Isolated W ord",
+    "Recognition/. Neur al Networks /, /3 /, /2/3/-/4/3/."
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

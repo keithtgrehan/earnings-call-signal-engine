@@ -1,0 +1,48 @@
+# Neural Turing Machines
+
+Source URL: https://arxiv.org/abs/1410.5401
+Extraction status: full_text_parsed
+Text length parsed locally: 53963
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Model
+- Experiments
+- Results
+- Conclusion
+- References
+
+## Abstract / Opening Digest
+
+We extend the capabilities of neural networks by coupling them to external memory re-
+sources, which they can interact with by attentional processes. The combined system is
+analogous to a Turing Machine or V on Neumann architecture but is differentiable end-to-
+end, allowing it to be efﬁciently trained with gradient descent. Preliminary results demon-
+strate that Neural Turing Machines can infer simple algorithms such as copying, sorting,
+and associative recall from input and output examples.
+1 
+
+## Introduction Digest
+
+Computer programs make use of three fundamental mechanisms: elementary operations
+(e.g., arithmetic operations), logical ﬂow control (branching), and external memory, which
+can be written to and read from in the course of computation (V on Neumann, 1945). De-
+spite its wide-ranging success in modelling complicated data, modern machine learning
+has largely neglected the use of logical ﬂow control and external memory.
+Recurrent neural networks (RNNs) stand out from other machine learning methods
+f
+
+## Conclusion Digest
+
+We have introduced the Neural Turing Machine, a neural network architecture that takes
+inspiration from both models of biological working memory and the design of digital com-
+puters. Like conventional neural networks, the architecture is differentiable end-to-end and
+can be trained with gradient descent. Our experiments demonstrate that it is capable of
+learning simple algorithms from example data and of using these algorithms to generalise
+well outside its training regime.
+22
+Task #Heads Contr

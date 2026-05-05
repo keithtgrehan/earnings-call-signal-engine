@@ -1,0 +1,57 @@
+# A Tutorial Introduction to the Minimum Description Length Principle
+
+Source URL: https://arxiv.org/abs/math/0406077
+Extraction status: full_text_parsed
+Text length parsed locally: 205541
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Method
+- Model
+- Experiments
+- Results
+- Discussion
+- Conclusion
+- References
+
+## Abstract / Opening Digest
+
+This tutorial provides an overview of and introduction to Ri ssanen’s Minimum De-
+scription Length (MDL) Principle. The ﬁrst chapter provide s a conceptual, entirely
+non-technical introduction to the subject. It serves as a ba sis for the technical intro-
+duction given in the second chapter, in which all the ideas of the ﬁrst chapter are made
+mathematically precise. This tutorial will appear as the ﬁr st two chapters in the collec-
+tion Advances in Minimum Description Length: Theory and Applica 
+
+## Introduction Digest
+
+Introduction to the
+Minimum Description Length Principle
+Peter Gr¨ unwald
+Centrum voor Wiskunde en Informatica
+Kruislaan 413, 1098 SJ Amsterdam
+The Netherlands
+pdg@cwi.nl
+www.grunwald.nl
+Abstract
+This tutorial provides an overview of and introduction to Ri ssanen’s Minimum De-
+scription Length (MDL) Principle. The ﬁrst chapter provide s a conceptual, entirely
+non-technical introduction to the subject. It serves as a ba sis for the technical intro-
+duction given in the second chapter, in which al
+
+## Conclusion Digest
+
+Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+4
+Chapter 1
+Introducing the MDL Principle
+1.1 Introduction and Overview
+How does one decide among competing explanations of data giv en limited observations?
+This is the problem of model selection . It stands out as one of the most important
+problems of inductive and statistical inference. The Minim um Description Length
+(MDL) Principle is a relatively recent method for inductive inference that provides a
+generic s

@@ -1,0 +1,59 @@
+{
+  "id": "order_matters_seq2seq_sets",
+  "title": "Order Matters: Sequence to Sequence for Sets",
+  "authors": [
+    "Oriol Vinyals",
+    "Samy Bengio",
+    "Manjunath Kudlur"
+  ],
+  "year": 2015,
+  "source_url": "https://arxiv.org/abs/1511.06391",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 39823,
+  "sections_detected": [
+    "Abstract",
+    "Model",
+    "Experiments",
+    "Results",
+    "Discussion",
+    "References"
+  ],
+  "abstract": "Sequences have become \ufb01rst class citizens in supervised learning thanks to the\nresurgence of recurrent neural networks. Many complex tasks that require map-\nping from or to a sequence of observations can now be formulated with the\nsequence-to-sequence (seq2seq) framework which employs the chain rule to ef-\n\ufb01ciently represent the joint probability of sequences. In many cases, however,\nvariable sized inputs and/or outputs might not be naturally expressed as sequences.\nFor instance, it is not clear how to input a set of numbers into a model where the\ntask is to sort them; similarly, we do not know how to organize outputs when\nthey correspond to random variables and the task is to model their u",
+  "introduction": "",
+  "conclusion": "",
+  "key_terms": [
+    "sets",
+    "sequence ordering",
+    "attention",
+    "permutation sensitivity",
+    "model",
+    "order",
+    "input",
+    "neural",
+    "ordering",
+    "sequence",
+    "models",
+    "vinyals",
+    "output",
+    "probability",
+    "training",
+    "joint",
+    "where",
+    "paper"
+  ],
+  "references_sample": [
+    "Bahdanau, D., Cho, K., and Bengio, Y . Neural machine translation by jointly learning to align and translate. In",
+    "Bahdanau, D., Chorowski, J., Serdyuk, D., Brakel, P., and Bengio, Y . End-to-end attention-based large vocab-",
+    "ulary speech recognition. arXiv preprint arXiv:1508.04395, 2015b.",
+    "Bakir, G., Hofmann, T., Scholkopf, B., Smola, A. J., Taskar, B., and Vishwanathan, S.V .N. (eds.). Predicting",
+    "Structured Data. MIT Press, 2007.",
+    "Chan, W., Jaitly, N., Le, Q. V ., and Vinyals, O. Listen, attend and spell. arXiv, abs/1508.01211, 2015. URL",
+    "http://arxiv.org/abs/1508.01211.",
+    "Cho, K., van Merrienboer, B., Gulcehre, C., Bahdanau, D., Bougares, F., Schwenk, H., and Bengio, Y . Learning"
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

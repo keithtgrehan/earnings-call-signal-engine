@@ -115,4 +115,5 @@ line-length = 140
 
 [tool.ruff.lint.per-file-ignores]
 "scripts/*.py" = ["E402", "F401", "F541", "F841"]
+"tools/*.py" = ["E402"]
 "tools/transcript_downloader/*.py" = ["F401", "F841"]

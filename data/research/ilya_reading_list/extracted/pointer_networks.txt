@@ -1,0 +1,38 @@
+# Pointer Networks
+
+Source URL: https://arxiv.org/abs/1506.03134
+Extraction status: full_text_parsed
+Text length parsed locally: 29167
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Method
+- Model
+- Experiments
+- Results
+- References
+
+## Abstract / Opening Digest
+
+We introduce a new neural architecture to learn the conditional probability of an
+output sequence with elements that are discrete tokens corresponding to positions
+in an input sequence. Such problems cannot be trivially addressed by existent ap-
+proaches such as sequence-to-sequence [1] and Neural Turing Machines [2], be-
+cause the number of target classes in each step of the output depends on the length
+of the input, which is variable. Problems such as sorting variable sized sequences,
+and vari
+
+## Introduction Digest
+
+Recurrent Neural Networks (RNNs) have been used for learning functions over sequences from
+examples for more than three decades [3]. However, their architecture limited them to settings
+where the inputs and outputs were available at a ﬁxed frame rate (e.g. [4]). The recently introduced
+sequence-to-sequence paradigm [1] removed these constraints by using one RNN to map an input
+sequence to an embedding and another (possibly the same) RNN to map the embedding to an output
+sequence. Bahdanau et. al
+
+## Conclusion Digest
