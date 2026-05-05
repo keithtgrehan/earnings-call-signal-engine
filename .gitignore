@@ -55,6 +55,7 @@ data/processed/multimodal_engine/mlruns/
 tmp/
 
 # local transcript corpus outputs and bulky source artifacts
+data/research/ilya_reading_list/cache/
 *.pdf
 transcripts/
 transcripts_backup_*/

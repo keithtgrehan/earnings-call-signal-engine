@@ -1,0 +1,59 @@
+{
+  "id": "pointer_networks",
+  "title": "Pointer Networks",
+  "authors": [
+    "Oriol Vinyals",
+    "Meire Fortunato",
+    "Navdeep Jaitly"
+  ],
+  "year": 2015,
+  "source_url": "https://arxiv.org/abs/1506.03134",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 29167,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "References"
+  ],
+  "abstract": "We introduce a new neural architecture to learn the conditional probability of an\noutput sequence with elements that are discrete tokens corresponding to positions\nin an input sequence. Such problems cannot be trivially addressed by existent ap-\nproaches such as sequence-to-sequence [1] and Neural Turing Machines [2], be-\ncause the number of target classes in each step of the output depends on the length\nof the input, which is variable. Problems such as sorting variable sized sequences,\nand various combinatorial optimization problems belong to this class. Our model\nsolves the problem of variable size output dictionaries using a recently proposed\nmechanism of neural attention. It differs fro",
+  "introduction": "Recurrent Neural Networks (RNNs) have been used for learning functions over sequences from\nexamples for more than three decades [3]. However, their architecture limited them to settings\nwhere the inputs and outputs were available at a \ufb01xed frame rate (e.g. [4]). The recently introduced\nsequence-to-sequence paradigm [1] removed these constraints by using one RNN to map an input\nsequence to an embedding and another (possibly the same) RNN to map the embedding to an output\nsequence. Bahdanau et. al. augmented the decoder by propagating extra contextual information\nfrom the input using a content-based attentional mechanism [5, 2, 6]. These developments have\nmade it possible to apply RNNs to new",
+  "conclusion": "",
+  "key_terms": [
+    "pointer attention",
+    "variable output dictionary",
+    "combinatorial optimization",
+    "sequence-to-sequence",
+    "model",
+    "output",
+    "sequence",
+    "input",
+    "problems",
+    "convex",
+    "attention",
+    "ptr-net",
+    "problem",
+    "trained",
+    "where",
+    "arxiv",
+    "neural"
+  ],
+  "references_sample": [
+    "[1] Ilya Sutskever, Oriol Vinyals, and Quoc V Le. Sequence to sequence learning with neural",
+    "networks. In Advances in Neural Information Processing Systems, pages 3104\u20133112, 2014.",
+    "[2] Alex Graves, Greg Wayne, and Ivo Danihelka. Neural turing machines. arXiv preprint",
+    "arXiv:1410.5401, 2014.",
+    "[3] David E Rumelhart, Geoffrey E Hinton, and Ronald J Williams. Learning internal representa-",
+    "tions by error propagation. Technical report, DTIC Document, 1985.",
+    "[4] Anthony J Robinson. An application of recurrent nets to phone probability estimation. Neural",
+    "Networks, IEEE Transactions on, 5(2):298\u2013305, 1994."
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

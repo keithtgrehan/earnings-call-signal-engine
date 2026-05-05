@@ -1,0 +1,69 @@
+{
+  "id": "scaling_laws_neural_language_models",
+  "title": "Scaling Laws for Neural Language Models",
+  "authors": [
+    "Jared Kaplan",
+    "Sam McCandlish",
+    "Tom Henighan",
+    "Tom B. Brown",
+    "Benjamin Chess",
+    "Rewon Child",
+    "Scott Gray",
+    "Alec Radford",
+    "Jeffrey Wu",
+    "Dario Amodei"
+  ],
+  "year": 2020,
+  "source_url": "https://arxiv.org/abs/2001.08361",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 88515,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Background",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "Discussion",
+    "References"
+  ],
+  "abstract": "We study empirical scaling laws for language model performance on the cross-entropy loss.\nThe loss scales as a power-law with model size, dataset size, and the amount of compute\nused for training, with some trends spanning more than seven orders of magnitude. Other\narchitectural details such as network width or depth have minimal effects within a wide\nrange. Simple equations govern the dependence of over\ufb01tting on model/dataset size and the\ndependence of training speed on model size. These relationships allow us to determine the\noptimal allocation of a \ufb01xed compute budget. Larger models are signi\ufb01cantly more sample-\nef\ufb01cient, such that optimally compute-ef\ufb01cient training involves training ve",
+  "introduction": "Language provides a natural domain for the study of arti\ufb01cial intelligence, as the vast majority of reason-\ning tasks can be ef\ufb01ciently expressed and evaluated in language, and the world\u2019s text provides a wealth of\ndata for unsupervised learning via generative modeling. Deep learning has recently seen rapid progress in lan-\nguage modeling, with state of the art models [RNSS18, DCLT18, YDY+19, LOG+19, RSR+19] approaching\nhuman-level performance on many speci\ufb01c tasks [WPN +19], including the composition of coherent multi-\nparagraph prompted text samples [RWC+19].\nOne might expect language modeling performance to depend on model architecture, the size of neural models,\nthe computing power used",
+  "conclusion": "",
+  "key_terms": [
+    "scaling laws",
+    "power laws",
+    "dataset size",
+    "compute",
+    "model size",
+    "cross-entropy loss",
+    "training",
+    "model",
+    "models",
+    "performance",
+    "figure",
+    "batch",
+    "parameters",
+    "dataset",
+    "number",
+    "steps",
+    "learning",
+    "scaling"
+  ],
+  "references_sample": [
+    "[ACDE12] Eduardo G Altmann, Giampaolo Cristadoro, and Mirko Degli Esposti. On the origin of long-",
+    "range correlations in texts. Proceedings of the National Academy of Sciences , 109(29):11582\u2013",
+    "[AS17] Madhu S. Advani and Andrew M. Saxe. High-dimensional dynamics of generalization error in",
+    "neural networks. arXiv, 2017, 1710.03667. 11, 18, 22",
+    "[BB01] Michele Banko and Eric Brill. Scaling to very very large corpora for natural language disam-",
+    "biguation. In Proceedings of the 39th annual meeting on association for computational linguis-",
+    "tics, pages 26\u201333. Association for Computational Linguistics, 2001. 18",
+    "[BHMM18] Mikhail Belkin, Daniel Hsu, Siyuan Ma, and Soumik Mandal. Reconciling modern machine"
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "simple_module_relational_reasoning",
+  "title": "A Simple Neural Network Module for Relational Reasoning",
+  "authors": [
+    "Adam Santoro",
+    "David Raposo",
+    "David G. T. Barrett",
+    "Mateusz Malinowski",
+    "Razvan Pascanu",
+    "Peter Battaglia",
+    "Timothy Lillicrap"
+  ],
+  "year": 2017,
+  "source_url": "https://arxiv.org/abs/1706.01427",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 53439,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Background",
+    "Model",
+    "Results",
+    "Discussion",
+    "References"
+  ],
+  "abstract": "Relational reasoning is a central component of generally intelligent behavior, but has proven\ndi\ufb03cult for neural networks to learn. In this paper we describe how to use Relation Networks\n(RNs) as a simple plug-and-play module to solve problems that fundamentally hinge on relational\nreasoning. We tested RN-augmented networks on three tasks: visual question answering\nusing a challenging dataset called CLEVR, on which we achieve state-of-the-art, super-human\nperformance; text-based question answering using the bAbI suite of tasks; and complex reasoning\nabout dynamic physical systems. Then, using a curated dataset called Sort-of-CLEVR we show\nthat powerful convolutional networks do not have a g",
+  "introduction": "The ability to reason about the relations between entities and their properties is central to generally\nintelligent behavior (Figure 1) [ 18, 15]. Consider a child proposing a race between the two trees\nin the park that are furthest apart: the pairwise distances between every tree in the park must be\ninferred and compared to know where to run. Or, consider a reader piecing together evidence to\npredict the culprit in a murder-mystery novel: each clue must be considered in its broader context to\nbuild a plausible narrative and solve the mystery.\nSymbolic approaches to arti\ufb01cial intelligence are inherently relational [32, 11]. Practitioners de\ufb01ne\nthe relations between symbols using the languag",
+  "conclusion": "",
+  "key_terms": [
+    "relation networks",
+    "object pairs",
+    "relational reasoning",
+    "visual question answering",
+    "object",
+    "question",
+    "relational",
+    "reasoning",
+    "model",
+    "objects",
+    "questions",
+    "relations",
+    "networks",
+    "clevr",
+    "visual",
+    "tasks",
+    "learning",
+    "neural"
+  ],
+  "references_sample": [
+    "[1] Stanislaw Antol, Aishwarya Agrawal, Jiasen Lu, Margaret Mitchell, Dhruv Batra, C Lawrence Zitnick,",
+    "and Devi Parikh. Vqa: Visual question answering. In ICCV, 2015.",
+    "[2] Peter Battaglia, Razvan Pascanu, Matthew Lai, Danilo Jimenez Rezende, et al. Interaction networks for",
+    "learning about objects, relations and physics. In NIPS, 2016.",
+    "[3] Jonathan Berant, Andrew Chou, Roy Frostig, and Percy Liang. Semantic parsing on freebase from",
+    "question-answer pairs. In EMNLP, 2013.",
+    "[4] Rajarshi Das, Arvind Neelakantan, David Belanger, and Andrew McCallum. Chains of reasoning over",
+    "entities, relations, and text using recurrent neural networks. arXiv:1607.01426, 2016."
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "understanding_lstm_networks",
+  "title": "Understanding LSTM Networks",
+  "authors": [
+    "Christopher Olah"
+  ],
+  "year": 2015,
+  "source_url": "https://colah.github.io/posts/2015-08-Understanding-LSTMs/",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "beautifulsoup_html",
+  "raw_text_committed": false,
+  "text_length_chars": 13901,
+  "sections_detected": [
+    "Model",
+    "Results",
+    "Discussion",
+    "Conclusion"
+  ],
+  "abstract": "Understanding LSTM Networks -- colah's blog\nUnderstanding LSTM Networks\nPosted on August 27, 2015\nRecurrent Neural Networks\nHumans don\u2019t start their thinking from scratch every second. As you read this essay, you understand each word based on your understanding of previous words. You don\u2019t throw everything away and start thinking from scratch again. Your thoughts have persistence.\nTraditional neural networks can\u2019t do this, and it seems like a major shortcoming. For example, imagine you want to classify what kind of event is happening at every point in a movie. It\u2019s unclear how a traditional neural network could use its reasoning about previous events in the film to inform later ones.\nRecurre",
+  "introduction": "",
+  "conclusion": "Earlier, I mentioned the remarkable results people are achieving with RNNs. Essentially all of these are achieved using LSTMs. They really work a lot better for most tasks!\nWritten down as a set of equations, LSTMs look pretty intimidating. Hopefully, walking through them step by step in this essay has made them a bit more approachable.\nLSTMs were a big step in what we can accomplish with RNNs. It\u2019s natural to wonder: is there another big step? A common opinion among researchers is: \u201cYes! There is a next step and it\u2019s attention!\u201d The idea is to let every step of an RNN pick information to look at from some larger collection of information. For example, if you are using an RNN to create a ca",
+  "key_terms": [
+    "LSTM",
+    "gates",
+    "cell state",
+    "long-term dependencies",
+    "GRU",
+    "neural",
+    "state",
+    "information",
+    "networks",
+    "lstms",
+    "recurrent",
+    "network",
+    "layer",
+    "previous",
+    "example",
+    "language",
+    "might",
+    "going"
+  ],
+  "references_sample": [],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

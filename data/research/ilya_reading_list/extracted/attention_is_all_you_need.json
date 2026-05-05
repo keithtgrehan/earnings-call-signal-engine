@@ -1,0 +1,67 @@
+{
+  "id": "attention_is_all_you_need",
+  "title": "Attention Is All You Need",
+  "authors": [
+    "Ashish Vaswani",
+    "Noam Shazeer",
+    "Niki Parmar",
+    "Jakob Uszkoreit",
+    "Llion Jones",
+    "Aidan N. Gomez",
+    "Lukasz Kaiser",
+    "Illia Polosukhin"
+  ],
+  "year": 2017,
+  "source_url": "https://arxiv.org/abs/1706.03762",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 39599,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Background",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "Conclusion",
+    "References"
+  ],
+  "abstract": "The dominant sequence transduction models are based on complex recurrent or\nconvolutional neural networks that include an encoder and a decoder. The best\nperforming models also connect the encoder and decoder through an attention\nmechanism. We propose a new simple network architecture, the Transformer,\nbased solely on attention mechanisms, dispensing with recurrence and convolutions\nentirely. Experiments on two machine translation tasks show these models to\nbe superior in quality while being more parallelizable and requiring significantly\nless time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-\nto-German translation task, improving over the existing best results, including",
+  "introduction": "Recurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks\nin particular, have been firmly established as state of the art approaches in sequence modeling and\ntransduction problems such as language modeling and machine translation [ 35, 2, 5]. Numerous\nefforts have since continued to push the boundaries of recurrent language models and encoder-decoder\narchitectures [38, 24, 15].\nRecurrent models typically factor computation along the symbol positions of the input and output\nsequences. Aligning the positions to steps in computation time, they generate a sequence of hidden\nstates ht, as a function of the previous hidden state ht\u22121 and the input for position",
+  "conclusion": "In this work, we presented the Transformer, the first sequence transduction model based entirely on\nattention, replacing the recurrent layers most commonly used in encoder-decoder architectures with\nmulti-headed self-attention.\nFor translation tasks, the Transformer can be trained significantly faster than architectures based\non recurrent or convolutional layers. On both WMT 2014 English-to-German and WMT 2014\nEnglish-to-French translation tasks, we achieve a new state of the art. In the former task our best\nmodel outperforms even all previously reported ensembles.\nWe are excited about the future of attention-based models and plan to apply them to other tasks. We\nplan to extend the Transfor",
+  "key_terms": [
+    "self-attention",
+    "Transformer",
+    "multi-head attention",
+    "positional encoding",
+    "encoder-decoder",
+    "attention",
+    "model",
+    "models",
+    "arxiv",
+    "layer",
+    "sequence",
+    "output",
+    "transformer",
+    "neural",
+    "training",
+    "input",
+    "translation",
+    "layers"
+  ],
+  "references_sample": [
+    "[1] Jimmy Lei Ba, Jamie Ryan Kiros, and Geoffrey E Hinton. Layer normalization. arXiv preprint",
+    "arXiv:1607.06450, 2016.",
+    "[2] Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio. Neural machine translation by jointly",
+    "learning to align and translate. CoRR, abs/1409.0473, 2014.",
+    "[3] Denny Britz, Anna Goldie, Minh-Thang Luong, and Quoc V . Le. Massive exploration of neural",
+    "machine translation architectures. CoRR, abs/1703.03906, 2017.",
+    "[4] Jianpeng Cheng, Li Dong, and Mirella Lapata. Long short-term memory-networks for machine",
+    "reading. arXiv preprint arXiv:1601.06733, 2016."
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}
