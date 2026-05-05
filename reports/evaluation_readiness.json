@@ -1,25 +1,20 @@
 {
-  "gold_labels": 0,
-  "valid_gold_rows_with_text": 0,
+  "gold_labels": 57,
+  "valid_gold_rows_with_text": 57,
   "label_counts": {
-    "risk_friction": 0,
-    "opportunity_commitment": 0,
-    "uncertainty_hedging": 0,
-    "neutral": 0
+    "risk_friction": 13,
+    "opportunity_commitment": 15,
+    "uncertainty_hedging": 18,
+    "neutral": 11
   },
-  "missing_labels": [
-    "risk_friction",
-    "opportunity_commitment",
-    "uncertainty_hedging",
-    "neutral"
-  ],
-  "evaluation_gate": "insufficient_data",
-  "metrics_allowed": false,
-  "training_gate": "skip_training",
-  "training_allowed": false,
+  "missing_labels": [],
+  "evaluation_gate": "deterministic_metrics_allowed",
+  "metrics_allowed": true,
+  "training_gate": "local_ml_allowed",
+  "training_allowed": true,
   "embeddings_allowed": false,
   "dataset_benchmarks_allowed": false,
-  "benchmark_claims_allowed": false,
+  "benchmark_claims_allowed": true,
   "canonical_truth": "deterministic_system",
   "enforcement": {
     "no_synthetic_labels": true,
@@ -30,6 +25,397 @@
     "embeddings_cannot_override_deterministic_outputs": true
   },
   "threshold": 20,
-  "metrics_computed": false,
-  "message": "Insufficient gold labels for evaluation"
+  "metrics_computed": true,
+  "message": "",
+  "metrics": {
+    "precision": 0.3205,
+    "recall": 0.4499,
+    "f1": 0.3743,
+    "per_label": {
+      "risk_friction": {
+        "precision": 0.5556,
+        "recall": 0.7692,
+        "f1": 0.6452,
+        "support": 13
+      },
+      "opportunity_commitment": {
+        "precision": 0.4762,
+        "recall": 0.6667,
+        "f1": 0.5556,
+        "support": 15
+      },
+      "uncertainty_hedging": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 18
+      },
+      "neutral": {
+        "precision": 0.25,
+        "recall": 0.3636,
+        "f1": 0.2963,
+        "support": 11
+      }
+    }
+  },
+  "examples": {
+    "correct": [
+      {
+        "id": "risk_support_refund_delay_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "Hi, I'm honestly pretty frustrated. Ticket 78421 has been open for 11 days and the refund still hasn't posted to our card."
+      },
+      {
+        "id": "risk_support_deflection_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "Refund timing sits with another team"
+      },
+      {
+        "id": "risk_support_escalation_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "That still doesn't answer the question. I need a real date, not a FAQ, and if this is still unresolved today I'll escalate it to your manager and dispute the charge."
+      },
+      {
+        "id": "risk_sales_pricing_objection_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "My main concern is price. The seat cost feels expensive versus Zendesk, and the team is also comparing you to Intercom."
+      },
+      {
+        "id": "risk_account_unresolved_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "we're still dealing with two unresolved onboarding issues from the launch."
+      },
+      {
+        "id": "risk_account_vendor_risk_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "But if these issues stay open into renewal, we may cut seats, delay the renewal, or look at another vendor."
+      },
+      {
+        "id": "risk_support_billing_delay_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "I'm frustrated that invoice 8842 still shows the wrong total and nobody has confirmed when the credit will post. Please send the update to [EMAIL] or call [PHONE]."
+      },
+      {
+        "id": "risk_support_dispute_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "That does not solve it. The failed resolution has been open since Monday, the card ending 1111 was charged twice, and if this slips again we will escalate the dispute."
+      },
+      {
+        "id": "risk_account_reduce_seats_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "Our renewal is 30 days out, two onboarding issues are still unresolved, and leadership is asking whether we should reduce seats if support does not stabilize."
+      },
+      {
+        "id": "risk_support_anger_seed_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "I'm angry that your team charged the wrong card again and closed the ticket without notice."
+      },
+      {
+        "id": "opp_sales_pilot_interest_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "We're interested in a pilot next month"
+      },
+      {
+        "id": "opp_sales_plan_commitment_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "I can send a pilot plan, pricing options, and a proposal by Tuesday"
+      },
+      {
+        "id": "opp_sales_security_packet_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "I can include the security packet for procurement."
+      },
+      {
+        "id": "opp_sales_procurement_path_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "we can bring procurement in next week."
+      },
+      {
+        "id": "opp_account_recovery_plan_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "I own the action items and will send a recovery plan by Friday with owners for each open item."
+      },
+      {
+        "id": "opp_account_expand_support_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "we may add the support team and upgrade to the enterprise package."
+      },
+      {
+        "id": "opp_account_confirm_owners_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "I'll confirm owners today and schedule a renewal review next week"
+      },
+      {
+        "id": "opp_account_own_recovery_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "I own the recovery plan"
+      },
+      {
+        "id": "opp_account_named_owners_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "will send named owners this afternoon with a renewal review for next Tuesday."
+      },
+      {
+        "id": "opp_account_followthrough_seed_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "Thank you for the recovery plan. We appreciate the follow-through and that works for our renewal review."
+      },
+      {
+        "id": "neut_sales_opening_thanks_001",
+        "label": "neutral",
+        "prediction": "neutral",
+        "text": "Thanks for making time."
+      },
+      {
+        "id": "neut_account_status_intro_001",
+        "label": "neutral",
+        "prediction": "neutral",
+        "text": "Sharing the update from finance:"
+      },
+      {
+        "id": "neut_account_status_meeting_001",
+        "label": "neutral",
+        "prediction": "neutral",
+        "text": "the meeting starts at 09:00 CET"
+      },
+      {
+        "id": "neut_sales_acknowledgement_001",
+        "label": "neutral",
+        "prediction": "neutral",
+        "text": "Understood."
+      }
+    ],
+    "failures": [
+      {
+        "id": "risk_support_help_center_001",
+        "label": "risk_friction",
+        "prediction": "uncertainty_hedging",
+        "text": "Billing is still reviewing it, so please check the help center article for now while we wait for their response."
+      },
+      {
+        "id": "risk_sales_procurement_block_001",
+        "label": "risk_friction",
+        "prediction": "opportunity_commitment",
+        "text": "That feels vague. Without a concrete next step, security packet, and discount range, procurement will not move this week."
+      },
+      {
+        "id": "opp_account_expand_realistic_001",
+        "label": "opportunity_commitment",
+        "prediction": "uncertainty_hedging",
+        "text": "we may still expand analytics seats later this quarter."
+      },
+      {
+        "id": "opp_support_resolution_seed_001",
+        "label": "opportunity_commitment",
+        "prediction": "neutral",
+        "text": "Thanks, the replacement order arrived this morning and I'm happy with how quickly your team solved it."
+      },
+      {
+        "id": "opp_sales_security_review_path_001",
+        "label": "opportunity_commitment",
+        "prediction": "neutral",
+        "text": "the onboarding looks lighter than what we've seen before."
+      },
+      {
+        "id": "unc_support_waiting_update_001",
+        "label": "uncertainty_hedging",
+        "prediction": "risk_friction",
+        "text": "We are still looking into it and someone will reach out later once billing has an update."
+      },
+      {
+        "id": "unc_sales_security_review_001",
+        "label": "uncertainty_hedging",
+        "prediction": "opportunity_commitment",
+        "text": "if the security review goes well and the onboarding looks lighter than what we've seen before."
+      },
+      {
+        "id": "unc_sales_discount_signoff_001",
+        "label": "uncertainty_hedging",
+        "prediction": "risk_friction",
+        "text": "If the discount works and security signs off"
+      },
+      {
+        "id": "unc_account_rollout_condition_001",
+        "label": "uncertainty_hedging",
+        "prediction": "opportunity_commitment",
+        "text": "If the rollout stabilizes this quarter"
+      },
+      {
+        "id": "unc_account_expansion_realistic_001",
+        "label": "uncertainty_hedging",
+        "prediction": "opportunity_commitment",
+        "text": "so we can decide whether expansion is still realistic."
+      },
+      {
+        "id": "unc_sales_unknown_after_pilot_001",
+        "label": "uncertainty_hedging",
+        "prediction": "opportunity_commitment",
+        "text": "I still do not know what happens after the pilot."
+      },
+      {
+        "id": "unc_sales_probably_001",
+        "label": "uncertainty_hedging",
+        "prediction": "risk_friction",
+        "text": "We can probably work something out on pricing"
+      },
+      {
+        "id": "unc_sales_details_later_001",
+        "label": "uncertainty_hedging",
+        "prediction": "opportunity_commitment",
+        "text": "and I can send more details later once I regroup with the team."
+      },
+      {
+        "id": "unc_account_if_recovery_lands_001",
+        "label": "uncertainty_hedging",
+        "prediction": "opportunity_commitment",
+        "text": "If the recovery plan lands and the integrations are fixed"
+      },
+      {
+        "id": "unc_support_confusion_seed_001",
+        "label": "uncertainty_hedging",
+        "prediction": "neutral",
+        "text": "I'm confused about which invoice version is final because the portal and the email summary do not match."
+      },
+      {
+        "id": "unc_sales_confusion_seed_001",
+        "label": "uncertainty_hedging",
+        "prediction": "opportunity_commitment",
+        "text": "Can you explain what this new implementation fee covers? I don't understand the difference between the two quotes."
+      },
+      {
+        "id": "unc_support_concern_seed_001",
+        "label": "uncertainty_hedging",
+        "prediction": "opportunity_commitment",
+        "text": "I'm concerned the rollback plan still hasn't been confirmed. Please send the update to [EMAIL] when you have it."
+      },
+      {
+        "id": "neut_sales_opening_full_001",
+        "label": "neutral",
+        "prediction": "opportunity_commitment",
+        "text": "Thanks for making time. I can walk through the pilot scope, rollout plan, and how teams usually evaluate the workflow."
+      },
+      {
+        "id": "neut_sales_status_full_001",
+        "label": "neutral",
+        "prediction": "risk_friction",
+        "text": "For reference, the current status is that procurement is scheduled for next Tuesday and the legal review is still open."
+      },
+      {
+        "id": "neut_sales_status_procurement_001",
+        "label": "neutral",
+        "prediction": "opportunity_commitment",
+        "text": "the current status is that procurement is scheduled for next Tuesday"
+      },
+      {
+        "id": "neut_account_status_full_001",
+        "label": "neutral",
+        "prediction": "risk_friction",
+        "text": "Sharing the update from finance: the meeting starts at 09:00 CET and the agenda is attached in the renewal folder."
+      },
+      {
+        "id": "neut_account_status_agenda_001",
+        "label": "neutral",
+        "prediction": "risk_friction",
+        "text": "the agenda is attached in the renewal folder."
+      },
+      {
+        "id": "neut_account_review_schedule_001",
+        "label": "neutral",
+        "prediction": "risk_friction",
+        "text": "with a renewal review for next Tuesday."
+      },
+      {
+        "id": "neut_sales_legal_status_001",
+        "label": "neutral",
+        "prediction": "risk_friction",
+        "text": "the legal review is still open."
+      },
+      {
+        "id": "guidance_call01_6cf66737f8de",
+        "label": "uncertainty_hedging",
+        "prediction": "neutral",
+        "text": "For full year 2026 we expect revenue of between 7.182 and 7.198 billion"
+      },
+      {
+        "id": "guidance_call02_9860ae4d461d",
+        "label": "opportunity_commitment",
+        "prediction": "neutral",
+        "text": "Yeah, so our guidance is flat."
+      },
+      {
+        "id": "guidance_call03_abac7f32543f",
+        "label": "uncertainty_hedging",
+        "prediction": "neutral",
+        "text": "Turning to our outlook, I would like to provide some commentaries on factors that will impact our business performance in the first quarter and full year 2026."
+      },
+      {
+        "id": "guidance_call04_eda5eff6ad87",
+        "label": "uncertainty_hedging",
+        "prediction": "neutral",
+        "text": "we expect a sustained constant currency revenue growth of 5% plus in 2026, and free cash flow to be up about $1 billion year over year, growing high single digits."
+      },
+      {
+        "id": "guidance_call05_fb70e4dc4f3f",
+        "label": "uncertainty_hedging",
+        "prediction": "neutral",
+        "text": "We expect revenue of 80.65 to 81.75 billion US dollars are growth of 15 to 17%"
+      },
+      {
+        "id": "guidance_call06_6e1c15f19dfe",
+        "label": "uncertainty_hedging",
+        "prediction": "neutral",
+        "text": "We expect our March quarter total company revenue to grow by 13 to 16% year-over-year"
+      },
+      {
+        "id": "guidance_call07_49e9183290eb",
+        "label": "uncertainty_hedging",
+        "prediction": "neutral",
+        "text": "Total revenue is expected to be 78 billion plus or minus 2%."
+      },
+      {
+        "id": "guidance_call08_864ffeb99f4c",
+        "label": "opportunity_commitment",
+        "prediction": "neutral",
+        "text": "As a result, we raised our revenue in earnings for share guides."
+      },
+      {
+        "id": "guidance_call09_42126dfb1bf0",
+        "label": "risk_friction",
+        "prediction": "neutral",
+        "text": "that's why we have to just our full year non-gap guidance down for both ebit margin and eps."
+      }
+    ]
+  },
+  "error_patterns": [
+    "neutral -> opportunity_commitment: 2",
+    "neutral -> risk_friction: 5",
+    "opportunity_commitment -> neutral: 4",
+    "opportunity_commitment -> uncertainty_hedging: 1",
+    "risk_friction -> neutral: 1",
+    "risk_friction -> opportunity_commitment: 1",
+    "risk_friction -> uncertainty_hedging: 1",
+    "uncertainty_hedging -> neutral: 7",
+    "uncertainty_hedging -> opportunity_commitment: 8",
+    "uncertainty_hedging -> risk_friction: 3"
+  ]
 }
