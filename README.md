@@ -1,22 +1,77 @@
 # Signal Engine
 
-Signal Engine is a deterministic-first signal extraction and evaluation system for long-form business communication.
+Transcript-first deterministic earnings-call signal engine with gated evaluation, label review, NLP asset registry, optional dataset adapters, and optional embedding benchmarks.
+
+Signal Engine is an evaluation-ready research/proof repo, not a trading system. The deterministic system remains canonical truth; ML, external datasets, and embeddings are benchmark layers only.
 
 The strongest proof path is earnings-call transcripts because public-company sources, explicit guidance language, analyst Q&A, and evidence-span review create a credible route to repeatable evaluation. Broader domains are supported or scaffolded where the same transcript-first pattern applies: customer support, sales calls, account management, churn risk, and general dialogue tone/emotion benchmarks.
 
-This repo does not claim production ML, statistical significance, market-reaction proof, production retrieval, or validated multimodal intelligence.
+This repo does not claim production ML, statistical significance, market alpha, market-reaction proof, production retrieval, or validated multimodal intelligence.
+
+## Current Proof State
+
+- Canonical gold labels: `57`
+- Deterministic evaluation now runs against `data/gold/gold_labels.jsonl`.
+- Baseline precision: `0.3205`
+- Baseline recall: `0.4499`
+- Baseline F1: `0.3743`
+- Current interpretation: recall is higher than precision, so the deterministic system currently over-detects signals and needs false-positive reduction.
+- Local ML is allowed by gate because gold labels are now `>=50`, but any ML run is benchmark-only.
+- Embeddings remain gated until `>=100` gold labels or explicit retrieval experiment mode.
+- Full validation passed most recently with `342` tests passing.
 
 ## What Works Now
 
-- Deterministic transcript and signal scaffolds for evidence-backed review.
+- Deterministic transcript analysis and signal extraction scaffolds for evidence-backed review.
+- Label discovery, recovery, normalization, and import into canonical gold labels.
+- Gold-label validation and label coverage reporting.
+- One-command evaluation loop.
+- First-50 benchmark report and next-best-action report.
+- NLP asset registry for datasets, lexicons, benchmarks, retrieval tools, audio tools, and multimodal references.
+- Safe experiment runner with gating.
+- Dataset adapters for local-only comparison.
+- Embedding benchmark harness, gated and benchmark-only.
 - Earnings-call corpus manifest validation.
-- Gold-label JSONL validation.
-- Model, dataset, and NLP tools registries.
 - SEC 8-K metadata-only intake.
 - Manual corpus case setup.
 - Deterministic weak-label keyword baseline for local `.txt` transcripts.
 - First 3 earnings-call intake cases: `NVDA_2026_Q4`, `META_2025_Q4`, and `AMZN_2025_Q4`.
 - Repo validation and documentation checks.
+
+## Gated Or Not Proven
+
+- Local ML baseline requires `>=50` gold labels and must be compared honestly against the deterministic baseline.
+- Embeddings require `>=100` gold labels or explicit retrieval experiment mode.
+- External datasets require verified local files and are never silently downloaded by benchmark scripts.
+- Rerankers require an embedding baseline first.
+- Long-context review requires completed evaluation.
+- No alpha, statistical, production ML, product-readiness, retrieval quality, long-context benchmark, or market prediction claims.
+- No committed raw transcripts, restricted datasets, model weights, audio, video, or paid API outputs.
+
+## Quickstart Proof Commands
+
+```bash
+python tools/run_evaluation_loop.py
+python tools/run_next_experiment.py || true
+python tools/run_embedding_benchmark.py || true
+```
+
+```bash
+make eval-loop
+make next-experiment
+make embedding-benchmark
+```
+
+If `tools/run_evaluation_loop.py` reports that no accepted reviewed-batch rows were found, that is non-blocking for the current proof state. It means `data/labeling/reviewed_next_batch.csv` has not supplied new accepted review rows, so the loop continues with the existing canonical gold labels.
+
+## Recommended Next Steps
+
+- Clean source-quality metadata for imported labels.
+- Compare `all_labels` against `human_reviewed_only` once source filtering exists.
+- Improve false-positive rules to raise precision.
+- Complete the manual reviewed-label workflow.
+- Grow the canonical gold set to `100+` labels.
+- Then run the embedding benchmark as a gated retrieval experiment.
 
 ## Scaffolded Only
 
@@ -27,16 +82,6 @@ This repo does not claim production ML, statistical significance, market-reactio
 - Emotion/tone dataset references.
 
 Scaffolded means tracked, documented, or locally runnable as a smoke check. It does not mean validated, production-ready, or trained.
-
-## Not Proven
-
-- No real 30-call corpus yet.
-- No validated ML.
-- No statistical significance.
-- No market-reaction proof.
-- No production retrieval stack.
-- No validated sales/support/account benchmark.
-- No committed raw transcripts, datasets, model weights, audio, video, or API outputs.
 
 ## Why Earnings Calls Remain The Proof Path
 
