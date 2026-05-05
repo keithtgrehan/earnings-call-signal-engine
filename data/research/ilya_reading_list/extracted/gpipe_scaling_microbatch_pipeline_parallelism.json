@@ -1,0 +1,68 @@
+{
+  "id": "gpipe_scaling_microbatch_pipeline_parallelism",
+  "title": "GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism",
+  "authors": [
+    "Yanping Huang",
+    "Youlong Cheng",
+    "Ankur Bapna",
+    "Orhan Firat",
+    "Dehao Chen",
+    "Mia Chen",
+    "HyoukJoong Lee",
+    "Jiquan Ngiam",
+    "Quoc V. Le",
+    "Yonghui Wu",
+    "Zhifeng Chen"
+  ],
+  "year": 2018,
+  "source_url": "https://arxiv.org/abs/1811.06965",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 40810,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Model",
+    "Experiments",
+    "Results",
+    "Conclusion",
+    "References"
+  ],
+  "abstract": "Scaling up deep neural network capacity has been known as an effective approach\nto improving model quality for several different machine learning tasks. In many\ncases, increasing model capacity beyond the memory limit of a single accelera-\ntor has required developing special algorithms or infrastructure. These solutions\nare often architecture-speci\ufb01c and do not transfer to other tasks. To address the\nneed for ef\ufb01cient and task-independent model parallelism, we introduce GPipe, a\npipeline parallelism library that allows scaling any network that can be expressed\nas a sequence of layers. By pipelining different sub-sequences of layers on sep-\narate accelerators, GPipe provides the \ufb02exibility o",
+  "introduction": "Deep learning has seen great progress over the last decade, partially thanks to the development of\nmethods that have facilitated scaling the effective capacity of neural networks. This trend has been\nmost visible for image classi\ufb01cation, as demonstrated by the accuracy improvements on ImageNet\nwith the increase in model capacity (Figure 1a). A similar phenomenon can also be observed in\nthe context of natural language processing (Figure 1b) where simple shallow models of sentence\nrepresentations [1, 2] are outperformed by their deeper and larger counterparts [3, 4].\nWhile larger models have brought remarkable quality improvements to several \ufb01elds, scaling neural\nnetworks introduces signi\ufb01can",
+  "conclusion": "In this work, we introduce GPipe, a scalable model-parallelism library for training giant neural\nnetworks. We propose and implement a novel batch-splitting pipeline-parallelism algorithm that uses\nsynchronous gradient updates, allowing model parallelism with high hardware utilization and training\nstability. We leverage GPipe to train large-scale convolutional and transformer-based models and\ndemonstrate strong empirical results on both image classi\ufb01cation and multilingual machine translation.\nWe highlight three key attributes of the GPipe library: 1) Ef\ufb01ciency: Using a novel batch-splitting\npipelining algorithm, GPipe achieves almost linear speedup with the number of devices. 2) Flexibility",
+  "key_terms": [
+    "pipeline parallelism",
+    "micro-batching",
+    "model partitioning",
+    "large model training",
+    "model",
+    "gpipe",
+    "training",
+    "layers",
+    "number",
+    "arxiv",
+    "neural",
+    "accelerators",
+    "scaling",
+    "parallelism",
+    "transformer",
+    "models",
+    "learning",
+    "different"
+  ],
+  "references_sample": [
+    "[1] Bryan McCann, James Bradbury, Caiming Xiong, and Richard Socher. Learned in translation:",
+    "Contextualized word vectors. CoRR, abs/1708.00107, 2017.",
+    "[2] Matthew Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee,",
+    "and Luke Zettlemoyer. Deep contextualized word representations. In ACL, 2018.",
+    "[3] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: Pre-training of",
+    "deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805,",
+    "[4] Alec Radford, Jeff Wu, Rewon Child, David Luan, Dario Amodei, and Ilya Sutskever. Language",
+    "models are unsupervised multitask learners. 2019."
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

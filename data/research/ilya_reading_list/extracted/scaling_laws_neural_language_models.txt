@@ -1,0 +1,38 @@
+# Scaling Laws for Neural Language Models
+
+Source URL: https://arxiv.org/abs/2001.08361
+Extraction status: full_text_parsed
+Text length parsed locally: 88515
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Background
+- Method
+- Model
+- Experiments
+- Results
+- Discussion
+- References
+
+## Abstract / Opening Digest
+
+We study empirical scaling laws for language model performance on the cross-entropy loss.
+The loss scales as a power-law with model size, dataset size, and the amount of compute
+used for training, with some trends spanning more than seven orders of magnitude. Other
+architectural details such as network width or depth have minimal effects within a wide
+range. Simple equations govern the dependence of overﬁtting on model/dataset size and the
+dependence of training speed on model size. These relati
+
+## Introduction Digest
+
+Language provides a natural domain for the study of artiﬁcial intelligence, as the vast majority of reason-
+ing tasks can be efﬁciently expressed and evaluated in language, and the world’s text provides a wealth of
+data for unsupervised learning via generative modeling. Deep learning has recently seen rapid progress in lan-
+guage modeling, with state of the art models [RNSS18, DCLT18, YDY+19, LOG+19, RSR+19] approaching
+human-level performance on many speciﬁc tasks [WPN +19], including the compo
+
+## Conclusion Digest

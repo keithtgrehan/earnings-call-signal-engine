@@ -1,0 +1,61 @@
+{
+  "id": "coffee_automaton_complexity_closed_systems",
+  "title": "Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton",
+  "authors": [
+    "Scott Aaronson",
+    "Sean M. Carroll",
+    "Lauren Ouellette"
+  ],
+  "year": 2014,
+  "source_url": "https://arxiv.org/abs/1405.6903",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 56870,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Background",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "References"
+  ],
+  "abstract": "In contrast to entropy, which increases monotonically, the \u201ccomplexity\u201d or \u201cinterestingness\u201d\nof closed systems seems intuitively to increase at \ufb01rst and then decrease as equilibrium is ap-\nproached. For example, our universe lacked complex structures at the Big Bang and will also\nlack them after black holes evaporate and particles are dispersed. This paper makes an ini-\ntial attempt to quantify this pattern. As a model system, we use a simple, two-dimensional\ncellular automaton that simulates the mixing of two liquids (\u201cco\ufb00ee\u201d and \u201ccream\u201d). A plausi-\nble complexity measure is then the Kolmogorov complexity of a coarse-grained approximation\nof the automaton\u2019s state, which we dub the \u201capparen",
+  "introduction": "Imagine a cup of co\ufb00ee into which cream has just been poured. At \ufb01rst, the co\ufb00ee and cream are\nseparated. Over time, the two liquids di\ufb00use until they are completely mixed. If we consider the\nco\ufb00ee cup a closed system, we can say that its entropy is increasing over time, in accordance with\nthe second law of thermodynamics. At the beginning, when the liquids are completely separated,\nthe system is in a highly ordered, low-entropy state. After time has passed and the liquids have\ncompletely mixed, all of the initial structure is lost; the system has high entropy.\nJust as we can reason about the disorder of the co\ufb00ee cup system, we can also consider its\n\u201ccomplexity.\u201d Informally, by complexity",
+  "conclusion": "",
+  "key_terms": [
+    "cellular automata",
+    "complexity dynamics",
+    "coarse graining",
+    "Kolmogorov complexity",
+    "complexity",
+    "automaton",
+    "state",
+    "entropy",
+    "sophistication",
+    "model",
+    "coarse-grained",
+    "apparent",
+    "particles",
+    "system",
+    "array",
+    "random",
+    "program",
+    "kolmogorov"
+  ],
+  "references_sample": [
+    "[1] L. Antunes and L. Fortnow. Sophistication revisited. Theory of Computing Systems, 45(1):150\u2013",
+    "[2] C. H. Bennett. Logical depth and physical complexity. In The Universal Turing Machine A",
+    "Half-Century Survey, pages 207\u2013235. Springer, 1995.",
+    "[3] T. A Brun and J. B Hartle. Classical dynamics of the quantum harmonic chain. Physical",
+    "Review D, 60(12):123503, 1999.",
+    "[4] S. M. Carroll. From Eternity to Here: The Quest for the Ultimate Theory of Time . Dutton,",
+    "[5] S. Evans, G. Saulnier, and S. Bush. A new universal two part code for estimation of string",
+    "Kolmogorov complexity and algorithmic minimum su\ufb03cient statistic. In DIMACS Workshop"
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

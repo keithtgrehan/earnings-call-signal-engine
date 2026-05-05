@@ -1,0 +1,48 @@
+{
+  "id": "unreasonable_effectiveness_rnns",
+  "title": "The Unreasonable Effectiveness of Recurrent Neural Networks",
+  "authors": [
+    "Andrej Karpathy"
+  ],
+  "year": 2015,
+  "source_url": "https://karpathy.github.io/2015/05/21/rnn-effectiveness/",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "beautifulsoup_html",
+  "raw_text_committed": false,
+  "text_length_chars": 48097,
+  "sections_detected": [
+    "Background",
+    "Model",
+    "Experiments",
+    "Results",
+    "Discussion",
+    "Conclusion"
+  ],
+  "abstract": "The Unreasonable Effectiveness of Recurrent Neural Networks\nAndrej Karpathy blog\nThe Unreasonable Effectiveness of Recurrent Neural Networks\nMay 21, 2015\nThere\u2019s something magical about Recurrent Neural Networks (RNNs). I still remember when I trained my first recurrent network for\nImage Captioning\n. Within a few dozen minutes of training my first baby model (with rather arbitrarily-chosen hyperparameters) started to generate very nice looking descriptions of images that were on the edge of making sense. Sometimes the ratio of how simple your model is to the quality of the results you get out of it blows past your expectations, and this was one of those times. What made this result so shocki",
+  "introduction": "",
+  "conclusion": "We\u2019ve learned about RNNs, how they work, why they have become a big deal, we\u2019ve trained an RNN character-level language model on several fun datasets, and we\u2019ve seen where RNNs are going. You can confidently expect a large amount of innovation in the space of RNNs, and I believe they will become a pervasive and critical component to intelligent systems.\nLastly, to add some\nmeta\nto this post, I trained an RNN on the source file of this blog post. Unfortunately, at about 46K characters I haven\u2019t written enough data to properly feed the RNN, but the returned sample (generated with low temperature to get a more typical sample) is:\nI've the RNN with and works, but the computed with program of th",
+  "key_terms": [
+    "RNN",
+    "character-level language modeling",
+    "hidden state",
+    "sequence generation",
+    "model",
+    "character",
+    "training",
+    "models",
+    "input",
+    "state",
+    "first",
+    "vector",
+    "learning",
+    "sequence",
+    "recurrent",
+    "output",
+    "train",
+    "characters"
+  ],
+  "references_sample": [],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

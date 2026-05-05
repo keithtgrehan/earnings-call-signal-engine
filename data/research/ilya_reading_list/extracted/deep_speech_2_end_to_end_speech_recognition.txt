@@ -1,0 +1,47 @@
+# Deep Speech 2: End-to-End Speech Recognition in English and Mandarin
+
+Source URL: https://arxiv.org/abs/1512.02595
+Extraction status: full_text_parsed
+Text length parsed locally: 101330
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Background
+- Method
+- Model
+- Experiments
+- Results
+- Conclusion
+- References
+
+## Abstract / Opening Digest
+
+We show that an end-to-end deep learning approach can be used to recognize
+either English or Mandarin Chinese speech—two vastly different languages. Be-
+cause it replaces entire pipelines of hand-engineered components with neural net-
+works, end-to-end learning allows us to handle a diverse variety of speech includ-
+ing noisy environments, accents and different languages. Key to our approach is
+our application of HPC techniques, resulting in a 7x speedup over our previous
+system [26]. Because of
+
+## Introduction Digest
+
+Decades worth of hand-engineered domain knowledge has gone into current state-of-the-art auto-
+matic speech recognition (ASR) pipelines. A simple but powerful alternative solution is to train such
+ASR models end-to-end, using deep learning to replace most modules with a single model [26]. We
+present the second generation of our speech system that exempliﬁes the major advantages of end-
+to-end learning. The Deep Speech 2 ASR pipeline approaches or exceeds the accuracy of Amazon
+Mechanical Turk hu
+
+## Conclusion Digest
+
+End-to-end deep learning presents the exciting opportunity to improve speech recognition systems
+continually with increases in data and computation. Indeed, our results show that, compared to the
+previous incarnation, Deep Speech has signiﬁcantly closed the gap in transcription performance with
+human workers by leveraging more data and larger models. Further, since the approach is highly
+generic, we’ve shown that it can quickly be applied to new languages. Creating high-performing
+recognizers fo

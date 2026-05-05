@@ -1,0 +1,26 @@
+# Stanford's CS231n Convolutional Neural Networks for Visual Recognition
+
+Source URL: https://cs231n.stanford.edu/
+Extraction status: abstract_only
+Text length parsed locally: 7849
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+
+## Abstract / Opening Digest
+
+Stanford University CS231n: Deep Learning for Computer Vision
+CS231n: Deep Learning for Computer Vision
+Stanford - Spring 2026
+*This network is running live in your browser
+The Convolutional Neural Network in this example is classifying images live in your browser using Javascript, at
+ about 10 milliseconds per image. It takes an input image and transforms it through a series of functions into
+ class probabilities at the end. The transformed representations in this visualization can be loosely t
+
+## Introduction Digest
+
+
+
+## Conclusion Digest

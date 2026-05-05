@@ -1,0 +1,34 @@
+# Keeping Neural Networks Simple by Minimizing the Description Length of the Weights
+
+Source URL: https://www.cs.toronto.edu/~hinton/absps/colt93.html
+Extraction status: full_text_parsed
+Text length parsed locally: 41575
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Results
+- Discussion
+- References
+
+## Abstract / Opening Digest
+
+Sup ervised neural net w orks generalize w ell if
+there is m uc h less information in the w eigh ts
+than there is in the output v ectors of the train/-
+ing cases/. So during learning/, it is imp or/-
+tan tt ok eep the w eigh ts simple b y p enaliz/-
+ing the amoun t of information they con tain/.
+The amoun t of information in a w eigh t can
+b e con trolled b y adding Gaussian noise and
+the noise lev el can b e adapted during learning
+to optimize the trade/-o/#0B b et w een the exp ected
+squared e
+
+## Introduction Digest
+
+
+
+## Conclusion Digest

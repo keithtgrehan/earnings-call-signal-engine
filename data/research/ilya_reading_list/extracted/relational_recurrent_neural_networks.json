@@ -1,0 +1,69 @@
+{
+  "id": "relational_recurrent_neural_networks",
+  "title": "Relational Recurrent Neural Networks",
+  "authors": [
+    "Adam Santoro",
+    "Ryan Faulkner",
+    "David Raposo",
+    "Jack Rae",
+    "Mike Chrzanowski",
+    "Theophane Weber",
+    "Daan Wierstra",
+    "Oriol Vinyals",
+    "Razvan Pascanu",
+    "Timothy Lillicrap"
+  ],
+  "year": 2018,
+  "source_url": "https://arxiv.org/abs/1806.01822",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 54495,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Background",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "Discussion",
+    "References"
+  ],
+  "abstract": "Memory-based neural networks model temporal data by leveraging an ability to\nremember information for long periods. It is unclear, however, whether they also\nhave an ability to perform complex relational reasoning with the information they\nremember. Here, we \ufb01rst con\ufb01rm our intuitions that standard memory architectures\nmay struggle at tasks that heavily involve an understanding of the ways in which\nentities are connected \u2013 i.e., tasks involving relational reasoning. We then improve\nupon these de\ufb01cits by using a new memory module \u2013 a Relational Memory Core\n(RMC) \u2013 which employs multi-head dot product attention to allow memories to\ninteract. Finally, we test the RMC on a suite of tasks that m",
+  "introduction": "Humans use sophisticated memory systems to access and reason about important information regard-\nless of when it was initially perceived [1, 2]. In neural network research many successful approaches\nto modeling sequential data also use memory systems, such as LSTMs [3] and memory-augmented\nneural networks generally [4\u20137]. Bolstered by augmented memory capacities, bounded computational\ncosts over time, and an ability to deal with vanishing gradients, these networks learn to correlate\nevents across time to be pro\ufb01cient at storing and retrieving information.\nHere we propose that it is fruitful to consider memory interactionsalong with storage and retrieval.\nAlthough current models can learn to",
+  "conclusion": "",
+  "key_terms": [
+    "relational memory",
+    "multi-slot memory",
+    "self-attention over memory",
+    "RNN",
+    "memory",
+    "model",
+    "memories",
+    "relational",
+    "attention",
+    "arxiv",
+    "information",
+    "number",
+    "reasoning",
+    "neural",
+    "learning",
+    "tasks",
+    "vector",
+    "networks"
+  ],
+  "references_sample": [
+    "[1] Daniel L Schacter and Endel Tulving. Memory systems 1994. Mit Press, 1994.",
+    "[2] Barbara J Knowlton, Robert G Morrison, John E Hummel, and Keith J Holyoak. A neurocomputational",
+    "system for relational reasoning. Trends in cognitive sciences, 16(7):373\u2013381, 2012.",
+    "[3] Sepp Hochreiter and Jurgen Schmidhuber. Long short term memory. Neural Computation, Volume 9, Issue",
+    "8 November 15, 1997, p.1735-1780, 1997.",
+    "[4] Alex Graves, Greg Wayne, and Ivo Danihelka. Neural turing machines. arXiv preprint arXiv:1410.5401,",
+    "[5] Alex Graves, Greg Wayne, Malcolm Reynolds, Tim Harley, Ivo Danihelka, Agnieszka Grabska-Barwi\u00b4nska,",
+    "Sergio G\u00f3mez Colmenarejo, Edward Grefenstette, Tiago Ramalho, John Agapiou, et al. Hybrid computing"
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

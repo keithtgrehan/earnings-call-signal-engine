@@ -1,0 +1,61 @@
+{
+  "id": "first_law_complexodynamics",
+  "title": "The First Law of Complexodynamics",
+  "authors": [
+    "Scott Aaronson"
+  ],
+  "year": 2011,
+  "source_url": "https://scottaaronson.blog/?p=762",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "beautifulsoup_html",
+  "raw_text_committed": false,
+  "text_length_chars": 162110,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Background",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "Discussion",
+    "Conclusion",
+    "References"
+  ],
+  "abstract": "abstract treatment in which one would see the same qualitative phenomenon.\nNotion of samplability and distinguishability seem related enough: if, after averaging over a certain scale, you have small descriptive complexity, then you have a sampler that, in each cell, will simply produce a random mix of coffee and milk according to the relative density, and this will be indistinguishable from \u201creality\u201d by an observer that is not able to resolve what happens within cells.\nScott\nSays:\nComment #18\nSeptember 23rd, 2011 at 7:31 pm\nSampson #16:\nExcept that, uhh, the \u201cfar from the homes of many of the participants\u201d part is no different than\nany\nacademic conference anywhere! By the triangle inequality",
+  "introduction": "Introduction to Kolmogorov Complexity and Its Applications\n, by Li and Vitanyi, there\u2019s an entire chapter about this connection.\nPersonally, I\u2019ve long thought that Kolmogorov complexity provides probably the most \u201cobjective,\u201d mathematically clearest way to understand the notion of entropy\u2014since basically, what it lets you do is talk about the \u201centropy\u201d of an individual object, without reference to any hypothesized ensemble from which the object was drawn,\nor\nany hypothesized coarse-grained structure on the object. (Though actually, what you really want here is\nresource-bounded\nKolmogorov complexity\u2014see the several paragraphs in the post about this.) So it was completely natural for me to try",
+  "conclusion": "conclusion that they are small particles, each carrying so small a charge that we are justified in calling them neutrons. They move with great velocity, exceeding that of light. More than 25 years ago I began my efforts to harness the cosmic rays and I can now state that I have succeeded in operating a motive device by means of them. I will tell you in the most general way, the cosmic ray ionizes the air, setting free many charges ions and electrons. These charges are captured in a condenser which is made to discharge through the circuit of the motor. I have hopes of building my motor on a large scale, but circumstances have not been favorable to carrying out my plan.\u201d\nMattF\nSays:\nComment #4",
+  "key_terms": [
+    "Kolmogorov complexity",
+    "sophistication",
+    "entropy vs complexity",
+    "resource-bounded description length",
+    "complexity",
+    "comment",
+    "september",
+    "entropy",
+    "would",
+    "system",
+    "kolmogorov",
+    "state",
+    "scott",
+    "think",
+    "coffee",
+    "first",
+    "question",
+    "interesting"
+  ],
+  "references_sample": [
+    "http://arxiv.org/pdf/0909.2104v1",
+    ". The results were almost all (with a few exceptions) consistent with the possibility of positive mass squared values (within an error bar), but they nearly unanimously favored the negative side.",
+    "As time has gone on they have gotten closer to c, but oddly the absolute measurements are still often coming up negative. Now these results are not very interesting given the uncertainty, but the coincidence of the superluminal claims makes them fun to toy with at least.",
+    "@Scott I agree. The main difference I find with the Deolalikar situation is that this is a claim coming from a large group of people that *weren\u2019t* looking for this, as far as I can tell (as opposed to one person that was). Furthermore, I\u2019ve also read that they have spent months shaking their heads in disbelief and looking for systematic errors with the help of metrology folks. I get the impression that they had no intention of publicly announcing this, but ultimately it came to the point where they couldn\u2019t find the error (if it exists) and needed to open it up to the peer community.",
+    "As far as CTC\u2019s go, you could always go with Lorentz violations, but honestly I find that probably even more unappetizing. The other thing is to envoke some sort of consistency principle that forces ctc\u2019s to only exist in consistent ways.",
+    "Again, I\u2019m by no means claiming to believe this claim is true. But I just think its worth much more serious care and considerations then many other such incidents.",
+    "September 24th, 2011 at 10:31 pm",
+    "@Wolfgang may be on to something. If you look at the JPEG encoding (using DCT) of the image of the coffee, the less interesting cups have higher coefficients in the upper left and lower right of the DCT matrix. The interesting middle cup has lots more going on in the middle of the matrix. (You don\u2019t get this effect with PNG or GIF images of coffee, so it may just be serendipity that Sean used JPEG.)"
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

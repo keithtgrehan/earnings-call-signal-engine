@@ -1,0 +1,32 @@
+# Multi-Scale Context Aggregation by Dilated Convolutions
+
+Source URL: https://arxiv.org/abs/1511.07122
+Extraction status: full_text_parsed
+Text length parsed locally: 40938
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Background
+- Model
+- Experiments
+- Results
+- References
+
+## Abstract / Opening Digest
+
+State-of-the-art models for semantic segmentation are based on adaptations of
+convolutional networks that had originally been designed for image classiﬁca-
+tion. However, dense prediction problems such as semantic segmentation are
+structurally different from image classiﬁcation. In this work, we develop a new
+convolutional network module that is speciﬁcally designed for dense prediction.
+The presented module uses dilated convolutions to systematically aggregate multi-
+scale contextual informatio
+
+## Introduction Digest
+
+
+
+## Conclusion Digest

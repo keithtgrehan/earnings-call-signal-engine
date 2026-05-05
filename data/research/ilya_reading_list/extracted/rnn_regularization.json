@@ -1,0 +1,47 @@
+{
+  "id": "rnn_regularization",
+  "title": "Recurrent Neural Network Regularization",
+  "authors": [
+    "Wojciech Zaremba",
+    "Ilya Sutskever",
+    "Oriol Vinyals"
+  ],
+  "year": 2014,
+  "source_url": "https://arxiv.org/abs/1409.2329",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 23177,
+  "sections_detected": [
+    "Method",
+    "Model",
+    "Experiments",
+    "Results"
+  ],
+  "abstract": "arXiv:1409.2329v5 [cs.NE] 19 Feb 2015\nUnder review as a conference paper at ICLR 2015\nR ECURRENT N EURAL N ETWORK R EGULARIZATION\nWojciech Zaremba\u2217\nNew York University\nwoj.zaremba@gmail.com\nIlya Sutskever, Oriol Vinyals\nGoogle Brain\n{ilyasu,vinyals}@google.com\nA BSTRACT\nWe present a simple regularization technique for RecurrentNeural Networks\n(RNNs) with Long Short-Term Memory (LSTM) units. Dropout, the most suc-\ncessful technique for regularizing neural networks, does not work well with RNNs\nand LSTMs. In this paper, we show how to correctly apply dropout to LSTMs,\nand show that it substantially reduces over\ufb01tting on a variety of tasks. These tasks\ninclude language modeling, speech recognit",
+  "introduction": "",
+  "conclusion": "",
+  "key_terms": [
+    "dropout",
+    "LSTM regularization",
+    "overfitting",
+    "non-recurrent connections",
+    "neural",
+    "arxiv",
+    "networks",
+    "lstms",
+    "model",
+    "paper",
+    "translation",
+    "language",
+    "speech",
+    "recognition",
+    "network",
+    "regularized",
+    "training"
+  ],
+  "references_sample": [],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

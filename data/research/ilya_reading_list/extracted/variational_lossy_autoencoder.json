@@ -1,0 +1,66 @@
+{
+  "id": "variational_lossy_autoencoder",
+  "title": "Variational Lossy Autoencoder",
+  "authors": [
+    "Xi Chen",
+    "Diederik P. Kingma",
+    "Tim Salimans",
+    "Yan Duan",
+    "Prafulla Dhariwal",
+    "John Schulman",
+    "Ilya Sutskever",
+    "Pieter Abbeel"
+  ],
+  "year": 2016,
+  "source_url": "https://arxiv.org/abs/1611.02731",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 56510,
+  "sections_detected": [
+    "Abstract",
+    "Background",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "Discussion",
+    "References"
+  ],
+  "abstract": "Representation learning seeks to expose certain aspects of observed data in a\nlearned representation that\u2019s amenable to downstream tasks like classi\ufb01cation. For\ninstance, a good representation for 2D images might be one that describes only\nglobal structure and discards information about detailed texture. In this paper,\nwe present a simple but principled method to learn such global representations\nby combining Variational Autoencoder (V AE) with neural autoregressive models\nsuch as RNN, MADE and PixelRNN/CNN. Our proposed V AE model allows us\nto have control over what the global latent code can learn and by designing the\narchitecture accordingly, we can force the global latent code to discar",
+  "introduction": "",
+  "conclusion": "",
+  "key_terms": [
+    "VAE",
+    "latent variables",
+    "posterior collapse",
+    "lossy compression",
+    "arxiv",
+    "latent",
+    "autoregressive",
+    "model",
+    "distribution",
+    "information",
+    "preprint",
+    "learning",
+    "kingma",
+    "decoder",
+    "pixelcnn",
+    "models",
+    "variational",
+    "lossy"
+  ],
+  "references_sample": [
+    "Yoshua Bengio, Aaron Courville, and Pascal Vincent. Representation learning: A review and new",
+    "perspectives. IEEE transactions on pattern analysis and machine intelligence, 35(8):1798\u20131828,",
+    "J\u00a8org Bornschein and Yoshua Bengio. Reweighted wake-sleep. arXiv preprint arXiv:1406.2751 ,",
+    "Samuel R Bowman, Luke Vilnis, Oriol Vinyals, Andrew M Dai, Rafal Jozefowicz, and Samy Ben-",
+    "gio. Generating sentences from a continuous space. arXiv preprint arXiv:1511.06349, 2015.",
+    "Published as a conference paper at ICLR 2017",
+    "Yuri Burda, Roger Grosse, and Ruslan Salakhutdinov. Importance weighted autoencoders. arXiv",
+    "preprint arXiv:1509.00519, 2015a."
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

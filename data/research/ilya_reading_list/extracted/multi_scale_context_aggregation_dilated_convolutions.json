@@ -1,0 +1,58 @@
+{
+  "id": "multi_scale_context_aggregation_dilated_convolutions",
+  "title": "Multi-Scale Context Aggregation by Dilated Convolutions",
+  "authors": [
+    "Fisher Yu",
+    "Vladlen Koltun"
+  ],
+  "year": 2015,
+  "source_url": "https://arxiv.org/abs/1511.07122",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 40938,
+  "sections_detected": [
+    "Abstract",
+    "Background",
+    "Model",
+    "Experiments",
+    "Results",
+    "References"
+  ],
+  "abstract": "State-of-the-art models for semantic segmentation are based on adaptations of\nconvolutional networks that had originally been designed for image classi\ufb01ca-\ntion. However, dense prediction problems such as semantic segmentation are\nstructurally different from image classi\ufb01cation. In this work, we develop a new\nconvolutional network module that is speci\ufb01cally designed for dense prediction.\nThe presented module uses dilated convolutions to systematically aggregate multi-\nscale contextual information without losing resolution. The architecture is based\non the fact that dilated convolutions support exponential expansion of the receptive\n\ufb01eld without loss of resolution or coverage. We show that t",
+  "introduction": "",
+  "conclusion": "",
+  "key_terms": [
+    "dilated convolutions",
+    "multi-scale context",
+    "receptive field",
+    "semantic segmentation",
+    "module",
+    "context",
+    "prediction",
+    "network",
+    "image",
+    "accuracy",
+    "semantic",
+    "training",
+    "front-end",
+    "dense",
+    "images",
+    "dilated",
+    "segmentation",
+    "table"
+  ],
+  "references_sample": [
+    "Badrinarayanan, Vijay, Handa, Ankur, and Cipolla, Roberto. SegNet: A deep convolutional encoder-decoder",
+    "architecture for robust semantic pixel-wise labelling. arXiv:1505.07293, 2015.",
+    "Brostow, Gabriel J., Fauqueur, Julien, and Cipolla, Roberto. Semantic object classes in video: A high-de\ufb01nition",
+    "ground truth database. Pattern Recognition Letters, 30(2), 2009.",
+    "Chen, Liang-Chieh, Papandreou, George, Kokkinos, Iasonas, Murphy, Kevin, and Yuille, Alan L. Semantic",
+    "image segmentation with deep convolutional nets and fully connected CRFs. In ICLR, 2015a.",
+    "Figure 4: Failure cases from the VOC-2012 validation set. The most accurate architecture we trained",
+    "(Context + CRF-RNN) performs poorly on these images."
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

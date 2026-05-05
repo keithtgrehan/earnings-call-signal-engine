@@ -1,0 +1,1581 @@
+[
+  {
+    "id": "loughran_mcdonald_lexicon",
+    "name": "Loughran-McDonald Master Dictionary",
+    "category": "finance",
+    "source_url": "https://sraf.nd.edu/loughranmcdonald-master-dictionary/",
+    "license": "Site terms/manual review required before redistributing dictionary files.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "finance sentiment lexicon",
+      "uncertainty weak labels"
+    ],
+    "signal_engine_relevance": [
+      "finance",
+      "weak_labeling",
+      "evaluation"
+    ],
+    "limitations": [
+      "Dictionary counts need context; terms can overfire in long transcripts."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "financial_phrasebank",
+    "name": "Financial PhraseBank",
+    "category": "finance",
+    "source_url": "https://huggingface.co/datasets/takala/financial_phrasebank",
+    "license": "Dataset card/license review required; do not redistribute without checking source terms.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "finance sentiment benchmark"
+    ],
+    "signal_engine_relevance": [
+      "finance",
+      "supervised_training",
+      "evaluation"
+    ],
+    "limitations": [
+      "Sentence-level labels are weak proxies for earnings-call Q&A signals."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "prosus_finbert",
+    "name": "ProsusAI FinBERT model card",
+    "category": "finance",
+    "source_url": "https://huggingface.co/ProsusAI/finbert",
+    "license": "Model card and underlying data terms require review; no weights committed.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "finance sentiment model reference"
+    ],
+    "signal_engine_relevance": [
+      "finance",
+      "supervised_training"
+    ],
+    "limitations": [
+      "Model card only; model availability is not validation on earnings calls."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "flang_finance_lm",
+    "name": "FLANG finance language model references",
+    "category": "finance",
+    "source_url": "https://huggingface.co/SALT-NLP/FLANG-ELECTRA",
+    "license": "Model license/model-card terms require manual review.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "finance language-model reference"
+    ],
+    "signal_engine_relevance": [
+      "finance",
+      "supervised_training"
+    ],
+    "limitations": [
+      "Reference only; no model weights downloaded."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "sec_company_tickers",
+    "name": "SEC company tickers JSON",
+    "category": "finance",
+    "source_url": "https://www.sec.gov/files/company_tickers.json",
+    "license": "SEC public data; respect SEC fair-access policies.",
+    "download_allowed": true,
+    "download_status": "downloaded",
+    "local_path": "data/nlp_assets/cache/sec_company_tickers.json",
+    "committed": false,
+    "intended_use": [
+      "public company metadata",
+      "ticker/CIK normalization"
+    ],
+    "signal_engine_relevance": [
+      "finance",
+      "retrieval",
+      "metadata"
+    ],
+    "limitations": [
+      "Ticker metadata is not transcript data and may require refresh."
+    ],
+    "priority": "high",
+    "safe_download_url": "https://www.sec.gov/files/company_tickers.json",
+    "cache_filename": "sec_company_tickers.json",
+    "safe_download_note": "Small public SEC JSON cached locally; raw cache ignored.",
+    "sha256": "5b97186bb0d698d0ce93c25fe21f8f4ec1704f9beb948013ce376901bd8bf6d3"
+  },
+  {
+    "id": "sec_edgar_submissions_api",
+    "name": "SEC EDGAR submissions API",
+    "category": "finance",
+    "source_url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+    "license": "SEC public API documentation; use fair-access headers and rate limits.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "filing metadata",
+      "8-K/source discovery"
+    ],
+    "signal_engine_relevance": [
+      "finance",
+      "metadata",
+      "retrieval"
+    ],
+    "limitations": [
+      "Metadata only; does not provide earnings-call transcripts."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "finos_earnings_references",
+    "name": "FINOS financial data / AI readiness references",
+    "category": "finance",
+    "source_url": "https://www.finos.org/",
+    "license": "FINOS project-specific licenses vary; manual review required.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "financial NLP ecosystem reference"
+    ],
+    "signal_engine_relevance": [
+      "finance"
+    ],
+    "limitations": [
+      "No verified reusable earnings-call transcript dataset found here."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "public_earnings_call_dataset_candidates",
+    "name": "Public earnings-call transcript dataset candidates",
+    "category": "finance",
+    "source_url": "https://www.kaggle.com/search?q=earnings+call+transcripts+in%3Adatasets",
+    "license": "Kaggle and vendor dataset licenses vary; often gated/manual.",
+    "download_allowed": false,
+    "download_status": "gated",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "candidate transcript corpora"
+    ],
+    "signal_engine_relevance": [
+      "finance",
+      "supervised_training"
+    ],
+    "limitations": [
+      "Do not download silently; redistribution and source provenance are uncertain."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "company_8k_press_release_metadata",
+    "name": "Company 8-K / press release metadata sources",
+    "category": "finance",
+    "source_url": "https://www.sec.gov/edgar/search-and-access",
+    "license": "SEC public access; source documents need per-use provenance.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "8-K metadata",
+      "press release source discovery"
+    ],
+    "signal_engine_relevance": [
+      "finance",
+      "metadata",
+      "retrieval"
+    ],
+    "limitations": [
+      "Metadata is not a clean label source by itself."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "goemotions",
+    "name": "GoEmotions",
+    "category": "sentiment_emotion",
+    "source_url": "https://github.com/google-research/google-research/tree/master/goemotions",
+    "license": "Apache-2.0 code/data repo; verify current dataset terms before bulk use.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "emotion benchmark"
+    ],
+    "signal_engine_relevance": [
+      "emotion",
+      "evaluation",
+      "supervised_training"
+    ],
+    "limitations": [
+      "Reddit labels are not business-call labels; demographic/content bias risk."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "stanford_sentiment_treebank",
+    "name": "Stanford Sentiment Treebank",
+    "category": "sentiment_emotion",
+    "source_url": "https://nlp.stanford.edu/sentiment/",
+    "license": "Stanford dataset terms require manual review.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "sentiment benchmark"
+    ],
+    "signal_engine_relevance": [
+      "emotion",
+      "evaluation"
+    ],
+    "limitations": [
+      "Movie-review phrase sentiment does not map to earnings-call intent."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "imdb_sentiment",
+    "name": "IMDB Large Movie Review Dataset",
+    "category": "sentiment_emotion",
+    "source_url": "https://ai.stanford.edu/~amaas/data/sentiment/",
+    "license": "Dataset terms require attribution/review; raw archive is large.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "sentiment benchmark"
+    ],
+    "signal_engine_relevance": [
+      "emotion",
+      "supervised_training"
+    ],
+    "limitations": [
+      "Movie reviews are domain-mismatched and large raw data stays ignored."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "tweeteval",
+    "name": "TweetEval",
+    "category": "sentiment_emotion",
+    "source_url": "https://github.com/cardiffnlp/tweeteval",
+    "license": "Repository license/dataset licenses require task-level review.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "sentiment/emotion benchmark"
+    ],
+    "signal_engine_relevance": [
+      "emotion",
+      "evaluation"
+    ],
+    "limitations": [
+      "Social media language is noisy and domain-mismatched."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "dair_ai_emotion",
+    "name": "DAIR.AI Emotion dataset",
+    "category": "sentiment_emotion",
+    "source_url": "https://huggingface.co/datasets/dair-ai/emotion",
+    "license": "Dataset card license review required.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "emotion benchmark"
+    ],
+    "signal_engine_relevance": [
+      "emotion",
+      "supervised_training"
+    ],
+    "limitations": [
+      "Small/general emotion labels are not validated for finance calls."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "empathetic_dialogues",
+    "name": "EmpatheticDialogues",
+    "category": "sentiment_emotion",
+    "source_url": "https://github.com/facebookresearch/EmpatheticDialogues",
+    "license": "CC BY-NC 4.0; non-commercial restriction.",
+    "download_allowed": false,
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "empathy/dialogue reference"
+    ],
+    "signal_engine_relevance": [
+      "emotion",
+      "dialogue"
+    ],
+    "limitations": [
+      "Non-commercial restriction and domain mismatch."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "banking77",
+    "name": "Banking77",
+    "category": "intent",
+    "source_url": "https://huggingface.co/datasets/PolyAI/banking77",
+    "license": "Dataset card/license review required.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "intent classification reference"
+    ],
+    "signal_engine_relevance": [
+      "intent",
+      "supervised_training"
+    ],
+    "limitations": [
+      "Banking support intents are not earnings-call signals."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "clinc150",
+    "name": "CLINC150",
+    "category": "intent",
+    "source_url": "https://github.com/clinc/oos-eval",
+    "license": "Dataset license/terms require review.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "intent and out-of-scope classification"
+    ],
+    "signal_engine_relevance": [
+      "intent",
+      "evaluation"
+    ],
+    "limitations": [
+      "Assistant intents differ from transcript evidence tasks."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "cnn_dailymail",
+    "name": "CNN/DailyMail",
+    "category": "qa_retrieval",
+    "source_url": "https://huggingface.co/datasets/cnn_dailymail",
+    "license": "News content licensing is complex; reference only unless terms are clear.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "summarization reference"
+    ],
+    "signal_engine_relevance": [
+      "summarization",
+      "evaluation"
+    ],
+    "limitations": [
+      "Do not bulk download/redistribute news text without license review."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "qasper",
+    "name": "Qasper",
+    "category": "qa_retrieval",
+    "source_url": "https://allenai.org/data/qasper",
+    "license": "Dataset license requires review; public research dataset.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "long-document QA"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "evaluation"
+    ],
+    "limitations": [
+      "Scientific QA differs from finance calls but good for evidence retrieval."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "squad",
+    "name": "SQuAD",
+    "category": "qa_retrieval",
+    "source_url": "https://rajpurkar.github.io/SQuAD-explorer/",
+    "license": "CC BY-SA 4.0; attribution/share-alike considerations.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "extractive QA benchmark"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "evaluation"
+    ],
+    "limitations": [
+      "Wikipedia QA is not transcript QA."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "natural_questions",
+    "name": "Natural Questions",
+    "category": "qa_retrieval",
+    "source_url": "https://ai.google.com/research/NaturalQuestions",
+    "license": "License and storage requirements require review; large dataset.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "open-domain QA reference"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "evaluation"
+    ],
+    "limitations": [
+      "Large, web-search-oriented benchmark; not immediate."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "ms_marco",
+    "name": "MS MARCO",
+    "category": "qa_retrieval",
+    "source_url": "https://microsoft.github.io/msmarco/",
+    "license": "Microsoft dataset terms/manual review required.",
+    "download_allowed": false,
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "passage ranking benchmark"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "rag"
+    ],
+    "limitations": [
+      "Large and domain-mismatched; useful later for retrieval method literacy."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "beir",
+    "name": "BEIR",
+    "category": "qa_retrieval",
+    "source_url": "https://github.com/beir-cellar/beir",
+    "license": "Benchmark wrapper; component dataset licenses vary.",
+    "download_allowed": false,
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "retrieval benchmark suite"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "evaluation"
+    ],
+    "limitations": [
+      "Do not assume all BEIR datasets can be redistributed."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "hotpotqa",
+    "name": "HotpotQA",
+    "category": "qa_retrieval",
+    "source_url": "https://hotpotqa.github.io/",
+    "license": "CC BY-SA 4.0; verify current terms.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "multi-hop QA reference"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "evaluation"
+    ],
+    "limitations": [
+      "Multi-hop Wikipedia QA only indirectly maps to transcript evidence."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "multiwoz",
+    "name": "MultiWOZ",
+    "category": "dialogue",
+    "source_url": "https://github.com/budzianowski/multiwoz",
+    "license": "Dataset license/versions require manual review.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "dialogue state tracking"
+    ],
+    "signal_engine_relevance": [
+      "dialogue",
+      "intent"
+    ],
+    "limitations": [
+      "Task-oriented assistant dialogues are unlike earnings calls."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "switchboard",
+    "name": "Switchboard",
+    "category": "dialogue",
+    "source_url": "https://catalog.ldc.upenn.edu/LDC97S62",
+    "license": "LDC paid/restricted access.",
+    "download_allowed": false,
+    "download_status": "gated",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "conversation/speech reference"
+    ],
+    "signal_engine_relevance": [
+      "dialogue",
+      "audio"
+    ],
+    "limitations": [
+      "License-restricted; do not download."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "ami_meeting_corpus",
+    "name": "AMI Meeting Corpus",
+    "category": "dialogue",
+    "source_url": "https://groups.inf.ed.ac.uk/ami/corpus/",
+    "license": "AMI license/manual access terms require review.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "meeting dialogue/multimodal reference"
+    ],
+    "signal_engine_relevance": [
+      "dialogue",
+      "multimodal",
+      "audio"
+    ],
+    "limitations": [
+      "Meeting data differs from earnings calls; access terms matter."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "meetingbank",
+    "name": "MeetingBank",
+    "category": "dialogue",
+    "source_url": "https://github.com/Yale-LILY/MeetingBank",
+    "license": "Repository/dataset license review required.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "meeting summarization"
+    ],
+    "signal_engine_relevance": [
+      "dialogue",
+      "summarization"
+    ],
+    "limitations": [
+      "Public meeting domain; not finance calls."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "samsum",
+    "name": "SAMSum",
+    "category": "dialogue",
+    "source_url": "https://huggingface.co/datasets/Samsung/samsum",
+    "license": "Dataset card/license review required.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "dialogue summarization"
+    ],
+    "signal_engine_relevance": [
+      "dialogue",
+      "summarization"
+    ],
+    "limitations": [
+      "Chat-style summaries may not preserve evidence spans."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "dialogsum",
+    "name": "DialogSum",
+    "category": "dialogue",
+    "source_url": "https://github.com/cylnlp/DialogSum",
+    "license": "Dataset license requires review.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "dialogue summarization"
+    ],
+    "signal_engine_relevance": [
+      "dialogue",
+      "summarization"
+    ],
+    "limitations": [
+      "Casual dialogues are domain-mismatched."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "qmsum",
+    "name": "QMSum",
+    "category": "dialogue",
+    "source_url": "https://github.com/Yale-LILY/QMSum",
+    "license": "Dataset license/manual review required.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "query-based meeting summarization"
+    ],
+    "signal_engine_relevance": [
+      "dialogue",
+      "retrieval",
+      "summarization"
+    ],
+    "limitations": [
+      "Relevant structure, but meeting domain and access terms need review."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "customer_support_kaggle_candidates",
+    "name": "Customer support public dataset candidates",
+    "category": "dialogue",
+    "source_url": "https://www.kaggle.com/search?q=customer+support+in%3Adatasets",
+    "license": "Kaggle licenses vary; gated/manual.",
+    "download_allowed": false,
+    "download_status": "gated",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "support benchmark candidates"
+    ],
+    "signal_engine_relevance": [
+      "dialogue",
+      "intent",
+      "emotion"
+    ],
+    "limitations": [
+      "Do not download silently; privacy and licensing risk."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "snorkel",
+    "name": "Snorkel",
+    "category": "weak_labeling",
+    "source_url": "https://www.snorkel.org/",
+    "license": "Apache-2.0 project; package dependency optional.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "weak supervision framework"
+    ],
+    "signal_engine_relevance": [
+      "weak_labeling",
+      "evaluation"
+    ],
+    "limitations": [
+      "Framework does not solve label quality; optional dependency only."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "deepeval",
+    "name": "DeepEval",
+    "category": "evaluation_safety",
+    "source_url": "https://github.com/confident-ai/deepeval",
+    "license": "Apache-2.0 project; may integrate with model providers depending on use.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "LLM evaluation reference"
+    ],
+    "signal_engine_relevance": [
+      "evaluation"
+    ],
+    "limitations": [
+      "Avoid paid/API evaluation paths unless explicitly configured."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "promptfoo",
+    "name": "Promptfoo",
+    "category": "evaluation_safety",
+    "source_url": "https://www.promptfoo.dev/",
+    "license": "Open-source project; provider usage may require API keys.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "prompt/eval harness reference"
+    ],
+    "signal_engine_relevance": [
+      "evaluation"
+    ],
+    "limitations": [
+      "Not relevant until LLM sidecars exist."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "helm",
+    "name": "HELM",
+    "category": "evaluation_safety",
+    "source_url": "https://crfm.stanford.edu/helm/latest/",
+    "license": "Stanford HELM; benchmark/data licenses vary.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "evaluation methodology reference"
+    ],
+    "signal_engine_relevance": [
+      "evaluation",
+      "safety"
+    ],
+    "limitations": [
+      "Methodology reference, not immediate tooling."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "bigbench",
+    "name": "BIG-bench",
+    "category": "evaluation_safety",
+    "source_url": "https://github.com/google/BIG-bench",
+    "license": "Apache-2.0 repository; benchmark tasks vary.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "capability benchmark reference"
+    ],
+    "signal_engine_relevance": [
+      "evaluation",
+      "safety"
+    ],
+    "limitations": [
+      "General capability tasks do not validate finance signals."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "openai_evals",
+    "name": "OpenAI Evals",
+    "category": "evaluation_safety",
+    "source_url": "https://github.com/openai/evals",
+    "license": "MIT; using OpenAI models may require paid API.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "eval design reference"
+    ],
+    "signal_engine_relevance": [
+      "evaluation"
+    ],
+    "limitations": [
+      "No paid API use in this repo branch."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "ragas",
+    "name": "Ragas",
+    "category": "evaluation_safety",
+    "source_url": "https://github.com/explodinggradients/ragas",
+    "license": "Apache-2.0 project; provider integrations may require keys.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "RAG evaluation reference"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "evaluation"
+    ],
+    "limitations": [
+      "RAG metrics need gold evidence spans to be meaningful."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "trulens",
+    "name": "TruLens",
+    "category": "evaluation_safety",
+    "source_url": "https://github.com/truera/trulens",
+    "license": "Open-source project; integrations vary.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "LLM/RAG observability reference"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "evaluation"
+    ],
+    "limitations": [
+      "Optional later; avoid telemetry/API assumptions."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "sentence_transformers",
+    "name": "Sentence Transformers",
+    "category": "embeddings_retrieval_tools",
+    "source_url": "https://www.sbert.net/",
+    "license": "Apache-2.0 library; model licenses vary.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "local embeddings framework"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "rag"
+    ],
+    "limitations": [
+      "Optional dependency; no model downloads committed."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "all_minilm_l6_v2",
+    "name": "all-MiniLM-L6-v2",
+    "category": "embeddings_retrieval_tools",
+    "source_url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+    "license": "Apache-2.0 model card; no weights committed.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "small local embedding candidate"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "rag"
+    ],
+    "limitations": [
+      "Model card reference only until explicitly downloaded."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "all_mpnet_base_v2",
+    "name": "all-mpnet-base-v2",
+    "category": "embeddings_retrieval_tools",
+    "source_url": "https://huggingface.co/sentence-transformers/all-mpnet-base-v2",
+    "license": "Apache-2.0 model card; no weights committed.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "higher-quality local embedding candidate"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "rag"
+    ],
+    "limitations": [
+      "Model card reference only; bigger than MiniLM."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "bge_small_en",
+    "name": "BAAI bge-small-en",
+    "category": "embeddings_retrieval_tools",
+    "source_url": "https://huggingface.co/BAAI/bge-small-en-v1.5",
+    "license": "Model card/license review required; no weights committed.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "small local embedding candidate"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "rag"
+    ],
+    "limitations": [
+      "Model availability is not retrieval validation."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "bge_base_en",
+    "name": "BAAI bge-base-en",
+    "category": "embeddings_retrieval_tools",
+    "source_url": "https://huggingface.co/BAAI/bge-base-en-v1.5",
+    "license": "Model card/license review required; no weights committed.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "local embedding candidate"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "rag"
+    ],
+    "limitations": [
+      "Heavier than small models; evaluate only after labels."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "faiss",
+    "name": "FAISS",
+    "category": "embeddings_retrieval_tools",
+    "source_url": "https://github.com/facebookresearch/faiss",
+    "license": "MIT; optional dependency.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "vector search backend"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "rag"
+    ],
+    "limitations": [
+      "Do not add until retrieval metrics justify vector infra."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "chroma",
+    "name": "Chroma",
+    "category": "embeddings_retrieval_tools",
+    "source_url": "https://github.com/chroma-core/chroma",
+    "license": "Apache-2.0; optional dependency.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "local vector DB candidate"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "rag"
+    ],
+    "limitations": [
+      "Avoid operational complexity before retrieval benchmark."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "rank_bm25",
+    "name": "rank-bm25",
+    "category": "embeddings_retrieval_tools",
+    "source_url": "https://github.com/dorianbrown/rank_bm25",
+    "license": "Apache-2.0; optional dependency.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "lexical retrieval baseline"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "evaluation"
+    ],
+    "limitations": [
+      "Strong immediate baseline, but package not required by core."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "rapidfuzz",
+    "name": "RapidFuzz",
+    "category": "local_nlp_tools",
+    "source_url": "https://github.com/rapidfuzz/RapidFuzz",
+    "license": "MIT; optional dependency.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "fuzzy matching/entity normalization"
+    ],
+    "signal_engine_relevance": [
+      "weak_labeling",
+      "metadata"
+    ],
+    "limitations": [
+      "Useful deterministic helper; still needs thresholds and tests."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "yake",
+    "name": "YAKE",
+    "category": "local_nlp_tools",
+    "source_url": "https://github.com/LIAAD/yake",
+    "license": "GPL-3.0; license compatibility review required.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "keyword extraction candidate"
+    ],
+    "signal_engine_relevance": [
+      "weak_labeling",
+      "retrieval"
+    ],
+    "limitations": [
+      "GPL license may be unsuitable for direct dependency."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "keybert",
+    "name": "KeyBERT",
+    "category": "local_nlp_tools",
+    "source_url": "https://github.com/MaartenGr/KeyBERT",
+    "license": "MIT; optional dependency with embedding model requirements.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "keyword extraction candidate"
+    ],
+    "signal_engine_relevance": [
+      "retrieval",
+      "weak_labeling"
+    ],
+    "limitations": [
+      "Depends on embeddings; avoid until retrieval labels exist."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "textstat",
+    "name": "textstat",
+    "category": "local_nlp_tools",
+    "source_url": "https://github.com/textstat/textstat",
+    "license": "MIT; optional dependency.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "readability/complexity features"
+    ],
+    "signal_engine_relevance": [
+      "weak_labeling",
+      "evaluation"
+    ],
+    "limitations": [
+      "Readability features can be superficial without validation."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "presidio_analyzer",
+    "name": "Presidio Analyzer",
+    "category": "privacy",
+    "source_url": "https://github.com/microsoft/presidio",
+    "license": "MIT; optional dependency and models may vary.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "PII detection"
+    ],
+    "signal_engine_relevance": [
+      "privacy",
+      "evaluation"
+    ],
+    "limitations": [
+      "False positives/negatives require audit before automated redaction."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "presidio_anonymizer",
+    "name": "Presidio Anonymizer",
+    "category": "privacy",
+    "source_url": "https://github.com/microsoft/presidio",
+    "license": "MIT; optional dependency.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "PII redaction"
+    ],
+    "signal_engine_relevance": [
+      "privacy"
+    ],
+    "limitations": [
+      "Only useful with reviewed analyzer configuration."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "whisper",
+    "name": "Whisper",
+    "category": "audio_asr_prosody",
+    "source_url": "https://github.com/openai/whisper",
+    "license": "MIT; model weights downloaded separately if used.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "ASR reference"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "multimodal"
+    ],
+    "limitations": [
+      "No audio/model weights downloaded; ASR quality must be measured."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "faster_whisper",
+    "name": "faster-whisper",
+    "category": "audio_asr_prosody",
+    "source_url": "https://github.com/SYSTRAN/faster-whisper",
+    "license": "MIT; CTranslate2/model license review required.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "local ASR candidate"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "multimodal"
+    ],
+    "limitations": [
+      "Optional heavy runtime; no models committed."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "whisperx",
+    "name": "WhisperX",
+    "category": "audio_asr_prosody",
+    "source_url": "https://github.com/m-bain/whisperX",
+    "license": "BSD-style/project terms; dependencies/models vary.",
+    "download_allowed": false,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "ASR alignment/diarization candidate"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "multimodal"
+    ],
+    "limitations": [
+      "Heavy dependency stack; gated diarization models may require tokens."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "librosa",
+    "name": "librosa",
+    "category": "audio_asr_prosody",
+    "source_url": "https://librosa.org/doc/latest/index.html",
+    "license": "ISC; optional dependency.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "audio feature extraction"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "multimodal"
+    ],
+    "limitations": [
+      "Audio features need legally safe media and task labels."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "opensmile",
+    "name": "openSMILE",
+    "category": "audio_asr_prosody",
+    "source_url": "https://audeering.github.io/opensmile-python/",
+    "license": "License/manual review required for some use cases.",
+    "download_allowed": "unknown",
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "prosody/acoustic features"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "multimodal"
+    ],
+    "limitations": [
+      "License and feature interpretation need review."
+    ],
+    "priority": "high"
+  },
+  {
+    "id": "pyannote_audio",
+    "name": "pyannote.audio",
+    "category": "audio_asr_prosody",
+    "source_url": "https://github.com/pyannote/pyannote-audio",
+    "license": "MIT code; many pretrained models are gated on Hugging Face.",
+    "download_allowed": false,
+    "download_status": "gated",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "diarization candidate"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "multimodal"
+    ],
+    "limitations": [
+      "Do not download gated models silently."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "common_voice",
+    "name": "Common Voice",
+    "category": "audio_asr_prosody",
+    "source_url": "https://commonvoice.mozilla.org/en/datasets",
+    "license": "CC0 and variant terms by release/language; large download.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "ASR data reference"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "evaluation"
+    ],
+    "limitations": [
+      "Large and not earnings-call domain."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "librispeech",
+    "name": "LibriSpeech",
+    "category": "audio_asr_prosody",
+    "source_url": "https://www.openslr.org/12",
+    "license": "CC BY 4.0; large corpus.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "ASR benchmark reference"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "evaluation"
+    ],
+    "limitations": [
+      "Read speech, not earnings calls; large raw data ignored."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "tedlium",
+    "name": "TED-LIUM",
+    "category": "audio_asr_prosody",
+    "source_url": "https://www.openslr.org/51",
+    "license": "CC BY-NC-ND 3.0; non-commercial/no-derivatives restrictions.",
+    "download_allowed": false,
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "ASR benchmark reference"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "evaluation"
+    ],
+    "limitations": [
+      "License restrictions and domain mismatch."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "opencv",
+    "name": "OpenCV",
+    "category": "video_multimodal",
+    "source_url": "https://opencv.org/",
+    "license": "Apache-2.0; optional dependency.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "video/frame feature extraction"
+    ],
+    "signal_engine_relevance": [
+      "video",
+      "multimodal"
+    ],
+    "limitations": [
+      "Visual features require legally safe video and labels."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "mediapipe",
+    "name": "MediaPipe",
+    "category": "video_multimodal",
+    "source_url": "https://github.com/google-ai-edge/mediapipe",
+    "license": "Apache-2.0; optional dependency/models vary.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "face/pose feature candidate"
+    ],
+    "signal_engine_relevance": [
+      "video",
+      "multimodal"
+    ],
+    "limitations": [
+      "Can overclaim behavioral inference without evaluation."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "deepface",
+    "name": "DeepFace",
+    "category": "video_multimodal",
+    "source_url": "https://github.com/serengil/deepface",
+    "license": "MIT; model/data ethics review required.",
+    "download_allowed": true,
+    "download_status": "skipped",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "face analysis reference"
+    ],
+    "signal_engine_relevance": [
+      "video",
+      "multimodal"
+    ],
+    "limitations": [
+      "High ethical/privacy risk; avoid emotion claims."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "cmu_mosei",
+    "name": "CMU-MOSEI",
+    "category": "video_multimodal",
+    "source_url": "http://multicomp.cs.cmu.edu/resources/cmu-mosei-dataset/",
+    "license": "Dataset license/manual request terms required.",
+    "download_allowed": false,
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "multimodal sentiment benchmark"
+    ],
+    "signal_engine_relevance": [
+      "video",
+      "audio",
+      "multimodal"
+    ],
+    "limitations": [
+      "Access/licensing and domain mismatch."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "cmu_mosi",
+    "name": "CMU-MOSI",
+    "category": "video_multimodal",
+    "source_url": "http://multicomp.cs.cmu.edu/resources/cmu-mosi-dataset/",
+    "license": "Dataset license/manual request terms required.",
+    "download_allowed": false,
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "multimodal sentiment benchmark"
+    ],
+    "signal_engine_relevance": [
+      "video",
+      "audio",
+      "multimodal"
+    ],
+    "limitations": [
+      "Small benchmark; not earnings calls."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "avec",
+    "name": "AVEC challenges",
+    "category": "video_multimodal",
+    "source_url": "https://avec-challenge.github.io/",
+    "license": "Challenge data terms vary; often manual/restricted.",
+    "download_allowed": false,
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "affective computing reference"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "video",
+      "multimodal"
+    ],
+    "limitations": [
+      "Clinical/affect tasks are high-risk and not business signals."
+    ],
+    "priority": "low"
+  },
+  {
+    "id": "meld",
+    "name": "MELD",
+    "category": "video_multimodal",
+    "source_url": "https://affective-meld.github.io/",
+    "license": "Dataset license/manual review required; derived from TV content.",
+    "download_allowed": false,
+    "download_status": "manual_required",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "multimodal emotion reference"
+    ],
+    "signal_engine_relevance": [
+      "emotion",
+      "video",
+      "audio"
+    ],
+    "limitations": [
+      "TV dialogue licensing/domain mismatch; do not treat as business proof."
+    ],
+    "priority": "medium"
+  },
+  {
+    "id": "iemocap",
+    "name": "IEMOCAP",
+    "category": "video_multimodal",
+    "source_url": "https://sail.usc.edu/iemocap/",
+    "license": "USC license/manual access; restricted.",
+    "download_allowed": false,
+    "download_status": "gated",
+    "local_path": "",
+    "committed": false,
+    "intended_use": [
+      "emotion/audio-video reference"
+    ],
+    "signal_engine_relevance": [
+      "audio",
+      "video",
+      "emotion"
+    ],
+    "limitations": [
+      "Restricted access; acted emotion domain."
+    ],
+    "priority": "low"
+  }
+]
