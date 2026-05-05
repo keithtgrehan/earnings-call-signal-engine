@@ -2,9 +2,13 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterable
+from pathlib import Path
 from typing import Any
 
-from signal_engine.research.paper_metadata import load_papers
+from signal_engine.research.paper_metadata import REPO_ROOT, load_papers
+
+EXTRACTED_DIR = REPO_ROOT / "data" / "research" / "ilya_reading_list" / "extracted"
+BRIEFS_DIR = REPO_ROOT / "docs" / "research" / "ilya_reading_list" / "papers"
 
 
 def _flatten_values(value: Any) -> Iterable[str]:
@@ -33,7 +37,17 @@ def _paper_text(paper: dict[str, Any]) -> str:
         "possible_evaluation_ideas",
         "risks_limitations",
     ]
-    return " ".join(text for field in fields for text in _flatten_values(paper.get(field, ""))).lower()
+    text_parts = [text for field in fields for text in _flatten_values(paper.get(field, ""))]
+    extracted_path = EXTRACTED_DIR / f"{paper.get('id')}.json"
+    if extracted_path.exists():
+        text_parts.append(extracted_path.read_text(encoding="utf-8"))
+    brief_paths = sorted(BRIEFS_DIR.glob(f"*_{paper.get('id')}.md"))
+    if paper.get("id") == "stanford_cs231n_convolutional_neural_networks":
+        brief_paths = [BRIEFS_DIR / "26_cs231n.md"]
+    for path in brief_paths:
+        if path.exists():
+            text_parts.append(path.read_text(encoding="utf-8"))
+    return " ".join(text_parts).lower()
 
 
 def _tokens(query: str) -> list[str]:

@@ -1,0 +1,42 @@
+# Identity Mappings in Deep Residual Networks
+
+Source URL: https://arxiv.org/abs/1603.05027
+Extraction status: full_text_parsed
+Text length parsed locally: 36973
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Method
+- Model
+- Experiments
+- Results
+- References
+
+## Abstract / Opening Digest
+
+Abstract Deep residual networks [1] have emerged as a family of ex-
+tremely deep architectures showing compelling accuracy and nice con-
+vergence behaviors. In this paper, we analyze the propagation formu-
+lations behind the residual building blocks, which suggest that the for-
+ward and backward signals can be directly propagated from one block
+to any other block, when using identity mappings as the skip connec-
+tions and after-addition activation. A series of ablation experiments sup-
+port the 
+
+## Introduction Digest
+
+Deep residual networks (ResNets) [1] consist of many stacked “Residual Units”.
+Each unit (Fig. 1 (a)) can be expressed in a general form:
+yl = h(xl) + F(xl,Wl),
+xl+1 = f(yl),
+where xl and xl+1 are input and output of the l-th unit, and F is a residual
+function. In [1], h(xl) = xl is an identity mapping and f is a ReLU [2] function.
+ResNets that are over 100-layer deep have shown state-of-the-art accuracy for
+several challenging recognition tasks on ImageNet [3] and MS COCO [4] compe-
+titions. Th
+
+## Conclusion Digest

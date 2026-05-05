@@ -1,0 +1,31 @@
+{
+  "id": "kolmogorov_complexity_algorithmic_randomness",
+  "title": "Kolmogorov Complexity and Algorithmic Randomness",
+  "authors": [
+    "Alexander Shen",
+    "Vladimir A. Uspensky",
+    "Nikolay Vereshchagin"
+  ],
+  "year": 2017,
+  "source_url": "https://www.ams.org/bookpages/surv-220",
+  "extraction_status": "citation_only",
+  "extraction_method": "not_run",
+  "raw_text_committed": false,
+  "text_length_chars": 0,
+  "sections_detected": [],
+  "abstract": "Algorithmic information theory studies the shortest descriptions of objects and formal notions of randomness.",
+  "introduction": "",
+  "conclusion": "",
+  "key_terms": [
+    "Kolmogorov complexity",
+    "algorithmic randomness",
+    "Martin-Lof randomness",
+    "description length"
+  ],
+  "references_sample": [],
+  "extraction_warnings": [
+    "Download skipped: download_allowed is not true.",
+    "No local cache file available; committed extraction is citation/abstract-level only.",
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

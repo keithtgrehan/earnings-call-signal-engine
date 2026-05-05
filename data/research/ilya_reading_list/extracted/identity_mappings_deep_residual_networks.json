@@ -1,0 +1,60 @@
+{
+  "id": "identity_mappings_deep_residual_networks",
+  "title": "Identity Mappings in Deep Residual Networks",
+  "authors": [
+    "Kaiming He",
+    "Xiangyu Zhang",
+    "Shaoqing Ren",
+    "Jian Sun"
+  ],
+  "year": 2016,
+  "source_url": "https://arxiv.org/abs/1603.05027",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 36973,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "References"
+  ],
+  "abstract": "Abstract Deep residual networks [1] have emerged as a family of ex-\ntremely deep architectures showing compelling accuracy and nice con-\nvergence behaviors. In this paper, we analyze the propagation formu-\nlations behind the residual building blocks, which suggest that the for-\nward and backward signals can be directly propagated from one block\nto any other block, when using identity mappings as the skip connec-\ntions and after-addition activation. A series of ablation experiments sup-\nport the importance of these identity mappings. This motivates us to\npropose a new residual unit, which makes training easier and improves\ngeneralization. We report improved results using a 1001-layer ResNet\no",
+  "introduction": "Deep residual networks (ResNets) [1] consist of many stacked \u201cResidual Units\u201d.\nEach unit (Fig. 1 (a)) can be expressed in a general form:\nyl = h(xl) + F(xl,Wl),\nxl+1 = f(yl),\nwhere xl and xl+1 are input and output of the l-th unit, and F is a residual\nfunction. In [1], h(xl) = xl is an identity mapping and f is a ReLU [2] function.\nResNets that are over 100-layer deep have shown state-of-the-art accuracy for\nseveral challenging recognition tasks on ImageNet [3] and MS COCO [4] compe-\ntitions. The central idea of ResNets is to learn the additive residual function F\nwith respect to h(xl), with a key choice of using an identity mapping h(xl) = xl.\nThis is realized by attaching an identity skip",
+  "conclusion": "",
+  "key_terms": [
+    "identity skip connections",
+    "pre-activation ResNet",
+    "gradient propagation",
+    "resnet-",
+    "residual",
+    "training",
+    "weight",
+    "error",
+    "identity",
+    "original",
+    "addition",
+    "layer",
+    "shortcut",
+    "pre-activation",
+    "units",
+    "table",
+    "gating"
+  ],
+  "references_sample": [
+    "1. He, K., Zhang, X., Ren, S., Sun, J.: Deep residual learning for image recognition.",
+    "2. Nair, V., Hinton, G.E.: Recti\ufb01ed linear units improve restricted boltzmann ma-",
+    "chines. In: ICML. (2010)",
+    "3. Russakovsky, O., Deng, J., Su, H., Krause, J., Satheesh, S., Ma, S., Huang, Z.,",
+    "Karpathy, A., Khosla, A., Bernstein, M., Berg, A.C., Fei-Fei, L.: ImageNet Large",
+    "Scale Visual Recognition Challenge. IJCV (2015)",
+    "4. Lin, T.Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Doll\u00b4 ar, P.,",
+    "Zitnick, C.L.: Microsoft COCO: Common objects in context. In: ECCV. (2014)"
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

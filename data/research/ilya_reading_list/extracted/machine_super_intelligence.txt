@@ -1,0 +1,52 @@
+# Machine Super Intelligence
+
+Source URL: http://www.vetta.org/documents/Machine_Super_Intelligence.pdf
+Extraction status: full_text_parsed
+Text length parsed locally: 464032
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Background
+- Method
+- Model
+- Experiments
+- Results
+- Discussion
+- Conclusion
+- References
+
+## Abstract / Opening Digest
+
+abstract
+environment classes that are studied and formally shown how they are related
+to each other. In Chapter 3 we create such a taxonomy and ident ify the
+environment classes in which universal agents are able to le arn to behave
+optimally. The diversity of these classes of environments a dds weight to our
+claim that AIXI is super intelligent.
+Most of the classes of environments are well known, though th eir exact for-
+malisations as presented are my own. The proofs of the relati onships betw
+
+## Introduction Digest
+
+introduction to the subject would be helpful. Not only shoul d this help clear
+up some misconceptions, it may also serve as an appetiser for the more techni-
+cal treatments that have been published by Hutter. Chapter 2 provides such
+an introduction. It starts with the basics of inductive infe rence and slowly
+builds up to the AIXI agent and its key theoretical properties.
+This introduction to universal artiﬁcial intelligence has not been published
+before, though small parts of it were derived fr
+
+## Conclusion Digest
+
+Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+2. Universal Artiﬁcial Intelligence 23
+2.1. Inductive inference . . . . . . . . . . . . . . . . . . . . . . . . . 23
+2.2. Bayes’ rule . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+2.3. Binary sequence prediction . . . . . . . . . . . . . . . . . . . . 27
+2.4. Solomonoﬀ’s prior and Kolmogorov complexity . . . . . . . . . 30
+2.5. Solomonoﬀ-Levin prior . . . . . . . . . . . . . . . . . . . . . . . 32
+2.6. Univers

@@ -1,0 +1,38 @@
+# Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton
+
+Source URL: https://arxiv.org/abs/1405.6903
+Extraction status: full_text_parsed
+Text length parsed locally: 56870
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Background
+- Method
+- Model
+- Experiments
+- Results
+- References
+
+## Abstract / Opening Digest
+
+In contrast to entropy, which increases monotonically, the “complexity” or “interestingness”
+of closed systems seems intuitively to increase at ﬁrst and then decrease as equilibrium is ap-
+proached. For example, our universe lacked complex structures at the Big Bang and will also
+lack them after black holes evaporate and particles are dispersed. This paper makes an ini-
+tial attempt to quantify this pattern. As a model system, we use a simple, two-dimensional
+cellular automaton that simulates th
+
+## Introduction Digest
+
+Imagine a cup of coﬀee into which cream has just been poured. At ﬁrst, the coﬀee and cream are
+separated. Over time, the two liquids diﬀuse until they are completely mixed. If we consider the
+coﬀee cup a closed system, we can say that its entropy is increasing over time, in accordance with
+the second law of thermodynamics. At the beginning, when the liquids are completely separated,
+the system is in a highly ordered, low-entropy state. After time has passed and the liquids have
+completely mixed,
+
+## Conclusion Digest

@@ -134,6 +134,27 @@ python tools/research_paper_map.py --signal-engine-roadmap
 
 Current status: research and distillation only. This does not implement production neural models, train large systems, add paid APIs, or change deterministic Signal Engine behavior.
 
+## Research Layer: Full Paper Asset
+
+The full paper asset extends the reading-list layer with a legal/public source registry, local ignored cache workflow, parsed metadata digests, deep paper briefs, a Signal Engine synthesis, feature backlog, and Keith reading plan.
+
+- Source registry: `data/research/ilya_reading_list/source_registry.json`
+- Extracted metadata/digests: `data/research/ilya_reading_list/extracted/`
+- Deep briefs: `docs/research/ilya_reading_list/papers/`
+- Full synthesis: [Signal Engine 2.0 full synthesis](docs/research/ilya_reading_list/signal_engine_2_0_full_synthesis.md)
+- Feature backlog: `data/research/ilya_reading_list/signal_engine_feature_backlog.csv`
+- Reading plan: [Keith reading plan](docs/research/ilya_reading_list/keith_reading_plan.md)
+
+```bash
+python tools/research_paper_map.py --parsed-status
+python tools/research_paper_map.py --brief attention_is_all_you_need
+python tools/research_paper_map.py --feature-backlog
+python tools/research_paper_map.py --reading-plan
+python tools/research_paper_map.py --validate-full-asset
+```
+
+Raw PDFs/HTML are cached only under ignored local paths. Full raw source text is not committed because redistribution rights vary. Parsed status is explicit per paper: `full_text_parsed`, `abstract_only`, `source_unavailable`, or `citation_only`.
+
 ## Key Docs
 
 - [First real case proof](docs/first-real-case-proof.md)

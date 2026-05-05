@@ -1,0 +1,61 @@
+{
+  "id": "imagenet_classification_deep_cnn",
+  "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+  "authors": [
+    "Alex Krizhevsky",
+    "Ilya Sutskever",
+    "Geoffrey E. Hinton"
+  ],
+  "year": 2012,
+  "source_url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 35292,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "Discussion",
+    "References"
+  ],
+  "abstract": "We trained a large, deep convolutional neural network to classify the 1.2 million\nhigh-resolution images in the ImageNet LSVRC-2010 contest into the 1000 dif-\nferent classes. On the test data, we achieved top-1 and top-5 error rates of 37.5%\nand 17.0% which is considerably better than the previous state-of-the-art. The\nneural network, which has 60 million parameters and 650,000 neurons, consists\nof \ufb01ve convolutional layers, some of which are followed by max-pooling layers,\nand three fully-connected layers with a \ufb01nal 1000-way softmax. To make train-\ning faster, we used non-saturating neurons and a very ef\ufb01cient GPU implemen-\ntation of the convolution operation. To reduce over\ufb01tting in the f",
+  "introduction": "Current approaches to object recognition make essential use of machine learning methods. To im-\nprove their performance, we can collect larger datasets, learn more powerful models, and use bet-\nter techniques for preventing over\ufb01tting. Until recently, datasets of labeled images were relatively\nsmall \u2014 on the order of tens of thousands of images (e.g., NORB [16], Caltech-101/256 [8, 9], and\nCIFAR-10/100 [12]). Simple recognition tasks can be solved quite well with datasets of this size,\nespecially if they are augmented with label-preserving transformations. For example, the current-\nbest error rate on the MNIST digit-recognition task (<0.3%) approaches human performance [4].\nBut objects in r",
+  "conclusion": "",
+  "key_terms": [
+    "CNN",
+    "ReLU",
+    "GPU training",
+    "dropout",
+    "data augmentation",
+    "ImageNet",
+    "images",
+    "convolutional",
+    "training",
+    "network",
+    "layer",
+    "layers",
+    "error",
+    "image",
+    "neural",
+    "learning",
+    "kernels",
+    "networks"
+  ],
+  "references_sample": [
+    "[1] R.M. Bell and Y . Koren. Lessons from the net\ufb02ix prize challenge.ACM SIGKDD Explorations Newsletter,",
+    "[2] A. Berg, J. Deng, and L. Fei-Fei. Large scale visual recognition challenge 2010. www.image-",
+    "net.org/challenges. 2010.",
+    "[3] L. Breiman. Random forests. Machine learning, 45(1):5\u201332, 2001.",
+    "[4] D. Cire\u00b8 san, U. Meier, and J. Schmidhuber. Multi-column deep neural networks for image classi\ufb01cation.",
+    "Arxiv preprint arXiv:1202.2745, 2012.",
+    "[5] D.C. Cire\u00b8 san, U. Meier, J. Masci, L.M. Gambardella, and J. Schmidhuber. High-performance neural",
+    "networks for visual object classi\ufb01cation. Arxiv preprint arXiv:1102.0183, 2011."
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}
