@@ -1,3 +1,8 @@
+# Evaluation Status
+
+Evaluation completed with deterministic baseline metrics.
+
+```json
 {
   "gold_labels": 57,
   "valid_gold_rows_with_text": 57,
@@ -419,3 +424,4 @@
     "uncertainty_hedging -> risk_friction: 3"
   ]
 }
+```

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterable
-from pathlib import Path
 from typing import Any
 
 from signal_engine.research.paper_metadata import REPO_ROOT, load_papers
