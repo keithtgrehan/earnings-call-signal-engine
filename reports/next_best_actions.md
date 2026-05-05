@@ -1,25 +1,25 @@
 # Next Best Actions
 
-- gold_label_count: `0`
-- current_phase: `<50 labels`
+- gold_label_count: `57`
+- current_phase: `>=50 labels (ML allowed)`
 
 ## Allowed Now
 
 - deterministic_tools
+- local_ml
+- long_context
 
 ## Blocked
 
-- local ML: requires >=50 gold labels
 - embeddings: requires >=100 gold labels or explicit retrieval experiment mode
 - external datasets: requires local verified dataset or safe_local flag
 - rerankers: requires embedding baseline first
-- long-context: requires completed evaluation first
 
 ## Top 5 Recommended Experiments
 
 - `deterministic_baseline` (allowed): Run canonical deterministic baseline/status loop.
 - `lexicon_comparison` (allowed): Compare Loughran-McDonald-style lexicon coverage if lexicon is local.
-- `local_ml_baseline` (blocked): TF-IDF + Logistic Regression benchmark.
+- `local_ml_baseline` (allowed): TF-IDF + Logistic Regression benchmark.
 - `embedding_benchmark` (blocked): Local sentence-transformers evidence-span retrieval.
 - `dataset_comparison` (blocked): Compare locally present dataset label distribution.
 
