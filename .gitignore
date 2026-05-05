@@ -56,7 +56,14 @@ tmp/
 
 # local transcript corpus outputs and bulky source artifacts
 data/research/ilya_reading_list/cache/
+data/nlp_assets/cache/
+data/nlp_assets/raw/
 *.pdf
+*.zip
+*.tar
+*.tar.gz
+*.parquet
+*.arrow
 transcripts/
 transcripts_backup_*/
 tools/transcript_downloader/**/raw/

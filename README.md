@@ -155,6 +155,27 @@ python tools/research_paper_map.py --validate-full-asset
 
 Raw PDFs/HTML are cached only under ignored local paths. Full raw source text is not committed because redistribution rights vary. Parsed status is explicit per paper: `full_text_parsed`, `abstract_only`, `source_unavailable`, or `citation_only`.
 
+## NLP Assets and Dataset Registry
+
+Signal Engine 2.0 also tracks NLP datasets, lexicons, benchmarks, retrieval tools, privacy tools, ASR/audio references, and multimodal resources in a dedicated asset registry.
+
+- Registry: `data/nlp_assets/asset_registry.json`
+- CSV export: `data/nlp_assets/asset_registry.csv`
+- Docs: [NLP assets registry](docs/nlp_assets/README.md)
+- Scaling plan: [Signal Engine NLP asset scaling plan](docs/nlp_assets/signal_engine_scaling_plan.md)
+
+```bash
+python tools/nlp_asset_map.py --list
+python tools/nlp_asset_map.py --category finance
+python tools/nlp_asset_map.py --downloaded
+python tools/nlp_asset_map.py --manual-required
+python tools/nlp_asset_map.py --signal-engine-area weak_labeling
+python tools/nlp_asset_map.py --priority high
+python tools/nlp_asset_map.py --validate
+```
+
+Safe download tooling only caches small public metadata/reference files under ignored local paths. Raw datasets, model weights, gated datasets, non-commercial corpora, and license-restricted assets require manual review and are not committed. This layer prepares benchmarking, weak labeling, retrieval, supervised training, and future multimodal evaluation without changing deterministic pipeline behavior.
+
 ## Key Docs
 
 - [First real case proof](docs/first-real-case-proof.md)
