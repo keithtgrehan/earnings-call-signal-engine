@@ -116,6 +116,24 @@ The weak-label output is deterministic and review-only. It is not a final gold l
 
 Tools and datasets are tracked only. Nothing is downloaded by adding registry rows, no ML is validated, and deterministic transcript-first extraction remains the system core.
 
+## Research Layer: Ilya Sutskever Reading List
+
+This repo now includes a research/distillation layer that maps a public Ilya Sutskever reading-list mirror to Signal Engine 2.0 architecture, roadmap, metadata, and future feature ideas.
+
+- Docs: [Ilya reading list research layer](docs/research/ilya_reading_list/README.md)
+- Metadata: `data/research/ilya_reading_list/papers_metadata.json`
+- Matrix: `data/research/ilya_reading_list/research_to_signal_engine_matrix.csv`
+- CLI:
+
+```bash
+python tools/research_paper_map.py --list
+python tools/research_paper_map.py --paper attention_is_all_you_need
+python tools/research_paper_map.py --category attention_transformers
+python tools/research_paper_map.py --signal-engine-roadmap
+```
+
+Current status: research and distillation only. This does not implement production neural models, train large systems, add paid APIs, or change deterministic Signal Engine behavior.
+
 ## Key Docs
 
 - [First real case proof](docs/first-real-case-proof.md)
