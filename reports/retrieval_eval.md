@@ -1,7 +1,7 @@
 # Retrieval / Embedding Evaluation
 
 - status: `skipped`
-- gold_labels: `0`
+- gold_labels: `57`
 - backend: `not_run`
 - recall_at_k: `not_run`
 - nearest_neighbor_label_agreement: `not_run`

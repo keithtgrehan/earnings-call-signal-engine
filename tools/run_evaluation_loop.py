@@ -86,6 +86,7 @@ def write_benchmark_report(rows: list[dict[str, object]], payload: dict[str, obj
     counts = label_counts(rows)
     metrics = payload.get("metrics") or {}
     examples = payload.get("examples") or {"correct": [], "failures": []}
+    local_ml_report = ROOT / "reports" / "experiment_results" / "local_ml_baseline.md"
     lines = [
         "# First 50 Benchmark Report",
         "",
@@ -110,9 +111,40 @@ def write_benchmark_report(rows: list[dict[str, object]], payload: dict[str, obj
     lines.extend(
         [
             "",
+            "## Metric Interpretation",
+            "",
+            "The current deterministic baseline has higher recall than precision. In practical terms, the system is currently better at finding candidate signals than at avoiding false positives, so the next useful improvement target is precision.",
+            "",
+            "This is a measurable baseline, not product proof. The numbers are useful for tracking whether deterministic rule changes make the system better or worse against the current gold set.",
+            "",
+            "## Known Caveats",
+            "",
+            "- Imported labels have mixed provenance.",
+            "- Some guidance labels were mapped conservatively into the four-label Signal Engine taxonomy.",
+            "- `data/labeling/reviewed_labels.csv` still has no accepted review decisions.",
+            "- The benchmark remains small and should not be treated as statistically significant.",
+            "",
+            "## Next Improvement Target",
+            "",
+            "Improve precision by reducing false positives while preserving the useful recall on `risk_friction` and `opportunity_commitment`.",
+            "",
             "## ML Baseline Comparison",
             "",
-            "Not run unless `tools/run_next_experiment.py` selects a gated local ML experiment with >=50 gold labels.",
+        ]
+    )
+    if local_ml_report.exists():
+        lines.extend(
+            [
+                "- `tools/run_next_experiment.py` selected `local_ml_baseline` because the gold set has enough valid labels.",
+                "- Result artifact: `reports/experiment_results/local_ml_baseline.md`",
+                "- Status: see the experiment artifact for the latest smoke-fit result.",
+                "- This is a benchmark-only smoke fit; no model artifact is committed and it does not override deterministic outputs.",
+            ]
+        )
+    else:
+        lines.append("Not run unless `tools/run_next_experiment.py` selects a gated local ML experiment with >=50 gold labels.")
+    lines.extend(
+        [
             "",
             "## Embedding Insights",
             "",
@@ -145,6 +177,8 @@ def write_benchmark_report(rows: list[dict[str, object]], payload: dict[str, obj
             "- No production ML validity.",
             "- No market prediction.",
             "- No embedding or dataset benchmark superiority.",
+            "- No retrieval quality claim.",
+            "- No long-context benchmark claim.",
             "- No override of deterministic canonical outputs.",
         ]
     )
@@ -186,8 +220,16 @@ def evaluate_rows(rows: list[dict[str, object]]) -> dict[str, object]:
 
 
 def main() -> int:
-    run_step("validate_reviewed_batch.py", allow_failure=True)
-    run_step("update_gold_from_review.py", allow_failure=True)
+    validation = run_step("validate_reviewed_batch.py", allow_failure=True)
+    if validation.returncode == 0:
+        update = run_step("update_gold_from_review.py", allow_failure=True)
+        if update.returncode != 0:
+            print("Reviewed-batch promotion was not applied; continuing with existing canonical gold labels.")
+    else:
+        print(
+            "No accepted reviewed-batch rows found; continuing with existing canonical gold labels. "
+            "See docs/labeling/review_validation_report.md for validation details."
+        )
     rows = read_jsonl(GOLD_PATH)
     write_label_coverage(rows)
     payload: dict[str, object] = {

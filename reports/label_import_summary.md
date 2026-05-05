@@ -16,6 +16,14 @@
 - `data/gold_guidance_calls/transcript_inventory.csv` schema=`metadata_or_unsupported` found=`9` valid=`0` imported=`0` rejected=`9`
 - `data/gold_guidance_calls/transcription_status.csv` schema=`metadata_or_unsupported` found=`9` valid=`0` imported=`0` rejected=`9`
 
+## Source Quality Notes
+
+- Imported labels have mixed provenance and should be filterable before stronger benchmark claims are made.
+- `data/nlp_research/human_reviewed_signal_labels.jsonl` rows were already labeled in the four-label Signal Engine taxonomy.
+- `data/gold_guidance_calls/labels.csv` rows were conservatively mapped from guidance-change labels into the four-label Signal Engine taxonomy.
+- `data/labeling/reviewed_labels.csv` contained no accepted review decisions at import time, so no rows were promoted from that source.
+- Metadata-only guidance CSVs were intentionally rejected as non-label sources.
+
 ## Imported Rows
 
 - `risk_support_refund_delay_001` case=`sample_support` label=`risk_friction` source=`data/nlp_research/human_reviewed_signal_labels.jsonl`
