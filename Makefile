@@ -9,7 +9,7 @@ SMOKE_URL ?= https://www.youtube.com/watch?v=BaW_jenozKc
 SMOKE_OUT := ./_smoke_out
 SMOKE_CACHE := ./_smoke_cache
 
-.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci
+.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -134,6 +134,19 @@ eval-labels:
 
 benchmark-report:
 	$(PYTHON) tools/report_evaluation_readiness.py
+
+eval-loop:
+	$(PYTHON) tools/run_evaluation_loop.py
+
+next-experiment:
+	$(PYTHON) tools/run_next_experiment.py
+
+embedding-benchmark:
+	$(PYTHON) tools/run_embedding_benchmark.py
+
+report-readiness:
+	$(PYTHON) tools/report_evaluation_readiness.py
+	$(PYTHON) tools/run_evaluation_loop.py
 
 labeling-ci:
 	$(PYTHON) tools/review_next_batch.py --summary

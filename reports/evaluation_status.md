@@ -1,3 +1,8 @@
+# Evaluation Status
+
+Insufficient gold labels for evaluation
+
+```json
 {
   "gold_labels": 0,
   "valid_gold_rows_with_text": 0,
@@ -33,3 +38,4 @@
   "metrics_computed": false,
   "message": "Insufficient gold labels for evaluation"
 }
+```
