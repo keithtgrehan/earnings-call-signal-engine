@@ -1,0 +1,1161 @@
+[
+  {
+    "id": "first_law_complexodynamics",
+    "title": "The First Law of Complexodynamics",
+    "authors": [
+      "Scott Aaronson"
+    ],
+    "year": 2011,
+    "category": "compression_mdl_complexity",
+    "core_concepts": [
+      "Kolmogorov complexity",
+      "sophistication",
+      "entropy vs complexity",
+      "resource-bounded description length"
+    ],
+    "signal_engine_relevance": [
+      "Frame transcript signals as patterns between randomness and over-simple keyword rules",
+      "Use compression-style diagnostics to spot boilerplate vs information-rich sections"
+    ],
+    "future_features": [
+      "Compression ratio feature for prepared remarks vs Q&A",
+      "Novelty/boilerplate score for management language",
+      "Complexity-over-call timeline"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://scottaaronson.blog/?p=762"
+    ],
+    "core_idea": "Complexity can rise and fall even while entropy rises monotonically; interesting structure may peak between order and randomness.",
+    "historical_importance": "It connects thermodynamics, algorithmic information, and a practical intuition behind why the middle of a system evolution can be most informative.",
+    "beginner_takeaway": "A sequence is not useful just because it is random or long; useful structure often lives in compressible-but-not-trivial patterns.",
+    "possible_evaluation_ideas": [
+      "Compare compression/novelty scores against human evidence-span labels",
+      "Check whether high-complexity Q&A spans correlate with analyst pressure labels"
+    ],
+    "risks_limitations": [
+      "Conceptual blog post, not an NLP model",
+      "Compression proxies can confuse topic shifts with meaningful complexity"
+    ]
+  },
+  {
+    "id": "unreasonable_effectiveness_rnns",
+    "title": "The Unreasonable Effectiveness of Recurrent Neural Networks",
+    "authors": [
+      "Andrej Karpathy"
+    ],
+    "year": 2015,
+    "category": "sequence_models",
+    "core_concepts": [
+      "RNN",
+      "character-level language modeling",
+      "hidden state",
+      "sequence generation"
+    ],
+    "signal_engine_relevance": [
+      "Motivates transcript-first sequence modeling before heavy architectures",
+      "Supports section-aware modeling of prepared remarks and Q&A"
+    ],
+    "future_features": [
+      "Character/word baseline language model probes",
+      "Sequence continuity checks",
+      "Transcript anomaly examples for demos"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://karpathy.github.io/2015/05/21/rnn-effectiveness/"
+    ],
+    "core_idea": "Small recurrent models can learn surprising local and long-range structure from raw sequences.",
+    "historical_importance": "It helped make sequence learning tangible and showed that raw text modeling could reveal structure without heavy feature engineering.",
+    "beginner_takeaway": "RNNs process one step at a time while carrying a hidden state, so they are a natural first mental model for transcript sequences.",
+    "possible_evaluation_ideas": [
+      "Train tiny local baselines only after enough transcripts",
+      "Evaluate generated/next-token probes as diagnostics, not product claims"
+    ],
+    "risks_limitations": [
+      "Blog/demo evidence is not domain validation",
+      "RNNs are mostly a historical baseline for modern transformer work"
+    ]
+  },
+  {
+    "id": "understanding_lstm_networks",
+    "title": "Understanding LSTM Networks",
+    "authors": [
+      "Christopher Olah"
+    ],
+    "year": 2015,
+    "category": "sequence_models",
+    "core_concepts": [
+      "LSTM",
+      "gates",
+      "cell state",
+      "long-term dependencies",
+      "GRU"
+    ],
+    "signal_engine_relevance": [
+      "Clarifies why long earnings calls need memory over many turns",
+      "Gives vocabulary for modeling guidance setup and later Q&A follow-through"
+    ],
+    "future_features": [
+      "Section memory features",
+      "Long-range callback detector",
+      "Guidance mention carry-forward map"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://colah.github.io/posts/2015-08-Understanding-LSTMs/",
+      "https://research.google/pubs/understanding-lstm-networks/"
+    ],
+    "core_idea": "LSTMs use gated memory to preserve and update information across long sequences.",
+    "historical_importance": "It became one of the clearest explanations of why gated recurrent units solved practical long-dependency problems.",
+    "beginner_takeaway": "The cell state is a controlled memory path; gates decide what to keep, forget, and expose.",
+    "possible_evaluation_ideas": [
+      "Check whether later Q&A references earlier prepared remarks",
+      "Measure section-aware recall in retrieval baselines"
+    ],
+    "risks_limitations": [
+      "Tutorial, not a benchmark",
+      "Modern systems usually use transformers but still face memory-window design problems"
+    ]
+  },
+  {
+    "id": "rnn_regularization",
+    "title": "Recurrent Neural Network Regularization",
+    "authors": [
+      "Wojciech Zaremba",
+      "Ilya Sutskever",
+      "Oriol Vinyals"
+    ],
+    "year": 2014,
+    "category": "sequence_models",
+    "core_concepts": [
+      "dropout",
+      "LSTM regularization",
+      "overfitting",
+      "non-recurrent connections"
+    ],
+    "signal_engine_relevance": [
+      "Warns that transcript models will overfit small corpora without disciplined regularization",
+      "Useful for 30/100/500 transcript model gating"
+    ],
+    "future_features": [
+      "Regularized local baseline checklist",
+      "Overfit warning report for optional classifiers"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1409.2329"
+    ],
+    "core_idea": "Dropout can regularize LSTMs when applied to non-recurrent connections while preserving recurrent memory.",
+    "historical_importance": "It made LSTM language models more reliable and practical across NLP, speech, translation, and captioning tasks.",
+    "beginner_takeaway": "Regularization is not an afterthought; how it is applied must respect the model architecture.",
+    "possible_evaluation_ideas": [
+      "Track train/dev gap by transcript count",
+      "Require held-out-call performance before promoting any learned model"
+    ],
+    "risks_limitations": [
+      "Small finance corpora are especially overfit-prone",
+      "Paper does not remove need for careful labels"
+    ]
+  },
+  {
+    "id": "keeping_neural_networks_simple_mdl_weights",
+    "title": "Keeping Neural Networks Simple by Minimizing the Description Length of the Weights",
+    "authors": [
+      "Geoffrey E. Hinton",
+      "Drew van Camp"
+    ],
+    "year": 1993,
+    "category": "compression_mdl_complexity",
+    "core_concepts": [
+      "minimum description length",
+      "weight noise",
+      "regularization",
+      "model simplicity"
+    ],
+    "signal_engine_relevance": [
+      "Supports simple, auditable baselines before complex ML",
+      "Provides theory for penalizing over-complex transcript models"
+    ],
+    "future_features": [
+      "Model complexity budget",
+      "Baseline selection rubric",
+      "Description-length-inspired error analysis"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://www.cs.toronto.edu/~hinton/absps/colt93.html"
+    ],
+    "core_idea": "A neural network should balance fit with the amount of information needed to describe its weights.",
+    "historical_importance": "It is an early bridge between neural network regularization and information-theoretic model selection.",
+    "beginner_takeaway": "A model that memorizes is expensive to describe; simplicity can be a guardrail against fake performance.",
+    "possible_evaluation_ideas": [
+      "Compare simple deterministic features to optional learned baselines",
+      "Track performance per model-complexity tier"
+    ],
+    "risks_limitations": [
+      "Historical method, not directly implemented",
+      "MDL approximations can be hard to explain to nontechnical users"
+    ]
+  },
+  {
+    "id": "pointer_networks",
+    "title": "Pointer Networks",
+    "authors": [
+      "Oriol Vinyals",
+      "Meire Fortunato",
+      "Navdeep Jaitly"
+    ],
+    "year": 2015,
+    "category": "attention_transformers",
+    "core_concepts": [
+      "pointer attention",
+      "variable output dictionary",
+      "combinatorial optimization",
+      "sequence-to-sequence"
+    ],
+    "signal_engine_relevance": [
+      "Maps neatly to evidence-span selection where outputs point back to transcript positions",
+      "Informs extractive citation-first interfaces"
+    ],
+    "future_features": [
+      "Pointer-style evidence selector",
+      "Quote span candidate ranker",
+      "Transcript segment pointer UI"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1506.03134"
+    ],
+    "core_idea": "Attention can act as a pointer over input positions, enabling variable-size outputs tied directly to the input.",
+    "historical_importance": "It showed attention was more than soft context; it could select structured outputs from an input sequence.",
+    "beginner_takeaway": "Some tasks should not generate labels from nowhere; they should point to the evidence that justifies them.",
+    "possible_evaluation_ideas": [
+      "Evidence-span precision/recall",
+      "Reviewer agreement on selected transcript spans"
+    ],
+    "risks_limitations": [
+      "Do not claim neural pointer networks are implemented",
+      "Pointer ideas require gold spans to evaluate properly"
+    ]
+  },
+  {
+    "id": "imagenet_classification_deep_cnn",
+    "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+    "authors": [
+      "Alex Krizhevsky",
+      "Ilya Sutskever",
+      "Geoffrey E. Hinton"
+    ],
+    "year": 2012,
+    "category": "vision_multimodal",
+    "core_concepts": [
+      "CNN",
+      "ReLU",
+      "GPU training",
+      "dropout",
+      "data augmentation",
+      "ImageNet"
+    ],
+    "signal_engine_relevance": [
+      "Sets expectations for data scale and benchmark rigor before multimodal claims",
+      "Useful historical anchor for future visual status/audio-video work"
+    ],
+    "future_features": [
+      "Visual frame feature candidate registry",
+      "Multimodal benchmark readiness checklist"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf"
+    ],
+    "core_idea": "A large CNN trained with GPUs and practical tricks dramatically improved ImageNet classification.",
+    "historical_importance": "AlexNet marked the deep learning breakthrough moment for large-scale computer vision.",
+    "beginner_takeaway": "Architecture matters, but the win came from model, data, compute, and evaluation all lining up.",
+    "possible_evaluation_ideas": [
+      "Only evaluate visual features when source coverage and labels exist",
+      "Compare text-only vs text+media lift on fixed cases"
+    ],
+    "risks_limitations": [
+      "Image classification is far from earnings-call understanding",
+      "GPU-heavy training is out of scope now"
+    ]
+  },
+  {
+    "id": "order_matters_seq2seq_sets",
+    "title": "Order Matters: Sequence to Sequence for Sets",
+    "authors": [
+      "Oriol Vinyals",
+      "Samy Bengio",
+      "Manjunath Kudlur"
+    ],
+    "year": 2015,
+    "category": "sequence_models",
+    "core_concepts": [
+      "sets",
+      "sequence ordering",
+      "attention",
+      "permutation sensitivity"
+    ],
+    "signal_engine_relevance": [
+      "Important for transcript chunks: some order is meaningful, some candidate sets need order-invariant treatment",
+      "Guides chunk ordering experiments"
+    ],
+    "future_features": [
+      "Permutation stress test for chunk rankers",
+      "Set-vs-sequence evaluation mode"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1511.06391"
+    ],
+    "core_idea": "Sequence models can be sensitive to arbitrary input/output order when representing sets.",
+    "historical_importance": "It clarified a subtle weakness in applying sequence tools to unordered objects.",
+    "beginner_takeaway": "Before feeding data to a model, ask whether the order is real signal or an accidental artifact.",
+    "possible_evaluation_ideas": [
+      "Shuffle candidate evidence spans and measure stability",
+      "Compare chronological vs relevance-sorted retrieval contexts"
+    ],
+    "risks_limitations": [
+      "Not a direct earnings-call model",
+      "Order invariance can remove useful chronology if applied carelessly"
+    ]
+  },
+  {
+    "id": "gpipe_scaling_microbatch_pipeline_parallelism",
+    "title": "GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism",
+    "authors": [
+      "Yanping Huang",
+      "Youlong Cheng",
+      "Ankur Bapna",
+      "Orhan Firat",
+      "Dehao Chen",
+      "Mia Chen",
+      "HyoukJoong Lee",
+      "Jiquan Ngiam",
+      "Quoc V. Le",
+      "Yonghui Wu",
+      "Zhifeng Chen"
+    ],
+    "year": 2018,
+    "category": "scaling_systems",
+    "core_concepts": [
+      "pipeline parallelism",
+      "micro-batching",
+      "model partitioning",
+      "large model training"
+    ],
+    "signal_engine_relevance": [
+      "Roadmap reference only: Signal Engine should scale data and evaluation before training large models",
+      "Informs future remote/GPU planning"
+    ],
+    "future_features": [
+      "Compute readiness checklist",
+      "Training escalation gates",
+      "Optional large-model experiment plan"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1811.06965"
+    ],
+    "core_idea": "Large neural networks can be split across accelerators and trained efficiently with micro-batch pipeline parallelism.",
+    "historical_importance": "It helped make model-parallel training more accessible for giant networks.",
+    "beginner_takeaway": "Scaling systems work is valuable, but it only matters after the task, labels, and metrics are worth scaling.",
+    "possible_evaluation_ideas": [
+      "Record cost/performance only after local baselines saturate",
+      "Gate GPU work on benchmark stability"
+    ],
+    "risks_limitations": [
+      "Out of scope for current repo behavior",
+      "Could encourage premature infrastructure work"
+    ]
+  },
+  {
+    "id": "deep_residual_learning_image_recognition",
+    "title": "Deep Residual Learning for Image Recognition",
+    "authors": [
+      "Kaiming He",
+      "Xiangyu Zhang",
+      "Shaoqing Ren",
+      "Jian Sun"
+    ],
+    "year": 2015,
+    "category": "vision_multimodal",
+    "core_concepts": [
+      "residual connections",
+      "skip connections",
+      "deep CNNs",
+      "gradient flow"
+    ],
+    "signal_engine_relevance": [
+      "Residual thinking maps to additive signal layers that do not erase deterministic baselines",
+      "Useful analogy for modular architecture"
+    ],
+    "future_features": [
+      "Additive evidence scoring layers",
+      "Residual-style model sidecars that preserve deterministic output"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1512.03385"
+    ],
+    "core_idea": "Residual connections let very deep networks learn refinements over identity mappings.",
+    "historical_importance": "ResNet made extremely deep networks trainable and became a backbone for vision and beyond.",
+    "beginner_takeaway": "Sometimes the best module learns a correction to a reliable baseline rather than replacing it.",
+    "possible_evaluation_ideas": [
+      "Ablate each sidecar as a residual contribution",
+      "Measure lift over deterministic baseline, not standalone score only"
+    ],
+    "risks_limitations": [
+      "Architecture analogy should not be overclaimed",
+      "Vision results do not prove transcript behavior"
+    ]
+  },
+  {
+    "id": "multi_scale_context_aggregation_dilated_convolutions",
+    "title": "Multi-Scale Context Aggregation by Dilated Convolutions",
+    "authors": [
+      "Fisher Yu",
+      "Vladlen Koltun"
+    ],
+    "year": 2015,
+    "category": "vision_multimodal",
+    "core_concepts": [
+      "dilated convolutions",
+      "multi-scale context",
+      "receptive field",
+      "semantic segmentation"
+    ],
+    "signal_engine_relevance": [
+      "Inspires multi-window transcript context features without losing local evidence resolution",
+      "Useful for hierarchical section/chunk analysis"
+    ],
+    "future_features": [
+      "Local/medium/global transcript window features",
+      "Evidence span context ladder"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1511.07122"
+    ],
+    "core_idea": "Dilated convolutions expand context without reducing resolution.",
+    "historical_importance": "It influenced dense prediction models by showing how to aggregate broader context efficiently.",
+    "beginner_takeaway": "A signal engine needs both the exact sentence and the surrounding call context.",
+    "possible_evaluation_ideas": [
+      "Compare single-sentence vs neighboring-window evidence quality",
+      "Measure context window impact on false positives"
+    ],
+    "risks_limitations": [
+      "CNN mechanism is not directly used",
+      "Wide context can dilute evidence if not evaluated"
+    ]
+  },
+  {
+    "id": "neural_message_passing_quantum_chemistry",
+    "title": "Neural Message Passing for Quantum Chemistry",
+    "authors": [
+      "Justin Gilmer",
+      "Samuel S. Schoenholz",
+      "Patrick F. Riley",
+      "Oriol Vinyals",
+      "George E. Dahl"
+    ],
+    "year": 2017,
+    "category": "graph_relational_learning",
+    "core_concepts": [
+      "message passing neural networks",
+      "graphs",
+      "node updates",
+      "readout functions"
+    ],
+    "signal_engine_relevance": [
+      "Maps to speaker-turn graphs, analyst/company interaction networks, and cross-call entity relations",
+      "Useful for future relational transcript intelligence"
+    ],
+    "future_features": [
+      "Speaker-turn graph scaffold",
+      "Question-answer relation graph",
+      "Company/topic graph features"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1704.01212",
+      "https://research.google/pubs/neural-message-passing-for-quantum-chemistry/"
+    ],
+    "core_idea": "Graph neural networks can be described through message, update, and readout steps over structured objects.",
+    "historical_importance": "It unified several graph neural approaches and accelerated graph learning as a general framework.",
+    "beginner_takeaway": "When the data is relationships rather than a flat string, graph structure can make the task clearer.",
+    "possible_evaluation_ideas": [
+      "Evaluate graph features against Q&A friction labels",
+      "Ablate speaker/entity edges from retrieval"
+    ],
+    "risks_limitations": [
+      "Chemistry benchmark does not transfer directly",
+      "Graph construction can inject subjective assumptions"
+    ]
+  },
+  {
+    "id": "attention_is_all_you_need",
+    "title": "Attention Is All You Need",
+    "authors": [
+      "Ashish Vaswani",
+      "Noam Shazeer",
+      "Niki Parmar",
+      "Jakob Uszkoreit",
+      "Llion Jones",
+      "Aidan N. Gomez",
+      "Lukasz Kaiser",
+      "Illia Polosukhin"
+    ],
+    "year": 2017,
+    "category": "attention_transformers",
+    "core_concepts": [
+      "self-attention",
+      "Transformer",
+      "multi-head attention",
+      "positional encoding",
+      "encoder-decoder"
+    ],
+    "signal_engine_relevance": [
+      "Core mental model for retrieval, reranking, long-context transcript analysis, and future transformer baselines",
+      "Guides attention-inspired evidence weighting"
+    ],
+    "future_features": [
+      "Attention-inspired chunk reranker",
+      "Transformer baseline experiment",
+      "Long-context evidence packing strategy"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1706.03762"
+    ],
+    "core_idea": "Self-attention can replace recurrence/convolution for sequence transduction and scale efficiently in parallel.",
+    "historical_importance": "The Transformer became the foundation for modern LLMs and most current NLP systems.",
+    "beginner_takeaway": "Attention lets each token condition on other relevant tokens, but position and context design still matter.",
+    "possible_evaluation_ideas": [
+      "Compare lexical retrieval vs embedding/reranker candidates",
+      "Measure evidence citation quality and section recall"
+    ],
+    "risks_limitations": [
+      "Do not imply a transformer is implemented here",
+      "Attention maps are not automatically explanations"
+    ]
+  },
+  {
+    "id": "nmt_jointly_learning_align_translate",
+    "title": "Neural Machine Translation by Jointly Learning to Align and Translate",
+    "authors": [
+      "Dzmitry Bahdanau",
+      "Kyunghyun Cho",
+      "Yoshua Bengio"
+    ],
+    "year": 2014,
+    "category": "attention_transformers",
+    "core_concepts": [
+      "attention",
+      "alignment",
+      "encoder-decoder",
+      "soft search"
+    ],
+    "signal_engine_relevance": [
+      "Directly relevant to aligning extracted signals with source transcript evidence",
+      "Pre-transformer foundation for evidence-aware modeling"
+    ],
+    "future_features": [
+      "Signal-to-evidence alignment report",
+      "Attention-style quote support scoring"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1409.0473"
+    ],
+    "core_idea": "A translation decoder can softly search source positions instead of relying on one fixed-length context vector.",
+    "historical_importance": "It introduced neural attention in a form that reshaped sequence modeling.",
+    "beginner_takeaway": "For any output claim, the model should know where it looked in the input.",
+    "possible_evaluation_ideas": [
+      "Gold evidence alignment precision",
+      "Long-section degradation tests"
+    ],
+    "risks_limitations": [
+      "Translation alignment is not identical to financial signal evidence",
+      "Soft attention is not a human-readable proof by itself"
+    ]
+  },
+  {
+    "id": "identity_mappings_deep_residual_networks",
+    "title": "Identity Mappings in Deep Residual Networks",
+    "authors": [
+      "Kaiming He",
+      "Xiangyu Zhang",
+      "Shaoqing Ren",
+      "Jian Sun"
+    ],
+    "year": 2016,
+    "category": "representation_learning",
+    "core_concepts": [
+      "identity skip connections",
+      "pre-activation ResNet",
+      "gradient propagation"
+    ],
+    "signal_engine_relevance": [
+      "Architectural lesson for sidecars: preserve the base transcript object and add refinements",
+      "Supports non-destructive feature composition"
+    ],
+    "future_features": [
+      "Non-destructive scoring pipeline notes",
+      "Sidecar ablation protocol"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1603.05027"
+    ],
+    "core_idea": "Clean identity paths improve optimization in deep residual networks.",
+    "historical_importance": "It refined ResNet design and reinforced the importance of information-preserving paths.",
+    "beginner_takeaway": "A system should keep a reliable path for original information while layers add value.",
+    "possible_evaluation_ideas": [
+      "Verify sidecars never remove source evidence",
+      "Measure each layer as incremental lift"
+    ],
+    "risks_limitations": [
+      "Analogy only unless a neural model is later built",
+      "Architecture details are vision-specific"
+    ]
+  },
+  {
+    "id": "simple_module_relational_reasoning",
+    "title": "A Simple Neural Network Module for Relational Reasoning",
+    "authors": [
+      "Adam Santoro",
+      "David Raposo",
+      "David G. T. Barrett",
+      "Mateusz Malinowski",
+      "Razvan Pascanu",
+      "Peter Battaglia",
+      "Timothy Lillicrap"
+    ],
+    "year": 2017,
+    "category": "graph_relational_learning",
+    "core_concepts": [
+      "relation networks",
+      "object pairs",
+      "relational reasoning",
+      "visual question answering"
+    ],
+    "signal_engine_relevance": [
+      "Useful for modeling relations across speaker turns, analyst questions, management answers, and entities",
+      "Highlights relation-specific evaluation needs"
+    ],
+    "future_features": [
+      "Speaker relation features",
+      "Question-answer consistency checker",
+      "Entity relation evidence table"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1706.01427"
+    ],
+    "core_idea": "A simple module can reason over pairs of objects by aggregating learned relation functions.",
+    "historical_importance": "It showed that explicit relational modules can solve tasks standard networks miss.",
+    "beginner_takeaway": "Some questions are about relationships, not isolated objects or sentences.",
+    "possible_evaluation_ideas": [
+      "Evaluate whether answer-evasion labels improve with Q/A pair features",
+      "Test relation features on analyst pressure examples"
+    ],
+    "risks_limitations": [
+      "Synthetic visual tasks differ from earnings calls",
+      "Relation extraction can create brittle pair explosions"
+    ]
+  },
+  {
+    "id": "variational_lossy_autoencoder",
+    "title": "Variational Lossy Autoencoder",
+    "authors": [
+      "Xi Chen",
+      "Diederik P. Kingma",
+      "Tim Salimans",
+      "Yan Duan",
+      "Prafulla Dhariwal",
+      "John Schulman",
+      "Ilya Sutskever",
+      "Pieter Abbeel"
+    ],
+    "year": 2016,
+    "category": "representation_learning",
+    "core_concepts": [
+      "VAE",
+      "latent variables",
+      "posterior collapse",
+      "lossy compression"
+    ],
+    "signal_engine_relevance": [
+      "Frames summarization and representation learning as controlled loss, not arbitrary compression",
+      "Useful for future transcript abstraction experiments"
+    ],
+    "future_features": [
+      "Lossy summary audit",
+      "Latent topic sketch experiments",
+      "Compression-vs-evidence preservation rubric"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1611.02731",
+      "https://openai.com/index/variational-lossy-autoencoder/"
+    ],
+    "core_idea": "Constraining the decoder can make latent variables carry useful global information.",
+    "historical_importance": "It addressed a key failure mode in generative latent-variable models with powerful decoders.",
+    "beginner_takeaway": "A summary should discard noise while preserving the information needed for the task.",
+    "possible_evaluation_ideas": [
+      "Measure whether summaries preserve gold evidence spans",
+      "Compare abstraction levels for reviewer usefulness"
+    ],
+    "risks_limitations": [
+      "Generative modeling is not implemented",
+      "Lossy compression can hide legally/financially important nuance"
+    ]
+  },
+  {
+    "id": "relational_recurrent_neural_networks",
+    "title": "Relational Recurrent Neural Networks",
+    "authors": [
+      "Adam Santoro",
+      "Ryan Faulkner",
+      "David Raposo",
+      "Jack Rae",
+      "Mike Chrzanowski",
+      "Theophane Weber",
+      "Daan Wierstra",
+      "Oriol Vinyals",
+      "Razvan Pascanu",
+      "Timothy Lillicrap"
+    ],
+    "year": 2018,
+    "category": "reasoning_memory",
+    "core_concepts": [
+      "relational memory",
+      "multi-slot memory",
+      "self-attention over memory",
+      "RNN"
+    ],
+    "signal_engine_relevance": [
+      "Good conceptual model for maintaining multiple transcript threads: guidance, risk, analyst pressure, and callbacks",
+      "Bridges memory and relation reasoning"
+    ],
+    "future_features": [
+      "Multi-thread call state tracker",
+      "Topic memory slots",
+      "Q&A callback detector"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1806.01822"
+    ],
+    "core_idea": "Memory can be represented as interacting slots, making recurrent models better at relational reasoning.",
+    "historical_importance": "It connected memory-augmented sequence models with relation-centric computation.",
+    "beginner_takeaway": "A call has several active threads; one hidden state may be too cramped to track them all.",
+    "possible_evaluation_ideas": [
+      "Evaluate callback detection across sections",
+      "Track topic-thread state against human annotations"
+    ],
+    "risks_limitations": [
+      "Research model not implemented",
+      "Memory slots need labels or strong evaluation to be credible"
+    ]
+  },
+  {
+    "id": "coffee_automaton_complexity_closed_systems",
+    "title": "Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton",
+    "authors": [
+      "Scott Aaronson",
+      "Sean M. Carroll",
+      "Lauren Ouellette"
+    ],
+    "year": 2014,
+    "category": "compression_mdl_complexity",
+    "core_concepts": [
+      "cellular automata",
+      "complexity dynamics",
+      "coarse graining",
+      "Kolmogorov complexity"
+    ],
+    "signal_engine_relevance": [
+      "Suggests measuring information dynamics over an earnings call rather than treating all sections equally",
+      "Useful for signal density timelines"
+    ],
+    "future_features": [
+      "Signal density curve",
+      "Prepared-to-Q&A complexity shift metric",
+      "Boilerplate decay detector"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1405.6903",
+      "https://www.scottaaronson.com/papers/coffee.pdf"
+    ],
+    "core_idea": "A simple automaton can model complexity rising and falling as two liquids mix toward equilibrium.",
+    "historical_importance": "It operationalized the complexodynamics intuition in a concrete closed-system toy model.",
+    "beginner_takeaway": "Complexity can be a time series; the most informative state may not be the beginning or end.",
+    "possible_evaluation_ideas": [
+      "Compare signal density by call phase",
+      "Test whether Q&A complexity predicts review priority"
+    ],
+    "risks_limitations": [
+      "Toy physical model, not transcript semantics",
+      "Compression and complexity metrics require careful normalization"
+    ]
+  },
+  {
+    "id": "neural_turing_machines",
+    "title": "Neural Turing Machines",
+    "authors": [
+      "Alex Graves",
+      "Greg Wayne",
+      "Ivo Danihelka"
+    ],
+    "year": 2014,
+    "category": "reasoning_memory",
+    "core_concepts": [
+      "differentiable memory",
+      "content addressing",
+      "location addressing",
+      "read/write heads"
+    ],
+    "signal_engine_relevance": [
+      "Inspires explicit memory/retrieval components for long transcripts instead of stuffing everything into one context",
+      "Relevant to RAG and persistent evidence stores"
+    ],
+    "future_features": [
+      "Evidence memory store",
+      "Transcript scratchpad interface",
+      "Memory-read audit log"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1410.5401"
+    ],
+    "core_idea": "A neural controller can learn to read and write from external memory using differentiable operations.",
+    "historical_importance": "It was a landmark in memory-augmented neural networks and algorithmic task learning.",
+    "beginner_takeaway": "Long reasoning often needs an external memory, not just a larger hidden state.",
+    "possible_evaluation_ideas": [
+      "Evaluate retrieval memory hit rate",
+      "Audit whether generated summaries cite stored evidence"
+    ],
+    "risks_limitations": [
+      "Original NTM is hard to train and not a practical repo component",
+      "External memory needs transparent indexing and auditability"
+    ]
+  },
+  {
+    "id": "deep_speech_2_end_to_end_speech_recognition",
+    "title": "Deep Speech 2: End-to-End Speech Recognition in English and Mandarin",
+    "authors": [
+      "Dario Amodei",
+      "Rishita Anubhai",
+      "Eric Battenberg",
+      "Carl Case",
+      "Jared Casper",
+      "Bryan Catanzaro",
+      "Jingdong Chen",
+      "Mike Chrzanowski",
+      "Adam Coates",
+      "Greg Diamos",
+      "Erich Elsen",
+      "Jesse Engel",
+      "Linxi Fan",
+      "Christopher Fougner",
+      "Tony Han",
+      "Awni Hannun",
+      "Billy Jun",
+      "Patrick LeGresley",
+      "Libby Lin",
+      "Sharan Narang",
+      "Andrew Ng",
+      "Sherjil Ozair",
+      "Ryan Prenger",
+      "Jonathan Raiman",
+      "Sanjeev Satheesh",
+      "David Seetapun",
+      "Shubho Sengupta",
+      "Yi Wang",
+      "Zhiqian Wang",
+      "Chong Wang",
+      "Bo Xiao",
+      "Dani Yogatama",
+      "Jun Zhan",
+      "Zhenyao Zhu"
+    ],
+    "year": 2015,
+    "category": "speech_audio",
+    "core_concepts": [
+      "end-to-end ASR",
+      "CTC",
+      "RNN acoustic models",
+      "data scale",
+      "HPC"
+    ],
+    "signal_engine_relevance": [
+      "Guides future audio transcript quality and prosody roadmap without requiring paid APIs",
+      "Clarifies that ASR quality is a core dependency for audio-first signal claims"
+    ],
+    "future_features": [
+      "ASR provenance manifest",
+      "WER/proxy quality gate",
+      "Prosody-aligned transcript feature roadmap"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/1512.02595",
+      "https://proceedings.mlr.press/v48/amodei16.pdf"
+    ],
+    "core_idea": "A large end-to-end neural system can replace many hand-engineered speech recognition pipeline components.",
+    "historical_importance": "It showed end-to-end ASR could work at scale across languages when paired with data and compute discipline.",
+    "beginner_takeaway": "Speech intelligence starts with transcription quality, data scale, and measurable error rates.",
+    "possible_evaluation_ideas": [
+      "Track ASR word error on any manually checked clips",
+      "Compare transcript-only vs transcript+prosody on reviewed labels"
+    ],
+    "risks_limitations": [
+      "Training ASR is out of scope",
+      "Audio claims require legally safe media and quality labels"
+    ]
+  },
+  {
+    "id": "scaling_laws_neural_language_models",
+    "title": "Scaling Laws for Neural Language Models",
+    "authors": [
+      "Jared Kaplan",
+      "Sam McCandlish",
+      "Tom Henighan",
+      "Tom B. Brown",
+      "Benjamin Chess",
+      "Rewon Child",
+      "Scott Gray",
+      "Alec Radford",
+      "Jeffrey Wu",
+      "Dario Amodei"
+    ],
+    "year": 2020,
+    "category": "scaling_systems",
+    "core_concepts": [
+      "scaling laws",
+      "power laws",
+      "dataset size",
+      "compute",
+      "model size",
+      "cross-entropy loss"
+    ],
+    "signal_engine_relevance": [
+      "Supports a disciplined 30/100/500 transcript roadmap and stops premature large-model training",
+      "Frames when more data matters more than model cleverness"
+    ],
+    "future_features": [
+      "Transcript-count gates",
+      "Learning curve dashboard",
+      "Compute/data/model decision rubric"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/2001.08361"
+    ],
+    "core_idea": "Language model loss follows predictable power-law trends with model size, data size, and compute over broad ranges.",
+    "historical_importance": "It helped turn model scaling into an empirical planning discipline.",
+    "beginner_takeaway": "More model is not automatically better; data, compute, and evaluation must scale together.",
+    "possible_evaluation_ideas": [
+      "Plot learning curves for local baselines by transcript count",
+      "Pre-register evaluation gates before scaling"
+    ],
+    "risks_limitations": [
+      "Original results concern large LMs, not tiny finance classifiers",
+      "Later scaling-law work changed some optimal-data conclusions"
+    ]
+  },
+  {
+    "id": "tutorial_minimum_description_length_principle",
+    "title": "A Tutorial Introduction to the Minimum Description Length Principle",
+    "authors": [
+      "Peter D. Grunwald"
+    ],
+    "year": 2004,
+    "category": "evaluation_theory",
+    "core_concepts": [
+      "MDL",
+      "model selection",
+      "two-part codes",
+      "compression",
+      "generalization"
+    ],
+    "signal_engine_relevance": [
+      "Provides evaluation philosophy for choosing simple explainable models until evidence justifies complexity",
+      "Useful for weak-label and active-learning governance"
+    ],
+    "future_features": [
+      "Model selection notes",
+      "Weak-label complexity penalty",
+      "Evidence-quality vs model-complexity dashboard"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "high",
+    "source_urls": [
+      "https://arxiv.org/abs/math/0406077"
+    ],
+    "core_idea": "The best model can be viewed as the one that compresses data well, balancing model description and residual errors.",
+    "historical_importance": "It is a foundational tutorial for information-theoretic model selection.",
+    "beginner_takeaway": "A good explanation should make the data shorter without hiding mistakes.",
+    "possible_evaluation_ideas": [
+      "Track errors saved per added feature",
+      "Compare deterministic rules vs learned models under a simplicity rubric"
+    ],
+    "risks_limitations": [
+      "The principle is conceptual unless converted into concrete metrics",
+      "MDL can be mathematically heavy for portfolio readers"
+    ]
+  },
+  {
+    "id": "machine_super_intelligence",
+    "title": "Machine Super Intelligence",
+    "authors": [
+      "Shane Legg"
+    ],
+    "year": 2008,
+    "category": "evaluation_theory",
+    "core_concepts": [
+      "universal intelligence",
+      "AIXI",
+      "agent evaluation",
+      "superintelligence",
+      "theoretical AI"
+    ],
+    "signal_engine_relevance": [
+      "Useful mainly as a caution against overclaiming intelligence in Signal Engine 2.0",
+      "Encourages precise task definitions and bounded claims"
+    ],
+    "future_features": [
+      "Capability-claim checklist",
+      "AI tool risk register",
+      "Evaluation boundary statement"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "medium",
+    "source_urls": [
+      "https://www.vetta.org/documents/Machine_Super_Intelligence.pdf",
+      "https://www.inf.usi.ch/en/feeds/8625"
+    ],
+    "core_idea": "A theoretical study of universal artificial intelligence and superintelligent agents.",
+    "historical_importance": "It influenced later AGI and DeepMind-era thinking about intelligence, capability, and safety.",
+    "beginner_takeaway": "Big intelligence claims require formal definitions and careful limits.",
+    "possible_evaluation_ideas": [
+      "Audit product language for unsupported AI claims",
+      "Separate tool assistance from validated reasoning ability"
+    ],
+    "risks_limitations": [
+      "Not an applied earnings-call paper",
+      "Theoretical framing can distract from concrete evaluation"
+    ]
+  },
+  {
+    "id": "kolmogorov_complexity_algorithmic_randomness",
+    "title": "Kolmogorov Complexity and Algorithmic Randomness",
+    "authors": [
+      "Alexander Shen",
+      "Vladimir A. Uspensky",
+      "Nikolay Vereshchagin"
+    ],
+    "year": 2017,
+    "category": "compression_mdl_complexity",
+    "core_concepts": [
+      "Kolmogorov complexity",
+      "algorithmic randomness",
+      "Martin-Lof randomness",
+      "description length"
+    ],
+    "signal_engine_relevance": [
+      "Deep foundation for compression-based novelty, boilerplate, and signal-density ideas",
+      "Supports honest uncertainty around what compression metrics can and cannot prove"
+    ],
+    "future_features": [
+      "Boilerplate/compressibility research note",
+      "Randomness-vs-signal caveat in feature docs"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "medium",
+    "source_urls": [
+      "https://www.ams.org/bookpages/surv-220"
+    ],
+    "core_idea": "Algorithmic information theory studies the shortest descriptions of objects and formal notions of randomness.",
+    "historical_importance": "It provides the mathematical background behind MDL, complexity, and randomness discussions on the list.",
+    "beginner_takeaway": "Random-looking text can be hard to compress but still useless; complexity needs task context.",
+    "possible_evaluation_ideas": [
+      "Validate compression metrics against human labels",
+      "Check false positives on boilerplate and legal disclaimers"
+    ],
+    "risks_limitations": [
+      "Book-level theory, not an implementation",
+      "Kolmogorov complexity is uncomputable in general"
+    ]
+  },
+  {
+    "id": "stanford_cs231n_convolutional_neural_networks",
+    "title": "Stanford's CS231n Convolutional Neural Networks for Visual Recognition",
+    "authors": [
+      "Fei-Fei Li",
+      "Andrej Karpathy",
+      "Justin Johnson"
+    ],
+    "year": 2015,
+    "category": "vision_multimodal",
+    "core_concepts": [
+      "CNN fundamentals",
+      "optimization",
+      "backpropagation",
+      "computer vision",
+      "practical training"
+    ],
+    "signal_engine_relevance": [
+      "Training-ground reference for future multimodal feature extraction and model-card literacy",
+      "Useful to keep visual/audio claims grounded in fundamentals"
+    ],
+    "future_features": [
+      "Multimodal learning syllabus",
+      "Vision feature audit checklist",
+      "Model-card review guide"
+    ],
+    "implementation_status": "research_only",
+    "confidence": "medium",
+    "source_urls": [
+      "https://cs231n.stanford.edu/",
+      "https://cs231n.github.io/"
+    ],
+    "core_idea": "A practical course resource for understanding and training convolutional neural networks for visual recognition.",
+    "historical_importance": "CS231n educated a generation of deep learning practitioners and tied theory to implementation practice.",
+    "beginner_takeaway": "Before using visual features, understand data, architecture, optimization, and error analysis.",
+    "possible_evaluation_ideas": [
+      "Require visual feature coverage reports",
+      "Compare multimodal lift with human-reviewed decision tasks"
+    ],
+    "risks_limitations": [
+      "Course resource, not a single paper",
+      "Visual recognition is only indirectly relevant to transcript-first earnings calls"
+    ]
+  }
+]
