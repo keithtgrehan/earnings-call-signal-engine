@@ -1,0 +1,45 @@
+# GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism
+
+Source URL: https://arxiv.org/abs/1811.06965
+Extraction status: full_text_parsed
+Text length parsed locally: 40810
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Model
+- Experiments
+- Results
+- Conclusion
+- References
+
+## Abstract / Opening Digest
+
+Scaling up deep neural network capacity has been known as an effective approach
+to improving model quality for several different machine learning tasks. In many
+cases, increasing model capacity beyond the memory limit of a single accelera-
+tor has required developing special algorithms or infrastructure. These solutions
+are often architecture-speciﬁc and do not transfer to other tasks. To address the
+need for efﬁcient and task-independent model parallelism, we introduce GPipe, a
+pipeline paralle
+
+## Introduction Digest
+
+Deep learning has seen great progress over the last decade, partially thanks to the development of
+methods that have facilitated scaling the effective capacity of neural networks. This trend has been
+most visible for image classiﬁcation, as demonstrated by the accuracy improvements on ImageNet
+with the increase in model capacity (Figure 1a). A similar phenomenon can also be observed in
+the context of natural language processing (Figure 1b) where simple shallow models of sentence
+representations 
+
+## Conclusion Digest
+
+In this work, we introduce GPipe, a scalable model-parallelism library for training giant neural
+networks. We propose and implement a novel batch-splitting pipeline-parallelism algorithm that uses
+synchronous gradient updates, allowing model parallelism with high hardware utilization and training
+stability. We leverage GPipe to train large-scale convolutional and transformer-based models and
+demonstrate strong empirical results on both image classiﬁcation and multilingual machine translation.
+We

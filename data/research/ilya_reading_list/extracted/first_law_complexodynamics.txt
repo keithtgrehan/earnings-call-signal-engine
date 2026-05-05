@@ -1,0 +1,41 @@
+# The First Law of Complexodynamics
+
+Source URL: https://scottaaronson.blog/?p=762
+Extraction status: full_text_parsed
+Text length parsed locally: 162110
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Background
+- Method
+- Model
+- Experiments
+- Results
+- Discussion
+- Conclusion
+- References
+
+## Abstract / Opening Digest
+
+abstract treatment in which one would see the same qualitative phenomenon.
+Notion of samplability and distinguishability seem related enough: if, after averaging over a certain scale, you have small descriptive complexity, then you have a sampler that, in each cell, will simply produce a random mix of coffee and milk according to the relative density, and this will be indistinguishable from “reality” by an observer that is not able to resolve what happens within cells.
+Scott
+Says:
+Comment #18
+Se
+
+## Introduction Digest
+
+Introduction to Kolmogorov Complexity and Its Applications
+, by Li and Vitanyi, there’s an entire chapter about this connection.
+Personally, I’ve long thought that Kolmogorov complexity provides probably the most “objective,” mathematically clearest way to understand the notion of entropy—since basically, what it lets you do is talk about the “entropy” of an individual object, without reference to any hypothesized ensemble from which the object was drawn,
+or
+any hypothesized coarse-grained struc
+
+## Conclusion Digest
+
+conclusion that they are small particles, each carrying so small a charge that we are justified in calling them neutrons. They move with great velocity, exceeding that of light. More than 25 years ago I began my efforts to harness the cosmic rays and I can now state that I have succeeded in operating a motive device by means of them. I will tell you in the most general way, the cosmic ray ionizes the air, setting free many charges ions and electrons. These charges are captured in a condenser whi

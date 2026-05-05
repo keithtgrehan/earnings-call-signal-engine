@@ -1,0 +1,62 @@
+{
+  "id": "neural_message_passing_quantum_chemistry",
+  "title": "Neural Message Passing for Quantum Chemistry",
+  "authors": [
+    "Justin Gilmer",
+    "Samuel S. Schoenholz",
+    "Patrick F. Riley",
+    "Oriol Vinyals",
+    "George E. Dahl"
+  ],
+  "year": 2017,
+  "source_url": "https://arxiv.org/abs/1704.01212",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 59908,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "References"
+  ],
+  "abstract": "Supervised learning on molecules has incredi-\nble potential to be useful in chemistry, drug dis-\ncovery, and materials science. Luckily, sev-\neral promising and closely related neural network\nmodels invariant to molecular symmetries have\nalready been described in the literature. These\nmodels learn a message passing algorithm and\naggregation procedure to compute a function of\ntheir entire input graph. At this point, the next\nstep is to \ufb01nd a particularly effective variant of\nthis general approach and apply it to chemical\nprediction benchmarks until we either solve them\nor reach the limits of the approach. In this pa-\nper, we reformulate existing models into a sin-\ngle common framework we cal",
+  "introduction": "The past decade has seen remarkable success in the use\nof deep neural networks to understand and translate nat-\nural language (Wu et al., 2016), generate and decode com-\nplex audio signals (Hinton et al., 2012), and infer fea-\ntures from real-world images and videos (Krizhevsky et al.,\n2012). Although chemists have applied machine learn-\ning to many problems over the years, predicting the prop-\nerties of molecules and materials using machine learning\n(and especially deep learning) is still in its infancy. To\ndate, most research applying machine learning to chemistry\ntasks (Hansen et al., 2015; Huang & von Lilienfeld, 2016;\n1Google Brain 2Google 3Google DeepMind. Correspon-\ndence to: Justin",
+  "conclusion": "",
+  "key_terms": [
+    "message passing neural networks",
+    "graphs",
+    "node updates",
+    "readout functions",
+    "message",
+    "neural",
+    "graph",
+    "model",
+    "where",
+    "function",
+    "chemical",
+    "models",
+    "training",
+    "network",
+    "energy",
+    "passing",
+    "networks",
+    "molecule"
+  ],
+  "references_sample": [
+    "Battaglia, Peter, Pascanu, Razvan, Lai, Matthew, Rezende,",
+    "Danilo Jimenez, and Kavukcuoglu, Koray. Interac-",
+    "tion networks for learning about objects, relations and",
+    "physics. In Advances in Neural Information Processing",
+    "Systems, pp. 4502\u20134510, 2016.",
+    "Becke, Axel D. Density-functional thermochemistry. iii.",
+    "the role of exact exchange. The Journal of Chemi-",
+    "cal Physics , 98(7):5648\u20135652, 1993. doi: 10.1063/1."
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

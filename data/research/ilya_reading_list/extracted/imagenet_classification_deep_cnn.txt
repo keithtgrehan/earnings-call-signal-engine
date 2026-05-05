@@ -1,0 +1,39 @@
+# ImageNet Classification with Deep Convolutional Neural Networks
+
+Source URL: https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf
+Extraction status: full_text_parsed
+Text length parsed locally: 35292
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Introduction
+- Method
+- Model
+- Experiments
+- Results
+- Discussion
+- References
+
+## Abstract / Opening Digest
+
+We trained a large, deep convolutional neural network to classify the 1.2 million
+high-resolution images in the ImageNet LSVRC-2010 contest into the 1000 dif-
+ferent classes. On the test data, we achieved top-1 and top-5 error rates of 37.5%
+and 17.0% which is considerably better than the previous state-of-the-art. The
+neural network, which has 60 million parameters and 650,000 neurons, consists
+of ﬁve convolutional layers, some of which are followed by max-pooling layers,
+and three fully-connec
+
+## Introduction Digest
+
+Current approaches to object recognition make essential use of machine learning methods. To im-
+prove their performance, we can collect larger datasets, learn more powerful models, and use bet-
+ter techniques for preventing overﬁtting. Until recently, datasets of labeled images were relatively
+small — on the order of tens of thousands of images (e.g., NORB [16], Caltech-101/256 [8, 9], and
+CIFAR-10/100 [12]). Simple recognition tasks can be solved quite well with datasets of this size,
+especiall
+
+## Conclusion Digest

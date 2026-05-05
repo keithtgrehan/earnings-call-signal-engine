@@ -1,0 +1,62 @@
+{
+  "asset_count": 71,
+  "status_counts": {
+    "manual_required": 24,
+    "skipped": 41,
+    "downloaded": 1,
+    "gated": 5
+  },
+  "priority_counts": {
+    "high": 24,
+    "medium": 35,
+    "low": 12
+  },
+  "category_counts": {
+    "finance": 9,
+    "sentiment_emotion": 6,
+    "intent": 2,
+    "qa_retrieval": 7,
+    "dialogue": 8,
+    "weak_labeling": 1,
+    "evaluation_safety": 7,
+    "embeddings_retrieval_tools": 8,
+    "local_nlp_tools": 4,
+    "privacy": 2,
+    "audio_asr_prosody": 9,
+    "video_multimodal": 8
+  },
+  "downloaded_assets": [
+    "sec_company_tickers"
+  ],
+  "manual_or_gated_assets": [
+    "loughran_mcdonald_lexicon",
+    "financial_phrasebank",
+    "finos_earnings_references",
+    "public_earnings_call_dataset_candidates",
+    "stanford_sentiment_treebank",
+    "dair_ai_emotion",
+    "empathetic_dialogues",
+    "banking77",
+    "clinc150",
+    "qasper",
+    "ms_marco",
+    "beir",
+    "multiwoz",
+    "switchboard",
+    "ami_meeting_corpus",
+    "meetingbank",
+    "samsum",
+    "dialogsum",
+    "qmsum",
+    "customer_support_kaggle_candidates",
+    "yake",
+    "opensmile",
+    "pyannote_audio",
+    "tedlium",
+    "cmu_mosei",
+    "cmu_mosi",
+    "avec",
+    "meld",
+    "iemocap"
+  ]
+}

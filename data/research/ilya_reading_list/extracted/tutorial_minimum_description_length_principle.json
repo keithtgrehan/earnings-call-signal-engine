@@ -1,0 +1,60 @@
+{
+  "id": "tutorial_minimum_description_length_principle",
+  "title": "A Tutorial Introduction to the Minimum Description Length Principle",
+  "authors": [
+    "Peter D. Grunwald"
+  ],
+  "year": 2004,
+  "source_url": "https://arxiv.org/abs/math/0406077",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 205541,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "Discussion",
+    "Conclusion",
+    "References"
+  ],
+  "abstract": "This tutorial provides an overview of and introduction to Ri ssanen\u2019s Minimum De-\nscription Length (MDL) Principle. The \ufb01rst chapter provide s a conceptual, entirely\nnon-technical introduction to the subject. It serves as a ba sis for the technical intro-\nduction given in the second chapter, in which all the ideas of the \ufb01rst chapter are made\nmathematically precise. This tutorial will appear as the \ufb01r st two chapters in the collec-\ntion Advances in Minimum Description Length: Theory and Applica tions [Gr\u00a8 unwald,\nMyung, and Pitt 2004], to be published by the MIT Press.\nContents\n1 Introducing MDL 5\n1.1 Introduction and Overview . . . . . . . . . . . . . . . . . . . . . . . . . 5\n1.2 The F un",
+  "introduction": "Introduction to the\nMinimum Description Length Principle\nPeter Gr\u00a8 unwald\nCentrum voor Wiskunde en Informatica\nKruislaan 413, 1098 SJ Amsterdam\nThe Netherlands\npdg@cwi.nl\nwww.grunwald.nl\nAbstract\nThis tutorial provides an overview of and introduction to Ri ssanen\u2019s Minimum De-\nscription Length (MDL) Principle. The \ufb01rst chapter provide s a conceptual, entirely\nnon-technical introduction to the subject. It serves as a ba sis for the technical intro-\nduction given in the second chapter, in which all the ideas of the \ufb01rst chapter are made\nmathematically precise. This tutorial will appear as the \ufb01r st two chapters in the collec-\ntion Advances in Minimum Description Length: Theory and Applica tion",
+  "conclusion": "Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71\n4\nChapter 1\nIntroducing the MDL Principle\n1.1 Introduction and Overview\nHow does one decide among competing explanations of data giv en limited observations?\nThis is the problem of model selection . It stands out as one of the most important\nproblems of inductive and statistical inference. The Minim um Description Length\n(MDL) Principle is a relatively recent method for inductive inference that provides a\ngeneric solution to the model selection problem. MDL is base d on the following insight:\nany regularity in the data can be used to compress the data, i.e. to describe it using\nfewer symbols than the number of",
+  "key_terms": [
+    "MDL",
+    "model selection",
+    "two-part codes",
+    "compression",
+    "generalization",
+    "model",
+    "models",
+    "example",
+    "codes",
+    "distribution",
+    "universal",
+    "section",
+    "probability",
+    "length",
+    "rissanen",
+    "complexity",
+    "distributions",
+    "bayesian"
+  ],
+  "references_sample": [
+    "references are [W allace a nd Boulton",
+    "1968; W allace and Boulton 1975] and [W allace and F reeman 198 7]; a long list is in",
+    "[Comley and Dowe 2004]. Just as in MDL, MML chooses the hypoth esis minimizing",
+    "the code-length of the data. But the codes that are used are quite di\ufb00erent from those in",
+    "MDL. First of all, in MML one always uses two-part codes, so that MML automatically",
+    "selects both a model family and parameter values. Second, wh ile the MDL codes such as",
+    "\u00afPnml minimize worst-case relative code-length (regret), the two-part codes used by MML",
+    "are designed to minimize expected absolute code-length. Here the expectation is taken"
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

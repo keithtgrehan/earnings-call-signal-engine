@@ -1,0 +1,61 @@
+{
+  "id": "machine_super_intelligence",
+  "title": "Machine Super Intelligence",
+  "authors": [
+    "Shane Legg"
+  ],
+  "year": 2008,
+  "source_url": "http://www.vetta.org/documents/Machine_Super_Intelligence.pdf",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 464032,
+  "sections_detected": [
+    "Abstract",
+    "Introduction",
+    "Background",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "Discussion",
+    "Conclusion",
+    "References"
+  ],
+  "abstract": "abstract\nenvironment classes that are studied and formally shown how they are related\nto each other. In Chapter 3 we create such a taxonomy and ident ify the\nenvironment classes in which universal agents are able to le arn to behave\noptimally. The diversity of these classes of environments a dds weight to our\nclaim that AIXI is super intelligent.\nMost of the classes of environments are well known, though th eir exact for-\nmalisations as presented are my own. The proofs of the relati onships between\nthem and the resulting taxonomy of environment classes is my work. This\nchapter is largely based on (Legg and Hutter, 2004).\n4) Universal Intelligence Measure. If AIXI really is an optimally intel",
+  "introduction": "introduction to the subject would be helpful. Not only shoul d this help clear\nup some misconceptions, it may also serve as an appetiser for the more techni-\ncal treatments that have been published by Hutter. Chapter 2 provides such\nan introduction. It starts with the basics of inductive infe rence and slowly\nbuilds up to the AIXI agent and its key theoretical properties.\nThis introduction to universal arti\ufb01cial intelligence has not been published\nbefore, though small parts of it were derived from (Hutter et al., 2007)\nand (Legg, 1997). Section 2.6 is largely based on the materia l in (Hutter,\n2007a), and the sections that follow this on (Hutter, 2005).\niii\nPREFACE\n3) Optimality of AIXI. Hut",
+  "conclusion": "Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22\n2. Universal Arti\ufb01cial Intelligence 23\n2.1. Inductive inference . . . . . . . . . . . . . . . . . . . . . . . . . 23\n2.2. Bayes\u2019 rule . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25\n2.3. Binary sequence prediction . . . . . . . . . . . . . . . . . . . . 27\n2.4. Solomono\ufb00\u2019s prior and Kolmogorov complexity . . . . . . . . . 30\n2.5. Solomono\ufb00-Levin prior . . . . . . . . . . . . . . . . . . . . . . . 32\n2.6. Universal inference . . . . . . . . . . . . . . . . . . . . . . . . . 36\n2.7. Solomono\ufb00 induction . . . . . . . . . . . . . . . . . . . . . . . . 38\n2.8. Agent-environment model . . . . . . . . . . . . . . .",
+  "key_terms": [
+    "universal intelligence",
+    "AIXI",
+    "agent evaluation",
+    "superintelligence",
+    "theoretical AI",
+    "intelligence",
+    "agent",
+    "environment",
+    "nition",
+    "environments",
+    "universal",
+    "machine",
+    "learning",
+    "would",
+    "sequence",
+    "complexity",
+    "measure",
+    "reward"
+  ],
+  "references_sample": [
+    "references and other details see Appendix B. As ergodic MDPs admit",
+    "self-optimising agents it follows by Theorem 2.10.5 that th e universal agent \u03c0\u03b6",
+    "de\ufb01ned over the class of ergodic MDPs is also self-optimising. What remains",
+    "to be shown is that many important classes of environments ar e in fact special",
+    "cases of ergodic MDPs. This is the topic of the next section.",
+    "3.5. Environments that admit self-optimising agents",
+    "3.5. Environments that admit self-optimising",
+    "In this section we will prove that some of the environments we have de\ufb01ned"
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

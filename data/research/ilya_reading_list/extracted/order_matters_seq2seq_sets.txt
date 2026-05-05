@@ -1,0 +1,32 @@
+# Order Matters: Sequence to Sequence for Sets
+
+Source URL: https://arxiv.org/abs/1511.06391
+Extraction status: full_text_parsed
+Text length parsed locally: 39823
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Abstract
+- Model
+- Experiments
+- Results
+- Discussion
+- References
+
+## Abstract / Opening Digest
+
+Sequences have become ﬁrst class citizens in supervised learning thanks to the
+resurgence of recurrent neural networks. Many complex tasks that require map-
+ping from or to a sequence of observations can now be formulated with the
+sequence-to-sequence (seq2seq) framework which employs the chain rule to ef-
+ﬁciently represent the joint probability of sequences. In many cases, however,
+variable sized inputs and/or outputs might not be naturally expressed as sequences.
+For instance, it is not clear
+
+## Introduction Digest
+
+
+
+## Conclusion Digest

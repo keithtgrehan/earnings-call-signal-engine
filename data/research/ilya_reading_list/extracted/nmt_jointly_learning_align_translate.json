@@ -1,0 +1,59 @@
+{
+  "id": "nmt_jointly_learning_align_translate",
+  "title": "Neural Machine Translation by Jointly Learning to Align and Translate",
+  "authors": [
+    "Dzmitry Bahdanau",
+    "Kyunghyun Cho",
+    "Yoshua Bengio"
+  ],
+  "year": 2014,
+  "source_url": "https://arxiv.org/abs/1409.0473",
+  "extraction_status": "full_text_parsed",
+  "extraction_method": "pypdf",
+  "raw_text_committed": false,
+  "text_length_chars": 50074,
+  "sections_detected": [
+    "Abstract",
+    "Method",
+    "Model",
+    "Experiments",
+    "Results",
+    "References"
+  ],
+  "abstract": "Neural machine translation is a recently proposed approach to machine transla-\ntion. Unlike the traditional statistical machine translation, the neural machine\ntranslation aims at building a single neural network that can be jointly tuned to\nmaximize the translation performance. The models proposed recently for neu-\nral machine translation often belong to a family of encoder\u2013decoders and encode\na source sentence into a \ufb01xed-length vector from which a decoder generates a\ntranslation. In this paper, we conjecture that the use of a \ufb01xed-length vector is a\nbottleneck in improving the performance of this basic encoder\u2013decoder architec-\nture, and propose to extend this by allowing a model to auto",
+  "introduction": "",
+  "conclusion": "",
+  "key_terms": [
+    "attention",
+    "alignment",
+    "encoder-decoder",
+    "soft search",
+    "translation",
+    "sentence",
+    "model",
+    "neural",
+    "source",
+    "machine",
+    "decoder",
+    "proposed",
+    "encoder",
+    "words",
+    "sentences",
+    "vector",
+    "hidden",
+    "conference"
+  ],
+  "references_sample": [
+    "Axelrod, A., He, X., and Gao, J. (2011). Domain adaptation via pseudo in-domain data selection.",
+    "In Proceedings of the ACL Conference on Empirical Methods in Natural Language Processing",
+    "(EMNLP), pages 355\u2013362. Association for Computational Linguistics.",
+    "Bastien, F., Lamblin, P., Pascanu, R., Bergstra, J., Goodfellow, I. J., Bergeron, A., Bouchard, N.,",
+    "and Bengio, Y . (2012). Theano: new features and speed improvements. Deep Learning and",
+    "Unsupervised Feature Learning NIPS 2012 Workshop.",
+    "Bengio, Y ., Simard, P., and Frasconi, P. (1994). Learning long-term dependencies with gradient",
+    "descent is dif\ufb01cult. IEEE Transactions on Neural Networks, 5(2), 157\u2013166."
+  ],
+  "extraction_warnings": [
+    "Raw full text intentionally omitted from git; source cache is ignored and local-only."
+  ]
+}

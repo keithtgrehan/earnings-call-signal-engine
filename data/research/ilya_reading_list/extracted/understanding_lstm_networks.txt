@@ -1,0 +1,33 @@
+# Understanding LSTM Networks
+
+Source URL: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+Extraction status: full_text_parsed
+Text length parsed locally: 13901
+
+Full raw source text was parsed locally for analysis when parse_status is full_text_parsed, but is not committed because redistribution rights for papers, theses, books, and web pages vary by source.
+
+## Detected Sections
+
+- Model
+- Results
+- Discussion
+- Conclusion
+
+## Abstract / Opening Digest
+
+Understanding LSTM Networks -- colah's blog
+Understanding LSTM Networks
+Posted on August 27, 2015
+Recurrent Neural Networks
+Humans don’t start their thinking from scratch every second. As you read this essay, you understand each word based on your understanding of previous words. You don’t throw everything away and start thinking from scratch again. Your thoughts have persistence.
+Traditional neural networks can’t do this, and it seems like a major shortcoming. For example, imagine you want to c
+
+## Introduction Digest
+
+
+
+## Conclusion Digest
+
+Earlier, I mentioned the remarkable results people are achieving with RNNs. Essentially all of these are achieved using LSTMs. They really work a lot better for most tasks!
+Written down as a set of equations, LSTMs look pretty intimidating. Hopefully, walking through them step by step in this essay has made them a bit more approachable.
+LSTMs were a big step in what we can accomplish with RNNs. It’s natural to wonder: is there another big step? A common opinion among researchers is: “Yes! There
