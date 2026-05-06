@@ -170,7 +170,7 @@ eval-after-review:
 	$(PYTHON) tools/report_priority_review_validation.py
 
 intake-high-signal-transcripts:
-	$(PYTHON) tools/intake_high_signal_transcripts.py --tickers TSLA AMD CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD SHOP UBER RBLX COIN ASML TSM --years 2024 2025 2026 --quarters Q1 Q2 Q3 Q4 --output-root data/corpus/high_signal_cases --max-cases-per-ticker 4
+	$(PYTHON) tools/intake_high_signal_transcripts.py --tickers NVDA MSFT GOOGL AMZN META AAPL AMD ASML TSM AVGO CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD TSLA SHOP UBER RBLX COIN PLTR --latest-calls 4 --output-root data/corpus/high_signal_cases --min-transcript-chars 5000 --require-markers --rate-limit-seconds 3
 
 labeling-ci:
 	$(PYTHON) tools/review_next_batch.py --summary
