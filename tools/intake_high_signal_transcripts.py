@@ -45,6 +45,7 @@ TARGET_TICKERS = (
     "MDB",
     "PANW",
     "CRWD",
+    "TSLA",
     "SHOP",
     "UBER",
     "RBLX",

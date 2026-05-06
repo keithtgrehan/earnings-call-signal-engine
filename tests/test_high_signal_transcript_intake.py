@@ -25,6 +25,54 @@ CFO: We expect revenue of between 10 and 12 billion plus or minus 2 percent.
 """ + ("Management answer with earnings call detail. " * 180)
 
 
+def test_default_tickers_are_exact_25_company_benchmark() -> None:
+    expected = {
+        "NVDA",
+        "MSFT",
+        "GOOGL",
+        "AMZN",
+        "META",
+        "AAPL",
+        "AMD",
+        "ASML",
+        "TSM",
+        "AVGO",
+        "CRM",
+        "SNOW",
+        "HUBS",
+        "NOW",
+        "DDOG",
+        "NET",
+        "MDB",
+        "PANW",
+        "CRWD",
+        "TSLA",
+        "SHOP",
+        "UBER",
+        "RBLX",
+        "COIN",
+        "PLTR",
+    }
+    assert set(intake.TARGET_TICKERS) == expected
+    assert len(intake.TARGET_TICKERS) == 25
+    assert "TSLA" in intake.TARGET_TICKERS
+
+
+def test_default_latest_calls_plans_100_calls() -> None:
+    args = intake.parse_args(["--dry-run"])
+    planned = intake.plan_cases(
+        tickers=intake.normalize_tickers(args),
+        periods=intake.discovery_periods(args),
+        configured_sources={},
+        latest_calls=args.latest_calls,
+        source_mode=args.source,
+    )
+    assert args.latest_calls == 4
+    assert len(planned) == 100
+    assert len({case.ticker for case in planned}) == 25
+    assert sum(1 for case in planned if case.ticker == "TSLA") == 4
+
+
 def test_cli_argument_parsing_and_ticker_file(tmp_path: Path) -> None:
     ticker_file = tmp_path / "tickers.txt"
     ticker_file.write_text("amd\nNET\nAMD\n", encoding="utf-8")
