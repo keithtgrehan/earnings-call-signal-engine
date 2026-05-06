@@ -9,7 +9,7 @@ SMOKE_URL ?= https://www.youtube.com/watch?v=BaW_jenozKc
 SMOKE_OUT := ./_smoke_out
 SMOKE_CACHE := ./_smoke_cache
 
-.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review
+.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -168,6 +168,9 @@ eval-after-review:
 	$(PYTHON) tools/run_next_experiment.py || true
 	$(PYTHON) tools/run_retrieval_benchmark.py || true
 	$(PYTHON) tools/report_priority_review_validation.py
+
+intake-high-signal-transcripts:
+	$(PYTHON) tools/intake_high_signal_transcripts.py --tickers TSLA AMD CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD SHOP UBER RBLX COIN ASML TSM --years 2024 2025 2026 --quarters Q1 Q2 Q3 Q4 --output-root data/corpus/high_signal_cases --max-cases-per-ticker 4
 
 labeling-ci:
 	$(PYTHON) tools/review_next_batch.py --summary

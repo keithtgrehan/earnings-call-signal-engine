@@ -88,6 +88,22 @@ Important paths:
 - `reports/gold_label_growth_status.md`
 - `reports/final_priority_review_validation.md`
 
+## High-Signal Transcript Intake
+
+The high-signal intake tool prepares provenance-backed transcript folders for TSLA, AMD, CRM, SNOW, HUBS, NOW, DDOG, NET, MDB, PANW, CRWD, SHOP, UBER, RBLX, COIN, ASML, and TSM. It uses configured public sources where available, creates manual-provenance placeholders when a transcript is missing, and never creates gold labels.
+
+```bash
+python tools/intake_high_signal_transcripts.py \
+  --tickers TSLA AMD CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD SHOP UBER RBLX COIN ASML TSM \
+  --years 2024 2025 2026 \
+  --quarters Q1 Q2 Q3 Q4 \
+  --output-root data/corpus/high_signal_cases \
+  --max-cases-per-ticker 4 \
+  --dry-run
+```
+
+See `docs/high_signal_transcript_intake.md`.
+
 ## How To Run
 
 ```bash
@@ -174,6 +190,7 @@ Research assets:
 - `reports/call_review_inventory.md`
 - `reports/transcript_download_plan.md`
 - `reports/metric_jump_validation.md`
+- `docs/high_signal_transcript_intake.md`
 - `docs/evaluation/source_quality_filtering_plan.md`
 - `docs/pilot-corpus.md`
 - `docs/nlp_assets/README.md`
