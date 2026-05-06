@@ -90,14 +90,17 @@ Important paths:
 
 ## High-Signal Transcript Intake
 
-The high-signal intake tool prepares provenance-backed transcript folders for the 25-company benchmark set. It uses configured public sources where available, creates manual-provenance placeholders when a transcript is missing, and never creates gold labels.
+PR #23 evaluation/review tooling is merged into `main`. The high-signal intake tool adds the missing transcript acquisition layer for the 25-company / 100-call benchmark target. It prepares provenance-backed transcript folders for NVDA, MSFT, GOOGL, AMZN, META, AAPL, AMD, ASML, TSM, AVGO, CRM, SNOW, HUBS, NOW, DDOG, NET, MDB, PANW, CRWD, TSLA, SHOP, UBER, RBLX, COIN, and PLTR.
+
+The tool uses configured public sources and manual source URL files where available, fails clearly when a transcript cannot be downloaded, and never creates gold labels. Reviewed labels remain human-gated.
 
 ```bash
 python tools/intake_high_signal_transcripts.py \
-  --years 2024 2025 2026 \
-  --quarters Q1 Q2 Q3 Q4 \
+  --tickers NVDA MSFT GOOGL AMZN META AAPL AMD ASML TSM AVGO CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD TSLA SHOP UBER RBLX COIN PLTR \
+  --latest-calls 4 \
   --output-root data/corpus/high_signal_cases \
-  --max-cases-per-ticker 4 \
+  --min-transcript-chars 5000 \
+  --require-markers \
   --dry-run
 ```
 

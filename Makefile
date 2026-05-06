@@ -173,7 +173,7 @@ eval-after-review:
 	$(PYTHON) tools/report_priority_review_validation.py
 
 intake-high-signal-transcripts:
-	$(PYTHON) tools/intake_high_signal_transcripts.py --years 2024 2025 2026 --quarters Q1 Q2 Q3 Q4 --output-root data/corpus/high_signal_cases --max-cases-per-ticker 4
+	$(PYTHON) tools/intake_high_signal_transcripts.py --tickers NVDA MSFT GOOGL AMZN META AAPL AMD ASML TSM AVGO CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD TSLA SHOP UBER RBLX COIN PLTR --latest-calls 4 --output-root data/corpus/high_signal_cases --min-transcript-chars 5000 --require-markers --rate-limit-seconds 3
 
 discover-high-signal-sources-query-only:
 	$(PYTHON) tools/discover_high_signal_transcript_sources.py --query-only
@@ -185,7 +185,7 @@ verify-high-signal-sources:
 	$(PYTHON) tools/discover_high_signal_transcript_sources.py --verify-only --source-url-file $(HIGH_SIGNAL_CANDIDATE_URL_FILE)
 
 intake-high-signal-from-discovered-sources:
-	$(PYTHON) tools/intake_high_signal_transcripts.py --source-url-file $(HIGH_SIGNAL_SOURCE_URL_FILE) --years 2024 2025 2026 --quarters Q1 Q2 Q3 Q4 --output-root data/corpus/high_signal_cases --max-cases-per-ticker 4
+	$(PYTHON) tools/intake_high_signal_transcripts.py --source-url-file $(HIGH_SIGNAL_SOURCE_URL_FILE) --tickers NVDA MSFT GOOGL AMZN META AAPL AMD ASML TSM AVGO CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD TSLA SHOP UBER RBLX COIN PLTR --latest-calls 4 --output-root data/corpus/high_signal_cases --min-transcript-chars 5000 --require-markers --rate-limit-seconds 3
 
 labeling-ci:
 	$(PYTHON) tools/review_next_batch.py --summary

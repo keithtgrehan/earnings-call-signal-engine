@@ -32,7 +32,6 @@ TARGET_TICKERS = (
     "AMZN",
     "META",
     "AAPL",
-    "TSLA",
     "AMD",
     "ASML",
     "TSM",
@@ -46,12 +45,52 @@ TARGET_TICKERS = (
     "MDB",
     "PANW",
     "CRWD",
+    "TSLA",
     "SHOP",
     "UBER",
     "RBLX",
     "COIN",
     "PLTR",
 )
+COMPANY_NAMES = {
+    "AAPL": "Apple",
+    "AMD": "Advanced Micro Devices",
+    "AMZN": "Amazon",
+    "ASML": "ASML Holding",
+    "AVGO": "Broadcom",
+    "COIN": "Coinbase",
+    "CRM": "Salesforce",
+    "CRWD": "CrowdStrike",
+    "DDOG": "Datadog",
+    "GOOGL": "Alphabet",
+    "HUBS": "HubSpot",
+    "MDB": "MongoDB",
+    "META": "Meta Platforms",
+    "MSFT": "Microsoft",
+    "NET": "Cloudflare",
+    "NOW": "ServiceNow",
+    "NVDA": "NVIDIA",
+    "PANW": "Palo Alto Networks",
+    "PLTR": "Palantir",
+    "RBLX": "Roblox",
+    "SHOP": "Shopify",
+    "SNOW": "Snowflake",
+    "TSLA": "Tesla",
+    "TSM": "Taiwan Semiconductor Manufacturing",
+    "UBER": "Uber",
+}
+DEFAULT_DISCOVERY_PERIODS = (
+    ("2026", "Q1"),
+    ("2025", "Q4"),
+    ("2025", "Q3"),
+    ("2025", "Q2"),
+    ("2025", "Q1"),
+    ("2024", "Q4"),
+    ("2024", "Q3"),
+    ("2024", "Q2"),
+    ("2024", "Q1"),
+)
+DEFAULT_DISCOVERY_QUARTERS_FROM_PERIODS = ("Q4", "Q3", "Q2", "Q1")
 MARKERS = (
     "operator",
     "question-and-answer",
@@ -116,6 +155,7 @@ class SourceCase:
     fiscal_year: str
     quarter: str
     source_url: str
+    company_name: str = ""
     notes: str = ""
 
 
@@ -127,7 +167,8 @@ class PlannedCase:
     quarter: str
     source_url: str
     source_type: str
-    notes: str
+    company_name: str = ""
+    notes: str = ""
 
 
 def now_iso() -> str:
@@ -149,17 +190,19 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--tickers", nargs="*", default=list(TARGET_TICKERS))
     parser.add_argument("--ticker-file")
-    parser.add_argument("--years", nargs="+", default=["2024", "2025", "2026"])
-    parser.add_argument("--quarters", nargs="+", default=["Q1", "Q2", "Q3", "Q4"])
+    parser.add_argument("--source-url-file", help="CSV or JSON file with manual public source URLs.")
+    parser.add_argument("--latest-calls", type=int, default=4)
+    parser.add_argument("--years", nargs="+", default=None, help="Optional discovery years. Defaults to latest plausible years.")
+    parser.add_argument("--quarters", nargs="+", default=None, help="Optional discovery quarters. Defaults to Q4..Q1.")
     parser.add_argument("--output-root", default="data/corpus/high_signal_cases")
-    parser.add_argument("--max-cases-per-ticker", type=int, default=4)
+    parser.add_argument("--max-cases-per-ticker", type=int, default=None, help="Backward-compatible alias for --latest-calls.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--overwrite", type=parse_bool, nargs="?", const=True, default=False)
     parser.add_argument("--source", default="existing_config", choices=("existing_config", "manual_placeholder"))
-    parser.add_argument("--source-url-file", help="CSV from discover_high_signal_transcript_sources.py with verified public source URLs.")
     parser.add_argument("--min-transcript-chars", type=int, default=5000)
     parser.add_argument("--require-markers", action="store_true")
     parser.add_argument("--sleep-seconds", type=float, default=1.0)
+    parser.add_argument("--rate-limit-seconds", type=float, default=None)
     parser.add_argument("--timeout", type=int, default=45)
     return parser.parse_args(argv)
 
@@ -192,38 +235,61 @@ def load_configured_sources(path: Path | None = None) -> dict[str, SourceCase]:
             fiscal_year=str(raw.get("fiscal_year") or ""),
             quarter=str(raw.get("quarter") or ""),
             source_url=str(raw.get("source_url") or ""),
+            company_name=str(raw.get("company_name") or COMPANY_NAMES.get(str(raw.get("ticker") or "").upper(), "")),
             notes=str(raw.get("notes") or ""),
         )
     return result
 
 
-def load_source_url_file(path: Path) -> dict[str, SourceCase]:
-    """Load verified source URLs emitted by high-signal source discovery."""
+def source_case_from_row(row: dict[str, Any], fallback_id: str = "") -> SourceCase | None:
+    ticker = str(row.get("ticker") or "").strip().upper()
+    source_url = str(row.get("source_url") or row.get("url") or "").strip()
+    if not ticker or not source_url:
+        return None
+    fiscal_year = str(row.get("fiscal_year") or row.get("year") or "").strip()
+    quarter = str(row.get("fiscal_quarter") or row.get("quarter") or "").strip().upper()
+    case_id = str(row.get("case_id") or fallback_id or f"{ticker}_{fiscal_year}_{quarter}").strip()
+    if not case_id or not fiscal_year or not quarter:
+        return None
+    return SourceCase(
+        case_id=case_id,
+        ticker=ticker,
+        fiscal_year=fiscal_year,
+        quarter=quarter,
+        source_url=source_url,
+        company_name=str(row.get("company_name") or COMPANY_NAMES.get(ticker, "")),
+        notes=str(row.get("notes") or "Manual public source URL file."),
+    )
+
+
+def load_manual_source_urls(path: Path | None) -> dict[str, SourceCase]:
+    if path is None:
+        return {}
     if not path.exists():
-        raise IntakeError(f"source URL file does not exist: {path}")
+        raise IntakeError(f"source URL file not found: {path}")
     result: dict[str, SourceCase] = {}
-    with path.open(newline="", encoding="utf-8") as handle:
-        reader = csv.DictReader(handle)
-        required = {"case_id", "ticker", "fiscal_year", "quarter", "source_url"}
-        missing = required - set(reader.fieldnames or [])
-        if missing:
-            raise IntakeError(f"source URL file missing required columns: {', '.join(sorted(missing))}")
-        for row in reader:
-            case_id = str(row.get("case_id") or "").strip()
-            source_url = str(row.get("source_url") or "").strip()
-            if not case_id or not source_url:
-                continue
-            status = str(row.get("verification_status") or "verified").strip().lower()
-            if status not in {"", "verified"}:
-                continue
-            result[case_id] = SourceCase(
-                case_id=case_id,
-                ticker=str(row.get("ticker") or "").strip().upper(),
-                fiscal_year=str(row.get("fiscal_year") or row.get("year") or "").strip(),
-                quarter=str(row.get("quarter") or "").strip().upper(),
-                source_url=source_url,
-                notes=str(row.get("notes") or "Verified public source from high-signal source discovery.").strip(),
-            )
+    if path.suffix.lower() == ".csv":
+        with path.open(newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                source = source_case_from_row(dict(row))
+                if source:
+                    result[source.case_id] = source
+        return result
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if isinstance(payload, dict) and "cases" in payload:
+        rows = payload["cases"]
+    elif isinstance(payload, dict):
+        rows = [dict(value, case_id=key) if isinstance(value, dict) else {} for key, value in payload.items()]
+    else:
+        rows = payload
+    if not isinstance(rows, list):
+        raise IntakeError("source URL JSON must be a list, a cases list, or a mapping of case IDs")
+    for item in rows:
+        if not isinstance(item, dict):
+            continue
+        source = source_case_from_row(item)
+        if source:
+            result[source.case_id] = source
     return result
 
 
@@ -232,57 +298,82 @@ def quarter_sort_key(quarter: str) -> int:
     return int(match.group(1)) if match else 0
 
 
+def case_sort_key(case: SourceCase | PlannedCase) -> tuple[int, int, str]:
+    year = int(case.fiscal_year) if str(case.fiscal_year).isdigit() else 0
+    return (year, quarter_sort_key(case.quarter), case.case_id)
+
+
 def plan_cases(
     *,
     tickers: list[str],
-    years: list[str],
-    quarters: list[str],
+    periods: list[tuple[str, str]],
     configured_sources: dict[str, SourceCase],
-    max_cases_per_ticker: int,
+    latest_calls: int,
     source_mode: str,
 ) -> list[PlannedCase]:
     planned: list[PlannedCase] = []
     for ticker in tickers:
         ticker_cases: list[PlannedCase] = []
-        for year in years:
-            for quarter in quarters:
-                case_id = f"{ticker}_{year}_{quarter}"
-                configured = configured_sources.get(case_id)
-                if source_mode == "existing_config" and configured and configured.source_url:
-                    source_url = configured.source_url
-                    source_type = guess_source_type(source_url)
-                    notes = configured.notes or "Source from tools/transcript_downloader/sources.yaml."
-                else:
-                    source_url = ""
-                    source_type = "manual_placeholder"
-                    notes = "No supported public source configured; manual provenance and transcript download required."
-                ticker_cases.append(
-                    PlannedCase(
-                        case_id=case_id,
-                        ticker=ticker,
-                        fiscal_year=str(year),
-                        quarter=str(quarter),
-                        source_url=source_url,
-                        source_type=source_type,
-                        notes=notes,
-                    )
-                )
-        ticker_cases.sort(
-            key=lambda item: (
-                item.source_type != "manual_placeholder",
-                int(item.fiscal_year) if str(item.fiscal_year).isdigit() else 0,
-                quarter_sort_key(item.quarter),
-            ),
+        used_case_ids: set[str] = set()
+        configured_for_ticker = sorted(
+            [case for case in configured_sources.values() if case.ticker == ticker and case.source_url],
+            key=case_sort_key,
             reverse=True,
         )
-        planned.extend(ticker_cases[: max(0, max_cases_per_ticker)])
+        if source_mode == "existing_config":
+            for source in configured_for_ticker:
+                if len(ticker_cases) >= latest_calls:
+                    break
+                ticker_cases.append(
+                    PlannedCase(
+                        case_id=source.case_id,
+                        ticker=ticker,
+                        fiscal_year=source.fiscal_year,
+                        quarter=source.quarter,
+                        source_url=source.source_url,
+                        source_type=guess_source_type(source.source_url),
+                        company_name=source.company_name or COMPANY_NAMES.get(ticker, ""),
+                        notes=source.notes or "Configured public source.",
+                    )
+                )
+                used_case_ids.add(source.case_id)
+        for year, quarter in periods:
+            if len(ticker_cases) >= latest_calls:
+                break
+            case_id = f"{ticker}_{year}_{quarter}"
+            if case_id in used_case_ids:
+                continue
+            ticker_cases.append(
+                PlannedCase(
+                    case_id=case_id,
+                    ticker=ticker,
+                    fiscal_year=str(year),
+                    quarter=str(quarter),
+                    source_url="",
+                    source_type="manual_placeholder",
+                    company_name=COMPANY_NAMES.get(ticker, ""),
+                    notes="No supported public transcript source was discovered in repo config or source-url file; manual public source required.",
+                )
+            )
+            used_case_ids.add(case_id)
+        planned.extend(ticker_cases[: max(0, latest_calls)])
     return planned
+
+
+def discovery_periods(args: argparse.Namespace) -> list[tuple[str, str]]:
+    if args.years is None and args.quarters is None:
+        return list(DEFAULT_DISCOVERY_PERIODS)
+    years = [str(year) for year in (args.years or [year for year, _quarter in DEFAULT_DISCOVERY_PERIODS])]
+    quarters = [str(quarter).upper() for quarter in (args.quarters or DEFAULT_DISCOVERY_QUARTERS_FROM_PERIODS)]
+    return [(year, quarter) for year in years for quarter in quarters]
 
 
 def guess_source_type(url: str) -> str:
     lowered = url.lower().split("?", 1)[0]
     if lowered.endswith(".pdf"):
         return "pdf"
+    if lowered.endswith(".txt") or lowered.endswith(".text"):
+        return "text"
     if url:
         return "html"
     return "manual_placeholder"
@@ -328,6 +419,11 @@ def fetch_url(url: str, timeout: int) -> tuple[bytes, str]:
 
 def is_pdf_bytes(url: str, content: bytes, content_type: str) -> bool:
     return url.lower().split("?", 1)[0].endswith(".pdf") or "application/pdf" in content_type or content.startswith(b"%PDF")
+
+
+def is_text_bytes(url: str, content_type: str) -> bool:
+    lowered = url.lower().split("?", 1)[0]
+    return lowered.endswith((".txt", ".text")) or "text/plain" in content_type
 
 
 def extract_pdf_text(content: bytes) -> str:
@@ -546,6 +642,11 @@ def write_case_outputs(
                 raw_source = raw_dir / "transcript.pdf"
                 raw_source.write_bytes(content)
                 text = extract_pdf_text(content)
+            elif is_text_bytes(case.source_url, content_type):
+                source_type = "text"
+                raw_source = raw_dir / "source.txt"
+                raw_source.write_bytes(content)
+                text = content.decode("utf-8", errors="replace")
             else:
                 source_type = "html"
                 raw_source = raw_dir / "source.html"
@@ -580,7 +681,7 @@ def write_case_outputs(
     provenance = {
         "case_id": case.case_id,
         "ticker": case.ticker,
-        "company_name": "",
+        "company_name": case.company_name,
         "fiscal_year": case.fiscal_year,
         "fiscal_quarter": case.quarter,
         "source_url": case.source_url,
@@ -653,6 +754,32 @@ def write_manifest(output_root: Path, rows: list[dict[str, Any]]) -> None:
     write_json(output_root / "high_signal_manifest.json", rows)
 
 
+def update_global_corpus_manifest(output_root: Path, rows: list[dict[str, Any]], manifest_path: Path | None = None) -> Path:
+    manifest_path = manifest_path or (ROOT / "data" / "corpus" / "corpus_manifest.csv")
+    fields = [*MANIFEST_FIELDS, "case_path"]
+    existing: dict[str, dict[str, Any]] = {}
+    if manifest_path.exists():
+        with manifest_path.open(newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                case_id = str(row.get("case_id") or "")
+                if case_id:
+                    existing[case_id] = dict(row)
+    for row in rows:
+        case_id = str(row.get("case_id") or "")
+        if not case_id:
+            continue
+        merged = {field: row.get(field, "") for field in MANIFEST_FIELDS}
+        merged["case_path"] = display_path(output_root / case_id)
+        existing[case_id] = merged
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    with manifest_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        for case_id in sorted(existing):
+            writer.writerow({field: existing[case_id].get(field, "") for field in fields})
+    return manifest_path
+
+
 def dry_run_summary(planned: list[PlannedCase], output_root: Path) -> dict[str, Any]:
     configured = [case for case in planned if case.source_url]
     manual = [case for case in planned if not case.source_url]
@@ -662,8 +789,10 @@ def dry_run_summary(planned: list[PlannedCase], output_root: Path) -> dict[str, 
         "cases_discovered": len(planned),
         "configured_public_sources": len(configured),
         "manual_placeholders_needed": len(manual),
+        "target_calls": len(planned),
         "output_root": str(output_root),
         "planned_cases": [case.case_id for case in planned],
+        "source_urls": {case.case_id: case.source_url for case in configured},
         "next_manual_action": "Review labels/human_labeling_packet.md files and promote confirmed rows to gold_labels.jsonl only after human review.",
     }
 
@@ -673,17 +802,16 @@ def main(argv: list[str] | None = None) -> int:
     tickers = normalize_tickers(args)
     output_root = (ROOT / args.output_root).resolve() if not Path(args.output_root).is_absolute() else Path(args.output_root)
     configured_sources = load_configured_sources()
-    if args.source_url_file:
-        source_url_path = Path(args.source_url_file)
-        if not source_url_path.is_absolute():
-            source_url_path = ROOT / source_url_path
-        configured_sources.update(load_source_url_file(source_url_path))
+    manual_sources = load_manual_source_urls(Path(args.source_url_file) if args.source_url_file else None)
+    configured_sources = {**configured_sources, **manual_sources}
+    latest_calls = args.max_cases_per_ticker if args.max_cases_per_ticker is not None else args.latest_calls
+    periods = discovery_periods(args)
+    rate_limit_seconds = args.rate_limit_seconds if args.rate_limit_seconds is not None else args.sleep_seconds
     planned = plan_cases(
         tickers=tickers,
-        years=[str(year) for year in args.years],
-        quarters=[str(quarter).upper() for quarter in args.quarters],
+        periods=periods,
         configured_sources=configured_sources,
-        max_cases_per_ticker=args.max_cases_per_ticker,
+        latest_calls=latest_calls,
         source_mode=args.source,
     )
     if args.dry_run:
@@ -692,10 +820,11 @@ def main(argv: list[str] | None = None) -> int:
 
     rows: list[dict[str, Any]] = []
     failures = 0
+    hard_failures = 0
     downloads = 0
     for index, case in enumerate(planned):
-        if index and args.sleep_seconds > 0:
-            time.sleep(args.sleep_seconds)
+        if index and rate_limit_seconds > 0:
+            time.sleep(rate_limit_seconds)
         try:
             row = write_case_outputs(
                 case=case,
@@ -708,11 +837,14 @@ def main(argv: list[str] | None = None) -> int:
             rows.append(row)
             if row["status"] in {"failed", "warning"}:
                 failures += 1
+            if row["status"] == "failed":
+                hard_failures += 1
             if row["source_url"] and row["has_raw"]:
                 downloads += 1
             print(f"{row['status'].upper()} {case.case_id}: review_ready={row['review_ready']} flags={row['quality_flags']}")
         except Exception as exc:
             failures += 1
+            hard_failures += 1
             rows.append(
                 {
                     "case_id": case.case_id,
@@ -731,6 +863,7 @@ def main(argv: list[str] | None = None) -> int:
             )
             print(f"FAILED {case.case_id}: {exc}", file=sys.stderr)
     write_manifest(output_root, rows)
+    corpus_manifest = update_global_corpus_manifest(output_root, rows)
     valid = sum(1 for row in rows if row["status"] == "valid")
     review_ready = sum(1 for row in rows if row["review_ready"])
     summary = {
@@ -741,10 +874,11 @@ def main(argv: list[str] | None = None) -> int:
         "warning_or_failed_transcripts": failures,
         "review_ready_packets_created": review_ready,
         "manifest_path": str(output_root / "high_signal_manifest.csv"),
+        "corpus_manifest_path": str(corpus_manifest),
         "next_manual_action": "Review labels/human_labeling_packet.md files and promote confirmed rows to gold_labels.jsonl only after human review.",
     }
     print(json.dumps(summary, indent=2))
-    return 1 if any(str(row.get("quality_flags", "")).startswith("intake_failed") for row in rows) else 0
+    return 1 if hard_failures else 0
 
 
 if __name__ == "__main__":

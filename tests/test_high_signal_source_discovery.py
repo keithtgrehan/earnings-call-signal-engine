@@ -167,7 +167,7 @@ def test_output_csv_schema_and_intake_source_url_file_compatibility(tmp_path: Pa
         assert reader.fieldnames == list(discovery.SOURCE_CSV_FIELDS)
         rows = list(reader)
     assert rows[0]["source_url"] == candidate.source_url
-    loaded = intake.load_source_url_file(output)
+    loaded = intake.load_manual_source_urls(output)
     assert loaded["NVDA_2026_Q4"].source_url == candidate.source_url
     assert loaded["NVDA_2026_Q4"].quarter == "Q4"
 

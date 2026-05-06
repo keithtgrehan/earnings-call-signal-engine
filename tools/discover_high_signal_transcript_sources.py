@@ -27,8 +27,6 @@ import intake_high_signal_transcripts as intake  # noqa: E402
 
 USER_AGENT = "SignalEngineSourceDiscovery/1.0 (+public transcript source verification; no paywalled sources)"
 TARGET_CALLS = 100
-DEFAULT_YEARS = ("2024", "2025", "2026")
-DEFAULT_QUARTERS = ("Q1", "Q2", "Q3", "Q4")
 DEFAULT_OUTPUT_CSV = ROOT / "data" / "corpus" / "high_signal_source_urls.csv"
 DEFAULT_CANDIDATES_JSON = ROOT / "data" / "corpus" / "high_signal_source_candidates.json"
 DEFAULT_QUERIES_CSV = ROOT / "data" / "corpus" / "high_signal_source_queries.csv"
@@ -144,8 +142,8 @@ def resolve_path(path: str | Path) -> Path:
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--tickers", nargs="*", default=list(intake.TARGET_TICKERS))
-    parser.add_argument("--years", nargs="+", default=list(DEFAULT_YEARS))
-    parser.add_argument("--quarters", nargs="+", default=list(DEFAULT_QUARTERS))
+    parser.add_argument("--years", nargs="+", default=None, help="Optional discovery years. Defaults to intake's latest-call periods.")
+    parser.add_argument("--quarters", nargs="+", default=None, help="Optional discovery quarters. Defaults to intake's latest-call periods.")
     parser.add_argument("--max-cases-per-ticker", type=int, default=4)
     parser.add_argument("--full-refresh", action="store_true", help="Verify all target cases instead of only missing cases.")
     parser.add_argument("--query-only", action="store_true", help="Write search queries only; perform no downloads or source writes.")
@@ -176,16 +174,25 @@ def company_domain_for_ticker(ticker: str) -> str:
 def build_target_cases(
     *,
     tickers: list[str],
-    years: list[str],
-    quarters: list[str],
+    years: list[str] | None,
+    quarters: list[str] | None,
     max_cases_per_ticker: int,
 ) -> list[TargetCase]:
+    if years is None and quarters is None:
+        periods = list(intake.DEFAULT_DISCOVERY_PERIODS)
+    else:
+        period_years = [str(year) for year in (years or [year for year, _quarter in intake.DEFAULT_DISCOVERY_PERIODS])]
+        period_quarters = [quarter.upper() for quarter in (quarters or intake.DEFAULT_DISCOVERY_QUARTERS_FROM_PERIODS)]
+        periods = sorted(
+            [(year, quarter) for year in period_years for quarter in period_quarters],
+            key=lambda item: (int(item[0]) if item[0].isdigit() else 0, intake.quarter_sort_key(item[1])),
+            reverse=True,
+        )
     planned = intake.plan_cases(
         tickers=[ticker.upper() for ticker in tickers],
-        years=[str(year) for year in years],
-        quarters=[quarter.upper() for quarter in quarters],
+        periods=periods,
         configured_sources={},
-        max_cases_per_ticker=max_cases_per_ticker,
+        latest_calls=max_cases_per_ticker,
         source_mode="manual_placeholder",
     )
     return [
@@ -736,8 +743,8 @@ def enforce_live_search_config() -> None:
 def run_discovery(args: argparse.Namespace) -> dict[str, Any]:
     targets = build_target_cases(
         tickers=[ticker.upper() for ticker in args.tickers],
-        years=[str(year) for year in args.years],
-        quarters=[quarter.upper() for quarter in args.quarters],
+        years=[str(year) for year in args.years] if args.years else None,
+        quarters=[quarter.upper() for quarter in args.quarters] if args.quarters else None,
         max_cases_per_ticker=args.max_cases_per_ticker,
     )
     queries_path = resolve_path(args.queries_csv)

@@ -6,7 +6,7 @@ No gold labels are auto-created. Weak labels are suggestions only.
 
 ## Ticker List
 
-The high-signal expansion set is:
+The 25-company / 100-call benchmark target is the latest four legally usable public transcripts for:
 
 `NVDA`, `MSFT`, `GOOGL`, `AMZN`, `META`, `AAPL`, `AMD`, `ASML`, `TSM`, `AVGO`, `CRM`, `SNOW`, `HUBS`, `NOW`, `DDOG`, `NET`, `MDB`, `PANW`, `CRWD`, `TSLA`, `SHOP`, `UBER`, `RBLX`, `COIN`, `PLTR`.
 
@@ -16,12 +16,26 @@ Dry run:
 
 ```bash
 python tools/intake_high_signal_transcripts.py \
-  --years 2024 2025 2026 \
-  --quarters Q1 Q2 Q3 Q4 \
+  --tickers NVDA MSFT GOOGL AMZN META AAPL AMD ASML TSM AVGO CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD TSLA SHOP UBER RBLX COIN PLTR \
+  --latest-calls 4 \
   --output-root data/corpus/high_signal_cases \
-  --max-cases-per-ticker 4 \
+  --min-transcript-chars 5000 \
+  --require-markers \
   --dry-run
 ```
+
+Manual public source URL file:
+
+```bash
+python tools/intake_high_signal_transcripts.py \
+  --source-url-file data/corpus/high_signal_source_urls.csv \
+  --tickers NVDA MSFT GOOGL AMZN META AAPL AMD ASML TSM AVGO CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD TSLA SHOP UBER RBLX COIN PLTR \
+  --latest-calls 4 \
+  --output-root data/corpus/high_signal_cases \
+  --rate-limit-seconds 3
+```
+
+The source URL file can be CSV or JSON. CSV columns should include `ticker`, `fiscal_year` or `year`, `quarter`, `source_url`, and optionally `case_id`, `company_name`, and `notes`.
 
 Live intake:
 
@@ -29,17 +43,17 @@ Live intake:
 make intake-high-signal-transcripts
 ```
 
-The live command uses configured public sources when available and writes manual-provenance placeholders when no supported public source is configured.
+The live command uses configured public sources and manual source URL files when available. If a source is missing or cannot be downloaded, the tool writes clear failed status/provenance output and exits nonzero. It does not silently skip missing transcripts.
 
 When source discovery has verified public URLs, pass them directly into intake:
 
 ```bash
 python tools/intake_high_signal_transcripts.py \
   --source-url-file data/corpus/high_signal_source_urls.csv \
-  --years 2024 2025 2026 \
-  --quarters Q1 Q2 Q3 Q4 \
+  --tickers NVDA MSFT GOOGL AMZN META AAPL AMD ASML TSM AVGO CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD TSLA SHOP UBER RBLX COIN PLTR \
+  --latest-calls 4 \
   --output-root data/corpus/high_signal_cases \
-  --max-cases-per-ticker 4
+  --rate-limit-seconds 3
 ```
 
 ## Folder Structure
@@ -50,7 +64,7 @@ Each case is organized as:
 data/corpus/high_signal_cases/{TICKER}_{YEAR}_{QUARTER}/
   raw/
     transcript.txt
-    source.html or transcript.pdf
+    source.html, source.txt, or transcript.pdf
   metadata/
     provenance.json
     source_url.txt
@@ -69,6 +83,7 @@ The manifest files are:
 
 - `data/corpus/high_signal_cases/high_signal_manifest.csv`
 - `data/corpus/high_signal_cases/high_signal_manifest.json`
+- `data/corpus/corpus_manifest.csv`
 
 ## Validation Rules
 
