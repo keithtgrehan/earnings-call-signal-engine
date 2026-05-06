@@ -62,8 +62,11 @@ def metadata(row: dict[str, Any]) -> dict[str, Any]:
 def source_group(row: dict[str, Any]) -> str:
     source_file = str(row.get("source_file") or "")
     source_schema = str(row.get("source_schema") or "")
+    label_source = str(row.get("label_source") or "")
     case_id = str(row.get("case_id") or "")
     notes = str(metadata(row).get("notes") or row.get("notes") or "").lower()
+    if label_source == "human_reviewed_priority_packet":
+        return "human_reviewed"
     if "data/gold_guidance_calls" in source_file:
         return "imported_guidance"
     if source_schema == "human_reviewed_jsonl":

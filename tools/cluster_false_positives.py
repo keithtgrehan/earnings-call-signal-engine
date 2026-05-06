@@ -15,11 +15,11 @@ if str(TOOLS) not in sys.path:
 from evaluation_quality import GOLD_PATH, deterministic_predictions, phrase_hits, read_jsonl, tokens  # noqa: E402
 
 CLUSTERS = {
-    "hedge_or_conditional": {"if", "whether", "probably", "maybe", "may", "might", "could", "depends", "once"},
-    "rollout_procurement_pilot": {"rollout", "procurement", "pilot", "security review", "implementation", "expansion"},
-    "generic_positive_or_commitment": {"send", "follow up", "schedule", "review", "owner", "fixed", "recovery plan"},
-    "weak_blocker_language": {"legal", "renewal", "still open", "discount", "pricing", "someone will reach out"},
-    "guidance_outlook": {"guidance", "outlook", "expect", "expected", "revenue", "plus or minus"},
+    "hedge_or_conditional": ("if", "whether", "probably", "maybe", "may", "might", "could", "depends", "once"),
+    "rollout_procurement_pilot": ("rollout", "procurement", "pilot", "security review", "implementation", "expansion"),
+    "generic_positive_or_commitment": ("send", "follow up", "schedule", "review", "owner", "fixed", "recovery plan"),
+    "weak_blocker_language": ("legal", "renewal", "still open", "discount", "pricing", "someone will reach out"),
+    "guidance_outlook": ("guidance", "outlook", "expect", "expected", "revenue", "plus or minus"),
 }
 
 
@@ -33,7 +33,7 @@ def cluster_errors(predictions: list[dict[str, Any]]) -> dict[str, list[dict[str
         for name, phrases in CLUSTERS.items():
             hits = phrase_hits(text, phrases)
             if hits or any(term in row.get("evidence_terms", []) for term in phrases):
-                clusters[name].append({**row, "cluster_hits": hits or row.get("evidence_terms", [])})
+                clusters[name].append({**row, "cluster_hits": list(dict.fromkeys(hits or row.get("evidence_terms", [])))})
                 assigned = True
         if not assigned:
             clusters["low_evidence_or_other"].append({**row, "cluster_hits": row.get("evidence_terms", [])})

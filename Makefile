@@ -9,7 +9,7 @@ SMOKE_URL ?= https://www.youtube.com/watch?v=BaW_jenozKc
 SMOKE_OUT := ./_smoke_out
 SMOKE_CACHE := ./_smoke_cache
 
-.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo
+.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -154,6 +154,20 @@ demo:
 	$(PYTHON) tools/build_evidence_objects.py
 	$(PYTHON) tools/run_retrieval_benchmark.py || true
 	$(PYTHON) tools/build_demo_artifacts.py
+
+review-priority-labels:
+	$(PYTHON) tools/prepare_priority_review.py
+
+promote-reviewed-priority-labels:
+	$(PYTHON) tools/promote_priority_review.py
+
+eval-after-review:
+	$(PYTHON) tools/promote_priority_review.py
+	$(PYTHON) tools/run_evaluation_loop.py
+	$(PYTHON) tools/filter_gold_labels.py --write-reports
+	$(PYTHON) tools/run_next_experiment.py || true
+	$(PYTHON) tools/run_retrieval_benchmark.py || true
+	$(PYTHON) tools/report_priority_review_validation.py
 
 labeling-ci:
 	$(PYTHON) tools/review_next_batch.py --summary

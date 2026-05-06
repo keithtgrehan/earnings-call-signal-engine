@@ -1,6 +1,6 @@
 # Signal Engine
 
-Transcript-first deterministic earnings-call signal engine with gated evaluation, label review, NLP asset registry, optional dataset adapters, and optional embedding benchmarks.
+Evidence-backed earnings-call review and signal detection for analysts, investor relations, and research workflows.
 
 Signal Engine is an evaluation-ready research/proof repo, not a trading system. The deterministic system remains the canonical source of truth. ML, embeddings, retrieval, external datasets, and multimodal assets are optional benchmark layers only.
 
@@ -23,16 +23,18 @@ The repo also contains broader scaffolding for support, sales, account-managemen
 - Embedding benchmark harness, gated and benchmark-only.
 - Pilot corpus manifests, representative samples, retrieval schema, and validation tests.
 - Ilya Sutskever reading-list research assets and Signal Engine roadmap synthesis.
+- Priority-call review packet generation for growing human-reviewed labels toward the next benchmark gate.
 
 ## 3. Current Measurable Proof
 
 - Canonical gold labels: `57`
-- Deterministic precision: `0.3205`
-- Deterministic recall: `0.4499`
-- Deterministic F1: `0.3743`
+- Deterministic precision: `0.8399`
+- Deterministic recall: `0.8326`
+- Deterministic F1: `0.8276`
+- TF-IDF + Logistic Regression benchmark: precision `0.7332`, recall `0.7328`, F1 `0.7327`
 - Label distribution: `risk_friction=13`, `opportunity_commitment=15`, `uncertainty_hedging=18`, `neutral=11`
-- Interpretation: recall is higher than precision, so the system currently over-detects signals. The next quality target is precision improvement through false-positive reduction.
-- Full-suite validation after the rebase passed with `342` tests.
+- Interpretation: the deterministic rule refinement materially improved the mixed-provenance benchmark, but 57 labels is still small. The next proof step is validating the improvement on more real human-reviewed earnings-call labels.
+- Full-suite validation passed with `347` tests.
 
 Known caveats:
 
@@ -40,6 +42,7 @@ Known caveats:
 - Some guidance labels were mapped conservatively into the four-label taxonomy.
 - `reviewed_labels.csv` / reviewed-batch files currently have no accepted review decisions to promote.
 - Metrics are a measurable baseline, not statistical proof.
+- Source-quality subset metrics remain more important than the headline all-label metric until the gold set reaches `100+` reviewed labels.
 
 ## 4. What Is Gated
 
@@ -65,6 +68,18 @@ make eval-loop
 make next-experiment
 make embedding-benchmark
 make demo
+make review-priority-labels
+make promote-reviewed-priority-labels
+make eval-after-review
+```
+
+Human review workflow:
+
+```bash
+make review-priority-labels
+# Keith reviews data/labeling/priority_review_packet.csv, marking reviewer_decision as accept/reject/unclear.
+make promote-reviewed-priority-labels
+make eval-after-review
 ```
 
 Useful registry and research commands:
@@ -101,7 +116,7 @@ python scripts/build_signal_retrieval_index.py
 2. Evaluate filtered subsets such as `human_reviewed_only`, `guidance_mapped_only`, and `fixture_excluded`.
 3. Reduce false positives in deterministic rules, especially neutral and uncertainty cases.
 4. Complete the manual reviewed-label workflow and promote accepted rows only.
-5. Grow the gold set to `100+` labels, then run the embedding benchmark explicitly.
+5. Review the Priority 1 earnings-call packet and grow the gold set to `100+` high-quality labels, then run the embedding benchmark explicitly.
 6. Keep pilot corpus manifests, representative samples, retrieval schemas, and tiny proof artifacts committed; keep bulky generated/raw assets ignored.
 7. Merge this proof branch into `main` only after validation is green, then make `main` the clean public proof branch.
 
@@ -115,6 +130,10 @@ Key docs:
 - `reports/next_best_actions.md`
 - `reports/label_import_summary.md`
 - `reports/demo/analyst_report_LLY_2025_Q2_call08.md`
+- `data/labeling/priority_review_packet.md`
+- `reports/call_review_inventory.md`
+- `reports/transcript_download_plan.md`
+- `reports/metric_jump_validation.md`
 - `docs/evaluation/source_quality_filtering_plan.md`
 - `docs/pilot-corpus.md`
 - `docs/nlp_assets/README.md`
