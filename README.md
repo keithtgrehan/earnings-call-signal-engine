@@ -17,6 +17,22 @@ Expected proof artifacts:
 - `docs/case_study.md`
 - `docs/product_one_pager.md`
 
+## Portfolio demo
+
+Start here for a concise review path:
+
+- [PORTFOLIO_README.md](PORTFOLIO_README.md)
+- [docs/portfolio_architecture.md](docs/portfolio_architecture.md)
+- [docs/demo_walkthrough.md](docs/demo_walkthrough.md)
+- [docs/gtm_product_lessons.md](docs/gtm_product_lessons.md)
+- [docs/evaluation_strategy.md](docs/evaluation_strategy.md)
+
+Run the offline portfolio demo:
+
+```bash
+make portfolio-demo
+```
+
 Human-review commands:
 
 ```bash
