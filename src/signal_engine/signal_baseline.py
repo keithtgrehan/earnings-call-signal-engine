@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import re
 from typing import Any
 
 from . import text_features as base_text_features
@@ -86,6 +87,97 @@ UNCERTAINTY_HEDGING_TERMS: tuple[str, ...] = tuple(
         ]
     )
 )
+RULE_VERSION = "deterministic_signal_baseline_v2_precision"
+
+GENERIC_OPPORTUNITY_TERMS = {
+    "send",
+    "pilot",
+    "procurement",
+    "rollout",
+    "security review",
+    "expansion",
+    "implementation",
+    "legal review",
+}
+GENERIC_RISK_TERMS = {"renewal", "legal", "still open", "procurement"}
+STRONG_RISK_TERMS = {
+    "angry",
+    "chargeback",
+    "complaint",
+    "cut seats",
+    "dispute",
+    "does not solve",
+    "escalate",
+    "expensive",
+    "failed resolution",
+    "frustrated",
+    "look at another vendor",
+    "not move",
+    "unresolved",
+    "wrong",
+}
+STRONG_OPPORTUNITY_TERMS = {
+    "i own",
+    "we will",
+    "will send",
+    "will deliver",
+    "proposal by",
+    "by friday",
+    "by tuesday",
+    "confirmed",
+    "resolved",
+    "fixed",
+    "raised",
+    "upgrade",
+}
+CONDITIONAL_UNCERTAINTY_PATTERNS = (
+    r"\bif\b",
+    r"\bwhether\b",
+    r"\bdo not know\b",
+    r"\bdon't know\b",
+    r"\bprobably\b",
+    r"\bmaybe\b",
+    r"\bmight\b",
+    r"\bcould\b",
+    r"\blater once\b",
+    r"\bonce\b",
+    r"\bconcerned\b",
+    r"\bconfused\b",
+)
+NEUTRAL_STATUS_PATTERNS = (
+    r"\bfor reference\b",
+    r"\bcurrent status\b",
+    r"\bsharing the update\b",
+    r"\bagenda\b",
+    r"\bmeeting starts\b",
+    r"\bscheduled for\b",
+    r"\bwith a renewal review\b",
+    r"\blegal review is still open\b",
+)
+GUIDANCE_DOWN_PATTERNS = (
+    r"\bguidance down\b",
+    r"\bguides? down\b",
+    r"\bguidance (?:was|is|has been)? ?(?:taken|revised|lowered) down\b",
+    r"\bnon-?gaap guidance down\b",
+)
+GUIDANCE_RAISED_PATTERNS = (
+    r"\braised? (?:our )?(?:revenue|earnings|eps|guidance)\b",
+    r"\bguidance (?:was|is|has been)? ?raised\b",
+)
+GUIDANCE_MAINTAINED_PATTERNS = (
+    r"\bguidance is flat\b",
+    r"\bguidance remains flat\b",
+    r"\bguidance flat\b",
+)
+GUIDANCE_UNCERTAINTY_PATTERNS = (
+    r"\bwe expect\b",
+    r"\bis expected to\b",
+    r"\boutlook\b",
+    r"\bguidance range\b",
+    r"\bbetween [0-9]",
+    r"\bplus or minus\b",
+    r"\bfull year [0-9]{4}\b",
+)
 
 FIXTURE_SPECS: tuple[tuple[str, str], ...] = (
     ("data/signal_engine_2_0/sample_support.json", "support"),
@@ -155,6 +247,78 @@ def _matched_terms(text: str, terms: tuple[str, ...]) -> list[str]:
     return matches[:8]
 
 
+def _has_pattern(text: str, patterns: tuple[str, ...]) -> bool:
+    lowered = str(text or "").lower()
+    return any(re.search(pattern, lowered) for pattern in patterns)
+
+
+def _filter_generic_context(
+    *,
+    text: str,
+    risk_matches: list[str],
+    opportunity_matches: list[str],
+    uncertainty_matches: list[str],
+) -> tuple[list[str], list[str], list[str], list[str]]:
+    suppressed: list[str] = []
+    lowered = text.lower()
+    has_conditional_uncertainty = _has_pattern(lowered, CONDITIONAL_UNCERTAINTY_PATTERNS)
+    has_strong_opportunity = any(base_text_features.term_found(lowered, term) for term in STRONG_OPPORTUNITY_TERMS)
+    has_strong_risk = any(base_text_features.term_found(lowered, term) for term in STRONG_RISK_TERMS)
+    has_neutral_status = _has_pattern(lowered, NEUTRAL_STATUS_PATTERNS)
+
+    if has_conditional_uncertainty and not has_strong_opportunity:
+        kept = [term for term in opportunity_matches if term not in GENERIC_OPPORTUNITY_TERMS]
+        suppressed.extend([f"opportunity:{term}" for term in opportunity_matches if term not in kept])
+        opportunity_matches = kept
+        uncertainty_matches = list(dict.fromkeys([*uncertainty_matches, "conditional_language"]))
+
+    if has_neutral_status and not has_strong_risk:
+        kept = [term for term in risk_matches if term not in GENERIC_RISK_TERMS]
+        suppressed.extend([f"risk:{term}" for term in risk_matches if term not in kept])
+        risk_matches = kept
+        if not has_strong_opportunity:
+            kept_opportunity = [term for term in opportunity_matches if term not in GENERIC_OPPORTUNITY_TERMS]
+            suppressed.extend([f"opportunity:{term}" for term in opportunity_matches if term not in kept_opportunity])
+            opportunity_matches = kept_opportunity
+
+    if "please check the help center" in lowered or "please refer" in lowered:
+        risk_matches = list(dict.fromkeys([*risk_matches, "support_deflection"]))
+        uncertainty_matches = [term for term in uncertainty_matches if term != "for now"]
+        if "for now" in _matched_terms(text, ("for now",)):
+            suppressed.append("uncertainty:for now")
+
+    return risk_matches, opportunity_matches, uncertainty_matches, suppressed
+
+
+def _guidance_override(text: str) -> dict[str, Any] | None:
+    lowered = str(text or "").lower()
+    if _has_pattern(lowered, GUIDANCE_DOWN_PATTERNS):
+        return {
+            "label": "risk_friction",
+            "evidence_terms": ["guidance down"],
+            "reason": "Detected explicit lowered/downward guidance language.",
+        }
+    if _has_pattern(lowered, GUIDANCE_RAISED_PATTERNS):
+        return {
+            "label": "opportunity_commitment",
+            "evidence_terms": ["raised guidance"],
+            "reason": "Detected explicit raised guidance language.",
+        }
+    if _has_pattern(lowered, GUIDANCE_MAINTAINED_PATTERNS):
+        return {
+            "label": "opportunity_commitment",
+            "evidence_terms": ["guidance flat"],
+            "reason": "Detected maintained/flat guidance language.",
+        }
+    if _has_pattern(lowered, GUIDANCE_UNCERTAINTY_PATTERNS):
+        return {
+            "label": "uncertainty_hedging",
+            "evidence_terms": ["guidance outlook"],
+            "reason": "Detected forward-looking guidance or outlook language without explicit change direction.",
+        }
+    return None
+
+
 def _loughran_mcdonald_scores(text: str) -> dict[str, Any]:
     lexicon = load_loughran_mcdonald_lexicon()
     matches = match_loughran_mcdonald_terms(text, lexicon=lexicon)
@@ -175,6 +339,21 @@ def weak_label_signal_family(
     *,
     domain: str | None = None,
 ) -> dict[str, Any]:
+    guidance = _guidance_override(text)
+    if guidance is not None:
+        score_by_label = {label: 0 for label in SIGNAL_FAMILY_LABELS}
+        score_by_label[str(guidance["label"])] = 3
+        return {
+            **guidance,
+            "domain": domain,
+            "loughran_mcdonald_available": False,
+            "loughran_mcdonald_matches": {},
+            "score_by_label": score_by_label,
+            "confidence": 0.75,
+            "suppressed_terms": [],
+            "rule_version": RULE_VERSION,
+        }
+
     risk_matches = _matched_terms(text, RISK_FRICTION_TERMS)
     opportunity_matches = _matched_terms(text, OPPORTUNITY_COMMITMENT_TERMS)
     uncertainty_matches = _matched_terms(text, UNCERTAINTY_HEDGING_TERMS)
@@ -182,6 +361,13 @@ def weak_label_signal_family(
     lm_risk_matches = lm_support["risk_friction_terms"]
     lm_opportunity_matches = lm_support["opportunity_commitment_terms"]
     lm_uncertainty_matches = lm_support["uncertainty_hedging_terms"]
+
+    risk_matches, opportunity_matches, uncertainty_matches, suppressed_terms = _filter_generic_context(
+        text=text,
+        risk_matches=list(dict.fromkeys([*risk_matches, *lm_risk_matches])),
+        opportunity_matches=list(dict.fromkeys([*opportunity_matches, *lm_opportunity_matches])),
+        uncertainty_matches=list(dict.fromkeys([*uncertainty_matches, *lm_uncertainty_matches])),
+    )
 
     scores = {
         "risk_friction": (len(risk_matches) * 2) + len(lm_risk_matches),
@@ -193,15 +379,12 @@ def weak_label_signal_family(
     label = "neutral"
     evidence_terms: list[str] = []
     if scores["risk_friction"] > 0 or scores["opportunity_commitment"] > 0 or scores["uncertainty_hedging"] > 0:
-        ordered = sorted(
-            (
-                ("risk_friction", list(dict.fromkeys([*risk_matches, *lm_risk_matches]))),
-                ("opportunity_commitment", list(dict.fromkeys([*opportunity_matches, *lm_opportunity_matches]))),
-                ("uncertainty_hedging", list(dict.fromkeys([*uncertainty_matches, *lm_uncertainty_matches]))),
-            ),
-            key=lambda item: (len(item[1]), item[0] == "risk_friction", item[0] == "uncertainty_hedging"),
-            reverse=True,
+        candidates = (
+            ("risk_friction", risk_matches),
+            ("opportunity_commitment", opportunity_matches),
+            ("uncertainty_hedging", uncertainty_matches),
         )
+        ordered = sorted(candidates, key=lambda item: (scores[item[0]], item[0] == "risk_friction"), reverse=True)
         label, evidence_terms = ordered[0]
 
     reason = {
@@ -210,6 +393,8 @@ def weak_label_signal_family(
         "uncertainty_hedging": "Matched deterministic hedging or visibility-caution terms.",
         "neutral": "No deterministic weak-label terms were matched.",
     }[label]
+    top_score = max(scores.values()) if scores else 0
+    confidence = round(min(0.95, top_score / 6), 4) if top_score else 0.0
     return {
         "label": label,
         "evidence_terms": evidence_terms,
@@ -217,6 +402,10 @@ def weak_label_signal_family(
         "domain": domain,
         "loughran_mcdonald_available": lm_support["available"],
         "loughran_mcdonald_matches": lm_support["matches"],
+        "score_by_label": scores,
+        "confidence": confidence,
+        "suppressed_terms": suppressed_terms,
+        "rule_version": RULE_VERSION,
     }
 
 
