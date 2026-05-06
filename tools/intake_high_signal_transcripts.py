@@ -26,8 +26,17 @@ for path in (SRC, TOOLS):
 
 USER_AGENT = "SignalEngineTranscriptIntake/1.0 (+public transcript research; no paywalled sources)"
 TARGET_TICKERS = (
+    "NVDA",
+    "MSFT",
+    "GOOGL",
+    "AMZN",
+    "META",
+    "AAPL",
     "TSLA",
     "AMD",
+    "ASML",
+    "TSM",
+    "AVGO",
     "CRM",
     "SNOW",
     "HUBS",
@@ -41,8 +50,7 @@ TARGET_TICKERS = (
     "UBER",
     "RBLX",
     "COIN",
-    "ASML",
-    "TSM",
+    "PLTR",
 )
 MARKERS = (
     "operator",
@@ -148,6 +156,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--overwrite", type=parse_bool, nargs="?", const=True, default=False)
     parser.add_argument("--source", default="existing_config", choices=("existing_config", "manual_placeholder"))
+    parser.add_argument("--source-url-file", help="CSV from discover_high_signal_transcript_sources.py with verified public source URLs.")
     parser.add_argument("--min-transcript-chars", type=int, default=5000)
     parser.add_argument("--require-markers", action="store_true")
     parser.add_argument("--sleep-seconds", type=float, default=1.0)
@@ -185,6 +194,36 @@ def load_configured_sources(path: Path | None = None) -> dict[str, SourceCase]:
             source_url=str(raw.get("source_url") or ""),
             notes=str(raw.get("notes") or ""),
         )
+    return result
+
+
+def load_source_url_file(path: Path) -> dict[str, SourceCase]:
+    """Load verified source URLs emitted by high-signal source discovery."""
+    if not path.exists():
+        raise IntakeError(f"source URL file does not exist: {path}")
+    result: dict[str, SourceCase] = {}
+    with path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.DictReader(handle)
+        required = {"case_id", "ticker", "fiscal_year", "quarter", "source_url"}
+        missing = required - set(reader.fieldnames or [])
+        if missing:
+            raise IntakeError(f"source URL file missing required columns: {', '.join(sorted(missing))}")
+        for row in reader:
+            case_id = str(row.get("case_id") or "").strip()
+            source_url = str(row.get("source_url") or "").strip()
+            if not case_id or not source_url:
+                continue
+            status = str(row.get("verification_status") or "verified").strip().lower()
+            if status not in {"", "verified"}:
+                continue
+            result[case_id] = SourceCase(
+                case_id=case_id,
+                ticker=str(row.get("ticker") or "").strip().upper(),
+                fiscal_year=str(row.get("fiscal_year") or row.get("year") or "").strip(),
+                quarter=str(row.get("quarter") or "").strip().upper(),
+                source_url=source_url,
+                notes=str(row.get("notes") or "Verified public source from high-signal source discovery.").strip(),
+            )
     return result
 
 
@@ -634,6 +673,11 @@ def main(argv: list[str] | None = None) -> int:
     tickers = normalize_tickers(args)
     output_root = (ROOT / args.output_root).resolve() if not Path(args.output_root).is_absolute() else Path(args.output_root)
     configured_sources = load_configured_sources()
+    if args.source_url_file:
+        source_url_path = Path(args.source_url_file)
+        if not source_url_path.is_absolute():
+            source_url_path = ROOT / source_url_path
+        configured_sources.update(load_source_url_file(source_url_path))
     planned = plan_cases(
         tickers=tickers,
         years=[str(year) for year in args.years],

@@ -8,7 +8,7 @@ No gold labels are auto-created. Weak labels are suggestions only.
 
 The high-signal expansion set is:
 
-`TSLA`, `AMD`, `CRM`, `SNOW`, `HUBS`, `NOW`, `DDOG`, `NET`, `MDB`, `PANW`, `CRWD`, `SHOP`, `UBER`, `RBLX`, `COIN`, `ASML`, `TSM`.
+`NVDA`, `MSFT`, `GOOGL`, `AMZN`, `META`, `AAPL`, `AMD`, `ASML`, `TSM`, `AVGO`, `CRM`, `SNOW`, `HUBS`, `NOW`, `DDOG`, `NET`, `MDB`, `PANW`, `CRWD`, `TSLA`, `SHOP`, `UBER`, `RBLX`, `COIN`, `PLTR`.
 
 ## Commands
 
@@ -16,7 +16,6 @@ Dry run:
 
 ```bash
 python tools/intake_high_signal_transcripts.py \
-  --tickers TSLA AMD CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD SHOP UBER RBLX COIN ASML TSM \
   --years 2024 2025 2026 \
   --quarters Q1 Q2 Q3 Q4 \
   --output-root data/corpus/high_signal_cases \
@@ -31,6 +30,17 @@ make intake-high-signal-transcripts
 ```
 
 The live command uses configured public sources when available and writes manual-provenance placeholders when no supported public source is configured.
+
+When source discovery has verified public URLs, pass them directly into intake:
+
+```bash
+python tools/intake_high_signal_transcripts.py \
+  --source-url-file data/corpus/high_signal_source_urls.csv \
+  --years 2024 2025 2026 \
+  --quarters Q1 Q2 Q3 Q4 \
+  --output-root data/corpus/high_signal_cases \
+  --max-cases-per-ticker 4
+```
 
 ## Folder Structure
 
