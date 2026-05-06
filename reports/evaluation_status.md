@@ -33,32 +33,32 @@ Evaluation completed with deterministic baseline metrics.
   "metrics_computed": true,
   "message": "",
   "metrics": {
-    "precision": 0.3205,
-    "recall": 0.4499,
-    "f1": 0.3743,
+    "precision": 0.8399,
+    "recall": 0.8326,
+    "f1": 0.8276,
     "per_label": {
       "risk_friction": {
-        "precision": 0.5556,
-        "recall": 0.7692,
-        "f1": 0.6452,
+        "precision": 0.8571,
+        "recall": 0.9231,
+        "f1": 0.8889,
         "support": 13
       },
       "opportunity_commitment": {
-        "precision": 0.4762,
-        "recall": 0.6667,
-        "f1": 0.5556,
+        "precision": 0.6842,
+        "recall": 0.8667,
+        "f1": 0.7647,
         "support": 15
       },
       "uncertainty_hedging": {
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
+        "precision": 1.0,
+        "recall": 0.7222,
+        "f1": 0.8387,
         "support": 18
       },
       "neutral": {
-        "precision": 0.25,
-        "recall": 0.3636,
-        "f1": 0.2963,
+        "precision": 0.8182,
+        "recall": 0.8182,
+        "f1": 0.8182,
         "support": 11
       }
     }
@@ -106,6 +106,12 @@ Evaluation completed with deterministic baseline metrics.
         "label": "risk_friction",
         "prediction": "risk_friction",
         "text": "I'm frustrated that invoice 8842 still shows the wrong total and nobody has confirmed when the credit will post. Please send the update to [EMAIL] or call [PHONE]."
+      },
+      {
+        "id": "risk_support_help_center_001",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "Billing is still reviewing it, so please check the help center article for now while we wait for their response."
       },
       {
         "id": "risk_support_dispute_001",
@@ -180,16 +186,82 @@ Evaluation completed with deterministic baseline metrics.
         "text": "will send named owners this afternoon with a renewal review for next Tuesday."
       },
       {
+        "id": "opp_account_expand_realistic_001",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "we may still expand analytics seats later this quarter."
+      },
+      {
         "id": "opp_account_followthrough_seed_001",
         "label": "opportunity_commitment",
         "prediction": "opportunity_commitment",
         "text": "Thank you for the recovery plan. We appreciate the follow-through and that works for our renewal review."
       },
       {
+        "id": "unc_sales_security_review_001",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "if the security review goes well and the onboarding looks lighter than what we've seen before."
+      },
+      {
+        "id": "unc_account_rollout_condition_001",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "If the rollout stabilizes this quarter"
+      },
+      {
+        "id": "unc_account_expansion_realistic_001",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "so we can decide whether expansion is still realistic."
+      },
+      {
+        "id": "unc_sales_unknown_after_pilot_001",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "I still do not know what happens after the pilot."
+      },
+      {
+        "id": "unc_sales_probably_001",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "We can probably work something out on pricing"
+      },
+      {
+        "id": "unc_sales_details_later_001",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "and I can send more details later once I regroup with the team."
+      },
+      {
+        "id": "unc_support_confusion_seed_001",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "I'm confused about which invoice version is final because the portal and the email summary do not match."
+      },
+      {
         "id": "neut_sales_opening_thanks_001",
         "label": "neutral",
         "prediction": "neutral",
         "text": "Thanks for making time."
+      },
+      {
+        "id": "neut_sales_status_full_001",
+        "label": "neutral",
+        "prediction": "neutral",
+        "text": "For reference, the current status is that procurement is scheduled for next Tuesday and the legal review is still open."
+      },
+      {
+        "id": "neut_sales_status_procurement_001",
+        "label": "neutral",
+        "prediction": "neutral",
+        "text": "the current status is that procurement is scheduled for next Tuesday"
+      },
+      {
+        "id": "neut_account_status_full_001",
+        "label": "neutral",
+        "prediction": "neutral",
+        "text": "Sharing the update from finance: the meeting starts at 09:00 CET and the agenda is attached in the renewal folder."
       },
       {
         "id": "neut_account_status_intro_001",
@@ -204,30 +276,84 @@ Evaluation completed with deterministic baseline metrics.
         "text": "the meeting starts at 09:00 CET"
       },
       {
+        "id": "neut_account_status_agenda_001",
+        "label": "neutral",
+        "prediction": "neutral",
+        "text": "the agenda is attached in the renewal folder."
+      },
+      {
         "id": "neut_sales_acknowledgement_001",
         "label": "neutral",
         "prediction": "neutral",
         "text": "Understood."
+      },
+      {
+        "id": "neut_sales_legal_status_001",
+        "label": "neutral",
+        "prediction": "neutral",
+        "text": "the legal review is still open."
+      },
+      {
+        "id": "guidance_call01_6cf66737f8de",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "For full year 2026 we expect revenue of between 7.182 and 7.198 billion"
+      },
+      {
+        "id": "guidance_call02_9860ae4d461d",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "Yeah, so our guidance is flat."
+      },
+      {
+        "id": "guidance_call03_abac7f32543f",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "Turning to our outlook, I would like to provide some commentaries on factors that will impact our business performance in the first quarter and full year 2026."
+      },
+      {
+        "id": "guidance_call04_eda5eff6ad87",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "we expect a sustained constant currency revenue growth of 5% plus in 2026, and free cash flow to be up about $1 billion year over year, growing high single digits."
+      },
+      {
+        "id": "guidance_call05_fb70e4dc4f3f",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "We expect revenue of 80.65 to 81.75 billion US dollars are growth of 15 to 17%"
+      },
+      {
+        "id": "guidance_call06_6e1c15f19dfe",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "We expect our March quarter total company revenue to grow by 13 to 16% year-over-year"
+      },
+      {
+        "id": "guidance_call07_49e9183290eb",
+        "label": "uncertainty_hedging",
+        "prediction": "uncertainty_hedging",
+        "text": "Total revenue is expected to be 78 billion plus or minus 2%."
+      },
+      {
+        "id": "guidance_call08_864ffeb99f4c",
+        "label": "opportunity_commitment",
+        "prediction": "opportunity_commitment",
+        "text": "As a result, we raised our revenue in earnings for share guides."
+      },
+      {
+        "id": "guidance_call09_42126dfb1bf0",
+        "label": "risk_friction",
+        "prediction": "risk_friction",
+        "text": "that's why we have to just our full year non-gap guidance down for both ebit margin and eps."
       }
     ],
     "failures": [
-      {
-        "id": "risk_support_help_center_001",
-        "label": "risk_friction",
-        "prediction": "uncertainty_hedging",
-        "text": "Billing is still reviewing it, so please check the help center article for now while we wait for their response."
-      },
       {
         "id": "risk_sales_procurement_block_001",
         "label": "risk_friction",
         "prediction": "opportunity_commitment",
         "text": "That feels vague. Without a concrete next step, security packet, and discount range, procurement will not move this week."
-      },
-      {
-        "id": "opp_account_expand_realistic_001",
-        "label": "opportunity_commitment",
-        "prediction": "uncertainty_hedging",
-        "text": "we may still expand analytics seats later this quarter."
       },
       {
         "id": "opp_support_resolution_seed_001",
@@ -248,58 +374,16 @@ Evaluation completed with deterministic baseline metrics.
         "text": "We are still looking into it and someone will reach out later once billing has an update."
       },
       {
-        "id": "unc_sales_security_review_001",
-        "label": "uncertainty_hedging",
-        "prediction": "opportunity_commitment",
-        "text": "if the security review goes well and the onboarding looks lighter than what we've seen before."
-      },
-      {
         "id": "unc_sales_discount_signoff_001",
         "label": "uncertainty_hedging",
         "prediction": "risk_friction",
         "text": "If the discount works and security signs off"
       },
       {
-        "id": "unc_account_rollout_condition_001",
-        "label": "uncertainty_hedging",
-        "prediction": "opportunity_commitment",
-        "text": "If the rollout stabilizes this quarter"
-      },
-      {
-        "id": "unc_account_expansion_realistic_001",
-        "label": "uncertainty_hedging",
-        "prediction": "opportunity_commitment",
-        "text": "so we can decide whether expansion is still realistic."
-      },
-      {
-        "id": "unc_sales_unknown_after_pilot_001",
-        "label": "uncertainty_hedging",
-        "prediction": "opportunity_commitment",
-        "text": "I still do not know what happens after the pilot."
-      },
-      {
-        "id": "unc_sales_probably_001",
-        "label": "uncertainty_hedging",
-        "prediction": "risk_friction",
-        "text": "We can probably work something out on pricing"
-      },
-      {
-        "id": "unc_sales_details_later_001",
-        "label": "uncertainty_hedging",
-        "prediction": "opportunity_commitment",
-        "text": "and I can send more details later once I regroup with the team."
-      },
-      {
         "id": "unc_account_if_recovery_lands_001",
         "label": "uncertainty_hedging",
         "prediction": "opportunity_commitment",
         "text": "If the recovery plan lands and the integrations are fixed"
-      },
-      {
-        "id": "unc_support_confusion_seed_001",
-        "label": "uncertainty_hedging",
-        "prediction": "neutral",
-        "text": "I'm confused about which invoice version is final because the portal and the email summary do not match."
       },
       {
         "id": "unc_sales_confusion_seed_001",
@@ -320,108 +404,19 @@ Evaluation completed with deterministic baseline metrics.
         "text": "Thanks for making time. I can walk through the pilot scope, rollout plan, and how teams usually evaluate the workflow."
       },
       {
-        "id": "neut_sales_status_full_001",
-        "label": "neutral",
-        "prediction": "risk_friction",
-        "text": "For reference, the current status is that procurement is scheduled for next Tuesday and the legal review is still open."
-      },
-      {
-        "id": "neut_sales_status_procurement_001",
-        "label": "neutral",
-        "prediction": "opportunity_commitment",
-        "text": "the current status is that procurement is scheduled for next Tuesday"
-      },
-      {
-        "id": "neut_account_status_full_001",
-        "label": "neutral",
-        "prediction": "risk_friction",
-        "text": "Sharing the update from finance: the meeting starts at 09:00 CET and the agenda is attached in the renewal folder."
-      },
-      {
-        "id": "neut_account_status_agenda_001",
-        "label": "neutral",
-        "prediction": "risk_friction",
-        "text": "the agenda is attached in the renewal folder."
-      },
-      {
         "id": "neut_account_review_schedule_001",
         "label": "neutral",
-        "prediction": "risk_friction",
+        "prediction": "opportunity_commitment",
         "text": "with a renewal review for next Tuesday."
-      },
-      {
-        "id": "neut_sales_legal_status_001",
-        "label": "neutral",
-        "prediction": "risk_friction",
-        "text": "the legal review is still open."
-      },
-      {
-        "id": "guidance_call01_6cf66737f8de",
-        "label": "uncertainty_hedging",
-        "prediction": "neutral",
-        "text": "For full year 2026 we expect revenue of between 7.182 and 7.198 billion"
-      },
-      {
-        "id": "guidance_call02_9860ae4d461d",
-        "label": "opportunity_commitment",
-        "prediction": "neutral",
-        "text": "Yeah, so our guidance is flat."
-      },
-      {
-        "id": "guidance_call03_abac7f32543f",
-        "label": "uncertainty_hedging",
-        "prediction": "neutral",
-        "text": "Turning to our outlook, I would like to provide some commentaries on factors that will impact our business performance in the first quarter and full year 2026."
-      },
-      {
-        "id": "guidance_call04_eda5eff6ad87",
-        "label": "uncertainty_hedging",
-        "prediction": "neutral",
-        "text": "we expect a sustained constant currency revenue growth of 5% plus in 2026, and free cash flow to be up about $1 billion year over year, growing high single digits."
-      },
-      {
-        "id": "guidance_call05_fb70e4dc4f3f",
-        "label": "uncertainty_hedging",
-        "prediction": "neutral",
-        "text": "We expect revenue of 80.65 to 81.75 billion US dollars are growth of 15 to 17%"
-      },
-      {
-        "id": "guidance_call06_6e1c15f19dfe",
-        "label": "uncertainty_hedging",
-        "prediction": "neutral",
-        "text": "We expect our March quarter total company revenue to grow by 13 to 16% year-over-year"
-      },
-      {
-        "id": "guidance_call07_49e9183290eb",
-        "label": "uncertainty_hedging",
-        "prediction": "neutral",
-        "text": "Total revenue is expected to be 78 billion plus or minus 2%."
-      },
-      {
-        "id": "guidance_call08_864ffeb99f4c",
-        "label": "opportunity_commitment",
-        "prediction": "neutral",
-        "text": "As a result, we raised our revenue in earnings for share guides."
-      },
-      {
-        "id": "guidance_call09_42126dfb1bf0",
-        "label": "risk_friction",
-        "prediction": "neutral",
-        "text": "that's why we have to just our full year non-gap guidance down for both ebit margin and eps."
       }
     ]
   },
   "error_patterns": [
     "neutral -> opportunity_commitment: 2",
-    "neutral -> risk_friction: 5",
-    "opportunity_commitment -> neutral: 4",
-    "opportunity_commitment -> uncertainty_hedging: 1",
-    "risk_friction -> neutral: 1",
+    "opportunity_commitment -> neutral: 2",
     "risk_friction -> opportunity_commitment: 1",
-    "risk_friction -> uncertainty_hedging: 1",
-    "uncertainty_hedging -> neutral: 7",
-    "uncertainty_hedging -> opportunity_commitment: 8",
-    "uncertainty_hedging -> risk_friction: 3"
+    "uncertainty_hedging -> opportunity_commitment: 3",
+    "uncertainty_hedging -> risk_friction: 2"
   ]
 }
 ```

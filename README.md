@@ -57,12 +57,14 @@ Known caveats:
 python tools/run_evaluation_loop.py
 python tools/run_next_experiment.py || true
 python tools/run_embedding_benchmark.py || true
+python tools/run_retrieval_benchmark.py || true
 ```
 
 ```bash
 make eval-loop
 make next-experiment
 make embedding-benchmark
+make demo
 ```
 
 Useful registry and research commands:
@@ -105,9 +107,14 @@ python scripts/build_signal_retrieval_index.py
 
 Key docs:
 
+- `docs/case_study.md`
+- `docs/product_one_pager.md`
+- `docs/demo_script.md`
+- `docs/architecture_simple.md`
 - `docs/evaluation/first_50_benchmark_report.md`
 - `reports/next_best_actions.md`
 - `reports/label_import_summary.md`
+- `reports/demo/analyst_report_LLY_2025_Q2_call08.md`
 - `docs/evaluation/source_quality_filtering_plan.md`
 - `docs/pilot-corpus.md`
 - `docs/nlp_assets/README.md`
