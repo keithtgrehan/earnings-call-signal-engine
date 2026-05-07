@@ -3,11 +3,11 @@
 - current_gold_label_count: `57`
 - labels_needed_to_reach_100: `43`
 - labels_needed_to_reach_250: `193`
-- calls_ready_for_review: `6`
+- calls_ready_for_review: `0`
 - calls_needing_transcript_download: `1`
-- review_packet_rows: `74`
-- expected_accepted_labels_if_6_per_ready_call: `36`
-- expected_accepted_labels_if_8_per_ready_call: `48`
+- review_packet_rows: `72`
+- expected_accepted_labels_if_6_per_ready_call: `0`
+- expected_accepted_labels_if_8_per_ready_call: `0`
 
 ## Current Metrics
 

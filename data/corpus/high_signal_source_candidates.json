@@ -1,0 +1,1238 @@
+{
+  "generated_at": "2026-05-07T09:22:15+00:00",
+  "target_calls": 100,
+  "resolved_sources": 0,
+  "missing_sources": 100,
+  "cases": [
+    {
+      "case_id": "NVDA_2026_Q1",
+      "ticker": "NVDA",
+      "company_name": "NVIDIA Corporation",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NVDA_2025_Q4",
+      "ticker": "NVDA",
+      "company_name": "NVIDIA Corporation",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NVDA_2025_Q3",
+      "ticker": "NVDA",
+      "company_name": "NVIDIA Corporation",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NVDA_2025_Q2",
+      "ticker": "NVDA",
+      "company_name": "NVIDIA Corporation",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "MSFT_2026_Q1",
+      "ticker": "MSFT",
+      "company_name": "Microsoft Corporation",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2025/10/29/microsoft-msft-q1-2026-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "Public full transcript HTML; Microsoft official transcript is DOCX, not PDF."
+        },
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2025/10/29/microsoft-msft-q1-2026-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "notes: Public full transcript HTML; Microsoft official transcript is DOCX, not PDF."
+        }
+      ],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "MSFT_2025_Q4",
+      "ticker": "MSFT",
+      "company_name": "Microsoft Corporation",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "MSFT_2025_Q3",
+      "ticker": "MSFT",
+      "company_name": "Microsoft Corporation",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "MSFT_2025_Q2",
+      "ticker": "MSFT",
+      "company_name": "Microsoft Corporation",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "GOOGL_2026_Q1",
+      "ticker": "GOOGL",
+      "company_name": "Alphabet Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "GOOGL_2025_Q4",
+      "ticker": "GOOGL",
+      "company_name": "Alphabet Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [
+        {
+          "source_url": "https://s206.q4cdn.com/479360582/files/doc_events/2026/Feb/04/2025_Q4_Earnings_Transcript.pdf",
+          "source_type": "pdf",
+          "source_domain": "s206.q4cdn.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "Alphabet investor relations PDF transcript."
+        },
+        {
+          "source_url": "https://s206.q4cdn.com/479360582/files/doc_events/2026/Feb/04/2025_Q4_Earnings_Transcript.pdf",
+          "source_type": "pdf",
+          "source_domain": "s206.q4cdn.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "notes: Alphabet investor relations PDF transcript."
+        }
+      ],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "GOOGL_2025_Q3",
+      "ticker": "GOOGL",
+      "company_name": "Alphabet Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "GOOGL_2025_Q2",
+      "ticker": "GOOGL",
+      "company_name": "Alphabet Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AMZN_2026_Q1",
+      "ticker": "AMZN",
+      "company_name": "Amazon.com, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AMZN_2025_Q4",
+      "ticker": "AMZN",
+      "company_name": "Amazon.com, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2026/02/05/amazon-amzn-q4-2025-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "Public full transcript HTML."
+        },
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2026/02/05/amazon-amzn-q4-2025-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "notes: Public full transcript HTML."
+        }
+      ],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AMZN_2025_Q3",
+      "ticker": "AMZN",
+      "company_name": "Amazon.com, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AMZN_2025_Q2",
+      "ticker": "AMZN",
+      "company_name": "Amazon.com, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "META_2026_Q1",
+      "ticker": "META",
+      "company_name": "Meta Platforms, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "META_2025_Q4",
+      "ticker": "META",
+      "company_name": "Meta Platforms, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [
+        {
+          "source_url": "https://s21.q4cdn.com/399680738/files/doc_financials/2025/q4/META-Q4-2025-Earnings-Call-Transcript.pdf",
+          "source_type": "pdf",
+          "source_domain": "s21.q4cdn.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "Investor relations PDF transcript."
+        },
+        {
+          "source_url": "https://s21.q4cdn.com/399680738/files/doc_financials/2025/q4/META-Q4-2025-Earnings-Call-Transcript.pdf",
+          "source_type": "pdf",
+          "source_domain": "s21.q4cdn.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "notes: Investor relations PDF transcript."
+        }
+      ],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "META_2025_Q3",
+      "ticker": "META",
+      "company_name": "Meta Platforms, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "META_2025_Q2",
+      "ticker": "META",
+      "company_name": "Meta Platforms, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AAPL_2026_Q1",
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2026/01/29/apple-aapl-q1-2026-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "Public full transcript HTML."
+        },
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2026/01/29/apple-aapl-q1-2026-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "notes: Public full transcript HTML."
+        }
+      ],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AAPL_2025_Q4",
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AAPL_2025_Q3",
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AAPL_2025_Q2",
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AMD_2026_Q1",
+      "ticker": "AMD",
+      "company_name": "Advanced Micro Devices, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AMD_2025_Q4",
+      "ticker": "AMD",
+      "company_name": "Advanced Micro Devices, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2026/02/03/amd-amd-q4-2025-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "Public full transcript HTML."
+        },
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2026/02/03/amd-amd-q4-2025-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "notes: Public full transcript HTML."
+        }
+      ],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AMD_2025_Q3",
+      "ticker": "AMD",
+      "company_name": "Advanced Micro Devices, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AMD_2025_Q2",
+      "ticker": "AMD",
+      "company_name": "Advanced Micro Devices, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "ASML_2026_Q1",
+      "ticker": "ASML",
+      "company_name": "ASML Holding N.V.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "ASML_2025_Q4",
+      "ticker": "ASML",
+      "company_name": "ASML Holding N.V.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "ASML_2025_Q3",
+      "ticker": "ASML",
+      "company_name": "ASML Holding N.V.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "ASML_2025_Q2",
+      "ticker": "ASML",
+      "company_name": "ASML Holding N.V.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "TSM_2026_Q1",
+      "ticker": "TSM",
+      "company_name": "Taiwan Semiconductor Manufacturing Company Limited",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "TSM_2025_Q4",
+      "ticker": "TSM",
+      "company_name": "Taiwan Semiconductor Manufacturing Company Limited",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "TSM_2025_Q3",
+      "ticker": "TSM",
+      "company_name": "Taiwan Semiconductor Manufacturing Company Limited",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "TSM_2025_Q2",
+      "ticker": "TSM",
+      "company_name": "Taiwan Semiconductor Manufacturing Company Limited",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AVGO_2026_Q1",
+      "ticker": "AVGO",
+      "company_name": "Broadcom Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AVGO_2025_Q4",
+      "ticker": "AVGO",
+      "company_name": "Broadcom Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AVGO_2025_Q3",
+      "ticker": "AVGO",
+      "company_name": "Broadcom Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "AVGO_2025_Q2",
+      "ticker": "AVGO",
+      "company_name": "Broadcom Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "CRM_2026_Q1",
+      "ticker": "CRM",
+      "company_name": "Salesforce, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "CRM_2025_Q4",
+      "ticker": "CRM",
+      "company_name": "Salesforce, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [
+        {
+          "source_url": "https://s205.q4cdn.com/626266368/files/doc_financials/2025/q4/Salesforce_Inc_Q4_2025_Earnings_Call_Feb_26_2025_1.pdf",
+          "source_type": "pdf",
+          "source_domain": "s205.q4cdn.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "Existing configured source from tools/transcript_downloader/sources.yaml."
+        },
+        {
+          "source_url": "https://s205.q4cdn.com/626266368/files/doc_financials/2025/q4/Salesforce_Inc_Q4_2025_Earnings_Call_Feb_26_2025_1.pdf",
+          "source_type": "pdf",
+          "source_domain": "s205.q4cdn.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "notes: Existing configured public source from tools/transcript_downloader/sources.yaml."
+        }
+      ],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "CRM_2025_Q3",
+      "ticker": "CRM",
+      "company_name": "Salesforce, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "CRM_2025_Q2",
+      "ticker": "CRM",
+      "company_name": "Salesforce, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "SNOW_2026_Q1",
+      "ticker": "SNOW",
+      "company_name": "Snowflake Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "SNOW_2025_Q4",
+      "ticker": "SNOW",
+      "company_name": "Snowflake Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [
+        {
+          "source_url": "https://s26.q4cdn.com/463892824/files/doc_financials/2025/q4/CORRECTED-TRANSCRIPT_-Snowflake-Inc-SNOW-US-Q4-2025-Earnings-Call-26-February-2025-5_00-PM-ET.pdf",
+          "source_type": "pdf",
+          "source_domain": "s26.q4cdn.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "Existing configured source from tools/transcript_downloader/sources.yaml."
+        },
+        {
+          "source_url": "https://s26.q4cdn.com/463892824/files/doc_financials/2025/q4/CORRECTED-TRANSCRIPT_-Snowflake-Inc-SNOW-US-Q4-2025-Earnings-Call-26-February-2025-5_00-PM-ET.pdf",
+          "source_type": "pdf",
+          "source_domain": "s26.q4cdn.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "notes: Existing configured public source from tools/transcript_downloader/sources.yaml."
+        }
+      ],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "SNOW_2025_Q3",
+      "ticker": "SNOW",
+      "company_name": "Snowflake Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "SNOW_2025_Q2",
+      "ticker": "SNOW",
+      "company_name": "Snowflake Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "HUBS_2026_Q1",
+      "ticker": "HUBS",
+      "company_name": "HubSpot, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "HUBS_2025_Q4",
+      "ticker": "HUBS",
+      "company_name": "HubSpot, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "HUBS_2025_Q3",
+      "ticker": "HUBS",
+      "company_name": "HubSpot, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "HUBS_2025_Q2",
+      "ticker": "HUBS",
+      "company_name": "HubSpot, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NOW_2026_Q1",
+      "ticker": "NOW",
+      "company_name": "ServiceNow, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NOW_2025_Q4",
+      "ticker": "NOW",
+      "company_name": "ServiceNow, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2026/01/28/servicenow-now-q4-2025-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "Public full transcript HTML."
+        },
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2026/01/28/servicenow-now-q4-2025-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "notes: Public full transcript HTML."
+        }
+      ],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NOW_2025_Q3",
+      "ticker": "NOW",
+      "company_name": "ServiceNow, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NOW_2025_Q2",
+      "ticker": "NOW",
+      "company_name": "ServiceNow, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "DDOG_2026_Q1",
+      "ticker": "DDOG",
+      "company_name": "Datadog, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "DDOG_2025_Q4",
+      "ticker": "DDOG",
+      "company_name": "Datadog, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "DDOG_2025_Q3",
+      "ticker": "DDOG",
+      "company_name": "Datadog, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "DDOG_2025_Q2",
+      "ticker": "DDOG",
+      "company_name": "Datadog, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NET_2026_Q1",
+      "ticker": "NET",
+      "company_name": "Cloudflare, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NET_2025_Q4",
+      "ticker": "NET",
+      "company_name": "Cloudflare, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NET_2025_Q3",
+      "ticker": "NET",
+      "company_name": "Cloudflare, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "NET_2025_Q2",
+      "ticker": "NET",
+      "company_name": "Cloudflare, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "MDB_2026_Q1",
+      "ticker": "MDB",
+      "company_name": "MongoDB, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "MDB_2025_Q4",
+      "ticker": "MDB",
+      "company_name": "MongoDB, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "MDB_2025_Q3",
+      "ticker": "MDB",
+      "company_name": "MongoDB, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "MDB_2025_Q2",
+      "ticker": "MDB",
+      "company_name": "MongoDB, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "PANW_2026_Q1",
+      "ticker": "PANW",
+      "company_name": "Palo Alto Networks, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "PANW_2025_Q4",
+      "ticker": "PANW",
+      "company_name": "Palo Alto Networks, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "PANW_2025_Q3",
+      "ticker": "PANW",
+      "company_name": "Palo Alto Networks, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "PANW_2025_Q2",
+      "ticker": "PANW",
+      "company_name": "Palo Alto Networks, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "CRWD_2026_Q1",
+      "ticker": "CRWD",
+      "company_name": "CrowdStrike Holdings, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "CRWD_2025_Q4",
+      "ticker": "CRWD",
+      "company_name": "CrowdStrike Holdings, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "CRWD_2025_Q3",
+      "ticker": "CRWD",
+      "company_name": "CrowdStrike Holdings, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "CRWD_2025_Q2",
+      "ticker": "CRWD",
+      "company_name": "CrowdStrike Holdings, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "TSLA_2026_Q1",
+      "ticker": "TSLA",
+      "company_name": "Tesla, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "TSLA_2025_Q4",
+      "ticker": "TSLA",
+      "company_name": "Tesla, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2026/01/28/tesla-tsla-q4-2025-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "Public full transcript HTML."
+        },
+        {
+          "source_url": "https://www.fool.com/earnings/call-transcripts/2026/01/28/tesla-tsla-q4-2025-earnings-call-transcript/",
+          "source_type": "html",
+          "source_domain": "fool.com",
+          "confidence": 0.0,
+          "verification_status": "robots_disallowed",
+          "transcript_char_estimate": 0,
+          "matched_markers": [],
+          "rejection_reason": "robots_txt_disallowed",
+          "notes": "notes: Public full transcript HTML."
+        }
+      ],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "TSLA_2025_Q3",
+      "ticker": "TSLA",
+      "company_name": "Tesla, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "TSLA_2025_Q2",
+      "ticker": "TSLA",
+      "company_name": "Tesla, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "SHOP_2026_Q1",
+      "ticker": "SHOP",
+      "company_name": "Shopify Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "SHOP_2025_Q4",
+      "ticker": "SHOP",
+      "company_name": "Shopify Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "SHOP_2025_Q3",
+      "ticker": "SHOP",
+      "company_name": "Shopify Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "SHOP_2025_Q2",
+      "ticker": "SHOP",
+      "company_name": "Shopify Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "UBER_2026_Q1",
+      "ticker": "UBER",
+      "company_name": "Uber Technologies, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "UBER_2025_Q4",
+      "ticker": "UBER",
+      "company_name": "Uber Technologies, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "UBER_2025_Q3",
+      "ticker": "UBER",
+      "company_name": "Uber Technologies, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "UBER_2025_Q2",
+      "ticker": "UBER",
+      "company_name": "Uber Technologies, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "RBLX_2026_Q1",
+      "ticker": "RBLX",
+      "company_name": "Roblox Corporation",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "RBLX_2025_Q4",
+      "ticker": "RBLX",
+      "company_name": "Roblox Corporation",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "RBLX_2025_Q3",
+      "ticker": "RBLX",
+      "company_name": "Roblox Corporation",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "RBLX_2025_Q2",
+      "ticker": "RBLX",
+      "company_name": "Roblox Corporation",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "COIN_2026_Q1",
+      "ticker": "COIN",
+      "company_name": "Coinbase Global, Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "COIN_2025_Q4",
+      "ticker": "COIN",
+      "company_name": "Coinbase Global, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "COIN_2025_Q3",
+      "ticker": "COIN",
+      "company_name": "Coinbase Global, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "COIN_2025_Q2",
+      "ticker": "COIN",
+      "company_name": "Coinbase Global, Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "PLTR_2026_Q1",
+      "ticker": "PLTR",
+      "company_name": "Palantir Technologies Inc.",
+      "fiscal_year": "2026",
+      "quarter": "Q1",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "PLTR_2025_Q4",
+      "ticker": "PLTR",
+      "company_name": "Palantir Technologies Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q4",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "PLTR_2025_Q3",
+      "ticker": "PLTR",
+      "company_name": "Palantir Technologies Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q3",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    },
+    {
+      "case_id": "PLTR_2025_Q2",
+      "ticker": "PLTR",
+      "company_name": "Palantir Technologies Inc.",
+      "fiscal_year": "2025",
+      "quarter": "Q2",
+      "candidates": [],
+      "selected_source_url": "",
+      "selected_reason": ""
+    }
+  ]
+}
