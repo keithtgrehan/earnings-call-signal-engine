@@ -4,6 +4,25 @@ Signal Engine turns long-form business conversations into structured, evidence-b
 
 Signal Engine is an evaluation-ready research/proof repo, not a trading system. The deterministic transcript-first system remains the canonical source of truth. ML, embeddings, retrieval, external datasets, and multimodal assets are optional benchmark layers only.
 
+## Current project state
+
+- Transcript-first earnings-call signal engine.
+- Source discovery and manual-source workflows support legally usable transcripts.
+- Deterministic extraction is canonical.
+- Weak labels are suggestions only.
+- Human review promotes accepted labels.
+- Evaluation reports track precision, recall, and F1.
+- ML and retrieval are benchmark layers, not production claims.
+- Current bottleneck: more reviewed labels and 100-call corpus expansion.
+
+## Portfolio / technical review path
+
+- [PORTFOLIO_README.md](PORTFOLIO_README.md)
+- [docs/portfolio_architecture.md](docs/portfolio_architecture.md)
+- [docs/evaluation_strategy.md](docs/evaluation_strategy.md)
+- [docs/manual_transcript_source_workflow.md](docs/manual_transcript_source_workflow.md)
+- [reports/demo/portfolio_demo_report.md](reports/demo/portfolio_demo_report.md)
+
 ## Quick Demo
 
 ```bash
@@ -26,6 +45,7 @@ Start here for a concise review path:
 - [docs/demo_walkthrough.md](docs/demo_walkthrough.md)
 - [docs/gtm_product_lessons.md](docs/gtm_product_lessons.md)
 - [docs/evaluation_strategy.md](docs/evaluation_strategy.md)
+- [docs/technical_reviewer_brief.md](docs/technical_reviewer_brief.md)
 
 Run the offline portfolio demo:
 
@@ -88,7 +108,7 @@ Known caveats:
 
 ## Human Review Workflow
 
-Weak labels are suggestions only. Keith reviews packet rows manually, marks each row as `accept`, `reject`, or `unclear`, and only accepted rows are promoted into canonical gold labels.
+Weak labels are suggestions only. A human reviewer marks each row as `accept`, `reject`, or `unclear`, and only accepted rows are promoted into canonical gold labels.
 
 ```bash
 make review-priority-labels
@@ -136,6 +156,20 @@ make intake-high-signal-from-discovered-sources
 Discovery rejects paywall, login, captcha, blocked, and robots-disallowed pages. Intake downloads/parses verified public sources, and human review promotes labels later. No transcripts or gold labels are auto-promoted by discovery.
 
 See `docs/high_signal_source_discovery.md`.
+
+## Manual Transcript Source Workflow
+
+When a public transcript page cannot be fetched because of robots or blocking, an operator can manually save a legally usable plaintext transcript and record provenance in `data/corpus/manual_source_template.csv`.
+
+```bash
+make prepare-manual-transcript-sources
+make intake-manual-transcript-files
+make review-after-manual-intake
+```
+
+The workflow requires `public_source_confirmed=true` and nonempty source/license notes before intake. It preserves the original local path in provenance, does not mark the case as web-downloaded, and never auto-promotes weak labels or gold labels.
+
+See `docs/manual_transcript_source_workflow.md`.
 
 ## How To Run
 

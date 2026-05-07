@@ -157,6 +157,9 @@ class SourceCase:
     source_url: str
     company_name: str = ""
     notes: str = ""
+    local_file_path: str = ""
+    source_license_notes: str = ""
+    public_source_confirmed: bool = False
 
 
 @dataclass(frozen=True)
@@ -169,6 +172,9 @@ class PlannedCase:
     source_type: str
     company_name: str = ""
     notes: str = ""
+    local_file_path: str = ""
+    source_license_notes: str = ""
+    public_source_confirmed: bool = False
 
 
 def now_iso() -> str:
@@ -191,6 +197,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--tickers", nargs="*", default=list(TARGET_TICKERS))
     parser.add_argument("--ticker-file")
     parser.add_argument("--source-url-file", help="CSV or JSON file with manual public source URLs.")
+    parser.add_argument("--manual-file-manifest", help="CSV file with validated local plaintext transcript files.")
     parser.add_argument("--latest-calls", type=int, default=4)
     parser.add_argument("--years", nargs="+", default=None, help="Optional discovery years. Defaults to latest plausible years.")
     parser.add_argument("--quarters", nargs="+", default=None, help="Optional discovery quarters. Defaults to Q4..Q1.")
@@ -198,7 +205,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--max-cases-per-ticker", type=int, default=None, help="Backward-compatible alias for --latest-calls.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--overwrite", type=parse_bool, nargs="?", const=True, default=False)
-    parser.add_argument("--source", default="existing_config", choices=("existing_config", "manual_placeholder"))
+    parser.add_argument("--source", default="existing_config", choices=("existing_config", "manual_placeholder", "manual_file_manifest"))
     parser.add_argument("--min-transcript-chars", type=int, default=5000)
     parser.add_argument("--require-markers", action="store_true")
     parser.add_argument("--sleep-seconds", type=float, default=1.0)
@@ -262,6 +269,31 @@ def source_case_from_row(row: dict[str, Any], fallback_id: str = "") -> SourceCa
     )
 
 
+def manual_file_case_from_row(row: dict[str, Any], fallback_id: str = "") -> SourceCase | None:
+    ticker = str(row.get("ticker") or "").strip().upper()
+    local_file_path = str(row.get("local_file_path") or "").strip()
+    if not ticker or not local_file_path:
+        return None
+    fiscal_year = str(row.get("fiscal_year") or row.get("year") or "").strip()
+    quarter = str(row.get("fiscal_quarter") or row.get("quarter") or "").strip().upper()
+    case_id = str(row.get("case_id") or fallback_id or f"{ticker}_{fiscal_year}_{quarter}").strip()
+    source_license_notes = str(row.get("source_license_notes") or "").strip()
+    if not case_id or not fiscal_year or not quarter or not source_license_notes:
+        return None
+    return SourceCase(
+        case_id=case_id,
+        ticker=ticker,
+        fiscal_year=fiscal_year,
+        quarter=quarter,
+        source_url=str(row.get("source_url") or "").strip(),
+        company_name=str(row.get("company_name") or COMPANY_NAMES.get(ticker, "")),
+        notes=str(row.get("notes") or "Validated manual plaintext transcript file."),
+        local_file_path=local_file_path,
+        source_license_notes=source_license_notes,
+        public_source_confirmed=parse_bool(str(row.get("public_source_confirmed") or "false")),
+    )
+
+
 def load_manual_source_urls(path: Path | None) -> dict[str, SourceCase]:
     if path is None:
         return {}
@@ -290,6 +322,20 @@ def load_manual_source_urls(path: Path | None) -> dict[str, SourceCase]:
         source = source_case_from_row(item)
         if source:
             result[source.case_id] = source
+    return result
+
+
+def load_manual_file_manifest(path: Path | None) -> dict[str, SourceCase]:
+    if path is None:
+        return {}
+    if not path.exists():
+        raise IntakeError(f"manual file manifest not found: {path}")
+    result: dict[str, SourceCase] = {}
+    with path.open(newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            source = manual_file_case_from_row(dict(row))
+            if source:
+                result[source.case_id] = source
     return result
 
 
@@ -331,9 +377,12 @@ def plan_cases(
                         fiscal_year=source.fiscal_year,
                         quarter=source.quarter,
                         source_url=source.source_url,
-                        source_type=guess_source_type(source.source_url),
+                        source_type="manual_file" if source.local_file_path else guess_source_type(source.source_url),
                         company_name=source.company_name or COMPANY_NAMES.get(ticker, ""),
                         notes=source.notes or "Configured public source.",
+                        local_file_path=source.local_file_path,
+                        source_license_notes=source.source_license_notes,
+                        public_source_confirmed=source.public_source_confirmed,
                     )
                 )
                 used_case_ids.add(source.case_id)
@@ -557,6 +606,11 @@ def display_path(path: Path) -> str:
         return str(path)
 
 
+def resolve_repo_path(path: str | Path) -> Path:
+    value = Path(path)
+    return value if value.is_absolute() else ROOT / value
+
+
 def build_label_packet(case: PlannedCase, provenance: dict[str, Any], candidates: list[dict[str, Any]]) -> str:
     lines = [
         f"# Human Labeling Packet: {case.case_id}",
@@ -635,7 +689,21 @@ def write_case_outputs(
     raw_source_path = ""
     notes = case.notes
     try:
-        if case.source_url:
+        if case.local_file_path:
+            if not case.public_source_confirmed:
+                raise IntakeError("manual local transcript requires public_source_confirmed=true")
+            if not (case.source_url or case.source_license_notes):
+                raise IntakeError("manual local transcript requires source_url or source_license_notes")
+            local_path = resolve_repo_path(case.local_file_path)
+            if local_path.suffix.lower() not in {".txt", ".md"}:
+                raise IntakeError("manual local transcript files must be plaintext .txt or .md")
+            if not local_path.exists():
+                raise IntakeError(f"manual local transcript file not found: {local_path}")
+            source_type = "manual_file"
+            text = clean_text(local_path.read_text(encoding="utf-8", errors="replace"))
+            transcript_path.write_text(text, encoding="utf-8")
+            raw_source_path = display_path(local_path)
+        elif case.source_url:
             content, content_type = fetch_url(case.source_url, timeout)
             if is_pdf_bytes(case.source_url, content, content_type):
                 source_type = "pdf"
@@ -687,6 +755,10 @@ def write_case_outputs(
         "source_url": case.source_url,
         "source_type": source_type,
         "downloaded_at": now_iso(),
+        "web_downloaded": downloaded,
+        "manual_source_file_path": case.local_file_path,
+        "source_license_notes": case.source_license_notes,
+        "public_source_confirmed": case.public_source_confirmed,
         "raw_transcript_path": display_path(transcript_path) if transcript_path.exists() else "",
         "transcript_char_count": len(text),
         "validation_status": validation_status,
@@ -695,6 +767,8 @@ def write_case_outputs(
     }
     write_json(metadata_dir / "provenance.json", provenance)
     (metadata_dir / "source_url.txt").write_text(case.source_url + "\n" if case.source_url else "manual_required\n", encoding="utf-8")
+    if case.source_license_notes:
+        (metadata_dir / "source_license_notes.txt").write_text(case.source_license_notes + "\n", encoding="utf-8")
     packet_text = build_label_packet(case, provenance, candidates)
     (labels_dir / "human_labeling_packet.md").write_text(packet_text, encoding="utf-8")
     intake_status = {
@@ -704,6 +778,8 @@ def write_case_outputs(
         "review_ready": validation_status == "valid",
         "source_type": source_type,
         "source_url": case.source_url,
+        "web_downloaded": downloaded,
+        "manual_source_file_path": case.local_file_path,
         "quality_flags": quality_flags,
         "raw_source_path": raw_source_path,
         "message": "No gold labels were created. Human review is required before promotion.",
@@ -797,23 +873,51 @@ def dry_run_summary(planned: list[PlannedCase], output_root: Path) -> dict[str, 
     }
 
 
+def planned_cases_from_manual_file_manifest(sources: dict[str, SourceCase]) -> list[PlannedCase]:
+    planned: list[PlannedCase] = []
+    for source in sorted(sources.values(), key=case_sort_key, reverse=True):
+        planned.append(
+            PlannedCase(
+                case_id=source.case_id,
+                ticker=source.ticker,
+                fiscal_year=source.fiscal_year,
+                quarter=source.quarter,
+                source_url=source.source_url,
+                source_type="manual_file",
+                company_name=source.company_name or COMPANY_NAMES.get(source.ticker, ""),
+                notes=source.notes or "Validated manual plaintext transcript file.",
+                local_file_path=source.local_file_path,
+                source_license_notes=source.source_license_notes,
+                public_source_confirmed=source.public_source_confirmed,
+            )
+        )
+    return planned
+
+
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     tickers = normalize_tickers(args)
     output_root = (ROOT / args.output_root).resolve() if not Path(args.output_root).is_absolute() else Path(args.output_root)
-    configured_sources = load_configured_sources()
-    manual_sources = load_manual_source_urls(Path(args.source_url_file) if args.source_url_file else None)
-    configured_sources = {**configured_sources, **manual_sources}
     latest_calls = args.max_cases_per_ticker if args.max_cases_per_ticker is not None else args.latest_calls
     periods = discovery_periods(args)
     rate_limit_seconds = args.rate_limit_seconds if args.rate_limit_seconds is not None else args.sleep_seconds
-    planned = plan_cases(
-        tickers=tickers,
-        periods=periods,
-        configured_sources=configured_sources,
-        latest_calls=latest_calls,
-        source_mode=args.source,
-    )
+    if args.source == "manual_file_manifest" or args.manual_file_manifest:
+        manual_file_sources = load_manual_file_manifest(Path(args.manual_file_manifest) if args.manual_file_manifest else None)
+        planned = planned_cases_from_manual_file_manifest(manual_file_sources)
+        if tickers:
+            requested = set(tickers)
+            planned = [case for case in planned if case.ticker in requested]
+    else:
+        configured_sources = load_configured_sources()
+        manual_sources = load_manual_source_urls(Path(args.source_url_file) if args.source_url_file else None)
+        configured_sources = {**configured_sources, **manual_sources}
+        planned = plan_cases(
+            tickers=tickers,
+            periods=periods,
+            configured_sources=configured_sources,
+            latest_calls=latest_calls,
+            source_mode=args.source,
+        )
     if args.dry_run:
         print(json.dumps(dry_run_summary(planned, output_root), indent=2))
         return 0
@@ -822,6 +926,7 @@ def main(argv: list[str] | None = None) -> int:
     failures = 0
     hard_failures = 0
     downloads = 0
+    manual_file_intakes = 0
     for index, case in enumerate(planned):
         if index and rate_limit_seconds > 0:
             time.sleep(rate_limit_seconds)
@@ -839,8 +944,10 @@ def main(argv: list[str] | None = None) -> int:
                 failures += 1
             if row["status"] == "failed":
                 hard_failures += 1
-            if row["source_url"] and row["has_raw"]:
+            if row["source_url"] and row["has_raw"] and not case.local_file_path:
                 downloads += 1
+            if case.local_file_path and row["has_raw"]:
+                manual_file_intakes += 1
             print(f"{row['status'].upper()} {case.case_id}: review_ready={row['review_ready']} flags={row['quality_flags']}")
         except Exception as exc:
             failures += 1
@@ -870,6 +977,7 @@ def main(argv: list[str] | None = None) -> int:
         "tickers_requested": tickers,
         "cases_discovered": len(planned),
         "cases_downloaded": downloads,
+        "manual_file_intakes": manual_file_intakes,
         "valid_transcripts": valid,
         "warning_or_failed_transcripts": failures,
         "review_ready_packets_created": review_ready,
