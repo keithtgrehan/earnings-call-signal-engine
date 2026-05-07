@@ -5,6 +5,7 @@ Signal Engine 2.0 is a transcript-first evaluation workflow for turning messy bu
 ## What The Demo Shows
 
 - Public transcript/source intake is kept separate from label promotion.
+- Manual-source intake supports legally usable plaintext transcripts when public pages block automated verification.
 - Provenance is preserved before analysis.
 - Deterministic extraction produces reviewable candidate signals.
 - Weak labels remain suggestions until a human reviewer accepts them.
