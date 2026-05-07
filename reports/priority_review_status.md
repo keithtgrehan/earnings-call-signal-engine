@@ -1,35 +1,27 @@
 # Priority Review Status
 
-- packet_rows: `74`
-- ready_priority_1_calls: `6`
+- packet_rows: `72`
+- ready_priority_1_calls: `0`
 - missing_priority_1_transcripts: `1`
-- expected_accepts_if_6_per_ready_call: `36`
-- expected_accepts_if_8_per_ready_call: `48`
+- expected_accepts_if_6_per_ready_call: `0`
+- expected_accepts_if_8_per_ready_call: `0`
 
 ## Rows By Call
 
 - `AAPL_2026_Q1_call06`: 18
-- `AMZN_2025_Q4_watchhold01`: 1
 - `GOOGL_2025_Q4_call03`: 18
-- `MSFT_2026_Q1_holdout04`: 1
 - `NVDA_2026_Q4_call07`: 18
 - `PLTR_2025_Q4_call01`: 18
 
 ## Predicted Label Mix
 
-- `neutral`: 36
-- `opportunity_commitment`: 12
-- `risk_friction`: 12
-- `uncertainty_hedging`: 14
+- `neutral`: 29
+- `opportunity_commitment`: 16
+- `risk_friction`: 15
+- `uncertainty_hedging`: 12
 
 ## Ready Now
 
-- `NVDA_2026_Q4_call07`
-- `AMZN_2025_Q4_watchhold01`
-- `AAPL_2026_Q1_call06`
-- `MSFT_2026_Q1_holdout04`
-- `GOOGL_2025_Q4_call03`
-- `PLTR_2025_Q4_call01`
 
 ## Needs Transcript Download
 
