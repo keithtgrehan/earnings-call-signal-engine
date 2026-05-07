@@ -1,0 +1,5 @@
+case_id,ticker,year,quarter,status,source_url,transcript_chars,has_raw,has_processed,has_packet,review_ready,quality_flags,case_path
+NVDA_2025_Q2,NVDA,2025,Q2,valid,https://www.fool.com/earnings/call-transcripts/2024/08/28/nvidia-nvda-q2-2025-earnings-call-transcript/,53322,True,True,True,True,,data/corpus/high_signal_cases/NVDA_2025_Q2
+NVDA_2025_Q3,NVDA,2025,Q3,valid,https://www.fool.com/earnings/call-transcripts/2024/11/20/nvidia-nvda-q3-2025-earnings-call-transcript/,49799,True,True,True,True,,data/corpus/high_signal_cases/NVDA_2025_Q3
+NVDA_2025_Q4,NVDA,2025,Q4,valid,https://www.fool.com/earnings/call-transcripts/2025/02/26/nvidia-nvda-q4-2025-earnings-call-transcript,47063,True,True,True,True,,data/corpus/high_signal_cases/NVDA_2025_Q4
+NVDA_2026_Q1,NVDA,2026,Q1,valid,https://www.rev.com/transcripts/nvidia-q1-2026-earnings-call,46887,True,True,True,True,,data/corpus/high_signal_cases/NVDA_2026_Q1

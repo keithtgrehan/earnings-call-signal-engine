@@ -1,0 +1,16 @@
+[
+  {
+    "case_id": "NVDA_2025_Q2",
+    "ticker": "NVDA",
+    "year": "2025",
+    "quarter": "Q2",
+    "status": "valid",
+    "source_url": "https://www.fool.com/earnings/call-transcripts/2024/08/28/nvidia-nvda-q2-2025-earnings-call-transcript/",
+    "transcript_chars": 53322,
+    "has_raw": true,
+    "has_processed": true,
+    "has_packet": true,
+    "review_ready": true,
+    "quality_flags": ""
+  }
+]

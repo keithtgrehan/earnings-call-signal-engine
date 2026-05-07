@@ -1,1 +1,2 @@
 case_id,ticker,company_name,fiscal_year,quarter,source_url,local_file_path,source_type,source_license_notes,public_source_confirmed,notes
+NVDA_2025_Q2,NVDA,NVIDIA,2025,Q2,https://www.fool.com/earnings/call-transcripts/2024/08/28/nvidia-nvda-q2-2025-earnings-call-transcript/,data/corpus/manual_sources/NVDA_2025_Q2/raw/transcript.txt,txt,"Public transcript manually saved; no login/paywall used",true,"Manual Tier 1 source"

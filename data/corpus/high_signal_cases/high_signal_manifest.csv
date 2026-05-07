@@ -1,0 +1,2 @@
+case_id,ticker,year,quarter,status,source_url,transcript_chars,has_raw,has_processed,has_packet,review_ready,quality_flags
+NVDA_2025_Q2,NVDA,2025,Q2,valid,https://www.fool.com/earnings/call-transcripts/2024/08/28/nvidia-nvda-q2-2025-earnings-call-transcript/,53322,True,True,True,True,
