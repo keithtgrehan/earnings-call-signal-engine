@@ -1,6 +1,6 @@
 # Manual Source Validation
 
-- generated_at: `2026-05-07T13:50:05+00:00`
+- generated_at: `2026-05-07T14:02:41+00:00`
 - rows_read: `1`
 - url_sources_verified: `0`
 - local_files_verified: `1`
