@@ -45,6 +45,17 @@ make intake-high-signal-transcripts
 
 The live command uses configured public sources and manual source URL files when available. If a source is missing or cannot be downloaded, the tool writes clear failed status/provenance output and exits nonzero. It does not silently skip missing transcripts.
 
+When source discovery has verified public URLs, pass them directly into intake:
+
+```bash
+python tools/intake_high_signal_transcripts.py \
+  --source-url-file data/corpus/high_signal_source_urls.csv \
+  --tickers NVDA MSFT GOOGL AMZN META AAPL AMD ASML TSM AVGO CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD TSLA SHOP UBER RBLX COIN PLTR \
+  --latest-calls 4 \
+  --output-root data/corpus/high_signal_cases \
+  --rate-limit-seconds 3
+```
+
 ## Folder Structure
 
 Each case is organized as:

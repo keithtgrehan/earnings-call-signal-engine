@@ -2,12 +2,11 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-import stat
 import subprocess
 import sys
 
 
-def test_cli_help_mentions_download_only(tmp_path: Path) -> None:
+def test_cli_help_mentions_download_only() -> None:
     repo_root = Path(__file__).resolve().parents[1]
     src_path = repo_root / "src"
 
@@ -17,18 +16,8 @@ def test_cli_help_mentions_download_only(tmp_path: Path) -> None:
         f"{src_path}{os.pathsep}{existing}" if existing else str(src_path)
     )
 
-    shim_dir = tmp_path / "bin"
-    shim_dir.mkdir(parents=True, exist_ok=True)
-    shim = shim_dir / "earnings-call-sentiment"
-    shim.write_text(
-        f'#!/bin/sh\nexec "{sys.executable}" -m earnings_call_sentiment "$@"\n',
-        encoding="utf-8",
-    )
-    shim.chmod(shim.stat().st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
-    env["PATH"] = f"{shim_dir}{os.pathsep}{env.get('PATH', '')}"
-
     proc = subprocess.run(
-        ["earnings-call-sentiment", "--help"],
+        [sys.executable, "-m", "earnings_call_sentiment", "--help"],
         cwd=str(repo_root),
         env=env,
         check=False,

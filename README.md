@@ -106,6 +106,21 @@ python tools/intake_high_signal_transcripts.py \
 
 See `docs/high_signal_transcript_intake.md`.
 
+## High-Signal Source Discovery
+
+Source discovery finds and validates candidate public transcript URLs before intake downloads anything. It writes `data/corpus/high_signal_source_urls.csv` for `tools/intake_high_signal_transcripts.py --source-url-file`, plus auditable candidate evidence in `data/corpus/high_signal_source_candidates.json`.
+
+```bash
+make discover-high-signal-sources-query-only
+# user/API supplies search results or candidate URLs
+make verify-high-signal-sources
+make intake-high-signal-from-discovered-sources
+```
+
+Discovery rejects paywall, login, captcha, blocked, and robots-disallowed pages. Intake downloads/parses verified public sources, and human review promotes labels later. No transcripts or gold labels are auto-promoted by discovery.
+
+See `docs/high_signal_source_discovery.md`.
+
 ## How To Run
 
 ```bash
