@@ -1,0 +1,56 @@
+{
+  "generated_at": "from_committed_reports",
+  "source_reports": [
+    "reports/evaluation_readiness.json",
+    "reports/source_quality_metric_comparison.md",
+    "reports/experiment_results/local_ml_baseline.md",
+    "reports/retrieval_eval.md"
+  ],
+  "gold_labels": 57,
+  "valid_gold_rows_with_text": 57,
+  "label_counts": {
+    "risk_friction": 13,
+    "opportunity_commitment": 15,
+    "uncertainty_hedging": 18,
+    "neutral": 11
+  },
+  "deterministic": {
+    "precision": 0.8399,
+    "recall": 0.8326,
+    "f1": 0.8276,
+    "interpretation": "small mixed-provenance benchmark; deterministic transcript-first output remains canonical"
+  },
+  "human_reviewed_only": {
+    "rows": 12,
+    "precision": 0.6,
+    "recall": 0.6375,
+    "f1": 0.5794
+  },
+  "fixture_excluded": {
+    "rows": 21,
+    "precision": 0.6429,
+    "recall": 0.6833,
+    "f1": 0.646
+  },
+  "tfidf_logistic_regression": {
+    "precision": 0.7332,
+    "recall": 0.7328,
+    "f1": 0.7327,
+    "interpretation": "benchmark-only; no model artifact committed; deterministic remains canonical"
+  },
+  "retrieval": {
+    "status": "skipped",
+    "gold_labels": "57",
+    "backend": "not_run",
+    "recall_at_k": "not_run",
+    "nearest_neighbor_label_agreement": "not_run",
+    "gate": "Embeddings require >=100 gold labels or --enable-retrieval-experiment."
+  },
+  "non_claims": [
+    "no production readiness claim",
+    "no trading-alpha claim",
+    "no statistical-significance claim",
+    "no automated investment advice",
+    "no weak-label auto-promotion"
+  ]
+}
