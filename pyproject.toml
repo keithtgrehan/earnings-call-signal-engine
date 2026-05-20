@@ -96,7 +96,10 @@ visualization = [
   "seaborn",
   "plotly",
 ]
-
+review = [
+  "argilla",
+  "duckdb",
+]
 [project.scripts]
 earnings-call-sentiment = "earnings_call_sentiment.cli:main"
 
