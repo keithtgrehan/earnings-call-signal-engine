@@ -1,0 +1,2 @@
+case_id,ticker,company_name,fiscal_year,quarter,source_url,local_file_path,source_type,source_license_notes,public_source_confirmed,transcript_char_estimate,matched_markers,notes
+MSFT_2025_Q2,MSFT,Microsoft,2025,Q2,https://www.fool.com/earnings/call-transcripts/2025/01/29/microsoft-msft-q2-2025-earnings-call-transcript/,data/corpus/manual_sources/MSFT_2025_Q2/raw/transcript.txt,manual_file,Public transcript manually saved; no login/paywall used,true,54187,operator;question-and-answer;q&a;prepared remarks;analyst;conference call;earnings call,Manual Tier 1 source

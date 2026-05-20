@@ -1,0 +1,11 @@
+case_id,ticker,company_name,fiscal_year,quarter,source_url,source_type,source_domain,notes
+AAPL_2026_Q1,AAPL,Apple Inc.,2026,Q1,https://www.fool.com/earnings/call-transcripts/2026/01/29/apple-aapl-q1-2026-earnings-call-transcript/,html,fool.com,Public full transcript HTML.
+AMD_2025_Q4,AMD,"Advanced Micro Devices, Inc.",2025,Q4,https://www.fool.com/earnings/call-transcripts/2026/02/03/amd-amd-q4-2025-earnings-call-transcript/,html,fool.com,Public full transcript HTML.
+AMZN_2025_Q4,AMZN,"Amazon.com, Inc.",2025,Q4,https://www.fool.com/earnings/call-transcripts/2026/02/05/amazon-amzn-q4-2025-earnings-call-transcript/,html,fool.com,Public full transcript HTML.
+CRM_2025_Q4,CRM,"Salesforce, Inc.",2025,Q4,https://s205.q4cdn.com/626266368/files/doc_financials/2025/q4/Salesforce_Inc_Q4_2025_Earnings_Call_Feb_26_2025_1.pdf,pdf,s205.q4cdn.com,Existing configured public source from tools/transcript_downloader/sources.yaml.
+GOOGL_2025_Q4,GOOGL,Alphabet Inc.,2025,Q4,https://s206.q4cdn.com/479360582/files/doc_events/2026/Feb/04/2025_Q4_Earnings_Transcript.pdf,pdf,s206.q4cdn.com,Alphabet investor relations PDF transcript.
+META_2025_Q4,META,"Meta Platforms, Inc.",2025,Q4,https://s21.q4cdn.com/399680738/files/doc_financials/2025/q4/META-Q4-2025-Earnings-Call-Transcript.pdf,pdf,s21.q4cdn.com,Investor relations PDF transcript.
+MSFT_2026_Q1,MSFT,Microsoft Corporation,2026,Q1,https://www.fool.com/earnings/call-transcripts/2025/10/29/microsoft-msft-q1-2026-earnings-call-transcript/,html,fool.com,"Public full transcript HTML; Microsoft official transcript is DOCX, not PDF."
+NOW_2025_Q4,NOW,"ServiceNow, Inc.",2025,Q4,https://www.fool.com/earnings/call-transcripts/2026/01/28/servicenow-now-q4-2025-earnings-call-transcript/,html,fool.com,Public full transcript HTML.
+SNOW_2025_Q4,SNOW,Snowflake Inc.,2025,Q4,https://s26.q4cdn.com/463892824/files/doc_financials/2025/q4/CORRECTED-TRANSCRIPT_-Snowflake-Inc-SNOW-US-Q4-2025-Earnings-Call-26-February-2025-5_00-PM-ET.pdf,pdf,s26.q4cdn.com,Existing configured public source from tools/transcript_downloader/sources.yaml.
+TSLA_2025_Q4,TSLA,"Tesla, Inc.",2025,Q4,https://www.fool.com/earnings/call-transcripts/2026/01/28/tesla-tsla-q4-2025-earnings-call-transcript/,html,fool.com,Public full transcript HTML.

@@ -1,0 +1,19 @@
+{
+  "case_id": "MSFT_2026_Q1",
+  "ticker": "MSFT",
+  "company_name": "Microsoft",
+  "fiscal_year": "2026",
+  "fiscal_quarter": "Q1",
+  "source_url": "https://www.fool.com/earnings/call-transcripts/2025/10/29/microsoft-msft-q1-2026-earnings-call-transcript/",
+  "source_type": "manual_file",
+  "downloaded_at": "2026-05-07T13:53:32+00:00",
+  "web_downloaded": false,
+  "manual_source_file_path": "data/corpus/manual_sources/MSFT_2026_Q1/raw/transcript.txt",
+  "source_license_notes": "Public transcript manually saved; no login/paywall used",
+  "public_source_confirmed": true,
+  "raw_transcript_path": "data/corpus/high_signal_cases/MSFT_2026_Q1/raw/transcript.txt",
+  "transcript_char_count": 52433,
+  "validation_status": "valid",
+  "quality_flags": [],
+  "notes": "Manual Tier 1 source"
+}

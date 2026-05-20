@@ -8,8 +8,16 @@ CLI := $(VENV)/bin/earnings-call-sentiment
 SMOKE_URL ?= https://www.youtube.com/watch?v=BaW_jenozKc
 SMOKE_OUT := ./_smoke_out
 SMOKE_CACHE := ./_smoke_cache
+HIGH_SIGNAL_SEARCH_RESULTS_FILE ?= data/corpus/high_signal_search_results.csv
+HIGH_SIGNAL_CANDIDATE_URL_FILE ?= data/corpus/high_signal_candidate_urls.csv
+HIGH_SIGNAL_SOURCE_URL_FILE ?= data/corpus/high_signal_source_urls.csv
+MANUAL_SOURCE_TEMPLATE ?= data/corpus/manual_source_template.csv
+MANUAL_TRANSCRIPT_FILE_MANIFEST ?= data/corpus/manual_transcript_file_manifest.csv
+TIERED_TRANSCRIPT_TARGETS ?= data/corpus/tiered_transcript_targets.csv
+TIERED_TRANSCRIPT_DISCOVERY_CONFIG ?= data/corpus/transcript_source_discovery.yaml
+DISCOVERED_TRANSCRIPT_SOURCES ?= data/corpus/discovered_transcript_sources.csv
 
-.PHONY: setup lint smoke clean portfolio-proof docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval
+.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -36,6 +44,9 @@ smoke: setup
 
 portfolio-proof:
 	$(PYTHON) scripts/build_portfolio_proof.py
+
+portfolio-demo:
+	$(PYTHON) tools/build_portfolio_demo.py
 
 docs-audit:
 	$(PYTHON) scripts/audit_portfolio_docs.py
@@ -167,6 +178,63 @@ review-export-gold:
 
 review-eval:
 	$(PYTHON) scripts/review/run_review_evaluation.py
+
+demo:
+	$(PYTHON) tools/run_evaluation_loop.py
+	$(PYTHON) tools/run_next_experiment.py || true
+	$(PYTHON) tools/build_evidence_objects.py
+	$(PYTHON) tools/run_retrieval_benchmark.py || true
+	$(PYTHON) tools/build_demo_artifacts.py
+
+review-priority-labels:
+	$(PYTHON) tools/prepare_priority_review.py
+
+promote-reviewed-priority-labels:
+	$(PYTHON) tools/promote_priority_review.py
+
+eval-after-review:
+	$(PYTHON) tools/promote_priority_review.py
+	$(PYTHON) tools/run_evaluation_loop.py
+	$(PYTHON) tools/filter_gold_labels.py --write-reports
+	$(PYTHON) tools/run_next_experiment.py || true
+	$(PYTHON) tools/run_retrieval_benchmark.py || true
+	$(PYTHON) tools/report_priority_review_validation.py
+
+intake-high-signal-transcripts:
+	$(PYTHON) tools/intake_high_signal_transcripts.py --tickers NVDA MSFT GOOGL AMZN META AAPL AMD ASML TSM AVGO CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD TSLA SHOP UBER RBLX COIN PLTR --latest-calls 4 --output-root data/corpus/high_signal_cases --min-transcript-chars 5000 --require-markers --rate-limit-seconds 3
+
+discover-high-signal-sources-query-only:
+	$(PYTHON) tools/discover_high_signal_transcript_sources.py --query-only
+
+discover-high-signal-sources:
+	$(PYTHON) tools/discover_high_signal_transcript_sources.py --search-results-file $(HIGH_SIGNAL_SEARCH_RESULTS_FILE)
+
+verify-high-signal-sources:
+	$(PYTHON) tools/discover_high_signal_transcript_sources.py --verify-only --source-url-file $(HIGH_SIGNAL_CANDIDATE_URL_FILE)
+
+intake-high-signal-from-discovered-sources:
+	$(PYTHON) tools/intake_high_signal_transcripts.py --source-url-file $(HIGH_SIGNAL_SOURCE_URL_FILE) --tickers NVDA MSFT GOOGL AMZN META AAPL AMD ASML TSM AVGO CRM SNOW HUBS NOW DDOG NET MDB PANW CRWD TSLA SHOP UBER RBLX COIN PLTR --latest-calls 4 --output-root data/corpus/high_signal_cases --min-transcript-chars 5000 --require-markers --rate-limit-seconds 3
+
+prepare-manual-transcript-sources:
+	$(PYTHON) tools/prepare_manual_transcript_sources.py --input-csv $(MANUAL_SOURCE_TEMPLATE) --output-csv $(HIGH_SIGNAL_SOURCE_URL_FILE) --file-manifest $(MANUAL_TRANSCRIPT_FILE_MANIFEST) --report-path reports/manual_source_validation.md --min-transcript-chars 5000 --require-markers
+
+intake-manual-transcript-files:
+	$(PYTHON) tools/intake_high_signal_transcripts.py --source manual_file_manifest --manual-file-manifest $(MANUAL_TRANSCRIPT_FILE_MANIFEST) --output-root data/corpus/high_signal_cases --min-transcript-chars 5000 --require-markers --rate-limit-seconds 0
+
+review-after-manual-intake:
+	$(PYTHON) tools/prepare_priority_review.py
+	$(PYTHON) tools/report_priority_review_validation.py
+
+discover-tiered-transcript-sources:
+	$(PYTHON) tools/discover_transcript_sources.py --targets-csv $(TIERED_TRANSCRIPT_TARGETS) --config $(TIERED_TRANSCRIPT_DISCOVERY_CONFIG) --output-csv $(DISCOVERED_TRANSCRIPT_SOURCES) --report-path reports/transcript_source_discovery.md
+
+acquire-verified-transcripts:
+	$(PYTHON) tools/acquire_verified_transcripts.py --discovered-csv $(DISCOVERED_TRANSCRIPT_SOURCES) --manual-template $(MANUAL_SOURCE_TEMPLATE) --file-manifest $(MANUAL_TRANSCRIPT_FILE_MANIFEST)
+
+check-no-transcript-text-staged:
+	$(PYTHON) tools/check_no_transcript_text_staged.py
+
+acquire-tiered-transcripts: discover-tiered-transcript-sources acquire-verified-transcripts prepare-manual-transcript-sources intake-manual-transcript-files
 
 labeling-ci:
 	$(PYTHON) tools/review_next_batch.py --summary

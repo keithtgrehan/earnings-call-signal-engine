@@ -1,0 +1,2 @@
+case_id,ticker,year,quarter,status,source_url,transcript_chars,has_raw,has_processed,has_packet,review_ready,quality_flags
+MSFT_2025_Q2,MSFT,2025,Q2,valid,https://www.fool.com/earnings/call-transcripts/2025/01/29/microsoft-msft-q2-2025-earnings-call-transcript/,54187,True,True,True,True,

@@ -1,0 +1,19 @@
+{
+  "case_id": "NVDA_2025_Q3",
+  "ticker": "NVDA",
+  "company_name": "NVIDIA",
+  "fiscal_year": "2025",
+  "fiscal_quarter": "Q3",
+  "source_url": "https://www.fool.com/earnings/call-transcripts/2024/11/20/nvidia-nvda-q3-2025-earnings-call-transcript/",
+  "source_type": "manual_file",
+  "downloaded_at": "2026-05-07T13:47:53+00:00",
+  "web_downloaded": false,
+  "manual_source_file_path": "data/corpus/manual_sources/NVDA_2025_Q3/raw/transcript.txt",
+  "source_license_notes": "Public transcript manually saved; no login/paywall used",
+  "public_source_confirmed": true,
+  "raw_transcript_path": "data/corpus/high_signal_cases/NVDA_2025_Q3/raw/transcript.txt",
+  "transcript_char_count": 49799,
+  "validation_status": "valid",
+  "quality_flags": [],
+  "notes": "Manual Tier 1 source"
+}

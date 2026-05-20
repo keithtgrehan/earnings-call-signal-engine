@@ -1,0 +1,16 @@
+[
+  {
+    "case_id": "MSFT_2025_Q2",
+    "ticker": "MSFT",
+    "year": "2025",
+    "quarter": "Q2",
+    "status": "valid",
+    "source_url": "https://www.fool.com/earnings/call-transcripts/2025/01/29/microsoft-msft-q2-2025-earnings-call-transcript/",
+    "transcript_chars": 54187,
+    "has_raw": true,
+    "has_processed": true,
+    "has_packet": true,
+    "review_ready": true,
+    "quality_flags": ""
+  }
+]

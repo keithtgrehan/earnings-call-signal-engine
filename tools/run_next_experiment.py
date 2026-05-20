@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,6 +13,7 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from experiment_common import GOLD_PATH, gate_state, read_jsonl, row_label, valid_gold_rows  # noqa: E402
+from evaluation_quality import deterministic_predictions, precision_recall_f1, provenance_quality, row_text, source_group  # noqa: E402
 
 RESULT_DIR = ROOT / "reports" / "experiment_results"
 
@@ -39,19 +41,124 @@ def local_ml_baseline(rows: list[dict[str, object]]) -> Path:
     try:
         from sklearn.feature_extraction.text import TfidfVectorizer
         from sklearn.linear_model import LogisticRegression
+        from sklearn.metrics import confusion_matrix
+        from sklearn.model_selection import StratifiedKFold, cross_val_predict
+        from sklearn.pipeline import Pipeline
     except Exception as exc:
         return write_result("local_ml_baseline", ["# Local ML Baseline", "", "- status: `skipped`", f"- reason: `{exc}`"])
-    texts = [str(row.get("text") or row.get("evidence_text") or "") for row in rows]
-    labels = [row_label(row) for row in rows]
+
+    deterministic = deterministic_predictions([dict(row) for row in rows])
+    by_id = {str(row["id"]): row for row in deterministic}
+    texts: list[str] = []
+    labels: list[str] = []
+    for row in rows:
+        label = row_label(row)
+        prediction = by_id.get(str(row.get("id") or row.get("candidate_id") or ""))
+        evidence_terms = " ".join(str(term).replace(" ", "_") for term in (prediction or {}).get("evidence_terms", []))
+        deterministic_label = str((prediction or {}).get("deterministic_label") or "unknown")
+        feature_text = " ".join(
+            [
+                row_text(row),
+                f"source_group_{source_group(row)}",
+                f"quality_{provenance_quality(row)}",
+                f"deterministic_{deterministic_label}",
+                evidence_terms,
+            ]
+        )
+        texts.append(feature_text)
+        labels.append(label)
     if len(set(labels)) < 2:
         return write_result("local_ml_baseline", ["# Local ML Baseline", "", "- status: `skipped`", "- reason: `requires at least two classes`"])
-    vectorizer = TfidfVectorizer(max_features=5000)
-    matrix = vectorizer.fit_transform(texts)
-    model = LogisticRegression(max_iter=200, random_state=42)
-    model.fit(matrix, labels)
+    min_support = min(Counter(labels).values())
+    if min_support < 2:
+        return write_result(
+            "local_ml_baseline",
+            ["# Local ML Baseline", "", "- status: `skipped`", "- reason: `every class needs at least two rows for CV`"],
+        )
+    splits = min(5, min_support)
+    pipeline = Pipeline(
+        [
+            ("features", TfidfVectorizer(max_features=5000, ngram_range=(1, 2))),
+            ("model", LogisticRegression(max_iter=500, random_state=42, class_weight="balanced")),
+        ]
+    )
+    cv = StratifiedKFold(n_splits=splits, shuffle=True, random_state=42)
+    predictions = list(cross_val_predict(pipeline, texts, labels, cv=cv))
+    metrics = precision_recall_f1(labels, predictions)
+    label_order = sorted(set(labels))
+    matrix = confusion_matrix(labels, predictions, labels=label_order)
+    deterministic_metrics = precision_recall_f1(
+        [str(row["gold_label"]) for row in deterministic],
+        [str(row["deterministic_label"]) for row in deterministic],
+    )
+    disagreement_rows = []
+    for row, ml_pred, det_pred in zip(rows, predictions, deterministic, strict=False):
+        if ml_pred != det_pred["deterministic_label"]:
+            disagreement_rows.append(
+                {
+                    "id": row.get("id") or row.get("candidate_id") or "",
+                    "gold": row_label(row),
+                    "deterministic": det_pred["deterministic_label"],
+                    "ml": ml_pred,
+                    "text": row_text(row)[:140],
+                }
+            )
+    confusion_lines = []
+    for truth_label, row_values in zip(label_order, matrix.tolist(), strict=False):
+        confusion_lines.append(f"- `{truth_label}`: {dict(zip(label_order, row_values, strict=False))}")
+    report_lines = [
+        "# Deterministic vs ML",
+        "",
+        "This is a benchmark-only comparison. Deterministic Signal Engine output remains canonical.",
+        "",
+        "## Deterministic Metrics",
+        "",
+        "```json",
+        json.dumps(deterministic_metrics, indent=2),
+        "```",
+        "",
+        "## TF-IDF + Logistic Regression Metrics",
+        "",
+        "- status: `completed_cv_benchmark`",
+        f"- rows: `{len(rows)}`",
+        f"- cv_splits: `{splits}`",
+        "```json",
+        json.dumps(metrics, indent=2),
+        "```",
+        "",
+        "## Confusion Matrix Summary",
+        "",
+        *confusion_lines,
+        "",
+        "## Strengths And Tradeoffs",
+        "",
+        "- Deterministic: explainable evidence terms, stable behavior, safe canonical path.",
+        "- ML: useful disagreement finder and sanity-check baseline on the current label set.",
+        "- Tradeoff: ML explanations are weaker and the dataset is far too small for product claims.",
+        "",
+        "## Disagreement Examples",
+        "",
+    ]
+    for item in disagreement_rows[:12]:
+        report_lines.append(
+            f"- `{item['id']}` gold=`{item['gold']}` deterministic=`{item['deterministic']}` ml=`{item['ml']}` text={item['text']}"
+        )
+    (ROOT / "reports" / "deterministic_vs_ml.md").write_text("\n".join(report_lines) + "\n", encoding="utf-8")
     return write_result(
         "local_ml_baseline",
-        ["# Local ML Baseline", "", "- status: `completed_smoke_fit`", f"- rows: `{len(rows)}`", "- note: `benchmark-only; no model artifact committed`"],
+        [
+            "# Local ML Baseline",
+            "",
+            "- status: `completed_cv_benchmark`",
+            f"- rows: `{len(rows)}`",
+            f"- cv_splits: `{splits}`",
+            f"- precision: `{metrics['precision']}`",
+            f"- recall: `{metrics['recall']}`",
+            f"- F1: `{metrics['f1']}`",
+            "- note: `benchmark-only; no model artifact committed; deterministic remains canonical`",
+            "",
+            "See `reports/deterministic_vs_ml.md` for details.",
+        ],
     )
 
 

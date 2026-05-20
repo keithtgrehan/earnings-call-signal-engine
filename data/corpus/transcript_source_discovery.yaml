@@ -1,0 +1,42 @@
+version: 1
+policy:
+  mode: deterministic_reviewable_v1
+  allowed:
+    - approved_url_patterns
+    - company_ir_pages
+    - sec_edgar_references
+    - manually_supplied_urls
+    - imported_search_result_csv_or_json
+    - transcript_manifests
+  disallowed:
+    - uncontrolled_web_crawling
+    - broad_scraping
+    - autonomous_search_engine_traversal
+    - hidden_search_dependencies
+    - paywalled_private_or_gated_sources
+    - llm_assisted_acquisition_or_verification
+source_patterns:
+  - name: investor_domain_events
+    discovery_method: approved_company_ir_pattern
+    enabled: true
+    source_type: html
+    url_template: "https://investor.{company_domain}/events-and-presentations/default.aspx"
+    notes: "Company investor relations events page candidate; no crawling beyond exact URL verification."
+  - name: investor_domain_financials
+    discovery_method: approved_company_ir_pattern
+    enabled: true
+    source_type: html
+    url_template: "https://investor.{company_domain}/financial-info/quarterly-results/default.aspx"
+    notes: "Company investor relations financial results page candidate; no crawling beyond exact URL verification."
+candidate_files:
+  - data/corpus/high_signal_candidate_urls.csv
+  - data/corpus/high_signal_source_urls.csv
+  - data/corpus/manual_source_template.csv
+approved_public_domains:
+  - sec.gov
+  - q4cdn.com
+  - fool.com
+notes:
+  - "Public transcript sites are exact candidate URLs only and must pass robots verification."
+  - "Search-result CSV/JSON imports are treated only as candidate URLs requiring validation."
+  - "V1 does not use live search APIs or autonomous web traversal."

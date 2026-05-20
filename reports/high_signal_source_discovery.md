@@ -1,0 +1,122 @@
+# High-Signal Source Discovery
+
+- generated_at: `2026-05-07T09:22:15+00:00`
+- target_calls: `100`
+- already_resolved: `10`
+- newly_verified: `0`
+- resolved_sources: `0`
+- still_missing: `100`
+- blocked_or_paywalled: `20`
+
+## Top Domains Used
+
+- None yet.
+
+## Manual Review Required
+
+- `NVDA_2026_Q1`: no verified public source selected
+- `NVDA_2025_Q4`: no verified public source selected
+- `NVDA_2025_Q3`: no verified public source selected
+- `NVDA_2025_Q2`: no verified public source selected
+- `MSFT_2026_Q1`: no verified public source selected
+- `MSFT_2025_Q4`: no verified public source selected
+- `MSFT_2025_Q3`: no verified public source selected
+- `MSFT_2025_Q2`: no verified public source selected
+- `GOOGL_2026_Q1`: no verified public source selected
+- `GOOGL_2025_Q4`: no verified public source selected
+- `GOOGL_2025_Q3`: no verified public source selected
+- `GOOGL_2025_Q2`: no verified public source selected
+- `AMZN_2026_Q1`: no verified public source selected
+- `AMZN_2025_Q4`: no verified public source selected
+- `AMZN_2025_Q3`: no verified public source selected
+- `AMZN_2025_Q2`: no verified public source selected
+- `META_2026_Q1`: no verified public source selected
+- `META_2025_Q4`: no verified public source selected
+- `META_2025_Q3`: no verified public source selected
+- `META_2025_Q2`: no verified public source selected
+- `AAPL_2026_Q1`: no verified public source selected
+- `AAPL_2025_Q4`: no verified public source selected
+- `AAPL_2025_Q3`: no verified public source selected
+- `AAPL_2025_Q2`: no verified public source selected
+- `AMD_2026_Q1`: no verified public source selected
+- `AMD_2025_Q4`: no verified public source selected
+- `AMD_2025_Q3`: no verified public source selected
+- `AMD_2025_Q2`: no verified public source selected
+- `ASML_2026_Q1`: no verified public source selected
+- `ASML_2025_Q4`: no verified public source selected
+- `ASML_2025_Q3`: no verified public source selected
+- `ASML_2025_Q2`: no verified public source selected
+- `TSM_2026_Q1`: no verified public source selected
+- `TSM_2025_Q4`: no verified public source selected
+- `TSM_2025_Q3`: no verified public source selected
+- `TSM_2025_Q2`: no verified public source selected
+- `AVGO_2026_Q1`: no verified public source selected
+- `AVGO_2025_Q4`: no verified public source selected
+- `AVGO_2025_Q3`: no verified public source selected
+- `AVGO_2025_Q2`: no verified public source selected
+- `CRM_2026_Q1`: no verified public source selected
+- `CRM_2025_Q4`: no verified public source selected
+- `CRM_2025_Q3`: no verified public source selected
+- `CRM_2025_Q2`: no verified public source selected
+- `SNOW_2026_Q1`: no verified public source selected
+- `SNOW_2025_Q4`: no verified public source selected
+- `SNOW_2025_Q3`: no verified public source selected
+- `SNOW_2025_Q2`: no verified public source selected
+- `HUBS_2026_Q1`: no verified public source selected
+- `HUBS_2025_Q4`: no verified public source selected
+- `HUBS_2025_Q3`: no verified public source selected
+- `HUBS_2025_Q2`: no verified public source selected
+- `NOW_2026_Q1`: no verified public source selected
+- `NOW_2025_Q4`: no verified public source selected
+- `NOW_2025_Q3`: no verified public source selected
+- `NOW_2025_Q2`: no verified public source selected
+- `DDOG_2026_Q1`: no verified public source selected
+- `DDOG_2025_Q4`: no verified public source selected
+- `DDOG_2025_Q3`: no verified public source selected
+- `DDOG_2025_Q2`: no verified public source selected
+- `NET_2026_Q1`: no verified public source selected
+- `NET_2025_Q4`: no verified public source selected
+- `NET_2025_Q3`: no verified public source selected
+- `NET_2025_Q2`: no verified public source selected
+- `MDB_2026_Q1`: no verified public source selected
+- `MDB_2025_Q4`: no verified public source selected
+- `MDB_2025_Q3`: no verified public source selected
+- `MDB_2025_Q2`: no verified public source selected
+- `PANW_2026_Q1`: no verified public source selected
+- `PANW_2025_Q4`: no verified public source selected
+- `PANW_2025_Q3`: no verified public source selected
+- `PANW_2025_Q2`: no verified public source selected
+- `CRWD_2026_Q1`: no verified public source selected
+- `CRWD_2025_Q4`: no verified public source selected
+- `CRWD_2025_Q3`: no verified public source selected
+- `CRWD_2025_Q2`: no verified public source selected
+- `TSLA_2026_Q1`: no verified public source selected
+- `TSLA_2025_Q4`: no verified public source selected
+- `TSLA_2025_Q3`: no verified public source selected
+- `TSLA_2025_Q2`: no verified public source selected
+- `SHOP_2026_Q1`: no verified public source selected
+- `SHOP_2025_Q4`: no verified public source selected
+- `SHOP_2025_Q3`: no verified public source selected
+- `SHOP_2025_Q2`: no verified public source selected
+- `UBER_2026_Q1`: no verified public source selected
+- `UBER_2025_Q4`: no verified public source selected
+- `UBER_2025_Q3`: no verified public source selected
+- `UBER_2025_Q2`: no verified public source selected
+- `RBLX_2026_Q1`: no verified public source selected
+- `RBLX_2025_Q4`: no verified public source selected
+- `RBLX_2025_Q3`: no verified public source selected
+- `RBLX_2025_Q2`: no verified public source selected
+- `COIN_2026_Q1`: no verified public source selected
+- `COIN_2025_Q4`: no verified public source selected
+- `COIN_2025_Q3`: no verified public source selected
+- `COIN_2025_Q2`: no verified public source selected
+- `PLTR_2026_Q1`: no verified public source selected
+- `PLTR_2025_Q4`: no verified public source selected
+- `PLTR_2025_Q3`: no verified public source selected
+- `PLTR_2025_Q2`: no verified public source selected
+
+## Constraints
+
+- Public HTML/PDF/text sources only.
+- Paywall, login, captcha, blocked, and robots-disallowed pages are not silently accepted.
+- No transcripts or gold labels are auto-promoted by this discovery tool.

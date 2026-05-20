@@ -1,7 +1,12 @@
 .venv/
+.env
 __pycache__/
+pycache/
 *.pyc
 .DS_Store
+.pytest_cache/
+.coverage
+htmlcov/
 outputs/
 models/
 !src/earnings_call_sentiment/model_sidecars/models/
@@ -56,10 +61,13 @@ tmp/
 
 # local human-review runtime outputs
 data/review/runtime/
+data/review/
+!data/review/.gitkeep
 data/review/argilla/
 data/review/exports/
 data/review/imports/
 data/review/scratch/
+infra/argilla/volumes/
 *.duckdb
 *.duckdb.wal
 *.sqlite
@@ -84,3 +92,11 @@ tools/transcript_downloader/**/raw/
 tools/transcript_downloader/**/quarantine/
 tools/transcript_downloader/**/transcript.pdf
 tools/transcript_downloader/**/transcript.txt
+
+# high-signal/manual transcript acquisition outputs
+data/corpus/manual_sources/**/raw/transcript.txt
+data/corpus/high_signal_cases/*/raw/transcript.txt
+data/corpus/high_signal_cases/*/processed/transcript_clean.txt
+data/corpus/high_signal_cases/*/processed/transcript_sectioned.json
+data/corpus/high_signal_cases/*/labels/human_labeling_packet.md
+data/corpus/high_signal_cases/*/labels/weak_label_candidates.jsonl
