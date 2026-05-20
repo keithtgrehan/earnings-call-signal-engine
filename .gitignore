@@ -54,6 +54,20 @@ data/external/financial_twitter_sentiment/*
 data/processed/multimodal_engine/mlruns/
 tmp/
 
+# local human-review runtime outputs
+data/review/runtime/
+data/review/argilla/
+data/review/exports/
+data/review/imports/
+data/review/scratch/
+*.duckdb
+*.duckdb.wal
+*.sqlite
+*.sqlite3
+argilla/
+argilla_data/
+reviewer_notes/
+
 # local transcript corpus outputs and bulky source artifacts
 data/research/ilya_reading_list/cache/
 data/nlp_assets/cache/
