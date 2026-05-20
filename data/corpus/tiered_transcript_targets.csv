@@ -1,0 +1,97 @@
+tier,case_id,ticker,company_name,fiscal_year,quarter,priority,notes
+1,NVDA_2026_Q1,NVDA,"NVIDIA Corporation",2026,Q1,P1,Tier 1 deterministic acquisition target
+1,NVDA_2025_Q4,NVDA,"NVIDIA Corporation",2025,Q4,P1,Tier 1 deterministic acquisition target
+1,NVDA_2025_Q3,NVDA,"NVIDIA Corporation",2025,Q3,P1,Tier 1 deterministic acquisition target
+1,NVDA_2025_Q2,NVDA,"NVIDIA Corporation",2025,Q2,P1,Tier 1 deterministic acquisition target
+1,MSFT_2026_Q1,MSFT,"Microsoft Corporation",2026,Q1,P1,Tier 1 deterministic acquisition target
+1,MSFT_2025_Q4,MSFT,"Microsoft Corporation",2025,Q4,P1,Tier 1 deterministic acquisition target
+1,MSFT_2025_Q3,MSFT,"Microsoft Corporation",2025,Q3,P1,Tier 1 deterministic acquisition target
+1,MSFT_2025_Q2,MSFT,"Microsoft Corporation",2025,Q2,P1,Tier 1 deterministic acquisition target
+1,GOOGL_2026_Q1,GOOGL,"Alphabet Inc.",2026,Q1,P1,Tier 1 deterministic acquisition target
+1,GOOGL_2025_Q4,GOOGL,"Alphabet Inc.",2025,Q4,P1,Tier 1 deterministic acquisition target
+1,GOOGL_2025_Q3,GOOGL,"Alphabet Inc.",2025,Q3,P1,Tier 1 deterministic acquisition target
+1,GOOGL_2025_Q2,GOOGL,"Alphabet Inc.",2025,Q2,P1,Tier 1 deterministic acquisition target
+1,AMZN_2026_Q1,AMZN,"Amazon.com, Inc.",2026,Q1,P1,Tier 1 deterministic acquisition target
+1,AMZN_2025_Q4,AMZN,"Amazon.com, Inc.",2025,Q4,P1,Tier 1 deterministic acquisition target
+1,AMZN_2025_Q3,AMZN,"Amazon.com, Inc.",2025,Q3,P1,Tier 1 deterministic acquisition target
+1,AMZN_2025_Q2,AMZN,"Amazon.com, Inc.",2025,Q2,P1,Tier 1 deterministic acquisition target
+1,META_2026_Q1,META,"Meta Platforms, Inc.",2026,Q1,P1,Tier 1 deterministic acquisition target
+1,META_2025_Q4,META,"Meta Platforms, Inc.",2025,Q4,P1,Tier 1 deterministic acquisition target
+1,META_2025_Q3,META,"Meta Platforms, Inc.",2025,Q3,P1,Tier 1 deterministic acquisition target
+1,META_2025_Q2,META,"Meta Platforms, Inc.",2025,Q2,P1,Tier 1 deterministic acquisition target
+1,AAPL_2026_Q1,AAPL,"Apple Inc.",2026,Q1,P1,Tier 1 deterministic acquisition target
+1,AAPL_2025_Q4,AAPL,"Apple Inc.",2025,Q4,P1,Tier 1 deterministic acquisition target
+1,AAPL_2025_Q3,AAPL,"Apple Inc.",2025,Q3,P1,Tier 1 deterministic acquisition target
+1,AAPL_2025_Q2,AAPL,"Apple Inc.",2025,Q2,P1,Tier 1 deterministic acquisition target
+2,AMD_2026_Q1,AMD,"Advanced Micro Devices, Inc.",2026,Q1,P2,Tier 2 deterministic acquisition target
+2,AMD_2025_Q4,AMD,"Advanced Micro Devices, Inc.",2025,Q4,P2,Tier 2 deterministic acquisition target
+2,AMD_2025_Q3,AMD,"Advanced Micro Devices, Inc.",2025,Q3,P2,Tier 2 deterministic acquisition target
+2,AMD_2025_Q2,AMD,"Advanced Micro Devices, Inc.",2025,Q2,P2,Tier 2 deterministic acquisition target
+2,ASML_2026_Q1,ASML,"ASML Holding N.V.",2026,Q1,P2,Tier 2 deterministic acquisition target
+2,ASML_2025_Q4,ASML,"ASML Holding N.V.",2025,Q4,P2,Tier 2 deterministic acquisition target
+2,ASML_2025_Q3,ASML,"ASML Holding N.V.",2025,Q3,P2,Tier 2 deterministic acquisition target
+2,ASML_2025_Q2,ASML,"ASML Holding N.V.",2025,Q2,P2,Tier 2 deterministic acquisition target
+2,TSM_2026_Q1,TSM,"Taiwan Semiconductor Manufacturing Company Limited",2026,Q1,P2,Tier 2 deterministic acquisition target
+2,TSM_2025_Q4,TSM,"Taiwan Semiconductor Manufacturing Company Limited",2025,Q4,P2,Tier 2 deterministic acquisition target
+2,TSM_2025_Q3,TSM,"Taiwan Semiconductor Manufacturing Company Limited",2025,Q3,P2,Tier 2 deterministic acquisition target
+2,TSM_2025_Q2,TSM,"Taiwan Semiconductor Manufacturing Company Limited",2025,Q2,P2,Tier 2 deterministic acquisition target
+2,AVGO_2026_Q1,AVGO,"Broadcom Inc.",2026,Q1,P2,Tier 2 deterministic acquisition target
+2,AVGO_2025_Q4,AVGO,"Broadcom Inc.",2025,Q4,P2,Tier 2 deterministic acquisition target
+2,AVGO_2025_Q3,AVGO,"Broadcom Inc.",2025,Q3,P2,Tier 2 deterministic acquisition target
+2,AVGO_2025_Q2,AVGO,"Broadcom Inc.",2025,Q2,P2,Tier 2 deterministic acquisition target
+2,CRM_2026_Q1,CRM,"Salesforce, Inc.",2026,Q1,P2,Tier 2 deterministic acquisition target
+2,CRM_2025_Q4,CRM,"Salesforce, Inc.",2025,Q4,P2,Tier 2 deterministic acquisition target
+2,CRM_2025_Q3,CRM,"Salesforce, Inc.",2025,Q3,P2,Tier 2 deterministic acquisition target
+2,CRM_2025_Q2,CRM,"Salesforce, Inc.",2025,Q2,P2,Tier 2 deterministic acquisition target
+2,NOW_2026_Q1,NOW,"ServiceNow, Inc.",2026,Q1,P2,Tier 2 deterministic acquisition target
+2,NOW_2025_Q4,NOW,"ServiceNow, Inc.",2025,Q4,P2,Tier 2 deterministic acquisition target
+2,NOW_2025_Q3,NOW,"ServiceNow, Inc.",2025,Q3,P2,Tier 2 deterministic acquisition target
+2,NOW_2025_Q2,NOW,"ServiceNow, Inc.",2025,Q2,P2,Tier 2 deterministic acquisition target
+3,SNOW_2026_Q1,SNOW,"Snowflake Inc.",2026,Q1,P3,Tier 3 deterministic acquisition target
+3,SNOW_2025_Q4,SNOW,"Snowflake Inc.",2025,Q4,P3,Tier 3 deterministic acquisition target
+3,SNOW_2025_Q3,SNOW,"Snowflake Inc.",2025,Q3,P3,Tier 3 deterministic acquisition target
+3,SNOW_2025_Q2,SNOW,"Snowflake Inc.",2025,Q2,P3,Tier 3 deterministic acquisition target
+3,DDOG_2026_Q1,DDOG,"Datadog, Inc.",2026,Q1,P3,Tier 3 deterministic acquisition target
+3,DDOG_2025_Q4,DDOG,"Datadog, Inc.",2025,Q4,P3,Tier 3 deterministic acquisition target
+3,DDOG_2025_Q3,DDOG,"Datadog, Inc.",2025,Q3,P3,Tier 3 deterministic acquisition target
+3,DDOG_2025_Q2,DDOG,"Datadog, Inc.",2025,Q2,P3,Tier 3 deterministic acquisition target
+3,NET_2026_Q1,NET,"Cloudflare, Inc.",2026,Q1,P3,Tier 3 deterministic acquisition target
+3,NET_2025_Q4,NET,"Cloudflare, Inc.",2025,Q4,P3,Tier 3 deterministic acquisition target
+3,NET_2025_Q3,NET,"Cloudflare, Inc.",2025,Q3,P3,Tier 3 deterministic acquisition target
+3,NET_2025_Q2,NET,"Cloudflare, Inc.",2025,Q2,P3,Tier 3 deterministic acquisition target
+3,MDB_2026_Q1,MDB,"MongoDB, Inc.",2026,Q1,P3,Tier 3 deterministic acquisition target
+3,MDB_2025_Q4,MDB,"MongoDB, Inc.",2025,Q4,P3,Tier 3 deterministic acquisition target
+3,MDB_2025_Q3,MDB,"MongoDB, Inc.",2025,Q3,P3,Tier 3 deterministic acquisition target
+3,MDB_2025_Q2,MDB,"MongoDB, Inc.",2025,Q2,P3,Tier 3 deterministic acquisition target
+3,PANW_2026_Q1,PANW,"Palo Alto Networks, Inc.",2026,Q1,P3,Tier 3 deterministic acquisition target
+3,PANW_2025_Q4,PANW,"Palo Alto Networks, Inc.",2025,Q4,P3,Tier 3 deterministic acquisition target
+3,PANW_2025_Q3,PANW,"Palo Alto Networks, Inc.",2025,Q3,P3,Tier 3 deterministic acquisition target
+3,PANW_2025_Q2,PANW,"Palo Alto Networks, Inc.",2025,Q2,P3,Tier 3 deterministic acquisition target
+3,CRWD_2026_Q1,CRWD,"CrowdStrike Holdings, Inc.",2026,Q1,P3,Tier 3 deterministic acquisition target
+3,CRWD_2025_Q4,CRWD,"CrowdStrike Holdings, Inc.",2025,Q4,P3,Tier 3 deterministic acquisition target
+3,CRWD_2025_Q3,CRWD,"CrowdStrike Holdings, Inc.",2025,Q3,P3,Tier 3 deterministic acquisition target
+3,CRWD_2025_Q2,CRWD,"CrowdStrike Holdings, Inc.",2025,Q2,P3,Tier 3 deterministic acquisition target
+4,TSLA_2026_Q1,TSLA,"Tesla, Inc.",2026,Q1,P4,Tier 4 deterministic acquisition target
+4,TSLA_2025_Q4,TSLA,"Tesla, Inc.",2025,Q4,P4,Tier 4 deterministic acquisition target
+4,TSLA_2025_Q3,TSLA,"Tesla, Inc.",2025,Q3,P4,Tier 4 deterministic acquisition target
+4,TSLA_2025_Q2,TSLA,"Tesla, Inc.",2025,Q2,P4,Tier 4 deterministic acquisition target
+4,SHOP_2026_Q1,SHOP,"Shopify Inc.",2026,Q1,P4,Tier 4 deterministic acquisition target
+4,SHOP_2025_Q4,SHOP,"Shopify Inc.",2025,Q4,P4,Tier 4 deterministic acquisition target
+4,SHOP_2025_Q3,SHOP,"Shopify Inc.",2025,Q3,P4,Tier 4 deterministic acquisition target
+4,SHOP_2025_Q2,SHOP,"Shopify Inc.",2025,Q2,P4,Tier 4 deterministic acquisition target
+4,UBER_2026_Q1,UBER,"Uber Technologies, Inc.",2026,Q1,P4,Tier 4 deterministic acquisition target
+4,UBER_2025_Q4,UBER,"Uber Technologies, Inc.",2025,Q4,P4,Tier 4 deterministic acquisition target
+4,UBER_2025_Q3,UBER,"Uber Technologies, Inc.",2025,Q3,P4,Tier 4 deterministic acquisition target
+4,UBER_2025_Q2,UBER,"Uber Technologies, Inc.",2025,Q2,P4,Tier 4 deterministic acquisition target
+4,RBLX_2026_Q1,RBLX,"Roblox Corporation",2026,Q1,P4,Tier 4 deterministic acquisition target
+4,RBLX_2025_Q4,RBLX,"Roblox Corporation",2025,Q4,P4,Tier 4 deterministic acquisition target
+4,RBLX_2025_Q3,RBLX,"Roblox Corporation",2025,Q3,P4,Tier 4 deterministic acquisition target
+4,RBLX_2025_Q2,RBLX,"Roblox Corporation",2025,Q2,P4,Tier 4 deterministic acquisition target
+4,COIN_2026_Q1,COIN,"Coinbase Global, Inc.",2026,Q1,P4,Tier 4 deterministic acquisition target
+4,COIN_2025_Q4,COIN,"Coinbase Global, Inc.",2025,Q4,P4,Tier 4 deterministic acquisition target
+4,COIN_2025_Q3,COIN,"Coinbase Global, Inc.",2025,Q3,P4,Tier 4 deterministic acquisition target
+4,COIN_2025_Q2,COIN,"Coinbase Global, Inc.",2025,Q2,P4,Tier 4 deterministic acquisition target
+4,PLTR_2026_Q1,PLTR,"Palantir Technologies Inc.",2026,Q1,P4,Tier 4 deterministic acquisition target
+4,PLTR_2025_Q4,PLTR,"Palantir Technologies Inc.",2025,Q4,P4,Tier 4 deterministic acquisition target
+4,PLTR_2025_Q3,PLTR,"Palantir Technologies Inc.",2025,Q3,P4,Tier 4 deterministic acquisition target
+4,PLTR_2025_Q2,PLTR,"Palantir Technologies Inc.",2025,Q2,P4,Tier 4 deterministic acquisition target

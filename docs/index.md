@@ -16,6 +16,8 @@
 - [GTM/product lessons](gtm_product_lessons.md)
 - [Evaluation strategy](evaluation_strategy.md)
 - [Manual transcript source workflow](manual_transcript_source_workflow.md)
+- [Tiered transcript acquisition workflow](tiered_transcript_acquisition_workflow.md)
+- [Acquisition quality scoring](acquisition_quality_scoring.md)
 - [Technical reviewer brief](technical_reviewer_brief.md)
 - [High-signal source discovery](high_signal_source_discovery.md)
 - [High-signal transcript intake](high_signal_transcript_intake.md)

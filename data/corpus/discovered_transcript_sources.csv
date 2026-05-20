@@ -1,0 +1,1 @@
+tier,case_id,ticker,company_name,fiscal_year,quarter,priority,source_url,source_domain,source_type,discovery_method,discovered_timestamp,http_status,content_type,estimated_pdf,verification_status,verified_allowed,acquisition_quality_score,acquisition_quality_band,transcript_char_estimate,matched_markers,rejection_reason,notes
