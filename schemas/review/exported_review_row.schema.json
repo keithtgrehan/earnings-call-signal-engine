@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/review/exported_review_row.schema.json",
+  "title": "Exported Review Row",
+  "type": "object",
+  "required": ["id", "fields", "metadata", "suggestions", "responses"],
+  "properties": {
+    "id": {"type": "string"},
+    "fields": {"type": "object"},
+    "metadata": {
+      "type": "object",
+      "required": ["schema_version", "review_id", "provenance_id", "case_id", "signal_type", "evidence_text", "review_status"],
+      "properties": {
+        "schema_version": {"const": "review_schema_v1"},
+        "review_id": {"type": "string"},
+        "provenance_id": {"type": "string"},
+        "case_id": {"type": "string"},
+        "signal_type": {"type": "string"},
+        "evidence_text": {"type": "string"},
+        "review_status": {"type": "string"}
+      }
+    },
+    "suggestions": {"type": "array"},
+    "responses": {"type": "array"}
+  }
+}

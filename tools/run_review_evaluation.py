@@ -15,7 +15,8 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from signal_engine.storage.sqlite_store import init_db  # noqa: E402
+from signal_engine.review_schema import EVALUATOR_SCHEMA_VERSION, classify_evidence_match, clean_text as schema_clean, utc_now  # noqa: E402
+from signal_engine.storage.sqlite_store import init_db, insert_evaluation_run  # noqa: E402
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -33,7 +34,13 @@ def clean(value: Any) -> str:
     return " ".join(str(value or "").split()).strip()
 
 
+def row_payload(row: dict[str, Any]) -> dict[str, Any]:
+    metadata = row.get("metadata")
+    return metadata if isinstance(metadata, dict) else row
+
+
 def row_key(row: dict[str, Any]) -> str:
+    row = row_payload(row)
     for key in ("review_id", "candidate_id", "id"):
         value = clean(row.get(key))
         if value:
@@ -42,6 +49,7 @@ def row_key(row: dict[str, Any]) -> str:
 
 
 def row_signal(row: dict[str, Any]) -> str:
+    row = row_payload(row)
     for key in ("signal_type", "signal_family", "label", "weak_label", "suggested_label"):
         value = clean(row.get(key))
         if value:
@@ -50,6 +58,7 @@ def row_signal(row: dict[str, Any]) -> str:
 
 
 def row_direction(row: dict[str, Any]) -> str:
+    row = row_payload(row)
     for key in ("direction", "predicted_direction", "final_direction", "gold_direction"):
         value = clean(row.get(key))
         if value:
@@ -58,6 +67,7 @@ def row_direction(row: dict[str, Any]) -> str:
 
 
 def row_evidence(row: dict[str, Any]) -> str:
+    row = row_payload(row)
     for key in ("evidence_text", "text", "matched_text", "segment_text"):
         value = clean(row.get(key))
         if value:
@@ -70,6 +80,7 @@ def evaluate(deterministic_rows: list[dict[str, Any]], gold_rows: list[dict[str,
     gold_by_key = {row_key(row): row for row in gold_rows}
     tp = fp = fn = 0
     direction_mismatch = evidence_mismatch = section_mismatch = unresolved_ambiguity = 0
+    mismatch_classes: dict[str, int] = {"none": 0, "exact_mismatch": 0, "partial_mismatch": 0, "transcript_missing": 0, "section_mismatch": 0}
     matched: list[dict[str, str]] = []
 
     for key, prediction in predicted_by_key.items():
@@ -84,9 +95,14 @@ def evaluate(deterministic_rows: list[dict[str, Any]], gold_rows: list[dict[str,
             fn += 1
         if row_direction(prediction) and row_direction(gold) and row_direction(prediction) != row_direction(gold):
             direction_mismatch += 1
-        if row_evidence(prediction) and row_evidence(gold) and row_evidence(prediction) != row_evidence(gold):
+        prediction_payload = row_payload(prediction)
+        gold_payload = row_payload(gold)
+        section_changed = clean(prediction_payload.get("transcript_section")) != clean(gold_payload.get("transcript_section"))
+        mismatch_class = classify_evidence_match(row_evidence(gold), row_evidence(prediction), section_mismatch=section_changed)
+        mismatch_classes[mismatch_class] = mismatch_classes.get(mismatch_class, 0) + 1
+        if mismatch_class != "none":
             evidence_mismatch += 1
-        if clean(prediction.get("transcript_section")) != clean(gold.get("transcript_section")):
+        if section_changed:
             section_mismatch += 1
         if clean(gold.get("reviewer_action")) == "uncertain" or clean(gold.get("review_status")) == "uncertain":
             unresolved_ambiguity += 1
@@ -100,6 +116,8 @@ def evaluate(deterministic_rows: list[dict[str, Any]], gold_rows: list[dict[str,
     recall = tp / (tp + fn) if tp + fn else 0.0
     f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
     return {
+        "schema_version": EVALUATOR_SCHEMA_VERSION,
+        "generated_at": utc_now(),
         "predicted_rows": len(deterministic_rows),
         "gold_rows": len(gold_rows),
         "tp": tp,
@@ -112,6 +130,7 @@ def evaluate(deterministic_rows: list[dict[str, Any]], gold_rows: list[dict[str,
         "evidence_mismatch": evidence_mismatch,
         "section_mismatch": section_mismatch,
         "unresolved_ambiguity": unresolved_ambiguity,
+        "evidence_mismatch_classes": mismatch_classes,
         "matched_examples": matched[:10],
     }
 
@@ -148,25 +167,23 @@ def write_report(path: Path, metrics: dict[str, Any]) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def insert_evaluation_run(db_path: Path, metrics: dict[str, Any], deterministic_path: Path, gold_path: Path, report_path: Path) -> None:
+def persist_evaluation_run(db_path: Path, metrics: dict[str, Any], deterministic_path: Path, gold_path: Path, report_path: Path) -> None:
     connection = init_db(db_path)
-    run_id = "eval_" + hashlib.sha1(json.dumps(metrics, sort_keys=True).encode("utf-8")).hexdigest()[:16]
-    connection.execute(
-        """
-        INSERT OR REPLACE INTO evaluation_runs (
-            run_id, run_type, deterministic_output_path, gold_label_path, metrics_json, report_path, created_at
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-        """,
-        (
-            run_id,
-            "deterministic_vs_gold_review",
-            str(deterministic_path),
-            str(gold_path),
-            json.dumps(metrics, sort_keys=True),
-            str(report_path),
-            datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
-        ),
+    insert_evaluation_run(
+        connection,
+        {
+            "schema_version": EVALUATOR_SCHEMA_VERSION,
+            "run_type": "deterministic_vs_gold_review",
+            "deterministic_output_path": str(deterministic_path),
+            "gold_label_path": str(gold_path),
+            "metrics": metrics,
+            "report_path": str(report_path),
+            "review_count": metrics.get("predicted_rows", 0),
+            "accepted_count": metrics.get("tp", 0),
+            "rejected_count": metrics.get("fp", 0),
+            "uncertain_count": metrics.get("unresolved_ambiguity", 0),
+            "created_at": schema_clean(metrics.get("generated_at")) or datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        },
     )
     connection.commit()
     connection.close()
@@ -187,7 +204,7 @@ def main(argv: list[str] | None = None) -> int:
     report_path = Path(args.report)
     write_report(report_path, metrics)
     try:
-        insert_evaluation_run(Path(args.db_path), metrics, deterministic_path, gold_path, report_path)
+        persist_evaluation_run(Path(args.db_path), metrics, deterministic_path, gold_path, report_path)
     except sqlite3.Error as exc:
         raise SystemExit(f"failed to write evaluation run to SQLite: {exc}") from exc
     print(json.dumps(metrics, indent=2))

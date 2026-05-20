@@ -16,6 +16,17 @@ Deterministic extraction creates candidates. Reviewers create truth. Argilla is 
 
 Do not add private reviewer notes to committed files. Reviewer notes should explain label reasoning, evidence limitations, or ambiguity in a way that can be audited later.
 
+## Lifecycle
+
+- `pending`: candidate created but not assigned or reviewed.
+- `in_review`: reviewer is actively working the row.
+- `accepted`: candidate is correct as shown.
+- `rejected`: candidate should not become gold.
+- `edited`: candidate is usable after bounded correction.
+- `relabeled`: evidence is useful but label changes.
+- `uncertain`: evidence is insufficient.
+- `adjudication_required`: reviewers disagree or the row needs a final decision.
+
 ## Evidence Checklist
 
 - Is the evidence text exact and source-backed?

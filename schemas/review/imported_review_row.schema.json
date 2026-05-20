@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/review/imported_review_row.schema.json",
+  "title": "Imported Canonical Review Row",
+  "type": "object",
+  "required": ["schema_version", "review_id", "provenance_id", "case_id", "signal_type", "evidence_text", "reviewer_action", "reviewer_id", "review_status"],
+  "properties": {
+    "schema_version": {"const": "review_schema_v1"},
+    "review_id": {"type": "string"},
+    "provenance_id": {"type": "string"},
+    "case_id": {"type": "string"},
+    "signal_type": {"type": "string"},
+    "evidence_text": {"type": "string"},
+    "reviewer_action": {"enum": ["accept", "reject", "edit", "relabel", "uncertain"]},
+    "review_status": {"enum": ["pending", "in_review", "accepted", "rejected", "edited", "relabeled", "uncertain", "adjudication_required"]},
+    "reviewer_id": {"type": "string"}
+  }
+}

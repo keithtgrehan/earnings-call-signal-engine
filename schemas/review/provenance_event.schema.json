@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/review/provenance_event.schema.json",
+  "title": "Review Provenance Event",
+  "type": "object",
+  "required": ["schema_version", "provenance_id", "event_type", "created_at"],
+  "properties": {
+    "schema_version": {"const": "provenance_event_v1"},
+    "provenance_id": {"type": "string"},
+    "review_id": {"type": "string"},
+    "case_id": {"type": "string"},
+    "event_type": {"type": "string"},
+    "source_path": {"type": "string"},
+    "source_url": {"type": "string"},
+    "created_at": {"type": "string"},
+    "payload": {"type": "object"}
+  }
+}

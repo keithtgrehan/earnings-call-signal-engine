@@ -11,11 +11,14 @@
 - Local analytics report builder in `tools/build_duckdb_analytics.py`.
 - Reviewer workflow and architecture docs.
 - Five-transcript validation path covering NVDA, META, NFLX, SBUX, and FDX.
+- Local Argilla bootstrap in `scripts/review/bootstrap_argilla.py`.
+- Offline end-to-end dry run in `tools/run_review_pipeline_dryrun.py`.
+- JSON schema artifacts for review exports, imports, evaluator outputs, and provenance events.
 
 ## Scaffolded Only
 
-- Local Argilla startup is documented as a workflow boundary, not bundled as infrastructure.
-- DuckDB analytics are DuckDB-compatible but use a standard-library fallback when DuckDB is not installed.
+- Argilla server startup remains local operator responsibility; the repo bootstraps the dataset but does not ship a server or Docker dependency.
+- DuckDB persistence is operational when the optional `review` extra is installed. Without that extra, markdown/CSV analytics still run and the tool gives install guidance.
 - SQLite stores lifecycle and evaluation history, but no UI depends on it yet.
 
 ## Deferred
@@ -32,9 +35,26 @@
 
 Deterministic extraction remains canonical for candidate generation. Gold labels remain canonical for evaluation. Argilla is only a review interface. Weak labels are never auto-promoted. No LLM review, hidden enrichment, or autonomous decisioning is introduced here.
 
+Canonical truth path:
+
+`deterministic extraction -> review candidate -> reviewed import -> validated gold label`
+
+Only validated `accept`, `edit`, and `relabel` rows with matching terminal states are eligible for gold output.
+
+## Provenance Guarantees
+
+- Exports create manifests with schema version, tool version, row counts, review IDs, and provenance IDs.
+- Imports must reference exported review and provenance IDs.
+- Provenance ID changes fail closed.
+- Transcript paths are checked when present.
+- Evidence spans are classified as `none`, `exact_mismatch`, `partial_mismatch`, `transcript_missing`, or `section_mismatch`.
+- SQLite persists review records, provenance events, gold labels, and evaluation runs.
+
 ## Current Limitations
 
 The review workflow is now technically wired, but deterministic extraction quality is still not fully proven. The benchmark is limited by label volume, label diversity, and reviewer coverage. Metrics should be treated as workflow diagnostics, not production proof.
+
+No statistical significance, production benchmark validity, retrieval quality, or market correlation proof is claimed.
 
 ## Why Human Review Is The Bottleneck
 

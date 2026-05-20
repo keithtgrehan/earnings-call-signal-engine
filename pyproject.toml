@@ -32,6 +32,10 @@ dev = [
   "pytest>=8",
   "ruff",
 ]
+review = [
+  "argilla",
+  "duckdb",
+]
 nlp = [
   "spacy",
   "scikit-learn",

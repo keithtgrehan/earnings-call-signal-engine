@@ -2,7 +2,13 @@
 
 `tools/build_duckdb_analytics.py` creates local review analytics from JSONL/CSV artifacts. It is deterministic and does not call external services.
 
-The script is DuckDB-compatible, but it does not add DuckDB as a required dependency. When the `duckdb` Python package is available, the report records that availability. When it is not installed, the script uses a standard-library fallback and still produces the same markdown summary shape.
+DuckDB is an optional review extra:
+
+```bash
+pip install -e ".[review]"
+```
+
+When the `duckdb` Python package is available, the script creates a local `.duckdb` database and persists summary tables. When it is not installed, the script produces markdown/CSV summaries and prints install guidance if DuckDB is explicitly required.
 
 ## Inputs
 
@@ -14,6 +20,8 @@ The script is DuckDB-compatible, but it does not add DuckDB as a required depend
 ## Outputs
 
 - `reports/duckdb_review_analytics.md`
+- optional `.duckdb` runtime database
+- optional CSV summary
 
 ## Analytics Covered
 
@@ -30,3 +38,5 @@ The script is DuckDB-compatible, but it does not add DuckDB as a required depend
 ## Boundaries
 
 This layer is analytics only. It does not create labels, edit labels, run models, or promote review decisions. It is meant to help reviewers see where deterministic extraction and reviewer guidance need tightening.
+
+Runtime `.duckdb` files are local artifacts and are ignored by git.

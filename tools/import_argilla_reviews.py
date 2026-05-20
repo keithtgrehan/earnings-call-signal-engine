@@ -17,7 +17,10 @@ from signal_engine.review_schema import (  # noqa: E402
     clean_text,
     gold_label_from_review,
     normalize_action,
+    status_for_action,
     validate_canonical_review,
+    validate_export_lineage,
+    validate_transcript_evidence,
 )
 
 
@@ -53,7 +56,7 @@ def response_value(row: dict[str, Any], name: str) -> str:
     return ""
 
 
-def canonical_from_argilla(row: dict[str, Any], *, row_number: int) -> dict[str, Any]:
+def canonical_from_argilla(row: dict[str, Any], *, row_number: int, export_manifest: dict[str, Any] | None = None) -> dict[str, Any]:
     metadata = row.get("metadata") if isinstance(row.get("metadata"), dict) else {}
     fields = row.get("fields") if isinstance(row.get("fields"), dict) else {}
     canonical = {field: metadata.get(field, "") for field in CANONICAL_REVIEW_FIELDS}
@@ -66,8 +69,23 @@ def canonical_from_argilla(row: dict[str, Any], *, row_number: int) -> dict[str,
     canonical["reviewer_action"] = normalize_action(action)
     canonical["reviewer_notes"] = response_value(row, "reviewer_notes") or clean_text(row.get("reviewer_notes")) or clean_text(canonical.get("reviewer_notes"))
     canonical["reviewer_id"] = clean_text(row.get("reviewer_id")) or clean_text(canonical.get("reviewer_id"))
-    canonical["review_status"] = "reviewed"
+    canonical["review_status"] = status_for_action(canonical["reviewer_action"])
     canonical["confidence"] = float(canonical.get("confidence") or 0.0)
+    audit = {
+        "imported_action": canonical["reviewer_action"],
+        "reviewer_id": canonical["reviewer_id"],
+        "source_record_id": clean_text(row.get("id")),
+    }
+    canonical["reviewer_action_audit"] = json.dumps(audit, sort_keys=True)
+    if export_manifest is not None:
+        issues = validate_export_lineage(canonical, export_manifest, row_number=row_number)
+        if issues:
+            rendered = "\n".join(f"row {issue.row_number} `{issue.field}`: {issue.message}" for issue in issues)
+            raise ValueError(rendered)
+    transcript_issues = validate_transcript_evidence(canonical, repo_root=ROOT, row_number=row_number)
+    if transcript_issues and canonical.get("transcript_path"):
+        rendered = "\n".join(f"row {issue.row_number} `{issue.field}`: {issue.message}" for issue in transcript_issues)
+        raise ValueError(rendered)
     issues = validate_canonical_review(canonical, row_number=row_number, require_reviewed=True)
     if issues:
         rendered = "\n".join(f"row {issue.row_number} `{issue.field}`: {issue.message}" for issue in issues)
@@ -75,11 +93,11 @@ def canonical_from_argilla(row: dict[str, Any], *, row_number: int) -> dict[str,
     return canonical
 
 
-def import_reviews(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def import_reviews(rows: list[dict[str, Any]], export_manifest: dict[str, Any] | None = None) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     reviews: list[dict[str, Any]] = []
     gold_labels: list[dict[str, Any]] = []
     for index, row in enumerate(rows, start=1):
-        review = canonical_from_argilla(row, row_number=index)
+        review = canonical_from_argilla(row, row_number=index, export_manifest=export_manifest)
         reviews.append(review)
         gold = gold_label_from_review(review)
         if gold is not None:
@@ -92,14 +110,21 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--input-jsonl", required=True, help="Reviewed Argilla export JSONL.")
     parser.add_argument("--gold-output", default=str(ROOT / "data" / "gold" / "gold_labels.jsonl"))
     parser.add_argument("--review-output", default=str(ROOT / "data" / "review" / "canonical_reviews.jsonl"))
+    parser.add_argument("--export-manifest", default="", help="Manifest emitted by export_argilla_dataset.py. Required for provenance lineage enforcement.")
     parser.add_argument("--append", action="store_true", help="Append valid gold labels to existing output instead of replacing it.")
     args = parser.parse_args(argv)
 
     source = Path(args.input_jsonl)
     if not source.exists():
         raise SystemExit(f"review JSONL not found: {source}")
+    export_manifest = None
+    if args.export_manifest:
+        manifest_path = Path(args.export_manifest)
+        if not manifest_path.exists():
+            raise SystemExit(f"export manifest not found: {manifest_path}")
+        export_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     try:
-        reviews, gold_labels = import_reviews(read_jsonl(source))
+        reviews, gold_labels = import_reviews(read_jsonl(source), export_manifest=export_manifest)
     except ValueError as exc:
         raise SystemExit(f"Argilla review import failed closed:\n{exc}") from exc
 

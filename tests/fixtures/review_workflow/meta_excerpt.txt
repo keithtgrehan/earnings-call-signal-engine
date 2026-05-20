@@ -1,0 +1,3 @@
+Q&A excerpt for deterministic review fixtures only.
+Infrastructure costs remain a headwind while we scale capacity for the next phase.
+This is not a raw transcript body.

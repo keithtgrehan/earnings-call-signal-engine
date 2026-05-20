@@ -14,7 +14,9 @@ if str(SRC) not in sys.path:
 
 from signal_engine.review_schema import (  # noqa: E402
     CANONICAL_REVIEW_FIELDS,
+    build_export_manifest,
     canonical_review_from_signal,
+    validate_transcript_evidence,
     validate_canonical_review,
 )
 
@@ -50,6 +52,7 @@ def argilla_record(review: dict[str, Any]) -> dict[str, Any]:
             "predicted_direction": review["predicted_direction"],
             "source_url": review["source_url"],
             "transcript_path": review["transcript_path"],
+            "evidence_mismatch_class": review["evidence_mismatch_class"],
         },
         "metadata": {field: review[field] for field in CANONICAL_REVIEW_FIELDS},
         "suggestions": [
@@ -69,6 +72,9 @@ def export_reviews(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     issues: list[str] = []
     for index, row in enumerate(rows, start=1):
         review = canonical_review_from_signal(row, row_number=index)
+        row_issues = validate_transcript_evidence(review, repo_root=ROOT, row_number=index)
+        if row_issues and review.get("transcript_path"):
+            issues.extend(f"row {issue.row_number} `{issue.field}`: {issue.message}" for issue in row_issues)
         row_issues = validate_canonical_review(review, row_number=index)
         if row_issues:
             issues.extend(f"row {issue.row_number} `{issue.field}`: {issue.message}" for issue in row_issues)
@@ -83,6 +89,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Export deterministic signal JSONL rows to an Argilla-ready local JSONL dataset.")
     parser.add_argument("--input-jsonl", required=True, help="Deterministic signal output JSONL.")
     parser.add_argument("--output-jsonl", required=True, help="Argilla-ready review JSONL.")
+    parser.add_argument("--manifest-json", default="", help="Optional export manifest JSON path.")
     args = parser.parse_args(argv)
 
     source = Path(args.input_jsonl)
@@ -90,8 +97,14 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit(f"input JSONL not found: {source}")
     rows = read_jsonl(source)
     exported = export_reviews(rows)
-    write_jsonl(Path(args.output_jsonl), exported)
-    print(json.dumps({"input_rows": len(rows), "exported_rows": len(exported), "output": args.output_jsonl}, indent=2))
+    output = Path(args.output_jsonl)
+    write_jsonl(output, exported)
+    manifest_rows = [dict(row["metadata"]) for row in exported]
+    manifest = build_export_manifest(manifest_rows, source_path=str(source), output_path=str(output))
+    manifest_path = Path(args.manifest_json) if args.manifest_json else output.with_suffix(".manifest.json")
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(json.dumps({"input_rows": len(rows), "exported_rows": len(exported), "output": args.output_jsonl, "manifest": str(manifest_path)}, indent=2))
     return 0
 
 

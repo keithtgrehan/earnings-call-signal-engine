@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/review/evaluator_output.schema.json",
+  "title": "Review Evaluator Output",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "predicted_rows", "gold_rows", "tp", "fp", "fn", "precision", "recall", "f1", "evidence_mismatch_classes"],
+  "properties": {
+    "schema_version": {"const": "review_evaluator_v1"},
+    "generated_at": {"type": "string"},
+    "predicted_rows": {"type": "integer"},
+    "gold_rows": {"type": "integer"},
+    "tp": {"type": "integer"},
+    "fp": {"type": "integer"},
+    "fn": {"type": "integer"},
+    "precision": {"type": "number"},
+    "recall": {"type": "number"},
+    "f1": {"type": "number"},
+    "evidence_mismatch_classes": {"type": "object"}
+  }
+}

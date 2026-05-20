@@ -41,6 +41,7 @@ def analytics_payload(reviews: list[dict[str, Any]], gold: list[dict[str, Any]],
     uncertainty = actions.get("uncertain", 0)
     reviewed = sum(count for action, count in actions.items() if action not in {"", "missing"})
     return {
+        "schema_version": "duckdb_review_analytics_v1",
         "review_rows": len(reviews),
         "gold_rows": len(gold),
         "tp": int(metrics.get("tp", 0)),
@@ -57,7 +58,81 @@ def analytics_payload(reviews: list[dict[str, Any]], gold: list[dict[str, Any]],
     }
 
 
-def write_report(path: Path, payload: dict[str, Any], *, duckdb_available: bool) -> None:
+def persist_duckdb(path: Path, payload: dict[str, Any], *, duckdb_module: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    connection = duckdb_module.connect(str(path))
+    try:
+        connection.execute(
+            """
+            CREATE TABLE IF NOT EXISTS evaluation_summary (
+                schema_version VARCHAR,
+                review_rows INTEGER,
+                gold_rows INTEGER,
+                tp INTEGER,
+                fp INTEGER,
+                fn INTEGER,
+                direction_mismatch INTEGER,
+                evidence_mismatch INTEGER,
+                section_mismatch INTEGER,
+                unresolved_ambiguity INTEGER,
+                uncertainty_rate DOUBLE
+            )
+            """
+        )
+        connection.execute("DELETE FROM evaluation_summary")
+        connection.execute(
+            "INSERT INTO evaluation_summary VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (
+                payload["schema_version"],
+                payload["review_rows"],
+                payload["gold_rows"],
+                payload["tp"],
+                payload["fp"],
+                payload["fn"],
+                payload["direction_mismatch"],
+                payload["evidence_mismatch"],
+                payload["section_mismatch"],
+                payload["unresolved_ambiguity"],
+                payload["uncertainty_rate"],
+            ),
+        )
+        connection.execute("CREATE TABLE IF NOT EXISTS review_action_counts (action VARCHAR, count INTEGER)")
+        connection.execute("DELETE FROM review_action_counts")
+        for action, count in payload["review_action_counts"].items():
+            connection.execute("INSERT INTO review_action_counts VALUES (?, ?)", (action, count))
+        connection.execute("CREATE TABLE IF NOT EXISTS reviewer_metrics (reviewer_id VARCHAR, count INTEGER)")
+        connection.execute("DELETE FROM reviewer_metrics")
+        for reviewer, count in payload["reviewer_counts"].items():
+            connection.execute("INSERT INTO reviewer_metrics VALUES (?, ?)", (reviewer, count))
+        connection.execute("CREATE TABLE IF NOT EXISTS section_counts (section VARCHAR, count INTEGER)")
+        connection.execute("DELETE FROM section_counts")
+        for section, count in payload["section_counts"].items():
+            connection.execute("INSERT INTO section_counts VALUES (?, ?)", (section, count))
+    finally:
+        connection.close()
+
+
+def write_csv_summary(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=["metric", "value"])
+        writer.writeheader()
+        for key in (
+            "review_rows",
+            "gold_rows",
+            "tp",
+            "fp",
+            "fn",
+            "direction_mismatch",
+            "evidence_mismatch",
+            "section_mismatch",
+            "unresolved_ambiguity",
+            "uncertainty_rate",
+        ):
+            writer.writerow({"metric": key, "value": payload[key]})
+
+
+def write_report(path: Path, payload: dict[str, Any], *, duckdb_available: bool, duckdb_path: str = "", csv_output: str = "") -> None:
     lines = [
         "# DuckDB Review Analytics",
         "",
@@ -65,6 +140,8 @@ def write_report(path: Path, payload: dict[str, Any], *, duckdb_available: bool)
         "It remains deterministic and reads JSONL/CSV artifacts directly.",
         "",
         f"- duckdb_available: `{duckdb_available}`",
+        f"- duckdb_path: `{duckdb_path or 'not_created'}`",
+        f"- csv_summary: `{csv_output or 'not_written'}`",
         f"- review_rows: `{payload['review_rows']}`",
         f"- gold_rows: `{payload['gold_rows']}`",
         f"- TP / FP / FN: `{payload['tp']} / {payload['fp']} / {payload['fn']}`",
@@ -99,6 +176,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--metrics-json", default="reports/review_evaluation_metrics.json")
     parser.add_argument("--output", default="reports/duckdb_review_analytics.md")
     parser.add_argument("--review-csv", default="", help="Optional CSV review rows to include in action counts.")
+    parser.add_argument("--duckdb-path", default="data/review/runtime/review_analytics.duckdb")
+    parser.add_argument("--csv-output", default="")
+    parser.add_argument("--require-duckdb", action="store_true", help="Fail if the optional duckdb dependency is not installed.")
     args = parser.parse_args(argv)
 
     duckdb = load_optional_duckdb()
@@ -111,7 +191,16 @@ def main(argv: list[str] | None = None) -> int:
     if metrics_path.exists():
         metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
     payload = analytics_payload(reviews, gold, metrics)
-    write_report(Path(args.output), payload, duckdb_available=duckdb is not None)
+    duckdb_path = ""
+    if duckdb is not None:
+        persist_duckdb(Path(args.duckdb_path), payload, duckdb_module=duckdb)
+        duckdb_path = args.duckdb_path
+    elif args.require_duckdb:
+        raise SystemExit("duckdb is not installed. Install review extras with: pip install -e \".[review]\"")
+    csv_output = args.csv_output
+    if csv_output:
+        write_csv_summary(Path(csv_output), payload)
+    write_report(Path(args.output), payload, duckdb_available=duckdb is not None, duckdb_path=duckdb_path, csv_output=csv_output)
     print(json.dumps(payload, indent=2))
     return 0
 

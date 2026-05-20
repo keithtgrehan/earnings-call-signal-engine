@@ -70,3 +70,22 @@ tools/transcript_downloader/**/raw/
 tools/transcript_downloader/**/quarantine/
 tools/transcript_downloader/**/transcript.pdf
 tools/transcript_downloader/**/transcript.txt
+
+# local review workflow runtime artifacts
+.argilla/
+argilla/
+argilla-data/
+data/review/runtime/
+data/review/*.db
+data/review/*.sqlite
+data/review/*.sqlite3
+data/review/*.duckdb
+data/review/argilla_export*.jsonl
+data/review/argilla_reviewed*.jsonl
+data/review/canonical_reviews*.jsonl
+reports/review_runtime/
+reports/duckdb_review_analytics*.csv
+reports/review_evaluation*.json
+reports/review_evaluation*.md
+reviewer_notes*
+reviewer_scratch*
