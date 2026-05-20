@@ -89,3 +89,4 @@ reports/review_evaluation*.json
 reports/review_evaluation*.md
 reviewer_notes*
 reviewer_scratch*
+.venv/
