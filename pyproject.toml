@@ -102,6 +102,7 @@ review = [
 ]
 [project.scripts]
 earnings-call-sentiment = "earnings_call_sentiment.cli:main"
+gold-review-queue = "signal_engine.review_queue.build:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

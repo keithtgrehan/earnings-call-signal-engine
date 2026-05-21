@@ -17,7 +17,7 @@ TIERED_TRANSCRIPT_TARGETS ?= data/corpus/tiered_transcript_targets.csv
 TIERED_TRANSCRIPT_DISCOVERY_CONFIG ?= data/corpus/transcript_source_discovery.yaml
 DISCOVERED_TRANSCRIPT_SOURCES ?= data/corpus/discovered_transcript_sources.csv
 
-.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval
+.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -224,6 +224,12 @@ intake-manual-transcript-files:
 review-after-manual-intake:
 	$(PYTHON) tools/prepare_priority_review.py
 	$(PYTHON) tools/report_priority_review_validation.py
+
+gold-review-queue:
+	PYTHONPATH=src $(PYTHON) -m signal_engine.review_queue.build \
+		--packets 'data/corpus/high_signal_cases/*/labels/human_labeling_packet.md' \
+		--transcripts data/corpus/high_signal_cases \
+		--out artifacts/gold_review
 
 discover-tiered-transcript-sources:
 	$(PYTHON) tools/discover_transcript_sources.py --targets-csv $(TIERED_TRANSCRIPT_TARGETS) --config $(TIERED_TRANSCRIPT_DISCOVERY_CONFIG) --output-csv $(DISCOVERED_TRANSCRIPT_SOURCES) --report-path reports/transcript_source_discovery.md
