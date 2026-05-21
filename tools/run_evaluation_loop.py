@@ -113,7 +113,7 @@ def write_benchmark_report(rows: list[dict[str, object]], payload: dict[str, obj
             "",
             "## Metric Interpretation",
             "",
-            "The current deterministic baseline has higher recall than precision. In practical terms, the system is currently better at finding candidate signals than at avoiding false positives, so the next useful improvement target is precision.",
+            "The current deterministic baseline is balanced on this small benchmark, with precision and recall both near the reported aggregate values. The next useful improvement target is validating whether this balance holds on human-reviewed-only and fixture-excluded subsets.",
             "",
             "This is a measurable baseline, not product proof. The numbers are useful for tracking whether deterministic rule changes make the system better or worse against the current gold set.",
             "",
@@ -126,7 +126,7 @@ def write_benchmark_report(rows: list[dict[str, object]], payload: dict[str, obj
             "",
             "## Next Improvement Target",
             "",
-            "Improve precision by reducing false positives while preserving the useful recall on `risk_friction` and `opportunity_commitment`.",
+            "Validate the metric profile on higher-quality human-reviewed subsets, then reduce any remaining false positives without weakening useful recall on `risk_friction` and `opportunity_commitment`.",
             "",
             "## ML Baseline Comparison",
             "",
@@ -137,8 +137,8 @@ def write_benchmark_report(rows: list[dict[str, object]], payload: dict[str, obj
             [
                 "- `tools/run_next_experiment.py` selected `local_ml_baseline` because the gold set has enough valid labels.",
                 "- Result artifact: `reports/experiment_results/local_ml_baseline.md`",
-                "- Status: see the experiment artifact for the latest smoke-fit result.",
-                "- This is a benchmark-only smoke fit; no model artifact is committed and it does not override deterministic outputs.",
+                "- Status: see the experiment artifact for the latest cross-validation benchmark.",
+                "- This is a benchmark-only comparison; no model artifact is committed and it does not override deterministic outputs.",
             ]
         )
     else:

@@ -13,8 +13,11 @@ HIGH_SIGNAL_CANDIDATE_URL_FILE ?= data/corpus/high_signal_candidate_urls.csv
 HIGH_SIGNAL_SOURCE_URL_FILE ?= data/corpus/high_signal_source_urls.csv
 MANUAL_SOURCE_TEMPLATE ?= data/corpus/manual_source_template.csv
 MANUAL_TRANSCRIPT_FILE_MANIFEST ?= data/corpus/manual_transcript_file_manifest.csv
+TIERED_TRANSCRIPT_TARGETS ?= data/corpus/tiered_transcript_targets.csv
+TIERED_TRANSCRIPT_DISCOVERY_CONFIG ?= data/corpus/transcript_source_discovery.yaml
+DISCOVERED_TRANSCRIPT_SOURCES ?= data/corpus/discovered_transcript_sources.csv
 
-.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake gold-review-queue
+.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -156,6 +159,26 @@ report-readiness:
 	$(PYTHON) tools/report_evaluation_readiness.py
 	$(PYTHON) tools/run_evaluation_loop.py
 
+review-bootstrap:
+	$(PYTHON) scripts/review/bootstrap_argilla.py
+
+review-load-transcripts:
+	$(PYTHON) scripts/review/load_transcripts.py --dry-run
+
+review-upload-suggestions:
+	$(PYTHON) scripts/review/upload_suggestions.py
+
+review-build-queue:
+	$(PYTHON) scripts/review/build_review_queue.py
+
+review-export-gold:
+	@echo "Set REVIEWED_JSONL=/path/to/reviewed.jsonl to export reviewed Argilla records."
+	@test -n "$(REVIEWED_JSONL)" || exit 2
+	$(PYTHON) scripts/review/export_gold_labels.py --reviewed "$(REVIEWED_JSONL)"
+
+review-eval:
+	$(PYTHON) scripts/review/run_review_evaluation.py
+
 demo:
 	$(PYTHON) tools/run_evaluation_loop.py
 	$(PYTHON) tools/run_next_experiment.py || true
@@ -207,6 +230,17 @@ gold-review-queue:
 		--packets 'data/corpus/high_signal_cases/*/labels/human_labeling_packet.md' \
 		--transcripts data/corpus/high_signal_cases \
 		--out artifacts/gold_review
+
+discover-tiered-transcript-sources:
+	$(PYTHON) tools/discover_transcript_sources.py --targets-csv $(TIERED_TRANSCRIPT_TARGETS) --config $(TIERED_TRANSCRIPT_DISCOVERY_CONFIG) --output-csv $(DISCOVERED_TRANSCRIPT_SOURCES) --report-path reports/transcript_source_discovery.md
+
+acquire-verified-transcripts:
+	$(PYTHON) tools/acquire_verified_transcripts.py --discovered-csv $(DISCOVERED_TRANSCRIPT_SOURCES) --manual-template $(MANUAL_SOURCE_TEMPLATE) --file-manifest $(MANUAL_TRANSCRIPT_FILE_MANIFEST)
+
+check-no-transcript-text-staged:
+	$(PYTHON) tools/check_no_transcript_text_staged.py
+
+acquire-tiered-transcripts: discover-tiered-transcript-sources acquire-verified-transcripts prepare-manual-transcript-sources intake-manual-transcript-files
 
 labeling-ci:
 	$(PYTHON) tools/review_next_batch.py --summary
