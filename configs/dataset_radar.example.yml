@@ -1,0 +1,51 @@
+radar_version: dataset_radar_v1
+resources:
+  - name: SEC EDGAR Companyfacts
+    status: scaffolded
+    source_type: sec_edgar
+    rights_tier: public_domain
+    expected_value: event metadata and public filing facts
+    implementation_cost: low
+    recommendation: use metadata first with fair-access rules
+  - name: Official company IR transcripts
+    status: gated
+    source_type: company_ir
+    rights_tier: official_public_terms_checked
+    expected_value: best transcript-first source when terms permit
+    implementation_cost: medium
+    recommendation: require per-company terms and provenance before raw storage
+  - name: FRED macro series
+    status: scaffolded
+    source_type: macro_fred
+    rights_tier: official_public_terms_checked
+    expected_value: macro context for event-study cases
+    implementation_cost: low
+    recommendation: check series-level terms before storing values
+  - name: External finance sentiment datasets
+    status: benchmark_only
+    source_type: external_dataset
+    rights_tier: open_licensed
+    expected_value: comparator baselines
+    implementation_cost: medium
+    recommendation: never merge external rows into gold labels
+  - name: Restricted transcript vendors
+    status: blocked
+    source_type: transcript_vendor
+    rights_tier: restricted
+    expected_value: none unless licensed explicitly
+    implementation_cost: high
+    recommendation: do not copy, commit, train on, or evaluate against raw bodies
+  - name: YouTube webcast metadata
+    status: metadata_only
+    source_type: youtube_metadata
+    rights_tier: publicly_available
+    expected_value: manual review planning and source reference
+    implementation_cost: low
+    recommendation: register metadata only; block raw audio/video download unless explicitly authorized
+  - name: Licensed vendor placeholder
+    status: blocked
+    source_type: licensed_vendor
+    rights_tier: restricted
+    expected_value: contractual source reference only
+    implementation_cost: high
+    recommendation: block raw ingest until explicit license config permits every requested use

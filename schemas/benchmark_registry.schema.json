@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/benchmark_registry.schema.json",
+  "title": "Signal Engine Benchmark Registry",
+  "type": "object",
+  "required": ["benchmark_registry_version", "benchmarks"],
+  "properties": {
+    "benchmark_registry_version": {"type": "string"},
+    "benchmarks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "benchmark_id",
+          "benchmark_group",
+          "status",
+          "default_use",
+          "minimum_gold_labels",
+          "writes_gold",
+          "weak_labels_can_be_gold",
+          "production_ml_claim_allowed",
+          "notes"
+        ],
+        "properties": {
+          "benchmark_id": {"type": "string"},
+          "benchmark_group": {
+            "type": "string",
+            "enum": ["deterministic_extraction", "retrieval", "external_dataset", "media", "byok_llm_reviewer"]
+          },
+          "status": {"type": "string"},
+          "default_use": {"type": "string"},
+          "minimum_gold_labels": {"type": "integer", "minimum": 0},
+          "writes_gold": {"type": "boolean", "const": false},
+          "weak_labels_can_be_gold": {"type": "boolean", "const": false},
+          "production_ml_claim_allowed": {"type": "boolean", "const": false},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  }
+}

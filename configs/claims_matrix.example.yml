@@ -1,0 +1,32 @@
+claims_matrix_version: claims_matrix_v1
+claims:
+  - claim: Deterministic transcript extraction produces reviewable signal candidates.
+    claim_type: product_capability
+    status: supported
+    evidence_gate: evidence spans plus current deterministic evaluation reports
+    notes: Canonical extraction remains deterministic and transcript-first.
+  - claim: Human-reviewed labels are required for gold/evaluation claims.
+    claim_type: evaluation_guardrail
+    status: supported
+    evidence_gate: gold label validation and promotion workflow
+    notes: Weak labels and external datasets are candidates or benchmarks only.
+  - claim: Retrieval improves reviewer workflow after sufficient gold-label volume.
+    claim_type: support_layer
+    status: gated
+    evidence_gate: retrieval benchmark after reviewed-label threshold
+    notes: Retrieval supports review; it does not replace deterministic extraction.
+  - claim: Fine-tuning can improve extraction quality.
+    claim_type: model_claim
+    status: gated
+    evidence_gate: reviewed-label quality, sample size, held-out evaluation, and baseline comparison
+    notes: Retrieval and deterministic error analysis should happen before fine-tuning.
+  - claim: Signal Engine produces alpha or live trading recommendations.
+    claim_type: forbidden_claim
+    status: not_supported
+    evidence_gate: ""
+    notes: No live trading, execution, investment advice, or alpha claims are supported.
+  - claim: Results are statistically significant.
+    claim_type: forbidden_claim
+    status: not_supported
+    evidence_gate: ""
+    notes: Current label volume is not sufficient for statistical-significance claims.

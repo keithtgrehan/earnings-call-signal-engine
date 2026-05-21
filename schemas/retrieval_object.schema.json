@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/retrieval_object.schema.json",
+  "title": "Signal Engine Retrieval Object",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "object_id",
+    "object_type",
+    "case_id",
+    "company",
+    "fiscal_period",
+    "source_type",
+    "source_ref",
+    "section",
+    "speaker",
+    "topic",
+    "span_hints",
+    "evidence_text",
+    "redacted_evidence_preview",
+    "provenance",
+    "rights_tier",
+    "raw_text_commit_allowed"
+  ],
+  "properties": {
+    "object_id": {"type": "string", "minLength": 1},
+    "object_type": {
+      "type": "string",
+      "enum": ["semantic_chunk", "event_aligned_chunk", "evidence_object"]
+    },
+    "case_id": {"type": "string", "minLength": 1},
+    "company": {"type": "string", "minLength": 1},
+    "fiscal_period": {"type": "string", "minLength": 1},
+    "source_type": {"type": "string", "minLength": 1},
+    "source_ref": {"type": "string", "minLength": 1},
+    "section": {"type": "string", "minLength": 1},
+    "speaker": {"type": "string"},
+    "topic": {"type": "string"},
+    "span_hints": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "char_start": {"type": ["integer", "null"], "minimum": 0},
+        "char_end": {"type": ["integer", "null"], "minimum": 0},
+        "segment_ids": {"type": "array", "items": {"type": ["string", "integer"]}}
+      }
+    },
+    "evidence_text": {"type": "string"},
+    "redacted_evidence_preview": {"type": "string"},
+    "provenance": {
+      "type": "object",
+      "required": ["source_path", "span_ids", "provenance_hash"],
+      "additionalProperties": true,
+      "properties": {
+        "source_path": {"type": "string", "minLength": 1},
+        "span_ids": {"type": "array", "items": {"type": "string"}},
+        "provenance_hash": {"type": "string", "minLength": 1}
+      }
+    },
+    "rights_tier": {"type": "string", "minLength": 1},
+    "raw_text_commit_allowed": {"type": "boolean"},
+    "retrieval_priority": {"type": "integer", "minimum": 1, "maximum": 3},
+    "deterministic_output_override_allowed": {"type": "boolean", "const": false}
+  }
+}
