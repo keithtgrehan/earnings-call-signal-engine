@@ -23,6 +23,7 @@ data/demo_cases/nvidia_q4_fy2024/raw/video/*.mp4
 # generated
 cache/
 outputs/
+artifacts/gold_review/
 *.wav
 *.webm
 *.mp3

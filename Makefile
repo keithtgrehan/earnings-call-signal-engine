@@ -14,7 +14,7 @@ HIGH_SIGNAL_SOURCE_URL_FILE ?= data/corpus/high_signal_source_urls.csv
 MANUAL_SOURCE_TEMPLATE ?= data/corpus/manual_source_template.csv
 MANUAL_TRANSCRIPT_FILE_MANIFEST ?= data/corpus/manual_transcript_file_manifest.csv
 
-.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake
+.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake gold-review-queue
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -201,6 +201,12 @@ intake-manual-transcript-files:
 review-after-manual-intake:
 	$(PYTHON) tools/prepare_priority_review.py
 	$(PYTHON) tools/report_priority_review_validation.py
+
+gold-review-queue:
+	PYTHONPATH=src $(PYTHON) -m signal_engine.review_queue.build \
+		--packets 'data/corpus/high_signal_cases/*/labels/human_labeling_packet.md' \
+		--transcripts data/corpus/high_signal_cases \
+		--out artifacts/gold_review
 
 labeling-ci:
 	$(PYTHON) tools/review_next_batch.py --summary
