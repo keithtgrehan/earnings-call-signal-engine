@@ -1,0 +1,28 @@
+event_study_join_policy_version: event_study_join_policy_v1
+description: Metadata join scaffold only. No market data fetch, AR/CAR production calculation, or significance claim.
+join_key:
+  - ticker
+  - fiscal_period
+  - call_datetime
+  - market_session
+required_controls:
+  earnings_surprise_status: required
+  market_proxy: required
+  sector_proxy: required
+  confounder_notes: required
+gates:
+  min_events: 100
+  min_gold_labels: 100
+  missing_price_data_threshold: 0.05
+  significance_claim_allowed: false
+cases:
+  - ticker: MNL
+    fiscal_period: FY2024_Q2
+    call_datetime: "2024-08-07T20:30:00Z"
+    market_session: after_close
+    earnings_surprise_status: not_loaded_metadata_only
+    market_proxy: SPY
+    sector_proxy: XLI
+    confounder_notes: Synthetic example; no price or surprise data fetched.
+    gold_signal_join_status: not_ready_missing_gold_gate
+    significance_claim_allowed: false

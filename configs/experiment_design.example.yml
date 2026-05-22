@@ -1,0 +1,67 @@
+experiment_design_version: experiment_design_v1
+description: Evaluation-design scaffold only. No live-user experiment, provider call, training run, or market/trading claim.
+variants:
+  - variant_id: deterministic_only
+    output_role: canonical_baseline
+    deterministic_output_override_allowed: false
+  - variant_id: deterministic_plus_retrieval
+    output_role: reviewer_support
+    deterministic_output_override_allowed: false
+  - variant_id: deterministic_plus_byok_reviewer
+    output_role: reviewer_candidate
+    deterministic_output_override_allowed: false
+  - variant_id: deterministic_plus_audio_metadata
+    output_role: optional_support
+    deterministic_output_override_allowed: false
+  - variant_id: deterministic_plus_event_study_context
+    output_role: exploratory_context
+    deterministic_output_override_allowed: false
+metrics:
+  - label_agreement_with_human_gold
+  - evidence_span_precision
+  - false_positive_rate
+  - time_to_review
+  - reviewer_disagreement_rate
+  - retrieval_recall_at_k
+  - mrr
+  - calibration_error_buckets
+primary_claim_metric_policy: no_trading_alpha_or_live_execution_metrics
+sample_gate:
+  min_gold_labels: 100
+  min_reviewers: 2
+  power_check_required_before_significance_language: true
+significance_claim_allowed: false
+multivariate:
+  factors:
+    chunk_type:
+      - evidence_object
+      - event_aligned_chunk
+      - semantic_chunk
+    ranker:
+      - bm25
+      - dense_optional_gated
+      - hybrid_optional_gated
+    reviewer_mode:
+      - off
+      - stub_local
+      - byok_gated
+  outcomes:
+    - evidence_id_hit_rate
+    - citation_validity
+    - latency
+    - reviewer_disagreement_rate
+  confounders:
+    - call_length
+    - sector
+    - quarter
+    - source_quality
+  stopping_rules:
+    - stop_if_gold_gate_not_met
+    - stop_if_rights_or_provenance_missing
+    - stop_if_variant_attempts_canonical_override
+forbidden_claims:
+  - alpha
+  - trading_performance
+  - live_execution
+  - causal
+  - statistically_significant

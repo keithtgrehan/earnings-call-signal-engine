@@ -6,6 +6,7 @@ REQUIRED_RETRIEVAL_FIELDS = {
     "object_id",
     "object_type",
     "case_id",
+    "ticker",
     "company",
     "fiscal_period",
     "source_type",
@@ -18,7 +19,9 @@ REQUIRED_RETRIEVAL_FIELDS = {
     "redacted_evidence_preview",
     "provenance",
     "rights_tier",
+    "commit_allowed",
     "raw_text_commit_allowed",
+    "deterministic_signal_refs",
 }
 
 VALID_OBJECT_TYPES = {"semantic_chunk", "event_aligned_chunk", "evidence_object"}
@@ -48,18 +51,22 @@ def build_retrieval_object(
     section: str,
     provenance: dict[str, Any],
     rights_tier: str,
-    raw_text_commit_allowed: bool,
+    raw_text_commit_allowed: bool = False,
+    ticker: str = "",
+    commit_allowed: bool = False,
     speaker: str = "",
     topic: str = "",
     span_hints: dict[str, Any] | None = None,
     evidence_text: str = "",
     redacted_evidence_preview: str = "",
+    deterministic_signal_refs: list[str] | None = None,
     retrieval_priority: int | None = None,
 ) -> dict[str, Any]:
     payload = {
         "object_id": object_id,
         "object_type": object_type,
         "case_id": case_id,
+        "ticker": ticker,
         "company": company,
         "fiscal_period": fiscal_period,
         "source_type": source_type,
@@ -72,7 +79,9 @@ def build_retrieval_object(
         "redacted_evidence_preview": redacted_evidence_preview,
         "provenance": provenance,
         "rights_tier": rights_tier,
+        "commit_allowed": commit_allowed,
         "raw_text_commit_allowed": raw_text_commit_allowed,
+        "deterministic_signal_refs": deterministic_signal_refs or [],
         "retrieval_priority": retrieval_priority or retrieval_priority_for_type(object_type),
         "deterministic_output_override_allowed": False,
     }
@@ -107,4 +116,8 @@ def validate_retrieval_object(row: dict[str, Any]) -> list[str]:
             errors.append(f"{object_type} must use retrieval_priority {expected_priority}")
     if row.get("raw_text_commit_allowed") is True and row.get("rights_tier") in {"unknown", "restricted"}:
         errors.append("restricted or unknown rights cannot allow raw text commit")
+    if row.get("raw_text_commit_allowed") is True and row.get("commit_allowed") is not True:
+        errors.append("raw_text_commit_allowed requires commit_allowed")
+    if not isinstance(row.get("deterministic_signal_refs", []), list):
+        errors.append("deterministic_signal_refs must be a list")
     return errors

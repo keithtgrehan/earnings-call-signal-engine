@@ -1,0 +1,27 @@
+media_ingest_policy_version: media_ingest_policy_v1
+description: Manual-local media metadata registration only. No media copying, YouTube download, ASR run, or full-call video processing.
+registrations:
+  - media_path_ref: /tmp/signal_engine/manual_local/acme_q1_audio.mp3
+    media_type: audio
+    duration_if_known: null
+    source_type: manual_local
+    rights_tier: manual_supplied
+    raw_media_commit_allowed: false
+    asr_allowed: false
+    diarization_allowed: false
+    video_window_allowed: false
+    transcript_alignment_status: not_aligned
+    media_copied_into_repo: false
+    blocked_reason: Manual-local metadata only; ASR requires explicit local allow flag.
+  - media_path_ref: /tmp/signal_engine/manual_local/acme_q1_video.mp4
+    media_type: video
+    duration_if_known: null
+    source_type: manual_local
+    rights_tier: manual_supplied
+    raw_media_commit_allowed: false
+    asr_allowed: false
+    diarization_allowed: false
+    video_window_allowed: true
+    transcript_alignment_status: sparse_window_metadata_only
+    media_copied_into_repo: false
+    blocked_reason: Sparse event-window metadata only; no full-call multimodal processing.

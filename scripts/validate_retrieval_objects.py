@@ -12,6 +12,7 @@ REQUIRED_RETRIEVAL_FIELDS = {
     "object_id",
     "object_type",
     "case_id",
+    "ticker",
     "company",
     "fiscal_period",
     "source_type",
@@ -24,7 +25,9 @@ REQUIRED_RETRIEVAL_FIELDS = {
     "redacted_evidence_preview",
     "provenance",
     "rights_tier",
+    "commit_allowed",
     "raw_text_commit_allowed",
+    "deterministic_signal_refs",
 }
 
 VALID_OBJECT_TYPES = {"semantic_chunk", "event_aligned_chunk", "evidence_object"}
@@ -60,6 +63,10 @@ def validate_rows(rows: list[dict[str, Any]]) -> list[str]:
             errors.append(f"row {index}: evidence_object should have highest retrieval priority")
         if row.get("deterministic_output_override_allowed") is True:
             errors.append(f"row {index}: retrieval objects must not override deterministic extraction")
+        if row.get("raw_text_commit_allowed") is True and row.get("commit_allowed") is not True:
+            errors.append(f"row {index}: raw_text_commit_allowed requires commit_allowed")
+        if not isinstance(row.get("deterministic_signal_refs", []), list):
+            errors.append(f"row {index}: deterministic_signal_refs must be a list")
     return errors
 
 

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NYSE Earnings Universe",
+  "type": "object",
+  "required": ["universe_version", "cases"],
+  "properties": {
+    "universe_version": {"type": "string"},
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "ticker",
+          "company_name",
+          "exchange",
+          "fiscal_period",
+          "call_date",
+          "call_datetime",
+          "source_candidates",
+          "transcript_availability",
+          "audio_availability",
+          "video_availability",
+          "source_rights_status",
+          "raw_transcript_allowed",
+          "raw_audio_allowed",
+          "raw_video_allowed",
+          "commit_allowed",
+          "training_allowed",
+          "eval_allowed",
+          "robots_checked",
+          "source_terms_checked",
+          "paywall_or_login_required",
+          "blocked_reason",
+          "quality_flags",
+          "provenance_complete"
+        ]
+      }
+    }
+  }
+}

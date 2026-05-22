@@ -1,0 +1,44 @@
+rag_build_policy_version: rag_build_policy_v1
+description: Synthetic retrieval build policy. No embeddings, vector DB writes, provider calls, or real-corpus indexing.
+default_rank_order:
+  evidence_object: 1
+  event_aligned_chunk: 2
+  semantic_chunk: 3
+raw_text_policy:
+  raw_text_commit_allowed_default: false
+  fallback_when_raw_text_blocked: redacted_preview_or_span_reference
+  deterministic_output_override_allowed: false
+metrics:
+  - recall_at_k
+  - mrr
+  - evidence_id_hit_rate
+  - citation_validity
+  - blocked_source_count
+synthetic_manifest:
+  - object_id: nyse_2024_demo_manual_q2:evidence:1
+    object_type: evidence_object
+    case_id: nyse_2024_demo_manual_q2
+    ticker: MNL
+    company: Manual Local Example Corp
+    fiscal_period: FY2024_Q2
+    source_type: manual_local
+    source_ref: /tmp/signal_engine/manual_local/example_transcript.txt
+    rights_tier: manual_supplied
+    commit_allowed: false
+    raw_text_commit_allowed: false
+    section: qa
+    speaker: CFO
+    speaker_role: management
+    topic: guidance_revision
+    span_hints:
+      char_start: 220
+      char_end: 315
+    provenance:
+      source_path: /tmp/signal_engine/manual_local/example_transcript.txt
+      span_ids:
+        - nyse_2024_demo_manual_q2:turn:4
+      provenance_hash: sha256:ragsynthetic00000000000000000000000000000000000000000000000000000000
+    deterministic_signal_refs:
+      - guidance_revision_candidate
+    evidence_text: ""
+    redacted_evidence_preview: "[span reference only]"

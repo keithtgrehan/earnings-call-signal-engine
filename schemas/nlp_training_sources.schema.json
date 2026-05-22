@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NLP Training Sources",
+  "type": "object",
+  "required": ["training_sources_version", "sources"],
+  "properties": {
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "source_name",
+          "source_type",
+          "default_mode",
+          "training_allowed",
+          "writes_gold",
+          "weak_labels_can_be_gold",
+          "rights_status",
+          "source_reference"
+        ]
+      }
+    }
+  }
+}

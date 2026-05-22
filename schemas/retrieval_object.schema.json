@@ -8,6 +8,7 @@
     "object_id",
     "object_type",
     "case_id",
+    "ticker",
     "company",
     "fiscal_period",
     "source_type",
@@ -20,7 +21,10 @@
     "redacted_evidence_preview",
     "provenance",
     "rights_tier",
+    "commit_allowed",
     "raw_text_commit_allowed"
+    ,
+    "deterministic_signal_refs"
   ],
   "properties": {
     "object_id": {"type": "string", "minLength": 1},
@@ -29,6 +33,7 @@
       "enum": ["semantic_chunk", "event_aligned_chunk", "evidence_object"]
     },
     "case_id": {"type": "string", "minLength": 1},
+    "ticker": {"type": "string"},
     "company": {"type": "string", "minLength": 1},
     "fiscal_period": {"type": "string", "minLength": 1},
     "source_type": {"type": "string", "minLength": 1},
@@ -58,7 +63,9 @@
       }
     },
     "rights_tier": {"type": "string", "minLength": 1},
+    "commit_allowed": {"type": "boolean"},
     "raw_text_commit_allowed": {"type": "boolean"},
+    "deterministic_signal_refs": {"type": "array", "items": {"type": "string"}},
     "retrieval_priority": {"type": "integer", "minimum": 1, "maximum": 3},
     "deterministic_output_override_allowed": {"type": "boolean", "const": false}
   }

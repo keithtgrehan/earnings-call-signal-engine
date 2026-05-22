@@ -1,0 +1,56 @@
+universe_version: nyse_earnings_universe_v1
+description: Synthetic metadata-only target universe. No raw transcript/audio/video acquisition is performed.
+cases:
+  - case_id: nyse_2023_demo_acme_q1
+    ticker: ACM
+    company_name: ACME Industrial Holdings
+    exchange: NYSE
+    fiscal_period: FY2023_Q1
+    call_date: "2023-05-04"
+    call_datetime: "2023-05-04T21:00:00Z"
+    source_candidates: []
+    transcript_availability: candidate_unknown
+    audio_availability: candidate_unknown
+    video_availability: candidate_unknown
+    source_rights_status: unknown
+    raw_transcript_allowed: false
+    raw_audio_allowed: false
+    raw_video_allowed: false
+    commit_allowed: false
+    training_allowed: false
+    eval_allowed: false
+    robots_checked: false
+    source_terms_checked: false
+    paywall_or_login_required: unknown
+    blocked_reason: Rights not cleared; target-universe metadata only.
+    quality_flags:
+      - target_universe_only
+    provenance_complete: false
+  - case_id: nyse_2024_demo_manual_q2
+    ticker: MNL
+    company_name: Manual Local Example Corp
+    exchange: NYSE
+    fiscal_period: FY2024_Q2
+    call_date: "2024-08-07"
+    call_datetime: "2024-08-07T20:30:00Z"
+    source_candidates:
+      - source_id: synthetic_manual_local_candidate
+        source_type: manual_local
+        source_ref: /tmp/signal_engine/manual_local/example_transcript.txt
+    transcript_availability: manual_local_available
+    audio_availability: not_registered
+    video_availability: not_registered
+    source_rights_status: manual_local_rights_cleared
+    raw_transcript_allowed: true
+    raw_audio_allowed: false
+    raw_video_allowed: false
+    commit_allowed: false
+    training_allowed: false
+    eval_allowed: true
+    robots_checked: true
+    source_terms_checked: true
+    paywall_or_login_required: no
+    blocked_reason: Raw transcript registered by path only; no copy into repo.
+    quality_flags:
+      - manual_local_metadata_only
+    provenance_complete: true
