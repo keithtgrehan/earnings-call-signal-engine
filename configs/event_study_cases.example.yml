@@ -6,11 +6,20 @@ event_study_cases:
     ticker: EXM
     fiscal_period: Q1 2026
     event_date: "2026-04-25"
+    event_datetime: "2026-04-25T20:30:00Z"
+    event_timezone: UTC
     event_timestamp: "2026-04-25T20:30:00Z"
     event_time_zone: UTC
+    price_data_status: not_loaded_metadata_only
+    benchmark_proxy: synthetic_market_proxy
+    sector_proxy: synthetic_sector_proxy
     event_window: "[0,+1]"
     estimation_window: "[-120,-20] prior trading days"
     expected_return_model: market_adjusted
+    earnings_surprise_control_status: required_when_available_not_loaded
+    confounder_notes: "Synthetic scaffold; future reports must document confounding company news, macro shocks, and after-hours timing."
+    gold_signal_join_status: not_joined_scaffold_only
+    significance_claim_allowed: false
     controls:
       earnings_surprise: required_when_available
       sector_return: required

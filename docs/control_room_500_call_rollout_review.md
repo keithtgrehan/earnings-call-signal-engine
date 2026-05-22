@@ -12,7 +12,7 @@ ruff check . || true
 git diff --check
 ```
 
-`make corpus-safe-check` includes the rights registry, claims matrix, restricted-artifact, corpus manifest, retrieval schema, event-study metadata, benchmark registry, BYOK config, and safe training-candidate export checks. It does not download data or write gold labels.
+`make corpus-safe-check` includes the rights registry, claims matrix, restricted-artifact, corpus manifest, retrieval schema/metrics, event-study metadata, training-plan readiness, benchmark registry, BYOK config, and safe training-candidate export checks. It does not download data, write gold labels, train models, or commit model artifacts.
 
 ## Stop Conditions
 
@@ -22,6 +22,8 @@ git diff --check
 - YouTube raw media download enabled by default.
 - Licensed vendor raw ingest without explicit license config.
 - External or weak-label rows written to gold.
+- Training enabled while gold labels are invalid, below threshold, weak/external sourced, or rights-blocked.
+- Model weights, notebooks, provider secrets, or bulky generated artifacts staged.
 - Alpha, trading, causal, production ML, or statistical-significance claims.
 - Event-study reports missing event date, estimation window, event window, expected return model, or controls.
 

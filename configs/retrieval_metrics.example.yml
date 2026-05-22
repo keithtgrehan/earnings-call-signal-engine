@@ -1,0 +1,31 @@
+retrieval_metrics_version: retrieval_metrics_v1
+synthetic_fixture_only: true
+embeddings_required: false
+vector_db_required: false
+provider_calls_allowed: false
+deterministic_override_allowed: false
+metric_groups:
+  - group_id: retrieval_ranking_core
+    object_types:
+      - evidence_object
+      - event_aligned_chunk
+      - semantic_chunk
+    metrics:
+      - recall_at_k
+      - mrr
+      - evidence_precision_at_k
+      - latency_ms
+    comparison_designs:
+      - ab_test
+      - multivariate
+    rights_required: true
+    provenance_required: true
+    notes: "Synthetic metric config only; no embeddings over real corpus and no vector DB."
+synthetic_cases:
+  - query_id: synthetic_guidance_revision_query
+    relevant_object_ids:
+      - ev-guidance-1
+    candidate_object_ids:
+      - ev-guidance-1
+      - chunk-qa-1
+      - chunk-semantic-1

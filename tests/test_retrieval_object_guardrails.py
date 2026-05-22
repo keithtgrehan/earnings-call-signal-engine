@@ -112,3 +112,15 @@ def test_retrieval_helper_prioritizes_evidence_objects() -> None:
 
     assert row["retrieval_priority"] == 1
     assert row["deterministic_output_override_allowed"] is False
+
+
+def test_retrieval_metrics_config_is_synthetic_only() -> None:
+    result = subprocess.run(
+        [sys.executable, "scripts/validate_retrieval_metrics.py", "--path", "configs/retrieval_metrics.example.yml"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr

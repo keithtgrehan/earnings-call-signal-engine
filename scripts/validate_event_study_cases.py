@@ -10,9 +10,18 @@ from resource_registry_common import read_structured, write_json
 REQUIRED_EVENT_STUDY_FIELDS = {
     "event_id",
     "event_date",
+    "event_datetime",
+    "event_timezone",
+    "price_data_status",
+    "benchmark_proxy",
+    "sector_proxy",
     "event_window",
     "estimation_window",
     "expected_return_model",
+    "earnings_surprise_control_status",
+    "confounder_notes",
+    "gold_signal_join_status",
+    "significance_claim_allowed",
     "controls",
     "outputs",
     "failure_modes",
@@ -92,6 +101,19 @@ def validate_event_rows(rows: list[dict[str, Any]]) -> list[str]:
             errors.append(f"row {index}: benchmark_gating must be represented")
         if row.get("exploratory_only") is not True:
             errors.append(f"row {index}: event-study cases must be exploratory_only")
+        if row.get("significance_claim_allowed") is not False:
+            errors.append(f"row {index}: significance_claim_allowed must be false")
+        if str(row.get("price_data_status", "")).lower() not in {
+            "not_loaded_metadata_only",
+            "missing",
+            "available_not_fetched",
+            "manual_local_review_required",
+        }:
+            errors.append(f"row {index}: price_data_status must not imply fetched market data")
+        if not str(row.get("confounder_notes", "")).strip():
+            errors.append(f"row {index}: confounder_notes must be represented")
+        if not str(row.get("gold_signal_join_status", "")).strip():
+            errors.append(f"row {index}: gold_signal_join_status must be represented")
         claim_limitations = str(row.get("claim_limitations", ""))
         if not claim_limitations.strip():
             errors.append(f"row {index}: claim_limitations must be represented")

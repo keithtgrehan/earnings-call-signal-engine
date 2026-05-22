@@ -51,6 +51,26 @@ def validate_benchmark_rows(rows: list[dict[str, Any]]) -> list[str]:
                 errors.append(f"row {index}: missing required field {field}")
         if row.get("benchmark_group") == "external_dataset" and row.get("default_use") != "benchmark_only":
             errors.append(f"row {index}: external datasets must default to benchmark_only")
+        if row.get("benchmark_group") == "external_dataset":
+            if row.get("training_allowed") is not False:
+                errors.append(f"row {index}: external benchmark group cannot allow training by default")
+            datasets = row.get("datasets") or []
+            if not isinstance(datasets, list):
+                errors.append(f"row {index}: datasets must be a list")
+            for dataset_index, dataset in enumerate(datasets, start=1):
+                if isinstance(dataset, str):
+                    continue
+                if not isinstance(dataset, dict):
+                    errors.append(f"row {index}: datasets[{dataset_index}] must be a string or object")
+                    continue
+                if dataset.get("default_use") != "benchmark_only":
+                    errors.append(f"row {index}: datasets[{dataset_index}] must default to benchmark_only")
+                if dataset.get("training_allowed") is not False:
+                    errors.append(f"row {index}: datasets[{dataset_index}] cannot allow training by default")
+                if not str(dataset.get("source_reference", "")).strip():
+                    errors.append(f"row {index}: datasets[{dataset_index}] missing source_reference")
+                if not str(dataset.get("rights_caveat", "")).strip():
+                    errors.append(f"row {index}: datasets[{dataset_index}] missing rights_caveat")
         if row.get("writes_gold") is not False:
             errors.append(f"row {index}: benchmark entries must not write gold labels")
         if row.get("weak_labels_can_be_gold") is not False:

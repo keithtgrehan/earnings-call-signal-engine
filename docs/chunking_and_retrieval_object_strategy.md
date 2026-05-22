@@ -25,6 +25,8 @@ Retrieval objects require object ID, object type, case ID, company, fiscal perio
 
 `src/signal_engine/retrieval/` now contains lightweight helpers for constructing and validating retrieval-object dictionaries from explicit metadata. The helpers do not embed, rank with a model, call a vector database, or override deterministic extraction; they only enforce object type, provenance, rights, and priority guardrails before future serialization.
 
+`configs/retrieval_metrics.example.yml` is a synthetic-only metric scaffold for recall@k, MRR, evidence precision, latency, A/B comparisons, and multivariate retrieval experiments. It explicitly disables provider calls, vector DB requirements, and deterministic-output overrides.
+
 ## Event-Study Linkage
 
 Event-aligned chunks can be joined to event-study metadata only after call timestamp/date, ticker, fiscal period, estimation window, event window, expected return model, and controls are explicit. Outputs can include AR/CAR fields and exploratory confidence intervals, but they remain evaluation context until sample size and human-reviewed label quality are sufficient.

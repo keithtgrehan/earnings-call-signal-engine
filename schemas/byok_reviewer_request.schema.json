@@ -1,31 +1,33 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://signal-engine.local/schemas/byok_reviewer_config.schema.json",
-  "title": "Signal Engine BYOK Reviewer Config",
+  "$id": "https://signal-engine.local/schemas/byok_reviewer_request.schema.json",
+  "title": "Signal Engine BYOK Reviewer Request",
   "type": "object",
   "additionalProperties": true,
   "required": [
+    "request_id",
     "provider_name",
     "model_slot",
     "secret_env_var_name",
-    "max_cost_per_run",
-    "timeout_seconds",
     "output_role",
     "canonical_output",
     "provider_calls_enabled",
     "log_cost",
-    "log_latency"
+    "log_latency",
+    "prompt_bundle_ref",
+    "evidence_refs"
   ],
   "properties": {
+    "request_id": {"type": "string", "minLength": 1},
     "provider_name": {"type": "string", "minLength": 1},
     "model_slot": {"type": "string", "minLength": 1},
     "secret_env_var_name": {"type": "string", "minLength": 1},
-    "max_cost_per_run": {"type": "number", "minimum": 0},
-    "timeout_seconds": {"type": "integer", "minimum": 1},
     "output_role": {"type": "string", "enum": ["reviewer", "candidate"]},
     "canonical_output": {"type": "boolean", "const": false},
     "provider_calls_enabled": {"type": "boolean", "const": false},
     "log_cost": {"type": "boolean"},
-    "log_latency": {"type": "boolean"}
+    "log_latency": {"type": "boolean"},
+    "prompt_bundle_ref": {"type": "string", "minLength": 1},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}}
   }
 }

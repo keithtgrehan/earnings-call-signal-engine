@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/byok_reviewer_response.schema.json",
+  "title": "Signal Engine BYOK Reviewer Response",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "request_id",
+    "output_role",
+    "canonical_output",
+    "provider_calls_performed",
+    "candidate_outputs",
+    "evidence_citations",
+    "cost_logged",
+    "latency_logged"
+  ],
+  "properties": {
+    "request_id": {"type": "string", "minLength": 1},
+    "output_role": {"type": "string", "enum": ["reviewer", "candidate"]},
+    "canonical_output": {"type": "boolean", "const": false},
+    "provider_calls_performed": {"type": "boolean", "const": false},
+    "candidate_outputs": {"type": "array"},
+    "evidence_citations": {"type": "array"},
+    "cost_logged": {"type": "boolean"},
+    "latency_logged": {"type": "boolean"},
+    "review_notes": {"type": "string"}
+  }
+}

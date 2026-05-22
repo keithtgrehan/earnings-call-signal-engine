@@ -1,0 +1,67 @@
+training_plan_version: training_plan_v1
+task_name: signal_family_gold_readiness
+task_type: transcript_signal_classification
+allowed_sources: []
+forbidden_sources:
+  - weak_labels
+  - external_benchmark_rows
+  - restricted_vendor
+  - unknown_rights
+gold_label_path: data/gold/gold_labels.jsonl
+rights_registry_path: configs/resource_registry.example.yml
+min_gold_labels: 100
+min_reviewers: 1
+label_schema_version: gold_labels_v1
+external_datasets_allowed: false
+external_datasets_mode: benchmark_only
+output_artifact_policy: no_model_weights_committed
+output_path_policy: tmp_only
+model_family: sklearn_baseline
+training_enabled: false
+reason_if_disabled: "Current real gold labels are not validator-ready or above threshold; scaffold reports NOT_READY."
+evaluation_metrics:
+  - precision
+  - recall
+  - f1
+  - confusion_matrix
+leakage_checks:
+  - forbid_external_rows_as_gold
+  - forbid_weak_labels_as_gold
+  - require_rights_registry_validation
+  - require_gold_label_validation
+claim_limits:
+  - no_alpha
+  - no_trading_performance
+  - no_live_execution
+  - no_production_ml_claim
+  - no_statistical_significance_claim
+canonical_output_allowed: false
+llm_reviewer_canonical_allowed: false
+synthetic_smoke_training_allowed: true
+synthetic_smoke_output_dir: /tmp/signal_engine_smoke_training
+dependency_policy:
+  new_dependencies_allowed: false
+  use_existing_optional_dependencies_only: true
+  allowed_existing_optional_dependencies:
+    - scikit-learn
+    - pandas
+    - numpy
+    - PyYAML
+  blocked_dependencies:
+    - managed_vector_database
+    - provider_embedding_sdk
+    - paid_training_api
+database_policy:
+  sqlite_operational_state: allowed_local
+  parquet_evaluation_artifacts: allowed_local_metadata_only
+  duckdb_evaluation_queries: optional_existing_only
+  faiss_dense_experiment: optional_after_gold_gate
+  managed_databases: blocked
+training_data_inventory:
+  real_gold_candidate_path: data/gold/gold_labels.jsonl
+  example_gold_path: data/gold_labels.example.jsonl
+  weak_label_paths:
+    - data/nlp_research/signal_label_candidates.jsonl
+  external_datasets_mode: benchmark_only
+  status: not_ready
+notes: "Training readiness scaffold only. No production training, raw acquisition, provider calls, or model weights."

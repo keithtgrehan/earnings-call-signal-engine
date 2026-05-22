@@ -10,7 +10,8 @@ This is a scaffold-only plan for rights-safe corpus automation. No real acquisit
 4. Register manual-local transcript/audio/video file paths without copying raw files into the repo.
 5. Build transcript-first artifacts only after rights and provenance are explicit.
 6. Export semantic chunks, event-aligned chunks, and evidence objects with provenance and rights fields.
-7. Run deterministic extraction before retrieval, reranking, LLM review, or model benchmarks.
+7. Run deterministic extraction before retrieval, reranking, LLM review, model benchmarks, or training-readiness checks.
+8. Report training as `NOT_READY` unless validated human-reviewed gold labels, source rights, and artifact policies pass.
 
 ## Agent 5 Acquisition/Ingestion Synthesis
 
@@ -69,9 +70,9 @@ No statistical-significance claim is permitted until sample size, event coverage
 
 ## Built vs Scaffolded
 
-- Built: safe registry validation, restricted artifact checking, retrieval schema validation, event-study metadata validation, benchmark registry validation, BYOK config validation, and Make check targets.
-- Scaffolded: YouTube metadata registration, licensed vendor placeholder, manual-local file registration, benchmark registry, BYOK reviewer config.
-- Gated: raw ingest, ASR, sparse video review, retrieval/reranking experiments, BYOK LLM review.
+- Built: safe registry validation, restricted artifact checking, retrieval schema validation, event-study metadata validation, benchmark registry validation, BYOK config validation, training-plan validation, and Make check targets.
+- Scaffolded: YouTube metadata registration, licensed vendor placeholder, manual-local file registration, benchmark registry, BYOK reviewer config, training-readiness reporting, and synthetic smoke training.
+- Gated: raw ingest, ASR, sparse video review, retrieval/reranking experiments, real model training, and BYOK LLM review.
 
 ## Not Supported
 
