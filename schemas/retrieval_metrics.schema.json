@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/retrieval_metrics.schema.json",
+  "title": "Signal Engine Retrieval Metrics Config",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "retrieval_metrics_version",
+    "synthetic_fixture_only",
+    "embeddings_required",
+    "vector_db_required",
+    "provider_calls_allowed",
+    "deterministic_override_allowed",
+    "metric_groups"
+  ],
+  "properties": {
+    "retrieval_metrics_version": {"type": "string"},
+    "synthetic_fixture_only": {"type": "boolean", "const": true},
+    "embeddings_required": {"type": "boolean", "const": false},
+    "vector_db_required": {"type": "boolean", "const": false},
+    "provider_calls_allowed": {"type": "boolean", "const": false},
+    "deterministic_override_allowed": {"type": "boolean", "const": false},
+    "metric_groups": {"type": "array", "items": {"type": "object"}}
+  }
+}

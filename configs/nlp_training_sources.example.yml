@@ -1,0 +1,123 @@
+training_sources_version: nlp_training_sources_v1
+description: Metadata-only training and benchmark source inventory. No datasets are downloaded and no rows are promoted to gold.
+sources:
+  - source_id: project_human_gold_labels
+    source_name: Project human-reviewed gold labels
+    source_type: project_gold
+    default_mode: supervised_training_candidate
+    training_allowed: true
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: project_validated_required
+    source_reference: data/gold/gold_labels.jsonl
+    caveat: Current real gold file is not training-ready until validator and label-count gates pass.
+  - source_id: ectsum
+    source_name: ECTSum
+    source_type: external_dataset
+    default_mode: benchmark_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: review_required
+    source_reference: https://arxiv.org/abs/2210.12467
+    caveat: Summarization benchmark design only; not guidance-revision gold.
+  - source_id: financebench
+    source_name: FinanceBench
+    source_type: external_dataset
+    default_mode: benchmark_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: review_required
+    source_reference: https://arxiv.org/abs/2311.11944
+    caveat: Open-book financial QA/RAG benchmark, not earnings-call signal gold.
+  - source_id: financial_phrasebank
+    source_name: Financial PhraseBank
+    source_type: external_dataset
+    default_mode: calibration_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: review_required
+    source_reference: https://huggingface.co/datasets/takala/financial_phrasebank
+    caveat: Sentiment calibration only; commercial and share-alike restrictions require review.
+  - source_id: fiqa
+    source_name: FiQA
+    source_type: external_dataset
+    default_mode: benchmark_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: review_required
+    source_reference: https://sites.google.com/view/fiqa/home
+    caveat: Financial opinion QA/sentiment benchmark, not transcript extraction gold.
+  - source_id: finqa
+    source_name: FinQA
+    source_type: external_dataset
+    default_mode: benchmark_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: review_required
+    source_reference: https://arxiv.org/abs/2109.00122
+    caveat: Numerical financial QA design reference only.
+  - source_id: convfinqa
+    source_name: ConvFinQA
+    source_type: external_dataset
+    default_mode: benchmark_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: review_required
+    source_reference: https://arxiv.org/abs/2210.03849
+    caveat: Conversational numerical QA design reference only.
+  - source_id: finmteb
+    source_name: FinMTEB
+    source_type: benchmark_suite
+    default_mode: benchmark_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: mixed_rights_review_required
+    source_reference: https://arxiv.org/abs/2502.10990
+    caveat: Embedding task taxonomy only; individual dataset licenses vary.
+  - source_id: finben
+    source_name: FinBen
+    source_type: benchmark_suite
+    default_mode: benchmark_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: mixed_rights_review_required
+    source_reference: https://arxiv.org/abs/2402.12659
+    caveat: Broad benchmark harness reference; forecasting and decision tasks are non-goals.
+  - source_id: flame
+    source_name: FLaME
+    source_type: benchmark_suite
+    default_mode: benchmark_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: review_required
+    source_reference: https://aclanthology.org/2025.findings-acl.1164/
+    caveat: Financial LM benchmark reference; provider/API flows remain disabled.
+  - source_id: loughran_mcdonald_lexicon
+    source_name: Loughran-McDonald financial sentiment lexicon
+    source_type: lexicon
+    default_mode: calibration_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: local_terms_review_required
+    source_reference: docs/loughran-mcdonald-integration.md
+    caveat: Lexicon calibration only; does not create gold signal labels.
+  - source_id: sec_filing_metadata
+    source_name: SEC filing metadata
+    source_type: sec_metadata
+    default_mode: benchmark_only
+    training_allowed: false
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    rights_status: public_domain_fair_access_required
+    source_reference: https://www.sec.gov/edgar/sec-api-documentation
+    caveat: Metadata only by default; fair-access rate limits apply.

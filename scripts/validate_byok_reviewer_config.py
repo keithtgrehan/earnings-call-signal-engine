@@ -16,6 +16,8 @@ REQUIRED_FIELDS = {
     "max_cost_per_run",
     "timeout_seconds",
     "output_role",
+    "canonical_output",
+    "provider_calls_enabled",
     "log_cost",
     "log_latency",
 }
@@ -28,6 +30,10 @@ def validate_config(payload: dict[str, Any]) -> list[str]:
         errors.append(f"missing required field {field}")
     if payload.get("output_role") not in {"reviewer", "candidate"}:
         errors.append("output_role must be reviewer or candidate")
+    if payload.get("canonical_output") is not False:
+        errors.append("canonical_output must be false")
+    if payload.get("provider_calls_enabled") is not False:
+        errors.append("provider_calls_enabled must be false by default")
     if str(payload.get("secret_env_var_name", "")).startswith(("sk-", "pk-")):
         errors.append("secret_env_var_name must be an environment variable name, not a secret value")
     try:

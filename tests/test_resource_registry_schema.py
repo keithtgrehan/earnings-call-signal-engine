@@ -88,3 +88,37 @@ def test_official_ir_and_fred_examples_require_terms_checks() -> None:
     assert by_id["company_ir_terms_checked"]["raw_body_allowed"] is False
     assert by_id["fred_series_terms_required"]["robots_or_terms_checked"] is True
     assert "series-level" in by_id["fred_series_terms_required"]["license_or_terms_summary"]
+
+
+def test_resource_registry_accepts_canonical_or_alias_fields(tmp_path: Path) -> None:
+    payload = yaml.safe_load((ROOT / "configs" / "resource_registry.example.yml").read_text(encoding="utf-8"))
+    row = payload["resources"][0]
+    for field in ("commit_allowed", "training_allowed", "eval_allowed", "source_terms_checked"):
+        row.pop(field)
+    path = tmp_path / "canonical_only.yml"
+    path.write_text(yaml.safe_dump({"resources": [row]}), encoding="utf-8")
+
+    result = subprocess.run(
+        [sys.executable, str(SCRIPT), "--path", str(path)],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+
+    row["rights_tier"] = "unknown"
+    bad_path = tmp_path / "canonical_only_unknown.yml"
+    bad_path.write_text(yaml.safe_dump({"resources": [row]}), encoding="utf-8")
+
+    bad_result = subprocess.run(
+        [sys.executable, str(SCRIPT), "--path", str(bad_path)],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+    assert bad_result.returncode == 1
+    assert "missing or unclear rights_tier" in bad_result.stdout

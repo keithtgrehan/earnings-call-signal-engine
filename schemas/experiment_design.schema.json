@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Experiment Design",
+  "type": "object",
+  "required": [
+    "experiment_design_version",
+    "variants",
+    "metrics",
+    "primary_claim_metric_policy",
+    "sample_gate",
+    "significance_claim_allowed",
+    "multivariate",
+    "forbidden_claims"
+  ]
+}

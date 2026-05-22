@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Event Study Join Policy",
+  "type": "object",
+  "required": ["event_study_join_policy_version", "join_key", "required_controls", "gates", "cases"],
+  "properties": {
+    "join_key": {
+      "type": "array",
+      "contains": {"const": "ticker"}
+    },
+    "gates": {
+      "type": "object",
+      "required": ["min_events", "min_gold_labels", "missing_price_data_threshold", "significance_claim_allowed"]
+    }
+  }
+}

@@ -4,6 +4,8 @@ secret_env_var_name: SIGNAL_ENGINE_REVIEWER_API_KEY
 max_cost_per_run: 0.0
 timeout_seconds: 30
 output_role: reviewer
+canonical_output: false
+provider_calls_enabled: false
 log_cost: true
 log_latency: true
 notes: "Schema-only placeholder. No provider SDK, API call, or secret is required by default."

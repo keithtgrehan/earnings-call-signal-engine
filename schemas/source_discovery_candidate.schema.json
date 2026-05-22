@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source Discovery Candidate",
+  "type": "object",
+  "required": [
+    "source_url",
+    "source_type",
+    "content_type_claimed",
+    "rights_tier",
+    "terms_checked",
+    "robots_checked",
+    "paywall_or_login_status",
+    "raw_body_allowed",
+    "raw_audio_allowed",
+    "raw_video_allowed",
+    "blocked_reason",
+    "discovered_at",
+    "provenance_hash"
+  ],
+  "properties": {
+    "source_type": {
+      "enum": [
+        "official_ir",
+        "sec_edgar",
+        "press_release_8k",
+        "licensed_vendor",
+        "manual_local",
+        "youtube_metadata",
+        "restricted_paywalled_login",
+        "restricted",
+        "paywalled_login"
+      ]
+    }
+  }
+}

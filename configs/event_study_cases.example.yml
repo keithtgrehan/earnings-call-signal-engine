@@ -1,0 +1,52 @@
+event_study_cases_version: event_study_cases_v1
+event_study_cases:
+  - event_id: synthetic_mnl_fy2024_q2_call
+    event_date: "2024-08-07"
+    event_datetime: "2024-08-07T20:30:00Z"
+    event_timezone: UTC
+    ticker: MNL
+    company: Manual Local Example Corp
+    fiscal_period: FY2024_Q2
+    price_data_status: not_loaded_metadata_only
+    benchmark_proxy: SPY
+    sector_proxy: XLI
+    event_window:
+      start: -1
+      end: 1
+      unit: trading_days
+    estimation_window:
+      start: -120
+      end: -10
+      unit: trading_days
+      configurable: true
+    expected_return_model: market_adjusted
+    earnings_surprise_control_status: not_loaded_metadata_only
+    confounder_notes: Synthetic example only; no price, sector, surprise, or macro data fetched.
+    gold_signal_join_status: not_joined_scaffold_only
+    significance_claim_allowed: false
+    controls:
+      earnings_surprise: required_not_loaded
+      sector_return: required_not_loaded
+      market_return: required_not_loaded
+      size_liquidity: optional_not_loaded
+      time_of_day: optional_not_loaded
+    outputs:
+      abnormal_return: exploratory_only
+      cumulative_abnormal_return: exploratory_only
+      confidence_interval: exploratory_only
+      plots: exploratory_only
+    failure_modes:
+      - confounding_news
+      - simultaneous_macro_shocks
+      - noisy_after_hours_reactions
+      - earnings_surprise_dominates_transcript_signal
+      - small_sample_false_positives
+      - survivorship_or_ticker_selection_bias
+    benchmark_gating:
+      min_events: 100
+      min_gold_labels: 100
+      missing_price_data_threshold: 0.05
+      reviewed_label_quality_required: true
+    exploratory_only: true
+    claim_limitations: No alpha, trading performance, causal, live execution, production ML, or statistical significance claim is supported by this scaffold.
+    provenance_hash: sha256:eventstudysynthetic000000000000000000000000000000000000000000000000

@@ -22,13 +22,98 @@ benchmarks:
     benchmark_group: external_dataset
     status: scaffolded
     default_use: benchmark_only
+    training_allowed: false
     datasets:
-      - Financial PhraseBank
-      - FiQA
-      - FinQA
-      - ConvFinQA
-      - FinanceBench
-      - ECTSum
+      - dataset_id: financial_phrasebank
+        dataset_name: Financial PhraseBank
+        task_type: sentiment_calibration
+        source_reference: https://huggingface.co/datasets/takala/financial_phrasebank
+        default_use: benchmark_only
+        training_allowed: false
+        eval_allowed: license_check_required
+        rights_caveat: "CC BY-NC-SA 3.0; not earnings-call signal gold."
+        metric_suggestion: macro_f1
+        failure_mode: "Sentiment calibration can mislead guidance-revision extraction."
+      - dataset_id: fiqa
+        dataset_name: FiQA
+        task_type: financial_opinion_qa
+        source_reference: https://sites.google.com/view/fiqa/home
+        default_use: benchmark_only
+        training_allowed: false
+        eval_allowed: license_check_required
+        rights_caveat: "Use as non-commercial benchmark reference only until terms are checked."
+        metric_suggestion: answer_relevance
+        failure_mode: "Opinion QA is not transcript signal extraction."
+      - dataset_id: finqa
+        dataset_name: FinQA
+        task_type: numerical_financial_qa
+        source_reference: https://arxiv.org/abs/2109.00122
+        default_use: benchmark_only
+        training_allowed: false
+        eval_allowed: license_check_required
+        rights_caveat: "Derived from financial reports; do not use rows as gold."
+        metric_suggestion: exact_program_or_answer_match
+        failure_mode: "Numerical table QA does not validate call-language signals."
+      - dataset_id: convfinqa
+        dataset_name: ConvFinQA
+        task_type: conversational_numerical_qa
+        source_reference: https://arxiv.org/abs/2210.03849
+        default_use: benchmark_only
+        training_allowed: false
+        eval_allowed: license_check_required
+        rights_caveat: "Conversational numerical QA, not earnings-call guidance gold."
+        metric_suggestion: conversational_answer_accuracy
+        failure_mode: "Multi-turn arithmetic can distract from transcript evidence spans."
+      - dataset_id: financebench
+        dataset_name: FinanceBench
+        task_type: open_book_financial_qa_rag
+        source_reference: https://arxiv.org/abs/2311.11944
+        default_use: benchmark_only
+        training_allowed: false
+        eval_allowed: license_check_required
+        rights_caveat: "Open-book financial QA; sample/full dataset terms must be checked separately."
+        metric_suggestion: evidence_grounded_answer_accuracy
+        failure_mode: "Financial QA evidence is not Signal Engine gold."
+      - dataset_id: ectsum
+        dataset_name: ECTSum
+        task_type: earnings_call_summarization
+        source_reference: https://arxiv.org/abs/2210.12467
+        default_use: benchmark_only
+        training_allowed: false
+        eval_allowed: license_check_required
+        rights_caveat: "Earnings-call summarization dataset; source transcript and Reuters-derived summaries require rights review."
+        metric_suggestion: factual_consistency
+        failure_mode: "Summaries are not guidance-revision or analyst-friction labels."
+      - dataset_id: finmteb
+        dataset_name: FinMTEB
+        task_type: financial_embedding_retrieval_taxonomy
+        source_reference: https://arxiv.org/abs/2502.10990
+        default_use: benchmark_only
+        training_allowed: false
+        eval_allowed: license_check_required
+        rights_caveat: "Task-level dataset rights vary across the benchmark."
+        metric_suggestion: recall_at_k
+        failure_mode: "Embedding leaderboard results do not prove corpus retrieval quality."
+      - dataset_id: finben
+        dataset_name: FinBen
+        task_type: broad_financial_llm_evaluation
+        source_reference: https://arxiv.org/abs/2402.12659
+        default_use: benchmark_only
+        training_allowed: false
+        eval_allowed: license_check_required
+        rights_caveat: "Component datasets and tasks require separate review; forecasting/decision tasks are non-goals."
+        metric_suggestion: task_specific_score
+        failure_mode: "Broad financial LLM scores do not support trading or production ML claims."
+      - dataset_id: flame
+        dataset_name: FLaME
+        task_type: financial_language_model_evaluation
+        source_reference: https://aclanthology.org/2025.findings-acl.1164/
+        default_use: benchmark_only
+        training_allowed: false
+        eval_allowed: license_check_required
+        rights_caveat: "Financial LM benchmark; provider/API flows are out of scope."
+        metric_suggestion: task_specific_score
+        failure_mode: "Leaderboard-style comparison can overstate readiness."
     minimum_gold_labels: 0
     writes_gold: false
     weak_labels_can_be_gold: false

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Manual Local Media Registration",
+  "type": "object",
+  "required": [
+    "media_path_ref",
+    "media_type",
+    "duration_if_known",
+    "source_type",
+    "rights_tier",
+    "raw_media_commit_allowed",
+    "asr_allowed",
+    "diarization_allowed",
+    "video_window_allowed",
+    "transcript_alignment_status",
+    "media_copied_into_repo",
+    "blocked_reason"
+  ],
+  "properties": {
+    "media_type": {"enum": ["audio", "video"]},
+    "source_type": {"enum": ["manual_local"]},
+    "raw_media_commit_allowed": {"const": false}
+  }
+}

@@ -11,6 +11,8 @@
     "max_cost_per_run",
     "timeout_seconds",
     "output_role",
+    "canonical_output",
+    "provider_calls_enabled",
     "log_cost",
     "log_latency"
   ],
@@ -21,6 +23,8 @@
     "max_cost_per_run": {"type": "number", "minimum": 0},
     "timeout_seconds": {"type": "integer", "minimum": 1},
     "output_role": {"type": "string", "enum": ["reviewer", "candidate"]},
+    "canonical_output": {"type": "boolean", "const": false},
+    "provider_calls_enabled": {"type": "boolean", "const": false},
     "log_cost": {"type": "boolean"},
     "log_latency": {"type": "boolean"}
   }

@@ -17,7 +17,7 @@ TIERED_TRANSCRIPT_TARGETS ?= data/corpus/tiered_transcript_targets.csv
 TIERED_TRANSCRIPT_DISCOVERY_CONFIG ?= data/corpus/transcript_source_discovery.yaml
 DISCOVERED_TRANSCRIPT_SOURCES ?= data/corpus/discovered_transcript_sources.csv
 
-.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check benchmark-sanity-check corpus-safe-check
+.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check corpus-safe-check
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -245,15 +245,50 @@ corpus-manifest-check:
 
 retrieval-schema-check:
 	$(PYTHON) scripts/validate_retrieval_objects.py --schema schemas/retrieval_object.schema.json
+	$(PYTHON) scripts/validate_retrieval_metrics.py --path configs/retrieval_metrics.example.yml
+
+event-study-check:
+	$(PYTHON) scripts/validate_event_study_cases.py --path configs/event_study_cases.example.yml
+
+training-plan-check:
+	$(PYTHON) scripts/validate_training_plan.py --path configs/training_plan.example.yml
 
 benchmark-sanity-check:
 	$(PYTHON) scripts/validate_benchmark_registry.py --path configs/benchmark_registry.example.yml
 	$(PYTHON) scripts/validate_byok_reviewer_config.py --path configs/byok_reviewer.example.yml
 	$(PYTHON) scripts/export_training_candidates.py --out /tmp/signal_engine_training_candidates.safe_check.json
 
+nyse-universe-check:
+	$(PYTHON) scripts/validate_nyse_earnings_universe.py --path configs/nyse_earnings_universe.example.yml
+	$(PYTHON) scripts/build_nyse_earnings_universe.py --example-config configs/nyse_earnings_universe.example.yml
+
+source-discovery-check:
+	$(PYTHON) scripts/validate_source_discovery_queue.py --path configs/source_discovery_policy.example.yml
+	$(PYTHON) scripts/build_source_discovery_queue.py --path configs/source_discovery_policy.example.yml
+
+manual-local-check:
+	$(PYTHON) scripts/register_manual_local_case.py --case-id synthetic_manual_local_check --path tests/fixtures/tiny_realistic_earnings_excerpt.txt --out /tmp/signal_engine_manual_local_check.json
+
+media-registration-check:
+	$(PYTHON) scripts/register_manual_local_media.py --config configs/media_ingest_policy.example.yml
+	$(PYTHON) scripts/build_media_event_windows.py --path configs/rag_build_policy.example.yml
+
+retrieval-build-check:
+	$(PYTHON) scripts/build_retrieval_objects.py --path configs/rag_build_policy.example.yml
+
+nlp-training-sources-check:
+	$(PYTHON) scripts/validate_nlp_training_sources.py --path configs/nlp_training_sources.example.yml
+	$(PYTHON) scripts/build_training_candidate_manifest.py --path configs/nlp_training_sources.example.yml --out /tmp/signal_engine_training_source_manifest.json
+
+experiment-design-check:
+	$(PYTHON) scripts/validate_experiment_design.py --path configs/experiment_design.example.yml
+
+event-study-join-check:
+	$(PYTHON) scripts/validate_event_study_join_policy.py --path configs/event_study_join_policy.example.yml
+
 rights-check: registry-check claims-check restricted-artifacts-check
 
-corpus-safe-check: rights-check corpus-manifest-check retrieval-schema-check benchmark-sanity-check
+corpus-safe-check: rights-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check
 
 discover-tiered-transcript-sources:
 	$(PYTHON) tools/discover_transcript_sources.py --targets-csv $(TIERED_TRANSCRIPT_TARGETS) --config $(TIERED_TRANSCRIPT_DISCOVERY_CONFIG) --output-csv $(DISCOVERED_TRANSCRIPT_SOURCES) --report-path reports/transcript_source_discovery.md

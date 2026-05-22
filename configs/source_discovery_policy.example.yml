@@ -1,0 +1,69 @@
+discovery_policy_version: source_discovery_policy_v1
+description: Metadata-only candidate source queue. No content bodies, transcript text, or media are stored.
+candidates:
+  - source_url: https://example.com/investors/events/acme-q1-2023
+    source_type: official_ir
+    content_type_claimed: earnings_call_event_page
+    rights_tier: official_public_terms_checked
+    terms_checked: true
+    robots_checked: true
+    paywall_or_login_status: no_paywall_or_login
+    raw_body_allowed: false
+    raw_audio_allowed: false
+    raw_video_allowed: false
+    stores_body: false
+    stores_transcript_text: false
+    stores_media: false
+    blocked_reason: Metadata-only discovery candidate; raw body requires separate terms review.
+    discovered_at: "2026-05-22T00:00:00Z"
+    provenance_hash: sha256:officialirsynthetic000000000000000000000000000000000000000000000000000000
+  - source_url: https://www.sec.gov/Archives/edgar/data/0000000000/0000000000-23-000001-index.html
+    source_type: sec_edgar
+    content_type_claimed: press_release_8k_metadata
+    rights_tier: public_domain
+    terms_checked: true
+    robots_checked: true
+    paywall_or_login_status: no_paywall_or_login
+    raw_body_allowed: false
+    raw_audio_allowed: false
+    raw_video_allowed: false
+    stores_body: false
+    stores_transcript_text: false
+    stores_media: false
+    blocked_reason: EDGAR metadata-only queue; future access must respect SEC fair-access limits.
+    discovered_at: "2026-05-22T00:00:00Z"
+    provenance_hash: sha256:edgarsynthetic00000000000000000000000000000000000000000000000000000000
+    fair_access_rate_limit_per_second: 10
+    fair_access_note: SEC automated access must remain at or below 10 requests per second and identify the requester.
+  - source_url: https://www.youtube.com/watch?v=synthetic_metadata_only
+    source_type: youtube_metadata
+    content_type_claimed: webcast_video_metadata
+    rights_tier: publicly_available
+    terms_checked: true
+    robots_checked: true
+    paywall_or_login_status: no_paywall_or_login
+    raw_body_allowed: false
+    raw_audio_allowed: false
+    raw_video_allowed: false
+    stores_body: false
+    stores_transcript_text: false
+    stores_media: false
+    blocked_reason: YouTube remains metadata-only unless explicit authorization exists.
+    discovered_at: "2026-05-22T00:00:00Z"
+    provenance_hash: sha256:youtubesynthetic000000000000000000000000000000000000000000000000000000
+  - source_url: vendor://restricted/transcript-provider/acme-q1-2023
+    source_type: licensed_vendor
+    content_type_claimed: transcript
+    rights_tier: restricted
+    terms_checked: false
+    robots_checked: false
+    paywall_or_login_status: login_or_subscription_required
+    raw_body_allowed: false
+    raw_audio_allowed: false
+    raw_video_allowed: false
+    stores_body: false
+    stores_transcript_text: false
+    stores_media: false
+    blocked_reason: Licensed vendor source is blocked unless explicit license config permits raw ingest.
+    discovered_at: "2026-05-22T00:00:00Z"
+    provenance_hash: sha256:vendorsynthetic0000000000000000000000000000000000000000000000000000000
