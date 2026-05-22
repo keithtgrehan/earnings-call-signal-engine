@@ -33,7 +33,7 @@ benchmarks:
     writes_gold: false
     weak_labels_can_be_gold: false
     production_ml_claim_allowed: false
-    notes: External rows are comparator data only and cannot contaminate gold labels.
+    notes: "External rows are comparator data only and cannot contaminate gold labels. FinanceBench is open-book financial QA/RAG evaluation, ECTSum is summarization, Financial PhraseBank/FiQA are sentiment calibration, and FinQA/ConvFinQA are numerical financial QA."
   - benchmark_id: media_event_window_v1
     benchmark_group: media
     status: scaffolded

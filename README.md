@@ -202,6 +202,8 @@ Safe scaffold checks:
 make corpus-safe-check
 ```
 
+The rights-safe 500-call scaffold is documentation/config/validator infrastructure only: no raw acquisition, no model training, and no BYOK reviewer execution has been performed.
+
 ## Portfolio / Technical Review Path
 
 - `PORTFOLIO_README.md`
