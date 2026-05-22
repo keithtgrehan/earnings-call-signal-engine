@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Engine Agent 1 Error Analysis",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["candidate_count", "false_positive_buckets", "evidence_completeness", "canonical_gold_written"],
+  "properties": {
+    "candidate_count": {"type": "integer", "minimum": 0},
+    "false_positive_buckets": {"type": "object"},
+    "evidence_completeness": {"type": "object"},
+    "canonical_gold_written": {"const": false}
+  }
+}

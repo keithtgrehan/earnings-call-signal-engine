@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Engine Agent 1 Candidate",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "candidate_id",
+    "case_id",
+    "signal_type",
+    "suggested_label",
+    "suggested_direction",
+    "suggested_confidence",
+    "evidence_span_ref",
+    "source_file",
+    "source_sha256",
+    "transcript_section",
+    "speaker_role",
+    "speaker_name",
+    "rule_id",
+    "rule_version",
+    "provenance_hash",
+    "text_hash",
+    "contamination_flags",
+    "false_positive_bucket",
+    "gold_status",
+    "review_status",
+    "created_at",
+    "extractor_version"
+  ],
+  "properties": {
+    "candidate_id": {"type": "string", "pattern": "^sha256:"},
+    "case_id": {"type": "string", "minLength": 1},
+    "signal_type": {
+      "enum": [
+        "guidance_revision",
+        "analyst_pressure",
+        "management_hedging",
+        "uncertainty",
+        "reassurance",
+        "answer_shift",
+        "neutral/no_signal"
+      ]
+    },
+    "suggested_label": {"type": "string", "minLength": 1},
+    "suggested_direction": {"type": "string", "minLength": 1},
+    "suggested_confidence": {"enum": ["low", "medium", "high"]},
+    "redacted_preview": {"type": "string"},
+    "evidence_span_ref": {"type": "string", "minLength": 1},
+    "source_file": {"type": "string", "minLength": 1},
+    "source_sha256": {"type": "string", "pattern": "^sha256:"},
+    "transcript_section": {"type": "string"},
+    "speaker_role": {"type": "string"},
+    "speaker_name": {"type": "string"},
+    "rule_id": {"type": "string", "minLength": 1},
+    "rule_version": {"type": "string", "minLength": 1},
+    "provenance_hash": {"type": "string", "pattern": "^sha256:"},
+    "text_hash": {"type": "string", "pattern": "^sha256:"},
+    "contamination_flags": {
+      "type": "array",
+      "contains": {"const": "not_gold"}
+    },
+    "false_positive_bucket": {"type": "string"},
+    "gold_status": {"const": "not_gold"},
+    "review_status": {"const": "pending_human_review"},
+    "created_at": {"type": "string"},
+    "extractor_version": {"type": "string"}
+  },
+  "not": {
+    "required": ["evidence_text"]
+  }
+}

@@ -1,0 +1,16 @@
+priority_rules:
+  guidance_revision: 5
+  answer_shift_with_analyst_pressure: 4
+  withdrawn_lowered_widened_guidance: 4
+  management_hedging_in_qa: 3
+  uncertainty_with_specific_business_topic: 3
+  reassurance_tied_to_guidance: 2
+  low_sectioning_confidence: 2
+  missing_prior_comparator: 2
+  novel_rule_id: 1
+  neutral_no_signal: -3
+  boilerplate: -4
+canonical_guardrails:
+  gold_status: not_gold
+  review_status: pending_human_review
+  deterministic_candidates_do_not_override_gold: true

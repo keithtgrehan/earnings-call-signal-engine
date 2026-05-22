@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Engine NYSE 30 Pilot Target",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "ticker",
+    "company_name",
+    "exchange",
+    "sector",
+    "primary_target_period",
+    "fallback_periods",
+    "source_candidates",
+    "rights_status",
+    "raw_transcript_allowed",
+    "raw_audio_allowed",
+    "raw_video_allowed",
+    "commit_allowed",
+    "training_allowed",
+    "eval_allowed",
+    "blocked_reason",
+    "provenance_complete"
+  ],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "ticker": {"type": "string", "minLength": 1},
+    "company_name": {"type": "string", "minLength": 1},
+    "exchange": {"const": "NYSE"},
+    "sector": {"type": "string", "minLength": 1},
+    "primary_target_period": {"const": "latest_annual_or_q4_2023_plus"},
+    "fallback_periods": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 2
+    },
+    "source_candidates": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "official_ir_candidate",
+          "sec_edgar_metadata_candidate",
+          "manual_local_pending",
+          "youtube_metadata_only",
+          "licensed_vendor_blocked"
+        ]
+      },
+      "minItems": 5
+    },
+    "rights_status": {"type": "string"},
+    "raw_transcript_allowed": {"const": false},
+    "raw_audio_allowed": {"const": false},
+    "raw_video_allowed": {"const": false},
+    "commit_allowed": {"const": false},
+    "training_allowed": {"const": false},
+    "eval_allowed": {"const": false},
+    "blocked_reason": {"type": "string", "minLength": 1},
+    "provenance_complete": {"const": false}
+  }
+}
