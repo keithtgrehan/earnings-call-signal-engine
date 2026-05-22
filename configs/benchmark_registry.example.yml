@@ -1,0 +1,54 @@
+benchmark_registry_version: benchmark_registry_v1
+benchmarks:
+  - benchmark_id: deterministic_extraction_v1
+    benchmark_group: deterministic_extraction
+    status: supported
+    default_use: canonical_baseline
+    minimum_gold_labels: 1
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    production_ml_claim_allowed: false
+    notes: Deterministic transcript extraction remains the source of truth.
+  - benchmark_id: retrieval_rag_v1
+    benchmark_group: retrieval
+    status: gated
+    default_use: reviewer_support
+    minimum_gold_labels: 100
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    production_ml_claim_allowed: false
+    notes: Retrieval preserves provenance and cannot override deterministic extraction.
+  - benchmark_id: external_finance_datasets_v1
+    benchmark_group: external_dataset
+    status: scaffolded
+    default_use: benchmark_only
+    datasets:
+      - Financial PhraseBank
+      - FiQA
+      - FinQA
+      - ConvFinQA
+      - FinanceBench
+      - ECTSum
+    minimum_gold_labels: 0
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    production_ml_claim_allowed: false
+    notes: "External rows are comparator data only and cannot contaminate gold labels. FinanceBench is open-book financial QA/RAG evaluation, ECTSum is summarization, Financial PhraseBank/FiQA are sentiment calibration, and FinQA/ConvFinQA are numerical financial QA."
+  - benchmark_id: media_event_window_v1
+    benchmark_group: media
+    status: scaffolded
+    default_use: optional_support
+    minimum_gold_labels: 100
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    production_ml_claim_allowed: false
+    notes: Media benchmark is sparse, transcript-aligned, and event-window based.
+  - benchmark_id: byok_llm_reviewer_v1
+    benchmark_group: byok_llm_reviewer
+    status: scaffolded
+    default_use: reviewer_candidate_only
+    minimum_gold_labels: 100
+    writes_gold: false
+    weak_labels_can_be_gold: false
+    production_ml_claim_allowed: false
+    notes: BYOK output can review or suggest candidates only.

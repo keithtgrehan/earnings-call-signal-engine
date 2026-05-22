@@ -1,0 +1,152 @@
+registry_version: resource_registry_v1
+resources:
+  - source_id: sec_companyfacts_metadata
+    source_name: SEC EDGAR Companyfacts API
+    source_url_or_path: https://data.sec.gov/api/xbrl/companyfacts/
+    source_type: sec_edgar
+    rights_tier: public_domain
+    license_or_terms_summary: "Public SEC API metadata; use with SEC fair-access policy, descriptive user agent, and attribution to filing source."
+    allowed_storage: metadata_only
+    allowed_commit: true
+    commit_allowed: true
+    allowed_training_use: "no"
+    training_allowed: "no"
+    allowed_eval_use: benchmark_only
+    eval_allowed: benchmark_only
+    raw_body_allowed: false
+    metadata_only: true
+    acquisition_method: metadata_api_scaffold_no_download
+    robots_or_terms_checked: true
+    source_terms_checked: true
+    paywall_or_login_status: public_no_login
+    robots_status: official_api_fair_access
+    provenance_hash: sha256:0ef05c4451300f4dc14253e3184802f7b95366afdbf4fd27bb088518dfe5732f
+    last_checked_at: "2026-05-22"
+    reviewer_or_operator: codex
+    blocked_reason: ""
+    notes: "Use for event metadata, CIK/ticker mapping, filing references, and fair-access-compliant SEC facts."
+  - source_id: company_ir_terms_checked
+    source_name: Example Company Investor Relations Transcript Page
+    source_url_or_path: https://investor.example.com/events/example-q4-call
+    source_type: company_ir
+    rights_tier: official_public_terms_checked
+    license_or_terms_summary: "Official IR page; terms/robots must be checked per company before storing raw transcript bodies."
+    allowed_storage: metadata_only
+    allowed_commit: true
+    commit_allowed: true
+    allowed_training_use: review_required
+    training_allowed: review_required
+    allowed_eval_use: review_required
+    eval_allowed: review_required
+    raw_body_allowed: false
+    metadata_only: true
+    acquisition_method: manual_metadata_entry
+    robots_or_terms_checked: true
+    source_terms_checked: true
+    paywall_or_login_status: public_no_login
+    robots_status: checked_allow_metadata_only
+    provenance_hash: sha256:51a8135f1c334246596bff1b7ded307daf9dc8051122f30d252427f9a496cf03
+    last_checked_at: "2026-05-22"
+    reviewer_or_operator: codex
+    blocked_reason: ""
+    notes: "Synthetic URL; shows official-source terms gate before raw-body storage."
+  - source_id: fred_series_terms_required
+    source_name: FRED Macro Series Candidate
+    source_url_or_path: https://fred.stlouisfed.org/series/UNRATE
+    source_type: macro_fred
+    rights_tier: official_public_terms_checked
+    license_or_terms_summary: "FRED API terms checked; series-level source owners may impose separate copyright or redistribution requirements."
+    allowed_storage: metadata_only
+    allowed_commit: true
+    commit_allowed: true
+    allowed_training_use: "no"
+    training_allowed: "no"
+    allowed_eval_use: benchmark_only
+    eval_allowed: benchmark_only
+    raw_body_allowed: false
+    metadata_only: true
+    acquisition_method: metadata_api_scaffold_no_download
+    robots_or_terms_checked: true
+    source_terms_checked: true
+    paywall_or_login_status: public_no_login
+    robots_status: official_api_terms_checked
+    provenance_hash: sha256:9742cc8e63294993f700a8649007b70f1b94da8f8887f8d7d4dc1a8dafdd6a08
+    last_checked_at: "2026-05-22"
+    reviewer_or_operator: codex
+    blocked_reason: ""
+    notes: "Series-level terms must be checked before storing values or redistributing derived datasets."
+  - source_id: vendor_transcript_blocked
+    source_name: Example Restricted Transcript Vendor
+    source_url_or_path: vendor://restricted/example-call
+    source_type: transcript_vendor
+    rights_tier: restricted
+    license_or_terms_summary: "Subscription/vendor transcript body; no copying, committing, training, or evaluation use without explicit license."
+    allowed_storage: blocked
+    allowed_commit: false
+    commit_allowed: false
+    allowed_training_use: "no"
+    training_allowed: "no"
+    allowed_eval_use: "no"
+    eval_allowed: "no"
+    raw_body_allowed: false
+    metadata_only: true
+    acquisition_method: blocked_reference_only
+    robots_or_terms_checked: true
+    source_terms_checked: true
+    paywall_or_login_status: subscription_or_login_required
+    robots_status: not_applicable_restricted_vendor
+    provenance_hash: sha256:e8853fd8952bce6c59f6d8c16ff2a46d5f65c0ed00f43a681e52b4376e9a6507
+    last_checked_at: "2026-05-22"
+    reviewer_or_operator: codex
+    blocked_reason: "Restricted vendor body cannot be copied or committed."
+    notes: "Metadata may document that a source exists; raw text stays out."
+  - source_id: youtube_metadata_only
+    source_name: Example YouTube Earnings Webcast Metadata
+    source_url_or_path: https://www.youtube.com/watch?v=example
+    source_type: youtube_metadata
+    rights_tier: publicly_available
+    license_or_terms_summary: "YouTube URL metadata may be registered for review planning; raw audio/video download is blocked without explicit authorization and source terms review."
+    allowed_storage: metadata_only
+    allowed_commit: true
+    commit_allowed: true
+    allowed_training_use: "no"
+    training_allowed: "no"
+    allowed_eval_use: retrieval_only
+    eval_allowed: retrieval_only
+    raw_body_allowed: false
+    metadata_only: true
+    acquisition_method: metadata_reference_only_no_download
+    robots_or_terms_checked: false
+    source_terms_checked: false
+    paywall_or_login_status: public_platform_terms_apply
+    robots_status: not_checked_raw_download_blocked
+    provenance_hash: sha256:f4d14c3277a5cb7a296277a82a258b875c7d7ad1989950e90366acb3a840fa3b
+    last_checked_at: "2026-05-22"
+    reviewer_or_operator: codex
+    blocked_reason: "YouTube raw media download blocked by default."
+    notes: "Metadata-only placeholder; no audio/video acquisition."
+  - source_id: licensed_vendor_placeholder
+    source_name: Example Licensed Vendor Placeholder
+    source_url_or_path: licensed-vendor://example/call
+    source_type: licensed_vendor
+    rights_tier: restricted
+    license_or_terms_summary: "Vendor source is blocked until an explicit license configuration grants raw ingest, storage, commit, training, and evaluation permissions."
+    allowed_storage: blocked
+    allowed_commit: false
+    commit_allowed: false
+    allowed_training_use: "no"
+    training_allowed: "no"
+    allowed_eval_use: "no"
+    eval_allowed: "no"
+    raw_body_allowed: false
+    metadata_only: true
+    acquisition_method: blocked_reference_only
+    robots_or_terms_checked: true
+    source_terms_checked: true
+    paywall_or_login_status: licensed_or_login_required
+    robots_status: not_applicable_licensed_vendor
+    provenance_hash: sha256:67b64a67be9a7ec79dbfdcb3f1eb9a9152f37e725da8dc3a3d3aa2bcaa85e645
+    last_checked_at: "2026-05-22"
+    reviewer_or_operator: codex
+    blocked_reason: "Licensed vendor raw ingest blocked without explicit license config."
+    notes: "Placeholder only; no vendor body is copied or stored."

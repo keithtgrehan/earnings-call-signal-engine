@@ -49,6 +49,7 @@ Optional layers include local Argilla review infrastructure, local TF-IDF/logist
 - Source-quality and fixture-excluded reporting.
 - TF-IDF + Logistic Regression benchmark, gated and benchmark-only.
 - Retrieval benchmark scaffold, gated until reviewed-label volume is sufficient.
+- Rights-cleared resource registry scaffold for corpus/source provenance, restricted-artifact blocking, and metadata-only source adapters.
 - Offline portfolio demo.
 
 ## 5. Human Review Loop
@@ -165,6 +166,7 @@ make review-after-manual-intake
 - Human-reviewed label volume is still the bottleneck.
 - Public transcript acquisition must respect robots, paywalls, login gates, and source terms.
 - Raw transcript bodies and generated review/runtime artifacts should stay out of commits unless explicitly provenance-backed and intentionally committed.
+- Resource registry records are required before expanding source classes, external datasets, or raw-body storage.
 
 ## 10. Roadmap
 
@@ -174,6 +176,33 @@ make review-after-manual-intake
 4. Use disagreement analysis to reduce false positives and ambiguous guidance mappings.
 5. Run retrieval benchmarks only after the reviewed-label gate is met.
 6. Keep the public repo focused on deterministic, transcript-first evaluation rather than broad AI scope.
+
+## 11. Rights-Cleared Corpus Readiness
+
+The corpus strategy is rights-cleared and metadata-first. Use `configs/resource_registry.example.yml`, `schemas/resource_registry.schema.json`, and `scripts/validate_resource_registry.py` to record source tier, storage permission, commit permission, training/evaluation use, provenance, and blocked reasons.
+
+Key docs:
+
+- `docs/data_rights_and_corpus_policy.md`
+- `docs/public_domain_and_source_terms_playbook.md`
+- `docs/evaluation_claims_matrix.md`
+- `docs/control_room_codex_rollout_review.md`
+- `docs/corpus_500_automation_plan.md`
+- `docs/source_rights_and_media_policy.md`
+- `docs/audio_video_ingest_strategy.md`
+- `docs/chunking_and_retrieval_object_strategy.md`
+- `docs/nlp_benchmark_matrix.md`
+- `docs/control_room_500_call_rollout_review.md`
+
+External datasets and weak labels can support benchmarks and review, but they never become gold labels without human review. Restricted transcript-provider bodies must not be copied, committed, trained on, or used for evaluation claims without explicit rights.
+
+Safe scaffold checks:
+
+```bash
+make corpus-safe-check
+```
+
+The rights-safe 500-call scaffold is documentation/config/validator infrastructure only: no raw acquisition, no model training, and no BYOK reviewer execution has been performed.
 
 ## Portfolio / Technical Review Path
 

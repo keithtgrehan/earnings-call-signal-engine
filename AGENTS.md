@@ -140,6 +140,9 @@ Scope:
 - no aggressive scraping
 - no paywall bypassing
 - no raw bulky data commits
+- source rights, storage permission, and provenance recorded before adding new corpus/resource classes
+
+For resource and corpus-rights work, follow `docs/data_rights_and_corpus_policy.md`, `docs/source_rights_and_media_policy.md`, `docs/public_domain_and_source_terms_playbook.md`, `docs/corpus_500_automation_plan.md`, and `docs/control_room_500_call_rollout_review.md` rather than duplicating policy text here.
 
 ### Layer 5 - Retrieval Foundation
 
