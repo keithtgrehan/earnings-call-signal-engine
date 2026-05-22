@@ -206,9 +206,10 @@ The rights-safe 500-call scaffold is documentation/config/validator infrastructu
 
 Current scaffold split:
 
-- Built: rights registry, restricted-artifact checks, NYSE target-universe metadata validation, source discovery queues, manual-local registration, retrieval/event-study/training-plan/BYOK validators, metadata-only adapters, and safe Make targets.
-- Scaffolded: synthetic retrieval metrics, synthetic smoke training, benchmark metadata, NLP training-source inventory, A/B and multivariate experiment design, and BYOK request/response contracts.
-- Future/gated: real 500-call acquisition, raw media ingest, real training, real retrieval indexing, provider-backed review, market-data event studies, ASR/video review, and any model-quality claim.
+- Built foundation: rights registry, restricted-artifact checks, NYSE target-universe metadata validation, source discovery queues, manual-local registration, retrieval/event-study/training-plan/BYOK validators, metadata-only adapters, and safe Make targets.
+- Built pilot automation: Agent 5 NYSE 30 metadata pilot targets, source queue guardrails, manual-local path/hash batch registration, Agent 4 gold-label audit and first-100 review staging, and Agent 1 deterministic candidate pilot scaffolds.
+- Scaffolded: synthetic retrieval metrics, synthetic smoke training, benchmark metadata, NLP training-source inventory, A/B and multivariate experiment design, deterministic review queues, and BYOK request/response contracts.
+- Future/gated: real 500-call acquisition, raw media ingest, canonical gold repair/promotion, real training, real retrieval indexing, provider-backed review, market-data event studies, ASR/video review, and any model-quality claim.
 
 ## Portfolio / Technical Review Path
 

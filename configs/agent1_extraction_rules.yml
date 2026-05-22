@@ -1,0 +1,56 @@
+status: scaffold_only
+extractor_version: agent1_rules_v1
+canonical_output: deterministic_candidates_only
+raw_text_commit_allowed: false
+target_labels:
+  - guidance_revision
+  - analyst_pressure
+  - management_hedging
+  - uncertainty
+  - reassurance
+  - answer_shift
+  - neutral/no_signal
+rules:
+  guidance_revision:
+    speaker_role: management
+    requires:
+      - guidance_cue
+      - business_metric_or_outlook
+      - period
+    prior_comparator_required_for_full_revision: true
+    no_prior_comparator_bucket: prior_missing
+  analyst_pressure:
+    speaker_role: analyst
+    section: qa
+    requires:
+      - pressure_cue
+      - business_topic
+    analyst_only_unpaired_question_bucket: analyst_only_unpaired
+  management_hedging:
+    speaker_role: management
+    suppress:
+      - safe_harbor
+      - non_gaap
+      - operator_text
+  uncertainty:
+    suppress:
+      - safe_harbor
+      - transcript_disclaimer
+  reassurance:
+    speaker_role: management
+    generic_optimism_bucket: generic_optimism
+  answer_shift:
+    section: qa
+    requires:
+      - analyst_question
+      - following_management_answer
+    shift_types:
+      - direct_answer
+      - partial_answer
+      - deflection
+      - refusal_to_quantify
+      - reframing
+      - hedged_answer
+      - reassuring_answer
+      - topic_shift
+      - prepared_remarks_repeat

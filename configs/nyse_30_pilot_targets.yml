@@ -1,0 +1,721 @@
+targets:
+- case_id: nyse30_jpm_2023_plus
+  ticker: JPM
+  company_name: JPMorgan Chase & Co.
+  exchange: NYSE
+  sector: Financials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_wmt_2023_plus
+  ticker: WMT
+  company_name: Walmart Inc.
+  exchange: NYSE
+  sector: Consumer Staples
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_hd_2023_plus
+  ticker: HD
+  company_name: The Home Depot, Inc.
+  exchange: NYSE
+  sector: Consumer Discretionary
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_jnj_2023_plus
+  ticker: JNJ
+  company_name: Johnson & Johnson
+  exchange: NYSE
+  sector: Health Care
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_xom_2023_plus
+  ticker: XOM
+  company_name: Exxon Mobil Corporation
+  exchange: NYSE
+  sector: Energy
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_bac_2023_plus
+  ticker: BAC
+  company_name: Bank of America Corporation
+  exchange: NYSE
+  sector: Financials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_gs_2023_plus
+  ticker: GS
+  company_name: The Goldman Sachs Group, Inc.
+  exchange: NYSE
+  sector: Financials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_ms_2023_plus
+  ticker: MS
+  company_name: Morgan Stanley
+  exchange: NYSE
+  sector: Financials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_blk_2023_plus
+  ticker: BLK
+  company_name: BlackRock, Inc.
+  exchange: NYSE
+  sector: Financials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_axp_2023_plus
+  ticker: AXP
+  company_name: American Express Company
+  exchange: NYSE
+  sector: Financials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_crm_2023_plus
+  ticker: CRM
+  company_name: Salesforce, Inc.
+  exchange: NYSE
+  sector: Information Technology
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_orcl_2023_plus
+  ticker: ORCL
+  company_name: Oracle Corporation
+  exchange: NYSE
+  sector: Information Technology
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_ibm_2023_plus
+  ticker: IBM
+  company_name: International Business Machines Corporation
+  exchange: NYSE
+  sector: Information Technology
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_now_2023_plus
+  ticker: NOW
+  company_name: ServiceNow, Inc.
+  exchange: NYSE
+  sector: Information Technology
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_net_2023_plus
+  ticker: NET
+  company_name: Cloudflare, Inc.
+  exchange: NYSE
+  sector: Information Technology
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_lly_2023_plus
+  ticker: LLY
+  company_name: Eli Lilly and Company
+  exchange: NYSE
+  sector: Health Care
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_mrk_2023_plus
+  ticker: MRK
+  company_name: Merck & Co., Inc.
+  exchange: NYSE
+  sector: Health Care
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_pfe_2023_plus
+  ticker: PFE
+  company_name: Pfizer Inc.
+  exchange: NYSE
+  sector: Health Care
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_unh_2023_plus
+  ticker: UNH
+  company_name: UnitedHealth Group Incorporated
+  exchange: NYSE
+  sector: Health Care
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_cvs_2023_plus
+  ticker: CVS
+  company_name: CVS Health Corporation
+  exchange: NYSE
+  sector: Health Care
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_ba_2023_plus
+  ticker: BA
+  company_name: The Boeing Company
+  exchange: NYSE
+  sector: Industrials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_cat_2023_plus
+  ticker: CAT
+  company_name: Caterpillar Inc.
+  exchange: NYSE
+  sector: Industrials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_de_2023_plus
+  ticker: DE
+  company_name: Deere & Company
+  exchange: NYSE
+  sector: Industrials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_ge_2023_plus
+  ticker: GE
+  company_name: GE Aerospace
+  exchange: NYSE
+  sector: Industrials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_hon_2023_plus
+  ticker: HON
+  company_name: Honeywell International Inc.
+  exchange: NYSE
+  sector: Industrials
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_ko_2023_plus
+  ticker: KO
+  company_name: The Coca-Cola Company
+  exchange: NYSE
+  sector: Consumer Staples
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_mcd_2023_plus
+  ticker: MCD
+  company_name: McDonald's Corporation
+  exchange: NYSE
+  sector: Consumer Discretionary
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_nke_2023_plus
+  ticker: NKE
+  company_name: NIKE, Inc.
+  exchange: NYSE
+  sector: Consumer Discretionary
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_dis_2023_plus
+  ticker: DIS
+  company_name: The Walt Disney Company
+  exchange: NYSE
+  sector: Communication Services
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false
+- case_id: nyse30_t_2023_plus
+  ticker: T
+  company_name: AT&T Inc.
+  exchange: NYSE
+  sector: Communication Services
+  primary_target_period: latest_annual_or_q4_2023_plus
+  fallback_periods:
+  - previous_annual_or_q4_2023_plus
+  - next_available_quarter_2023_plus
+  source_candidates:
+  - official_ir_candidate
+  - sec_edgar_metadata_candidate
+  - manual_local_pending
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  rights_status: unknown
+  raw_transcript_allowed: false
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  commit_allowed: false
+  training_allowed: false
+  eval_allowed: false
+  blocked_reason: Metadata-only target until rights are cleared.
+  provenance_complete: false

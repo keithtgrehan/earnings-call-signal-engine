@@ -1,0 +1,16 @@
+buckets:
+  - boilerplate_safe_harbor
+  - boilerplate_non_gaap
+  - operator_text
+  - transcript_disclaimer
+  - generic_optimism
+  - historical_only
+  - normal_analyst_question
+  - analyst_only_unpaired
+  - duplicate_repeated_text
+  - metric_mismatch
+  - period_mismatch
+  - speaker_role_unknown
+  - source_unregistered
+  - provenance_missing
+  - prior_missing

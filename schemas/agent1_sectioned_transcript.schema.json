@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Engine Agent 1 Sectioned Transcript Metadata",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["case_id", "source_file", "source_sha256", "sections", "speaker_turns", "raw_text_committed"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "source_file": {"type": "string"},
+    "source_sha256": {"type": "string", "pattern": "^sha256:"},
+    "sections": {"type": "array"},
+    "speaker_turns": {"type": "array"},
+    "raw_text_committed": {"const": false}
+  }
+}

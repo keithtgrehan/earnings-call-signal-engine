@@ -17,7 +17,7 @@ TIERED_TRANSCRIPT_TARGETS ?= data/corpus/tiered_transcript_targets.csv
 TIERED_TRANSCRIPT_DISCOVERY_CONFIG ?= data/corpus/transcript_source_discovery.yaml
 DISCOVERED_TRANSCRIPT_SOURCES ?= data/corpus/discovered_transcript_sources.csv
 
-.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check corpus-safe-check
+.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check build-nyse-30-pilot validate-nyse-30-pilot build-agent5-source-queue validate-agent5-source-queue register-manual-local-batch validate-manual-local-registry report-agent5-acquisition-status agent5-acquisition-check gold-audit first-100-review-queue promotion-manifest-check first-100-review-metrics agent1-validate-sources agent1-section agent1-candidates agent1-dedupe agent1-review-queue agent1-error-analysis agent1-pilot corpus-safe-check
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -286,9 +286,64 @@ experiment-design-check:
 event-study-join-check:
 	$(PYTHON) scripts/validate_event_study_join_policy.py --path configs/event_study_join_policy.example.yml
 
+build-nyse-30-pilot:
+	$(PYTHON) scripts/build_nyse_30_pilot_queue.py
+
+validate-nyse-30-pilot:
+	$(PYTHON) scripts/validate_nyse_30_pilot.py --path configs/nyse_30_pilot_targets.yml
+
+build-agent5-source-queue:
+	$(PYTHON) scripts/build_agent5_source_queue.py --targets configs/nyse_30_pilot_targets.yml --out /tmp/signal_engine_agent5_source_queue.json
+
+validate-agent5-source-queue:
+	$(PYTHON) scripts/validate_agent5_source_queue.py --targets configs/nyse_30_pilot_targets.yml
+
+register-manual-local-batch:
+	$(PYTHON) scripts/register_manual_local_batch.py
+
+validate-manual-local-registry:
+	$(PYTHON) scripts/validate_manual_local_registry.py
+
+report-agent5-acquisition-status:
+	$(PYTHON) scripts/report_agent5_acquisition_status.py
+
+agent5-acquisition-check: build-nyse-30-pilot validate-nyse-30-pilot build-agent5-source-queue validate-agent5-source-queue register-manual-local-batch validate-manual-local-registry report-agent5-acquisition-status
+
+gold-audit:
+	$(PYTHON) scripts/audit_gold_labels.py
+
+first-100-review-queue:
+	$(PYTHON) scripts/build_first_100_review_queue.py
+
+promotion-manifest-check:
+	$(PYTHON) scripts/validate_promotion_manifest.py
+
+first-100-review-metrics:
+	$(PYTHON) scripts/report_first_100_review_metrics.py
+
+agent1-validate-sources:
+	$(PYTHON) scripts/agent1_validate_manual_local_sources.py
+
+agent1-section:
+	$(PYTHON) scripts/agent1_section_transcripts.py
+
+agent1-candidates:
+	$(PYTHON) scripts/agent1_generate_candidates.py
+
+agent1-dedupe:
+	$(PYTHON) scripts/agent1_deduplicate_candidates.py
+
+agent1-review-queue:
+	$(PYTHON) scripts/agent1_build_review_queue.py
+
+agent1-error-analysis:
+	$(PYTHON) scripts/agent1_error_analysis.py
+
+agent1-pilot: agent1-validate-sources agent1-section agent1-candidates agent1-dedupe agent1-review-queue agent1-error-analysis
+
 rights-check: registry-check claims-check restricted-artifacts-check
 
-corpus-safe-check: rights-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check
+corpus-safe-check: rights-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check agent5-acquisition-check promotion-manifest-check
 
 discover-tiered-transcript-sources:
 	$(PYTHON) tools/discover_transcript_sources.py --targets-csv $(TIERED_TRANSCRIPT_TARGETS) --config $(TIERED_TRANSCRIPT_DISCOVERY_CONFIG) --output-csv $(DISCOVERED_TRANSCRIPT_SOURCES) --report-path reports/transcript_source_discovery.md

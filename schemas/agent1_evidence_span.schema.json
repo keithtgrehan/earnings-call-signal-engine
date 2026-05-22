@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Engine Agent 1 Evidence Span",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "source_file", "source_sha256", "span_ref", "char_start", "char_end", "provenance_hash", "raw_text_committed"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "source_file": {"type": "string"},
+    "source_sha256": {"type": "string", "pattern": "^sha256:"},
+    "span_ref": {"type": "string"},
+    "char_start": {"type": "integer", "minimum": 0},
+    "char_end": {"type": "integer", "minimum": 0},
+    "provenance_hash": {"type": "string", "pattern": "^sha256:"},
+    "raw_text_committed": {"const": false}
+  }
+}
