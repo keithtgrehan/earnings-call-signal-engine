@@ -1,0 +1,62 @@
+event_study_case_registry_version: event_study_cases_v1
+event_study_cases:
+  - event_id: synthetic_example_q1_2026_call
+    case_id: SYNTH-Q1-2026
+    company: Example Co
+    ticker: EXM
+    fiscal_period: Q1 2026
+    event_date: "2026-04-25"
+    event_timestamp: "2026-04-25T20:30:00Z"
+    event_time_zone: UTC
+    event_window: "[0,+1]"
+    estimation_window: "[-120,-20] prior trading days"
+    expected_return_model: market_adjusted
+    controls:
+      earnings_surprise: required_when_available
+      sector_return: required
+      market_return: required
+      size_liquidity: required_when_available
+      time_of_day: required_when_available
+    outputs:
+      abnormal_return: exploratory_only
+      cumulative_abnormal_return: exploratory_only
+      confidence_interval: exploratory_only
+    failure_modes:
+      - confounding_company_news
+      - simultaneous_macro_shock
+      - noisy_after_hours_reaction
+      - earnings_surprise_dominates_transcript_signal
+      - small_sample_false_positive
+      - survivorship_or_ticker_selection_bias
+    benchmark_gating:
+      minimum_human_reviewed_labels: 100
+      require_event_coverage_report: true
+      require_missing_price_data_rate: true
+      require_control_coverage_report: true
+    exploratory_only: true
+    claim_limitations: "Exploratory evaluation context only; no causal, alpha, trading-performance, live-execution, production ML, or statistical-significance claim."
+    source_id: synthetic_event_metadata_only
+    source_name: Synthetic Event Study Metadata Fixture
+    source_url_or_path: synthetic://event-study/example
+    source_type: synthetic_fixture
+    rights_tier: public_domain
+    license_or_terms_summary: "Synthetic metadata fixture created for validator tests; no raw transcript, audio, video, or price data."
+    allowed_storage: metadata_only
+    allowed_commit: true
+    commit_allowed: true
+    allowed_training_use: "no"
+    training_allowed: "no"
+    allowed_eval_use: benchmark_only
+    eval_allowed: benchmark_only
+    raw_body_allowed: false
+    metadata_only: true
+    acquisition_method: synthetic_metadata_fixture_no_download
+    robots_or_terms_checked: true
+    source_terms_checked: true
+    paywall_or_login_status: not_applicable_synthetic
+    robots_status: not_applicable_synthetic
+    provenance_hash: sha256:7acfb7d8701f9344990b17533654bc4984c34631d30be58256a57387a62c6efa
+    last_checked_at: "2026-05-22"
+    reviewer_or_operator: codex
+    blocked_reason: ""
+    notes: "Metadata-only event-study scaffold fixture."

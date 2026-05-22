@@ -36,7 +36,7 @@ SOURCE_TYPES = {
 ALLOWED_USE_VALUES = {"yes", "no", "review_required", "benchmark_only", "retrieval_only"}
 ALLOWED_STORAGE_VALUES = {"metadata_only", "raw_allowed_local_only", "raw_allowed_commit", "blocked"}
 
-REQUIRED_RIGHTS_FIELDS = (
+REQUIRED_BASE_RIGHTS_FIELDS = (
     "source_id",
     "source_name",
     "source_url_or_path",
@@ -44,17 +44,9 @@ REQUIRED_RIGHTS_FIELDS = (
     "rights_tier",
     "license_or_terms_summary",
     "allowed_storage",
-    "allowed_commit",
-    "commit_allowed",
-    "allowed_training_use",
-    "training_allowed",
-    "allowed_eval_use",
-    "eval_allowed",
     "raw_body_allowed",
     "metadata_only",
     "acquisition_method",
-    "robots_or_terms_checked",
-    "source_terms_checked",
     "paywall_or_login_status",
     "robots_status",
     "provenance_hash",
@@ -62,6 +54,13 @@ REQUIRED_RIGHTS_FIELDS = (
     "reviewer_or_operator",
     "blocked_reason",
     "notes",
+)
+
+ALIAS_FIELD_GROUPS = (
+    ("allowed_commit", "commit_allowed"),
+    ("allowed_training_use", "training_allowed"),
+    ("allowed_eval_use", "eval_allowed"),
+    ("robots_or_terms_checked", "source_terms_checked"),
 )
 
 RESTRICTED_PATH_MARKERS = (
@@ -173,13 +172,27 @@ def explicit_use(row: dict[str, Any], primary: str, alias: str | None = None) ->
     return None
 
 
+def normalize_rights_aliases(row: dict[str, Any]) -> dict[str, Any]:
+    normalized = dict(row)
+    for primary, alias in ALIAS_FIELD_GROUPS:
+        if primary not in normalized and alias in normalized:
+            normalized[primary] = normalized[alias]
+        if alias not in normalized and primary in normalized:
+            normalized[alias] = normalized[primary]
+    return normalized
+
+
 def validate_resource_rows(rows: list[dict[str, Any]]) -> list[str]:
     errors: list[str] = []
     seen: set[str] = set()
-    for index, row in enumerate(rows, start=1):
-        for field in REQUIRED_RIGHTS_FIELDS:
+    for index, original_row in enumerate(rows, start=1):
+        row = normalize_rights_aliases(original_row)
+        for field in REQUIRED_BASE_RIGHTS_FIELDS:
             if field not in row:
                 errors.append(f"row {index}: missing required field {field}")
+        for primary, alias in ALIAS_FIELD_GROUPS:
+            if primary not in original_row and alias not in original_row:
+                errors.append(f"row {index}: missing required field {primary} or {alias}")
 
         source_id = str(row.get("source_id", "")).strip()
         if not source_id:

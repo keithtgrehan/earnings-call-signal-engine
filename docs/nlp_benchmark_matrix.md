@@ -23,4 +23,6 @@ External dataset candidates include Financial PhraseBank, FiQA, FinQA, ConvFinQA
 
 Benchmark rows cannot promote to gold labels. They can support calibration, regression checks, and comparator reports only.
 
+`src/signal_engine/benchmarks/` now contains a lightweight registry helper for loading benchmark rows, grouping benchmark types, and enforcing no-gold-write/default benchmark-only guardrails. It does not download datasets, train models, or call provider APIs.
+
 No production ML quality, alpha, trading, or statistical-significance claims are supported.

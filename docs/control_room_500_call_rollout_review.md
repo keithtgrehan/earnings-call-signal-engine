@@ -12,6 +12,8 @@ ruff check . || true
 git diff --check
 ```
 
+`make corpus-safe-check` includes the rights registry, claims matrix, restricted-artifact, corpus manifest, retrieval schema, event-study metadata, benchmark registry, BYOK config, and safe training-candidate export checks. It does not download data or write gold labels.
+
 ## Stop Conditions
 
 - Unknown or missing rights tier.

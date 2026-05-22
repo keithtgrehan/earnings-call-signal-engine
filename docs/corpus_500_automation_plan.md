@@ -69,7 +69,7 @@ No statistical-significance claim is permitted until sample size, event coverage
 
 ## Built vs Scaffolded
 
-- Built: safe registry validation, restricted artifact checking, retrieval schema validation, benchmark registry validation, BYOK config validation, and Make check targets.
+- Built: safe registry validation, restricted artifact checking, retrieval schema validation, event-study metadata validation, benchmark registry validation, BYOK config validation, and Make check targets.
 - Scaffolded: YouTube metadata registration, licensed vendor placeholder, manual-local file registration, benchmark registry, BYOK reviewer config.
 - Gated: raw ingest, ASR, sparse video review, retrieval/reranking experiments, BYOK LLM review.
 

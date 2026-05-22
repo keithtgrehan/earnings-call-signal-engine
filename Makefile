@@ -17,7 +17,7 @@ TIERED_TRANSCRIPT_TARGETS ?= data/corpus/tiered_transcript_targets.csv
 TIERED_TRANSCRIPT_DISCOVERY_CONFIG ?= data/corpus/transcript_source_discovery.yaml
 DISCOVERED_TRANSCRIPT_SOURCES ?= data/corpus/discovered_transcript_sources.csv
 
-.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check benchmark-sanity-check corpus-safe-check
+.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check event-study-check benchmark-sanity-check corpus-safe-check
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -246,6 +246,9 @@ corpus-manifest-check:
 retrieval-schema-check:
 	$(PYTHON) scripts/validate_retrieval_objects.py --schema schemas/retrieval_object.schema.json
 
+event-study-check:
+	$(PYTHON) scripts/validate_event_study_cases.py --path configs/event_study_cases.example.yml
+
 benchmark-sanity-check:
 	$(PYTHON) scripts/validate_benchmark_registry.py --path configs/benchmark_registry.example.yml
 	$(PYTHON) scripts/validate_byok_reviewer_config.py --path configs/byok_reviewer.example.yml
@@ -253,7 +256,7 @@ benchmark-sanity-check:
 
 rights-check: registry-check claims-check restricted-artifacts-check
 
-corpus-safe-check: rights-check corpus-manifest-check retrieval-schema-check benchmark-sanity-check
+corpus-safe-check: rights-check corpus-manifest-check retrieval-schema-check event-study-check benchmark-sanity-check
 
 discover-tiered-transcript-sources:
 	$(PYTHON) tools/discover_transcript_sources.py --targets-csv $(TIERED_TRANSCRIPT_TARGETS) --config $(TIERED_TRANSCRIPT_DISCOVERY_CONFIG) --output-csv $(DISCOVERED_TRANSCRIPT_SOURCES) --report-path reports/transcript_source_discovery.md

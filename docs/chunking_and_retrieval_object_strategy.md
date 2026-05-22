@@ -21,6 +21,10 @@ Retrieval objects require object ID, object type, case ID, company, fiscal perio
 - Retrieval outputs are reviewer support only.
 - Event-study joins must preserve source/event provenance and must not imply causality.
 
+## Local Scaffold
+
+`src/signal_engine/retrieval/` now contains lightweight helpers for constructing and validating retrieval-object dictionaries from explicit metadata. The helpers do not embed, rank with a model, call a vector database, or override deterministic extraction; they only enforce object type, provenance, rights, and priority guardrails before future serialization.
+
 ## Event-Study Linkage
 
 Event-aligned chunks can be joined to event-study metadata only after call timestamp/date, ticker, fiscal period, estimation window, event window, expected return model, and controls are explicit. Outputs can include AR/CAR fields and exploratory confidence intervals, but they remain evaluation context until sample size and human-reviewed label quality are sufficient.

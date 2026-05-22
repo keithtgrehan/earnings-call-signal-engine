@@ -6,7 +6,15 @@
   "additionalProperties": true,
   "required": [
     "event_id",
+    "event_date",
     "event_window",
+    "estimation_window",
+    "expected_return_model",
+    "controls",
+    "outputs",
+    "failure_modes",
+    "benchmark_gating",
+    "exploratory_only",
     "claim_limitations",
     "source_id",
     "source_name",
@@ -36,7 +44,27 @@
   ],
   "properties": {
     "event_id": {"type": "string"},
+    "event_date": {"type": "string"},
+    "event_timestamp": {"type": "string"},
     "event_window": {"type": "string"},
+    "estimation_window": {"type": "string"},
+    "expected_return_model": {
+      "type": "string",
+      "enum": ["market_adjusted", "sector_adjusted", "market_model"]
+    },
+    "controls": {
+      "type": "object",
+      "required": ["earnings_surprise", "sector_return", "market_return"],
+      "additionalProperties": true
+    },
+    "outputs": {
+      "type": "object",
+      "required": ["abnormal_return", "cumulative_abnormal_return"],
+      "additionalProperties": true
+    },
+    "failure_modes": {"type": "array", "items": {"type": "string"}},
+    "benchmark_gating": {"type": "object", "additionalProperties": true},
+    "exploratory_only": {"type": "boolean", "const": true},
     "claim_limitations": {"type": "string"},
     "source_id": {"type": "string"},
     "source_name": {"type": "string"},
