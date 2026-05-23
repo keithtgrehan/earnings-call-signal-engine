@@ -211,6 +211,22 @@ Current scaffold split:
 - Scaffolded: synthetic retrieval metrics, synthetic smoke training, benchmark metadata, NLP training-source inventory, A/B and multivariate experiment design, deterministic review queues, and BYOK request/response contracts.
 - Future/gated: real 500-call acquisition, raw media ingest, canonical gold repair/promotion, real training, real retrieval indexing, provider-backed review, market-data event studies, ASR/video review, and any model-quality claim.
 
+## Cross-domain NLP safety/research
+
+The cross-domain NLP safety work is docs/config/tests only. It adds research guardrails for finance NLP, dating-app assistive NLP, and multimodal affective cue metadata without model implementation, raw media ingestion, emotion truth claims, trading claims, or dating manipulation.
+
+Key docs:
+
+- `docs/research/multimodal_affective_cue_research.md`
+- `docs/multimodal_audit_layer.md`
+- `docs/legal/multimodal_rights_and_ai_act_guardrails.md`
+- `docs/research/cross_domain_nlp_affective_finance_dating_memo.md`
+- `docs/architecture/cross_domain_safe_nlp_architecture.md`
+- `docs/policies/red_lines_cross_domain_nlp.md`
+- `docs/evaluation/cross_domain_metrics.md`
+
+The scope remains transcript-first and reviewer-support only: no raw audio/video ingestion, no production emotion-recognition models, no true-emotion or deception claims, no biometric identity inference, no workplace/education emotion inference, no trading/alpha/buy/sell claims, and no dating manipulation scoring.
+
 ## Portfolio / Technical Review Path
 
 - `PORTFOLIO_README.md`
