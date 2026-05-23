@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IR/SEC Permitted Ingest Queue Row",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "candidate_id",
+    "case_id",
+    "source_type",
+    "source_url_or_ref",
+    "asset_type",
+    "allowed_storage",
+    "allowed_commit",
+    "allowed_eval_use",
+    "allowed_training_use",
+    "source_terms_checked",
+    "robots_checked",
+    "approval_ref",
+    "output_path_policy",
+    "blocked_if_missing"
+  ],
+  "properties": {
+    "candidate_id": { "type": "string", "minLength": 1 },
+    "case_id": { "type": "string", "minLength": 1 },
+    "source_type": { "type": "string" },
+    "source_url_or_ref": { "type": "string", "minLength": 1 },
+    "asset_type": { "type": "string", "enum": ["transcript", "audio", "video", "slides"] },
+    "allowed_storage": { "type": "string", "minLength": 1 },
+    "allowed_commit": { "type": "boolean" },
+    "allowed_eval_use": { "type": "boolean" },
+    "allowed_training_use": { "type": "boolean" },
+    "source_terms_checked": { "type": "boolean", "const": true },
+    "robots_checked": { "type": "boolean", "const": true },
+    "approval_ref": { "type": "string", "minLength": 1 },
+    "output_path_policy": { "type": "string", "minLength": 1 },
+    "blocked_if_missing": { "type": "boolean", "const": true }
+  },
+  "description": "Rows exist only after raw asset permission, source terms, robots checks, downstream-use flags, and approval/config references are explicit. Unknown rights, restricted sources, vendor rows without license config, and YouTube raw media remain blocked."
+}
