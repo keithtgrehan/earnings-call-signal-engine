@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IR/SEC Asset Availability",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "transcript_status",
+    "audio_status",
+    "video_status",
+    "slides_status",
+    "official_ir_candidate",
+    "sec_candidate",
+    "exhibit_candidate",
+    "manual_local_registered",
+    "permitted_ingest_available",
+    "blocked_reason_code",
+    "provenance_complete"
+  ],
+  "properties": {
+    "transcript_status": { "type": "string" },
+    "audio_status": { "type": "string" },
+    "video_status": { "type": "string" },
+    "slides_status": { "type": "string" },
+    "official_ir_candidate": { "type": "boolean" },
+    "sec_candidate": { "type": "boolean" },
+    "exhibit_candidate": { "type": "boolean" },
+    "manual_local_registered": { "type": "boolean" },
+    "permitted_ingest_available": { "type": "boolean" },
+    "blocked_reason_code": { "type": "string" },
+    "provenance_complete": { "type": "boolean" }
+  },
+  "description": "Availability indicators are metadata only. They do not include raw transcript, audio, video, slide, or exhibit body content."
+}

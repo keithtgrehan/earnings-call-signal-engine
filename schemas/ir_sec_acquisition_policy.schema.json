@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IR/SEC Acquisition Policy",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "enabled",
+    "network_enabled",
+    "exchange",
+    "lookback_years",
+    "default_mode",
+    "unknown_rights_default",
+    "require_source_terms_check",
+    "require_robots_check",
+    "require_manual_approval_for_raw",
+    "allow_raw_transcript_ingest",
+    "allow_raw_audio_ingest",
+    "allow_raw_video_ingest",
+    "allow_raw_slides_ingest",
+    "commit_raw_assets",
+    "sec",
+    "official_ir",
+    "output"
+  ],
+  "properties": {
+    "enabled": { "type": "boolean", "const": false },
+    "network_enabled": { "type": "boolean", "const": false },
+    "exchange": { "type": "string", "const": "NYSE" },
+    "lookback_years": { "type": "integer", "const": 5 },
+    "default_mode": { "type": "string", "const": "metadata_only" },
+    "unknown_rights_default": { "type": "string", "const": "blocked" },
+    "require_source_terms_check": { "type": "boolean", "const": true },
+    "require_robots_check": { "type": "boolean", "const": true },
+    "require_manual_approval_for_raw": { "type": "boolean", "const": true },
+    "allow_raw_transcript_ingest": { "type": "boolean", "const": false },
+    "allow_raw_audio_ingest": { "type": "boolean", "const": false },
+    "allow_raw_video_ingest": { "type": "boolean", "const": false },
+    "allow_raw_slides_ingest": { "type": "boolean", "const": false },
+    "commit_raw_assets": { "type": "boolean", "const": false },
+    "sec": {
+      "type": "object",
+      "required": ["enabled", "max_requests_per_second", "user_agent", "cache_dir", "raw_filing_body_downloads", "target_forms"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "max_requests_per_second": { "type": "number", "maximum": 10 },
+        "user_agent": { "type": "string", "minLength": 1 },
+        "cache_dir": { "type": "string" },
+        "raw_filing_body_downloads": { "type": "boolean", "const": false },
+        "target_forms": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "official_ir": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "max_requests_per_second_per_domain",
+        "domain_allowlist",
+        "raw_body_allowed",
+        "source_terms_checked",
+        "robots_checked"
+      ],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "max_requests_per_second_per_domain": { "type": "number", "minimum": 0 },
+        "domain_allowlist": { "type": "array", "items": { "type": "string" } },
+        "raw_body_allowed": { "type": "boolean", "const": false },
+        "source_terms_checked": { "type": "boolean" },
+        "robots_checked": { "type": "boolean" }
+      }
+    },
+    "output": {
+      "type": "object",
+      "required": ["write_metadata_reports", "write_raw_assets"],
+      "properties": {
+        "write_metadata_reports": { "type": "boolean" },
+        "write_raw_assets": { "type": "boolean", "const": false }
+      }
+    }
+  },
+  "description": "Unknown rights block raw use. SEC remains metadata-only by default. Official IR raw acquisition requires checked source terms, checked robots, explicit approval, and disabled raw asset commits."
+}

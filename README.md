@@ -189,6 +189,7 @@ Key docs:
 - `docs/control_room_codex_rollout_review.md`
 - `docs/corpus_500_automation_plan.md`
 - `docs/source_rights_and_media_policy.md`
+- `docs/rights_gated_ir_sec_acquisition_nyse5y.md`
 - `docs/audio_video_ingest_strategy.md`
 - `docs/chunking_and_retrieval_object_strategy.md`
 - `docs/nlp_benchmark_matrix.md`
@@ -201,6 +202,8 @@ Safe scaffold checks:
 ```bash
 make corpus-safe-check
 ```
+
+The IR/SEC workflow is rights-gated source discovery, metadata-first, and permitted acquisition only. Manual-local remains the safest path for actual transcript bodies when source terms are unclear, and SEC/IR discovery does not guarantee transcript access.
 
 The rights-safe 500-call scaffold is documentation/config/validator infrastructure only: no raw acquisition, no production model training, and no BYOK reviewer execution has been performed. Training-readiness checks are now represented, but they fail closed unless human-reviewed gold labels, source rights, and artifact policies pass.
 
