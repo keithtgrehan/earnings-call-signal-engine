@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cross-Domain Resource Registry Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "domain",
+    "modality",
+    "task",
+    "source_type",
+    "license_status",
+    "allowed_use",
+    "benchmark_only_default",
+    "training_allowed",
+    "signal_engine_relevance",
+    "dating_relevance",
+    "affective_relevance",
+    "risk_level",
+    "notes"
+  ],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "domain": {"enum": ["finance", "dating", "affective", "cross_domain"]},
+    "modality": {"enum": ["text", "audio", "video", "multimodal", "metadata"]},
+    "task": {"type": "string", "minLength": 1},
+    "source_type": {
+      "enum": ["model", "dataset", "benchmark", "lexicon", "tool", "placeholder"]
+    },
+    "license_status": {"type": "string", "minLength": 1},
+    "allowed_use": {"type": "string", "minLength": 1},
+    "benchmark_only_default": {"type": "boolean"},
+    "training_allowed": {"type": "boolean"},
+    "signal_engine_relevance": {"type": "string"},
+    "dating_relevance": {"type": "string"},
+    "affective_relevance": {"type": "string"},
+    "risk_level": {"enum": ["low", "medium", "high"]},
+    "notes": {"type": "string", "minLength": 1}
+  }
+}

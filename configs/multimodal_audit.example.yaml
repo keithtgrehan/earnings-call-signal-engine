@@ -1,0 +1,39 @@
+enabled: false
+transcript_only_default: true
+flagged_windows_only: true
+allow_raw_audio: false
+allow_raw_video: false
+require_rights_clearance: true
+canonical_status: reviewer_support_only
+
+banned_outputs:
+  - emotion_label
+  - deception_score
+  - manipulation_score
+  - mental_health_label
+  - biometric_identity
+  - personality_score
+  - sensitive_trait_inference
+  - workplace_emotion_inference
+  - education_emotion_inference
+
+allowed_audio_features:
+  - pause_duration
+  - speech_rate
+  - filler_count
+  - pitch_f0_summary
+  - energy_summary
+  - asr_confidence
+  - diarization_confidence
+  - overlap_count
+
+allowed_video_features:
+  - action_unit_metadata
+  - head_pose_metadata
+  - gaze_direction_metadata
+  - pose_landmark_metadata
+  - motion_intensity
+  - shot_change_count
+
+allowed_output_status:
+  - reviewer_support_only

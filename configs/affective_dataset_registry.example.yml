@@ -1,0 +1,146 @@
+registry_version: affective_dataset_registry_v1
+entries:
+  - name: GoEmotions
+    modality: text
+    task: text affect annotation benchmark
+    license: license review required
+    allowed_use: Benchmark-only label taxonomy reference.
+    benchmark_only_default: true
+    training_allowed: false
+    raw_data_allowed: false
+    sensitive_biometric_risk: false
+    workplace_education_prohibited_use: true
+    signal_engine_relevance: Research caution only; no trading or alpha claims.
+    dating_app_relevance: Safe only with opt-in consent and privacy-preserving user-owned review.
+    evidence_provenance_requirements: Dataset version, license notes, benchmark split, and label mapping notes are required.
+    failure_modes: Annotator labels can be culturally variable and are not internal-state facts.
+    legal_notes: Observable cues only; no true internal emotion inference; no deception detection; no biometric identity inference; workplace/education emotion inference prohibited.
+    source_url: https://github.com/google-research/google-research/tree/master/goemotions
+  - name: MELD
+    modality: multimodal
+    task: dialogue affect benchmark
+    license: license review required
+    allowed_use: Benchmark-only dialogue reference.
+    benchmark_only_default: true
+    training_allowed: false
+    raw_data_allowed: false
+    sensitive_biometric_risk: true
+    workplace_education_prohibited_use: true
+    signal_engine_relevance: not_relevant
+    dating_app_relevance: Safe only with opt-in consent and privacy-preserving user-owned review.
+    evidence_provenance_requirements: Source terms, media rights, split metadata, and label caveats are required.
+    failure_modes: Scripted dialogue and entertainment media can transfer poorly to finance or assistive messaging.
+    legal_notes: Observable cues only; no true internal emotion inference; no deception detection; no biometric identity inference; workplace/education emotion inference prohibited.
+    source_url: https://affective-meld.github.io/
+  - name: CMU-MOSEI
+    modality: multimodal
+    task: multimodal sentiment benchmark
+    license: license review required
+    allowed_use: Benchmark-only multimodal reference.
+    benchmark_only_default: true
+    training_allowed: false
+    raw_data_allowed: false
+    sensitive_biometric_risk: true
+    workplace_education_prohibited_use: true
+    signal_engine_relevance: not_relevant
+    dating_app_relevance: Safe only with opt-in consent and privacy-preserving user-owned review.
+    evidence_provenance_requirements: License notes, split metadata, media rights, and benchmark-only status are required.
+    failure_modes: Online-video domain and sentiment labels can over-anchor reviewer interpretation.
+    legal_notes: Observable cues only; no true internal emotion inference; no deception detection; no biometric identity inference; workplace/education emotion inference prohibited.
+    source_url: http://multicomp.cs.cmu.edu/resources/cmu-mosei-dataset/
+  - name: CMU-MOSI
+    modality: multimodal
+    task: multimodal sentiment benchmark
+    license: license review required
+    allowed_use: Benchmark-only multimodal reference.
+    benchmark_only_default: true
+    training_allowed: false
+    raw_data_allowed: false
+    sensitive_biometric_risk: true
+    workplace_education_prohibited_use: true
+    signal_engine_relevance: not_relevant
+    dating_app_relevance: Safe only with opt-in consent and privacy-preserving user-owned review.
+    evidence_provenance_requirements: License notes, split metadata, media rights, and benchmark-only status are required.
+    failure_modes: Small benchmark size and source domain can misrepresent real review conditions.
+    legal_notes: Observable cues only; no true internal emotion inference; no deception detection; no biometric identity inference; workplace/education emotion inference prohibited.
+    source_url: http://multicomp.cs.cmu.edu/resources/cmu-mosi-dataset/
+  - name: IEMOCAP
+    modality: multimodal
+    task: speech and dialogue affect benchmark
+    license: license review required
+    allowed_use: Benchmark-only speech/dialogue reference.
+    benchmark_only_default: true
+    training_allowed: false
+    raw_data_allowed: false
+    sensitive_biometric_risk: true
+    workplace_education_prohibited_use: true
+    signal_engine_relevance: not_relevant
+    dating_app_relevance: Safe only with opt-in consent and privacy-preserving user-owned review.
+    evidence_provenance_requirements: License approval, source terms, participant-rights notes, and split metadata are required.
+    failure_modes: Acted or elicited conditions can overstate transfer to real-world calls.
+    legal_notes: Observable cues only; no true internal emotion inference; no deception detection; no biometric identity inference; workplace/education emotion inference prohibited.
+    source_url: https://sail.usc.edu/iemocap/
+  - name: MSP-Podcast
+    modality: audio
+    task: speech affect benchmark
+    license: license review required
+    allowed_use: Benchmark-only speech reference.
+    benchmark_only_default: true
+    training_allowed: false
+    raw_data_allowed: false
+    sensitive_biometric_risk: true
+    workplace_education_prohibited_use: true
+    signal_engine_relevance: not_relevant
+    dating_app_relevance: Safe only with opt-in consent and privacy-preserving user-owned review.
+    evidence_provenance_requirements: License approval, source terms, speaker/privacy notes, and split metadata are required.
+    failure_modes: Podcast domain, speaker style, and recording quality may not transfer to earnings calls.
+    legal_notes: Observable cues only; no true internal emotion inference; no deception detection; no biometric identity inference; workplace/education emotion inference prohibited.
+    source_url: https://ecs.utdallas.edu/research/researchlabs/msp-lab/MSP-Podcast.html
+  - name: DAIC-WOZ health/sensitive caution only
+    modality: multimodal
+    task: health-context caution reference
+    license: excluded sensitive health context
+    allowed_use: Ethics and legal caution only; blocked for product training and app use.
+    benchmark_only_default: true
+    training_allowed: false
+    raw_data_allowed: false
+    sensitive_biometric_risk: true
+    workplace_education_prohibited_use: true
+    signal_engine_relevance: not_relevant
+    dating_app_relevance: not_relevant
+    evidence_provenance_requirements: Exclusion rationale and health/sensitive context notes are required.
+    failure_modes: Clinical framing creates unacceptable transfer risk for non-health products.
+    legal_notes: Observable cues only; no true internal emotion inference; no deception detection; no biometric identity inference; workplace/education emotion inference prohibited.
+    source_url: https://dcapswoz.ict.usc.edu/
+  - name: rights-cleared manual-local earnings-call metadata placeholder
+    modality: multimodal
+    task: flagged-window earnings-call cue metadata
+    license: explicit rights-cleared record required
+    allowed_use: Manual-local flagged-window metadata only after rights and consent/source-rights registration.
+    benchmark_only_default: false
+    training_allowed: false
+    raw_data_allowed: false
+    sensitive_biometric_risk: true
+    workplace_education_prohibited_use: true
+    signal_engine_relevance: Reviewer-support metadata only; no trading or alpha claims.
+    dating_app_relevance: not_relevant
+    evidence_provenance_requirements: Rights record, transcript window, deterministic signal IDs, extractor version, and storage status are required.
+    failure_modes: Source-rights gaps, reviewer anchoring, and media-quality problems can make metadata unsafe.
+    legal_notes: Observable cues only; no true internal emotion inference; no deception detection; no biometric identity inference; workplace/education emotion inference prohibited.
+    source_url: repo-local:manual-local-placeholder
+  - name: user-owned dating messages placeholder
+    modality: text
+    task: user-owned assistive message review
+    license: explicit opt-in consent required
+    allowed_use: Local/private opt-in clarity, safety, harassment, toxicity, and pressure-language review.
+    benchmark_only_default: false
+    training_allowed: false
+    raw_data_allowed: false
+    sensitive_biometric_risk: false
+    workplace_education_prohibited_use: true
+    signal_engine_relevance: not_relevant
+    dating_app_relevance: Safe only with opt-in consent and privacy-preserving user-owned review.
+    evidence_provenance_requirements: User ownership, opt-in consent, deletion/export status, and PII minimization notes are required.
+    failure_modes: Personal-data leakage and manipulative drafting can harm users if guardrails fail.
+    legal_notes: Observable cues only; no true internal emotion inference; no deception detection; no biometric identity inference; workplace/education emotion inference prohibited.
+    source_url: repo-local:dating-placeholder
