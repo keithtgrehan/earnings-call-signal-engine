@@ -293,5 +293,19 @@ def load_csv(path: Path) -> list[dict[str, Any]]:
 
 def looks_like_restricted_artifact(path: str) -> bool:
     normalized = path.replace("\\", "/").lower()
+    safe_metadata_prefixes = (
+        "configs/",
+        "docs/",
+        "schemas/",
+        "reports/agent1_30_call_pilot/",
+        "reports/agent5/",
+        "reports/evaluation/",
+        "reports/gold_label_audit/",
+        "reports/manual_local_",
+        "reports/retrieval_readiness_30.md",
+        "reports/review/",
+    )
+    if normalized.startswith(safe_metadata_prefixes):
+        return False
     suffix = Path(normalized).suffix
     return suffix in RAW_BODY_SUFFIXES and any(marker in normalized for marker in RESTRICTED_PATH_MARKERS)

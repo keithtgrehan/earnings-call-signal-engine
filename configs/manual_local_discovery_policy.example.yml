@@ -1,0 +1,14 @@
+enabled: false
+metadata_only: true
+approved_directories:
+  - "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/transcripts/"
+  - "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/"
+  - "/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa/data/corpus/manual_cases/"
+allowed_extensions:
+  - ".txt"
+  - ".md"
+  - ".pdf"
+copy_files: false
+parse_bodies: false
+ocr_pdfs: false
+unknown_rights_default: blocked

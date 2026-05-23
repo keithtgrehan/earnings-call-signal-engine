@@ -1,0 +1,25 @@
+{
+  "command": "python scripts/audit_gold_labels.py",
+  "config_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "deterministic_core_version": "gold_review_v1",
+  "environment_summary": {
+    "executable": "/Users/keith/.pyenv/versions/3.11.3/bin/python3",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "python": "3.11.3"
+  },
+  "generated_by": "scripts/audit_gold_labels.py",
+  "git_sha": "8e5cd9626144054da2d10b4a0afed4677d0295b5",
+  "input_hashes": {
+    "data/gold/gold_labels.jsonl": "sha256:211e4d172c4bd5da73029b152c50e470a777a4c7a1f71d38c23ffa403fcf65f0"
+  },
+  "output_hashes": {
+    "reports/gold_label_audit/gold_label_audit.json": "sha256:ccd50130ba4f1e784381b1e00f686ae520a05def6f94ba7dcd115dc402569b9e",
+    "reports/gold_label_audit/gold_label_audit.md": "sha256:5691b0048322c0d0ed2fce714e69726867195ddb6f8e0f12d4f82cdb8c9522cf"
+  },
+  "run_id": "gold_audit",
+  "schema_versions": {
+    "artifact_manifest": "1.0.0",
+    "gold_audit": "1.0.0"
+  },
+  "timestamp": "2026-05-23T12:44:51.473229+00:00"
+}

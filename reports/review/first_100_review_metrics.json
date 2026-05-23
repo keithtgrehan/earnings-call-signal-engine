@@ -1,15 +1,15 @@
 {
   "canonical_gold_modified": false,
-  "generated_at": "2026-05-22T10:08:39.360364+00:00",
+  "generated_at": "2026-05-23T12:46:47.169883+00:00",
   "promotion_candidate_count": 0,
-  "queue_size": 49,
+  "queue_size": 48,
   "review_status_counts": {
-    "pending_human_review": 49
+    "pending_human_review": 48
   },
   "suggested_label_counts": {
     "neutral": 12,
     "opportunity_commitment": 12,
     "risk_friction": 12,
-    "uncertainty_hedging": 13
+    "uncertainty_hedging": 12
   }
 }

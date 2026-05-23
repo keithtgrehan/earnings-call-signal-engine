@@ -18,7 +18,16 @@ TARGET_LABELS = {
 }
 
 MANDATORY_CONTAMINATION_FLAGS = ["raw_text_not_committed", "manual_local_source_only", "not_gold", "not_training_ready"]
-SAFE_HARBOR_PATTERNS = ("safe harbor", "forward-looking statement", "non-gaap", "operator", "transcript disclaimer")
+SAFE_HARBOR_PATTERNS = (
+    "safe harbor",
+    "forward-looking statement",
+    "non-gaap",
+    "non gaap",
+    "operator",
+    "transcript disclaimer",
+    "you may now disconnect",
+    "all rights reserved",
+)
 BUSINESS_TOPICS = (
     "revenue",
     "sales",
@@ -54,14 +63,33 @@ def sha256_text(text: str) -> str:
 def section_transcript_text(text: str) -> dict[str, Any]:
     lower = text.lower()
     qa_start = _first_index(lower, ["question-and-answer", "question and answer", "q&a"])
+    safe_harbor_start = _first_index(lower, ["safe harbor", "forward-looking statement"])
+    non_gaap_start = _first_index(lower, ["non-gaap", "non gaap"])
     sections: list[dict[str, Any]] = []
+    if safe_harbor_start >= 0:
+        sections.append({"section": "safe_harbor", "char_start": safe_harbor_start, "char_end": min(len(text), safe_harbor_start + 1200)})
+    if non_gaap_start >= 0:
+        sections.append({"section": "non_gaap_disclaimer", "char_start": non_gaap_start, "char_end": min(len(text), non_gaap_start + 1000)})
     if qa_start >= 0:
         sections.append({"section": "prepared_remarks", "char_start": 0, "char_end": qa_start})
         sections.append({"section": "qa", "char_start": qa_start, "char_end": len(text)})
     else:
         sections.append({"section": "unknown", "char_start": 0, "char_end": len(text)})
     turns = _speaker_turns(text, qa_start=qa_start)
-    return {"sections": sections, "speaker_turns": turns, "sectioning_confidence": "medium" if qa_start >= 0 else "low"}
+    operator_blocks = sum(1 for turn in turns if turn.get("speaker_role") == "operator")
+    unknown_turns = sum(1 for turn in turns if turn.get("transcript_section") == "unknown")
+    return {
+        "sections": sections,
+        "speaker_turns": turns,
+        "sectioning_confidence": "medium" if qa_start >= 0 else "low",
+        "quality_flags": {
+            "qna_marker_missing": qa_start < 0,
+            "safe_harbor_detected": safe_harbor_start >= 0,
+            "non_gaap_detected": non_gaap_start >= 0,
+            "operator_blocks_detected": operator_blocks,
+            "unknown_section_ratio": unknown_turns / len(turns) if turns else 1.0,
+        },
+    }
 
 
 def _first_index(text: str, needles: list[str]) -> int:
@@ -105,6 +133,8 @@ def infer_speaker_role(speaker_name: str) -> str:
     lowered = speaker_name.lower()
     if "operator" in lowered:
         return "operator"
+    if "investor relations" in lowered or lowered == "ir":
+        return "investor_relations"
     if "analyst" in lowered or "question" in lowered:
         return "analyst"
     if lowered and lowered != "unknown":
@@ -170,6 +200,8 @@ def _guidance_candidates(case_id: str, source_file: str, source_sha256: str, tur
     text = str(turn["text"])
     if turn["speaker_role"] != "management" or not _contains_any(text, GUIDANCE_CUES) or not _has_business_topic(text) or not _period_present(text):
         return []
+    if _historical_only(text):
+        return [_candidate(case_id, source_file, source_sha256, turn, "neutral/no_signal", "neutral", "medium", "historical_only", "neutral_historical_only_v1")]
     direction = _guidance_direction(text)
     bucket = "prior_missing" if direction == "prior_missing" else ""
     confidence = "low" if direction == "prior_missing" else "medium"
@@ -246,7 +278,11 @@ def _answer_shift_candidate(case_id: str, source_file: str, source_sha256: str, 
     combined_turn = dict(question)
     combined_turn["char_end"] = answer.get("char_end", question["char_end"])
     combined_turn["text"] = f"{question.get('text', '')} / {answer_text}"
-    return _candidate(case_id, source_file, source_sha256, combined_turn, "answer_shift", shift_type, "medium", "", "answer_shift_v1")
+    candidate = _candidate(case_id, source_file, source_sha256, combined_turn, "answer_shift", shift_type, "medium", "", "answer_shift_v1")
+    candidate["qna_pair_id"] = sha256_text(f"{case_id}|{question.get('char_start')}|{answer.get('char_start')}")
+    candidate["answer_behavior"] = shift_type
+    candidate["unpaired_question"] = False
+    return candidate
 
 
 def _candidate(
@@ -285,12 +321,58 @@ def _candidate(
         "false_positive_bucket": false_positive_bucket,
         "gold_status": "not_gold",
         "review_status": "pending_human_review",
+        "review_priority": assign_review_priority(signal_type, suggested_confidence, false_positive_bucket),
         "created_at": datetime.now(UTC).isoformat(),
         "extractor_version": "agent1_rules_v1",
     }
     if false_positive_bucket:
         record["contamination_flags"].append(false_positive_bucket)
     return record
+
+
+def _historical_only(text: str) -> bool:
+    lowered = text.lower()
+    historical = ("last year", "historically", "previously", "in 2022", "in 2023", "in 2024")
+    current_or_future = ("now", "current", "this quarter", "this year", "next", "2025", "2026", "fy2026", "fy 2026")
+    return any(term in lowered for term in historical) and not any(term in lowered for term in current_or_future)
+
+
+def assign_review_priority(signal_type: str, confidence: str, false_positive_bucket: str = "") -> str:
+    if false_positive_bucket in {"boilerplate_safe_harbor", "generic_optimism", "historical_only"}:
+        return "QUARANTINE"
+    if false_positive_bucket == "analyst_only_unpaired":
+        return "P3"
+    if signal_type == "guidance_revision" and confidence in {"medium", "high"}:
+        return "P0"
+    if signal_type in {"answer_shift", "analyst_pressure"}:
+        return "P1"
+    if signal_type in {"management_hedging", "uncertainty", "reassurance"}:
+        return "P2"
+    return "P3"
+
+
+def guidance_comparator(current: dict[str, object], prior: dict[str, object] | None) -> str:
+    if not prior:
+        return "prior_missing"
+    for field in ("metric", "period", "basis", "segment", "unit"):
+        if str(current.get(field, "")).strip().lower() != str(prior.get(field, "")).strip().lower():
+            return "unclear"
+    current_value = _to_float(current.get("value", ""))
+    prior_value = _to_float(prior.get("value", ""))
+    if current_value is None or prior_value is None:
+        return "unclear"
+    if current_value > prior_value:
+        return "raised"
+    if current_value < prior_value:
+        return "lowered"
+    return "maintained"
+
+
+def _to_float(value: object) -> float | None:
+    try:
+        return float(str(value).replace(",", "").replace("$", "").replace("%", ""))
+    except ValueError:
+        return None
 
 
 def _redact_preview(text: str) -> str:

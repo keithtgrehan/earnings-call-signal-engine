@@ -1,0 +1,24 @@
+{
+  "command": "python scripts/report_agent5_acquisition_status.py",
+  "config_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "deterministic_core_version": "agent5_rights_v1",
+  "environment_summary": {
+    "executable": "/Users/keith/.pyenv/versions/3.11.3/bin/python3",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "python": "3.11.3"
+  },
+  "generated_by": "scripts/report_agent5_acquisition_status.py",
+  "git_sha": "8e5cd9626144054da2d10b4a0afed4677d0295b5",
+  "input_hashes": {
+    "configs/nyse_30_pilot_targets.yml": "sha256:2498c96c0b3aca993e110bed98d020dea1075c5d13fc2df0ca7cc9068b025832"
+  },
+  "output_hashes": {
+    "reports/agent5/acquisition_status.md": "sha256:d8d06f3ca730360dd9d191d3a0a832e5e1d39de96324a2163251a4313d2a4c9f"
+  },
+  "run_id": "agent5_acquisition_status",
+  "schema_versions": {
+    "agent5_acquisition_status": "1.0.0",
+    "artifact_manifest": "1.0.0"
+  },
+  "timestamp": "2026-05-23T12:43:54.275124+00:00"
+}

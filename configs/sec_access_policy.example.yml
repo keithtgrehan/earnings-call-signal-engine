@@ -1,0 +1,6 @@
+enabled: false
+max_requests_per_second: 10
+user_agent: "SignalEngine/Agent5 metadata discovery contact@example.com"
+cache_dir: ".cache/sec_metadata"
+raw_filing_body_downloads: false
+metadata_only: true

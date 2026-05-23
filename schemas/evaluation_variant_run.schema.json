@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/evaluation_variant_run.schema.json",
+  "type": "object",
+  "required": ["run_id", "variant", "claim_disclaimers", "provider_calls", "metrics"],
+  "properties": {
+    "run_id": { "type": "string" },
+    "variant": {
+      "enum": [
+        "deterministic_only",
+        "deterministic_plus_retrieval",
+        "deterministic_plus_byok_reviewer",
+        "deterministic_plus_audio_metadata",
+        "deterministic_plus_event_study_context"
+      ]
+    },
+    "claim_disclaimers": { "type": "array", "items": { "type": "string" } },
+    "provider_calls": { "type": "boolean" },
+    "metrics": { "type": "object" }
+  },
+  "additionalProperties": true
+}

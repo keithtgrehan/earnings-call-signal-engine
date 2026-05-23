@@ -1,0 +1,9 @@
+exchange: NYSE
+lookback_years: 5
+metadata_only: true
+network_enabled_default: false
+target_count: 500
+optional_local_input_csv: ""
+notes:
+  - Target rows are not proof of transcript availability.
+  - Raw transcript/audio/video/slides ingest remains blocked until rights are explicit.

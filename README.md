@@ -52,6 +52,38 @@ Optional layers include local Argilla review infrastructure, local TF-IDF/logist
 - Rights-cleared resource registry scaffold for corpus/source provenance, restricted-artifact blocking, and metadata-only source adapters.
 - Offline portfolio demo.
 
+## 4A. Post-PR37 Real Pilot Readiness
+
+Built now:
+
+- `signal-engine doctor --json` for local environment/proof checks.
+- Artifact manifest contract and validator.
+- Rights-gated NYSE five-year metadata universe and source availability matrix.
+- Official IR, SEC, webcast/YouTube metadata, slides, and permitted-ingest queues.
+- Agent 4 ranked first-100 review queue, contamination preflags, reviewer packets, calibration batch, and stricter promotion checks.
+- Agent 1 deterministic candidate hardening with sectioning quality flags, speaker roles, Q&A pairing fields, guidance comparator reporting, and review priority.
+- Agent 2 evaluation/retrieval/event-study/BYOK/audio-video gates with explicit no-claim language.
+- Manual-local transcript/media discovery by path/hash metadata only.
+
+Scaffolded now:
+
+- 500-call metadata/readiness map.
+- Retrieval/RAG readiness over evidence objects without embeddings or vector DBs.
+- Event-study context policy without market data fetches.
+
+Not ready / blocked:
+
+- No raw transcript/audio/video/slides are downloaded or newly committed by the post-PR37 automation.
+- No canonical gold labels are auto-promoted.
+- No real training runs until valid adjudicated gold count is at least `100`.
+- No alpha, trading, causal, production ML, or statistical-significance claims are supported.
+
+Future:
+
+- Rights-cleared manual-local transcript registration for the first 30 calls.
+- Human calibration/adjudication to reach the first 100 valid gold labels.
+- Retrieval benchmark after enough registered evidence objects exist.
+
 ## 5. Human Review Loop
 
 Weak labels are reviewer aids only. They are never auto-promoted.
@@ -96,6 +128,8 @@ Current validated benchmark snapshot:
 - Label distribution: `risk_friction=13`, `opportunity_commitment=15`, `uncertainty_hedging=18`, `neutral=11`
 
 These are promising early scores, not production claims. The label set is still small and mixed-provenance. Source-quality subset metrics and additional human-reviewed earnings-call labels matter more than the headline metric until the corpus reaches `100+` reviewed labels.
+
+Training readiness remains gated. Legacy canonical rows may exist, but strict provenance-complete valid count can be lower until sha256 provenance and adjudication state are repaired through staging.
 
 Gates:
 

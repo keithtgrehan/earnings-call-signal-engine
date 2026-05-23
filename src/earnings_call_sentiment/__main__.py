@@ -98,6 +98,10 @@ def _run_lightweight_dry_run(argv: list[str]) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     raw_args = list(argv) if argv is not None else sys.argv[1:]
+    if raw_args and raw_args[0] == "doctor":
+        from .cli import main as cli_main
+
+        return cli_main(raw_args)
     if any(arg in {"--help", "-h"} for arg in raw_args) and not (raw_args and raw_args[0].startswith("sidecars")):
         return _run_lightweight_help()
     if "--dry-run" in raw_args and not (raw_args and raw_args[0].startswith("sidecars")):

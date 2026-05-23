@@ -1991,6 +1991,15 @@ def _run_sidecars_evaluate_cli(argv: list[str]) -> int:
 def main(argv: list[str] | None = None) -> int:
     """CLI main entry point."""
     raw_args = list(argv) if argv is not None else sys.argv[1:]
+    if raw_args and raw_args[0] == "doctor":
+        doctor_parser = argparse.ArgumentParser(prog="signal-engine doctor", description="Run local Signal Engine environment checks.")
+        doctor_parser.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
+        doctor_args = doctor_parser.parse_args(raw_args[1:])
+        from signal_engine.doctor import doctor_json, doctor_text, run_doctor
+
+        payload = run_doctor()
+        print(doctor_json(payload) if doctor_args.json else doctor_text(payload), end="")
+        return 0
     if raw_args and raw_args[0] == "sidecars":
         return _run_sidecars_cli(raw_args[1:])
     if raw_args and raw_args[0] == "sidecars-prewarm":

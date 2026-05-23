@@ -1,0 +1,10 @@
+variants:
+  - deterministic_only
+  - deterministic_plus_retrieval
+  - deterministic_plus_byok_reviewer
+  - deterministic_plus_audio_metadata
+  - deterministic_plus_event_study_context
+default_variant: deterministic_only
+provider_calls_default: false
+embeddings_default: false
+vector_db_default: false
