@@ -223,6 +223,7 @@ Key docs:
 - `docs/control_room_codex_rollout_review.md`
 - `docs/corpus_500_automation_plan.md`
 - `docs/source_rights_and_media_policy.md`
+- `docs/rights_gated_ir_sec_acquisition_nyse5y.md`
 - `docs/audio_video_ingest_strategy.md`
 - `docs/chunking_and_retrieval_object_strategy.md`
 - `docs/nlp_benchmark_matrix.md`
@@ -236,6 +237,8 @@ Safe scaffold checks:
 make corpus-safe-check
 ```
 
+The IR/SEC workflow is rights-gated source discovery, metadata-first, and permitted acquisition only. Manual-local remains the safest path for actual transcript bodies when source terms are unclear, and SEC/IR discovery does not guarantee transcript access.
+
 The rights-safe 500-call scaffold is documentation/config/validator infrastructure only: no raw acquisition, no production model training, and no BYOK reviewer execution has been performed. Training-readiness checks are now represented, but they fail closed unless human-reviewed gold labels, source rights, and artifact policies pass.
 
 Current scaffold split:
@@ -244,6 +247,22 @@ Current scaffold split:
 - Built pilot automation: Agent 5 NYSE 30 metadata pilot targets, source queue guardrails, manual-local path/hash batch registration, Agent 4 gold-label audit and first-100 review staging, and Agent 1 deterministic candidate pilot scaffolds.
 - Scaffolded: synthetic retrieval metrics, synthetic smoke training, benchmark metadata, NLP training-source inventory, A/B and multivariate experiment design, deterministic review queues, and BYOK request/response contracts.
 - Future/gated: real 500-call acquisition, raw media ingest, canonical gold repair/promotion, real training, real retrieval indexing, provider-backed review, market-data event studies, ASR/video review, and any model-quality claim.
+
+## Cross-domain NLP safety/research
+
+The cross-domain NLP safety work is docs/config/tests only. It adds research guardrails for finance NLP, dating-app assistive NLP, and multimodal affective cue metadata without model implementation, raw media ingestion, emotion truth claims, trading claims, or dating manipulation.
+
+Key docs:
+
+- `docs/research/multimodal_affective_cue_research.md`
+- `docs/multimodal_audit_layer.md`
+- `docs/legal/multimodal_rights_and_ai_act_guardrails.md`
+- `docs/research/cross_domain_nlp_affective_finance_dating_memo.md`
+- `docs/architecture/cross_domain_safe_nlp_architecture.md`
+- `docs/policies/red_lines_cross_domain_nlp.md`
+- `docs/evaluation/cross_domain_metrics.md`
+
+The scope remains transcript-first and reviewer-support only: no raw audio/video ingestion, no production emotion-recognition models, no true-emotion or deception claims, no biometric identity inference, no workplace/education emotion inference, no trading/alpha/buy/sell claims, and no dating manipulation scoring.
 
 ## Portfolio / Technical Review Path
 

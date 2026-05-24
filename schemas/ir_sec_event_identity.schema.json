@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IR/SEC Event Identity",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "case_id",
+    "ticker",
+    "company_name",
+    "exchange",
+    "fiscal_period",
+    "event_identity_status",
+    "metadata_only",
+    "proof_of_event_existence"
+  ],
+  "properties": {
+    "case_id": { "type": "string", "minLength": 1 },
+    "ticker": { "type": "string", "minLength": 1 },
+    "company_name": { "type": "string", "minLength": 1 },
+    "exchange": { "type": "string", "const": "NYSE" },
+    "fiscal_period": { "type": "string", "minLength": 1 },
+    "event_identity_status": {
+      "type": "string",
+      "enum": ["target_only", "source_candidate_found", "manual_verified", "blocked"]
+    },
+    "metadata_only": { "type": "boolean", "const": true },
+    "proof_of_event_existence": { "type": "boolean" }
+  },
+  "description": "Target-only rows do not claim that an earnings call occurred. Source-candidate and manual-verified status require separate metadata or path/hash evidence."
+}

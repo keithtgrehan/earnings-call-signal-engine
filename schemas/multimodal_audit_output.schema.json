@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Multimodal Affective Cue Audit Output",
+  "description": "Reviewer-support-only observable cue metadata. Raw bodies and affective truth claims are forbidden.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "source_type",
+    "canonical_status",
+    "transcript_window_ref",
+    "features",
+    "provenance",
+    "interpretation_limits"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_type": {
+      "enum": [
+        "transcript",
+        "audio_metadata",
+        "video_metadata",
+        "multimodal_audit"
+      ]
+    },
+    "canonical_status": {
+      "const": "reviewer_support_only"
+    },
+    "transcript_window_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "features": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "oneOf": [
+          {"type": "number"},
+          {"type": "integer"},
+          {"type": "boolean"},
+          {"type": "string"},
+          {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {"type": "number"},
+                {"type": "integer"},
+                {"type": "boolean"},
+                {"type": "string"},
+                {"type": "null"}
+              ]
+            }
+          },
+          {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {"type": "number"},
+                {"type": "integer"},
+                {"type": "boolean"},
+                {"type": "string"},
+                {"type": "null"}
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_rights_record_id",
+        "extractor_name",
+        "extractor_version",
+        "run_timestamp",
+        "rights_cleared"
+      ],
+      "properties": {
+        "source_rights_record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "extractor_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "extractor_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "run_timestamp": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rights_cleared": {
+          "const": true
+        }
+      }
+    },
+    "interpretation_limits": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "does_not_infer_true_emotion",
+          "does_not_detect_deception",
+          "does_not_score_personality",
+          "not_canonical_signal"
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "const": "does_not_infer_true_emotion"
+          }
+        },
+        {
+          "contains": {
+            "const": "does_not_detect_deception"
+          }
+        },
+        {
+          "contains": {
+            "const": "does_not_score_personality"
+          }
+        },
+        {
+          "contains": {
+            "const": "not_canonical_signal"
+          }
+        }
+      ]
+    },
+    "reviewer_note": {
+      "type": "string"
+    }
+  },
+  "not": {
+    "anyOf": [
+      {"required": ["raw_text"]},
+      {"required": ["raw_audio"]},
+      {"required": ["raw_video"]},
+      {"required": ["emotion_label"]},
+      {"required": ["deception_score"]},
+      {"required": ["manipulation_score"]},
+      {"required": ["mental_health_label"]},
+      {"required": ["biometric_identity"]}
+    ]
+  }
+}

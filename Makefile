@@ -17,7 +17,7 @@ TIERED_TRANSCRIPT_TARGETS ?= data/corpus/tiered_transcript_targets.csv
 TIERED_TRANSCRIPT_DISCOVERY_CONFIG ?= data/corpus/transcript_source_discovery.yaml
 DISCOVERED_TRANSCRIPT_SOURCES ?= data/corpus/discovered_transcript_sources.csv
 
-.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check build-nyse-30-pilot validate-nyse-30-pilot build-agent5-source-queue validate-agent5-source-queue register-manual-local-batch validate-manual-local-registry report-agent5-acquisition-status agent5-acquisition-check gold-audit first-100-review-queue promotion-manifest-check first-100-review-metrics agent1-validate-sources agent1-section agent1-candidates agent1-dedupe agent1-review-queue agent1-error-analysis agent1-pilot corpus-safe-check
+.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check build-nyse-30-pilot validate-nyse-30-pilot build-agent5-source-queue validate-agent5-source-queue register-manual-local-batch validate-manual-local-registry report-agent5-acquisition-status agent5-acquisition-check build-ir-sec-universe build-official-ir-candidate-map build-sec-metadata-queue build-ir-sec-availability-matrix build-ir-sec-permitted-ingest-queue report-manual-local-vs-ir-sec-gap validate-ir-sec-acquisition-policy validate-ir-sec-source-candidates validate-ir-sec-availability-matrix validate-ir-sec-permitted-ingest ir-sec-acquisition-check gold-audit first-100-review-queue promotion-manifest-check first-100-review-metrics agent1-validate-sources agent1-section agent1-candidates agent1-dedupe agent1-review-queue agent1-error-analysis agent1-pilot corpus-safe-check
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -308,6 +308,38 @@ report-agent5-acquisition-status:
 	$(PYTHON) scripts/report_agent5_acquisition_status.py
 
 agent5-acquisition-check: build-nyse-30-pilot validate-nyse-30-pilot build-agent5-source-queue validate-agent5-source-queue register-manual-local-batch validate-manual-local-registry report-agent5-acquisition-status
+
+build-ir-sec-universe:
+	$(PYTHON) scripts/build_nyse_5y_ir_sec_universe.py
+
+build-official-ir-candidate-map:
+	$(PYTHON) scripts/build_official_ir_candidate_map.py
+
+build-sec-metadata-queue:
+	$(PYTHON) scripts/build_sec_metadata_queue.py
+
+build-ir-sec-availability-matrix:
+	$(PYTHON) scripts/build_ir_sec_availability_matrix.py
+
+build-ir-sec-permitted-ingest-queue:
+	$(PYTHON) scripts/build_ir_sec_permitted_ingest_queue.py
+
+report-manual-local-vs-ir-sec-gap:
+	$(PYTHON) scripts/report_manual_local_vs_ir_sec_gap.py
+
+validate-ir-sec-acquisition-policy:
+	$(PYTHON) scripts/validate_ir_sec_acquisition_policy.py --path configs/ir_sec_acquisition_policy.example.yml
+
+validate-ir-sec-source-candidates:
+	$(PYTHON) scripts/validate_ir_sec_source_candidates.py --path data/corpus/official_ir_candidate_map.yml --path data/corpus/sec_metadata_queue.yml
+
+validate-ir-sec-availability-matrix:
+	$(PYTHON) scripts/validate_ir_sec_availability_matrix.py --path reports/agent5/ir_sec_availability_matrix.csv
+
+validate-ir-sec-permitted-ingest:
+	$(PYTHON) scripts/validate_ir_sec_permitted_ingest_queue.py --path data/corpus/ir_sec_permitted_ingest_queue.yml
+
+ir-sec-acquisition-check: build-ir-sec-universe build-official-ir-candidate-map build-sec-metadata-queue build-ir-sec-availability-matrix build-ir-sec-permitted-ingest-queue report-manual-local-vs-ir-sec-gap validate-ir-sec-acquisition-policy validate-ir-sec-source-candidates validate-ir-sec-availability-matrix validate-ir-sec-permitted-ingest
 
 gold-audit:
 	$(PYTHON) scripts/audit_gold_labels.py
