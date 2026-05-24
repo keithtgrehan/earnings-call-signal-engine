@@ -38,6 +38,8 @@ def main(argv: list[str] | None = None) -> int:
                         "source_sha256": row["source_sha256"],
                         "sections": sectioned["sections"],
                         "speaker_turns": safe_turns,
+                        "quality_flags": sectioned.get("quality_flags", {}),
+                        "sectioning_confidence": sectioned.get("sectioning_confidence", "unknown"),
                         "raw_text_committed": False,
                     },
                     sort_keys=True,

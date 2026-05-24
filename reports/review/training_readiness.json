@@ -1,0 +1,7 @@
+{
+  "minimum_valid_adjudicated_labels": 100,
+  "staged_promotion_count": 0,
+  "state": "NOT_READY",
+  "training_attempted": false,
+  "valid_canonical_gold_count": 0
+}

@@ -51,6 +51,123 @@ SOURCE_CANDIDATE_TYPES = [
     "licensed_vendor_blocked",
 ]
 
+BLOCKED_REASON_CODES = {
+    "unknown_rights": "unknown_rights_blocked",
+    "rights_not_reviewed": "rights_not_reviewed",
+    "paywall_or_login": "paywall_or_login_without_approved_config",
+    "vendor_license_missing": "licensed_vendor_raw_blocked_without_license_config",
+    "youtube_authorization_missing": "youtube_raw_media_blocked_without_authorization",
+    "sec_metadata_only": "sec_metadata_only_until_explicit_approval",
+    "official_ir_terms_missing": "official_ir_terms_or_robots_missing",
+    "manual_local_path_hash_required": "manual_local_path_hash_required",
+    "restricted_source": "restricted_source_blocked",
+}
+
+RAW_FLAGS = ("raw_body_allowed", "raw_transcript_allowed", "raw_audio_allowed", "raw_video_allowed", "raw_slides_allowed")
+
+
+def transcript_availability(candidate: dict[str, Any], decision: str) -> dict[str, str]:
+    if decision == "allowed" and (candidate.get("raw_body_allowed") is True or candidate.get("raw_transcript_allowed") is True):
+        return {"status": "available_raw_allowed"}
+    if candidate.get("source_type") in {"official_ir_transcript", "official_ir_pdf", "manual_local"}:
+        return {"status": "candidate_metadata_only"}
+    return {"status": "not_available"}
+
+
+def audio_availability(candidate: dict[str, Any], decision: str) -> dict[str, str]:
+    if decision == "allowed" and candidate.get("raw_audio_allowed") is True:
+        return {"status": "available_raw_allowed"}
+    if candidate.get("source_type") in {"official_ir_webcast_metadata", "youtube_metadata_only", "manual_local"}:
+        return {"status": "candidate_metadata_only"}
+    return {"status": "not_available"}
+
+
+def video_availability(candidate: dict[str, Any], decision: str) -> dict[str, str]:
+    if decision == "allowed" and candidate.get("raw_video_allowed") is True:
+        return {"status": "available_raw_allowed"}
+    if candidate.get("source_type") in {"official_ir_webcast_metadata", "youtube_metadata_only", "manual_local"}:
+        return {"status": "candidate_metadata_only"}
+    return {"status": "not_available"}
+
+
+def slides_availability(candidate: dict[str, Any], decision: str) -> dict[str, str]:
+    if decision == "allowed" and candidate.get("raw_slides_allowed") is True:
+        return {"status": "available_raw_allowed"}
+    if candidate.get("source_type") in {"official_ir_presentation_slides", "official_ir_pdf"}:
+        return {"status": "candidate_metadata_only"}
+    return {"status": "not_available"}
+
+
+def _decision(decision: str, reason: str, candidate: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "decision": decision,
+        "blocked_reason_code": reason,
+        "asset_availability": {
+            "transcript_availability": transcript_availability(candidate, decision),
+            "audio_availability": audio_availability(candidate, decision),
+            "video_availability": video_availability(candidate, decision),
+            "slides_availability": slides_availability(candidate, decision),
+        },
+    }
+
+
+def _has_any_raw_request(candidate: dict[str, Any]) -> bool:
+    return any(candidate.get(flag) is True for flag in RAW_FLAGS)
+
+
+def decide_source_use(candidate: dict[str, Any]) -> dict[str, Any]:
+    source_type = str(candidate.get("source_type", "")).strip()
+    rights_tier = str(candidate.get("rights_tier", "unknown")).strip() or "unknown"
+    paywall = str(candidate.get("paywall_or_login_status", "")).lower()
+
+    if source_type in {"licensed_vendor", "licensed_vendor_blocked"}:
+        if not str(candidate.get("license_config_ref", "")).strip():
+            return _decision("blocked", BLOCKED_REASON_CODES["vendor_license_missing"], candidate)
+        return _decision("metadata_only", "licensed_vendor_metadata_only", candidate)
+
+    if source_type in {"youtube", "youtube_metadata_only"}:
+        if candidate.get("raw_audio_allowed") or candidate.get("raw_video_allowed") or candidate.get("raw_transcript_allowed"):
+            if not str(candidate.get("authorization_ref", "")).strip():
+                return _decision("blocked", BLOCKED_REASON_CODES["youtube_authorization_missing"], candidate)
+        return _decision("metadata_only", "youtube_metadata_only", candidate)
+
+    if source_type in {"sec_edgar_metadata", "sec_edgar_metadata_candidate", "sec_8k_exhibit_metadata"}:
+        if candidate.get("raw_body_allowed") is True:
+            return _decision("blocked", BLOCKED_REASON_CODES["sec_metadata_only"], candidate)
+        return _decision("metadata_only", BLOCKED_REASON_CODES["sec_metadata_only"], candidate)
+
+    if source_type == "manual_local":
+        if not str(candidate.get("source_path_ref", "")).strip() or not str(candidate.get("source_sha256", "")).startswith("sha256:"):
+            return _decision("blocked", BLOCKED_REASON_CODES["manual_local_path_hash_required"], candidate)
+        if candidate.get("raw_file_copied_into_repo") is not False:
+            return _decision("blocked", "manual_local_raw_copy_blocked", candidate)
+        if rights_tier in {"unknown", "restricted"} and (
+            candidate.get("commit_allowed") or candidate.get("training_allowed") or candidate.get("eval_allowed")
+        ):
+            return _decision("blocked", BLOCKED_REASON_CODES["unknown_rights"], candidate)
+        return _decision("allowed", "manual_local_path_hash_only", candidate)
+
+    if "paywall" in paywall or "login" in paywall:
+        if not str(candidate.get("approved_access_config_ref", "")).strip():
+            return _decision("blocked", BLOCKED_REASON_CODES["paywall_or_login"], candidate)
+
+    if source_type.startswith("official_ir"):
+        if rights_tier in {"unknown", "restricted"}:
+            return _decision("blocked", BLOCKED_REASON_CODES["unknown_rights"], candidate)
+        if candidate.get("terms_checked") is not True or candidate.get("robots_checked") is not True:
+            return _decision("blocked", BLOCKED_REASON_CODES["official_ir_terms_missing"], candidate)
+        if _has_any_raw_request(candidate):
+            if candidate.get("allowed_storage") is not True:
+                return _decision("blocked", BLOCKED_REASON_CODES["rights_not_reviewed"], candidate)
+            if "commit_allowed" not in candidate or "eval_allowed" not in candidate:
+                return _decision("blocked", "official_ir_commit_eval_flags_required", candidate)
+            return _decision("allowed", "official_ir_explicit_raw_allowed", candidate)
+        return _decision("metadata_only", "official_ir_metadata_only", candidate)
+
+    if rights_tier in {"unknown", "restricted"}:
+        return _decision("blocked", BLOCKED_REASON_CODES["unknown_rights"], candidate)
+    return _decision("metadata_only", "metadata_only_default", candidate)
+
 
 def stable_hash(payload: dict[str, Any]) -> str:
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
@@ -332,6 +449,7 @@ def build_manual_local_registry(rows: list[dict[str, Any]], *, operator: str = "
             "media_type": row.get("media_type", "transcript"),
             "source_type": "manual_local",
             "rights_tier": row.get("rights_tier", "manual_supplied"),
+            "source_url": row.get("source_url", row.get("source_url_or_path", "")),
             "operator_supplied": True,
             "registered_at": now,
             "operator": row.get("operator", operator),
@@ -374,9 +492,11 @@ def validate_manual_local_registry(rows: list[dict[str, Any]]) -> list[str]:
             errors.append(f"row {index}: source_type must be manual_local")
         if row.get("media_type") not in {"transcript", "audio", "video"}:
             errors.append(f"row {index}: media_type must be transcript/audio/video")
+        if not str(row.get("source_path_ref", "")).strip() or not Path(str(row.get("source_path_ref", ""))).exists():
+            errors.append(f"row {index}: source_path_ref must point to an existing local file")
         if row.get("raw_file_copied_into_repo") is not False:
             errors.append(f"row {index}: raw file must not be copied into repo")
-        if row.get("source_sha256") != "missing" and not str(row.get("source_sha256", "")).startswith("sha256:"):
+        if row.get("source_sha256") == "missing" or not str(row.get("source_sha256", "")).startswith("sha256:"):
             errors.append(f"row {index}: source_sha256 must be sha256-prefixed")
         if row.get("rights_tier") in {"unknown", "restricted", ""} and (
             row.get("commit_allowed") or row.get("training_allowed") or row.get("eval_allowed")

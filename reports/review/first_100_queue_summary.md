@@ -2,7 +2,7 @@
 
 All rows are candidate metadata only: `gold_status=not_gold` and `review_status=pending_human_review`.
 
-- Packet files read: `9`
-- Candidate pool size: `49`
-- First-100 queue size: `49`
+- Packet files read: `1`
+- Candidate pool size: `48`
+- First-100 queue size: `48`
 - Machine suggestions are preserved as review metadata only.

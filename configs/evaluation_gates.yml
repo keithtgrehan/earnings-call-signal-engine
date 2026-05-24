@@ -1,0 +1,16 @@
+pilot_30_call:
+  purpose: pipeline_readiness_only
+  required_calls: 30
+signal_extraction_eval:
+  required_valid_gold_labels: 100
+retrieval_benchmark:
+  required_calls_min: 100
+  required_calls_max: 150
+metadata_universe_500:
+  purpose: metadata_readiness_map_only
+claim_disclaimers:
+  - NOT_ENOUGH_DATA
+  - EXPLORATORY_ONLY
+  - NO_SIGNIFICANCE_CLAIM
+  - NO_CAUSAL_CLAIM
+  - NO_TRADING_CLAIM

@@ -7,6 +7,7 @@ from pathlib import Path
 from validate_agent5_source_queue import main as validate_source_queue_main
 from validate_manual_local_registry import main as validate_manual_registry_main
 from validate_nyse_30_pilot import build_summary as build_nyse_summary
+from signal_engine.artifacts.manifest import build_artifact_manifest, write_artifact_manifest
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -36,6 +37,18 @@ def main(argv: list[str] | None = None) -> int:
         )
         + "\n",
         encoding="utf-8",
+    )
+    write_artifact_manifest(
+        out.parent / "acquisition_status_artifact_manifest.json",
+        build_artifact_manifest(
+            run_id="agent5_acquisition_status",
+            command="python scripts/report_agent5_acquisition_status.py",
+            inputs=[Path(args.targets)],
+            outputs=[out],
+            schema_versions={"agent5_acquisition_status": "1.0.0"},
+            generated_by="scripts/report_agent5_acquisition_status.py",
+            deterministic_core_version="agent5_rights_v1",
+        ),
     )
     print(f"Agent 5 acquisition status written to {out}.")
     return 0 if target_summary["status"] == "valid" and source_status == 0 and registry_status == 0 else 1

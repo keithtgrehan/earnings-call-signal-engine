@@ -1,0 +1,16 @@
+{
+  "embeddings_built": false,
+  "evidence_objects": 0,
+  "metrics": [
+    "recall@k",
+    "mrr",
+    "evidence_id_hit_rate",
+    "citation_validity",
+    "blocked_source_count",
+    "latency",
+    "reviewer_usefulness"
+  ],
+  "registered_sources": 0,
+  "status": "NOT_ENOUGH_DATA",
+  "vector_db_built": false
+}

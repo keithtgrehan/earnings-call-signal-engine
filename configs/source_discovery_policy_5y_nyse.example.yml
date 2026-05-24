@@ -1,0 +1,21 @@
+exchange: NYSE
+lookback_years: 5
+allowed_source_types:
+  - official_ir_page
+  - official_ir_pdf
+  - official_ir_transcript
+  - official_ir_webcast_metadata
+  - official_ir_presentation_slides
+  - sec_edgar_metadata
+  - sec_8k_exhibit_metadata
+  - press_release_metadata
+  - manual_local
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  - restricted_source_blocked
+raw_body_ingest_default: false
+unknown_rights_default: blocked
+require_source_terms_check: true
+require_robots_check: true
+require_license_config_for_vendor_raw: true
+require_authorization_for_youtube_raw: true

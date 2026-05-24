@@ -312,12 +312,6 @@ agent5-acquisition-check: build-nyse-30-pilot validate-nyse-30-pilot build-agent
 build-ir-sec-universe:
 	$(PYTHON) scripts/build_nyse_5y_ir_sec_universe.py
 
-build-official-ir-candidate-map:
-	$(PYTHON) scripts/build_official_ir_candidate_map.py
-
-build-sec-metadata-queue:
-	$(PYTHON) scripts/build_sec_metadata_queue.py
-
 build-ir-sec-availability-matrix:
 	$(PYTHON) scripts/build_ir_sec_availability_matrix.py
 
@@ -372,6 +366,120 @@ agent1-error-analysis:
 	$(PYTHON) scripts/agent1_error_analysis.py
 
 agent1-pilot: agent1-validate-sources agent1-section agent1-candidates agent1-dedupe agent1-review-queue agent1-error-analysis
+
+.PHONY: doctor artifact-manifest-check capstone-ci build-nyse-5y-universe build-official-ir-candidate-map build-sec-metadata-queue build-webcast-metadata-queue build-slides-availability-map build-source-availability-matrix build-permitted-ingest-queue validate-manual-local-sop report-rights-gated-discovery report-500-call-coverage agent5-rights-gated-discovery-check agent5-aggressive-acquisition-check review-rank-queue review-contamination-flags review-calibration-batch review-packets promotion-check training-readiness agent1-validate-registry agent1-speakers agent1-qna-pairs agent1-guidance agent1-review-queue agent1-30-call-pilot evaluation-manifest-check evaluation-sample-gates retrieval-gate-report evaluation-claims-check evaluation-gate-report agent2-evaluation-check manual-local-discovery manual-local-media-discovery retrieval-readiness-30 real-pilot-readiness-check
+
+doctor:
+	PYTHONPATH=src $(PYTHON) -m earnings_call_sentiment doctor --json
+
+artifact-manifest-check:
+	$(PYTHON) scripts/validate_artifact_manifest.py
+
+build-nyse-5y-universe:
+	$(PYTHON) scripts/build_nyse_5y_target_universe.py
+
+build-official-ir-candidate-map:
+	$(PYTHON) scripts/build_official_ir_candidate_map.py
+
+build-sec-metadata-queue:
+	$(PYTHON) scripts/build_sec_metadata_queue.py
+
+build-webcast-metadata-queue:
+	$(PYTHON) scripts/build_webcast_metadata_queue.py
+
+build-slides-availability-map:
+	$(PYTHON) scripts/build_slides_availability_map.py
+
+build-source-availability-matrix:
+	$(PYTHON) scripts/build_source_availability_matrix.py
+
+build-permitted-ingest-queue:
+	$(PYTHON) scripts/build_permitted_ingest_queue.py
+
+validate-manual-local-sop:
+	$(PYTHON) scripts/validate_manual_local_sop.py
+
+report-rights-gated-discovery:
+	$(PYTHON) scripts/report_rights_gated_discovery.py
+
+report-500-call-coverage:
+	$(PYTHON) scripts/report_500_call_coverage.py
+
+agent5-rights-gated-discovery-check: build-nyse-5y-universe build-official-ir-candidate-map build-sec-metadata-queue build-webcast-metadata-queue build-slides-availability-map build-source-availability-matrix build-permitted-ingest-queue validate-manual-local-sop report-rights-gated-discovery report-500-call-coverage
+
+agent5-aggressive-acquisition-check: agent5-rights-gated-discovery-check
+
+review-rank-queue:
+	$(PYTHON) scripts/build_first_100_review_queue.py
+
+review-contamination-flags:
+	$(PYTHON) scripts/review_flag_contamination.py
+
+review-calibration-batch:
+	$(PYTHON) scripts/build_calibration_batch.py
+
+review-packets:
+	$(PYTHON) scripts/build_reviewer_packets.py
+
+promotion-check:
+	$(PYTHON) scripts/validate_promotion_manifest.py
+
+training-readiness:
+	$(PYTHON) scripts/report_training_readiness.py
+
+agent1-validate-registry:
+	$(PYTHON) scripts/agent1_validate_manual_local_sources.py
+
+agent1-speakers:
+	$(PYTHON) scripts/agent1_assign_speakers.py
+
+agent1-qna-pairs:
+	$(PYTHON) scripts/agent1_build_qna_pairs.py
+
+agent1-guidance:
+	$(PYTHON) scripts/agent1_guidance_comparator.py
+
+agent1-30-call-pilot: agent1-validate-registry agent1-section agent1-speakers agent1-candidates agent1-dedupe agent1-qna-pairs agent1-guidance agent1-review-queue agent1-error-analysis
+
+evaluation-manifest-check:
+	$(PYTHON) scripts/eval/validate_evaluation_manifest.py
+
+evaluation-sample-gates:
+	$(PYTHON) scripts/eval/run_sample_gates.py
+
+retrieval-gate-report:
+	$(PYTHON) scripts/eval/run_retrieval_gate_report.py
+
+evaluation-claims-check:
+	$(PYTHON) scripts/eval/validate_claims.py
+
+evaluation-gate-report:
+	$(PYTHON) scripts/eval/build_evaluation_gate_report.py
+
+agent2-evaluation-check: evaluation-manifest-check evaluation-sample-gates retrieval-gate-report evaluation-claims-check evaluation-gate-report
+
+manual-local-discovery:
+	$(PYTHON) scripts/discover_manual_local_transcripts.py
+
+manual-local-media-discovery:
+	$(PYTHON) scripts/discover_manual_local_media.py
+
+retrieval-readiness-30:
+	$(PYTHON) scripts/build_agent1_retrieval_objects.py
+
+capstone-ci:
+	$(PYTHON) -m py_compile $$(find scripts src tools -name "*.py")
+	$(PYTHON) -m pytest
+	@if command -v ruff >/dev/null 2>&1; then ruff check .; elif [ -x "$(RUFF)" ]; then "$(RUFF)" check .; else echo "ruff unavailable; skipped"; fi
+	$(MAKE) corpus-safe-check
+	$(MAKE) training-plan-check
+	$(MAKE) gold-audit
+	$(MAKE) first-100-review-queue
+	$(MAKE) agent1-pilot
+	$(MAKE) restricted-artifacts-check
+	@if [ -f scripts/check_markdown_links.py ]; then $(PYTHON) scripts/check_markdown_links.py; else echo "markdown link checker unavailable; skipped"; fi
+
+real-pilot-readiness-check: doctor artifact-manifest-check agent5-rights-gated-discovery-check review-rank-queue review-contamination-flags review-calibration-batch review-packets promotion-check training-readiness agent1-30-call-pilot agent2-evaluation-check manual-local-discovery manual-local-media-discovery retrieval-readiness-30
 
 rights-check: registry-check claims-check restricted-artifacts-check
 

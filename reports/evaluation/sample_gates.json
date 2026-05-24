@@ -1,0 +1,22 @@
+{
+  "metadata_500_universe": {
+    "call_count": 30,
+    "required_calls": 500,
+    "status": "NOT_ENOUGH_DATA"
+  },
+  "pilot_30_call": {
+    "call_count": 30,
+    "required_calls": 30,
+    "status": "PIPELINE_READY_ONLY"
+  },
+  "retrieval_benchmark": {
+    "call_count": 30,
+    "required_calls": "100-150",
+    "status": "NOT_ENOUGH_DATA"
+  },
+  "signal_eval": {
+    "required_valid_gold": 100,
+    "status": "NOT_ENOUGH_DATA",
+    "valid_gold_count": 0
+  }
+}

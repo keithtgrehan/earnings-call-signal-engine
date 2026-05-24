@@ -1,0 +1,57 @@
+{
+  "claim_disclaimers": [
+    "NOT_ENOUGH_DATA",
+    "EXPLORATORY_ONLY",
+    "NO_SIGNIFICANCE_CLAIM",
+    "NO_CAUSAL_CLAIM",
+    "NO_TRADING_CLAIM"
+  ],
+  "control_readiness": {
+    "has_market_data": false,
+    "has_price_data": false,
+    "has_sector_data": false,
+    "no_market_data_fetch": true,
+    "status": "NOT_ENOUGH_DATA"
+  },
+  "estimation_window": {
+    "calculation_run": false,
+    "reason": "price/market/sector data unavailable",
+    "status": "NOT_ENOUGH_DATA"
+  },
+  "event_windows": [
+    {
+      "end_day": 1,
+      "start_day": -1
+    },
+    {
+      "end_day": 1,
+      "start_day": 0
+    },
+    {
+      "end_day": 2,
+      "start_day": 0
+    }
+  ],
+  "sample_gates": {
+    "metadata_500_universe": {
+      "call_count": 30,
+      "required_calls": 500,
+      "status": "NOT_ENOUGH_DATA"
+    },
+    "pilot_30_call": {
+      "call_count": 30,
+      "required_calls": 30,
+      "status": "PIPELINE_READY_ONLY"
+    },
+    "retrieval_benchmark": {
+      "call_count": 30,
+      "required_calls": "100-150",
+      "status": "NOT_ENOUGH_DATA"
+    },
+    "signal_eval": {
+      "required_valid_gold": 100,
+      "status": "NOT_ENOUGH_DATA",
+      "valid_gold_count": 0
+    }
+  }
+}

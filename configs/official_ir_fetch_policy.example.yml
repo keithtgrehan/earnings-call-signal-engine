@@ -1,0 +1,9 @@
+enabled: false
+domain_allowlist: []
+robots_checked: false
+source_terms_checked: false
+store_metadata_only: true
+raw_body_allowed: false
+no_login_paywall_bypass: true
+max_requests_per_second_per_domain: 1
+user_agent: "SignalEngine/official-ir metadata discovery contact@example.com"

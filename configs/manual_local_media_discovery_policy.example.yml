@@ -1,0 +1,17 @@
+enabled: false
+metadata_only: true
+approved_directories:
+  - "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/audio/"
+  - "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/video/"
+  - "/Users/keith/Desktop/Signal Engine 2.0 Earning Calls/media/"
+allowed_extensions:
+  - ".mp3"
+  - ".mp4"
+  - ".wav"
+  - ".m4a"
+  - ".mov"
+copy_files: false
+run_asr: false
+process_video: false
+youtube_download: false
+unknown_rights_default: blocked
