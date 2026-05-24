@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source Rights Decision",
+  "type": "object",
+  "required": [
+    "case_id",
+    "source_type",
+    "asset_type",
+    "source_url",
+    "rights_status",
+    "download_allowed",
+    "commit_allowed",
+    "training_allowed",
+    "eval_allowed",
+    "provenance_hash"
+  ],
+  "properties": {
+    "case_id": {"type": "string"},
+    "source_type": {"type": "string"},
+    "asset_type": {"type": "string"},
+    "source_url": {"type": "string"},
+    "rights_status": {
+      "type": "string",
+      "enum": [
+        "safe_to_link",
+        "safe_to_download",
+        "metadata_only",
+        "manual_local_review_only",
+        "license_required",
+        "blocked",
+        "unknown_fail_closed"
+      ]
+    },
+    "blocked_reason": {
+      "type": "string",
+      "enum": [
+        "",
+        "non_nyse",
+        "outside_lookback",
+        "paywall_login",
+        "robots_blocked",
+        "terms_blocked",
+        "vendor_license_missing",
+        "youtube_media_blocked",
+        "source_unavailable",
+        "transcript_not_found",
+        "rights_unknown",
+        "raw_git_risk",
+        "sec_metadata_only",
+        "metadata_only_no_raw_download",
+        "signed_or_session_url",
+        "source_url_required",
+        "source_type_not_permitted"
+      ]
+    },
+    "download_allowed": {"type": "boolean"},
+    "commit_allowed": {"type": "boolean"},
+    "training_allowed": {"type": "boolean"},
+    "eval_allowed": {"type": "boolean"},
+    "license_config_ref": {"type": "string"},
+    "authorization_ref": {"type": "string"},
+    "provenance_hash": {"type": "string", "pattern": "^sha256:"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}
