@@ -1,0 +1,2 @@
+case_id,ticker,company_name,fiscal_period,local_path,source_url,source_type,rights_tier,operator,eval_allowed,training_allowed,commit_allowed,notes
+example_jpm_2026_q1,JPM,JPMorgan Chase & Co.,2026_Q1,/absolute/path/to/transcript.txt,https://example.com/source-page,manual_local,unknown,,false,false,false,Fill source URL and rights context before registration; no raw file is copied into the repo.

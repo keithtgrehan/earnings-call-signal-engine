@@ -481,6 +481,25 @@ capstone-ci:
 
 real-pilot-readiness-check: doctor artifact-manifest-check agent5-rights-gated-discovery-check review-rank-queue review-contamination-flags review-calibration-batch review-packets promotion-check training-readiness agent1-30-call-pilot agent2-evaluation-check manual-local-discovery manual-local-media-discovery retrieval-readiness-30
 
+.PHONY: discover-approved-local-transcripts build-manual-local-batch build-gold-provenance-repair manual-actions-training-unlock agent1-candidate-readiness manual-local-registration-check
+
+discover-approved-local-transcripts:
+	$(PYTHON) scripts/discover_approved_local_transcripts.py
+
+build-manual-local-batch:
+	$(PYTHON) scripts/build_manual_local_batch_from_discovery.py
+
+build-gold-provenance-repair:
+	$(PYTHON) scripts/build_gold_provenance_repair_candidates.py
+
+manual-actions-training-unlock:
+	$(PYTHON) scripts/report_manual_actions_to_unlock_training.py
+
+agent1-candidate-readiness:
+	$(PYTHON) scripts/report_agent1_candidate_generation_readiness.py
+
+manual-local-registration-check: discover-approved-local-transcripts build-manual-local-batch validate-manual-local-registry build-gold-provenance-repair manual-actions-training-unlock agent1-candidate-readiness
+
 rights-check: registry-check claims-check restricted-artifacts-check
 
 corpus-safe-check: rights-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check agent5-acquisition-check promotion-manifest-check

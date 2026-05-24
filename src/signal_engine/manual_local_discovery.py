@@ -25,10 +25,11 @@ def _is_relative_to(path: Path, parent: Path) -> bool:
 
 
 def _infer_case_id(path: Path) -> str:
+    for value in [path.stem, *[part for part in reversed(path.parts) if part != path.name]]:
+        match = re.search(r"([a-z]{1,6}).*?(20\d{2}).*?(q[1-4])", value.lower())
+        if match:
+            return f"{match.group(1)}_{match.group(2)}_{match.group(3)}"
     stem = path.stem.lower()
-    match = re.search(r"([a-z]{1,6}).*?(20\d{2}).*?(q[1-4])", stem)
-    if match:
-        return f"{match.group(1)}_{match.group(2)}_{match.group(3)}"
     return stem
 
 
