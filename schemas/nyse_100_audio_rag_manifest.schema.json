@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NYSE 100 audio RAG manifest row",
+  "type": "object",
+  "required": [
+    "record_id",
+    "case_id",
+    "ticker",
+    "audio_asset_id",
+    "audio_local_path",
+    "source_sha256",
+    "rights_status",
+    "eval_use_allowed",
+    "asr_status",
+    "asr_text_path",
+    "chunk_manifest_path",
+    "raw_text_committed"
+  ],
+  "properties": {
+    "record_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "minLength": 1},
+    "ticker": {"type": "string", "minLength": 1},
+    "audio_asset_id": {"type": "string", "minLength": 1},
+    "audio_local_path": {"type": "string"},
+    "source_sha256": {"type": "string"},
+    "rights_status": {"type": "string"},
+    "eval_use_allowed": {"type": ["boolean", "string"]},
+    "asr_status": {"type": "string"},
+    "asr_text_path": {"type": "string"},
+    "chunk_manifest_path": {"type": "string"},
+    "raw_text_committed": {"enum": [false, "false"]}
+  },
+  "additionalProperties": true
+}

@@ -65,4 +65,7 @@ def test_chunking_only_processes_eval_allowed_registered_transcripts(tmp_path: P
     assert {row["ticker"] for row in manifest_rows} == {"JPM"}
     assert all(row["raw_text_committed"] == "false" for row in manifest_rows)
     assert all(row["text_sha256"].startswith("sha256:") for row in manifest_rows)
+    assert all(row["asset_type"] == "transcript" for row in manifest_rows)
+    assert all(row["chunk_type"] == "transcript_text" for row in manifest_rows)
+    assert all(row["rag_eligible"] == "true" for row in manifest_rows)
     assert all(Path(row["local_chunk_path"]).exists() for row in manifest_rows)

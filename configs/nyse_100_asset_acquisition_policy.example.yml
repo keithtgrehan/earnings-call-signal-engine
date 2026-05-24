@@ -1,0 +1,38 @@
+enabled: false
+workspace_root: "/Users/keith/Desktop/earnings calls 100 samples"
+metadata_only_default: true
+allow_transcript_downloads: false
+allow_audio_downloads: false
+allow_youtube_downloads: false
+allow_vendor_downloads: false
+require_rights_status_safe_to_download: true
+require_source_url: true
+require_provenance: true
+max_requests_per_second: 1
+user_agent: "SignalEngine/NYSE100 rights-gated acquisition contact@example.com"
+
+allowed_source_types_for_transcript_download:
+  - company_ir
+  - official_ir_transcript
+  - sec_edgar_allowed_exhibit
+  - manually_approved_source
+
+allowed_source_types_for_audio_download:
+  - company_ir
+  - official_ir_webcast
+  - manually_approved_source
+
+blocked_source_types:
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  - restricted_source_blocked
+  - paywalled
+  - login_required
+
+raw_git_commit_allowed: false
+chunking_enabled: true
+asr_enabled: false
+asr_provider: none
+rag_index_mode: manifest_only
+vector_db_enabled: false
+embeddings_enabled: false

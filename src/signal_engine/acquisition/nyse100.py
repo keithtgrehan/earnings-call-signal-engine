@@ -128,6 +128,27 @@ CHUNK_FIELDS = [
     "chunk_id",
     "case_id",
     "ticker",
+    "asset_id",
+    "asset_type",
+    "chunk_type",
+    "section",
+    "speaker_role",
+    "source_sha256",
+    "text_sha256",
+    "local_chunk_path",
+    "start_char",
+    "end_char",
+    "start_time_sec",
+    "end_time_sec",
+    "rights_status",
+    "rag_eligible",
+    "raw_text_committed",
+]
+
+LEGACY_CHUNK_FIELDS = [
+    "chunk_id",
+    "case_id",
+    "ticker",
     "source_sha256",
     "chunk_type",
     "section",
@@ -827,15 +848,20 @@ def build_desktop_chunks(workspace: Path, *, registry_path: Path, chunk_chars: i
                     "chunk_id": chunk_id,
                     "case_id": row["case_id"],
                     "ticker": row["ticker"],
-                    "source_sha256": row["sha256"],
-                    "chunk_type": "semantic_chunk",
+                    "asset_id": f"{row['case_id']}_transcript",
+                    "asset_type": "transcript",
+                    "chunk_type": "transcript_text",
                     "section": "unknown",
                     "speaker_role": "unknown",
-                    "start_hint": str(start),
-                    "end_hint": str(end),
+                    "source_sha256": row["sha256"],
                     "text_sha256": "sha256:" + hashlib.sha256(chunk_text.encode("utf-8")).hexdigest(),
                     "local_chunk_path": str(chunk_path),
+                    "start_char": str(start),
+                    "end_char": str(end),
+                    "start_time_sec": "",
+                    "end_time_sec": "",
                     "rights_status": row["rights_status"],
+                    "rag_eligible": "true",
                     "raw_text_committed": "false",
                 }
             )
@@ -851,10 +877,43 @@ def build_desktop_chunks(workspace: Path, *, registry_path: Path, chunk_chars: i
 def build_rag_index_manifest(workspace: Path, *, out_path: Path) -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
     for manifest in sorted(workspace.glob("*/*/chunks/chunk_manifest.csv")):
-        rows.extend(read_csv(manifest))
+        rows.extend(normalize_chunk_rows(read_csv(manifest)))
     write_csv(out_path, rows, CHUNK_FIELDS)
     write_csv(workspace / "_audit" / "rag_chunk_index.csv", rows, CHUNK_FIELDS)
     return rows
+
+
+def normalize_chunk_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    normalized: list[dict[str, str]] = []
+    for row in rows:
+        start_char = row.get("start_char", row.get("start_hint", ""))
+        end_char = row.get("end_char", row.get("end_hint", ""))
+        chunk_type = row.get("chunk_type") or "transcript_text"
+        if chunk_type == "semantic_chunk":
+            chunk_type = "transcript_text"
+        normalized.append(
+            {
+                "chunk_id": row.get("chunk_id", ""),
+                "case_id": row.get("case_id", ""),
+                "ticker": row.get("ticker", ""),
+                "asset_id": row.get("asset_id") or f"{row.get('case_id', 'unknown')}_transcript",
+                "asset_type": row.get("asset_type") or "transcript",
+                "chunk_type": chunk_type,
+                "section": row.get("section", ""),
+                "speaker_role": row.get("speaker_role", ""),
+                "source_sha256": row.get("source_sha256", ""),
+                "text_sha256": row.get("text_sha256", ""),
+                "local_chunk_path": row.get("local_chunk_path", ""),
+                "start_char": start_char,
+                "end_char": end_char,
+                "start_time_sec": row.get("start_time_sec", ""),
+                "end_time_sec": row.get("end_time_sec", ""),
+                "rights_status": row.get("rights_status", ""),
+                "rag_eligible": row.get("rag_eligible") or "true",
+                "raw_text_committed": row.get("raw_text_committed", "false"),
+            }
+        )
+    return normalized
 
 
 def copy_file_url_to_workspace(source_url: str, destination: Path) -> None:
