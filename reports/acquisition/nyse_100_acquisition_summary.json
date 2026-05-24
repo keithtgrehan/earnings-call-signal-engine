@@ -1,0 +1,35 @@
+{
+  "desktop_workspace": "/Users/keith/Desktop/earnings calls 100 samples",
+  "next_manual_actions": [
+    "Review official IR event pages and source terms for priority companies.",
+    "Confirm SEC 8-K Item 2.02 or Exhibit 99.1 metadata where available.",
+    "Register manually supplied rights-cleared transcript files by path and sha256 only.",
+    "Add license_config_ref before any vendor transcript/audio use."
+  ],
+  "safe_download_candidates": 0,
+  "top_blockers": {
+    "vendor_license_missing": 500,
+    "youtube_media_blocked": 500
+  },
+  "top_source_domains": {
+    "investor.bankofamerica.com": 5,
+    "investor.pnc.com": 5,
+    "investors.statestreet.com": 5,
+    "ir.usbank.com": 5,
+    "www.bny.com": 5,
+    "www.citigroup.com": 5,
+    "www.goldmansachs.com": 5,
+    "www.jpmorganchase.com": 5,
+    "www.morganstanley.com": 5,
+    "www.wellsfargo.com": 5
+  },
+  "total_audio_files_downloaded": 0,
+  "total_blocked_sources": 1000,
+  "total_call_folders_created": 500,
+  "total_chunks": 0,
+  "total_companies_selected": 100,
+  "total_metadata_only_calls": 500,
+  "total_rag_ready_calls": 0,
+  "total_registered_transcripts": 0,
+  "total_transcript_files_downloaded": 0
+}
