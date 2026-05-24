@@ -312,12 +312,6 @@ agent5-acquisition-check: build-nyse-30-pilot validate-nyse-30-pilot build-agent
 build-ir-sec-universe:
 	$(PYTHON) scripts/build_nyse_5y_ir_sec_universe.py
 
-build-official-ir-candidate-map:
-	$(PYTHON) scripts/build_official_ir_candidate_map.py
-
-build-sec-metadata-queue:
-	$(PYTHON) scripts/build_sec_metadata_queue.py
-
 build-ir-sec-availability-matrix:
 	$(PYTHON) scripts/build_ir_sec_availability_matrix.py
 
