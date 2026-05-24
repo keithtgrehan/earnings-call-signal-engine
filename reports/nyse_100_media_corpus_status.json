@@ -1,0 +1,288 @@
+{
+  "blocked_or_paywalled_cases": 0,
+  "blocked_registry_sources": 100,
+  "common_blockers": {
+    "licensed_vendor_without_license_config": 100,
+    "sec_metadata_only_no_raw_filing_body": 100,
+    "source_terms_and_robots_not_reviewed": 100,
+    "webcast_terms_not_reviewed": 100,
+    "youtube_media_download_blocked_without_authorization": 100
+  },
+  "exchange_exclusion_counts": {
+    "NASDAQ": 3
+  },
+  "exchange_exclusions": [
+    {
+      "company_name": "Honeywell International Inc.",
+      "exchange": "NASDAQ",
+      "exchange_verification_source": "curated_seed_exchange_table",
+      "exchange_verified": "true",
+      "exclusion_reason": "excluded because exchange=NASDAQ",
+      "included": "false",
+      "official_ir_url": "https://investor.honeywell.com/",
+      "sector": "industrials",
+      "source_domain": "investor.honeywell.com",
+      "ticker_symbol": "HON"
+    },
+    {
+      "company_name": "PepsiCo, Inc.",
+      "exchange": "NASDAQ",
+      "exchange_verification_source": "curated_seed_exchange_table",
+      "exchange_verified": "true",
+      "exclusion_reason": "excluded because exchange=NASDAQ",
+      "included": "false",
+      "official_ir_url": "https://investors.pepsico.com/",
+      "sector": "consumer",
+      "source_domain": "investors.pepsico.com",
+      "ticker_symbol": "PEP"
+    },
+    {
+      "company_name": "United Airlines Holdings, Inc.",
+      "exchange": "NASDAQ",
+      "exchange_verification_source": "curated_seed_exchange_table",
+      "exchange_verified": "true",
+      "exclusion_reason": "excluded because exchange=NASDAQ",
+      "included": "false",
+      "official_ir_url": "https://ir.united.com/",
+      "sector": "industrials",
+      "source_domain": "ir.united.com",
+      "ticker_symbol": "UAL"
+    }
+  ],
+  "git_status_summary": "## codex/nyse-100-media-corpus-discovery...origin/main\nA  data/acquisition/nyse_100_media_manifest.csv\nA  data/acquisition/nyse_100_media_source_registry.csv\nA  data/acquisition/nyse_100_media_targets.csv\nA  docs/acquisition/nyse_100_media_corpus_plan.md\nA  reports/nyse_100_media_corpus_status.json\nA  reports/nyse_100_media_corpus_status.md\nA  reports/nyse_100_media_progress_025.md\nA  reports/nyse_100_media_progress_050.md\nA  reports/nyse_100_media_progress_075.md\nA  reports/nyse_100_media_validation_summary.json\nA  reports/safe_download_candidates.md\nA  scripts/validate_nyse_100_media_manifest.py\nA  tests/test_discover_nyse_earnings_media.py\nA  tests/test_validate_nyse_100_media_manifest.py\nA  tools/discover_nyse_earnings_media.py",
+  "legal_technical_blockers": [
+    "Official IR source terms and robots policy are not reviewed in this metadata-only run.",
+    "SEC rows are queued as metadata references only; no filing body download is enabled.",
+    "Webcast provider replay access can be session-restricted or expire.",
+    "YouTube media acquisition is blocked without explicit authorization.",
+    "Licensed vendor content is blocked without a license config."
+  ],
+  "missing_media_distribution": {
+    "audio_unknown": 100,
+    "transcript_unknown": 100,
+    "video_unknown": 100
+  },
+  "next_20_manual_review_actions": [
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "abt_2025_q4",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://www.abbottinvestor.com/",
+      "ticker_symbol": "ABT"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "abt_2026_q1",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://www.abbottinvestor.com/",
+      "ticker_symbol": "ABT"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "aon_2025_q4",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://ir.aon.com/",
+      "ticker_symbol": "AON"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "aon_2026_q1",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://ir.aon.com/",
+      "ticker_symbol": "AON"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "axp_2025_q4",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://ir.americanexpress.com/",
+      "ticker_symbol": "AXP"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "axp_2026_q1",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://ir.americanexpress.com/",
+      "ticker_symbol": "AXP"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "ba_2025_q4",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://investors.boeing.com/",
+      "ticker_symbol": "BA"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "ba_2026_q1",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://investors.boeing.com/",
+      "ticker_symbol": "BA"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "bac_2025_q4",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://investor.bankofamerica.com/",
+      "ticker_symbol": "BAC"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "bac_2026_q1",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://investor.bankofamerica.com/",
+      "ticker_symbol": "BAC"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "blk_2025_q4",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://ir.blackrock.com/",
+      "ticker_symbol": "BLK"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "blk_2026_q1",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://ir.blackrock.com/",
+      "ticker_symbol": "BLK"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "bmy_2025_q4",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://investor.bms.com/",
+      "ticker_symbol": "BMY"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "bmy_2026_q1",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://investor.bms.com/",
+      "ticker_symbol": "BMY"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "cat_2025_q4",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://investors.caterpillar.com/",
+      "ticker_symbol": "CAT"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "cat_2026_q1",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://investors.caterpillar.com/",
+      "ticker_symbol": "CAT"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "cl_2025_q4",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://investor.colgatepalmolive.com/",
+      "ticker_symbol": "CL"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "cl_2026_q1",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://investor.colgatepalmolive.com/",
+      "ticker_symbol": "CL"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "cop_2025_q4",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://www.conocophillips.com/investor/",
+      "ticker_symbol": "COP"
+    },
+    {
+      "blocked_reason": "source_terms_and_robots_not_reviewed",
+      "case_id": "cop_2026_q1",
+      "manual_action": "Review official IR source terms and robots policy before any raw transcript use.",
+      "source_type": "company_ir",
+      "source_url": "https://www.conocophillips.com/investor/",
+      "ticker_symbol": "COP"
+    }
+  ],
+  "output_root": "/Users/keith/Desktop/earnings calls 100 samples",
+  "recommended_next_acquisition_targets": [
+    "Review official IR terms and robots policy for top-priority company IR domains.",
+    "Enable SEC metadata fetch only with a descriptive User-Agent and <=10 requests/second rate limit.",
+    "Manually register local transcript files by path and sha256 when source terms are unclear.",
+    "Promote only rights-reviewed transcript bodies into local analysis workflows."
+  ],
+  "reports_dir": "/Users/keith/.config/superpowers/worktrees/earnings-call-signal-engine/codex-nyse-100-media-corpus-discovery/reports",
+  "safe_download_candidates": 0,
+  "source_type_distribution": {
+    "company_ir": 100,
+    "earnings_platform": 100,
+    "sec_edgar": 100,
+    "webcast_provider": 100,
+    "youtube_metadata_only": 100
+  },
+  "tier_counts": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 100
+  },
+  "top_source_domains": {
+    "corporate.exxonmobil.com": 4,
+    "goldmansachs.com": 4,
+    "ibm.com": 4,
+    "investor.bankofamerica.com": 4,
+    "investor.jnj.com": 4,
+    "investor.lilly.com": 4,
+    "ir.americanexpress.com": 4,
+    "ir.blackrock.com": 4,
+    "ir.homedepot.com": 4,
+    "jpmorganchase.com": 4,
+    "licensed-vendor": 100,
+    "morganstanley.com": 4,
+    "sec-edgar": 100,
+    "stock.walmart.com": 4,
+    "youtube.com": 100
+  },
+  "total_candidates_found": 100,
+  "total_priority_1": 0,
+  "total_priority_2": 0,
+  "total_priority_3": 0,
+  "total_priority_4": 100,
+  "validation_status": "passed",
+  "validation_summary": {
+    "blocked_or_paywalled_cases": 0,
+    "error_count": 0,
+    "errors": [],
+    "rights_status_counts": {
+      "metadata_only": 100
+    },
+    "tier_counts": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 100
+    },
+    "total_rows": 100,
+    "valid": true
+  }
+}
