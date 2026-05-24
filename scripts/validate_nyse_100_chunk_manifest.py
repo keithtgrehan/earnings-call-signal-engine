@@ -24,10 +24,12 @@ def validate_rows(rows: list[dict[str, str]]) -> list[str]:
         seen.add(row.get("chunk_id", ""))
         if row.get("raw_text_committed") != "false":
             errors.append(f"row {index}: raw_text_committed must be false")
-        if row.get("rights_status") not in {"safe_to_download", "manual_local_review_only"}:
+        if row.get("rights_status") not in {"safe_to_download", "manual_local_review_only", "rights_cleared"}:
             errors.append(f"row {index}: invalid chunk rights_status")
         if not row.get("text_sha256", "").startswith("sha256:"):
             errors.append(f"row {index}: text_sha256 required")
+        if row.get("rag_eligible") not in {"true", "false"}:
+            errors.append(f"row {index}: rag_eligible must be true or false")
     return errors
 
 
