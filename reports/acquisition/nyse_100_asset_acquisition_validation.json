@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "summary": {
+    "audio_downloaded": 0,
+    "audit_rows": 500,
+    "blocked_count": 200,
+    "metadata_only_count": 300,
+    "transcripts_downloaded": 0,
+    "unique_calls": 100,
+    "workspace": "/Users/keith/Desktop/earnings calls 100 samples"
+  },
+  "valid": true,
+  "warnings": []
+}

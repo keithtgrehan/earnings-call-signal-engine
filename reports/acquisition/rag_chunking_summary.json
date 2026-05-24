@@ -1,0 +1,12 @@
+{
+  "audit_rows": 500,
+  "chunks_created": 0,
+  "created_at": "2026-05-24T13:56:46+00:00",
+  "desktop_index": "/Users/keith/Desktop/earnings calls 100 samples/_audit/rag_chunk_index.csv",
+  "embeddings_created": false,
+  "out_manifest": "data/acquisition/nyse_100_chunk_manifest.csv",
+  "rag_ready_calls": 0,
+  "raw_text_committed": false,
+  "rights_status_counts": {},
+  "vector_db_created": false
+}

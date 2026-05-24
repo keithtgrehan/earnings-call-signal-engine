@@ -1,0 +1,79 @@
+{
+  "audio_downloaded": 0,
+  "audio_rag_ready_calls": 0,
+  "audit_rows": 500,
+  "blocked_count": 200,
+  "chunks_created": 0,
+  "manual_actions": [
+    [
+      "policy_disabled_metadata_only",
+      300
+    ],
+    [
+      "youtube_media_download_blocked_without_authorization",
+      100
+    ],
+    [
+      "rights_status_blocked_blocked",
+      100
+    ]
+  ],
+  "metadata_only_count": 300,
+  "rag_ready_calls": 0,
+  "safe_to_download_count": 0,
+  "top_blockers": [
+    [
+      "youtube_media_download_blocked_without_authorization",
+      100
+    ],
+    [
+      "rights_status_blocked_blocked",
+      100
+    ]
+  ],
+  "top_domains": [
+    [
+      "sec-edgar",
+      100
+    ],
+    [
+      "youtube.com",
+      100
+    ],
+    [
+      "licensed-vendor",
+      100
+    ],
+    [
+      "jpmorganchase.com",
+      4
+    ],
+    [
+      "stock.walmart.com",
+      4
+    ],
+    [
+      "ir.homedepot.com",
+      4
+    ],
+    [
+      "investor.jnj.com",
+      4
+    ],
+    [
+      "corporate.exxonmobil.com",
+      4
+    ],
+    [
+      "investor.bankofamerica.com",
+      4
+    ],
+    [
+      "goldmansachs.com",
+      4
+    ]
+  ],
+  "total_calls": 100,
+  "total_companies": 51,
+  "transcripts_downloaded": 0
+}

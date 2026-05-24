@@ -1,0 +1,13 @@
+{
+  "asr_enabled": false,
+  "audio_rag_ready_calls": 0,
+  "audio_rag_records": 0,
+  "audit_rows": 500,
+  "cloud_asr_called": false,
+  "created_at": "2026-05-24T13:56:46+00:00",
+  "out_manifest": "data/acquisition/nyse_100_audio_rag_manifest.csv",
+  "raw_text_committed": false,
+  "rights_status_counts": {},
+  "todo_records": 0,
+  "youtube_audio_processed": false
+}
