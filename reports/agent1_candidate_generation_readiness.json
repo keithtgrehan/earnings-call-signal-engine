@@ -1,0 +1,12 @@
+{
+  "can_generate_real_candidates": false,
+  "eligible_case_count": 0,
+  "manual_local_registry_exists": false,
+  "missing_fields": [
+    "manual_local_registry.jsonl is missing"
+  ],
+  "registered_transcript_count": 0,
+  "state": "NOT_READY",
+  "valid_source_hash_count": 0,
+  "validation_errors": []
+}

@@ -502,4 +502,9 @@ def validate_manual_local_registry(rows: list[dict[str, Any]]) -> list[str]:
             row.get("commit_allowed") or row.get("training_allowed") or row.get("eval_allowed")
         ):
             errors.append(f"row {index}: unknown/restricted manual-local rights cannot allow commit/training/eval")
+        if row.get("media_type") == "transcript" and (
+            row.get("commit_allowed") or row.get("training_allowed") or row.get("eval_allowed")
+        ):
+            if not str(row.get("source_url", "")).strip():
+                errors.append(f"row {index}: source_url is required before enabling transcript commit/training/eval")
     return errors
