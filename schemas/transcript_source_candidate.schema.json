@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Transcript source candidate",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "case_id",
+    "ticker",
+    "company_name",
+    "fiscal_period",
+    "event_date",
+    "source_type",
+    "source_name",
+    "source_domain",
+    "source_url",
+    "discovered_from_url",
+    "discovery_method",
+    "candidate_kind",
+    "rights_status",
+    "download_allowed",
+    "approval_required",
+    "raw_text_committed",
+    "license_config_ref",
+    "robots_allowed",
+    "paywall_status",
+    "confidence",
+    "notes"
+  ],
+  "properties": {
+    "candidate_id": {"type": "string"},
+    "case_id": {"type": "string"},
+    "ticker": {"type": "string"},
+    "company_name": {"type": "string"},
+    "fiscal_period": {"type": "string"},
+    "event_date": {"type": "string"},
+    "source_type": {"type": "string"},
+    "source_name": {"type": "string"},
+    "source_domain": {"type": "string"},
+    "source_url": {"type": "string"},
+    "discovered_from_url": {"type": "string"},
+    "discovery_method": {"type": "string"},
+    "candidate_kind": {
+      "type": "string",
+      "enum": [
+        "company_ir",
+        "earnings_release",
+        "transcript",
+        "webcast",
+        "presentation",
+        "audio_video",
+        "youtube_or_external_video",
+        "unknown"
+      ]
+    },
+    "rights_status": {
+      "type": "string",
+      "enum": [
+        "metadata_only",
+        "unknown_fail_closed",
+        "approved_manual_local",
+        "licensed_vendor_blocked",
+        "licensed_vendor_metadata_only",
+        "rights_cleared",
+        "safe_to_download"
+      ]
+    },
+    "download_allowed": {"type": "boolean", "const": false},
+    "approval_required": {"type": "boolean"},
+    "raw_text_committed": {"type": "boolean", "const": false},
+    "license_config_ref": {"type": "string"},
+    "robots_allowed": {"type": "boolean"},
+    "paywall_status": {"type": "string"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}
