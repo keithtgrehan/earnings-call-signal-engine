@@ -55,6 +55,7 @@ def test_complete_manual_approval_promotes_download_but_not_commit(tmp_path: Pat
                 "asset_type": "transcript",
                 "source_type": "official_ir",
                 "source_url": "https://ir.example.com/transcript",
+                "rights_status": "safe_to_download",
                 "blocked_reason": "",
                 "allow_download": "true",
                 "allow_eval_use": "true",
@@ -63,6 +64,8 @@ def test_complete_manual_approval_promotes_download_but_not_commit(tmp_path: Pat
                 "approval_ref": "approval://keith/jpm-q4",
                 "approved_by": "Keith",
                 "approved_at": "2026-05-24T00:00:00+00:00",
+                "source_terms_checked": "true",
+                "robots_checked": "true",
                 "provenance_hash": "sha256:" + "a" * 64,
             }
         ],
@@ -88,11 +91,14 @@ def test_youtube_audio_never_promotes(tmp_path: Path, monkeypatch) -> None:
                 "asset_type": "audio",
                 "source_type": "official_ir_webcast",
                 "source_url": "https://www.youtube.com/watch?v=abc",
+                "rights_status": "safe_to_download",
                 "allow_download": "true",
                 "commit_allowed": "false",
                 "approval_ref": "approval://keith/jpm-q4",
                 "approved_by": "Keith",
                 "approved_at": "2026-05-24T00:00:00+00:00",
+                "source_terms_checked": "true",
+                "robots_checked": "true",
             }
         ],
     )
