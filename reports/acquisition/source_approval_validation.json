@@ -1,0 +1,11 @@
+{
+  "errors": [],
+  "summary": {
+    "approved_download_rows": 0,
+    "rows": 1000,
+    "training_use_rows": 0,
+    "valid": true
+  },
+  "valid": true,
+  "warnings": []
+}
