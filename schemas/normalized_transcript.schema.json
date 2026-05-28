@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Normalized transcript metadata contract",
+  "type": "object",
+  "required": [
+    "case_id",
+    "ticker",
+    "case_metadata",
+    "source_asset_id",
+    "source_sha256",
+    "text_sha256",
+    "source_type",
+    "rights_status",
+    "sections",
+    "speaker_turns",
+    "qa_pairs",
+    "prepared_remarks",
+    "provenance",
+    "raw_text_committed"
+  ],
+  "properties": {
+    "case_id": {"type": "string"},
+    "ticker": {"type": "string"},
+    "case_metadata": {"type": "object"},
+    "source_asset_id": {"type": "string"},
+    "source_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "text_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "source_type": {"type": "string"},
+    "rights_status": {"type": "string"},
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["section_type", "start_char", "end_char", "text_sha256"],
+        "properties": {
+          "section_type": {"type": "string"},
+          "start_char": {"type": "integer"},
+          "end_char": {"type": "integer"},
+          "text_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "speaker_turns": {"type": "array"},
+    "qa_pairs": {"type": "array"},
+    "prepared_remarks": {"type": "array"},
+    "provenance": {"type": "object"},
+    "raw_text_committed": {"type": "boolean", "const": false}
+  },
+  "additionalProperties": false
+}

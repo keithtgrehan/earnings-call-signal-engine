@@ -89,6 +89,41 @@ def chunk_ranges(text: str, *, chunk_chars: int, overlap_chars: int) -> list[tup
     return ranges
 
 
+def classify_chunk_type(chunk_text: str) -> str:
+    lowered = chunk_text.lower()
+    has_question_marker = "analyst:" in lowered or "question:" in lowered
+    has_answer_marker = "management:" in lowered or "answer:" in lowered or "executive:" in lowered
+    if "question-and-answer" in lowered and has_question_marker and has_answer_marker:
+        return "qa_pair"
+    if has_question_marker and has_answer_marker:
+        return "qa_pair"
+    if has_question_marker:
+        return "qa_question"
+    if has_answer_marker and "question-and-answer" in lowered:
+        return "qa_answer"
+    if "prepared remarks" in lowered or "prepared_remark" in lowered:
+        return "prepared_remarks"
+    return "transcript_text"
+
+
+def section_for_chunk(chunk_type: str) -> str:
+    if chunk_type == "prepared_remarks":
+        return "prepared_remarks"
+    if chunk_type in {"qa_question", "qa_answer", "qa_pair"}:
+        return "qa"
+    return "unknown"
+
+
+def speaker_role_for_chunk(chunk_type: str) -> str:
+    if chunk_type == "qa_question":
+        return "analyst_or_operator"
+    if chunk_type == "qa_answer":
+        return "management"
+    if chunk_type == "qa_pair":
+        return "analyst_management_pair"
+    return "unknown"
+
+
 def call_folder_from_audit(row: dict[str, str], transcript_path: Path, workspace: Path) -> Path:
     folder = str(row.get("folder_path", "")).strip()
     if folder:
@@ -134,6 +169,7 @@ def build_chunks(
             chunk_id = f"{slugify(row.get('case_id', 'unknown'))}_{slugify(row.get('asset_id', 'asset'))}_chunk_{index:04d}"
             chunk_path = chunks_dir / f"{chunk_id}.txt"
             chunk_path.write_text(chunk_text, encoding="utf-8")
+            chunk_type = classify_chunk_type(chunk_text)
             chunk_rows.append(
                 {
                     "chunk_id": chunk_id,
@@ -141,9 +177,9 @@ def build_chunks(
                     "ticker": row.get("ticker", ""),
                     "asset_id": row.get("asset_id", ""),
                     "asset_type": "transcript",
-                    "chunk_type": "transcript_text",
-                    "section": row.get("section", "unknown") or "unknown",
-                    "speaker_role": row.get("speaker_role", "unknown") or "unknown",
+                    "chunk_type": chunk_type,
+                    "section": row.get("section") or section_for_chunk(chunk_type),
+                    "speaker_role": row.get("speaker_role") or speaker_role_for_chunk(chunk_type),
                     "source_sha256": source_sha,
                     "text_sha256": sha256_bytes(chunk_bytes),
                     "local_chunk_path": str(chunk_path),

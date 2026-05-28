@@ -28,7 +28,20 @@
     "ticker": {"type": "string", "minLength": 1},
     "asset_id": {"type": "string", "minLength": 1},
     "asset_type": {"type": "string", "enum": ["transcript", "audio", "metadata"]},
-    "chunk_type": {"type": "string", "enum": ["transcript_text", "audio_asr_text", "metadata_only"]},
+    "chunk_type": {
+      "type": "string",
+      "enum": [
+        "transcript_text",
+        "audio_asr_text",
+        "metadata_only",
+        "prepared_remarks",
+        "qa_question",
+        "qa_answer",
+        "qa_pair",
+        "evidence_object",
+        "semantic_fallback"
+      ]
+    },
     "section": {"type": "string"},
     "speaker_role": {"type": "string"},
     "source_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
