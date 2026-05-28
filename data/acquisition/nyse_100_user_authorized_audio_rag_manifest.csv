@@ -1,0 +1,1 @@
+record_id,case_id,ticker,audio_asset_id,audio_local_path,source_sha256,rights_status,eval_use_allowed,asr_status,asr_text_path,chunk_manifest_path,notes,created_at,raw_text_committed

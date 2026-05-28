@@ -400,6 +400,12 @@ def download_decision(
     rights_status = str(source.get("rights_status", "") or "unknown").strip()
     availability = str(source.get("availability", "") or "unknown").strip()
     manual_download = approval is not None and truthy(approval.get("allow_download"))
+    if manual_download and not (
+        str(approval.get("approval_ref", "")).strip()
+        and str(approval.get("approved_by", "")).strip()
+        and str(approval.get("approved_at", "")).strip()
+    ):
+        return "blocked", "manual_approval_incomplete"
 
     if run_mode == "dry-run":
         return "not_attempted", "dry_run_no_download"
