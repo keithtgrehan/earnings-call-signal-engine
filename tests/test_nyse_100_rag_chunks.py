@@ -185,3 +185,48 @@ def test_chunk_manifest_stores_hashes_and_paths_only(tmp_path: Path, monkeypatch
     assert row["text_sha256"].startswith("sha256:")
     assert row["source_sha256"].startswith("sha256:")
     assert row["raw_text_committed"] == "false"
+
+
+def test_event_markers_produce_event_aligned_chunk_types(tmp_path: Path, monkeypatch) -> None:
+    workspace = tmp_path / "desktop"
+    call_folder = workspace / "JPM_JPMorgan_Chase_Co" / "2025-04-14_FY2025_Q1"
+    transcript = call_folder / "transcript" / "jpm_2025_q1_transcript.txt"
+    transcript.parent.mkdir(parents=True)
+    transcript.write_text(
+        "Prepared Remarks\n"
+        "Management: SYNTHETIC PREPARED PHRASE.\n"
+        "Question-and-Answer\n"
+        "Analyst: SYNTHETIC QUESTION PHRASE?\n"
+        "Management: SYNTHETIC ANSWER PHRASE.\n",
+        encoding="utf-8",
+    )
+    audit = workspace / "_audit" / "nyse_earnings_call_audit.csv"
+    _write_audit(audit, [_audit_row(workspace, transcript)])
+
+    out_manifest = tmp_path / "repo" / "data" / "acquisition" / "nyse_100_chunk_manifest.csv"
+    monkeypatch.setattr(chunk_module, "REPORT_DIR", tmp_path / "repo_reports")
+    exit_code = chunk_module.main(
+        [
+            "--workspace",
+            str(workspace),
+            "--audit",
+            str(audit),
+            "--out-manifest",
+            str(out_manifest),
+            "--desktop-index",
+            str(workspace / "_audit" / "rag_chunk_index.csv"),
+            "--chunk-chars",
+            "80",
+            "--overlap-chars",
+            "0",
+        ]
+    )
+
+    assert exit_code == 0
+    with out_manifest.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+    assert {row["chunk_type"] for row in rows} & {"prepared_remarks", "qa_question", "qa_answer", "qa_pair"}
+    manifest_text = out_manifest.read_text(encoding="utf-8")
+    assert "SYNTHETIC PREPARED PHRASE" not in manifest_text
+    assert "SYNTHETIC QUESTION PHRASE" not in manifest_text
+    assert "SYNTHETIC ANSWER PHRASE" not in manifest_text
