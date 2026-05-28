@@ -1,0 +1,35 @@
+{
+  "available_manifests": {
+    "audio_rag_manifest": 0,
+    "chunk_manifest": 0,
+    "download_log": 1000,
+    "manual_local_audio_registry": 0,
+    "manual_local_transcript_registry": 0,
+    "normalized_transcript_manifest": 0,
+    "retrieval_objects_manifest": 0,
+    "source_rights_queue": 1000,
+    "user_authorized_permitted_downloads": 1000
+  },
+  "desktop_audit_exists": true,
+  "desktop_file_counts": {
+    "audio_files": 0,
+    "transcript_like_files": 0,
+    "video_files": 0
+  },
+  "desktop_workspace_exists": true,
+  "operational_counts": {
+    "approved_download_rows": 1000,
+    "audio_rag_records": 0,
+    "normalized_transcripts": 0,
+    "registered_audio": 0,
+    "registered_transcripts": 0,
+    "retrieval_objects": 0,
+    "transcript_chunks": 0,
+    "transcript_downloads_succeeded": 0
+  },
+  "remaining_blockers": [
+    "No registered transcript files are available for normalization/chunking.",
+    "No registered audio files are available for audio readiness."
+  ],
+  "workspace": "/Users/keith/Desktop/earnings calls 100 samples"
+}

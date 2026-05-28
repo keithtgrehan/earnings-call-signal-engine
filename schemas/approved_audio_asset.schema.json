@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/approved_audio_asset.schema.json",
+  "title": "Approved audio asset metadata",
+  "type": "object",
+  "required": ["case_id", "local_path", "sha256", "commit_allowed", "training_allowed", "approval_ref"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "local_path": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "commit_allowed": {"const": false},
+    "training_allowed": {"const": false},
+    "approval_ref": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}

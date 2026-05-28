@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/free_local_ingestion_sources.schema.json",
+  "title": "Free/local ingestion source registry",
+  "type": "object",
+  "required": ["version", "defaults", "sources", "paid_provider_policy"],
+  "properties": {
+    "version": {"type": "string", "minLength": 1},
+    "defaults": {
+      "type": "object",
+      "required": [
+        "raw_git_commit_allowed",
+        "training_allowed",
+        "paid_provider_enabled_by_default",
+        "embeddings_enabled_by_default"
+      ],
+      "properties": {
+        "raw_git_commit_allowed": {"const": false},
+        "training_allowed": {"const": false},
+        "paid_provider_enabled_by_default": {"const": false},
+        "embeddings_enabled_by_default": {"const": false}
+      },
+      "additionalProperties": true
+    },
+    "sources": {
+      "type": "object",
+      "required": [
+        "sec_edgar_metadata",
+        "company_ir_metadata",
+        "manual_local_transcript",
+        "manual_local_audio",
+        "local_asr",
+        "audio_features_local",
+        "local_retrieval"
+      ],
+      "additionalProperties": {
+        "type": "object",
+        "required": ["enabled", "cost", "use"],
+        "properties": {
+          "enabled": {"type": "boolean"},
+          "cost": {"type": "string"},
+          "use": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "paid_provider_policy": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "allow_raw_storage",
+        "allow_eval_use",
+        "allow_training_use",
+        "license_config_ref_required"
+      ],
+      "properties": {
+        "enabled": {"const": false},
+        "allow_raw_storage": {"const": false},
+        "allow_eval_use": {"const": false},
+        "allow_training_use": {"const": false},
+        "license_config_ref_required": {"const": true}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

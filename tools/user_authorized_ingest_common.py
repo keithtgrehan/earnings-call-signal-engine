@@ -98,6 +98,8 @@ TRANSCRIPT_REGISTRY_FIELDS = [
     "asset_type",
     "local_path",
     "sha256",
+    "source_url",
+    "provenance_path",
     "rights_status",
     "eval_allowed",
     "commit_allowed",

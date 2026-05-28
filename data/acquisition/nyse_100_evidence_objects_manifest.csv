@@ -1,0 +1,1 @@
+evidence_id,chunk_id,case_id,ticker,object_type,chunk_type,source_sha256,text_sha256,local_chunk_path,start_char,end_char,rights_status,raw_text_committed

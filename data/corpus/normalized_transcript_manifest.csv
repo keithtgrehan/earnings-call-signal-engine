@@ -1,0 +1,1 @@
+case_id,ticker,company_name,exchange,fiscal_year,fiscal_quarter,call_date,source_url,raw_sha256,normalized_sha256,normalizer_version,section_count,speaker_turn_count,qa_pair_count,quality_flags,normalized_local_path,raw_text_committed

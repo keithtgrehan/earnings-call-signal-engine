@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/asr_segment.schema.json",
+  "title": "ASR segment metadata",
+  "type": "object",
+  "required": ["segment_id", "case_id", "start_time_sec", "end_time_sec", "asr_confidence", "raw_text_committed"],
+  "properties": {
+    "segment_id": {"type": "string"},
+    "case_id": {"type": "string"},
+    "start_time_sec": {"type": "number"},
+    "end_time_sec": {"type": "number"},
+    "asr_confidence": {"type": ["number", "null"]},
+    "text_sha256": {"type": "string"},
+    "raw_text_committed": {"const": false}
+  },
+  "additionalProperties": false
+}

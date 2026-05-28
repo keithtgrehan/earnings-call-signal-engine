@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/audio_source_candidate.schema.json",
+  "title": "Audio source candidate",
+  "type": "object",
+  "required": ["case_id", "ticker", "source_url", "rights_status", "download_allowed", "approval_required"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "ticker": {"type": "string"},
+    "source_url": {"type": "string"},
+    "source_type": {"type": "string"},
+    "rights_status": {"enum": ["metadata_only", "unknown_fail_closed", "safe_to_download", "rights_cleared"]},
+    "download_allowed": {"type": "boolean"},
+    "approval_required": {"type": "boolean"},
+    "commit_allowed": {"const": false},
+    "training_allowed": {"const": false}
+  },
+  "additionalProperties": true
+}

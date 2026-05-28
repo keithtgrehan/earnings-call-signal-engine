@@ -535,3 +535,47 @@ labeling-ci:
 
 clean:
 	rm -rf ./_smoke_out ./_smoke_cache build dist
+
+NYSE_DESKTOP_WORKSPACE ?= /Users/keith/Desktop/earnings calls 100 samples
+
+.PHONY: free-local-ingestion-check user-authorized-permitted-downloads user-authorized-download-assets register-user-authorized-assets normalize-registered-transcripts build-event-chunks validate-event-chunks export-retrieval-objects build-audio-rag retrieval-readiness operational-ingestion-summary operational-ingestion-check
+
+free-local-ingestion-check:
+	$(PYTHON) tools/build_operational_ingest_baseline.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+	$(PYTHON) scripts/validate_user_authorized_ingest.py --workspace "$(NYSE_DESKTOP_WORKSPACE)" || true
+
+user-authorized-permitted-downloads:
+	$(PYTHON) tools/build_user_authorized_permitted_downloads.py --queue data/acquisition/nyse_100_source_rights_review_queue.csv --policy configs/nyse_100_user_authorized_ingest_policy.yml --out data/acquisition/nyse_100_user_authorized_permitted_downloads.csv --desktop-out "$(NYSE_DESKTOP_WORKSPACE)/_audit/user_authorized_permitted_downloads.csv" --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+user-authorized-download-assets:
+	$(PYTHON) tools/download_user_authorized_earnings_assets.py --manifest data/acquisition/nyse_100_user_authorized_permitted_downloads.csv --policy configs/nyse_100_user_authorized_ingest_policy.yml --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+register-user-authorized-assets:
+	$(PYTHON) tools/register_user_authorized_desktop_assets.py --workspace "$(NYSE_DESKTOP_WORKSPACE)" --download-log "$(NYSE_DESKTOP_WORKSPACE)/_audit/user_authorized_download_log.csv"
+	$(PYTHON) scripts/validate_manual_local_registries.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+normalize-registered-transcripts:
+	$(PYTHON) tools/normalize_registered_transcripts.py --registry data/corpus/manual_local_transcript_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+build-event-chunks:
+	$(PYTHON) tools/build_event_chunks.py --registry data/corpus/manual_local_transcript_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+validate-event-chunks:
+	$(PYTHON) tools/validate_chunk_manifest.py
+
+export-retrieval-objects:
+	$(PYTHON) tools/export_retrieval_objects.py --chunk-manifest data/acquisition/nyse_100_chunk_manifest.csv --out data/retrieval/retrieval_objects_manifest.csv
+
+build-audio-rag:
+	$(PYTHON) tools/build_user_authorized_audio_rag.py --registry data/corpus/manual_local_audio_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+	$(PYTHON) tools/run_local_asr.py --registry data/corpus/manual_local_audio_registry.csv
+
+retrieval-readiness:
+	$(PYTHON) tools/build_local_retrieval_index.py --objects data/retrieval/retrieval_objects_manifest.csv --out .local/signal_engine/retrieval/indexes/nyse100_bm25
+	$(PYTHON) tools/evaluate_retrieval.py --index .local/signal_engine/retrieval/indexes/nyse100_bm25 --queries data/retrieval/eval_queries.example.jsonl
+
+operational-ingestion-summary:
+	$(PYTHON) tools/build_operational_ingestion_summary.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+operational-ingestion-check: free-local-ingestion-check user-authorized-permitted-downloads register-user-authorized-assets normalize-registered-transcripts build-event-chunks validate-event-chunks export-retrieval-objects build-audio-rag retrieval-readiness operational-ingestion-summary
+	$(PYTHON) scripts/validate_user_authorized_ingest.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"

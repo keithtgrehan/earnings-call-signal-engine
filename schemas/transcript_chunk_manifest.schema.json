@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/transcript_chunk_manifest.schema.json",
+  "title": "Transcript chunk manifest row",
+  "allOf": [
+    {"$ref": "nyse_100_chunk_manifest.schema.json"}
+  ]
+}

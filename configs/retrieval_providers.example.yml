@@ -1,0 +1,15 @@
+version: retrieval_providers_v1
+defaults:
+  provider_apis_enabled: false
+  embeddings_enabled: false
+  vector_db_commit_allowed: false
+  model_training_enabled: false
+local_bm25:
+  enabled: true
+  output_root: .local/signal_engine/retrieval/indexes
+  commit_allowed: false
+faiss_optional:
+  enabled: false
+  output_root: .local/signal_engine/retrieval/faiss
+  commit_allowed: false
+provider_apis: []

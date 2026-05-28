@@ -59,6 +59,7 @@ data/external/financial_twitter_sentiment/*
 !data/external/financial_twitter_sentiment/.gitkeep
 data/processed/multimodal_engine/mlruns/
 tmp/
+.local/
 
 # local human-review runtime outputs
 data/review/runtime/
@@ -88,6 +89,8 @@ data/nlp_assets/raw/
 *.parquet
 *.arrow
 transcripts/
+!src/signal_engine/transcripts/
+!src/signal_engine/transcripts/*.py
 transcripts_backup_*/
 tools/transcript_downloader/**/raw/
 tools/transcript_downloader/**/quarantine/

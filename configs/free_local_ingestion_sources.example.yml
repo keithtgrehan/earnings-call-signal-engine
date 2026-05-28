@@ -1,0 +1,66 @@
+version: free_local_ingestion_sources_v1
+defaults:
+  raw_git_commit_allowed: false
+  training_allowed: false
+  paid_provider_enabled_by_default: false
+  embeddings_enabled_by_default: false
+sources:
+  sec_edgar_metadata:
+    enabled: true
+    cost: free
+    raw_transcripts: false
+    use: CIK, 8-K, Exhibit 99.1, and event metadata discovery.
+    max_requests_per_second: 10
+    user_agent_required: true
+  company_ir_metadata:
+    enabled: true
+    cost: free
+    raw_download_requires_approval: true
+    use: Transcript, event, webcast, and slides candidate discovery.
+  manual_local_transcript:
+    enabled: true
+    cost: free
+    raw_download: not_applicable
+    use: Desktop path and sha256 registration for already-approved transcript files.
+  manual_local_audio:
+    enabled: true
+    cost: free
+    raw_download: not_applicable
+    use: Desktop path and sha256 registration plus local ASR readiness.
+  local_asr:
+    enabled: true
+    cost: local_compute
+    cloud_upload: false
+    engines:
+      - faster_whisper
+      - whisper
+      - whisperx_optional
+  audio_features_local:
+    enabled: true
+    cost: local_compute
+    labels:
+      emotion: false
+      deception: false
+      stress: false
+      biometric_identity: false
+    tools:
+      - ffmpeg
+      - ffprobe
+      - silero_vad_optional
+      - librosa_optional
+      - opensmile_optional
+  local_retrieval:
+    enabled: true
+    cost: local_compute
+    default: bm25_manifest_only
+    tools:
+      - sqlite
+      - bm25
+      - duckdb_optional
+      - faiss_optional
+paid_provider_policy:
+  enabled: false
+  allow_raw_storage: false
+  allow_eval_use: false
+  allow_training_use: false
+  license_config_ref_required: true
