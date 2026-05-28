@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/flagged_audio_window.schema.json",
+  "title": "Flagged audio review window",
+  "type": "object",
+  "required": ["case_id", "audio_sha256", "start_time_sec", "end_time_sec", "reason", "label_type"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "audio_sha256": {"type": "string"},
+    "start_time_sec": {"type": "number"},
+    "end_time_sec": {"type": "number"},
+    "reason": {"type": "string"},
+    "label_type": {"const": "review_window"},
+    "emotion_label": {"const": false},
+    "stress_label": {"const": false},
+    "deception_label": {"const": false}
+  },
+  "additionalProperties": false
+}

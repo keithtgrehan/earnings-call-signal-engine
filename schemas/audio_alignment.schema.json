@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/audio_alignment.schema.json",
+  "title": "Audio transcript alignment metadata",
+  "type": "object",
+  "required": ["case_id", "audio_sha256", "transcript_sha256", "alignment_status", "raw_text_committed"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "audio_sha256": {"type": "string"},
+    "transcript_sha256": {"type": "string"},
+    "alignment_status": {"type": "string"},
+    "raw_text_committed": {"const": false}
+  },
+  "additionalProperties": true
+}

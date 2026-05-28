@@ -1,0 +1,1 @@
+object_id,object_type,case_id,ticker,company,fiscal_period,source_type,source_ref,section,speaker,topic,span_start_char,span_end_char,source_sha256,text_sha256,rights_tier,retrieval_priority,commit_allowed,raw_text_commit_allowed,raw_text_committed

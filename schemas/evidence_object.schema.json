@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/evidence_object.schema.json",
+  "title": "Repo-safe evidence object metadata",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "chunk_id",
+    "case_id",
+    "ticker",
+    "object_type",
+    "source_sha256",
+    "text_sha256",
+    "local_chunk_path",
+    "rights_status",
+    "raw_text_committed"
+  ],
+  "properties": {
+    "evidence_id": {"type": "string", "minLength": 1},
+    "chunk_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "minLength": 1},
+    "ticker": {"type": "string"},
+    "object_type": {"const": "evidence_object"},
+    "chunk_type": {"type": "string"},
+    "source_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "text_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "local_chunk_path": {"type": "string"},
+    "start_char": {"type": "string"},
+    "end_char": {"type": "string"},
+    "rights_status": {"type": "string"},
+    "raw_text_committed": {"const": false}
+  },
+  "additionalProperties": false
+}

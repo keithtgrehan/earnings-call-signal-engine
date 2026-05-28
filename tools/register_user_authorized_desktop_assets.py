@@ -37,6 +37,8 @@ def _registry_row(row: dict[str, str], *, sha256: str) -> dict[str, str]:
         "asset_type": row.get("asset_type", ""),
         "local_path": row.get("local_path", ""),
         "sha256": sha256,
+        "source_url": row.get("source_url", ""),
+        "provenance_path": row.get("provenance_path", ""),
         "rights_status": "safe_to_download",
         "eval_allowed": row.get("eval_allowed", "true"),
         "commit_allowed": "false",
@@ -89,6 +91,14 @@ def register_user_authorized_assets(
     return summary
 
 
+def _display_path(value: str) -> str:
+    path = Path(value)
+    try:
+        return str(path.resolve().relative_to(ROOT.resolve()))
+    except (OSError, ValueError):
+        return value
+
+
 def write_report(summary: dict[str, Any]) -> None:
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
     (REPORT_DIR / "user_authorized_registration_status.md").write_text(
@@ -97,8 +107,8 @@ def write_report(summary: dict[str, Any]) -> None:
         f"- Registered transcripts: {summary['registered_transcripts']}\n"
         f"- Registered audio: {summary['registered_audio']}\n"
         f"- Skipped rows: {summary['skipped']}\n"
-        f"- Transcript registry: `{summary['transcript_registry']}`\n"
-        f"- Audio registry: `{summary['audio_registry']}`\n",
+        f"- Transcript registry: `{_display_path(str(summary['transcript_registry']))}`\n"
+        f"- Audio registry: `{_display_path(str(summary['audio_registry']))}`\n",
         encoding="utf-8",
     )
 

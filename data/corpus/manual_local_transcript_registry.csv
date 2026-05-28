@@ -1,1 +1,1 @@
-case_id,ticker,company_name,asset_type,local_path,sha256,rights_status,eval_allowed,commit_allowed,training_allowed,approval_ref,registered_timestamp,notes
+case_id,ticker,company_name,asset_type,local_path,sha256,source_url,provenance_path,rights_status,eval_allowed,commit_allowed,training_allowed,approval_ref,registered_timestamp,notes

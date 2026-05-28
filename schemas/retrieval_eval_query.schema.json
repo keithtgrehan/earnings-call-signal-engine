@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/retrieval_eval_query.schema.json",
+  "title": "Retrieval eval query",
+  "type": "object",
+  "required": ["query_id", "query", "expected_object_ids"],
+  "properties": {
+    "query_id": {"type": "string", "minLength": 1},
+    "query": {"type": "string", "minLength": 1},
+    "expected_object_ids": {"type": "array", "items": {"type": "string"}},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}

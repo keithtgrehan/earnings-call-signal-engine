@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/retrieval_result.schema.json",
+  "title": "Retrieval result",
+  "type": "object",
+  "required": ["query_id", "object_id", "rank", "score", "retrieval_method"],
+  "properties": {
+    "query_id": {"type": "string", "minLength": 1},
+    "object_id": {"type": "string", "minLength": 1},
+    "rank": {"type": "integer", "minimum": 1},
+    "score": {"type": "number"},
+    "retrieval_method": {"enum": ["local_bm25_metadata"]},
+    "raw_text_returned": {"const": false}
+  },
+  "additionalProperties": true
+}
