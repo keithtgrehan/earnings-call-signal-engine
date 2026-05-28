@@ -1,0 +1,54 @@
+# Top 50 Source Rights Review Actions
+
+| rank | source_domain | rows | next_action |
+| --- | --- | ---: | --- |
+| 1 | www.jpmorganchase.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 2 | investor.bankofamerica.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 3 | www.citigroup.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 4 | www.wellsfargo.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 5 | www.goldmansachs.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 6 | www.morganstanley.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 7 | www.bny.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 8 | investors.statestreet.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 9 | ir.usbank.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 10 | investor.pnc.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 11 | ir.truist.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 12 | investor.capitalone.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 13 | ir.americanexpress.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 14 | investor.visa.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 15 | investor.mastercard.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 16 | investor.fisglobal.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 17 | investors.globalpayments.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 18 | ir.blackrock.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 19 | ir.blackstone.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 20 | www.aboutschwab.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 21 | ir.theice.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 22 | investor.spglobal.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 23 | ir.moodys.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 24 | investors.aon.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 25 | www.aig.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 26 | investor.metlife.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 27 | www.investor.prudential.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 28 | investor.travelers.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 29 | investors.chubb.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 30 | www.investor.jnj.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 31 | investor.lilly.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 32 | www.merck.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 33 | investors.pfizer.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 34 | www.unitedhealthgroup.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 35 | investors.cvshealth.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 36 | www.abbottinvestor.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 37 | investors.bms.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 38 | investorrelations.medtronic.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 39 | ir.thermofisher.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 40 | investors.danaher.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 41 | investors.bd.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 42 | investors.thecignagroup.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 43 | investor.hcahealthcare.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 44 | investors.stryker.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 45 | corporate.exxonmobil.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 46 | www.chevron.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 47 | www.conocophillips.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 48 | investorcenter.slb.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 49 | ir.halliburton.com | 10 | Review source terms/robots and record approval refs before raw download. |
+| 50 | investors.eogresources.com | 10 | Review source terms/robots and record approval refs before raw download. |

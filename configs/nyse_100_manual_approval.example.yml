@@ -1,0 +1,27 @@
+approvals:
+  - case_id: example_case
+    ticker: EXM
+    asset_type: transcript
+    source_url: "https://ir.example.com/example-transcript.txt"
+    source_type: manually_approved_source
+    rights_status: manual_local_review_only
+    approval_ref: "example-not-approved"
+    approved_by: "not-approved"
+    approved_at: "2026-05-24T00:00:00+00:00"
+    allow_download: false
+    allow_eval_use: false
+    allow_training_use: false
+    notes: "Example only; raw download is disabled."
+  - case_id: example_case
+    ticker: EXM
+    asset_type: audio
+    source_url: "https://ir.example.com/example-webcast.mp3"
+    source_type: manually_approved_source
+    rights_status: manual_local_review_only
+    approval_ref: "example-not-approved"
+    approved_by: "not-approved"
+    approved_at: "2026-05-24T00:00:00+00:00"
+    allow_download: false
+    allow_eval_use: false
+    allow_training_use: false
+    notes: "Example only; raw download is disabled."

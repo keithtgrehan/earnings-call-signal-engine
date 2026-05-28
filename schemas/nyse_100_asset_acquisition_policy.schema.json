@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NYSE 100 asset acquisition policy",
+  "type": "object",
+  "required": [
+    "enabled",
+    "workspace_root",
+    "metadata_only_default",
+    "allow_transcript_downloads",
+    "allow_audio_downloads",
+    "allow_youtube_downloads",
+    "allow_vendor_downloads",
+    "require_rights_status_safe_to_download",
+    "require_source_url",
+    "require_provenance",
+    "max_requests_per_second",
+    "user_agent",
+    "allowed_source_types_for_transcript_download",
+    "allowed_source_types_for_audio_download",
+    "blocked_source_types",
+    "raw_git_commit_allowed",
+    "chunking_enabled",
+    "asr_enabled",
+    "asr_provider",
+    "rag_index_mode",
+    "vector_db_enabled",
+    "embeddings_enabled"
+  ],
+  "properties": {
+    "enabled": {"type": "boolean"},
+    "workspace_root": {"type": "string"},
+    "metadata_only_default": {"type": "boolean"},
+    "allow_transcript_downloads": {"type": "boolean"},
+    "allow_audio_downloads": {"type": "boolean"},
+    "allow_youtube_downloads": {"type": "boolean"},
+    "allow_vendor_downloads": {"type": "boolean"},
+    "require_rights_status_safe_to_download": {"type": "boolean"},
+    "require_source_url": {"type": "boolean"},
+    "require_provenance": {"type": "boolean"},
+    "max_requests_per_second": {"type": "number", "minimum": 0},
+    "user_agent": {"type": "string", "minLength": 1},
+    "allowed_source_types_for_transcript_download": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "allowed_source_types_for_audio_download": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "blocked_source_types": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "raw_git_commit_allowed": {"type": "boolean", "const": false},
+    "chunking_enabled": {"type": "boolean"},
+    "asr_enabled": {"type": "boolean"},
+    "asr_provider": {"type": "string"},
+    "rag_index_mode": {"type": "string"},
+    "vector_db_enabled": {"type": "boolean", "const": false},
+    "embeddings_enabled": {"type": "boolean", "const": false}
+  },
+  "additionalProperties": true
+}
