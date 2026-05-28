@@ -24,6 +24,7 @@ from tools.source_rights_common import (
 REPORT_DIR = ROOT / "reports" / "acquisition"
 DEFAULT_QUEUE = ROOT / "data" / "acquisition" / "nyse_100_source_rights_review_queue.csv"
 DEFAULT_OUT = ROOT / "data" / "acquisition" / "nyse_100_permitted_downloads.csv"
+DOWNLOAD_ALLOWED_RIGHTS = {"safe_to_download", "rights_cleared"}
 
 
 def promotion_errors(row: dict[str, str]) -> list[str]:
@@ -33,8 +34,13 @@ def promotion_errors(row: dict[str, str]) -> list[str]:
     for field in ("approval_ref", "approved_by", "approved_at", "source_url"):
         if not str(row.get(field, "")).strip():
             errors.append(f"{field} is required")
+    if row.get("rights_status") not in DOWNLOAD_ALLOWED_RIGHTS:
+        errors.append("rights_status is not permitted for approved download")
     if row.get("source_type") not in PERMITTED_SOURCE_TYPES:
         errors.append("source_type is not permitted for approved download")
+    for field in ("source_terms_checked", "robots_checked"):
+        if not as_bool(row.get(field)):
+            errors.append(f"{field} must be true for approved download")
     blocked_reason = str(row.get("blocked_reason", "")).strip().lower()
     if blocked_reason and blocked_reason not in {"resolved", "none", "approved"}:
         errors.append("blocked_reason must be empty or resolved")
