@@ -1,0 +1,10 @@
+providers:
+  - provider_name: example_paid_transcript_api
+    enabled: false
+    api_key_env_var: EXAMPLE_TRANSCRIPT_API_KEY
+    base_url: "https://api.example.com/transcripts"
+    license_config_ref: ""
+    allow_raw_storage: false
+    allow_eval_use: false
+    allow_training_use: false
+    candidate_cases: []
