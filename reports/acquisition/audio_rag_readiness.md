@@ -1,10 +1,9 @@
-# Audio RAG Readiness
+# User-Authorized Audio RAG Readiness
 
-- Audit rows read: 500
+- Registry rows: 0
 - Audio RAG records: 0
 - Audio RAG-ready calls: 0
-- TODO records: 0
-- ASR enabled: false
-- Cloud ASR called: false
-- YouTube audio processed: false
+- Local ASR available: false
+- Local ASR used: false
+- Cloud ASR used: false
 - Raw ASR text committed: false

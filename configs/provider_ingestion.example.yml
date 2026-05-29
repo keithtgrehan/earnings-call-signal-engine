@@ -1,0 +1,25 @@
+defaults:
+  raw_storage_root: "/Users/keith/Desktop/earnings calls 100 samples"
+  commit_allowed: false
+  training_allowed: false
+  provider_raw_use_allowed: false
+  license_config_ref: ""
+providers:
+  earningscall:
+    env_key: EARNINGSCALL_API_KEY
+    status_when_missing: NOT_CONFIGURED
+  fmp:
+    env_key: FMP_API_KEY
+    status_when_missing: NOT_CONFIGURED
+  api_ninjas:
+    env_key: API_NINJAS_KEY
+    status_when_missing: NOT_CONFIGURED
+  finnhub:
+    env_key: FINNHUB_API_KEY
+    status_when_missing: NOT_CONFIGURED
+  quartr:
+    env_key: QUARTR_API_KEY
+    requires_license_config_ref: true
+  sec_edgar:
+    env_key: ""
+    metadata_only_default: true

@@ -1,0 +1,71 @@
+{
+  "audio_asr_ready_calls": 0,
+  "audio_asset_candidates_found": 0,
+  "audio_downloads_attempted": 0,
+  "audio_downloads_succeeded": 0,
+  "calls_scanned": 500,
+  "chunks": 0,
+  "companies_scanned": 100,
+  "embeddings_or_vector_db_committed": false,
+  "evidence_objects": 0,
+  "extra_nyse_companies_scanned": 0,
+  "manual_actions": [
+    "Review official IR event pages for direct earnings-call transcript/audio links that include exact fiscal period/date.",
+    "Add lawful manual-local transcript/audio files under the Desktop workspace when official direct assets are unavailable.",
+    "Add provider API keys plus license_config_ref before any vendor raw transcript/audio storage.",
+    "Do not use YouTube media unless explicit written authorization is recorded."
+  ],
+  "model_training_run": false,
+  "normalized_transcripts": 0,
+  "permitted_download_rows": 0,
+  "rag_ready_calls": 0,
+  "ranked_asset_candidates": 730,
+  "raw_files_committed": false,
+  "registered_audio_files": 0,
+  "registered_transcripts": 0,
+  "resolved_asset_candidates": 515,
+  "retrieval_objects": 0,
+  "top_blockers": [
+    [
+      "mismatched_event_period_or_non_earnings",
+      14
+    ],
+    [
+      "paywall_or_login_or_drm_blocked",
+      1
+    ],
+    [
+      "youtube_media_blocked",
+      1
+    ]
+  ],
+  "top_domains": [
+    [
+      "data.sec.gov",
+      500
+    ],
+    [
+      "www.jpmorganchase.com",
+      225
+    ],
+    [
+      "privatebank.jpmorgan.com",
+      2
+    ],
+    [
+      "event.webcasts.com",
+      1
+    ],
+    [
+      "cloud.impact.jpmchase.com",
+      1
+    ],
+    [
+      "www.youtube.com",
+      1
+    ]
+  ],
+  "transcript_asset_candidates_found": 0,
+  "transcript_downloads_attempted": 0,
+  "transcript_downloads_succeeded": 0
+}
