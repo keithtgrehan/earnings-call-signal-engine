@@ -651,10 +651,15 @@ first30-ingestion-check: validate-matched-pair-assets validate-first30-transcrip
 first30-retrieval-eval-check: build-event-chunks validate-event-chunks export-retrieval-objects evaluate-retrieval
 	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
 
-.PHONY: first30-promote-transcripts first30-download-transcripts first30-normalize first30-build-chunks first30-export-retrieval first30-evaluate-retrieval verify-vz-pair run-local-asr-smoke align-audio-transcript export-audio-rag-objects training-readiness-first30 corpus-status-dashboard
+.PHONY: first30-promote-transcripts first30-resolve-transcript-urls first30-download-transcripts first30-normalize first30-build-chunks first30-export-retrieval first30-evaluate-retrieval verify-vz-pair first30-resolve-audio first30-download-audio asr-env-check run-local-asr-smoke asr-run-batch align-audio-transcript export-audio-rag-objects evaluate-first30-retrieval training-readiness-first30 corpus-status-dashboard
 
 first30-promote-transcripts:
 	$(PYTHON) tools/promote_first30_transcript_candidates.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+	$(PYTHON) scripts/validate_first30_ingestion_manifest.py
+
+first30-resolve-transcript-urls:
+	$(PYTHON) tools/resolve_first30_missing_transcript_urls.py
+	$(PYTHON) tools/apply_first30_url_replacements.py
 	$(PYTHON) scripts/validate_first30_ingestion_manifest.py
 
 first30-download-transcripts:
@@ -663,8 +668,20 @@ first30-download-transcripts:
 verify-vz-pair:
 	$(PYTHON) tools/verify_vz_2024_q4_pair.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
 
+first30-resolve-audio:
+	$(PYTHON) tools/resolve_first30_audio_candidates.py
+
+first30-download-audio:
+	$(PYTHON) tools/download_first30_audio.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+asr-env-check:
+	$(PYTHON) tools/check_local_asr_environment.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
 run-local-asr-smoke:
 	$(PYTHON) tools/run_local_asr_smoke.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+asr-run-batch:
+	$(PYTHON) tools/run_local_asr_batch.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
 
 align-audio-transcript:
 	$(PYTHON) tools/align_asr_to_transcript.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
@@ -683,6 +700,9 @@ export-audio-rag-objects:
 
 first30-evaluate-retrieval:
 	$(PYTHON) tools/evaluate_retrieval.py --objects data/retrieval/retrieval_objects_manifest.csv
+	$(PYTHON) tools/diagnose_retrieval_failures.py
+
+evaluate-first30-retrieval: first30-evaluate-retrieval
 
 training-readiness-first30:
 	$(PYTHON) tools/build_training_readiness_from_first30.py

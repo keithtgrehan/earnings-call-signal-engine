@@ -57,20 +57,52 @@ def _rank_for_expected(returned: list[str], expected: set[str]) -> int:
     return 0
 
 
+def _same_context(metadata: dict[str, Any], query: dict[str, Any]) -> bool:
+    return (
+        (not query.get("case_id") or metadata.get("case_id") == query.get("case_id"))
+        and (not query.get("ticker") or metadata.get("ticker") == query.get("ticker"))
+        and (not query.get("fiscal_period") or metadata.get("fiscal_period") == query.get("fiscal_period"))
+    )
+
+
+def _filter_objects_for_query(objects: list[dict[str, str]], query: dict[str, Any]) -> list[dict[str, str]]:
+    if query.get("cross_case_search"):
+        return objects
+    filtered = [row for row in objects if _same_context(row, query)]
+    return filtered
+
+
+def _build_disposable_index(objects: list[dict[str, str]]) -> dict[str, Any]:
+    if not objects:
+        return {
+            "documents": [],
+            "document_count": 0,
+            "avg_doc_length": 0,
+            "document_frequency": {},
+            "raw_text_indexed": False,
+        }
+    with tempfile.TemporaryDirectory(prefix="signal_engine_eval_bm25_") as tmp:
+        return build_local_bm25_index(objects, out_dir=Path(tmp))
+
+
+def _citation_ok(metadata: dict[str, Any], query: dict[str, Any]) -> bool:
+    same_context = _same_context(metadata, query)
+    normalized_hash = metadata.get("normalized_transcript_sha256") or metadata.get("source_sha256")
+    provenance_hash = metadata.get("provenance_hash") or metadata.get("source_sha256")
+    return bool(
+        metadata.get("source_ref")
+        and metadata.get("source_sha256")
+        and metadata.get("text_sha256")
+        and normalized_hash
+        and provenance_hash
+        and metadata.get("object_type")
+        and same_context
+    )
+
+
 def evaluate_retrieval_objects(objects_path: Path, queries_path: Path, *, limit: int = 5) -> dict[str, Any]:
     queries = load_eval_queries(queries_path)
     objects = load_retrieval_manifest(objects_path)
-    temp_index = {
-        "documents": [],
-        "document_count": 0,
-        "avg_doc_length": 0,
-        "document_frequency": {},
-        "raw_text_indexed": False,
-    }
-    if objects:
-        # Build in a disposable local directory so the production index path is not required.
-        with tempfile.TemporaryDirectory(prefix="signal_engine_eval_bm25_") as tmp:
-            temp_index = build_local_bm25_index(objects, out_dir=Path(tmp))
     results: list[dict[str, Any]] = []
     recall_hits = {1: 0, 3: 0, 5: 0}
     reciprocal_ranks: list[float] = []
@@ -84,6 +116,8 @@ def evaluate_retrieval_objects(objects_path: Path, queries_path: Path, *, limit:
     for query in queries:
         expected = set(query.get("expected_object_ids") or [])
         expected_abstain = bool(query.get("expected_abstain", False))
+        eligible_objects = _filter_objects_for_query(objects, query)
+        temp_index = _build_disposable_index(eligible_objects)
         ranked = [] if expected_abstain and not expected else score_query(temp_index, str(query.get("query", "")), limit=limit)
         returned = [row["object_id"] for row in ranked]
         rank = _rank_for_expected(returned, expected)
@@ -97,12 +131,8 @@ def evaluate_retrieval_objects(objects_path: Path, queries_path: Path, *, limit:
             abstention_correct += 1
         for result_rank, row in enumerate(ranked, start=1):
             metadata = row.get("metadata", {})
-            same_context = (
-                (not query.get("case_id") or metadata.get("case_id") == query.get("case_id"))
-                and (not query.get("ticker") or metadata.get("ticker") == query.get("ticker"))
-                and (not query.get("fiscal_period") or metadata.get("fiscal_period") == query.get("fiscal_period"))
-            )
-            citation_ok = bool(metadata.get("source_ref") and metadata.get("source_sha256") and same_context)
+            same_context = _same_context(metadata, query)
+            citation_ok = _citation_ok(metadata, query)
             citation_valid += 1 if citation_ok else 0
             invalid_citation += 0 if citation_ok else 1
             wrong_case_ticker_period += 0 if same_context else 1
@@ -121,6 +151,10 @@ def evaluate_retrieval_objects(objects_path: Path, queries_path: Path, *, limit:
                     "case_id": metadata.get("case_id", ""),
                     "ticker": metadata.get("ticker", ""),
                     "fiscal_period": metadata.get("fiscal_period", ""),
+                    "source_sha256": metadata.get("source_sha256", ""),
+                    "normalized_transcript_sha256": metadata.get("normalized_transcript_sha256", ""),
+                    "provenance_hash": metadata.get("provenance_hash", ""),
+                    "object_type": metadata.get("object_type", ""),
                     "evidence_id": row["object_id"] if metadata.get("object_type") == "evidence_object" else "",
                     "claim_safety_status": "blocked_unsupported_claim" if query.get("negative_control") else "retrieved_metadata_only",
                 }

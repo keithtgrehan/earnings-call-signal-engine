@@ -13,10 +13,13 @@ Find official/direct company-hosted audio or webcast audio URLs for first30 case
 - `hd_2025_q4` control fixture
 - `bac_2025_q4`
 - `cat_2025_q4`
+- `jpm_2025_q1`
 
 ## Current Audio Status
 
 - `vz_2024_q4` prepared MP3 is registered, but the full-call transcript is blocked by vendor markers and no ASR is available.
+- Automated same-domain official-page audio discovery over the registered transcript cases found 0 new direct MP3/M4A/WAV URLs.
+- Local ASR environment has ffmpeg/ffprobe and the `faster-whisper` package, but the local/cached `tiny` model is missing, so no ASR text was produced.
 - No audio RAG objects are ready because ASR text plus transcript alignment are missing.
 
 ## Hard Blocks
