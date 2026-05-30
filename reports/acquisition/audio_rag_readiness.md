@@ -1,8 +1,10 @@
-# User-Authorized Audio RAG Readiness
+# User-Authorized Audio Registration and ASR Readiness
 
 - Registry rows: 1
-- Audio RAG records: 1
-- Audio RAG-ready calls: 1
+- Audio readiness records: 1
+- Audio registered / ASR-ready calls: 1
+- ASR transcripts available: 0
+- Audio retrieval unavailable until ASR text exists
 - Local ASR available: false
 - Local ASR used: false
 - Cloud ASR used: false

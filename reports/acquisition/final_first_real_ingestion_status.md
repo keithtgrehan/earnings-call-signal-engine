@@ -14,8 +14,14 @@
 - Chunks: 1
 - Evidence objects: 1
 - Retrieval objects: 1
-- RAG-ready calls: 1
-- Audio ASR-ready calls: 1
+- Retrieval-object ready calls: 1
+- BM25 smoke-ready calls: 1
+- evaluated_rag=false
+- retrieval_eval_queries_run=0
+- retrieval_quality_proven=false
+- Audio registered / ASR-ready calls: 1
+- ASR transcripts available: 0
+- Audio retrieval unavailable until ASR text exists
 - Usable transcript/audio pairs: 0
 
 ## Top Domains
