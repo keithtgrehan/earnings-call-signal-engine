@@ -24,7 +24,7 @@ def main() -> None:
     report.write_text(
         "# RAG Readiness Summary\n\n"
         f"- BM25-ready text chunks: {len(rows)}\n"
-        f"- RAG-ready calls: {len({row['case_id'] for row in rows})}\n"
+        f"- BM25 smoke-ready calls: {len({row['case_id'] for row in rows})}\n"
         "- Vector DB created: no\n",
         encoding="utf-8",
     )

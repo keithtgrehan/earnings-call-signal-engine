@@ -8,4 +8,4 @@ def test_section_parser_detects_prepared_and_qa_spans() -> None:
     labels = [span["section_type"] for span in spans]
 
     assert "prepared_remarks" in labels
-    assert "qa" in labels
+    assert "qna" in labels

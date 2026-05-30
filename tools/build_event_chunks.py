@@ -17,7 +17,7 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from signal_engine.chunking import build_event_chunks_for_text, build_evidence_objects
+from signal_engine.chunking import build_event_chunks_for_text, build_evidence_objects, chunk_quality_summary
 from signal_engine.chunking.schemas import EVIDENCE_OBJECT_FIELDS
 from tools.user_authorized_ingest_common import DEFAULT_WORKSPACE, TRANSCRIPT_CHUNK_FIELDS, is_relative_to, read_csv, write_csv
 
@@ -25,6 +25,7 @@ DEFAULT_REGISTRY = ROOT / "data" / "corpus" / "manual_local_transcript_registry.
 DEFAULT_OUT = ROOT / "data" / "acquisition" / "nyse_100_chunk_manifest.csv"
 DEFAULT_EVIDENCE_OUT = ROOT / "data" / "acquisition" / "nyse_100_evidence_objects_manifest.csv"
 REPORT_PATH = ROOT / "reports" / "acquisition" / "rag_chunking_summary.md"
+HD_QUALITY_REPORT = ROOT / "reports" / "acquisition" / "chunk_quality_report_hd_2025_q4.md"
 
 
 def _chunks_dir_for_raw(path: Path) -> Path:
@@ -62,6 +63,7 @@ def build_event_chunks(
 ) -> dict[str, Any]:
     registry_rows = read_csv(registry_path)
     chunk_rows: list[dict[str, str]] = []
+    quality_rows: dict[str, dict[str, Any]] = {}
     skipped = 0
     for row in registry_rows:
         if row.get("asset_type") != "transcript" or row.get("eval_allowed") != "true" or row.get("commit_allowed") != "false":
@@ -80,6 +82,7 @@ def build_event_chunks(
             source_sha256=row.get("sha256", ""),
             rights_status=row.get("rights_status", "safe_to_download"),
         )
+        quality_rows[row.get("case_id", "")] = chunk_quality_summary(text, chunks)
         for chunk in chunks:
             chunk_rows.append(_write_chunk_text(chunk, chunks_dir))
     evidence_rows = build_evidence_objects(chunk_rows)
@@ -102,6 +105,7 @@ def build_event_chunks(
         "raw_text_committed": False,
     }
     write_report(summary)
+    write_quality_report("hd_2025_q4", quality_rows.get("hd_2025_q4", {}))
     return summary
 
 
@@ -124,6 +128,38 @@ def write_report(summary: dict[str, Any]) -> None:
         "- RAG role: reviewer support only",
     ]
     REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def write_quality_report(case_id: str, quality: dict[str, Any]) -> None:
+    HD_QUALITY_REPORT.parent.mkdir(parents=True, exist_ok=True)
+    if not quality:
+        text = (
+            f"# Chunk Quality Report: {case_id}\n\n"
+            "- Status: not_ready\n"
+            "- Reason: control fixture transcript not present in registry for this run\n"
+            "- evaluated_rag=false\n"
+            "- bm25_smoke_ready: false\n"
+        )
+        HD_QUALITY_REPORT.write_text(text, encoding="utf-8")
+        return
+    lines = [
+        f"# Chunk Quality Report: {case_id}",
+        "",
+        f"- Section counts: {quality['section_counts']}",
+        f"- Speaker turn counts: {quality['speaker_turn_counts']}",
+        f"- Q&A pair count: {quality['qa_pair_count']}",
+        f"- Chunk count: {quality['chunk_count']}",
+        f"- Evidence candidate count: {quality['evidence_candidate_count']}",
+        f"- Unknown section ratio: {quality['unknown_section_ratio']:.3f}",
+        f"- Unknown speaker ratio: {quality['unknown_speaker_ratio']:.3f}",
+        f"- Fallback ratio: {quality['fallback_ratio']:.3f}",
+        f"- Suppression counts: {quality['suppression_counts']}",
+        f"- Raw-text leak check: {quality['raw_text_leak_check']}",
+        f"- large_chunk_warning: {str(quality['large_chunk_warning']).lower()}",
+        "- evaluated_rag=false",
+        f"- bm25_smoke_ready: {str(quality['bm25_smoke_ready']).lower()}",
+    ]
+    HD_QUALITY_REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def main(argv: list[str] | None = None) -> int:

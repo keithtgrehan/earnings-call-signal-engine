@@ -744,7 +744,7 @@ def summary_markdown(summary: dict[str, Any]) -> str:
         f"- Blocked sources: {summary['total_blocked_sources']}",
         f"- Registered transcripts: {summary['total_registered_transcripts']}",
         f"- Chunks: {summary['total_chunks']}",
-        f"- RAG-ready calls: {summary['total_rag_ready_calls']}",
+        f"- BM25 smoke-ready calls: {summary['total_rag_ready_calls']}",
         "",
         "## Top Source Domains",
         "",

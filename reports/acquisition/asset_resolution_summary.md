@@ -2,7 +2,7 @@
 
 - Companies scanned: 100
 - Calls scanned: 500
-- Candidate rows: 3752
+- Candidate rows: 3751
 - Usable candidate pairs: 0
 - Permitted download rows: 4
 - Direct transcript candidates: 3
@@ -24,5 +24,5 @@
 - mismatched_event_period_or_non_earnings: 362
 - paywall_or_login_or_drm_blocked: 325
 - youtube_media_blocked: 276
-- fetch_failed: 172
+- fetch_failed: 171
 - signed_or_session_url_blocked: 45

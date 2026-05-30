@@ -16,6 +16,11 @@ CHUNK_TYPES = {
     "semantic_fallback",
 }
 
+SECTION_LABELS = {"safe_harbor", "prepared_remarks", "qna", "operator", "closing", "unknown"}
+SPEAKER_ROLES = {"management", "analyst", "operator", "investor_relations", "unknown", "mixed"}
+QA_PAIRING_STATES = {"paired", "unpaired_question", "answer_without_question", "no_qa_pairs_detected"}
+SUPPRESSION_REASONS = {"safe_harbor", "non_gaap", "operator_instructions", "generic_optimism", "historical_only_results", "vendor_disclaimer"}
+
 EVENT_CHUNK_MANIFEST_FIELDS = [
     "chunk_id",
     "case_id",

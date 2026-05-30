@@ -1,8 +1,8 @@
 # Retrieval Readiness
 
-- Retrieval objects: 1
-- BM25-ready objects: 1
-- Local index path: `.local/signal_engine/retrieval/indexes/nyse100_bm25`
+- Retrieval objects: 21
+- BM25-ready objects: 21
+- Local index path: `/private/tmp/signal-engine-first30-matchedpair-rag-eval/.local/signal_engine/retrieval/indexes/nyse100_bm25`
 - Raw text indexed: false
 - Embeddings committed: false
 - Vector DB committed: false

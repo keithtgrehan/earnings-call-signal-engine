@@ -44,6 +44,10 @@
     "start_char": {"type": "integer", "minimum": 0},
     "end_char": {"type": "integer", "minimum": 0},
     "rights_status": {"type": "string"},
+    "section": {"enum": ["safe_harbor", "prepared_remarks", "qna", "operator", "closing", "unknown"]},
+    "speaker_role": {"enum": ["management", "analyst", "operator", "investor_relations", "unknown", "mixed"]},
+    "qa_pairing_state": {"enum": ["", "paired", "unpaired_question", "answer_without_question", "no_qa_pairs_detected"]},
+    "suppression_reason": {"enum": ["", "safe_harbor", "non_gaap", "operator_instructions", "generic_optimism", "historical_only_results", "vendor_disclaimer"]},
     "raw_text_committed": {"const": false}
   },
   "additionalProperties": true

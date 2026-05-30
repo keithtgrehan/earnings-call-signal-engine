@@ -8,4 +8,5 @@ def test_speaker_parser_outputs_spans_without_turn_text() -> None:
 
     assert len(turns) == 3
     assert turns[0]["speaker"] == "CEO"
+    assert [turn["speaker_role"] for turn in turns] == ["management", "analyst", "management"]
     assert "welcome" not in str(turns)

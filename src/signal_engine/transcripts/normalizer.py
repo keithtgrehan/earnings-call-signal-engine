@@ -28,7 +28,7 @@ def qa_pair_spans(turns: list[dict[str, Any]]) -> list[dict[str, Any]]:
     pending_question: dict[str, Any] | None = None
     for turn in turns:
         role = str(turn.get("speaker_role", ""))
-        if role == "questioner":
+        if role in {"questioner", "analyst"}:
             pending_question = turn
             continue
         if pending_question and role in {"management", "unknown"}:
