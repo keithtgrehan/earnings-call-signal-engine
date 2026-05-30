@@ -18,6 +18,7 @@ from tools.first30_transcript_common import (  # noqa: E402
     DESKTOP_WORKSPACE,
     DOWNLOAD_LOG_FIELDS,
     DOWNLOAD_STATUS_REPORT_PATH,
+    FIRST30_INGESTION_FIELDS,
     FIRST30_INGESTION_MANIFEST_PATH,
     MANUAL_TRANSCRIPT_REGISTRY_FIELDS,
     MANUAL_TRANSCRIPT_REGISTRY_PATH,
@@ -270,6 +271,17 @@ def download_first30_transcripts(
     final_parsed = [existing_parsed[key] for key in sorted(existing_parsed)]
     write_csv(registry_path, final_registry, MANUAL_TRANSCRIPT_REGISTRY_FIELDS)
     write_csv(parsed_registry_path, final_parsed, PARSED_TRANSCRIPT_FIELDS)
+    blocked_after_parse = {row.get("case_id", ""): row.get("blocked_reason", "post_parse_block") for row in logs if row.get("download_status") == "blocked_after_download"}
+    if blocked_after_parse:
+        for row in rows:
+            case_id = row.get("case_id", "")
+            if case_id in blocked_after_parse:
+                row["download_allowed"] = "false"
+                row["blocked_reason"] = blocked_after_parse[case_id]
+                row["approval_ref"] = ""
+                row["next_action"] = "blocked_pending_license_or_clean_source"
+        write_csv(manifest_path, rows, FIRST30_INGESTION_FIELDS)
+        write_csv(workspace / "_audit" / "first30_transcript_ingestion_manifest.csv", rows, FIRST30_INGESTION_FIELDS)
     desktop_log = workspace / "_audit" / "first30_transcript_download_log.csv"
     write_csv(desktop_log, logs, DOWNLOAD_LOG_FIELDS)
     failures = [row for row in logs if row.get("download_status") not in {"downloaded"} or row.get("text_parse_status") != "parsed"]

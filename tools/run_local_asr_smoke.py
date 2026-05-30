@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -77,12 +78,33 @@ def _run_openai_whisper(audio_path: Path, out_dir: Path, model: str, timeout: in
     return "complete" if txt.exists() else "asr_failed_no_text", txt if txt.exists() else None, json_path if json_path.exists() else None, ""
 
 
-def _run_faster_whisper(audio_path: Path, out_dir: Path, model: str, *, local_files_only: bool = True) -> tuple[str, Path | None, Path | None, str]:
+def _file_sha256(path: Path | None) -> str:
+    if not path or not path.exists():
+        return ""
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return "sha256:" + digest.hexdigest()
+
+
+def _run_faster_whisper(
+    audio_path: Path,
+    out_dir: Path,
+    model: str,
+    *,
+    local_files_only: bool = True,
+    download_root: Path | None = None,
+) -> tuple[str, Path | None, Path | None, str]:
     out_dir.mkdir(parents=True, exist_ok=True)
     try:
         from faster_whisper import WhisperModel
 
-        whisper_model = WhisperModel(model, device="cpu", compute_type="int8", local_files_only=local_files_only)
+        kwargs: dict[str, object] = {"device": "cpu", "compute_type": "int8", "local_files_only": local_files_only}
+        if download_root:
+            download_root.mkdir(parents=True, exist_ok=True)
+            kwargs["download_root"] = str(download_root)
+        whisper_model = WhisperModel(model, **kwargs)
         segments_iter, info = whisper_model.transcribe(str(audio_path), beam_size=1, best_of=1, vad_filter=False)
         segments = [
             {"start": float(segment.start), "end": float(segment.end), "text": str(segment.text)}
@@ -193,6 +215,7 @@ def run_local_asr_smoke(
             engine=backend_name,
             status=status,
             asr_text_path=asr_text_path,
+            asr_text_sha256=_file_sha256(Path(asr_text_path)) if asr_text_path else "",
             segments_path=segments_path,
             notes=f"{notes}; ffprobe_status={probe.get('ffprobe_status', '')}",
         )

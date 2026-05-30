@@ -1,18 +1,32 @@
 # RAG Chunking Summary
 
-- Registry rows: 1
+- Registry rows: 15
 - Skipped rows: 0
-- Transcript chunks: 4
-- Evidence objects: 2
-- Retrieval-object ready calls: 1
-- BM25 smoke-ready calls: 1
+- Transcript chunks: 224
+- Evidence objects: 15
+- Retrieval-object ready calls: 15
+- BM25 smoke-ready calls: 15
 - evaluated_rag=false
 - Retrieval quality proven: false
-- Chunk manifest: `/private/var/folders/zn/b0bgzvj50txcvq90qk08mvjm0000gn/T/pytest-of-keith/pytest-138/test_first_real_pipeline_proce0/repo/data/acquisition/nyse_100_chunk_manifest.csv`
-- Evidence manifest: `/private/var/folders/zn/b0bgzvj50txcvq90qk08mvjm0000gn/T/pytest-of-keith/pytest-138/test_first_real_pipeline_proce0/repo/data/acquisition/nyse_100_evidence_objects_manifest.csv`
+- Chunk manifest: `data/acquisition/nyse_100_chunk_manifest.csv`
+- Evidence manifest: `data/acquisition/nyse_100_evidence_objects_manifest.csv`
 - Chunk text committed: false
 - RAG role: reviewer support only
 
 ## Per-Transcript Q&A Status
 
-- `jpm_2025_q3`: qna_detected; qa_pair_count=1; chunk_count=4
+- `bac_2025_q4`: no_qna_detected; qa_pair_count=0; chunk_count=12
+- `cat_2024_q4`: no_qna_detected; qa_pair_count=0; chunk_count=11
+- `cat_2025_q1`: no_qna_detected; qa_pair_count=0; chunk_count=12
+- `cat_2025_q2`: no_qna_detected; qa_pair_count=0; chunk_count=22
+- `cat_2025_q3`: no_qna_detected; qa_pair_count=0; chunk_count=22
+- `cat_2025_q4`: no_qna_detected; qa_pair_count=0; chunk_count=22
+- `hd_2024_q1`: no_qna_detected; qa_pair_count=0; chunk_count=21
+- `hd_2024_q2`: no_qna_detected; qa_pair_count=0; chunk_count=22
+- `hd_2024_q3`: no_qna_detected; qa_pair_count=0; chunk_count=22
+- `hd_2024_q4`: no_qna_detected; qa_pair_count=0; chunk_count=21
+- `hd_2025_q4`: no_qna_detected; qa_pair_count=0; chunk_count=21
+- `jpm_2025_q1`: no_qna_detected; qa_pair_count=0; chunk_count=5
+- `jpm_2025_q2`: no_qna_detected; qa_pair_count=0; chunk_count=4
+- `jpm_2025_q3`: no_qna_detected; qa_pair_count=0; chunk_count=3
+- `jpm_2025_q4`: no_qna_detected; qa_pair_count=0; chunk_count=4

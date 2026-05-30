@@ -47,11 +47,11 @@ def _read_text(path: str) -> str:
     return value.read_text(encoding="utf-8", errors="replace")
 
 
-def _pair_relation(pair_manifest: Path, case_id: str) -> str:
+def _pair_row(pair_manifest: Path, case_id: str) -> dict[str, str]:
     for row in read_csv(pair_manifest):
         if row.get("case_id") == case_id:
-            return row.get("source_relation", "")
-    return ""
+            return row
+    return {}
 
 
 def build_alignment_manifest(
@@ -68,15 +68,22 @@ def build_alignment_manifest(
     asr_rows = {row.get("case_id", ""): row for row in read_csv(asr_manifest)}
     rows: list[dict[str, str]] = []
     for audio in read_csv(audio_registry):
-        transcript = transcripts.get(audio.get("case_id", ""))
+        case_id = audio.get("case_id", "")
+        transcript = transcripts.get(case_id)
+        pair = _pair_row(pair_manifest, case_id)
+        source_relation = pair.get("source_relation", "")
+        if pair.get("prepared_transcript_text_path") and pair.get("audio_sha256") == audio.get("sha256", ""):
+            transcript = {
+                "local_path": pair.get("prepared_transcript_text_path", ""),
+                "sha256": pair.get("prepared_transcript_text_sha256", ""),
+            }
+            source_relation = "prepared_audio_vs_prepared_transcript"
         if not transcript:
             continue
-        case_id = audio.get("case_id", "")
         asr = asr_rows.get(case_id, {})
-        source_relation = _pair_relation(pair_manifest, case_id)
         transcript_text = _read_text(transcript.get("local_path", ""))
         asr_text = _read_text(asr.get("asr_text_path", ""))
-        partial = source_relation == "prepared_audio_vs_full_transcript"
+        partial = source_relation in {"prepared_audio_vs_full_transcript", "prepared_audio_vs_prepared_transcript"}
         review = partial
         status = "not_ready"
         method = ""
@@ -97,7 +104,7 @@ def build_alignment_manifest(
             method = result["method"]
             matched = 1 if score >= threshold else 0
             status = "aligned" if matched else "below_threshold"
-            notes = "Partial prepared-audio alignment candidate." if partial else "Full transcript alignment candidate."
+            notes = "Prepared-audio to prepared-transcript alignment candidate." if source_relation == "prepared_audio_vs_prepared_transcript" else ("Partial prepared-audio alignment candidate." if partial else "Full transcript alignment candidate.")
         elif asr.get("status"):
             status = f"not_ready_{asr.get('status')}"
         row = alignment_row(

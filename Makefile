@@ -651,7 +651,7 @@ first30-ingestion-check: validate-matched-pair-assets validate-first30-transcrip
 first30-retrieval-eval-check: build-event-chunks validate-event-chunks export-retrieval-objects evaluate-retrieval
 	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
 
-.PHONY: first30-promote-transcripts first30-resolve-transcript-urls first30-download-transcripts first30-normalize first30-build-chunks first30-export-retrieval first30-evaluate-retrieval verify-vz-pair first30-resolve-audio first30-download-audio asr-env-check run-local-asr-smoke asr-run-batch align-audio-transcript export-audio-rag-objects evaluate-first30-retrieval training-readiness-first30 corpus-status-dashboard
+.PHONY: first30-promote-transcripts first30-resolve-transcript-urls apply-agent-s1-replacements first30-download-transcripts first30-normalize first30-build-chunks first30-export-retrieval first30-evaluate-retrieval verify-vz-pair first30-resolve-audio first30-download-audio first30-audio-gap-status provider-audit-licenses provider-discover-first30 asr-env-check run-local-asr-smoke asr-run-batch align-audio-transcript export-audio-rag-objects evaluate-first30-retrieval training-readiness-first30 corpus-status-dashboard finish-first30-check
 
 first30-promote-transcripts:
 	$(PYTHON) tools/promote_first30_transcript_candidates.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
@@ -660,6 +660,10 @@ first30-promote-transcripts:
 first30-resolve-transcript-urls:
 	$(PYTHON) tools/resolve_first30_missing_transcript_urls.py
 	$(PYTHON) tools/apply_first30_url_replacements.py
+	$(PYTHON) scripts/validate_first30_ingestion_manifest.py
+
+apply-agent-s1-replacements:
+	$(PYTHON) tools/apply_agent_s1_transcript_replacements.py
 	$(PYTHON) scripts/validate_first30_ingestion_manifest.py
 
 first30-download-transcripts:
@@ -673,6 +677,16 @@ first30-resolve-audio:
 
 first30-download-audio:
 	$(PYTHON) tools/download_first30_audio.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-audio-gap-status:
+	@test -f data/acquisition/first30_audio_source_gap_manifest.csv
+	@test -f reports/acquisition/first30_audio_source_gap_status.md
+
+provider-audit-licenses:
+	$(PYTHON) tools/provider_license_audit.py
+
+provider-discover-first30:
+	$(PYTHON) tools/provider_discovery_first30.py
 
 asr-env-check:
 	$(PYTHON) tools/check_local_asr_environment.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
@@ -709,3 +723,6 @@ training-readiness-first30:
 
 corpus-status-dashboard:
 	$(PYTHON) tools/build_corpus_status_dashboard.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+finish-first30-check: apply-agent-s1-replacements first30-download-transcripts first30-audio-gap-status provider-audit-licenses provider-discover-first30 asr-env-check asr-run-batch align-audio-transcript normalize-registered-transcripts build-event-chunks export-retrieval-objects evaluate-first30-retrieval training-readiness-first30 corpus-status-dashboard
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run

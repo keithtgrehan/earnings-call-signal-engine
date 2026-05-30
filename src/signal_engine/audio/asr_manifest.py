@@ -13,6 +13,7 @@ def build_asr_manifest_row(
     engine: str = "",
     status: str = "todo_local_asr_not_run",
     asr_text_path: str = "",
+    asr_text_sha256: str = "",
     segments_path: str = "",
     notes: str = "",
 ) -> dict[str, Any]:
@@ -29,6 +30,7 @@ def build_asr_manifest_row(
         "status": status,
         "dependency_status": dependency_status,
         "asr_text_path": asr_text_path,
+        "asr_text_sha256": asr_text_sha256,
         "segments_path": segments_path,
         "cloud_upload": False,
         "raw_asr_committed": False,

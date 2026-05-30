@@ -47,6 +47,8 @@ def validate_manifest(path: Path = DEFAULT_MANIFEST) -> dict[str, Any]:
             errors.append(f"row {index}: download_allowed row requires approval_ref")
         if row.get("source_url_kind") == "official_ir_cdn_direct" and row.get("rights_review_required") != "true":
             errors.append(f"row {index}: official IR CDN rows require rights_review_required=true")
+        if row.get("source_domain", "").endswith("q4cdn.com") and row.get("rights_review_required") != "true":
+            errors.append(f"row {index}: q4cdn rows are review-required and not globally trusted")
     return {
         "path": str(path),
         "rows": len(rows),

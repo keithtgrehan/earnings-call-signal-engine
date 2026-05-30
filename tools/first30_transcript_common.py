@@ -136,11 +136,16 @@ VENDOR_MARKERS = [
     "factset",
     "callstreet",
     "refinitiv",
+    "streetevents",
+    "street events",
+    "lseg",
     "s&p global market intelligence",
+    "s&p",
     "standard & poor",
     "bloomberg",
     "seeking alpha",
     "motley fool",
+    "marketscreener",
     "thomson reuters",
 ]
 PAYWALL_MARKERS = ("login", "signin", "sign-in", "paywall", "subscription", "drm")
