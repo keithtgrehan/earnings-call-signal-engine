@@ -20,6 +20,7 @@ OUT_MD = ROOT / "reports" / "acquisition" / "corpus_status_dashboard.md"
 OUT_JSON = ROOT / "reports" / "acquisition" / "corpus_status_dashboard.json"
 PREFLIGHT_MD = ROOT / "reports" / "acquisition" / "next_ingestion_preflight.md"
 COMPLETE_PREFLIGHT_MD = ROOT / "reports" / "acquisition" / "complete_first30_preflight.md"
+COVERAGE_PREFLIGHT_MD = ROOT / "reports" / "acquisition" / "first30_coverage_preflight.md"
 
 DASHBOARD_FIELDS = [
     "metric",
@@ -63,6 +64,7 @@ def build_dashboard(*, workspace: Path = DESKTOP_WORKSPACE, out_md: Path = OUT_M
     candidates = read_csv(ROOT / "data" / "acquisition" / "transcript_candidates_first30.csv")
     first30_ids = _first30_case_ids(candidates)
     ingestion = read_csv(ROOT / "data" / "acquisition" / "first30_transcript_ingestion_manifest.csv")
+    active_ingestion_ids = {row.get("case_id", "") for row in ingestion if row.get("control_fixture") != "true"}
     matched_pairs = read_csv(ROOT / "data" / "acquisition" / "matched_pair_candidates.csv")
     pair_manifest = read_csv(ROOT / "data" / "acquisition" / "vz_2024_q4_pair_manifest.csv")
     audio_registry = read_csv(ROOT / "data" / "acquisition" / "audio_registry.csv")
@@ -91,7 +93,7 @@ def build_dashboard(*, workspace: Path = DESKTOP_WORKSPACE, out_md: Path = OUT_M
             continue
         if row.get("text_parse_status") not in {"parsed", ""}:
             blockers[row.get("text_parse_status", "parse_blocked")] += 1
-    transcript_registered_first30 = [row for row in transcripts if row.get("case_id") in first30_ids or row.get("case_id") == "hd_2025_q4"]
+    transcript_registered_first30 = [row for row in transcripts if row.get("case_id") in first30_ids or row.get("case_id") in active_ingestion_ids or row.get("case_id") == "hd_2025_q4"]
     next_actions = []
     for row in ingestion:
         if row.get("control_fixture") == "true":
@@ -131,6 +133,7 @@ def build_dashboard(*, workspace: Path = DESKTOP_WORKSPACE, out_md: Path = OUT_M
     write_csv(workspace / "_audit" / "corpus_status_dashboard.csv", [{"metric": key, "value": json.dumps(value) if isinstance(value, (dict, list)) else value} for key, value in dashboard.items()], DASHBOARD_FIELDS)
     write_preflight(dashboard, PREFLIGHT_MD)
     write_preflight(dashboard, COMPLETE_PREFLIGHT_MD)
+    write_preflight(dashboard, COVERAGE_PREFLIGHT_MD)
     return dashboard
 
 
@@ -170,7 +173,7 @@ def write_dashboard_md(dashboard: dict[str, Any], out_path: Path) -> None:
 
 def write_preflight(dashboard: dict[str, Any], out_path: Path) -> None:
     lines = [
-        "# Complete First30 Preflight" if out_path == COMPLETE_PREFLIGHT_MD else "# Next Ingestion Preflight",
+        "# First30 Coverage Preflight" if out_path == COVERAGE_PREFLIGHT_MD else "# Complete First30 Preflight" if out_path == COMPLETE_PREFLIGHT_MD else "# Next Ingestion Preflight",
         "",
         f"- First30 candidate count: {dashboard['first30_candidate_count']}",
         f"- Official/direct company-hosted rows: {dashboard['official_direct_company_hosted_rows']}",

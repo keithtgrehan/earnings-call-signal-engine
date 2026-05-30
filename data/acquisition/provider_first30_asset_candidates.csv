@@ -1,0 +1,7 @@
+provider,case_id,ticker,fiscal_year,fiscal_quarter,asset_type,metadata_discovery_status,raw_download_allowed,license_config_ref,training_allowed,candidate_status,notes
+earningscall,jpm_2025_q4,JPM,2025,Q4,transcript_or_audio_metadata,NOT_CONFIGURED,false,,false,not_configured,"Provider raw pull is blocked unless key, license_config_ref, raw_download_allowed, and Desktop-only target are all present."
+quartr,jpm_2025_q4,JPM,2025,Q4,transcript_or_audio_metadata,NOT_CONFIGURED,false,,false,not_configured,"Provider raw pull is blocked unless key, license_config_ref, raw_download_allowed, and Desktop-only target are all present."
+aiera,jpm_2025_q4,JPM,2025,Q4,transcript_or_audio_metadata,NOT_CONFIGURED,false,,false,not_configured,"Provider raw pull is blocked unless key, license_config_ref, raw_download_allowed, and Desktop-only target are all present."
+fmp,jpm_2025_q4,JPM,2025,Q4,transcript_or_audio_metadata,NOT_CONFIGURED,false,,false,not_configured,"Provider raw pull is blocked unless key, license_config_ref, raw_download_allowed, and Desktop-only target are all present."
+api_ninjas,jpm_2025_q4,JPM,2025,Q4,transcript_or_audio_metadata,NOT_CONFIGURED,false,,false,not_configured,"Provider raw pull is blocked unless key, license_config_ref, raw_download_allowed, and Desktop-only target are all present."
+sec_edgar,jpm_2025_q4,JPM,2025,Q4,transcript_or_audio_metadata,CONFIGURED_METADATA_ONLY,false,,false,metadata_only,"Provider raw pull is blocked unless key, license_config_ref, raw_download_allowed, and Desktop-only target are all present."

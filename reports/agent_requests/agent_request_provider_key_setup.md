@@ -13,6 +13,14 @@ Configure provider access only where Keith has keys and license terms that allow
 - `api_ninjas`: `API_NINJAS_API_KEY` missing; raw download disabled.
 - `sec_edgar`: metadata-only, no transcript/audio raw pull configured.
 
+## This Run
+
+- Provider audit completed.
+- Provider discovery emitted metadata candidates only.
+- Raw provider pull attempted: false.
+- Raw provider data committed: false.
+- `data/acquisition/provider_first30_asset_candidates.csv` was refreshed from metadata-safe discovery output.
+
 ## Required Before Raw Provider Pull
 
 - Add provider API key as an environment variable.
@@ -21,7 +29,3 @@ Configure provider access only where Keith has keys and license terms that allow
 - Set `raw_download_allowed=true` only if the license permits raw project-assessment downloads.
 - Keep provider raw files Desktop-only under `/Users/keith/Desktop/earnings calls 100 samples`.
 - Keep `training_allowed=false` unless explicit training rights are documented in `explicit_training_rights_ref`.
-
-## Current Action
-
-Provider discovery ran metadata-only and did not pull raw provider data.
