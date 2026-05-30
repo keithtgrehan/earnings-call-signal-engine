@@ -1,0 +1,1 @@
+candidate_id,case_id,ticker,company_name,fiscal_period,event_date,asset_type,source_type,source_url,resolved_asset_url,asset_url_domain,file_ext,content_type_hint,confidence,confidence_reason,rights_status,download_allowed,approval_ref,license_config_ref,blocked_reason,next_action,provenance_hash

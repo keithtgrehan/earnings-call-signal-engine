@@ -17,7 +17,7 @@ from tools.user_authorized_ingest_common import AUDIO_RAG_FIELDS, DEFAULT_WORKSP
 
 REPORT_DIR = ROOT / "reports" / "acquisition"
 DEFAULT_REGISTRY = ROOT / "data" / "corpus" / "manual_local_audio_registry.csv"
-DEFAULT_OUT = ROOT / "data" / "acquisition" / "nyse_100_user_authorized_audio_rag_manifest.csv"
+DEFAULT_OUT = ROOT / "data" / "acquisition" / "nyse_100_audio_rag_manifest.csv"
 
 
 def local_asr_available() -> bool:
@@ -76,7 +76,7 @@ def build_user_authorized_audio_rag(*, registry_path: Path, workspace: Path, out
 
 def write_report(summary: dict[str, Any]) -> None:
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
-    (REPORT_DIR / "user_authorized_audio_rag_readiness.md").write_text(
+    payload = (
         "# User-Authorized Audio RAG Readiness\n\n"
         f"- Registry rows: {summary['registry_rows']}\n"
         f"- Audio RAG records: {summary['audio_rag_records']}\n"
@@ -84,9 +84,10 @@ def write_report(summary: dict[str, Any]) -> None:
         f"- Local ASR available: {str(summary['local_asr_available']).lower()}\n"
         "- Local ASR used: false\n"
         "- Cloud ASR used: false\n"
-        "- Raw ASR text committed: false\n",
-        encoding="utf-8",
+        "- Raw ASR text committed: false\n"
     )
+    (REPORT_DIR / "audio_rag_readiness.md").write_text(payload, encoding="utf-8")
+    (REPORT_DIR / "user_authorized_audio_rag_readiness.md").write_text(payload, encoding="utf-8")
 
 
 def main(argv: list[str] | None = None) -> int:
