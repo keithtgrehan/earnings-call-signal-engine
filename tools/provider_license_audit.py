@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from tools.providers.base import DEFAULT_REGISTRY, load_provider_registry  # noqa: E402
+from tools.providers.base import DEFAULT_REGISTRY, DESKTOP_WORKSPACE, is_desktop_only_path, load_license_config, load_provider_registry  # noqa: E402
 
 REPORT_PATH = ROOT / "reports" / "provider_discovery" / "provider_license_audit.md"
 
@@ -30,9 +30,17 @@ def provider_license_audit(*, registry_path: Path = DEFAULT_REGISTRY, report_pat
                 "api_key_env": config.api_key_env,
                 "api_key_configured": config.api_key_configured,
                 "metadata_discovery_allowed": config.metadata_discovery_allowed,
+                "supports_transcripts": config.supports_transcripts,
+                "supports_audio": config.supports_audio,
                 "raw_download_allowed": config.raw_download_allowed,
+                "raw_transcript_download_allowed": config.raw_transcript_download_allowed,
+                "raw_audio_download_allowed": config.raw_audio_download_allowed,
                 "license_config_ref": config.license_config_ref,
+                "license_config_present": bool(load_license_config(config.license_config_ref)),
+                "raw_storage_root": config.raw_storage_root,
+                "raw_storage_desktop_only": bool(config.raw_storage_root and is_desktop_only_path(Path(config.raw_storage_root), DESKTOP_WORKSPACE)),
                 "training_allowed": config.training_allowed,
+                "explicit_training_rights_ref": config.explicit_training_rights_ref,
             }
         )
     summary = {
@@ -58,6 +66,7 @@ def write_report(summary: dict[str, Any], report_path: Path = REPORT_PATH) -> No
         f"- Training-allowed providers: {summary['training_allowed']}",
         "- Raw provider pull attempted: false",
         "- Raw provider data committed: false",
+        f"- Desktop workspace: `{DESKTOP_WORKSPACE}`",
         "",
         "## Providers",
         "",
@@ -66,7 +75,9 @@ def write_report(summary: dict[str, Any], report_path: Path = REPORT_PATH) -> No
         lines.append(
             f"- `{row['provider']}` priority={row['priority']} status=`{row['status']}` "
             f"key_env=`{row['api_key_env'] or 'none'}` raw_download_allowed={str(row['raw_download_allowed']).lower()} "
-            f"license_config_ref=`{row['license_config_ref'] or 'missing'}`"
+            f"raw_transcript={str(row['raw_transcript_download_allowed']).lower()} raw_audio={str(row['raw_audio_download_allowed']).lower()} "
+            f"license_config_ref=`{row['license_config_ref'] or 'missing'}` license_config_present={str(row['license_config_present']).lower()} "
+            f"raw_storage_desktop_only={str(row['raw_storage_desktop_only']).lower()} training_allowed={str(row['training_allowed']).lower()}"
         )
     report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 

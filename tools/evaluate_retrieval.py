@@ -55,7 +55,13 @@ def materialize_first30_queries(objects_path: Path, out_path: Path = MATERIALIZE
         case_id = row.get("case_id", "")
         if not case_id or case_id in by_case:
             continue
-        if row.get("object_type") in {"evidence_object", "event_aligned_chunk"}:
+        if row.get("object_type") == "evidence_object":
+            by_case[case_id] = row
+    for row in objects:
+        case_id = row.get("case_id", "")
+        if not case_id or case_id in by_case:
+            continue
+        if row.get("object_type") == "event_aligned_chunk":
             by_case[case_id] = row
     queries: list[dict[str, Any]] = []
     for case_id, row in sorted(by_case.items()):
@@ -70,7 +76,8 @@ def materialize_first30_queries(objects_path: Path, out_path: Path = MATERIALIZE
                 "ticker": ticker,
                 "fiscal_period": row.get("fiscal_period", ""),
                 "expected_object_ids": [row.get("object_id", "")],
-                "expected_evidence_ids": [],
+                "expected_evidence_ids": [row.get("object_id", "")] if row.get("object_type") == "evidence_object" else [],
+                "requires_evidence_object": True,
                 "expected_abstain": False,
                 "negative_control": False,
                 "unsupported_claim_category": "",
@@ -88,6 +95,7 @@ def materialize_first30_queries(objects_path: Path, out_path: Path = MATERIALIZE
                 "fiscal_period": "",
                 "expected_object_ids": [],
                 "expected_evidence_ids": [],
+                "requires_evidence_object": True,
                 "expected_abstain": True,
                 "negative_control": True,
                 "unsupported_claim_category": "trading_advice",

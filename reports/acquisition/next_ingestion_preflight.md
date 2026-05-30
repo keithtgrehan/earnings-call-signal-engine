@@ -5,11 +5,11 @@
 - Q4CDN rows: 19
 - Registered transcripts/audio: 31 / 1
 - Normalized transcripts: 31
-- Chunk/evidence/retrieval counts: 468 / 44 / 468
+- Chunk/evidence/retrieval counts: 468 / 44 / 512
 - ASR-ready and ASR-complete count: 1 / 1
 - Matched-pair count: 2
 - VZ_2024_Q4 status: blocked_vendor_full_transcript
-- Retrieval objects: 468
+- Retrieval objects: 512
 - evaluated_rag: false
 - training_ready: false
 

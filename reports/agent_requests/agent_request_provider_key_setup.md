@@ -16,7 +16,8 @@ Configure provider access only where Keith has keys and license terms that allow
 ## This Run
 
 - Provider audit completed.
-- Provider discovery emitted metadata candidates only.
+- EarningsCall first30 discovery checked 42 cases and emitted 84 provider asset status rows.
+- Provider discovery emitted metadata/status candidates only.
 - Raw provider pull attempted: false.
 - Raw provider data committed: false.
 - `data/acquisition/provider_first30_asset_candidates.csv` was refreshed from metadata-safe discovery output.

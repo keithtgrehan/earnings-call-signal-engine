@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/provider_license_config.schema.json",
+  "type": "object",
+  "required": [
+    "provider",
+    "license_config_ref",
+    "metadata_discovery_allowed",
+    "raw_download_allowed",
+    "raw_transcript_download_allowed",
+    "raw_audio_download_allowed",
+    "training_allowed",
+    "repo_commit_raw_files",
+    "raw_storage_root",
+    "license_review_status"
+  ],
+  "properties": {
+    "provider": {"type": "string"},
+    "license_config_ref": {"type": "string"},
+    "api_key_env": {"type": "string"},
+    "enabled": {"type": "boolean"},
+    "metadata_discovery_allowed": {"type": "boolean"},
+    "raw_download_allowed": {"type": "boolean"},
+    "raw_transcript_download_allowed": {"type": "boolean"},
+    "raw_audio_download_allowed": {"type": "boolean"},
+    "training_allowed": {"type": "boolean"},
+    "explicit_training_rights_ref": {"type": "string"},
+    "repo_commit_raw_files": {"type": "boolean", "const": false},
+    "raw_storage_root": {"type": "string"},
+    "license_review_status": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}

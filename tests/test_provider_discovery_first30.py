@@ -15,7 +15,8 @@ def test_provider_discovery_writes_metadata_only_outputs(tmp_path: Path) -> None
     )
     assets = tmp_path / "provider_assets.csv"
     gaps = tmp_path / "provider_gaps.csv"
-    summary = provider_discovery_first30(candidate_path=candidates, assets_out=assets, gaps_out=gaps)
+    acquisition = tmp_path / "provider_first30_asset_candidates.csv"
+    summary = provider_discovery_first30(candidate_path=candidates, assets_out=assets, gaps_out=gaps, acquisition_candidates_out=acquisition)
     assert summary["raw_provider_pull_attempted"] is False
     assert summary["asset_rows"] >= 1
     with assets.open(newline="", encoding="utf-8") as handle:
@@ -24,3 +25,4 @@ def test_provider_discovery_writes_metadata_only_outputs(tmp_path: Path) -> None
     assert all(row["training_allowed"] == "false" for row in rows)
     assert any(row["discovery_status"] == "NOT_CONFIGURED" for row in rows)
     assert gaps.exists()
+    assert acquisition.exists()

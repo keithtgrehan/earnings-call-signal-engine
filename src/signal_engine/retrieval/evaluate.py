@@ -69,7 +69,18 @@ def _filter_objects_for_query(objects: list[dict[str, str]], query: dict[str, An
     if query.get("cross_case_search"):
         return objects
     filtered = [row for row in objects if _same_context(row, query)]
+    if _requires_evidence(query):
+        evidence_ready = [row for row in filtered if row.get("object_type") in {"evidence_object", "event_aligned_chunk"}]
+        return evidence_ready
     return filtered
+
+
+def _requires_evidence(query: dict[str, Any]) -> bool:
+    return bool(
+        query.get("requires_evidence_object")
+        or query.get("expected_evidence_ids")
+        or str(query.get("unsupported_claim_category", "")).strip()
+    )
 
 
 def _build_disposable_index(objects: list[dict[str, str]]) -> dict[str, Any]:
@@ -83,6 +94,19 @@ def _build_disposable_index(objects: list[dict[str, str]]) -> dict[str, Any]:
         }
     with tempfile.TemporaryDirectory(prefix="signal_engine_eval_bm25_") as tmp:
         return build_local_bm25_index(objects, out_dir=Path(tmp))
+
+
+def _ranked_with_priority(index: dict[str, Any], query_text: str, *, limit: int) -> list[dict[str, Any]]:
+    ranked = score_query(index, query_text, limit=limit)
+    priority_bonus = {"evidence_object": 0.30, "event_aligned_chunk": 0.15, "semantic_chunk": -0.15}
+    return sorted(
+        ranked,
+        key=lambda row: (
+            float(row.get("score", 0.0)) + priority_bonus.get(str(row.get("metadata", {}).get("object_type", "")), 0.0),
+            -int(row.get("metadata", {}).get("retrieval_priority", 99) or 99),
+        ),
+        reverse=True,
+    )[:limit]
 
 
 def _citation_ok(metadata: dict[str, Any], query: dict[str, Any]) -> bool:
@@ -118,7 +142,7 @@ def evaluate_retrieval_objects(objects_path: Path, queries_path: Path, *, limit:
         expected_abstain = bool(query.get("expected_abstain", False))
         eligible_objects = _filter_objects_for_query(objects, query)
         temp_index = _build_disposable_index(eligible_objects)
-        ranked = [] if expected_abstain and not expected else score_query(temp_index, str(query.get("query", "")), limit=limit)
+        ranked = [] if expected_abstain and not expected else _ranked_with_priority(temp_index, str(query.get("query", "")), limit=limit)
         returned = [row["object_id"] for row in ranked]
         rank = _rank_for_expected(returned, expected)
         for k in recall_hits:
