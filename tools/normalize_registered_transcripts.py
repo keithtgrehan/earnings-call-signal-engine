@@ -23,6 +23,7 @@ from tools.user_authorized_ingest_common import DEFAULT_WORKSPACE, is_relative_t
 DEFAULT_REGISTRY = ROOT / "data" / "corpus" / "manual_local_transcript_registry.csv"
 DEFAULT_OUT = ROOT / "data" / "corpus" / "normalized_transcript_manifest.csv"
 REPORT_PATH = ROOT / "reports" / "acquisition" / "normalization_quality_report.md"
+FIRST30_REPORT_PATH = ROOT / "reports" / "acquisition" / "first30_normalization_status.md"
 
 NORMALIZED_MANIFEST_FIELDS = [
     "case_id",
@@ -149,7 +150,9 @@ def write_report(summary: dict[str, Any], skipped: list[dict[str, str]]) -> None
         "",
     ]
     lines.extend(f"- {row.get('case_id', '')}: {row.get('reason', '')}" for row in skipped) if skipped else lines.append("- none")
-    REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    payload = "\n".join(lines) + "\n"
+    REPORT_PATH.write_text(payload, encoding="utf-8")
+    FIRST30_REPORT_PATH.write_text(payload.replace("# Normalization Quality Report", "# First30 Normalization Status", 1), encoding="utf-8")
 
 
 def main(argv: list[str] | None = None) -> int:

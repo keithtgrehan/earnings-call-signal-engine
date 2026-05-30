@@ -38,7 +38,7 @@ def build_user_authorized_audio_rag(*, registry_path: Path, workspace: Path, out
         notes = "Local ASR tool not available; no cloud ASR called."
         if asr_available:
             asr_status = "todo_local_asr_available_not_run"
-            notes = "Local ASR appears available, but automatic ASR execution is not wired in this metadata-safe manifest builder."
+            notes = "Local ASR appears available; audio RAG still requires ASR text and transcript alignment before export."
         rows.append(
             {
                 "record_id": f"{slugify(row.get('case_id', 'unknown'))}_audio_rag",
@@ -84,7 +84,7 @@ def write_report(summary: dict[str, Any]) -> None:
         f"- Audio readiness records: {summary['audio_rag_records']}\n"
         f"- Audio registered / ASR-ready calls: {summary['audio_asr_ready_calls']}\n"
         f"- ASR transcripts available: {summary['asr_transcripts_available']}\n"
-        "- Audio retrieval unavailable until ASR text exists\n"
+        "- Audio retrieval unavailable until ASR text and transcript alignment exist\n"
         f"- Local ASR available: {str(summary['local_asr_available']).lower()}\n"
         "- Local ASR used: false\n"
         "- Cloud ASR used: false\n"

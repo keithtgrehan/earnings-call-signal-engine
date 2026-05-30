@@ -12,6 +12,9 @@ def build_asr_manifest_row(
     audio_asset_id: str = "",
     engine: str = "",
     status: str = "todo_local_asr_not_run",
+    asr_text_path: str = "",
+    segments_path: str = "",
+    notes: str = "",
 ) -> dict[str, Any]:
     backend = detect_local_asr_backend(engine)
     dependency_status = backend["dependency_status"]
@@ -25,9 +28,10 @@ def build_asr_manifest_row(
         "backend": backend["backend"],
         "status": status,
         "dependency_status": dependency_status,
-        "asr_text_path": "",
-        "segments_path": "",
+        "asr_text_path": asr_text_path,
+        "segments_path": segments_path,
         "cloud_upload": False,
         "raw_asr_committed": False,
         "raw_asr_text_committed": False,
+        "notes": notes or backend.get("install_instructions", ""),
     }
