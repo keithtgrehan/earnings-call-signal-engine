@@ -63,7 +63,7 @@ def build_user_authorized_audio_rag(*, registry_path: Path, workspace: Path, out
     summary = {
         "registry_rows": len(registry_rows),
         "audio_rag_records": len(rows),
-        "audio_rag_ready_calls": 0,
+        "audio_rag_ready_calls": len({row["case_id"] for row in rows if row.get("case_id")}),
         "local_asr_available": asr_available,
         "local_asr_used": False,
         "cloud_asr_used": False,

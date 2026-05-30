@@ -1,8 +1,8 @@
 # User-Authorized Audio RAG Readiness
 
-- Registry rows: 0
-- Audio RAG records: 0
-- Audio RAG-ready calls: 0
+- Registry rows: 1
+- Audio RAG records: 1
+- Audio RAG-ready calls: 1
 - Local ASR available: false
 - Local ASR used: false
 - Cloud ASR used: false

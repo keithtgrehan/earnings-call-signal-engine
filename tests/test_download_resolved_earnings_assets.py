@@ -80,3 +80,82 @@ def test_downloader_blocks_signed_urls_without_writing_raw(tmp_path: Path) -> No
     assert summary["audio_successes"] == 0
     assert summary["blocked"] == 1
     assert not list(workspace.glob("**/*.mp3"))
+
+
+def test_downloader_extracts_pdf_transcript_text_before_registration(tmp_path: Path) -> None:
+    workspace = tmp_path / "desktop"
+    manifest = tmp_path / "manifest.csv"
+    _write_manifest(
+        manifest,
+        [
+            {
+                "candidate_id": "c1",
+                "case_id": "hd_2025_q4",
+                "ticker": "HD",
+                "company_name": "The Home Depot, Inc.",
+                "asset_type": "transcript_pdf",
+                "source_type": "official_ir",
+                "resolved_asset_url": "https://ir.example.com/hd-4q25-transcript.pdf",
+                "download_allowed": "true",
+                "commit_allowed": "false",
+                "training_allowed": "false",
+                "eval_allowed": "true",
+            }
+        ],
+    )
+
+    summary = download_resolved_assets(
+        manifest=manifest,
+        workspace=workspace,
+        fetcher=lambda _url: (200, "application/pdf", b"%PDF bytes"),
+        pdf_text_extractor=lambda _payload: (
+            "Operator: welcome to the fourth quarter earnings call.\n"
+            "Corporate Participants\nJane CEO\nPrepared Remarks\n"
+            "Question-and-Answer\nAnalyst: question about guidance.\n"
+        ),
+    )
+
+    rows = list(csv.DictReader((workspace / "_audit" / "resolved_download_log.csv").open(newline="", encoding="utf-8")))
+    local_path = Path(rows[0]["local_path"])
+    assert summary["transcript_successes"] == 1
+    assert local_path.suffix == ".txt"
+    assert local_path.read_text(encoding="utf-8").startswith("Operator:")
+    assert rows[0]["sha256"].startswith("sha256:")
+
+
+def test_downloader_blocks_vendor_transcript_text_without_license_config(tmp_path: Path) -> None:
+    workspace = tmp_path / "desktop"
+    manifest = tmp_path / "manifest.csv"
+    _write_manifest(
+        manifest,
+        [
+            {
+                "candidate_id": "c1",
+                "case_id": "t_2024_q4",
+                "ticker": "T",
+                "company_name": "AT&T Inc.",
+                "asset_type": "transcript_pdf",
+                "source_type": "official_ir",
+                "resolved_asset_url": "https://ir.example.com/4q24-transcript.pdf",
+                "download_allowed": "true",
+                "commit_allowed": "false",
+                "training_allowed": "false",
+                "eval_allowed": "true",
+                "license_config_ref": "",
+            }
+        ],
+    )
+
+    summary = download_resolved_assets(
+        manifest=manifest,
+        workspace=workspace,
+        fetcher=lambda _url: (200, "application/pdf", b"%PDF bytes"),
+        pdf_text_extractor=lambda _payload: "REFINITIV STREETEVENTS EDITED TRANSCRIPT\n" + ("restricted text\n" * 20),
+    )
+
+    rows = list(csv.DictReader((workspace / "_audit" / "resolved_download_log.csv").open(newline="", encoding="utf-8")))
+    assert summary["transcript_successes"] == 0
+    assert summary["blocked"] == 1
+    assert rows[0]["blocked_reason"] == "vendor_raw_requires_license_config_ref"
+    assert not list(workspace.glob("**/*.pdf"))
+    assert not list(workspace.glob("**/*.txt"))

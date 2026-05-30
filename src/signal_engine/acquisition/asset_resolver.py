@@ -72,6 +72,19 @@ MEDIA_DOC_RE = re.compile(r"https?://[^\"'\\\s<>]+?\.(?:pdf|txt|html|htm|mp3|m4a
 TRANSCRIPT_MARKERS = ("transcript", "earnings call transcript", "conference call transcript")
 WEBCAST_MARKERS = ("webcast", "replay", "earnings call")
 SLIDES_MARKERS = ("slides", "presentation", "deck")
+EVENT_PAGE_MARKERS = (
+    "earnings",
+    "quarter",
+    "quarterly",
+    "results",
+    "webcast",
+    "replay",
+    "transcript",
+    "event",
+    "events",
+    "presentation",
+    "presentations",
+)
 QUARTER_TOKENS = {
     "Q1": ("q1", "1q", "1st-quarter", "first-quarter"),
     "Q2": ("q2", "2q", "2nd-quarter", "second-quarter"),
@@ -176,6 +189,8 @@ def rank_asset_type(asset_type: str) -> int:
 
 
 def fiscal_period_for(row: dict[str, str]) -> str:
+    if row.get("fiscal_period"):
+        return row.get("fiscal_period", "")
     fiscal_year = row.get("fiscal_year") or row.get("target_year") or ""
     fiscal_quarter = row.get("fiscal_quarter") or ""
     return " ".join(part for part in [fiscal_year, fiscal_quarter] if part).strip()
@@ -183,29 +198,61 @@ def fiscal_period_for(row: dict[str, str]) -> str:
 
 def link_matches_case(row: dict[str, str], url: str, label: str = "") -> bool:
     """Keep generic IR pages from assigning unrelated transcripts to a target call."""
-    lower = f"{url} {label}".lower().replace("_", "-")
+    parsed = urlparse(str(url))
+    label_parsed = urlparse(str(label)) if str(label).startswith(("http://", "https://")) else None
+    label_context = f"{label_parsed.path} {label_parsed.query}" if label_parsed else str(label)
+    lower = f"{parsed.path} {parsed.query} {label_context}".lower().replace("_", "-")
     if any(marker in lower for marker in ("investor-day", "company-update", "firm-overview")) and "earnings" not in lower:
         return False
     if not any(marker in lower for marker in ("earnings", "quarter", "transcript", "webcast", "replay", "call")):
         return False
+    fiscal_period = str(row.get("fiscal_period") or "")
     fiscal_quarter = str(row.get("fiscal_quarter") or "").upper()
+    if not fiscal_quarter:
+        match = re.search(r"\bQ([1-4])\b", fiscal_period.upper())
+        fiscal_quarter = f"Q{match.group(1)}" if match else ""
     if fiscal_quarter in QUARTER_TOKENS:
         target_tokens = QUARTER_TOKENS[fiscal_quarter]
         all_quarter_tokens = {token for tokens in QUARTER_TOKENS.values() for token in tokens}
         present_tokens = {token for token in all_quarter_tokens if token in lower}
+        if not any(token in lower for token in target_tokens):
+            return False
         if present_tokens and not any(token in present_tokens for token in target_tokens):
             return False
         if "quarterly-earnings" in lower and not any(token in lower for token in target_tokens):
             return False
     fiscal_year = str(row.get("fiscal_year") or row.get("target_year") or "")
+    if not fiscal_year:
+        match = re.search(r"\b(20\d{2})\b", fiscal_period)
+        fiscal_year = match.group(1) if match else ""
     if fiscal_year:
-        years = set(re.findall(r"\b20\d{2}\b", lower))
+        years = set(re.findall(r"(?<!\d)(20\d{2})(?!\d)", lower))
         if years and fiscal_year not in years:
             return False
         quarter_years = set(re.findall(r"\b[1-4]q(\d{2})\b", lower))
         if quarter_years and fiscal_year[-2:] not in quarter_years:
             return False
     return True
+
+
+def event_link_score(row: dict[str, str], url: str, label: str = "") -> int:
+    """Score public IR links for event/archive traversal without assigning rights."""
+    lower = f"{url} {label}".lower().replace("_", "-")
+    score = 0
+    score += sum(2 for marker in EVENT_PAGE_MARKERS if marker in lower)
+    fiscal_quarter = str(row.get("fiscal_quarter") or "").upper()
+    if fiscal_quarter in QUARTER_TOKENS and any(token in lower for token in QUARTER_TOKENS[fiscal_quarter]):
+        score += 6
+    fiscal_year = str(row.get("fiscal_year") or row.get("target_year") or "")
+    if fiscal_year and fiscal_year in lower:
+        score += 4
+    if fiscal_year and fiscal_year[-2:] and re.search(rf"\b[1-4]q{re.escape(fiscal_year[-2:])}\b", lower):
+        score += 4
+    if "investor-day" in lower and "earnings" not in lower:
+        score -= 8
+    if any(marker in lower for marker in ("rss", "email-alert", "privacy", "careers", "governance")):
+        score -= 4
+    return score
 
 
 def infer_asset_type(url: str, label: str = "", content_type: str = "") -> tuple[str, str, float]:
@@ -474,7 +521,7 @@ def resolve_official_ir_rows(
                 )
             else:
                 candidates.append(candidate_from_url(row, source_url=source_url, url=url, label="", content_type=content_type))
-            if depth >= max_depth or "html" not in content_type.lower():
+            if "html" not in content_type.lower():
                 continue
             for href, label in extract_links(url, body):
                 href_block = block_reason_for_url(href, row.get("source_type", "official_ir"))
@@ -516,6 +563,196 @@ def resolve_official_ir_rows(
                 elif same_domain(href, source_url) and depth + 1 <= max_depth:
                     queue.append((href, depth + 1))
     return sorted(dedupe_candidates(candidates), key=lambda row: (rank_asset_type(row["asset_type"]), row.get("case_id", ""), row.get("resolved_asset_url", "")))
+
+
+def resolve_official_ir_event_rows(
+    rows: list[dict[str, str]],
+    *,
+    fetcher: Callable[[str], tuple[int, str, str]] = default_fetcher,
+    robots_allowed: Callable[[str], bool] | None = None,
+    max_depth: int = 2,
+    per_domain_delay_sec: float = 0.0,
+    max_pages_per_row: int = 3,
+) -> list[dict[str, str]]:
+    """Resolve official IR pages with event/archive priority and per-call page limits."""
+    candidates: list[dict[str, str]] = []
+    last_fetch_by_domain: dict[str, float] = {}
+    fetch_cache: dict[str, tuple[int, str, str]] = {}
+    fetch_errors: dict[str, str] = {}
+    for row in rows:
+        source_url = row.get("source_url") or row.get("official_ir_url") or ""
+        if not source_url:
+            continue
+        queue: list[tuple[str, int, int]] = [(source_url, 0, event_link_score(row, source_url))]
+        seen: set[str] = set()
+        pages_seen = 0
+        while queue and pages_seen < max_pages_per_row:
+            queue.sort(key=lambda item: (-item[2], item[1], item[0]))
+            url, depth, _score = queue.pop(0)
+            if url in seen:
+                continue
+            seen.add(url)
+            if robots_allowed is not None and not robots_allowed(url):
+                candidates.append(
+                    make_candidate(
+                        row,
+                        asset_type="blocked",
+                        source_type=row.get("source_type", "official_ir"),
+                        source_url=source_url,
+                        resolved_asset_url=url,
+                        confidence=0.0,
+                        confidence_reason="robots or source terms blocked fetch",
+                        rights_status="blocked",
+                        blocked_reason="robots_or_source_terms_hard_block",
+                        next_action="manual_review",
+                    )
+                )
+                continue
+            block_reason = block_reason_for_url(url, row.get("source_type", "official_ir"))
+            if block_reason:
+                candidates.append(
+                    make_candidate(
+                        row,
+                        asset_type="blocked",
+                        source_type=row.get("source_type", "official_ir"),
+                        source_url=source_url,
+                        resolved_asset_url=url,
+                        confidence=0.0,
+                        confidence_reason="blocked URL class",
+                        rights_status="blocked",
+                        blocked_reason=block_reason,
+                        next_action="skip",
+                    )
+                )
+                continue
+            try:
+                if url in fetch_cache:
+                    status_code, content_type, body = fetch_cache[url]
+                elif url in fetch_errors:
+                    raise RuntimeError(fetch_errors[url])
+                else:
+                    domain = domain_for(url)
+                    delay_remaining = per_domain_delay_sec - (time.time() - last_fetch_by_domain.get(domain, 0.0))
+                    if delay_remaining > 0:
+                        time.sleep(delay_remaining)
+                    last_fetch_by_domain[domain] = time.time()
+                    status_code, content_type, body = fetcher(url)
+                    fetch_cache[url] = (status_code, content_type, body)
+            except Exception as exc:  # pragma: no cover - live network defensive path.
+                fetch_errors.setdefault(url, type(exc).__name__)
+                candidates.append(
+                    make_candidate(
+                        row,
+                        asset_type="blocked",
+                        source_type=row.get("source_type", "official_ir"),
+                        source_url=source_url,
+                        resolved_asset_url=url,
+                        confidence=0.0,
+                        confidence_reason=f"fetch failed: {type(exc).__name__}",
+                        rights_status="metadata_only",
+                        blocked_reason="fetch_failed",
+                        next_action="manual_review",
+                    )
+                )
+                continue
+            pages_seen += 1
+            if status_code >= 400:
+                candidates.append(
+                    make_candidate(
+                        row,
+                        asset_type="blocked",
+                        source_type=row.get("source_type", "official_ir"),
+                        source_url=source_url,
+                        resolved_asset_url=url,
+                        confidence=0.0,
+                        confidence_reason=f"HTTP {status_code}",
+                        rights_status="metadata_only",
+                        blocked_reason=f"http_{status_code}",
+                        next_action="manual_review",
+                        content_type_hint=content_type,
+                    )
+                )
+                continue
+            landing_asset, reason, confidence = infer_asset_type(url, content_type=content_type)
+            if landing_asset == "landing_page":
+                candidates.append(
+                    make_candidate(
+                        row,
+                        asset_type="landing_page",
+                        source_type=row.get("source_type", "official_ir"),
+                        source_url=source_url,
+                        resolved_asset_url=url,
+                        confidence=max(confidence, min(0.75, 0.35 + event_link_score(row, url) * 0.03)),
+                        confidence_reason="event/archive landing page candidate" if event_link_score(row, url) > 0 else reason,
+                        rights_status="metadata_only",
+                        download_allowed=False,
+                        next_action="inspect_links",
+                        content_type_hint=content_type,
+                    )
+                )
+            else:
+                if landing_asset in {"transcript_text", "transcript_pdf", "transcript_html", "audio_mp3", "audio_m4a", "audio_wav"} and not link_matches_case(row, url):
+                    candidates.append(
+                        make_candidate(
+                            row,
+                            asset_type="blocked",
+                            source_type=row.get("source_type", "official_ir"),
+                            source_url=source_url,
+                            resolved_asset_url=url,
+                            confidence=0.0,
+                            confidence_reason="direct page did not match target fiscal period or earnings-call context",
+                            rights_status="metadata_only",
+                            blocked_reason="mismatched_event_period_or_non_earnings",
+                            next_action="manual_review",
+                            content_type_hint=content_type,
+                        )
+                    )
+                else:
+                    candidates.append(candidate_from_url(row, source_url=source_url, url=url, label="", content_type=content_type))
+            if "html" not in content_type.lower():
+                continue
+            for href, label in extract_links(url, body):
+                href_block = block_reason_for_url(href, row.get("source_type", "official_ir"))
+                if href_block:
+                    candidates.append(
+                        make_candidate(
+                            row,
+                            asset_type="blocked",
+                            source_type=row.get("source_type", "official_ir"),
+                            source_url=source_url,
+                            resolved_asset_url=href,
+                            confidence=0.0,
+                            confidence_reason="blocked linked URL class",
+                            rights_status="blocked",
+                            blocked_reason=href_block,
+                            next_action="skip",
+                        )
+                    )
+                    continue
+                asset_type, _, _ = infer_asset_type(href, label)
+                if asset_type != "landing_page":
+                    if asset_type in {"transcript_text", "transcript_pdf", "transcript_html", "audio_mp3", "audio_m4a", "audio_wav"} and not link_matches_case(row, href, label):
+                        candidates.append(
+                            make_candidate(
+                                row,
+                                asset_type="blocked",
+                                source_type=row.get("source_type", "official_ir"),
+                                source_url=source_url,
+                                resolved_asset_url=href,
+                                confidence=0.0,
+                                confidence_reason="linked direct asset did not match target fiscal period or earnings-call context",
+                                rights_status="metadata_only",
+                                blocked_reason="mismatched_event_period_or_non_earnings",
+                                next_action="manual_review",
+                            )
+                        )
+                    else:
+                        candidates.append(candidate_from_url(row, source_url=source_url, url=href, label=label))
+                    continue
+                score = event_link_score(row, href, label)
+                if same_domain(href, source_url) and depth + 1 <= max_depth and score > 0:
+                    queue.append((href, depth + 1, score))
+    return sorted(dedupe_candidates(candidates), key=lambda row: (rank_asset_type(row["asset_type"]), row.get("case_id", ""), -float(row.get("confidence") or 0), row.get("resolved_asset_url", "")))
 
 
 def candidate_from_url(row: dict[str, str], *, source_url: str, url: str, label: str = "", content_type: str = "") -> dict[str, str]:

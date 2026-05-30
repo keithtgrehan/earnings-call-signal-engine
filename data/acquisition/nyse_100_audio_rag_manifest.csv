@@ -1,1 +1,2 @@
 record_id,case_id,ticker,audio_asset_id,audio_local_path,source_sha256,rights_status,eval_use_allowed,asr_status,asr_text_path,chunk_manifest_path,notes,created_at,raw_text_committed
+vz_2024_q4_audio_rag,vz_2024_q4,VZ,vz_2024_q4_audio,/Users/keith/Desktop/earnings calls 100 samples/VZ_Verizon_Communications_Inc/vz_2024_q4/audio/vz_2024_q4_78da7d17.mp3,sha256:0901d1d4331821d31a1b9f69581bf43a0edfb28e483112b7bc2e3f74b5416d7e,safe_to_download,true,todo_local_asr_not_available,,,Local ASR tool not available; no cloud ASR called.,2026-05-30T11:24:29+00:00,false

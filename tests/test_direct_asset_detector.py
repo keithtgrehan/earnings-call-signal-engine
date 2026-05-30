@@ -49,3 +49,24 @@ def test_direct_asset_detector_blocks_youtube_signed_and_generic_html() -> None:
     assert youtube["blocked_reason"] == "youtube_media_blocked"
     assert signed["blocked_reason"] == "signed_or_session_url_blocked"
     assert generic["blocked_reason"] == "generic_landing_page_no_direct_asset"
+
+
+def test_direct_asset_detector_rejects_mismatched_official_ir_period_asset() -> None:
+    result = detect_direct_asset(
+        {
+            "case_id": "c_2021_q4",
+            "ticker": "C",
+            "company_name": "Citigroup Inc.",
+            "fiscal_period": "2021 Q4",
+            "asset_type": "transcript_pdf",
+            "source_type": "official_ir",
+            "source_url": "https://www.citigroup.com/global/investors",
+            "resolved_asset_url": "https://www.citigroup.com/storage/public/2026psqtr1-transcript.pdf",
+            "download_allowed": "true",
+        },
+        fetcher=lambda _url: (200, "application/pdf", b"%PDF transcript"),
+    )
+
+    assert result["asset_type"] == "blocked"
+    assert result["download_allowed"] == "false"
+    assert result["blocked_reason"] == "mismatched_event_period_or_non_earnings"

@@ -538,7 +538,7 @@ clean:
 
 NYSE_DESKTOP_WORKSPACE ?= /Users/keith/Desktop/earnings calls 100 samples
 
-.PHONY: free-local-ingestion-check user-authorized-permitted-downloads user-authorized-download-assets register-user-authorized-assets normalize-registered-transcripts build-event-chunks validate-event-chunks export-retrieval-objects build-audio-rag retrieval-readiness operational-ingestion-summary operational-ingestion-check resolve-official-ir-assets resolve-sec-exhibit-assets discover-provider-assets detect-direct-assets run-asset-resolution download-resolved-assets register-resolved-assets build-local-retrieval-index operational-asset-resolution-check
+.PHONY: free-local-ingestion-check user-authorized-permitted-downloads user-authorized-download-assets register-user-authorized-assets normalize-registered-transcripts build-event-chunks validate-event-chunks export-retrieval-objects build-audio-rag retrieval-readiness operational-ingestion-summary operational-ingestion-check discover-desktop-assets first-real-ingestion resolve-official-ir-assets resolve-sec-exhibit-assets discover-provider-assets detect-direct-assets run-asset-resolution download-resolved-assets register-resolved-assets build-local-retrieval-index first-real-ingestion-check operational-asset-resolution-check
 
 free-local-ingestion-check:
 	$(PYTHON) tools/build_operational_ingest_baseline.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
@@ -550,8 +550,14 @@ user-authorized-permitted-downloads:
 user-authorized-download-assets:
 	$(PYTHON) tools/download_user_authorized_earnings_assets.py --manifest data/acquisition/nyse_100_user_authorized_permitted_downloads.csv --policy configs/nyse_100_user_authorized_ingest_policy.yml --workspace "$(NYSE_DESKTOP_WORKSPACE)"
 
+discover-desktop-assets:
+	$(PYTHON) tools/discover_desktop_transcript_audio_assets.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first-real-ingestion:
+	$(PYTHON) tools/run_first_real_ingestion_pipeline.py --workspace "$(NYSE_DESKTOP_WORKSPACE)" --target-pairs 100 --start-year 2025 --years-back 5 --expand-until-exhausted --max-workers 8
+
 resolve-official-ir-assets:
-	$(PYTHON) tools/resolve_official_ir_assets.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+	$(PYTHON) tools/resolve_official_ir_event_assets.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
 
 resolve-sec-exhibit-assets:
 	$(PYTHON) tools/resolve_sec_exhibit_assets.py
@@ -605,4 +611,7 @@ operational-ingestion-check: free-local-ingestion-check user-authorized-permitte
 	$(PYTHON) scripts/validate_user_authorized_ingest.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
 
 operational-asset-resolution-check: run-asset-resolution download-resolved-assets register-resolved-assets normalize-registered-transcripts build-event-chunks validate-event-chunks export-retrieval-objects build-audio-rag build-local-retrieval-index operational-ingestion-summary
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
+
+first-real-ingestion-check: first-real-ingestion
 	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
