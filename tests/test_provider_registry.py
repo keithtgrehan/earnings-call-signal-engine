@@ -9,6 +9,9 @@ def test_provider_registry_priorities_and_defaults() -> None:
     providers = load_provider_registry(Path("data/provider_registry.yaml"))
     assert list(providers)[:3] == ["earningscall", "quartr", "aiera"]
     assert providers["earningscall"].raw_download_allowed is False
+    assert providers["earningscall"].raw_transcript_download_allowed is False
+    assert providers["earningscall"].raw_audio_download_allowed is False
+    assert providers["earningscall"].supports_metadata_only is True
     assert providers["earningscall"].training_allowed is False
     assert providers["sec_edgar"].metadata_discovery_allowed is True
 

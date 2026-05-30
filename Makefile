@@ -651,7 +651,7 @@ first30-ingestion-check: validate-matched-pair-assets validate-first30-transcrip
 first30-retrieval-eval-check: build-event-chunks validate-event-chunks export-retrieval-objects evaluate-retrieval
 	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
 
-.PHONY: first30-promote-transcripts first30-resolve-transcript-urls apply-agent-s1-replacements resolve-remaining-first30-transcripts replace-first30-alternates first30-download-transcripts first30-normalize first30-build-chunks first30-export-retrieval first30-evaluate-retrieval verify-vz-pair first30-resolve-audio resolve-first30-audio search-official-webcast-replay-metadata first30-download-audio first30-audio-gap-status provider-audit-licenses provider-discover-first30 asr-env-check run-local-asr-smoke asr-run-batch align-audio-transcript export-audio-rag-objects evaluate-first30-retrieval training-readiness-first30 corpus-status-dashboard finish-first30-coverage-check finish-first30-check
+.PHONY: first30-promote-transcripts first30-resolve-transcript-urls apply-agent-s1-replacements resolve-remaining-first30-transcripts replace-first30-alternates first30-download-transcripts first30-normalize first30-build-chunks first30-export-retrieval first30-evaluate-retrieval verify-vz-pair first30-resolve-audio resolve-first30-audio search-official-webcast-replay-metadata first30-download-audio first30-audio-gap-status provider-audit-licenses earningscall-provider-status provider-discover-first30 earningscall-discover-first30 provider-download-assets asr-env-check run-local-asr-smoke asr-run-batch align-audio-transcript export-audio-rag-objects first30-run-extraction first30-validate-candidates first30-build-review-packets first30-reduce-retrieval-fallback first30-materialize-retrieval-eval evaluate-first30-retrieval training-readiness-first30 corpus-status-dashboard earningscall-first30-check finish-first30-coverage-check finish-first30-check
 
 first30-promote-transcripts:
 	$(PYTHON) tools/promote_first30_transcript_candidates.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
@@ -700,8 +700,17 @@ first30-audio-gap-status:
 provider-audit-licenses:
 	$(PYTHON) tools/provider_license_audit.py
 
+earningscall-provider-status:
+	$(PYTHON) tools/earningscall_first30_discovery.py --status-only
+
 provider-discover-first30:
 	$(PYTHON) tools/provider_discovery_first30.py
+
+earningscall-discover-first30:
+	$(PYTHON) tools/earningscall_first30_discovery.py
+
+provider-download-assets:
+	$(PYTHON) tools/download_provider_assets.py
 
 asr-env-check:
 	$(PYTHON) tools/check_local_asr_environment.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
@@ -727,17 +736,38 @@ first30-export-retrieval:
 export-audio-rag-objects:
 	$(PYTHON) tools/export_audio_rag_objects.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
 
+first30-run-extraction:
+	$(PYTHON) tools/run_first30_signal_extraction.py
+
+first30-validate-candidates:
+	$(PYTHON) tools/validate_first30_signal_candidates.py
+
+first30-build-review-packets:
+	$(PYTHON) tools/build_first30_review_packets.py
+
+first30-reduce-retrieval-fallback:
+	$(PYTHON) tools/reduce_retrieval_fallback_overuse.py
+
+first30-materialize-retrieval-eval:
+	$(PYTHON) tools/materialize_first30_eval_queries.py
+
 first30-evaluate-retrieval:
+	$(PYTHON) tools/materialize_first30_eval_queries.py
 	$(PYTHON) tools/evaluate_retrieval.py --objects data/retrieval/retrieval_objects_manifest.csv
+	$(PYTHON) tools/reduce_retrieval_fallback_overuse.py
 	$(PYTHON) tools/diagnose_retrieval_failures.py
 
 evaluate-first30-retrieval: first30-evaluate-retrieval
 
 training-readiness-first30:
+	$(PYTHON) tools/build_first30_training_review_bridge.py
 	$(PYTHON) tools/build_training_readiness_from_first30.py
 
 corpus-status-dashboard:
 	$(PYTHON) tools/build_corpus_status_dashboard.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+earningscall-first30-check: provider-audit-licenses earningscall-discover-first30 provider-download-assets resolve-remaining-first30-transcripts replace-first30-alternates first30-download-transcripts resolve-first30-audio asr-env-check asr-run-batch align-audio-transcript export-audio-rag-objects normalize-registered-transcripts build-event-chunks export-retrieval-objects first30-run-extraction first30-validate-candidates first30-build-review-packets first30-evaluate-retrieval training-readiness-first30 corpus-status-dashboard
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
 
 finish-first30-coverage-check: resolve-remaining-first30-transcripts replace-first30-alternates first30-download-transcripts resolve-first30-audio first30-audio-gap-status provider-audit-licenses provider-discover-first30 asr-env-check asr-run-batch align-audio-transcript normalize-registered-transcripts build-event-chunks export-retrieval-objects evaluate-first30-retrieval training-readiness-first30 corpus-status-dashboard
 	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run

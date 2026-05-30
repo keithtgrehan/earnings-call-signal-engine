@@ -1,0 +1,14 @@
+provider: EarningsCall
+license_config_ref: data/provider_license_configs/earningscall.example.yml
+api_key_env: EARNINGSCALL_API_KEY
+enabled: false
+metadata_discovery_allowed: true
+raw_download_allowed: false
+raw_transcript_download_allowed: false
+raw_audio_download_allowed: false
+training_allowed: false
+explicit_training_rights_ref: ""
+repo_commit_raw_files: false
+raw_storage_root: "/Users/keith/Desktop/earnings calls 100 samples/provider_raw/earningscall"
+license_review_status: pending
+notes: "Example only. Copy to a reviewed config and approve before enabling raw provider pulls."

@@ -8,7 +8,7 @@
 - Registered audio count: 1
 - Matched pair count: 2
 - Normalized transcript count: 31
-- Chunk/evidence/retrieval object count: 468 / 44 / 468
+- Chunk/evidence/retrieval object count: 468 / 44 / 512
 - ASR-ready and ASR-complete count: 1 / 1
 - Audio-aligned count: 1
 - evaluated_rag=false

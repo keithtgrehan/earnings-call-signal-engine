@@ -7,7 +7,7 @@
 - Registered transcript rows: 31
 - Raw files committed: false
 - Raw files Desktop-only: true
-- Repo registry: `/private/tmp/signal-engine-first30-coverage-provider-audio/data/corpus/manual_local_transcript_registry.csv`
+- Repo registry: `/private/tmp/signal-engine-earningscall-provider-run/data/corpus/manual_local_transcript_registry.csv`
 - Desktop audit log: `/Users/keith/Desktop/earnings calls 100 samples/_audit/first30_transcript_download_log.csv`
 
 ## Failure Reasons
