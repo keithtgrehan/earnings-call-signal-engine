@@ -1,0 +1,10 @@
+{
+  "asr_transcripts_available": 0,
+  "audio_registry_rows": 1,
+  "audio_retrieval_objects": 0,
+  "cloud_asr_used": false,
+  "matched_pairs": 0,
+  "raw_asr_committed": false,
+  "raw_audio_committed": false,
+  "registered_audio_calls": 1
+}

@@ -183,7 +183,7 @@ def write_reports(summary: dict[str, Any]) -> None:
                 "",
                 f"- Audit rows read: {summary['audit_rows']}",
                 f"- Chunks created: {summary['chunks_created']}",
-                f"- RAG-ready calls: {summary['rag_ready_calls']}",
+                f"- BM25 smoke-ready calls: {summary['rag_ready_calls']}",
                 f"- Repo manifest: {summary['out_manifest']}",
                 f"- Desktop index: {summary['desktop_index']}",
                 "- Raw chunk text committed: false",

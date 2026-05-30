@@ -297,6 +297,7 @@ def looks_like_restricted_artifact(path: str) -> bool:
         "configs/",
         "docs/",
         "schemas/",
+        "reports/acquisition/",
         "reports/agent1_30_call_pilot/",
         "reports/agent5/",
         "reports/evaluation/",

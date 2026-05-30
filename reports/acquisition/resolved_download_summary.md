@@ -1,10 +1,10 @@
 # Resolved Download Summary
 
-- Manifest rows: 0
-- Transcript downloads attempted/succeeded: 0/0
-- Audio downloads attempted/succeeded: 0/0
-- Blocked rows: 0
+- Manifest rows: 4
+- Transcript downloads attempted/succeeded: 3/1
+- Audio downloads attempted/succeeded: 1/1
+- Blocked rows: 2
 - Raw files committed: false
 
 ## Blocked Reasons
-- none
+- vendor_raw_requires_license_config_ref: 2

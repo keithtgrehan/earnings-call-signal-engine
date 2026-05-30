@@ -538,7 +538,7 @@ clean:
 
 NYSE_DESKTOP_WORKSPACE ?= /Users/keith/Desktop/earnings calls 100 samples
 
-.PHONY: free-local-ingestion-check user-authorized-permitted-downloads user-authorized-download-assets register-user-authorized-assets normalize-registered-transcripts build-event-chunks validate-event-chunks export-retrieval-objects build-audio-rag retrieval-readiness operational-ingestion-summary operational-ingestion-check discover-desktop-assets first-real-ingestion resolve-official-ir-assets resolve-sec-exhibit-assets discover-provider-assets detect-direct-assets run-asset-resolution download-resolved-assets register-resolved-assets build-local-retrieval-index first-real-ingestion-check operational-asset-resolution-check
+.PHONY: free-local-ingestion-check user-authorized-permitted-downloads user-authorized-download-assets register-user-authorized-assets normalize-registered-transcripts build-event-chunks validate-event-chunks export-retrieval-objects build-audio-rag retrieval-readiness operational-ingestion-summary operational-ingestion-check discover-desktop-assets first-real-ingestion resolve-official-ir-assets resolve-sec-exhibit-assets discover-provider-assets detect-direct-assets run-asset-resolution download-resolved-assets register-resolved-assets build-local-retrieval-index first-real-ingestion-check operational-asset-resolution-check discover-matched-pair-assets validate-matched-pair-assets validate-first30-transcript-candidates audio-pairing-report validate-audio-registry asr-smoke-local validate-asr audio-alignment-report evaluate-retrieval first30-ingestion-check first30-retrieval-eval-check
 
 free-local-ingestion-check:
 	$(PYTHON) tools/build_operational_ingest_baseline.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
@@ -595,11 +595,10 @@ export-retrieval-objects:
 
 build-audio-rag:
 	$(PYTHON) tools/build_user_authorized_audio_rag.py --registry data/corpus/manual_local_audio_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
-	$(PYTHON) tools/run_local_asr.py --registry data/corpus/manual_local_audio_registry.csv
 
 retrieval-readiness:
 	$(PYTHON) tools/build_local_retrieval_index.py --objects data/retrieval/retrieval_objects_manifest.csv --out .local/signal_engine/retrieval/indexes/nyse100_bm25
-	$(PYTHON) tools/evaluate_retrieval.py --index .local/signal_engine/retrieval/indexes/nyse100_bm25 --queries data/retrieval/eval_queries.example.jsonl
+	$(PYTHON) tools/evaluate_retrieval.py --objects data/retrieval/retrieval_objects_manifest.csv --queries data/retrieval/eval_queries_hd_2025_q4.jsonl --out reports/retrieval/retrieval_eval_summary.md
 
 build-local-retrieval-index:
 	$(PYTHON) tools/build_local_retrieval_index.py --objects data/retrieval/retrieval_objects_manifest.csv --out .local/signal_engine/retrieval/indexes/nyse100_bm25
@@ -614,4 +613,39 @@ operational-asset-resolution-check: run-asset-resolution download-resolved-asset
 	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
 
 first-real-ingestion-check: first-real-ingestion
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
+
+discover-matched-pair-assets:
+	$(PYTHON) scripts/validate_matched_pair_candidates.py data/acquisition/matched_pair_candidates.csv
+
+validate-matched-pair-assets:
+	$(PYTHON) scripts/validate_matched_pair_candidates.py data/acquisition/matched_pair_candidates.csv
+
+validate-first30-transcript-candidates:
+	$(PYTHON) scripts/validate_transcript_candidates_first30.py data/acquisition/transcript_candidates_first30.csv
+
+audio-pairing-report:
+	$(PYTHON) tools/validate_audio_registry.py --registry data/acquisition/audio_registry.csv
+
+validate-audio-registry:
+	$(PYTHON) tools/validate_audio_registry.py --registry data/acquisition/audio_registry.csv
+
+asr-smoke-local:
+	$(PYTHON) tools/run_local_asr_smoke.py
+
+validate-asr:
+	@echo "Set ASR_SEGMENTS=/path/to/asr_segments.csv to validate local ASR segment metadata."
+	@test -n "$(ASR_SEGMENTS)" || exit 2
+	$(PYTHON) tools/validate_asr_segments.py "$(ASR_SEGMENTS)"
+
+audio-alignment-report:
+	$(PYTHON) tools/align_asr_to_transcript.py --audio-registry data/acquisition/audio_registry.csv --transcript-registry data/corpus/manual_local_transcript_registry.csv
+
+evaluate-retrieval:
+	$(PYTHON) tools/evaluate_retrieval.py --objects data/retrieval/retrieval_objects_manifest.csv --queries data/retrieval/eval_queries_hd_2025_q4.jsonl --out reports/retrieval/retrieval_eval_summary.md
+
+first30-ingestion-check: validate-matched-pair-assets validate-first30-transcript-candidates validate-audio-registry
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
+
+first30-retrieval-eval-check: build-event-chunks validate-event-chunks export-retrieval-objects evaluate-retrieval
 	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run

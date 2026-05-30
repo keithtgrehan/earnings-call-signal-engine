@@ -3,11 +3,18 @@
   "$id": "https://signal-engine.local/schemas/retrieval_eval_query.schema.json",
   "title": "Retrieval eval query",
   "type": "object",
-  "required": ["query_id", "query", "expected_object_ids"],
+  "required": ["query_id", "query", "expected_object_ids", "expected_abstain"],
   "properties": {
     "query_id": {"type": "string", "minLength": 1},
     "query": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string"},
+    "ticker": {"type": "string"},
+    "fiscal_period": {"type": "string"},
     "expected_object_ids": {"type": "array", "items": {"type": "string"}},
+    "expected_evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "expected_abstain": {"type": "boolean"},
+    "negative_control": {"type": "boolean"},
+    "unsupported_claim_category": {"type": "string"},
     "notes": {"type": "string"}
   },
   "additionalProperties": false

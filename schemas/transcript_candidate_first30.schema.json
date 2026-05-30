@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/transcript_candidate_first30.schema.json",
+  "title": "First-30 transcript candidate",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "case_id",
+    "ticker",
+    "exchange",
+    "event_date",
+    "source_url",
+    "expected_format",
+    "rights_status",
+    "approval_required",
+    "download_allowed",
+    "raw_text_committed",
+    "commit_allowed",
+    "training_allowed",
+    "normalization_risk",
+    "qna_expected"
+  ],
+  "properties": {
+    "candidate_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "pattern": "^[a-z0-9]+_20[0-9]{2}_q[1-4]$"},
+    "exchange": {"const": "NYSE"},
+    "event_date": {"type": "string", "format": "date"},
+    "expected_format": {"enum": ["pdf", "html", "txt"]},
+    "rights_status": {
+      "enum": ["official_ir_public_linked", "official_ir_hosted_third_party_transcript_possible", "metadata_only_rights_review", "control_fixture_registered"]
+    },
+    "approval_required": {"enum": ["true", "false"]},
+    "download_allowed": {"const": "false"},
+    "raw_text_committed": {"const": "false"},
+    "commit_allowed": {"const": "false"},
+    "training_allowed": {"const": "false"},
+    "normalization_risk": {"enum": ["low", "medium", "high"]},
+    "qna_expected": {"enum": ["true", "false"]},
+    "control_fixture": {"enum": ["true", "false"]}
+  },
+  "additionalProperties": true
+}

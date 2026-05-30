@@ -11,9 +11,9 @@
 - Registered transcripts: 1
 - Registered audio: 1
 - Normalized transcripts: 1
-- Chunks: 1
+- Chunks: 21
 - Evidence objects: 1
-- Retrieval objects: 1
+- Retrieval objects: 21
 - Retrieval-object ready calls: 1
 - BM25 smoke-ready calls: 1
 - evaluated_rag=false
@@ -40,7 +40,7 @@
 - mismatched_event_period_or_non_earnings: 362
 - paywall_or_login_or_drm_blocked: 325
 - youtube_media_blocked: 276
-- fetch_failed: 172
+- fetch_failed: 171
 - signed_or_session_url_blocked: 45
 - vendor_raw_requires_license_config_ref: 2
 

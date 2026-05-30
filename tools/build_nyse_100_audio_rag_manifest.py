@@ -128,7 +128,7 @@ def write_reports(summary: dict[str, Any]) -> None:
                 "",
                 f"- Audit rows read: {summary['audit_rows']}",
                 f"- Audio RAG records: {summary['audio_rag_records']}",
-                f"- Audio RAG-ready calls: {summary['audio_rag_ready_calls']}",
+                f"- Audio registered / ASR-ready calls: {summary['audio_rag_ready_calls']}",
                 f"- TODO records: {summary['todo_records']}",
                 f"- ASR enabled: {str(summary['asr_enabled']).lower()}",
                 "- Cloud ASR called: false",

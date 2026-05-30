@@ -109,7 +109,7 @@ def write_report(summary: dict[str, Any]) -> None:
         "# User-Authorized Transcript RAG Readiness\n\n"
         f"- Registry rows: {summary['registry_rows']}\n"
         f"- Transcript chunks: {summary['transcript_chunks']}\n"
-        f"- RAG-ready calls: {summary['rag_ready_calls']}\n"
+        f"- BM25 smoke-ready calls: {summary['rag_ready_calls']}\n"
         f"- Repo manifest: `{summary['out_manifest']}`\n"
         f"- Desktop index: `{summary['desktop_index']}`\n"
         "- Raw chunk text committed: false\n",

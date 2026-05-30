@@ -3,14 +3,21 @@
   "$id": "https://signal-engine.local/schemas/retrieval_result.schema.json",
   "title": "Retrieval result",
   "type": "object",
-  "required": ["query_id", "object_id", "rank", "score", "retrieval_method"],
+  "required": ["query_id", "object_id", "rank", "score", "retrieval_method", "raw_text_returned", "citation_valid", "abstained"],
   "properties": {
     "query_id": {"type": "string", "minLength": 1},
     "object_id": {"type": "string", "minLength": 1},
     "rank": {"type": "integer", "minimum": 1},
     "score": {"type": "number"},
     "retrieval_method": {"enum": ["local_bm25_metadata"]},
-    "raw_text_returned": {"const": false}
+    "raw_text_returned": {"const": false},
+    "citation_valid": {"type": "boolean"},
+    "abstained": {"type": "boolean"},
+    "case_id": {"type": "string"},
+    "ticker": {"type": "string"},
+    "fiscal_period": {"type": "string"},
+    "evidence_id": {"type": "string"},
+    "claim_safety_status": {"enum": ["retrieved_metadata_only", "abstained", "blocked_unsupported_claim"]}
   },
   "additionalProperties": true
 }

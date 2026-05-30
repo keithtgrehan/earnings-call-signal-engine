@@ -3,8 +3,11 @@ from __future__ import annotations
 import re
 
 SECTION_MARKERS = [
-    ("prepared_remarks", re.compile(r"\b(prepared remarks|presentation|management remarks)\b", re.I)),
-    ("qa", re.compile(r"\b(question[- ]and[- ]answer|questions and answers|q&a)\b", re.I)),
+    ("safe_harbor", re.compile(r"\b(safe harbor|forward[- ]looking statements?|non[- ]gaap)\b", re.I)),
+    ("operator", re.compile(r"\b(operator instructions|conference operator|call operator)\b", re.I)),
+    ("prepared_remarks", re.compile(r"\b(prepared remarks|presentation|management remarks|business update)\b", re.I)),
+    ("qna", re.compile(r"\b(question[- ]and[- ]answer|questions and answers|q&a)\b", re.I)),
+    ("closing", re.compile(r"\b(closing remarks|this concludes|thank you for joining)\b", re.I)),
 ]
 
 
@@ -23,5 +26,5 @@ def section_spans(text: str) -> list[dict[str, int | str]]:
         end = markers[index][1] if index < len(markers) else len(text)
         spans.append({"section_id": f"section_{index:04d}", "section_type": label, "start_char": start, "end_char": end})
     if spans and spans[0]["start_char"] != 0:
-        spans.insert(0, {"section_id": "section_0000", "section_type": "opening", "start_char": 0, "end_char": int(spans[0]["start_char"])})
+        spans.insert(0, {"section_id": "section_0000", "section_type": "unknown", "start_char": 0, "end_char": int(spans[0]["start_char"])})
     return spans

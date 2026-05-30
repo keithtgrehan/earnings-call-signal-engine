@@ -9,7 +9,7 @@
 - Blocked sources: 1000
 - Registered transcripts: 0
 - Chunks: 0
-- RAG-ready calls: 0
+- BM25 smoke-ready calls: 0
 
 ## Top Source Domains
 

@@ -8,7 +8,7 @@
 - Manual-local candidates: 0
 - Registered transcripts: 1
 - Registered audio: 1
-- Current chunk/RAG rows: 1
+- Current chunk/RAG rows: 21
 - Desktop workspace: `/Users/keith/Desktop/earnings calls 100 samples`
 
 ## Provider Keys
@@ -23,9 +23,8 @@
 - mismatched_event_period_or_non_earnings: 362
 - paywall_or_login_or_drm_blocked: 325
 - youtube_media_blocked: 276
-- fetch_failed: 172
+- fetch_failed: 171
 - signed_or_session_url_blocked: 45
-- vendor_raw_requires_license_config_ref: 2
 
 ## Fastest Route
-- No manual-local Desktop files were found; the fastest successful route was a direct official Home Depot transcript PDF with local text extraction.
+- No Desktop transcript/audio files were found; use official direct assets or add lawful manual-local files.
