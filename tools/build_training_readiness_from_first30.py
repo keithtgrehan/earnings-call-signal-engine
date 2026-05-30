@@ -16,6 +16,9 @@ if str(ROOT) not in sys.path:
 
 DEFAULT_INGESTION = ROOT / "data" / "acquisition" / "first30_transcript_ingestion_manifest.csv"
 DEFAULT_TRANSCRIPTS = ROOT / "data" / "corpus" / "manual_local_transcript_registry.csv"
+DEFAULT_NORMALIZED = ROOT / "data" / "corpus" / "normalized_transcript_manifest.csv"
+DEFAULT_CHUNKS = ROOT / "data" / "acquisition" / "nyse_100_chunk_manifest.csv"
+DEFAULT_EVIDENCE = ROOT / "data" / "acquisition" / "nyse_100_evidence_objects_manifest.csv"
 DEFAULT_OUT = ROOT / "data" / "training" / "first30_training_readiness_manifest.csv"
 REPORT_PATH = ROOT / "reports" / "acquisition" / "training_set_readiness_from_first30.md"
 
@@ -52,10 +55,16 @@ def build_training_readiness(
     *,
     ingestion_manifest: Path = DEFAULT_INGESTION,
     transcript_registry: Path = DEFAULT_TRANSCRIPTS,
+    normalized_manifest: Path = DEFAULT_NORMALIZED,
+    chunk_manifest: Path = DEFAULT_CHUNKS,
+    evidence_manifest: Path = DEFAULT_EVIDENCE,
     out_path: Path = DEFAULT_OUT,
 ) -> dict[str, Any]:
     ingestion_rows = {row.get("case_id", ""): row for row in read_csv(ingestion_manifest)}
     transcripts = {row.get("case_id", ""): row for row in read_csv(transcript_registry)}
+    normalized = read_csv(normalized_manifest)
+    chunks = read_csv(chunk_manifest)
+    evidence = read_csv(evidence_manifest)
     rows: list[dict[str, str]] = []
     for case_id, row in sorted(ingestion_rows.items()):
         if row.get("control_fixture") == "true":
@@ -91,6 +100,12 @@ def build_training_readiness(
         "ready_rows": sum(1 for row in rows if row["status"] == "READY"),
         "status": "NOT_READY",
         "training_performed": False,
+        "registered_transcripts": len(transcripts),
+        "normalized_transcripts": len(normalized),
+        "chunk_rows": len(chunks),
+        "evidence_objects": len(evidence),
+        "reviewable_candidates": sum(1 for row in rows if row.get("registered_transcript") == "true" and row.get("provenance_complete") == "true"),
+        "valid_adjudicated_labels": 0,
         "out_manifest": str(out_path),
     }
     write_report(summary, rows)
@@ -110,6 +125,12 @@ def write_report(summary: dict[str, Any], rows: list[dict[str, str]]) -> None:
         f"- Status: `{summary['status']}`",
         f"- Manifest rows: {summary['rows']}",
         f"- Ready rows: {summary['ready_rows']}",
+        f"- Registered transcripts: {summary['registered_transcripts']}",
+        f"- Normalized transcripts: {summary['normalized_transcripts']}",
+        f"- Chunk rows: {summary['chunk_rows']}",
+        f"- Evidence objects: {summary['evidence_objects']}",
+        f"- Reviewable candidates: {summary['reviewable_candidates']}",
+        f"- Valid adjudicated labels: {summary['valid_adjudicated_labels']}",
         "- Training performed: false",
         "- Weak/candidate labels promoted to gold: false",
         "- Minimum valid adjudicated labels required: 100",
@@ -127,9 +148,19 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Build first30 training readiness report without training.")
     parser.add_argument("--ingestion-manifest", type=Path, default=DEFAULT_INGESTION)
     parser.add_argument("--transcript-registry", type=Path, default=DEFAULT_TRANSCRIPTS)
+    parser.add_argument("--normalized-manifest", type=Path, default=DEFAULT_NORMALIZED)
+    parser.add_argument("--chunk-manifest", type=Path, default=DEFAULT_CHUNKS)
+    parser.add_argument("--evidence-manifest", type=Path, default=DEFAULT_EVIDENCE)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args(argv)
-    summary = build_training_readiness(ingestion_manifest=args.ingestion_manifest, transcript_registry=args.transcript_registry, out_path=args.out)
+    summary = build_training_readiness(
+        ingestion_manifest=args.ingestion_manifest,
+        transcript_registry=args.transcript_registry,
+        normalized_manifest=args.normalized_manifest,
+        chunk_manifest=args.chunk_manifest,
+        evidence_manifest=args.evidence_manifest,
+        out_path=args.out,
+    )
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0
 

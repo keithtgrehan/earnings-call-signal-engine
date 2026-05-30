@@ -77,6 +77,44 @@ def _run_openai_whisper(audio_path: Path, out_dir: Path, model: str, timeout: in
     return "complete" if txt.exists() else "asr_failed_no_text", txt if txt.exists() else None, json_path if json_path.exists() else None, ""
 
 
+def _run_faster_whisper(audio_path: Path, out_dir: Path, model: str, *, local_files_only: bool = True) -> tuple[str, Path | None, Path | None, str]:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        from faster_whisper import WhisperModel
+
+        whisper_model = WhisperModel(model, device="cpu", compute_type="int8", local_files_only=local_files_only)
+        segments_iter, info = whisper_model.transcribe(str(audio_path), beam_size=1, best_of=1, vad_filter=False)
+        segments = [
+            {"start": float(segment.start), "end": float(segment.end), "text": str(segment.text)}
+            for segment in segments_iter
+        ]
+    except Exception as exc:  # pragma: no cover - dependency/model-cache dependent
+        message = f"{type(exc).__name__}: {exc}"
+        if "local_files_only" in message or "Cannot find" in message or "not found" in message.lower():
+            return "local_model_missing", None, None, message
+        return "asr_failed", None, None, message
+    stem = audio_path.stem
+    txt = out_dir / f"{stem}.txt"
+    json_path = out_dir / f"{stem}.faster_whisper.json"
+    txt.write_text(" ".join(segment["text"].strip() for segment in segments if segment["text"].strip()).strip() + "\n", encoding="utf-8")
+    json_path.write_text(
+        json.dumps(
+            {
+                "backend": "faster-whisper",
+                "language": getattr(info, "language", ""),
+                "language_probability": getattr(info, "language_probability", ""),
+                "duration": getattr(info, "duration", ""),
+                "segments": segments,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return "complete" if txt.exists() and txt.stat().st_size > 1 else "asr_failed_no_text", txt if txt.exists() else None, json_path, ""
+
+
 def _segments_from_whisper_json(json_path: Path | None, case_id: str, audio_asset_id: str) -> list[dict[str, str]]:
     if not json_path or not json_path.exists():
         return []
@@ -127,7 +165,16 @@ def run_local_asr_smoke(
         can_run = backend["dependency_status"] in {"available", "available_python_package"} and ffmpeg["ffmpeg_status"] == "available" and audio_path.exists()
         asr_text_path = ""
         segments_path = ""
-        if can_run and backend["backend"] == "openai-whisper" and backend.get("executable"):
+        if can_run and backend["backend"] == "faster-whisper":
+            asr_dir = _asr_dir(workspace, target.get("case_id", "unknown"))
+            status, txt_path, json_path, run_notes = _run_faster_whisper(audio_path, asr_dir, model, local_files_only=True)
+            notes = run_notes or "faster-whisper local execution completed with a local/cached model"
+            if txt_path:
+                asr_text_path = str(txt_path)
+            segment_rows = _segments_from_whisper_json(json_path, target.get("case_id", ""), target.get("audio_asset_id", ""))
+            if segment_rows:
+                segments_path = str(segment_manifest)
+        elif can_run and backend["backend"] == "openai-whisper" and backend.get("executable"):
             asr_dir = _asr_dir(workspace, target.get("case_id", "unknown"))
             status, txt_path, json_path, run_notes = _run_openai_whisper(audio_path, asr_dir, model, timeout)
             notes = run_notes or "openai-whisper local execution completed"
@@ -138,7 +185,7 @@ def run_local_asr_smoke(
                 segments_path = str(segment_manifest)
         elif can_run:
             status = "dependency_available_runner_not_configured"
-            notes = "Local ASR dependency detected but this smoke runner only executes the openai-whisper CLI without a custom model path."
+            notes = "Local ASR dependency detected but this smoke runner has no configured local runner for that backend."
         row = build_asr_manifest_row(
             case_id=target.get("case_id", ""),
             audio_asset_id=target.get("audio_asset_id", ""),

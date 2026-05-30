@@ -8,8 +8,8 @@
 - BM25 smoke-ready calls: 1
 - evaluated_rag=false
 - Retrieval quality proven: false
-- Chunk manifest: `/private/var/folders/zn/b0bgzvj50txcvq90qk08mvjm0000gn/T/pytest-of-keith/pytest-131/test_first_real_pipeline_proce0/repo/data/acquisition/nyse_100_chunk_manifest.csv`
-- Evidence manifest: `/private/var/folders/zn/b0bgzvj50txcvq90qk08mvjm0000gn/T/pytest-of-keith/pytest-131/test_first_real_pipeline_proce0/repo/data/acquisition/nyse_100_evidence_objects_manifest.csv`
+- Chunk manifest: `/private/var/folders/zn/b0bgzvj50txcvq90qk08mvjm0000gn/T/pytest-of-keith/pytest-138/test_first_real_pipeline_proce0/repo/data/acquisition/nyse_100_chunk_manifest.csv`
+- Evidence manifest: `/private/var/folders/zn/b0bgzvj50txcvq90qk08mvjm0000gn/T/pytest-of-keith/pytest-138/test_first_real_pipeline_proce0/repo/data/acquisition/nyse_100_evidence_objects_manifest.csv`
 - Chunk text committed: false
 - RAG role: reviewer support only
 

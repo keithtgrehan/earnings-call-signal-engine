@@ -19,6 +19,7 @@ DESKTOP_WORKSPACE = Path("/Users/keith/Desktop/earnings calls 100 samples")
 OUT_MD = ROOT / "reports" / "acquisition" / "corpus_status_dashboard.md"
 OUT_JSON = ROOT / "reports" / "acquisition" / "corpus_status_dashboard.json"
 PREFLIGHT_MD = ROOT / "reports" / "acquisition" / "next_ingestion_preflight.md"
+COMPLETE_PREFLIGHT_MD = ROOT / "reports" / "acquisition" / "complete_first30_preflight.md"
 
 DASHBOARD_FIELDS = [
     "metric",
@@ -122,6 +123,7 @@ def build_dashboard(*, workspace: Path = DESKTOP_WORKSPACE, out_md: Path = OUT_M
     out_json.write_text(json.dumps(dashboard, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     write_csv(workspace / "_audit" / "corpus_status_dashboard.csv", [{"metric": key, "value": json.dumps(value) if isinstance(value, (dict, list)) else value} for key, value in dashboard.items()], DASHBOARD_FIELDS)
     write_preflight(dashboard, PREFLIGHT_MD)
+    write_preflight(dashboard, COMPLETE_PREFLIGHT_MD)
     return dashboard
 
 
@@ -161,7 +163,7 @@ def write_dashboard_md(dashboard: dict[str, Any], out_path: Path) -> None:
 
 def write_preflight(dashboard: dict[str, Any], out_path: Path) -> None:
     lines = [
-        "# Next Ingestion Preflight",
+        "# Complete First30 Preflight" if out_path == COMPLETE_PREFLIGHT_MD else "# Next Ingestion Preflight",
         "",
         f"- First30 candidate count: {dashboard['first30_candidate_count']}",
         f"- Official/direct company-hosted rows: {dashboard['official_direct_company_hosted_rows']}",
@@ -172,6 +174,9 @@ def write_preflight(dashboard: dict[str, Any], out_path: Path) -> None:
         f"- ASR-ready and ASR-complete count: {dashboard['asr_ready_count']} / {dashboard['asr_complete_count']}",
         f"- Matched-pair count: {dashboard['matched_pair_count']}",
         f"- VZ_2024_Q4 status: {dashboard['vz_2024_q4_status']}",
+        f"- Retrieval objects: {dashboard['retrieval_object_count']}",
+        f"- evaluated_rag: {str(dashboard['evaluated_rag']).lower()}",
+        f"- training_ready: {str(dashboard['training_ready']).lower()}",
         "",
         "## Top Blockers",
         "",
@@ -180,6 +185,12 @@ def write_preflight(dashboard: dict[str, Any], out_path: Path) -> None:
     if blockers:
         for reason, count in sorted(blockers.items(), key=lambda item: (-item[1], item[0]))[:10]:
             lines.append(f"- `{reason}`: {count}")
+    else:
+        lines.append("- none")
+    lines.extend(["", "## Next 10 Exact Source Actions", ""])
+    actions = dashboard.get("next_10_manual_actions") or []
+    if actions:
+        lines.extend(f"- {action}" for action in actions)
     else:
         lines.append("- none")
     out_path.parent.mkdir(parents=True, exist_ok=True)

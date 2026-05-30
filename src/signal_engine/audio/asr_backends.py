@@ -13,7 +13,7 @@ BACKENDS = {
 }
 
 INSTALL_INSTRUCTIONS = {
-    "faster-whisper": "python3 -m pip install faster-whisper and provide a local model/cache before running ASR",
+    "faster-whisper": "PYENV_VERSION=3.11.3 python3 -m pip install faster-whisper; download or place a local model such as Systran/faster-whisper-tiny outside the repo, then run PYENV_VERSION=3.11.3 python3 tools/run_local_asr_batch.py --backend faster-whisper --model /path/to/local/faster-whisper-model",
     "whisper.cpp": "install whisper.cpp, build whisper-cli, and provide a local ggml model path",
     "openai-whisper": "python3 -m pip install -U openai-whisper; requires ffmpeg and a local/cached Whisper model",
 }
