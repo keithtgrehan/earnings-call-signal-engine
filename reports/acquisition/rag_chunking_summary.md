@@ -1,11 +1,14 @@
 # RAG Chunking Summary
 
-- Registry rows: 0
+- Registry rows: 1
 - Skipped rows: 0
-- Transcript chunks: 0
-- Evidence objects: 0
-- RAG-ready calls: 0
-- Chunk manifest: `data/acquisition/nyse_100_chunk_manifest.csv`
-- Evidence manifest: `data/acquisition/nyse_100_evidence_objects_manifest.csv`
+- Transcript chunks: 5
+- Evidence objects: 2
+- Retrieval-object ready calls: 1
+- BM25 smoke-ready calls: 1
+- evaluated_rag=false
+- Retrieval quality proven: false
+- Chunk manifest: `/private/var/folders/zn/b0bgzvj50txcvq90qk08mvjm0000gn/T/pytest-of-keith/pytest-120/test_first_real_pipeline_proce0/repo/data/acquisition/nyse_100_chunk_manifest.csv`
+- Evidence manifest: `/private/var/folders/zn/b0bgzvj50txcvq90qk08mvjm0000gn/T/pytest-of-keith/pytest-120/test_first_real_pipeline_proce0/repo/data/acquisition/nyse_100_evidence_objects_manifest.csv`
 - Chunk text committed: false
 - RAG role: reviewer support only

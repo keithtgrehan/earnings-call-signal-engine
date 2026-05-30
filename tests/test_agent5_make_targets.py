@@ -20,6 +20,8 @@ def test_agent_make_targets_are_present_and_safe() -> None:
         "agent1-pilot",
         "agent1-30-call-pilot",
         "agent2-evaluation-check",
+        "first-real-ingestion",
+        "first-real-ingestion-check",
     ):
         assert f"{target}:" in makefile
     unsafe_lines = [line for line in makefile.splitlines() if line.startswith(("agent5-", "agent1-", "gold-audit", "first-100"))]

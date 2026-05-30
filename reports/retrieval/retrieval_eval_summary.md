@@ -1,8 +1,7 @@
 # Retrieval Eval Summary
 
-- Query count: 1
-- Result count: 0
-- Hit count: 0
-- Hit rate: 0.000
+- Retrieval objects: 1
+- Evaluation queries run: 0
+- evaluated_rag=false
+- retrieval_quality_proven=false
 - Raw text returned: false
-- Evaluation role: readiness smoke check only

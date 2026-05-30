@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Callable
 from urllib.request import Request, urlopen
 
-from .asset_resolver import block_reason_for_url, infer_asset_type, make_candidate
+from .asset_resolver import block_reason_for_url, infer_asset_type, link_matches_case, make_candidate
 
 TRANSCRIPT_MARKERS = (
     "operator:",
@@ -33,6 +33,29 @@ def transcript_marker_count(text: str) -> int:
     return sum(1 for marker in TRANSCRIPT_MARKERS if marker in lower)
 
 
+def _period_mismatch_reason(row: dict[str, str], url: str) -> str:
+    source_type = row.get("source_type", "")
+    has_period = bool(row.get("fiscal_year") or row.get("target_year") or row.get("fiscal_period"))
+    if source_type == "official_ir" and has_period and not link_matches_case(row, url, row.get("source_url", "")):
+        return "mismatched_event_period_or_non_earnings"
+    return ""
+
+
+def _blocked_candidate(row: dict[str, str], url: str, reason: str, confidence_reason: str) -> dict[str, str]:
+    return make_candidate(
+        row,
+        asset_type="blocked",
+        source_type=row.get("source_type", "direct_asset"),
+        source_url=row.get("source_url", url),
+        resolved_asset_url=url,
+        confidence=0.0,
+        confidence_reason=confidence_reason,
+        rights_status="metadata_only",
+        blocked_reason=reason,
+        next_action="manual_review",
+    )
+
+
 def detect_direct_asset(row: dict[str, str], *, fetcher: Callable[[str], tuple[int, str, bytes]] = default_binary_fetcher) -> dict[str, str]:
     url = row.get("resolved_asset_url") or row.get("source_url") or ""
     block_reason = block_reason_for_url(url, row.get("source_type", ""))
@@ -49,6 +72,9 @@ def detect_direct_asset(row: dict[str, str], *, fetcher: Callable[[str], tuple[i
             blocked_reason=block_reason,
             next_action="skip",
         )
+    mismatch_reason = _period_mismatch_reason(row, url)
+    if mismatch_reason:
+        return _blocked_candidate(row, url, mismatch_reason, "direct asset did not match target fiscal period or earnings-call context")
     try:
         status_code, content_type, body = fetcher(url)
     except Exception as exc:  # pragma: no cover - live network defensive path.

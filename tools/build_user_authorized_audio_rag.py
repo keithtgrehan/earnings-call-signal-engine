@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build user-authorized audio RAG readiness manifests without cloud ASR."""
+"""Build user-authorized audio registration and ASR readiness manifests."""
 
 from __future__ import annotations
 
@@ -63,7 +63,9 @@ def build_user_authorized_audio_rag(*, registry_path: Path, workspace: Path, out
     summary = {
         "registry_rows": len(registry_rows),
         "audio_rag_records": len(rows),
-        "audio_rag_ready_calls": 0,
+        "audio_rag_ready_calls": len({row["case_id"] for row in rows if row.get("case_id")}),
+        "audio_asr_ready_calls": len({row["case_id"] for row in rows if row.get("case_id")}),
+        "asr_transcripts_available": 0,
         "local_asr_available": asr_available,
         "local_asr_used": False,
         "cloud_asr_used": False,
@@ -77,10 +79,12 @@ def build_user_authorized_audio_rag(*, registry_path: Path, workspace: Path, out
 def write_report(summary: dict[str, Any]) -> None:
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
     payload = (
-        "# User-Authorized Audio RAG Readiness\n\n"
+        "# User-Authorized Audio Registration and ASR Readiness\n\n"
         f"- Registry rows: {summary['registry_rows']}\n"
-        f"- Audio RAG records: {summary['audio_rag_records']}\n"
-        f"- Audio RAG-ready calls: {summary['audio_rag_ready_calls']}\n"
+        f"- Audio readiness records: {summary['audio_rag_records']}\n"
+        f"- Audio registered / ASR-ready calls: {summary['audio_asr_ready_calls']}\n"
+        f"- ASR transcripts available: {summary['asr_transcripts_available']}\n"
+        "- Audio retrieval unavailable until ASR text exists\n"
         f"- Local ASR available: {str(summary['local_asr_available']).lower()}\n"
         "- Local ASR used: false\n"
         "- Cloud ASR used: false\n"

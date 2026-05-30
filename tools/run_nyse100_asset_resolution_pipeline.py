@@ -16,7 +16,7 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from signal_engine.acquisition.asset_resolver import RESOLVED_ASSET_FIELDS, rank_asset_type, read_csv, resolve_official_ir_rows, write_csv
+from signal_engine.acquisition.asset_resolver import RESOLVED_ASSET_FIELDS, rank_asset_type, read_csv, resolve_official_ir_event_rows, write_csv
 from signal_engine.acquisition.direct_asset_detector import detect_direct_asset
 from signal_engine.acquisition.sec_resolver import resolve_sec_assets_for_rows
 from tools.expand_nyse_universe_until_usable import EXPANSION_FIELDS, expand_nyse_universe, write_report as write_expansion_report
@@ -32,7 +32,7 @@ PERMITTED_FIELDS = RESOLVED_ASSET_FIELDS + ["commit_allowed", "training_allowed"
 
 
 def _default_official(rows: list[dict[str, str]]) -> list[dict[str, str]]:
-    return resolve_official_ir_rows(rows, max_pages=200, per_domain_delay_sec=0.25)
+    return resolve_official_ir_event_rows(rows, max_pages_per_row=3, per_domain_delay_sec=0.25)
 
 
 def _default_sec(rows: list[dict[str, str]]) -> list[dict[str, str]]:
@@ -59,6 +59,19 @@ def _default_provider(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     import os
 
     return discover_provider_assets(rows=rows, config=ProviderConfig(env=dict(os.environ)))["candidates"]
+
+
+def _dedupe_official_source_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Use one official IR traversal per case/source URL; each traversal can find transcript and audio."""
+    deduped: list[dict[str, str]] = []
+    seen: set[tuple[str, str]] = set()
+    for row in rows:
+        key = (row.get("case_id", ""), row.get("source_url", ""))
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(row)
+    return deduped
 
 
 def _usable_pairs(candidates: list[dict[str, str]]) -> int:
@@ -139,7 +152,7 @@ def run_asset_resolution_pipeline(
         for row in read_csv(acquisition_dir / "nyse_100_5y_call_targets.csv")
         if str(row.get("exchange", "NYSE")).upper() == "NYSE" and start_year - years_back <= int(row.get("fiscal_year") or row.get("target_year") or start_year) <= start_year
     ]
-    source_rows = read_csv(acquisition_dir / "nyse_100_source_rights_review_queue.csv")
+    source_rows = _dedupe_official_source_rows(read_csv(acquisition_dir / "nyse_100_source_rights_review_queue.csv"))
     candidates = official_resolver(source_rows)
     candidates.extend(sec_resolver(target_rows))
     candidates.extend(provider_resolver(target_rows))
