@@ -1,4 +1,4 @@
-# Next Ingestion Preflight
+# First30 Coverage Preflight
 
 - First30 candidate count: 30
 - Official/direct company-hosted rows: 14

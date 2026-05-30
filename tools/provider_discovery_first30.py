@@ -26,6 +26,7 @@ from tools.providers.sec_edgar_adapter import SecEdgarAdapter  # noqa: E402
 DEFAULT_CANDIDATES = ROOT / "data" / "acquisition" / "transcript_candidates_first30.csv"
 DEFAULT_ASSETS = ROOT / "reports" / "provider_discovery" / "provider_assets.csv"
 DEFAULT_GAPS = ROOT / "reports" / "provider_discovery" / "provider_asset_gaps.csv"
+DEFAULT_ACQUISITION_CANDIDATES = ROOT / "data" / "acquisition" / "provider_first30_asset_candidates.csv"
 
 ASSET_FIELDS = [
     "provider",
@@ -42,6 +43,21 @@ ASSET_FIELDS = [
 ]
 
 GAP_FIELDS = ["case_id", "ticker", "provider_count", "configured_provider_count", "best_status", "next_action"]
+
+ACQUISITION_CANDIDATE_FIELDS = [
+    "provider",
+    "case_id",
+    "ticker",
+    "fiscal_year",
+    "fiscal_quarter",
+    "asset_type",
+    "metadata_discovery_status",
+    "raw_download_allowed",
+    "license_config_ref",
+    "training_allowed",
+    "candidate_status",
+    "notes",
+]
 
 ADAPTERS: dict[str, type[ProviderAdapter]] = {
     "earningscall": EarningsCallAdapter,
@@ -75,6 +91,7 @@ def provider_discovery_first30(
     candidate_path: Path = DEFAULT_CANDIDATES,
     assets_out: Path = DEFAULT_ASSETS,
     gaps_out: Path = DEFAULT_GAPS,
+    acquisition_candidates_out: Path = DEFAULT_ACQUISITION_CANDIDATES,
 ) -> dict[str, Any]:
     providers = load_provider_registry(registry_path)
     cases = [row for row in read_csv(candidate_path) if row.get("control_fixture") != "true"]
@@ -121,6 +138,24 @@ def provider_discovery_first30(
         )
     write_csv(assets_out, asset_rows, ASSET_FIELDS)
     write_csv(gaps_out, gap_rows, GAP_FIELDS)
+    acquisition_rows = [
+        {
+            "provider": row["provider"],
+            "case_id": row["case_id"],
+            "ticker": row["ticker"],
+            "fiscal_year": row["fiscal_year"],
+            "fiscal_quarter": row["fiscal_quarter"],
+            "asset_type": row["asset_type"],
+            "metadata_discovery_status": row["discovery_status"],
+            "raw_download_allowed": row["raw_download_allowed"],
+            "license_config_ref": row["license_config_ref"],
+            "training_allowed": row["training_allowed"],
+            "candidate_status": "metadata_only" if row["discovery_status"] not in {"NOT_CONFIGURED", "DISABLED"} else "not_configured",
+            "notes": "Provider raw pull is blocked unless key, license_config_ref, raw_download_allowed, and Desktop-only target are all present.",
+        }
+        for row in asset_rows
+    ]
+    write_csv(acquisition_candidates_out, acquisition_rows, ACQUISITION_CANDIDATE_FIELDS)
     return {
         "cases": len(cases),
         "providers": len(providers),
@@ -129,6 +164,7 @@ def provider_discovery_first30(
         "raw_provider_pull_attempted": False,
         "assets_out": str(assets_out),
         "gaps_out": str(gaps_out),
+        "acquisition_candidates_out": str(acquisition_candidates_out),
     }
 
 
@@ -138,6 +174,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--candidates", type=Path, default=DEFAULT_CANDIDATES)
     parser.add_argument("--assets-out", type=Path, default=DEFAULT_ASSETS)
     parser.add_argument("--gaps-out", type=Path, default=DEFAULT_GAPS)
+    parser.add_argument("--acquisition-candidates-out", type=Path, default=DEFAULT_ACQUISITION_CANDIDATES)
     args = parser.parse_args(argv)
     print(
         json.dumps(
@@ -146,6 +183,7 @@ def main(argv: list[str] | None = None) -> int:
                 candidate_path=args.candidates,
                 assets_out=args.assets_out,
                 gaps_out=args.gaps_out,
+                acquisition_candidates_out=args.acquisition_candidates_out,
             ),
             indent=2,
             sort_keys=True,

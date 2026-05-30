@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from signal_engine.retrieval.evaluate import evaluate_retrieval_objects
+from tools.evaluate_retrieval import _gate_status
 
 
 def test_retrieval_eval_metrics_from_objects(tmp_path: Path) -> None:
@@ -19,3 +20,17 @@ def test_retrieval_eval_metrics_from_objects(tmp_path: Path) -> None:
     summary = evaluate_retrieval_objects(objects, queries)
     assert summary["recall_at_1"] == 1.0
     assert summary["raw_text_returned"] is False
+
+
+def test_evaluated_rag_gate_blocks_fallback_overuse() -> None:
+    assert not _gate_status(
+        {
+            "query_count": 10,
+            "recall_at_1": 1.0,
+            "citation_validity": 1.0,
+            "invalid_citation_rate": 0.0,
+            "wrong_case_ticker_period": 0,
+            "fallback_overuse": 0.9,
+            "raw_text_returned": False,
+        }
+    )

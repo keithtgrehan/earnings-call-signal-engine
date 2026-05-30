@@ -28,6 +28,7 @@ MATERIALIZED_FIRST30_QUERIES = ROOT / "data" / "retrieval" / "eval_queries_first
 REPORT_PATH = ROOT / "reports" / "retrieval" / "first30_retrieval_eval_summary.md"
 RESULTS_PATH = ROOT / "data" / "retrieval" / "first30_eval_results.jsonl"
 METRICS_PATH = ROOT / "data" / "retrieval" / "first30_eval_metrics.json"
+MAX_FALLBACK_OVERUSE_FOR_EVALUATED_RAG = 0.25
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -104,6 +105,7 @@ def _gate_status(summary: dict[str, Any]) -> bool:
         and summary.get("citation_validity", 0.0) >= 0.95
         and summary.get("invalid_citation_rate", 1.0) <= 0.05
         and summary.get("wrong_case_ticker_period", 1) == 0
+        and summary.get("fallback_overuse", 1.0) <= MAX_FALLBACK_OVERUSE_FOR_EVALUATED_RAG
         and summary.get("raw_text_returned") is False
     )
 
@@ -125,7 +127,7 @@ def write_report(summary: dict, out_path: Path = REPORT_PATH) -> None:
         f"- Invalid citation rate: {summary.get('invalid_citation_rate', 0.0):.3f}",
         f"- Wrong case/ticker/period results: {summary.get('wrong_case_ticker_period', 0)}",
         f"- Abstention correctness: {summary.get('abstention_correctness', 0.0):.3f}",
-        f"- Fallback overuse: {summary.get('fallback_overuse', 0.0):.3f}",
+        f"- Fallback overuse: {summary.get('fallback_overuse', 0.0):.3f} (gate <= {MAX_FALLBACK_OVERUSE_FOR_EVALUATED_RAG:.2f})",
         f"- Provenance completeness: {summary.get('provenance_completeness', 1.0):.3f}",
         "- Raw text returned: false",
         f"- smoke_metrics: {str(summary.get('smoke_metrics', True)).lower()}",
