@@ -81,14 +81,21 @@ def build_dashboard(*, workspace: Path = DESKTOP_WORKSPACE, out_md: Path = OUT_M
     training = read_csv(ROOT / "data" / "training" / "first30_training_readiness_manifest.csv")
     blockers = Counter()
     for row in ingestion:
+        if row.get("control_fixture") == "true":
+            continue
         if row.get("blocked_reason"):
             blockers[row["blocked_reason"]] += 1
+    ingestion_blocked_cases = {row.get("case_id", "") for row in ingestion if row.get("blocked_reason")}
     for row in parsed:
+        if row.get("case_id", "") in ingestion_blocked_cases:
+            continue
         if row.get("text_parse_status") not in {"parsed", ""}:
             blockers[row.get("text_parse_status", "parse_blocked")] += 1
     transcript_registered_first30 = [row for row in transcripts if row.get("case_id") in first30_ids or row.get("case_id") == "hd_2025_q4"]
     next_actions = []
     for row in ingestion:
+        if row.get("control_fixture") == "true":
+            continue
         if row.get("download_allowed") != "true" and len(next_actions) < 10:
             next_actions.append(f"Resolve or replace `{row.get('case_id')}`: {row.get('blocked_reason') or row.get('next_action')}")
     dashboard = {

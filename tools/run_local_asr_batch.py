@@ -17,10 +17,10 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from signal_engine.audio.asr_backends import detect_local_asr_backend, ffmpeg_status, probe_audio  # noqa: E402
+from signal_engine.audio.asr_backends import detect_local_asr_backend, faster_whisper_model_status, ffmpeg_status, probe_audio  # noqa: E402
 from signal_engine.audio.asr_manifest import build_asr_manifest_row  # noqa: E402
 from signal_engine.audio.schemas import ASR_MANIFEST_FIELDS, ASR_SEGMENT_FIELDS  # noqa: E402
-from tools.run_local_asr_smoke import _asr_dir, _run_faster_whisper, _run_openai_whisper, _segments_from_whisper_json, write_report  # noqa: E402
+from tools.run_local_asr_smoke import _asr_dir, _file_sha256, _run_faster_whisper, _run_openai_whisper, _segments_from_whisper_json, write_report  # noqa: E402
 
 DEFAULT_WORKSPACE = Path("/Users/keith/Desktop/earnings calls 100 samples")
 DEFAULT_AUDIO_REGISTRY = ROOT / "data" / "acquisition" / "audio_registry.csv"
@@ -59,12 +59,14 @@ def run_local_asr_batch(
     model: str = "tiny",
     timeout: int = 900,
     max_audio: int = 0,
+    allow_model_download: bool = True,
 ) -> dict[str, Any]:
     audio_rows = _ordered_audio_rows(audio_registry)
     if max_audio > 0:
         audio_rows = audio_rows[:max_audio]
     backend = detect_local_asr_backend(backend_name)
     ffmpeg = ffmpeg_status()
+    model_state = faster_whisper_model_status(workspace=workspace, repo_root=ROOT)
     can_run = backend["dependency_status"] in {"available", "available_python_package"} and ffmpeg["ffmpeg_status"] == "available"
     manifest_rows: list[dict[str, Any]] = []
     segment_rows: list[dict[str, str]] = []
@@ -80,8 +82,18 @@ def run_local_asr_batch(
             notes = "Registered audio local_path is missing."
         elif can_run and backend["backend"] == "faster-whisper":
             asr_dir = _asr_dir(workspace, audio.get("case_id", "unknown"))
-            status, txt_path, json_path, run_notes = _run_faster_whisper(audio_path, asr_dir, model, local_files_only=True)
+            model_arg = model_state.get("model_path") or model
+            download_root = workspace / "_models" / "faster-whisper" if allow_model_download and not model_state.get("model_path") else None
+            status, txt_path, json_path, run_notes = _run_faster_whisper(
+                audio_path,
+                asr_dir,
+                model_arg,
+                local_files_only=not allow_model_download if not model_state.get("model_path") else True,
+                download_root=download_root,
+            )
             notes = run_notes or "faster-whisper local execution completed with a local/cached model"
+            if status == "complete" and download_root:
+                notes = f"{notes}; model cache root={download_root}"
             if txt_path:
                 asr_text_path = str(txt_path)
             new_segments = _segments_from_whisper_json(json_path, audio.get("case_id", ""), audio.get("audio_asset_id", ""))
@@ -108,6 +120,7 @@ def run_local_asr_batch(
             engine=backend_name,
             status=status,
             asr_text_path=asr_text_path,
+            asr_text_sha256=_file_sha256(Path(asr_text_path)) if asr_text_path else "",
             segments_path=segments_path,
             notes=f"{notes}; ffprobe_status={probe.get('ffprobe_status', '')}",
         )
@@ -121,6 +134,7 @@ def run_local_asr_batch(
         "target_case_id": audio_rows[0].get("case_id", "") if audio_rows else "",
         "backend": backend,
         "ffmpeg": ffmpeg,
+        "faster_whisper_model": model_state,
         "status": "complete" if any(row.get("status") == "complete" for row in manifest_rows) else ("no_registered_audio" if not audio_rows else manifest_rows[0].get("status", "dependency_missing")),
         "asr_complete": sum(1 for row in manifest_rows if row.get("status") == "complete"),
         "segment_rows": len(segment_rows),
@@ -145,6 +159,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--model", default="tiny")
     parser.add_argument("--timeout", type=int, default=900)
     parser.add_argument("--max-audio", type=int, default=0)
+    parser.add_argument("--no-model-download", action="store_true")
     args = parser.parse_args(argv)
     summary = run_local_asr_batch(
         audio_registry=args.audio_registry,
@@ -155,6 +170,7 @@ def main(argv: list[str] | None = None) -> int:
         model=args.model,
         timeout=args.timeout,
         max_audio=args.max_audio,
+        allow_model_download=not args.no_model_download,
     )
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0

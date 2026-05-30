@@ -1,0 +1,61 @@
+providers:
+  earningscall:
+    name: EarningsCall API
+    priority: 1
+    api_key_env: EARNINGSCALL_API_KEY
+    enabled: true
+    metadata_discovery_allowed: true
+    raw_download_allowed: false
+    license_config_ref: ""
+    training_allowed: false
+    explicit_training_rights_ref: ""
+  quartr:
+    name: Quartr
+    priority: 2
+    api_key_env: QUARTR_API_KEY
+    enabled: true
+    metadata_discovery_allowed: true
+    raw_download_allowed: false
+    license_config_ref: ""
+    training_allowed: false
+    explicit_training_rights_ref: ""
+  aiera:
+    name: Aiera
+    priority: 3
+    api_key_env: AIERA_API_KEY
+    enabled: true
+    metadata_discovery_allowed: true
+    raw_download_allowed: false
+    license_config_ref: ""
+    training_allowed: false
+    explicit_training_rights_ref: ""
+  fmp:
+    name: Financial Modeling Prep
+    priority: 4
+    api_key_env: FMP_API_KEY
+    enabled: true
+    metadata_discovery_allowed: true
+    raw_download_allowed: false
+    license_config_ref: ""
+    training_allowed: false
+    explicit_training_rights_ref: ""
+  api_ninjas:
+    name: API Ninjas
+    priority: 5
+    api_key_env: API_NINJAS_API_KEY
+    enabled: true
+    metadata_discovery_allowed: true
+    raw_download_allowed: false
+    license_config_ref: ""
+    training_allowed: false
+    explicit_training_rights_ref: ""
+  sec_edgar:
+    name: SEC EDGAR metadata
+    priority: 6
+    api_key_env: ""
+    enabled: true
+    metadata_discovery_allowed: true
+    raw_download_allowed: false
+    license_config_ref: ""
+    training_allowed: false
+    explicit_training_rights_ref: ""

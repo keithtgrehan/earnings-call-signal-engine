@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import os
 import shutil
 import subprocess
 from pathlib import Path
@@ -17,6 +18,9 @@ INSTALL_INSTRUCTIONS = {
     "whisper.cpp": "install whisper.cpp, build whisper-cli, and provide a local ggml model path",
     "openai-whisper": "python3 -m pip install -U openai-whisper; requires ffmpeg and a local/cached Whisper model",
 }
+
+DESKTOP_WORKSPACE = Path("/Users/keith/Desktop/earnings calls 100 samples")
+LOCAL_MODEL_CACHE = Path(".local/asr_models")
 
 
 def detect_local_asr_backend(preferred: str = "") -> dict[str, str]:
@@ -59,6 +63,52 @@ def ffmpeg_status() -> dict[str, str]:
         "ffprobe": shutil.which("ffprobe") or "",
         "ffmpeg_status": "available" if shutil.which("ffmpeg") else "dependency_missing",
         "ffprobe_status": "available" if shutil.which("ffprobe") else "dependency_missing",
+    }
+
+
+def faster_whisper_model_candidates(*, workspace: Path = DESKTOP_WORKSPACE, repo_root: Path | None = None) -> list[Path]:
+    roots: list[Path] = []
+    env_path = os.environ.get("FASTER_WHISPER_MODEL_PATH")
+    if env_path:
+        roots.append(Path(env_path))
+    roots.append(workspace / "_models" / "faster-whisper")
+    if repo_root:
+        roots.append(repo_root / LOCAL_MODEL_CACHE)
+    roots.append(LOCAL_MODEL_CACHE)
+    candidates: list[Path] = []
+    for root in roots:
+        if not root.exists():
+            continue
+        if root.is_file():
+            candidates.append(root)
+            continue
+        if (root / "model.bin").exists() or (root / "config.json").exists():
+            candidates.append(root)
+        for child in root.rglob("model.bin"):
+            candidates.append(child.parent)
+    deduped: list[Path] = []
+    seen: set[str] = set()
+    for path in candidates:
+        key = str(path.resolve())
+        if key not in seen:
+            seen.add(key)
+            deduped.append(path)
+    return deduped
+
+
+def faster_whisper_model_status(*, workspace: Path = DESKTOP_WORKSPACE, repo_root: Path | None = None) -> dict[str, str]:
+    candidates = faster_whisper_model_candidates(workspace=workspace, repo_root=repo_root)
+    env_path = os.environ.get("FASTER_WHISPER_MODEL_PATH", "")
+    if candidates:
+        return {
+            "model_status": "available",
+            "model_path": str(candidates[0]),
+            "model_source": "FASTER_WHISPER_MODEL_PATH" if env_path and str(candidates[0]).startswith(str(Path(env_path).expanduser())) else "local_cache",
+        }
+    return {
+        "model_status": "missing",
+        "model_path": "",
+        "model_source": "",
     }
 
 

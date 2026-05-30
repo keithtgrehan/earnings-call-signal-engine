@@ -32,6 +32,7 @@ ASR_MANIFEST_FIELDS = [
     "status",
     "dependency_status",
     "asr_text_path",
+    "asr_text_sha256",
     "segments_path",
     "cloud_upload",
     "raw_asr_committed",
