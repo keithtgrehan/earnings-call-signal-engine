@@ -25,6 +25,7 @@ DEFAULT_REGISTRY = ROOT / "data" / "corpus" / "manual_local_transcript_registry.
 DEFAULT_OUT = ROOT / "data" / "acquisition" / "nyse_100_chunk_manifest.csv"
 DEFAULT_EVIDENCE_OUT = ROOT / "data" / "acquisition" / "nyse_100_evidence_objects_manifest.csv"
 REPORT_PATH = ROOT / "reports" / "acquisition" / "rag_chunking_summary.md"
+FIRST30_CHUNK_REPORT_PATH = ROOT / "reports" / "acquisition" / "first30_chunk_quality_summary.md"
 HD_QUALITY_REPORT = ROOT / "reports" / "acquisition" / "chunk_quality_report_hd_2025_q4.md"
 
 
@@ -104,12 +105,12 @@ def build_event_chunks(
         "evidence_manifest": str(evidence_out),
         "raw_text_committed": False,
     }
-    write_report(summary)
+    write_report(summary, quality_rows)
     write_quality_report("hd_2025_q4", quality_rows.get("hd_2025_q4", {}))
     return summary
 
 
-def write_report(summary: dict[str, Any]) -> None:
+def write_report(summary: dict[str, Any], quality_rows: dict[str, dict[str, Any]] | None = None) -> None:
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         "# RAG Chunking Summary",
@@ -127,7 +128,17 @@ def write_report(summary: dict[str, Any]) -> None:
         "- Chunk text committed: false",
         "- RAG role: reviewer support only",
     ]
-    REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    if quality_rows is not None:
+        lines.extend(["", "## Per-Transcript Q&A Status", ""])
+        if quality_rows:
+            for case_id, quality in sorted(quality_rows.items()):
+                qa_count = int(quality.get("qa_pair_count", 0))
+                lines.append(f"- `{case_id}`: {'qna_detected' if qa_count else 'no_qna_detected'}; qa_pair_count={qa_count}; chunk_count={quality.get('chunk_count', 0)}")
+        else:
+            lines.append("- none")
+    payload = "\n".join(lines) + "\n"
+    REPORT_PATH.write_text(payload, encoding="utf-8")
+    FIRST30_CHUNK_REPORT_PATH.write_text(payload.replace("# RAG Chunking Summary", "# First30 Chunk Quality Summary", 1), encoding="utf-8")
 
 
 def write_quality_report(case_id: str, quality: dict[str, Any]) -> None:

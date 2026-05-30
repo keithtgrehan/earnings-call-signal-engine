@@ -645,7 +645,47 @@ evaluate-retrieval:
 	$(PYTHON) tools/evaluate_retrieval.py --objects data/retrieval/retrieval_objects_manifest.csv --queries data/retrieval/eval_queries_hd_2025_q4.jsonl --out reports/retrieval/retrieval_eval_summary.md
 
 first30-ingestion-check: validate-matched-pair-assets validate-first30-transcript-candidates validate-audio-registry
+	$(PYTHON) scripts/validate_first30_ingestion_manifest.py --path data/acquisition/first30_transcript_ingestion_manifest.csv
 	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
 
 first30-retrieval-eval-check: build-event-chunks validate-event-chunks export-retrieval-objects evaluate-retrieval
 	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
+
+.PHONY: first30-promote-transcripts first30-download-transcripts first30-normalize first30-build-chunks first30-export-retrieval first30-evaluate-retrieval verify-vz-pair run-local-asr-smoke align-audio-transcript export-audio-rag-objects training-readiness-first30 corpus-status-dashboard
+
+first30-promote-transcripts:
+	$(PYTHON) tools/promote_first30_transcript_candidates.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+	$(PYTHON) scripts/validate_first30_ingestion_manifest.py
+
+first30-download-transcripts:
+	$(PYTHON) tools/download_first30_transcripts.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+verify-vz-pair:
+	$(PYTHON) tools/verify_vz_2024_q4_pair.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+run-local-asr-smoke:
+	$(PYTHON) tools/run_local_asr_smoke.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+align-audio-transcript:
+	$(PYTHON) tools/align_asr_to_transcript.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-normalize:
+	$(PYTHON) tools/normalize_registered_transcripts.py --registry data/corpus/manual_local_transcript_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-build-chunks:
+	$(PYTHON) tools/build_event_chunks.py --registry data/corpus/manual_local_transcript_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-export-retrieval:
+	$(PYTHON) tools/export_retrieval_objects.py --chunk-manifest data/acquisition/nyse_100_chunk_manifest.csv --out data/retrieval/retrieval_objects_manifest.csv
+
+export-audio-rag-objects:
+	$(PYTHON) tools/export_audio_rag_objects.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-evaluate-retrieval:
+	$(PYTHON) tools/evaluate_retrieval.py --objects data/retrieval/retrieval_objects_manifest.csv
+
+training-readiness-first30:
+	$(PYTHON) tools/build_training_readiness_from_first30.py
+
+corpus-status-dashboard:
+	$(PYTHON) tools/build_corpus_status_dashboard.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"

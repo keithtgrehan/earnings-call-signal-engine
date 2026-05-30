@@ -35,6 +35,7 @@ ASR_MANIFEST_FIELDS = [
     "segments_path",
     "cloud_upload",
     "raw_asr_committed",
+    "raw_asr_text_committed",
     "notes",
 ]
 
@@ -57,7 +58,14 @@ AUDIO_ALIGNMENT_FIELDS = [
     "audio_sha256",
     "transcript_sha256",
     "alignment_status",
+    "alignment_method",
+    "alignment_score",
     "matched_span_count",
+    "matched_transcript_start_char",
+    "matched_transcript_end_char",
+    "partial_alignment",
+    "review_required",
+    "source_relation",
     "raw_text_committed",
     "notes",
 ]

@@ -1,0 +1,42 @@
+{
+  "approved_download_rows": 8,
+  "asr_complete_count": 0,
+  "asr_ready_count": 1,
+  "asr_segment_count": 0,
+  "audio_aligned_count": 0,
+  "audio_object_count": 0,
+  "blockers_by_reason": {
+    "blocked_vendor_marker": 2,
+    "control_fixture_already_registered": 1,
+    "direct_transcript_url_required": 22
+  },
+  "candidate_rows_including_control": 31,
+  "chunk_count": 141,
+  "downloaded_transcript_count": 8,
+  "evaluated_rag": false,
+  "evidence_object_count": 7,
+  "first30_candidate_count": 30,
+  "matched_pair_count": 2,
+  "next_10_manual_actions": [
+    "Resolve or replace `jpm_2025_q4`: direct_transcript_url_required",
+    "Resolve or replace `jpm_2025_q3`: direct_transcript_url_required",
+    "Resolve or replace `jpm_2025_q2`: direct_transcript_url_required",
+    "Resolve or replace `jpm_2025_q1`: direct_transcript_url_required",
+    "Resolve or replace `cat_2025_q3`: direct_transcript_url_required",
+    "Resolve or replace `cat_2025_q2`: direct_transcript_url_required",
+    "Resolve or replace `cat_2025_q1`: direct_transcript_url_required",
+    "Resolve or replace `cat_2024_q4`: direct_transcript_url_required",
+    "Resolve or replace `dow_2025_q4`: direct_transcript_url_required",
+    "Resolve or replace `eqt_2025_q4`: direct_transcript_url_required"
+  ],
+  "normalized_transcript_count": 7,
+  "official_direct_company_hosted_rows": 6,
+  "parsed_transcript_count": 6,
+  "q4cdn_or_cloudfront_rows": 3,
+  "registered_audio_count": 1,
+  "registered_transcript_count": 7,
+  "retrieval_object_count": 141,
+  "training_ready": false,
+  "verified_pair_manifest_rows": 1,
+  "vz_2024_q4_status": "blocked_vendor_full_transcript"
+}
