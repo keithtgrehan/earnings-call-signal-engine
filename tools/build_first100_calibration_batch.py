@@ -114,7 +114,8 @@ def build_calibration_batch(candidates_path: Path = DEFAULT_CANDIDATES, out_path
     return summary
 
 
-def write_summary(summary: dict[str, Any], out_path: Path = SUMMARY_REPORT) -> None:
+def write_summary(summary: dict[str, Any], out_path: Path | None = None) -> None:
+    out_path = out_path or SUMMARY_REPORT
     out_path.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         "# First100 Calibration Batch Summary",

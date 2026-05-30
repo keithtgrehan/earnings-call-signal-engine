@@ -36,6 +36,13 @@ PACKET_COLUMNS = [
 ]
 
 
+def _repo_display_path(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(ROOT.resolve()))
+    except (OSError, ValueError):
+        return str(path)
+
+
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
     if not path.exists():
         return []
@@ -103,7 +110,7 @@ def build_packets(candidates_path: Path = DEFAULT_CANDIDATES, packet_dir: Path =
         target = packet_dir / filename
         title = filename.removesuffix(".md").replace("_", " ").title()
         target.write_text("\n".join(_packet_lines(title, packet_rows)) + "\n", encoding="utf-8")
-        packet_summaries.append({"packet": str(target), "candidate_count": len(packet_rows), "labels": sorted(labels)})
+        packet_summaries.append({"packet": _repo_display_path(target), "candidate_count": len(packet_rows), "labels": sorted(labels)})
     summary = {
         "candidate_count": len(rows),
         "packet_count": len(packet_summaries),
@@ -117,7 +124,8 @@ def build_packets(candidates_path: Path = DEFAULT_CANDIDATES, packet_dir: Path =
     return summary
 
 
-def write_summary(summary: dict[str, Any], out_path: Path = SUMMARY_REPORT) -> None:
+def write_summary(summary: dict[str, Any], out_path: Path | None = None) -> None:
+    out_path = out_path or SUMMARY_REPORT
     out_path.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         "# First100 Review Packet Summary",
