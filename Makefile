@@ -773,3 +773,30 @@ finish-first30-coverage-check: resolve-remaining-first30-transcripts replace-fir
 	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
 
 finish-first30-check: finish-first30-coverage-check
+
+.PHONY: first100-candidate-expansion first100-validate-candidates first100-review-packets first100-calibration-batch first100-promotion-check first100-training-readiness first100-review-dashboard first100-review-check
+
+first100-candidate-expansion:
+	$(PYTHON) tools/run_first100_candidate_expansion.py
+
+first100-validate-candidates:
+	$(PYTHON) tools/validate_first100_signal_candidates.py
+
+first100-review-packets:
+	$(PYTHON) tools/build_first100_review_packets.py
+
+first100-calibration-batch:
+	$(PYTHON) tools/build_first100_calibration_batch.py
+
+first100-promotion-check:
+	$(PYTHON) tools/validate_first100_promotion_manifest.py
+
+first100-training-readiness:
+	$(PYTHON) tools/report_first100_training_readiness.py
+
+first100-review-dashboard:
+	$(PYTHON) tools/build_review_readiness_dashboard.py
+
+first100-review-check: first100-candidate-expansion first100-validate-candidates first100-review-packets first100-calibration-batch first100-promotion-check first100-training-readiness first30-materialize-retrieval-eval first30-evaluate-retrieval first100-review-dashboard
+	$(PYTHON) tools/build_first100_retrieval_support.py
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run

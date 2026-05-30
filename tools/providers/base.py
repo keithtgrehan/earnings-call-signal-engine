@@ -5,11 +5,75 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-import yaml
+try:
+    import yaml
+except ModuleNotFoundError:  # pragma: no cover - exercised when PyYAML is absent locally.
+    yaml = None
 
 ROOT = Path(__file__).resolve().parents[2]
 DESKTOP_WORKSPACE = Path("/Users/keith/Desktop/earnings calls 100 samples")
 DEFAULT_REGISTRY = ROOT / "data" / "provider_registry.yaml"
+
+
+def _parse_scalar(value: str) -> Any:
+    value = value.strip()
+    if value in {"", "''", '""'}:
+        return ""
+    if value.lower() == "true":
+        return True
+    if value.lower() == "false":
+        return False
+    if value.lower() in {"null", "none"}:
+        return None
+    if (value.startswith('"') and value.endswith('"')) or (value.startswith("'") and value.endswith("'")):
+        return value[1:-1]
+    try:
+        return int(value)
+    except ValueError:
+        return value
+
+
+def _simple_yaml_load(text: str) -> dict[str, Any]:
+    """Small fallback parser for the repo's simple provider YAML files."""
+    root: dict[str, Any] = {}
+    current_top: str | None = None
+    current_provider: str | None = None
+    for raw_line in text.splitlines():
+        if not raw_line.strip() or raw_line.lstrip().startswith("#"):
+            continue
+        indent = len(raw_line) - len(raw_line.lstrip(" "))
+        if ":" not in raw_line:
+            continue
+        key, value = raw_line.strip().split(":", 1)
+        value = value.strip()
+        if indent == 0:
+            if value:
+                root[key] = _parse_scalar(value)
+                current_top = None
+            else:
+                root[key] = {}
+                current_top = key
+            current_provider = None
+        elif indent == 2 and current_top == "providers":
+            if value:
+                root["providers"][key] = _parse_scalar(value)
+                current_provider = None
+            else:
+                root["providers"][key] = {}
+                current_provider = key
+        elif indent >= 4 and current_top == "providers" and current_provider:
+            root["providers"][current_provider][key] = _parse_scalar(value)
+        elif indent == 2 and current_top:
+            if isinstance(root.get(current_top), dict):
+                root[current_top][key] = _parse_scalar(value)
+    return root
+
+
+def _load_yaml_text(text: str) -> dict[str, Any]:
+    if yaml is not None:
+        payload = yaml.safe_load(text)
+        return payload if isinstance(payload, dict) else {}
+    return _simple_yaml_load(text)
 
 
 @dataclass(frozen=True)
@@ -57,7 +121,7 @@ class ProviderConfig:
 
 
 def load_provider_registry(path: Path = DEFAULT_REGISTRY) -> dict[str, ProviderConfig]:
-    payload = yaml.safe_load(path.read_text(encoding="utf-8")) if path.exists() else {}
+    payload = _load_yaml_text(path.read_text(encoding="utf-8")) if path.exists() else {}
     providers = payload.get("providers", {}) if isinstance(payload, dict) else {}
     configs: dict[str, ProviderConfig] = {}
     for provider_id, row in providers.items():
@@ -104,8 +168,7 @@ def load_license_config(ref: str) -> dict[str, Any]:
     path = _resolve_license_config_path(ref)
     if not path.exists():
         return {}
-    payload = yaml.safe_load(path.read_text(encoding="utf-8"))
-    return payload if isinstance(payload, dict) else {}
+    return _load_yaml_text(path.read_text(encoding="utf-8"))
 
 
 def is_inside_repo(path: Path) -> bool:
