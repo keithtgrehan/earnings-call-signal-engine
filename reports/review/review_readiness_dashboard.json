@@ -41,9 +41,12 @@
   "candidates_total": 100,
   "chunks": 468,
   "evidence_objects": 44,
+  "explicit_training_rights": false,
   "normalized_transcripts": 31,
   "packets_generated": 5,
   "promotion_candidates": 0,
+  "promotion_manifest_ready": false,
+  "promotion_manifest_status": "NOT_READY",
   "raw_text_committed": false,
   "registered_transcripts": 31,
   "retrieval_objects": 512,
@@ -53,5 +56,6 @@
   ],
   "training_performed": false,
   "training_readiness_state": "REVIEW_READY",
-  "training_ready": false
+  "training_ready": false,
+  "valid_adjudicated_labels": 0
 }

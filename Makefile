@@ -774,7 +774,7 @@ finish-first30-coverage-check: resolve-remaining-first30-transcripts replace-fir
 
 finish-first30-check: finish-first30-coverage-check
 
-.PHONY: first100-candidate-expansion first100-validate-candidates first100-review-packets first100-calibration-batch first100-promotion-check first100-training-readiness first100-review-dashboard first100-review-check
+.PHONY: first100-candidate-expansion first100-validate-candidates first100-review-packets first100-calibration-batch first100-validate-adjudication first100-promotion-check first100-training-readiness first100-review-dashboard first100-review-check
 
 first100-candidate-expansion:
 	$(PYTHON) tools/run_first100_candidate_expansion.py
@@ -787,6 +787,11 @@ first100-review-packets:
 
 first100-calibration-batch:
 	$(PYTHON) tools/build_first100_calibration_batch.py
+
+first100-validate-adjudication:
+	@echo "Set FIRST100_ADJUDICATION=/path/to/first100_adjudication_draft.jsonl to validate a human adjudication draft."
+	@test -n "$(FIRST100_ADJUDICATION)" || exit 2
+	$(PYTHON) tools/validate_first100_adjudication_file.py --adjudication "$(FIRST100_ADJUDICATION)"
 
 first100-promotion-check:
 	$(PYTHON) tools/validate_first100_promotion_manifest.py

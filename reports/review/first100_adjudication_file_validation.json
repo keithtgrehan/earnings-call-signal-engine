@@ -1,0 +1,13 @@
+{
+  "adjudicated_rows": 0,
+  "error_count": 1,
+  "errors": [
+    "adjudication file missing: data/review/staging/first100_adjudication_draft.jsonl"
+  ],
+  "gold_labels_created": 0,
+  "manifest_exists": false,
+  "promotion_ready": false,
+  "status": "NOT_READY",
+  "training_ready": false,
+  "valid": false
+}

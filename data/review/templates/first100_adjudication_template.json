@@ -4,13 +4,11 @@
   "ticker": "",
   "fiscal_period": "",
   "suggested_label": "MACHINE CANDIDATE ONLY",
-  "final_label": "",
+  "adjudicated_label": "",
   "review_status": "adjudicated",
-  "gold_status": "promotion_candidate",
+  "gold_status": "not_gold",
   "reviewer": "",
   "rationale": "",
-  "adjudicator": "",
-  "adjudicated_at": "",
   "source_file": "",
   "source_sha256": "",
   "normalized_transcript_hash": "",
@@ -20,5 +18,8 @@
   "chunk_id": "",
   "unresolved_contamination_flags": [],
   "weak_label_only": false,
-  "training_export_requested": false
+  "promotion_decision": "not_requested",
+  "training_export_requested": false,
+  "training_allowed": false,
+  "explicit_training_rights_ref": ""
 }

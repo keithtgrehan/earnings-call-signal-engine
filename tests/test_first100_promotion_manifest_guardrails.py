@@ -41,6 +41,28 @@ def test_promotion_manifest_rejects_raw_final_evidence_text() -> None:
     assert any("without rationale" in error for error in errors)
 
 
+def test_promotion_manifest_error_messages_are_reviewer_actionable() -> None:
+    errors = validate_rows(
+        [
+            {
+                "candidate_id": "",
+                "label_id": "",
+                "adjudicator": "",
+                "review_status": "pending_human_review",
+                "gold_status": "not_gold",
+                "final_label": "bullish",
+                "training_export_requested": True,
+                "training_allowed": False,
+            }
+        ]
+    )
+
+    assert any("missing candidate_id" in error for error in errors)
+    assert any("invalid final_label" in error for error in errors)
+    assert any("attempted promotion without manifest readiness" in error for error in errors)
+    assert any("unsupported training-rights claim" in error for error in errors)
+
+
 def test_promotion_manifest_validates_metadata_evidence_hash(tmp_path: Path) -> None:
     manifest = tmp_path / "manifest.jsonl"
     manifest.write_text(

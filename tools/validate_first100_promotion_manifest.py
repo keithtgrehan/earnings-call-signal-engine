@@ -13,6 +13,17 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = ROOT / "data" / "review" / "staging" / "first100_promotion_manifest.jsonl"
 REPORT_PATH = ROOT / "reports" / "review" / "first100_promotion_manifest_validation.md"
 JSON_REPORT_PATH = ROOT / "reports" / "review" / "first100_promotion_manifest_validation.json"
+ALLOWED_FINAL_LABELS = {
+    "guidance_revision",
+    "guidance_statement",
+    "analyst_pressure",
+    "management_hedging",
+    "uncertainty",
+    "reassurance",
+    "answer_shift",
+    "neutral/no_signal",
+    "reject_candidate",
+}
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -40,10 +51,15 @@ def validate_rows(rows: list[dict[str, Any]]) -> list[str]:
         for field in ("adjudicator", "adjudicated_at", "final_label", "source_file", "source_sha256", "normalized_transcript_hash", "provenance_hash"):
             if not row.get(field):
                 errors.append(f"row {index}: missing {field}")
+        if not row.get("candidate_id"):
+            errors.append(f"row {index}: missing candidate_id; copy the exact candidate_id from the adjudicated review row")
+        final_label = str(row.get("final_label", "")).strip()
+        if final_label and final_label not in ALLOWED_FINAL_LABELS:
+            errors.append(f"row {index}: invalid final_label {final_label!r}; use a supported first100 review label")
         if row.get("review_status") != "adjudicated":
             errors.append(f"row {index}: review_status must be adjudicated")
         if row.get("gold_status") != "promotion_candidate":
-            errors.append(f"row {index}: gold_status must be promotion_candidate")
+            errors.append(f"row {index}: attempted promotion without manifest readiness; gold_status must be promotion_candidate only in a reviewed promotion manifest")
         if not (row.get("final_evidence_text_hash") or row.get("final_evidence_text_ref") or row.get("final_evidence_text")):
             errors.append(f"row {index}: missing final_evidence_text proof")
         if _looks_like_repo_raw_text(row.get("final_evidence_text")):
@@ -68,7 +84,7 @@ def validate_rows(rows: list[dict[str, Any]]) -> list[str]:
         training_requested = str(row.get("training_export_requested", "")).lower() == "true"
         training_allowed = str(row.get("training_allowed", "false")).lower() == "true"
         if training_requested and not training_allowed:
-            errors.append(f"row {index}: training_allowed false but training export requested")
+            errors.append(f"row {index}: unsupported training-rights claim; training_allowed false but training export requested")
     duplicate_label_ids = [item for item, count in Counter(label_ids).items() if item and count > 1]
     duplicate_provenance = [item for item, count in Counter(provenance_hashes).items() if item and count > 1]
     errors.extend(f"duplicate label_id {item}" for item in duplicate_label_ids)
