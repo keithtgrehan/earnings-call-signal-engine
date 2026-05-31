@@ -19,6 +19,7 @@ RETRIEVAL = ROOT / "data" / "retrieval" / "retrieval_objects_manifest.csv"
 CANDIDATES = ROOT / "data" / "review" / "staging" / "first100_signal_candidates.jsonl"
 CALIBRATION = ROOT / "data" / "review" / "staging" / "first100_calibration_batch_001.jsonl"
 PROMOTION = ROOT / "reports" / "review" / "first100_promotion_manifest_validation.json"
+ADJUDICATION_VALIDATION = ROOT / "reports" / "review" / "first100_adjudication_file_validation.json"
 TRAINING = ROOT / "reports" / "review" / "first100_training_readiness.json"
 PACKET_DIR = ROOT / "data" / "review" / "packets"
 REPORT_PATH = ROOT / "reports" / "review" / "review_readiness_dashboard.md"
@@ -48,6 +49,7 @@ def build_dashboard(out_path: Path = REPORT_PATH, json_out_path: Path = JSON_REP
     candidates = read_jsonl(CANDIDATES)
     calibration = read_jsonl(CALIBRATION)
     promotion = read_json(PROMOTION)
+    adjudication = read_json(ADJUDICATION_VALIDATION)
     training = read_json(TRAINING)
     packets = sorted(PACKET_DIR.glob("first100_batch_*.md"))
     label_counts = Counter(row.get("suggested_label", "") for row in candidates)
@@ -57,6 +59,8 @@ def build_dashboard(out_path: Path = REPORT_PATH, json_out_path: Path = JSON_REP
         top_blockers.append(f"candidate expansion below 100: {len(candidates)}")
     if promotion.get("status") != "PROMOTION_READY":
         top_blockers.append("promotion manifest not ready; human adjudication required")
+    if adjudication.get("manifest_exists") and adjudication.get("adjudicated_rows", 0) == 0:
+        top_blockers.append("empty adjudication scaffold initialized; manual review still required")
     if training.get("state") not in {"TRAINING_READY_STAGED", "TRAINING_READY_CANONICAL"}:
         top_blockers.append("training not ready; adjudicated labels/training rights missing")
     summary = {
@@ -70,6 +74,11 @@ def build_dashboard(out_path: Path = REPORT_PATH, json_out_path: Path = JSON_REP
         "candidates_by_case": dict(sorted(case_counts.items())),
         "packets_generated": len(packets),
         "calibration_rows": len(calibration),
+        "adjudication_draft_exists": bool(adjudication.get("manifest_exists", False)),
+        "adjudication_draft_status": adjudication.get("status", "NOT_READY"),
+        "adjudication_draft_rows": adjudication.get("adjudicated_rows", 0),
+        "empty_adjudication_scaffold_initialized": bool(adjudication.get("manifest_exists", False))
+        and adjudication.get("adjudicated_rows", 0) == 0,
         "adjudicated_rows": promotion.get("rows", 0) if promotion.get("valid") else 0,
         "promotion_manifest_status": promotion.get("status", "NOT_READY"),
         "promotion_manifest_ready": promotion.get("status") == "PROMOTION_READY",
@@ -101,6 +110,9 @@ def write_reports(summary: dict[str, Any], out_path: Path, json_out_path: Path) 
         f"- Candidates by case: {len(summary['candidates_by_case'])}",
         f"- Packets generated: {summary['packets_generated']}",
         f"- Calibration rows: {summary['calibration_rows']}",
+        f"- Adjudication draft status: {summary['adjudication_draft_status']}",
+        f"- Empty adjudication scaffold initialized: {str(summary['empty_adjudication_scaffold_initialized']).lower()}",
+        f"- Adjudication draft rows: {summary['adjudication_draft_rows']}",
         f"- Adjudicated rows: {summary['adjudicated_rows']}",
         f"- Valid adjudicated labels: {summary['valid_adjudicated_labels']}",
         f"- Promotion manifest status: {summary['promotion_manifest_status']}",
