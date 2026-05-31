@@ -7,7 +7,14 @@ This workflow turns metadata-only machine candidates into human adjudication dra
 - Candidate file: `data/review/staging/first100_signal_candidates.jsonl`
 - Review packets: `data/review/packets/first100_batch_*.md`
 - Adjudication template: `data/review/templates/first100_adjudication_template.json`
+- Empty draft scaffold: `data/review/staging/first100_adjudication_draft.jsonl`
 - Approved source material: Desktop corpus workspace only
+
+## Empty Draft Scaffold
+
+`data/review/staging/first100_adjudication_draft.jsonl` is intentionally empty until a human reviewer adds rows. Do not prefill rows with blank labels or placeholder reviewers; the validator treats any row as an adjudicated row and requires a real `adjudicated_label`, reviewer id, and provenance.
+
+When a candidate has been manually reviewed, add one metadata-only JSON object on a single line. Copy candidate identifiers and hashes from the review packet or candidate file, but do not copy transcript text or snippets.
 
 ## Fill One JSONL Row Per Reviewed Candidate
 
@@ -53,6 +60,7 @@ This example uses fake ids only. Do not copy it as a real adjudication row.
 Use a local path for the draft adjudication JSONL until it is ready to commit as a metadata-only review artifact.
 
 ```bash
+python3 tools/validate_first100_adjudication_file.py data/review/staging/first100_adjudication_draft.jsonl
 python3 tools/validate_first100_adjudication_file.py --adjudication /path/to/first100_adjudication_draft.jsonl
 python3 tools/validate_first100_promotion_manifest.py --manifest data/review/staging/first100_promotion_manifest.jsonl
 python3 tools/report_first100_training_readiness.py
