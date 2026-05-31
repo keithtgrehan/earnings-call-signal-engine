@@ -20,6 +20,7 @@ ROW_TEMPLATE_PATH = ROOT / "docs" / "review" / "first100_adjudication_row_templa
 REVIEWER_FIELDS = [
     "candidate_id",
     "reviewer",
+    "reviewed_at",
     "adjudicated_label",
     "rationale",
     "rejection_reason",
@@ -29,7 +30,7 @@ REVIEWER_FIELDS = [
 ]
 
 VALIDATION_COMMANDS = [
-    "python3 tools/validate_first100_adjudication_file.py data/review/staging/first100_adjudication_draft.jsonl",
+    "python3 tools/validate_first100_adjudication.py --draft data/review/staging/first100_adjudication_draft.jsonl --mode staging",
     "python3 tools/validate_first100_promotion_manifest.py --manifest data/review/staging/first100_promotion_manifest.jsonl",
     "python3 tools/build_review_readiness_dashboard.py",
 ]

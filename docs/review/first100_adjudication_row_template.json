@@ -8,6 +8,7 @@
   "review_status": "adjudicated",
   "gold_status": "not_gold",
   "reviewer": "<reviewer_id>",
+  "reviewed_at": "<YYYY-MM-DDTHH:MM:SSZ>",
   "rationale": "<short rationale without transcript text or quotes>",
   "source_file": "<source_path_from_review_packet>",
   "source_sha256": "sha256:<source_sha256>",

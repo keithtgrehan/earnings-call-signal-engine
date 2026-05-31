@@ -60,9 +60,10 @@ def test_reviewer_packet_is_reports_only_and_does_not_modify_staging_draft(tmp_p
     packet_json = json.loads(json_out.read_text(encoding="utf-8"))
     assert "docs/review/first100_manual_adjudication_guide.md" in packet_text
     assert "docs/review/first100_adjudication_row_template.json" in packet_text
-    assert "python3 tools/validate_first100_adjudication_file.py data/review/staging/first100_adjudication_draft.jsonl" in packet_text
+    assert "python3 tools/validate_first100_adjudication.py --draft data/review/staging/first100_adjudication_draft.jsonl --mode staging" in packet_text
     assert "sha256:1111111111111111111111111" in packet_text
     assert "reviewer" in packet_text
+    assert "reviewed_at" in packet_text
     assert "adjudicated_label" in packet_text
     assert "suggested_label" not in packet_text
     assert "guidance_statement" not in packet_text
