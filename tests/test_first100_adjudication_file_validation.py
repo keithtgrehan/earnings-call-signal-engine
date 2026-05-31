@@ -176,6 +176,27 @@ def test_manual_adjudication_guide_documents_required_fields_and_blockers() -> N
         assert blocker in guide
 
 
+def test_manual_operator_checklist_documents_safe_local_workflow() -> None:
+    checklist = (validator.ROOT / "docs" / "review" / "first100_manual_operator_checklist.md").read_text(
+        encoding="utf-8"
+    )
+
+    for required in (
+        "reports/review/first100_reviewer_packet.md",
+        "data/review/staging/first100_signal_candidates.jsonl",
+        "data/review/staging/first100_adjudication_draft.jsonl",
+        "No transcript quotes are pasted",
+        "No `quote`, `snippet`, `raw_text`, `evidence_text`, or `final_evidence_text` field is present",
+        "`promotion_ready=false`",
+        "`training_ready=false`",
+        "PYENV_VERSION=3.11.3 python tools/validate_first100_adjudication.py --draft data/review/staging/first100_adjudication_draft.jsonl --mode staging",
+        "PYENV_VERSION=3.11.3 python tools/build_first100_reviewer_packet.py",
+        "PYENV_VERSION=3.11.3 python tools/build_review_readiness_dashboard.py",
+        "scripts/check_restricted_artifacts.py",
+    ):
+        assert required in checklist
+
+
 def test_malformed_jsonl_fails_with_line_number(tmp_path: Path) -> None:
     path = tmp_path / "bad.jsonl"
     path.write_text(json.dumps(_row()) + "\n" + '{"candidate_id": \n', encoding="utf-8")
