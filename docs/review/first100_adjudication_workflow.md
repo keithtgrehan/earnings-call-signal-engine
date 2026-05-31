@@ -77,3 +77,15 @@ Expected current status before human review:
 - `explicit_training_rights=false`
 
 Training remains blocked until at least 100 valid adjudicated labels exist, provenance is complete, promotion gates pass, and explicit training rights are configured.
+
+## Reviewer Helper Packet
+
+Generate the reviewer helper packet with:
+
+```bash
+python3 tools/build_first100_reviewer_packet.py
+```
+
+The packet writes `reports/review/first100_reviewer_packet.md` and `reports/review/first100_reviewer_packet.json`. It is a reviewer-only checklist that points to this workflow, the manual guide, the documentation row template, candidate ids, and validation commands.
+
+It does not add rows to `data/review/staging/first100_adjudication_draft.jsonl`, choose labels, copy raw evidence text, create gold labels, create promotion rows, create training data, or make promotion/training ready.
