@@ -31,6 +31,7 @@ No raw transcript text belongs in the draft. Do not paste quotes, snippets, sour
 - `review_status`: `adjudicated`.
 - `gold_status`: `not_gold`.
 - `reviewer`: stable reviewer id with at least three letters/numbers.
+- `reviewed_at`: ISO-8601 UTC timestamp with trailing `Z`, for example `2026-05-31T12:00:00Z`.
 - `rationale`: short reason without raw transcript text.
 - `source_file`: source path from the packet or candidate metadata.
 - `source_sha256`: source hash from the packet or candidate metadata.
@@ -45,6 +46,8 @@ No raw transcript text belongs in the draft. Do not paste quotes, snippets, sour
 - `explicit_training_rights_ref`: empty string.
 
 At least one of `evidence_object_id` or `chunk_id` must be present.
+
+Unknown fields fail validation. Raw text fields such as `quote`, `snippet`, `raw_text`, `evidence_text`, and `final_evidence_text` also fail validation.
 
 ## Valid Label Values
 
@@ -88,6 +91,24 @@ No raw transcript body, quote, snippet, ASR text, audio-derived text, or chunk t
 
 The reviewer may inspect approved source material locally, but the JSONL row must stay metadata-only.
 
+## Row Examples
+
+The following examples use fake identifiers only. Do not copy them as real decisions.
+
+Valid row shape:
+
+```json
+{"candidate_id":"fake_candidate_001","case_id":"fake_2025_q4","ticker":"FAKE","fiscal_period":"2025 Q4","suggested_label":"MACHINE CANDIDATE ONLY","adjudicated_label":"needs_source_review","review_status":"adjudicated","gold_status":"not_gold","reviewer":"reviewer_1","reviewed_at":"2026-05-31T12:00:00Z","rationale":"Metadata reviewed; source needs a second pass.","source_file":"/Users/keith/Desktop/earnings calls 100 samples/fake/source.txt","source_sha256":"sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","normalized_transcript_hash":"sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","text_hash":"sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc","provenance_hash":"sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd","evidence_object_id":"fake_evidence_id","chunk_id":"","rejection_reason":"source_needs_review","promotion_decision":"not_requested","training_export_requested":false,"training_allowed":false,"explicit_training_rights_ref":""}
+```
+
+Invalid row shape:
+
+```json
+{"candidate_id":"fake_candidate_001","adjudicated_label":"bullish","review_status":"pending_human_review","gold_status":"promotion_candidate","reviewer":"","reviewed_at":"2026-05-31 12:00:00","quote":"raw transcript text must not be pasted","promotion_decision":"promote","training_allowed":true}
+```
+
+This invalid row fails because the label is not allowed, the row is not adjudicated, it attempts promotion and training readiness, the reviewer and timestamp are invalid, and it includes raw text.
+
 ## What Must Never Be Guessed
 
 Do not guess:
@@ -125,9 +146,11 @@ Training remains blocked until there are at least 100 valid adjudicated labels, 
 Run the validation sequence after editing:
 
 ```bash
-python3 tools/validate_first100_adjudication_file.py data/review/staging/first100_adjudication_draft.jsonl
+python3 tools/validate_first100_adjudication.py --draft data/review/staging/first100_adjudication_draft.jsonl --mode staging
 python3 tools/validate_first100_promotion_manifest.py --manifest data/review/staging/first100_promotion_manifest.jsonl
 python3 tools/build_review_readiness_dashboard.py
 ```
 
 Expected status before completed human review: `NOT_READY`, `promotion_ready=false`, `training_ready=false`.
+
+Passing draft validation means the staging JSONL is well-formed reviewer input. It does not mean promotion readiness or training readiness.
