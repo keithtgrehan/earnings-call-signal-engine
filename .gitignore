@@ -65,6 +65,7 @@ tmp/
 data/review/runtime/
 data/review/*
 !data/review/.gitkeep
+!data/review/public_model_assist_registry.example.yml
 !data/review/staging/
 data/review/staging/*
 !data/review/staging/first100_adjudication_draft.jsonl
