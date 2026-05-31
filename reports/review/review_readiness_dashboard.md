@@ -11,9 +11,12 @@
 - Packets generated: 5
 - Calibration rows: 24
 - Adjudicated rows: 0
+- Valid adjudicated labels: 0
+- Promotion manifest status: NOT_READY
 - Promotion candidates: 0
 - Training readiness state: REVIEW_READY
 - Training ready: false
+- Explicit training rights: false
 - Raw text committed: false
 - Training performed: false
 
