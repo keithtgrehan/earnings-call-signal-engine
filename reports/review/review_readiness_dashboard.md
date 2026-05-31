@@ -10,6 +10,9 @@
 - Candidates by case: 27
 - Packets generated: 5
 - Calibration rows: 24
+- Adjudication draft status: NOT_READY
+- Empty adjudication scaffold initialized: true
+- Adjudication draft rows: 0
 - Adjudicated rows: 0
 - Valid adjudicated labels: 0
 - Promotion manifest status: NOT_READY
@@ -23,4 +26,5 @@
 ## Top Blockers
 
 - promotion manifest not ready; human adjudication required
+- empty adjudication scaffold initialized; manual review still required
 - training not ready; adjudicated labels/training rights missing

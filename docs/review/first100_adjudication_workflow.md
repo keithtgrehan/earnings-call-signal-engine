@@ -7,6 +7,8 @@ This workflow turns metadata-only machine candidates into human adjudication dra
 - Candidate file: `data/review/staging/first100_signal_candidates.jsonl`
 - Review packets: `data/review/packets/first100_batch_*.md`
 - Adjudication template: `data/review/templates/first100_adjudication_template.json`
+- Manual guide: `docs/review/first100_manual_adjudication_guide.md`
+- Documentation row template: `docs/review/first100_adjudication_row_template.json`
 - Empty draft scaffold: `data/review/staging/first100_adjudication_draft.jsonl`
 - Approved source material: Desktop corpus workspace only
 

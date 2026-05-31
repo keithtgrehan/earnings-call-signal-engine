@@ -1,5 +1,8 @@
 {
   "adjudicated_rows": 0,
+  "adjudication_draft_exists": true,
+  "adjudication_draft_rows": 0,
+  "adjudication_draft_status": "NOT_READY",
   "calibration_rows": 24,
   "candidates_by_case": {
     "bac_2025_q4": 5,
@@ -40,6 +43,7 @@
   },
   "candidates_total": 100,
   "chunks": 468,
+  "empty_adjudication_scaffold_initialized": true,
   "evidence_objects": 44,
   "explicit_training_rights": false,
   "normalized_transcripts": 31,
@@ -52,6 +56,7 @@
   "retrieval_objects": 512,
   "top_blockers": [
     "promotion manifest not ready; human adjudication required",
+    "empty adjudication scaffold initialized; manual review still required",
     "training not ready; adjudicated labels/training rights missing"
   ],
   "training_performed": false,
