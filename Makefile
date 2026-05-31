@@ -774,7 +774,7 @@ finish-first30-coverage-check: resolve-remaining-first30-transcripts replace-fir
 
 finish-first30-check: finish-first30-coverage-check
 
-.PHONY: first100-candidate-expansion first100-validate-candidates first100-review-packets first100-calibration-batch first100-validate-adjudication first100-promotion-check first100-training-readiness first100-review-dashboard first100-review-check
+.PHONY: first100-candidate-expansion first100-validate-candidates first100-review-packets first100-calibration-batch first100-validate-adjudication first100-promotion-check first100-training-readiness first100-review-dashboard validate-public-model-assist-registry first100-weak-model-assist first100-review-accelerator first100-review-check
 
 first100-candidate-expansion:
 	$(PYTHON) tools/run_first100_candidate_expansion.py
@@ -801,6 +801,15 @@ first100-training-readiness:
 
 first100-review-dashboard:
 	$(PYTHON) tools/build_review_readiness_dashboard.py
+
+validate-public-model-assist-registry:
+	$(PYTHON) tools/validate_public_model_assist_registry.py data/review/public_model_assist_registry.example.yml
+
+first100-weak-model-assist: validate-public-model-assist-registry
+	$(PYTHON) tools/build_first100_weak_model_assist.py
+
+first100-review-accelerator: first100-weak-model-assist
+	$(PYTHON) tools/build_first100_review_spreadsheet.py
 
 first100-review-check: first100-candidate-expansion first100-validate-candidates first100-review-packets first100-calibration-batch first100-promotion-check first100-training-readiness first30-materialize-retrieval-eval first30-evaluate-retrieval first100-review-dashboard
 	$(PYTHON) tools/build_first100_retrieval_support.py
