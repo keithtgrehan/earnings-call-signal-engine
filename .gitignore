@@ -63,8 +63,11 @@ tmp/
 
 # local human-review runtime outputs
 data/review/runtime/
-data/review/
+data/review/*
 !data/review/.gitkeep
+!data/review/staging/
+data/review/staging/*
+!data/review/staging/first100_adjudication_draft.jsonl
 data/review/argilla/
 data/review/exports/
 data/review/imports/

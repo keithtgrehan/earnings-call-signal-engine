@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from tools.validate_first100_adjudication_file import validate_adjudication_file, validate_rows
+from tools.validate_first100_adjudication_file import main, validate_adjudication_file, validate_rows
 
 
 def _row() -> dict[str, object]:
@@ -61,3 +61,27 @@ def test_adjudication_validator_accepts_metadata_only_non_promotional_row(tmp_pa
     assert summary["adjudicated_rows"] == 1
     assert summary["promotion_ready"] is False
     assert summary["training_ready"] is False
+
+
+def test_empty_adjudication_draft_is_not_ready_without_errors(tmp_path: Path) -> None:
+    path = tmp_path / "first100_adjudication_draft.jsonl"
+    path.write_text("\n", encoding="utf-8")
+
+    summary = validate_adjudication_file(path, tmp_path / "report.md", tmp_path / "report.json")
+
+    assert summary["manifest_exists"] is True
+    assert summary["valid"] is False
+    assert summary["status"] == "NOT_READY"
+    assert summary["adjudicated_rows"] == 0
+    assert summary["error_count"] == 0
+    assert summary["promotion_ready"] is False
+    assert summary["training_ready"] is False
+
+
+def test_adjudication_validator_accepts_positional_path(tmp_path: Path) -> None:
+    path = tmp_path / "adjudication.jsonl"
+    path.write_text(json.dumps(_row()) + "\n", encoding="utf-8")
+
+    exit_code = main([str(path), "--out", str(tmp_path / "report.md"), "--json-out", str(tmp_path / "report.json")])
+
+    assert exit_code == 0

@@ -161,11 +161,18 @@ def write_reports(summary: dict[str, Any], out_path: Path, json_out_path: Path) 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Validate first100 adjudication draft JSONL without promotion.")
+    parser.add_argument(
+        "adjudication_path",
+        nargs="?",
+        type=Path,
+        help="Optional positional path to the adjudication draft JSONL.",
+    )
     parser.add_argument("--adjudication", type=Path, default=DEFAULT_ADJUDICATION)
     parser.add_argument("--out", type=Path, default=REPORT_PATH)
     parser.add_argument("--json-out", type=Path, default=JSON_REPORT_PATH)
     args = parser.parse_args(argv)
-    summary = validate_adjudication_file(args.adjudication, args.out, args.json_out)
+    adjudication_path = args.adjudication_path or args.adjudication
+    summary = validate_adjudication_file(adjudication_path, args.out, args.json_out)
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0 if summary["valid"] else 1
 
