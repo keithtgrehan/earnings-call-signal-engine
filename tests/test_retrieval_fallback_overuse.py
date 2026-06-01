@@ -89,5 +89,5 @@ def test_evidence_required_queries_do_not_return_semantic_fallback_padding(tmp_p
 
     summary = evaluate_retrieval_objects(objects, queries, limit=10)
 
-    assert [row["object_id"] for row in summary["results"] if not row["abstained"]] == ["evidence"]
+    assert [row["object_id"] for row in summary["results"] if row["retrieval_method"] != "abstain"] == ["evidence"]
     assert summary["fallback_overuse"] == 0.0

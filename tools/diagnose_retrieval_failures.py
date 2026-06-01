@@ -10,8 +10,8 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-RESULTS_PATH = ROOT / "data" / "retrieval" / "first30_eval_results.jsonl"
-METRICS_PATH = ROOT / "data" / "retrieval" / "first30_eval_metrics.json"
+RESULTS_PATH = ROOT / "data" / "retrieval" / "retrieval_eval_results.jsonl"
+METRICS_PATH = ROOT / "reports" / "retrieval" / "retrieval_eval_summary.json"
 REPORT_PATH = ROOT / "reports" / "retrieval" / "retrieval_failure_diagnostics.md"
 
 
@@ -30,7 +30,7 @@ def read_json(path: Path) -> dict[str, Any]:
 def diagnose_retrieval_failures(*, results_path: Path = RESULTS_PATH, metrics_path: Path = METRICS_PATH, out_path: Path = REPORT_PATH) -> dict[str, Any]:
     rows = read_jsonl(results_path)
     metrics = read_json(metrics_path)
-    invalid = [row for row in rows if row.get("abstained") is not True and not row.get("citation_valid")]
+    invalid = [row for row in rows if row.get("retrieval_method") != "abstain" and not row.get("citation_valid")]
     wrong_context = [row for row in invalid if row.get("case_id") or row.get("ticker") or row.get("fiscal_period")]
     by_query = Counter(row.get("query_id", "") for row in invalid)
     summary = {
