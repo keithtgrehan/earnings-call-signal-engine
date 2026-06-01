@@ -124,6 +124,12 @@ MARKET_CLAIM_PATTERNS = [
     re.compile(r"statistical\s+significance", re.IGNORECASE),
     re.compile(r"live\s+execution", re.IGNORECASE),
 ]
+SHA256_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
+TRANSCRIPT_LIKE_VALUE_PATTERNS = [
+    ("transcript-like text", re.compile(r"\b(operator|management|analyst|speaker|executive|ir)\s*:", re.IGNORECASE)),
+    ("raw/chunk text", re.compile(r"\b(raw transcript|transcript|chunk|payload)\s+text\s+(excerpt|snippet|payload|content)", re.IGNORECASE)),
+    ("raw/chunk text", re.compile(r"\bretrieval payload\b", re.IGNORECASE)),
+]
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -151,12 +157,16 @@ def load_eval_queries(path: Path) -> list[dict[str, Any]]:
 
 def validate_no_forbidden_payload_keys(payload: Any, *, context: str = "payload") -> list[str]:
     errors: list[str] = []
+    forbidden_compact = {re.sub(r"[^a-z0-9]", "", key.lower()) for key in FORBIDDEN_PAYLOAD_KEYS}
 
     def visit(value: Any, path: str) -> None:
         if isinstance(value, dict):
             for key, nested in value.items():
                 key_path = f"{path}.{key}" if path else str(key)
-                if key in FORBIDDEN_PAYLOAD_KEYS:
+                key_snake = re.sub(r"(?<!^)(?=[A-Z])", "_", str(key)).lower()
+                key_compact = re.sub(r"[^a-z0-9]", "", str(key).lower())
+                key_snake_compact = re.sub(r"[^a-z0-9]", "", key_snake)
+                if key in FORBIDDEN_PAYLOAD_KEYS or key_compact in forbidden_compact or key_snake_compact in forbidden_compact:
                     errors.append(f"{context}: forbidden raw/payload key {key_path}")
                 visit(nested, key_path)
         elif isinstance(value, list):
@@ -171,6 +181,35 @@ def validate_claim_safety_text(text: str) -> list[str]:
     return [f"unsafe market claim term matched: {pattern.pattern}" for pattern in MARKET_CLAIM_PATTERNS if pattern.search(text)]
 
 
+def validate_no_raw_text_like_values(payload: Any, *, context: str = "payload") -> list[str]:
+    errors: list[str] = []
+
+    def visit(value: Any, path: str) -> None:
+        if isinstance(value, dict):
+            for key, nested in value.items():
+                visit(nested, f"{path}.{key}" if path else str(key))
+        elif isinstance(value, list):
+            for index, nested in enumerate(value):
+                visit(nested, f"{path}[{index}]")
+        elif isinstance(value, str):
+            for label, pattern in TRANSCRIPT_LIKE_VALUE_PATTERNS:
+                if pattern.search(value):
+                    errors.append(f"{context}: {label} value blocked at {path}")
+                    break
+
+    visit(payload, "")
+    return errors
+
+
+def _claim_safety_errors(row: dict[str, Any], *, fields: tuple[str, ...], context: str) -> list[str]:
+    errors: list[str] = []
+    for field in fields:
+        value = row.get(field)
+        if isinstance(value, str):
+            errors.extend(f"{context}.{field}: {error}" for error in validate_claim_safety_text(value))
+    return errors
+
+
 def _validate_string_list(row: dict[str, Any], field: str, errors: list[str]) -> list[str]:
     value = row.get(field)
     if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
@@ -181,6 +220,7 @@ def _validate_string_list(row: dict[str, Any], field: str, errors: list[str]) ->
 
 def validate_eval_query_record(row: dict[str, Any]) -> list[str]:
     errors = validate_no_forbidden_payload_keys(row, context="query")
+    errors.extend(validate_no_raw_text_like_values(row, context="query"))
     keys = set(row)
     for field in sorted(QUERY_REQUIRED_FIELDS - keys):
         errors.append(f"missing required field {field}")
@@ -197,7 +237,7 @@ def validate_eval_query_record(row: dict[str, Any]) -> list[str]:
     speakers = _validate_string_list(row, "expected_speaker_roles", errors)
     rights = _validate_string_list(row, "rights_required", errors)
     _validate_string_list(row, "expected_signal_types", errors)
-    _validate_string_list(row, "expected_evidence_ids", errors)
+    expected_ids = _validate_string_list(row, "expected_evidence_ids", errors)
     for item in object_types:
         if item not in ALLOWED_QUERY_OBJECT_TYPES:
             errors.append(f"expected_object_types contains unsupported value {item!r}")
@@ -210,11 +250,23 @@ def validate_eval_query_record(row: dict[str, Any]) -> list[str]:
     for item in rights:
         if item not in ALLOWED_RIGHTS:
             errors.append(f"rights_required contains unsupported value {item!r}")
+    if row.get("negative_control") is True:
+        if row.get("abstention_expected") is not True:
+            errors.append("negative_control rows must set abstention_expected=true")
+        if expected_ids:
+            errors.append("negative_control rows must leave expected_evidence_ids empty")
+    if row.get("abstention_expected") is True and expected_ids:
+        errors.append("abstention_expected rows must leave expected_evidence_ids empty")
+    if row.get("negative_control") is False and row.get("abstention_expected") is False and not expected_ids:
+        errors.append("non-abstention positive rows must include expected_evidence_ids")
+    if row.get("negative_control") is not True and row.get("abstention_expected") is not True:
+        errors.extend(_claim_safety_errors(row, fields=("query_text", "notes"), context="query"))
     return errors
 
 
 def validate_retrieval_result_record(row: dict[str, Any]) -> list[str]:
     errors = validate_no_forbidden_payload_keys(row, context="result")
+    errors.extend(validate_no_raw_text_like_values(row, context="result"))
     keys = set(row)
     allowed = RESULT_REQUIRED_FIELDS | RESULT_OPTIONAL_FIELDS
     for field in sorted(RESULT_REQUIRED_FIELDS - keys):
@@ -253,11 +305,16 @@ def validate_retrieval_result_record(row: dict[str, Any]) -> list[str]:
         if row.get("result_rank") != 0:
             errors.append("abstention result_rank must be 0")
     else:
+        errors.extend(_claim_safety_errors(row, fields=("notes",), context="result"))
         if isinstance(row.get("result_rank"), int) and row["result_rank"] < 1:
             errors.append("non-abstention result_rank must be >= 1")
         for field in ("object_id", "case_id", "ticker", "fiscal_period", "source_hash", "normalized_transcript_hash", "provenance_hash"):
             if not row.get(field):
                 errors.append(f"{field} must be present for non-abstention rows")
+        for field in ("source_hash", "normalized_transcript_hash", "provenance_hash"):
+            value = row.get(field)
+            if isinstance(value, str) and value and not SHA256_RE.fullmatch(value):
+                errors.append(f"{field} must be a sha256:<64 lowercase hex> value for non-abstention rows")
     return errors
 
 
@@ -655,7 +712,7 @@ def _summarize_results(
     if placeholders:
         warnings.append("reviewer placeholder expected evidence IDs remain; production metrics must fail closed")
     if smoke_metrics:
-        warnings.append("smoke_metrics only; not an evaluated RAG run")
+        warnings.append("smoke_metrics only; scaffold readiness check, not production RAG quality evidence")
     summary = {
         "query_count": len(queries),
         "result_count": result_denominator,

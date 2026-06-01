@@ -60,3 +60,57 @@ def test_suppression_guardrails_abstain_with_blocked_reasons(tmp_path: Path) -> 
         "trading_request",
     }
     assert summary["rates"]["abstention_correctness"] == {"numerator": 8, "denominator": 8, "percentage": 100.0}
+
+
+def test_positive_query_with_empty_inventory_returns_no_index_abstention(tmp_path: Path) -> None:
+    queries = tmp_path / "queries.jsonl"
+    write_jsonl(
+        queries,
+        [
+            {
+                "query_id": "positive_missing_inventory",
+                "query_text": "HD 2025 Q4 prepared remarks guidance category evidence",
+                "query_intent": "prepared_guidance",
+                "target_case_id": "hd_2025_q4",
+                "target_ticker": "HD",
+                "target_fiscal_period": "2025 Q4",
+                "expected_object_types": ["evidence_object"],
+                "expected_signal_types": ["guidance"],
+                "expected_sections": ["prepared_remarks"],
+                "expected_speaker_roles": ["management"],
+                "expected_evidence_ids": ["evidence_1"],
+                "negative_control": False,
+                "abstention_expected": False,
+                "rights_required": ["retrieval_object_manifest"],
+                "notes": "metadata-only positive row with no retrieval inventory",
+            }
+        ],
+    )
+
+    summary = evaluate_retrieval_objects(tmp_path / "missing_objects.csv", queries)
+
+    assert summary["results"] == [
+        {
+            "query_id": "positive_missing_inventory",
+            "result_rank": 0,
+            "object_id": None,
+            "object_type": None,
+            "case_id": None,
+            "ticker": None,
+            "fiscal_period": None,
+            "source_hash": None,
+            "normalized_transcript_hash": None,
+            "provenance_hash": None,
+            "section_label": "unknown",
+            "speaker_role": "unknown",
+            "qa_pair_id": None,
+            "retrieval_score": 0.0,
+            "retrieval_method": "abstain",
+            "citation_valid": True,
+            "raw_text_returned": False,
+            "blocked_reason": "no_index",
+            "notes": "safe abstention; no raw text returned",
+        }
+    ]
+    assert summary["rates"]["recall_at_5"] == {"numerator": 0, "denominator": 1, "percentage": 0.0}
+    assert summary["rates"]["abstention_correctness"] == {"numerator": 0, "denominator": 0, "percentage": 0.0}

@@ -36,7 +36,7 @@ MATERIALIZED_FIRST30_QUERIES = ROOT / "data" / "retrieval" / "eval_queries_first
 RESULTS_OUT = ROOT / "data" / "retrieval" / "retrieval_eval_results.jsonl"
 SUMMARY_JSON = ROOT / "reports" / "retrieval" / "retrieval_eval_summary.json"
 SUMMARY_MD = ROOT / "reports" / "retrieval" / "retrieval_eval_summary.md"
-MAX_FALLBACK_OVERUSE_FOR_EVALUATED_RAG = 0.25
+MAX_FALLBACK_OVERUSE_FOR_PRODUCTION_GATE = 0.25
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -120,7 +120,7 @@ def _gate_status(summary: dict[str, Any]) -> bool:
         and summary.get("invalid_citation_rate", 1.0) <= 0.05
         and summary.get("abstention_correctness", 0.0) >= 0.95
         and summary.get("provenance_completeness", 0.0) >= 0.95
-        and summary.get("fallback_overuse", 1.0) <= MAX_FALLBACK_OVERUSE_FOR_EVALUATED_RAG
+        and summary.get("fallback_overuse", 1.0) <= MAX_FALLBACK_OVERUSE_FOR_PRODUCTION_GATE
         and summary.get("raw_text_returned") is False
     )
 
@@ -132,19 +132,23 @@ def _format_rate(summary: dict[str, Any], name: str) -> str:
 
 def write_report(summary: dict[str, Any], out_path: Path = SUMMARY_MD) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    evaluated_rag = _gate_status(summary)
-    pass_fail = "pass" if evaluated_rag else ("fail" if summary.get("failures") else "warn")
+    production_gate_passed = _gate_status(summary)
+    pass_fail = "pass" if production_gate_passed else ("fail" if summary.get("failures") else "warn")
     warnings = summary.get("warnings") or []
     failures = summary.get("failures") or []
     inventory = summary.get("object_inventory_by_type") or {}
     latency = summary.get("latency") or {}
+    status_label = "smoke_metrics" if summary.get("smoke_metrics", True) else "production_candidate_metrics"
     lines = [
         "# Retrieval Eval Summary",
         "",
         "## Run status",
         f"- smoke_metrics: `{str(summary.get('smoke_metrics', True)).lower()}`",
-        f"- evaluated_rag: `{str(evaluated_rag).lower()}`",
+        f"- evaluated_rag: `{str(production_gate_passed).lower()}`",
+        f"- status is `{status_label}`.",
         f"- manifest_status: `{summary.get('manifest_status', 'not_provided')}`",
+        "- The scaffold is ready for future reviewed retrieval eval queries only after reviewer-bound evidence IDs replace placeholders and production validation passes.",
+        "- This run is not production RAG quality evidence and makes no production retrieval claims.",
         "",
         "## Corpus status",
         "- Current status label: `smoke_metrics` unless a completed retrieval eval manifest passes all gates.",
@@ -225,7 +229,8 @@ def write_report(summary: dict[str, Any], out_path: Path = SUMMARY_MD) -> None:
         [
             "",
             "## Reviewer-support-only statement",
-            "- RAG v0 is an evidence-first retrieval evaluation scaffold, not a chatbot, trading system, alpha engine, or evaluated production RAG claim.",
+            "- RAG v0 is an evidence-first retrieval evaluation scaffold, not a chatbot, trading system, alpha engine, production retriever quality claim, or production RAG quality evidence.",
+            "- No statistical, alpha, trading, live-execution, or market-causality claims are made by this report.",
             "- No labels, gold labels, adjudication rows, training data, promotion candidates, raw transcript text, raw ASR/audio text, chunk text, embeddings, vector DBs, or provider artifacts are produced by this report.",
         ]
     )

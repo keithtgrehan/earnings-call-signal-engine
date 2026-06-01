@@ -32,9 +32,9 @@
     "case_id": {"type": ["string", "null"]},
     "ticker": {"type": ["string", "null"]},
     "fiscal_period": {"type": ["string", "null"]},
-    "source_hash": {"type": ["string", "null"]},
-    "normalized_transcript_hash": {"type": ["string", "null"]},
-    "provenance_hash": {"type": ["string", "null"]},
+    "source_hash": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"},
+    "normalized_transcript_hash": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"},
+    "provenance_hash": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"},
     "section_label": {
       "enum": ["prepared_remarks", "qa", "safe_harbor", "operator", "non_gaap", "vendor_disclaimer", "unknown"]
     },

@@ -65,5 +65,44 @@
     },
     "notes": {"type": "string"}
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {"negative_control": {"const": true}},
+        "required": ["negative_control"]
+      },
+      "then": {
+        "properties": {
+          "abstention_expected": {"const": true},
+          "expected_evidence_ids": {"maxItems": 0}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"abstention_expected": {"const": true}},
+        "required": ["abstention_expected"]
+      },
+      "then": {
+        "properties": {
+          "expected_evidence_ids": {"maxItems": 0}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "negative_control": {"const": false},
+          "abstention_expected": {"const": false}
+        },
+        "required": ["negative_control", "abstention_expected"]
+      },
+      "then": {
+        "properties": {
+          "expected_evidence_ids": {"minItems": 1}
+        }
+      }
+    }
+  ]
 }

@@ -4,7 +4,7 @@ import csv
 import json
 from pathlib import Path
 
-from signal_engine.retrieval.evaluate import evaluate_retrieval_objects, write_jsonl
+from signal_engine.retrieval.evaluate import evaluate_retrieval_objects, summarize_retrieval_results, write_jsonl
 from tools.evaluate_retrieval import _gate_status, main as retrieval_eval_main
 
 
@@ -78,6 +78,52 @@ def test_evaluated_rag_gate_blocks_fallback_overuse() -> None:
             "placeholder_expected_ids": 0,
         }
     )
+
+
+def test_fallback_overuse_rate_increments_for_semantic_fallback_result() -> None:
+    query = {
+        "query_id": "q1",
+        "query_text": "HD guidance metadata",
+        "query_intent": "prepared_guidance",
+        "target_case_id": "hd_2025_q4",
+        "target_ticker": "HD",
+        "target_fiscal_period": "2025 Q4",
+        "expected_object_types": ["evidence_object"],
+        "expected_signal_types": ["guidance"],
+        "expected_sections": ["prepared_remarks"],
+        "expected_speaker_roles": ["management"],
+        "expected_evidence_ids": ["obj1"],
+        "negative_control": False,
+        "abstention_expected": False,
+        "rights_required": ["retrieval_object_manifest"],
+        "notes": "metadata-only fallback overuse regression row",
+    }
+    result = {
+        "query_id": "q1",
+        "result_rank": 1,
+        "object_id": "fallback1",
+        "object_type": "semantic_fallback",
+        "case_id": "hd_2025_q4",
+        "ticker": "HD",
+        "fiscal_period": "2025 Q4",
+        "source_hash": "sha256:" + "a" * 64,
+        "normalized_transcript_hash": "sha256:" + "b" * 64,
+        "provenance_hash": "sha256:" + "c" * 64,
+        "section_label": "prepared_remarks",
+        "speaker_role": "management",
+        "qa_pair_id": "",
+        "retrieval_score": 0.4,
+        "retrieval_method": "manual_fixture",
+        "citation_valid": True,
+        "raw_text_returned": False,
+        "blocked_reason": None,
+        "notes": "metadata-only semantic fallback result",
+    }
+
+    summary = summarize_retrieval_results(queries=[query], results=[result], smoke_metrics=True)
+
+    assert summary["rates"]["fallback_overuse_rate"] == {"numerator": 1, "denominator": 1, "percentage": 100.0}
+    assert summary["fallback_overuse"] == 1.0
 
 
 def test_production_metrics_fail_closed_when_placeholders_remain(tmp_path: Path) -> None:

@@ -87,6 +87,56 @@ def test_missing_provenance_fails_for_non_abstention_result() -> None:
     assert any("provenance_hash" in error for error in validate_retrieval_result_record(row))
 
 
+def test_invalid_provenance_hash_format_fails_for_non_abstention_result() -> None:
+    row = {
+        "query_id": "q1",
+        "result_rank": 1,
+        "object_id": "obj1",
+        "object_type": "evidence_object",
+        "case_id": "hd_2025_q4",
+        "ticker": "HD",
+        "fiscal_period": "2025 Q4",
+        "source_hash": "sha256:" + "a" * 64,
+        "normalized_transcript_hash": "sha256:" + "b" * 64,
+        "provenance_hash": "not-a-sha256",
+        "section_label": "prepared_remarks",
+        "speaker_role": "management",
+        "qa_pair_id": "",
+        "retrieval_score": 1.0,
+        "retrieval_method": "bm25",
+        "citation_valid": True,
+        "raw_text_returned": False,
+        "blocked_reason": None,
+        "notes": "metadata-only result",
+    }
+    assert any("provenance_hash" in error and "sha256" in error for error in validate_retrieval_result_record(row))
+
+
+def test_result_notes_reject_unsafe_claim_wording() -> None:
+    row = {
+        "query_id": "q1",
+        "result_rank": 1,
+        "object_id": "obj1",
+        "object_type": "evidence_object",
+        "case_id": "hd_2025_q4",
+        "ticker": "HD",
+        "fiscal_period": "2025 Q4",
+        "source_hash": "sha256:" + "a" * 64,
+        "normalized_transcript_hash": "sha256:" + "b" * 64,
+        "provenance_hash": "sha256:" + "c" * 64,
+        "section_label": "prepared_remarks",
+        "speaker_role": "management",
+        "qa_pair_id": "",
+        "retrieval_score": 1.0,
+        "retrieval_method": "bm25",
+        "citation_valid": True,
+        "raw_text_returned": False,
+        "blocked_reason": None,
+        "notes": "metadata-only result proves alpha",
+    }
+    assert any("unsafe market claim" in error for error in validate_retrieval_result_record(row))
+
+
 def test_committed_retrieval_eval_results_validate_against_v0_contract() -> None:
     path = Path("data/retrieval/retrieval_eval_results.jsonl")
     rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]

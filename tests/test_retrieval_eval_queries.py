@@ -55,6 +55,37 @@ def test_query_schema_rejects_unexpected_raw_text_fields() -> None:
     assert any("raw_text" in error for error in errors)
 
 
+def test_invalid_query_fixture_rejects_inconsistent_negative_control() -> None:
+    query = json.loads(Path("data/retrieval/eval_queries_hd_2025_q4.jsonl").read_text(encoding="utf-8").splitlines()[0])
+    query["query_id"] = "invalid_negative_with_expected_id"
+    query["negative_control"] = True
+    query["abstention_expected"] = True
+
+    errors = validate_eval_query_record(query)
+
+    assert any("negative_control" in error and "expected_evidence_ids" in error for error in errors)
+
+
+def test_positive_query_fixture_requires_expected_evidence_ids() -> None:
+    query = json.loads(Path("data/retrieval/eval_queries_hd_2025_q4.jsonl").read_text(encoding="utf-8").splitlines()[0])
+    query["query_id"] = "invalid_positive_without_expected_id"
+    query["expected_evidence_ids"] = []
+
+    errors = validate_eval_query_record(query)
+
+    assert any("expected_evidence_ids" in error for error in errors)
+
+
+def test_query_fixture_rejects_unsafe_claim_wording_for_non_guardrail_rows() -> None:
+    query = json.loads(Path("data/retrieval/eval_queries_hd_2025_q4.jsonl").read_text(encoding="utf-8").splitlines()[0])
+    query["query_id"] = "invalid_positive_market_claim"
+    query["query_text"] = "HD 2025 Q4 buy signal category evidence"
+
+    errors = validate_eval_query_record(query)
+
+    assert any("unsafe market claim" in error for error in errors)
+
+
 def test_committed_eval_query_jsonl_files_validate_against_v0_contract() -> None:
     for path in sorted(Path("data/retrieval").glob("eval_queries*.jsonl")):
         for row in load_eval_queries(path):
