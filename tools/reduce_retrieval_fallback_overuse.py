@@ -12,7 +12,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OBJECTS = ROOT / "data" / "retrieval" / "retrieval_objects_manifest.csv"
-DEFAULT_METRICS = ROOT / "data" / "retrieval" / "first30_eval_metrics.json"
+DEFAULT_METRICS = ROOT / "reports" / "retrieval" / "retrieval_eval_summary.json"
 DEFAULT_REPORT = ROOT / "reports" / "retrieval" / "retrieval_fallback_diagnostics.md"
 
 

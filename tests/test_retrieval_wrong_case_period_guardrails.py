@@ -85,6 +85,6 @@ def test_case_specific_queries_filter_wrong_case_before_ranking(tmp_path: Path) 
         encoding="utf-8",
     )
     summary = evaluate_retrieval_objects(objects, queries, limit=5)
-    returned = [row["object_id"] for row in summary["results"] if not row["abstained"]]
+    returned = [row["object_id"] for row in summary["results"] if row["retrieval_method"] != "abstain"]
     assert returned == ["right"]
     assert summary["wrong_case_ticker_period"] == 0

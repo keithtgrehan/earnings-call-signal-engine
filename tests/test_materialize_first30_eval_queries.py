@@ -41,7 +41,7 @@ def test_materialize_first30_queries_prefers_evidence_objects(tmp_path: Path) ->
 
     rows = materialize_first30_queries(objects, out)
 
-    assert rows[0]["expected_object_ids"] == ["evidence"]
     assert rows[0]["expected_evidence_ids"] == ["evidence"]
-    assert rows[0]["requires_evidence_object"] is True
+    assert rows[0]["expected_object_types"] == ["evidence_object"]
+    assert rows[0]["abstention_expected"] is False
     assert json.loads(out.read_text(encoding="utf-8").splitlines()[0])["query_id"] == "jpm_2025_q4_first30_metadata_smoke"

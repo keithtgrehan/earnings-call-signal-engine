@@ -13,7 +13,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CANDIDATES = ROOT / "data" / "review" / "staging" / "first100_signal_candidates.jsonl"
 DEFAULT_RETRIEVAL_OBJECTS = ROOT / "data" / "retrieval" / "retrieval_objects_manifest.csv"
-DEFAULT_METRICS = ROOT / "data" / "retrieval" / "first30_eval_metrics.json"
+DEFAULT_METRICS = ROOT / "reports" / "retrieval" / "retrieval_eval_summary.json"
 OUT_CSV = ROOT / "data" / "retrieval" / "first100_candidate_retrieval_links.csv"
 REPORT_PATH = ROOT / "reports" / "retrieval" / "first100_retrieval_support_summary.md"
 

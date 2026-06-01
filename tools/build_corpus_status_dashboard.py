@@ -79,7 +79,7 @@ def build_dashboard(*, workspace: Path = DESKTOP_WORKSPACE, out_md: Path = OUT_M
     asr_segments = read_csv(ROOT / "data" / "acquisition" / "asr_segment_manifest.csv")
     alignments = read_csv(ROOT / "data" / "acquisition" / "audio_transcript_alignment_manifest.csv")
     audio_objects = read_csv(ROOT / "data" / "retrieval" / "audio_objects_manifest.csv")
-    eval_metrics = read_json(ROOT / "data" / "retrieval" / "first30_eval_metrics.json")
+    eval_metrics = read_json(ROOT / "reports" / "retrieval" / "retrieval_eval_summary.json")
     training = read_csv(ROOT / "data" / "training" / "first30_training_readiness_manifest.csv")
     blockers = Counter()
     for row in ingestion:
