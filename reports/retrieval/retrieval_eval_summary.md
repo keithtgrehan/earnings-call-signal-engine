@@ -3,7 +3,10 @@
 ## Run status
 - smoke_metrics: `true`
 - evaluated_rag: `false`
+- status is `smoke_metrics`.
 - manifest_status: `not_provided`
+- The scaffold is ready for future reviewed retrieval eval queries only after reviewer-bound evidence IDs replace placeholders and production validation passes.
+- This run is not production RAG quality evidence and makes no production retrieval claims.
 
 ## Corpus status
 - Current status label: `smoke_metrics` unless a completed retrieval eval manifest passes all gates.
@@ -70,12 +73,13 @@
 
 ## Warnings
 - reviewer placeholder expected evidence IDs remain; production metrics must fail closed
-- smoke_metrics only; not an evaluated RAG run
+- smoke_metrics only; scaffold readiness check, not production RAG quality evidence
 - reviewer placeholder expected evidence IDs remain; smoke mode only
 
 ## Failures
 - none
 
 ## Reviewer-support-only statement
-- RAG v0 is an evidence-first retrieval evaluation scaffold, not a chatbot, trading system, alpha engine, or evaluated production RAG claim.
+- RAG v0 is an evidence-first retrieval evaluation scaffold, not a chatbot, trading system, alpha engine, production retriever quality claim, or production RAG quality evidence.
+- No statistical, alpha, trading, live-execution, or market-causality claims are made by this report.
 - No labels, gold labels, adjudication rows, training data, promotion candidates, raw transcript text, raw ASR/audio text, chunk text, embeddings, vector DBs, or provider artifacts are produced by this report.

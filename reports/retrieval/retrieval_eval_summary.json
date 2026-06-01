@@ -112,7 +112,7 @@
   "smoke_metrics": true,
   "warnings": [
     "reviewer placeholder expected evidence IDs remain; production metrics must fail closed",
-    "smoke_metrics only; not an evaluated RAG run",
+    "smoke_metrics only; scaffold readiness check, not production RAG quality evidence",
     "reviewer placeholder expected evidence IDs remain; smoke mode only"
   ],
   "wrong_case_rate": 0.0,

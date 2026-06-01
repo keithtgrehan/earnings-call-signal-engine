@@ -8,6 +8,8 @@ Retrieval must be evidence-object first:
 
 Default local checks do not build embeddings, vector DBs, provider reranker calls, or full raw text artifacts.
 
+Smoke queries can move into reviewed retrieval eval query sets only through the documented metadata-only process in `docs/retrieval_eval_query_promotion_process.md`.
+
 Metrics:
 
 - recall@k
