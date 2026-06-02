@@ -564,8 +564,10 @@ def write_plan_markdown(path: Path, payload: dict[str, Any]) -> None:
             "",
             "## Safety",
             "- This plan emits safe plan metadata only.",
+            f"- Reviewed inputs are ready for a future run: `{str(payload['benchmark_ready_query_set']).lower()}`.",
+            "- Benchmark execution has not run, provider execution remains disabled, and retrieval quality remains unevaluated.",
             "- It does not generate embeddings, vector stores, provider response payloads, raw text, benchmark scores, labels, adjudication rows, training data, or promotion rows.",
-            "- Current status remains scaffold-only until reviewed query sets, provider approval, artifact gates, provenance gates, and citation gates are complete.",
+            "- Current status remains plan-only while provider approval, artifact gates, provenance gates, and citation gates block any real benchmark.",
         ]
     )
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
