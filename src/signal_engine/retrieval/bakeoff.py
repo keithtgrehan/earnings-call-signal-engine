@@ -17,6 +17,13 @@ from signal_engine.retrieval.providers.safety import (
     validate_provider_output_payload,
     validate_safe_provider_output_path,
 )
+from signal_engine.retrieval.reviewed_query_set import (
+    MIN_REVIEWED_ELIGIBLE_QUERIES,
+    REVIEWED_QUERY_SET_STATUS_SMOKE_ONLY_BLOCKED,
+    is_reviewed_query_set_rows,
+    summarize_reviewed_query_set,
+    validate_reviewed_query_set_rows,
+)
 
 BAKEOFF_STATUS_LABEL = "retrieval_bakeoff_plan_only"
 SUPPORTED_BAKEOFF_METRICS = {
@@ -304,11 +311,31 @@ def load_bakeoff_manifest(path: Path, *, root: Path, require_files: bool = True)
     return BakeoffManifest(path=path, payload=payload)
 
 
-def validate_bakeoff_query_set(path: Path, *, smoke_only: bool, reviewed: bool) -> tuple[list[dict[str, Any]], list[str]]:
+def validate_bakeoff_query_set(
+    path: Path,
+    *,
+    smoke_only: bool,
+    reviewed: bool,
+    object_rows: list[dict[str, Any]] | None = None,
+    allow_template: bool = False,
+) -> tuple[list[dict[str, Any]], list[str]]:
     queries = load_eval_queries(path)
     errors: list[str] = []
     if not queries:
         errors.append("reviewed query set is empty")
+        return queries, errors
+    if is_reviewed_query_set_rows(queries):
+        errors.extend(
+            validate_reviewed_query_set_rows(
+                queries,
+                object_rows or [],
+                allow_template=allow_template,
+            )
+        )
+        if smoke_only and reviewed:
+            errors.append("smoke-only query sets cannot be marked reviewed")
+        if not smoke_only and not reviewed:
+            errors.append("real benchmark query set must be reviewed")
         return queries, errors
     for index, row in enumerate(queries, start=1):
         errors.extend(f"query row {index}: {error}" for error in validate_eval_query_record(row))
@@ -336,6 +363,35 @@ def _digest_rows(rows: list[dict[str, Any]], *, fields: tuple[str, ...]) -> str:
     return "sha256:" + hashlib.sha256(encoded).hexdigest()
 
 
+def _legacy_query_set_readiness(queries: list[dict[str, Any]], *, smoke_only: bool, reviewed: bool) -> dict[str, Any]:
+    placeholders = placeholder_expected_ids(queries)
+    if smoke_only:
+        readiness_status = REVIEWED_QUERY_SET_STATUS_SMOKE_ONLY_BLOCKED
+    elif reviewed and not placeholders:
+        readiness_status = "legacy_reviewed_eval_query_set"
+    else:
+        readiness_status = "review_pending_blocked"
+    return {
+        "query_set_readiness_status": readiness_status,
+        "query_status_counts": {"legacy_eval_query": len(queries)},
+        "reviewed_eligible_query_count": 0,
+        "minimum_reviewed_eligible_queries": MIN_REVIEWED_ELIGIBLE_QUERIES,
+        "placeholder_count": len(placeholders),
+        "unknown_object_ref_count": 0,
+        "has_reviewed_eligible_queries": False,
+        "benchmark_ready_query_set": False,
+        "benchmark_complete": False,
+        "evaluated_retrieval_quality": False,
+        "production_rag_claim": False,
+    }
+
+
+def _query_digest_fields(queries: list[dict[str, Any]]) -> tuple[str, ...]:
+    if is_reviewed_query_set_rows(queries):
+        return ("query_id", "case_id", "query_type", "review_status", "benchmark_eligible")
+    return ("query_id", "query_intent", "target_case_id", "target_ticker", "target_fiscal_period")
+
+
 def build_bakeoff_plan_summary(manifest: BakeoffManifest, *, root: Path) -> dict[str, Any]:
     payload = manifest.payload
     objects_path = repo_path(Path(str(payload["retrieval_objects_path"])), root=root)
@@ -355,13 +411,24 @@ def build_bakeoff_plan_summary(manifest: BakeoffManifest, *, root: Path) -> dict
         query_path,
         smoke_only=bool(payload["reviewed_query_set"]["smoke_only"]),
         reviewed=bool(payload["reviewed_query_set"]["reviewed"]),
+        object_rows=object_rows,
+        allow_template=True,
     )
     if query_errors:
         raise ValueError("; ".join(query_errors))
 
     smoke_only = bool(payload["reviewed_query_set"]["smoke_only"])
+    if is_reviewed_query_set_rows(queries):
+        query_readiness = summarize_reviewed_query_set(queries, object_rows=object_rows)
+    else:
+        query_readiness = _legacy_query_set_readiness(
+            queries,
+            smoke_only=smoke_only,
+            reviewed=bool(payload["reviewed_query_set"]["reviewed"]),
+        )
     real_benchmark_allowed = (
-        not smoke_only
+        bool(query_readiness["benchmark_ready_query_set"])
+        and not smoke_only
         and bool(payload["reviewed_query_set"]["reviewed"])
         and payload["provider_slots"] != ["local_stub"]
         and payload["network_allowed"] is True
@@ -381,6 +448,14 @@ def build_bakeoff_plan_summary(manifest: BakeoffManifest, *, root: Path) -> dict
         "query_count": len(queries),
         "smoke_only": smoke_only,
         "reviewed_query_set": bool(payload["reviewed_query_set"]["reviewed"]),
+        "query_set_readiness_status": query_readiness["query_set_readiness_status"],
+        "query_status_counts": query_readiness["query_status_counts"],
+        "reviewed_eligible_query_count": query_readiness["reviewed_eligible_query_count"],
+        "minimum_reviewed_eligible_queries": query_readiness["minimum_reviewed_eligible_queries"],
+        "placeholder_count": query_readiness["placeholder_count"],
+        "unknown_object_ref_count": query_readiness["unknown_object_ref_count"],
+        "has_reviewed_eligible_queries": query_readiness["has_reviewed_eligible_queries"],
+        "benchmark_ready_query_set": query_readiness["benchmark_ready_query_set"],
         "real_benchmark_allowed": real_benchmark_allowed,
         "network_calls": False,
         "embeddings_generated": False,
@@ -390,9 +465,14 @@ def build_bakeoff_plan_summary(manifest: BakeoffManifest, *, root: Path) -> dict
         "provider_benchmark_complete": False,
         "production_rag_claim": False,
         "object_metadata_digest": _digest_rows(object_rows, fields=("object_id", "object_type", "case_id", "text_hash", "provenance_hash")),
-        "query_set_digest": _digest_rows(queries, fields=("query_id", "query_intent", "target_case_id", "target_ticker", "target_fiscal_period")),
+        "query_set_digest": _digest_rows(queries, fields=_query_digest_fields(queries)),
         "blockers_before_real_benchmark": [
-            "reviewed retrieval eval query set required" if smoke_only else "",
+            "benchmark-ready reviewed query-set inputs required" if not query_readiness["benchmark_ready_query_set"] else "",
+            f"at least {MIN_REVIEWED_ELIGIBLE_QUERIES} reviewed benchmark-eligible query rows required"
+            if int(query_readiness["reviewed_eligible_query_count"]) < MIN_REVIEWED_ELIGIBLE_QUERIES
+            else "",
+            "placeholder query references must be removed" if query_readiness["placeholder_count"] else "",
+            "unknown object references must be resolved" if query_readiness["unknown_object_ref_count"] else "",
             "reviewer approval required" if payload["reviewer_approval"]["approved"] is not True else "",
             "real provider config must remain non-committed until approved" if payload["provider_slots"] == ["local_stub"] else "",
             "network calls remain disabled in committed scaffold" if payload["network_allowed"] is False else "",
@@ -435,10 +515,23 @@ def write_plan_markdown(path: Path, payload: dict[str, Any]) -> None:
         f"- query count: `{payload['query_count']}`",
         f"- smoke_only: `{str(payload['smoke_only']).lower()}`",
         f"- reviewed_query_set: `{str(payload['reviewed_query_set']).lower()}`",
+        f"- query_set_readiness_status: `{payload['query_set_readiness_status']}`",
+        f"- reviewed eligible query rows: `{payload['reviewed_eligible_query_count']}`",
+        f"- minimum reviewed eligible query rows: `{payload['minimum_reviewed_eligible_queries']}`",
+        f"- benchmark-ready inputs only: `{str(payload['benchmark_ready_query_set']).lower()}`",
         f"- real_benchmark_allowed: `{str(payload['real_benchmark_allowed']).lower()}`",
+        f"- placeholder references: `{payload['placeholder_count']}`",
+        f"- unknown object references: `{payload['unknown_object_ref_count']}`",
         "",
-        "## Provider slots",
+        "## Query status counts",
     ]
+    lines.extend(f"- {status}: `{count}`" for status, count in payload["query_status_counts"].items())
+    lines.extend(
+        [
+            "",
+            "## Provider slots",
+        ]
+    )
     lines.extend(f"- `{slot}`" for slot in payload["provider_slots"])
     lines.extend(["", "## Planned metrics"])
     lines.extend(f"- `{metric}`" for metric in payload["metrics_planned"])
