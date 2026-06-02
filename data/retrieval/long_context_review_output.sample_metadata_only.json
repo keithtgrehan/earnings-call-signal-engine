@@ -1,0 +1,35 @@
+{
+  "review_output_id": "long_context_review_output_sample_metadata_hd_2025_q4",
+  "generated_at": "1970-01-01T00:00:00Z",
+  "status_label": "long_context_review_output_candidate_metadata_only",
+  "case_id": "hd_2025_q4",
+  "reviewer_model_slot": "external_reviewer_sample_slot",
+  "reviewed_bundle_id": "case_review_bundle:hd_2025_q4",
+  "source_prompt_pack_id": "long_context_prompt_pack:hd_2025_q4",
+  "summary": "Sample metadata-only candidate. It validates citation mechanics without source excerpts or reviewer scoring.",
+  "conclusions": [
+    {
+      "conclusion_id": "metadata_refs_available",
+      "statement": "The case bundle exposes metadata refs for a prepared remarks review route.",
+      "cited_object_refs": ["rom_evidence_1c3e749b1346dbbc"],
+      "cited_provenance_refs": ["/Users/keith/Desktop/earnings calls 100 samples/HD_The_Home_Depot_Inc/hd_2025_q4/metadata/normalized_transcript.json"],
+      "abstained": false
+    }
+  ],
+  "cited_object_refs": ["rom_evidence_1c3e749b1346dbbc"],
+  "cited_provenance_refs": ["/Users/keith/Desktop/earnings calls 100 samples/HD_The_Home_Depot_Inc/hd_2025_q4/metadata/normalized_transcript.json"],
+  "detected_issues": [],
+  "uncertainty_flags": ["sample_not_review_scored"],
+  "extraction_disagreements": [],
+  "hallucination_risk_notes": ["metadata_only_sample_no_source_excerpt"],
+  "reviewer_confidence": "low",
+  "abstentions": [],
+  "cannot_answer_reasons": [],
+  "provider_execution": false,
+  "llm_called_by_this_tool": false,
+  "model_output_present": false,
+  "evaluated_model_quality": false,
+  "benchmark_complete": false,
+  "production_claims": false,
+  "sample_only": true
+}
