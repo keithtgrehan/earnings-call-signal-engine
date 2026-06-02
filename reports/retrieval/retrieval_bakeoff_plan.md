@@ -12,15 +12,24 @@
 ## Inputs
 - manifest: `configs/retrieval_bakeoff.example.yml`
 - retrieval objects: `data/retrieval/retrieval_object_metadata.jsonl`
-- query set: `data/retrieval/eval_queries_hd_2025_q4.jsonl`
+- query set: `data/retrieval/retrieval_reviewed_query_set.template.jsonl`
 - provider config: `configs/retrieval_providers.example.yml`
-- output root: `/tmp/signal-engine-retrieval-bakeoffs/r6_local_stub_smoke_plan`
+- output root: `/tmp/signal-engine-retrieval-bakeoffs/r7_local_stub_reviewed_query_template_plan`
 
 ## Query gate
-- query count: `20`
+- query count: `3`
 - smoke_only: `true`
 - reviewed_query_set: `false`
+- query_set_readiness_status: `template_only`
+- reviewed eligible query rows: `0`
+- minimum reviewed eligible query rows: `20`
+- benchmark-ready inputs only: `false`
 - real_benchmark_allowed: `false`
+- placeholder references: `0`
+- unknown object references: `0`
+
+## Query status counts
+- template_only: `3`
 
 ## Provider slots
 - `local_stub`
@@ -46,10 +55,11 @@
 
 ## Metadata digests
 - retrieval objects: `sha256:9b6171fdc59d77e08d8b2ba53328a43a1556f749c657d0462ce3f20a1d11e779`
-- query set: `sha256:f0fe1bd46f44077f6e3efacdd2c1c0cc9f8c0c3ad12bb5ad51511a9ecdc9425e`
+- query set: `sha256:b0f646de095ded7f561dbfc5ec23fdf10077327732a4ad3c51c5b22e66ce7515`
 
 ## Blockers before real benchmark
-- reviewed retrieval eval query set required
+- benchmark-ready reviewed query-set inputs required
+- at least 20 reviewed benchmark-eligible query rows required
 - reviewer approval required
 - real provider config must remain non-committed until approved
 - network calls remain disabled in committed scaffold

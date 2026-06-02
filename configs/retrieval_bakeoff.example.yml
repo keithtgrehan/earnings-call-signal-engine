@@ -1,14 +1,14 @@
 version: 1
-bakeoff_id: r6_local_stub_smoke_plan
+bakeoff_id: r7_local_stub_reviewed_query_template_plan
 status_label: retrieval_bakeoff_plan_only
 retrieval_objects_path: data/retrieval/retrieval_object_metadata.jsonl
 reviewed_query_set:
-  path: data/retrieval/eval_queries_hd_2025_q4.jsonl
+  path: data/retrieval/retrieval_reviewed_query_set.template.jsonl
   reviewed: false
   smoke_only: true
   reviewer: ""
   approval_id: ""
-  notes: HD smoke fixture only; reviewer-bound evidence IDs are still required before a real benchmark.
+  notes: Template-only reviewed-query-set fixture; reviewer-bound rows are still required before a real benchmark.
 provider_config_path: configs/retrieval_providers.example.yml
 provider_slots:
   - local_stub
@@ -30,7 +30,7 @@ metrics_planned:
   - latency_p95
   - latency_max
   - provenance_completeness_rate
-output_root: /tmp/signal-engine-retrieval-bakeoffs/r6_local_stub_smoke_plan
+output_root: /tmp/signal-engine-retrieval-bakeoffs/r7_local_stub_reviewed_query_template_plan
 plan_outputs:
   json_report: reports/retrieval/retrieval_bakeoff_plan.json
   markdown_report: reports/retrieval/retrieval_bakeoff_plan.md
