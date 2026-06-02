@@ -2,8 +2,8 @@
 
 ## Run status
 - status: `retrieval_review_import_only`
-- query-set readiness: `review_pending_blocked`
-- benchmark threshold met: `false`
+- query-set readiness: `benchmark_ready_inputs_only`
+- benchmark threshold met: `true`
 - benchmark complete: `false`
 - provider execution: `false`
 - embeddings generated: `false`
@@ -18,10 +18,10 @@
 
 ## Row counts
 - total rows: `20`
-- reviewed rows: `0`
-- approved rows: `0`
+- reviewed rows: `20`
+- approved rows: `20`
 - rejected rows: `0`
-- benchmark-eligible rows: `0`
+- benchmark-eligible rows: `20`
 - minimum benchmark-eligible rows: `20`
 
 ## Safety statement
