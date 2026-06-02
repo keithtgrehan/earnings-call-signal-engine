@@ -6,7 +6,6 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-from collections import Counter
 from pathlib import Path
 import sys
 from typing import Any
@@ -19,9 +18,11 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from signal_engine.retrieval.object_metadata import (  # noqa: E402
-    FORBIDDEN_METADATA_PAYLOAD_KEYS,
     build_retrieval_object_metadata,
+    summarize_retrieval_object_metadata_rows,
+    validate_no_forbidden_metadata_payload_keys,
     validate_retrieval_object_metadata_rows,
+    validate_retrieval_object_metadata_summary,
 )
 
 DEFAULT_SOURCE_MANIFEST = ROOT / "data" / "retrieval" / "retrieval_objects_manifest.csv"
@@ -44,6 +45,22 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return [dict(row) for row in csv.DictReader(handle)]
 
 
+def read_jsonl(path: Path) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    with path.open(encoding="utf-8") as handle:
+        for line_number, line in enumerate(handle, start=1):
+            if not line.strip():
+                continue
+            try:
+                payload = json.loads(line)
+            except json.JSONDecodeError as exc:
+                raise ValueError(f"{path}:{line_number}: invalid JSON: {exc.msg}") from exc
+            if not isinstance(payload, dict):
+                raise ValueError(f"{path}:{line_number}: expected JSON object")
+            rows.append(payload)
+    return rows
+
+
 def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in rows), encoding="utf-8")
@@ -58,11 +75,8 @@ def _optional_int(value: Any) -> int | None:
 
 def _source_payload_errors(row: dict[str, str], row_number: int) -> list[str]:
     errors: list[str] = []
-    for key in row:
-        if key in SOURCE_GUARDRAIL_KEYS:
-            continue
-        if key in FORBIDDEN_METADATA_PAYLOAD_KEYS:
-            errors.append(f"source row {row_number}: forbidden raw/vector payload key {key}")
+    payload_for_scan = {key: value for key, value in row.items() if key not in SOURCE_GUARDRAIL_KEYS}
+    errors.extend(validate_no_forbidden_metadata_payload_keys(payload_for_scan, context=f"source row {row_number}"))
     if str(row.get("raw_text_committed", "false")).lower() != "false":
         errors.append(f"source row {row_number}: raw_text_committed must be false")
     if str(row.get("raw_text_commit_allowed", "false")).lower() != "false":
@@ -101,20 +115,15 @@ def _sorted_metadata_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return sorted(rows, key=lambda row: (int(row["retrieval_priority"]), str(row["case_id"]), str(row["object_id"])))
 
 
-def _summary(rows: list[dict[str, Any]], *, source_manifest: Path, out_path: Path) -> dict[str, Any]:
-    return {
-        "status_label": "retrieval_object_scaffold_only",
-        "source_manifest": str(source_manifest),
-        "out_path": str(out_path),
-        "object_count": len(rows),
-        "counts_by_object_type": dict(sorted(Counter(str(row["object_type"]) for row in rows).items())),
-        "counts_by_case_id": dict(sorted(Counter(str(row["case_id"]) for row in rows).items())),
-        "content_included": False,
-        "embeddings_included": False,
-        "vector_db_included": False,
-        "evaluated_retrieval_quality": False,
-        "production_rag_claim": False,
-    }
+def _display_path(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
+def _summary(rows: list[dict[str, Any]], *, source_manifest: str, out_path: str) -> dict[str, Any]:
+    return summarize_retrieval_object_metadata_rows(rows, source_manifest=source_manifest, out_path=out_path)
 
 
 def write_report(summary: dict[str, Any], report_path: Path) -> None:
@@ -124,10 +133,11 @@ def write_report(summary: dict[str, Any], report_path: Path) -> None:
         "",
         "## Run status",
         f"- retrieval_object_status: `{summary['status_label']}`",
-        "- Retrieval object scaffold only.",
+        "- Retrieval object scaffold only; this is a metadata-only export path.",
+        "- This report does not evaluate retrieval quality and is not production RAG evidence.",
         "- No embeddings are created or committed.",
         "- No vector DB is created or committed.",
-        "- No evaluated retrieval quality or production RAG claims are made.",
+        "- No production retrieval or production RAG claims are made.",
         "",
         "## Source and output",
         f"- Source manifest: `{summary['source_manifest']}`",
@@ -147,6 +157,7 @@ def write_report(summary: dict[str, Any], report_path: Path) -> None:
             "## Safety",
             "- Output records contain metadata, hashes, span coordinates, and provenance references only.",
             "- Raw transcript text, ASR/audio text, chunk body text, embeddings, vector payloads, vector DB files, provider artifacts, labels, adjudication rows, training data, and promotion rows are not produced by this export.",
+            "- Later embedding or reranking experiments must consume these metadata objects without committing generated embeddings, vector stores, raw payload text, labels, adjudication rows, training data, or promotion rows.",
         ]
     )
     report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -173,8 +184,28 @@ def export_retrieval_object_metadata(
     if errors:
         raise ValueError("; ".join(errors))
     write_jsonl(out_path, metadata_rows)
-    summary = _summary(metadata_rows, source_manifest=source_manifest, out_path=out_path)
+    summary = _summary(metadata_rows, source_manifest=_display_path(source_manifest), out_path=_display_path(out_path))
+    consistency_errors = validate_retrieval_object_metadata_summary(summary, metadata_rows)
+    if consistency_errors:
+        raise ValueError("; ".join(consistency_errors))
     write_report(summary, report_path)
+    return summary
+
+
+def validate_retrieval_object_metadata_jsonl(
+    *,
+    jsonl_path: Path,
+    report_path: Path | None = None,
+) -> dict[str, Any]:
+    rows = read_jsonl(jsonl_path)
+    validation_errors = validate_retrieval_object_metadata_rows(rows)
+    summary = _summary(rows, source_manifest="validation-only (not used)", out_path=_display_path(jsonl_path))
+    consistency_errors = validate_retrieval_object_metadata_summary(summary, rows)
+    errors = validation_errors + consistency_errors
+    if errors:
+        raise ValueError("; ".join(errors))
+    if report_path is not None:
+        write_report(summary, report_path)
     return summary
 
 
@@ -182,12 +213,24 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Export metadata-only retrieval objects.")
     parser.add_argument("--source-manifest", type=Path, default=DEFAULT_SOURCE_MANIFEST)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
-    parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
+    parser.add_argument("--report", type=Path)
+    parser.add_argument(
+        "--validate-jsonl",
+        type=Path,
+        help="Validate an existing retrieval_object_metadata JSONL without rebuilding it.",
+    )
     args = parser.parse_args(argv)
     try:
-        summary = export_retrieval_object_metadata(source_manifest=args.source_manifest, out_path=args.out, report_path=args.report)
+        if args.validate_jsonl is not None:
+            summary = validate_retrieval_object_metadata_jsonl(jsonl_path=args.validate_jsonl, report_path=args.report)
+        else:
+            summary = export_retrieval_object_metadata(
+                source_manifest=args.source_manifest,
+                out_path=args.out,
+                report_path=args.report or DEFAULT_REPORT,
+            )
     except Exception as exc:
-        print(f"Retrieval object metadata export blocked: {exc}", file=sys.stderr)
+        print(f"Retrieval object metadata validation blocked: {exc}", file=sys.stderr)
         return 1
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0
