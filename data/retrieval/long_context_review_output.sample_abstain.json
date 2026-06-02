@@ -1,0 +1,34 @@
+{
+  "review_output_id": "long_context_review_output_sample_abstain_hd_2025_q4",
+  "generated_at": "1970-01-01T00:00:00Z",
+  "status_label": "long_context_review_output_candidate_metadata_only",
+  "case_id": "hd_2025_q4",
+  "reviewer_model_slot": "external_reviewer_sample_slot",
+  "reviewed_bundle_id": "case_review_bundle:hd_2025_q4",
+  "source_prompt_pack_id": "long_context_prompt_pack:hd_2025_q4",
+  "summary": "Sample abstention only. The supplied metadata refs are not enough for a substantive review conclusion.",
+  "conclusions": [],
+  "cited_object_refs": [],
+  "cited_provenance_refs": [],
+  "detected_issues": [],
+  "uncertainty_flags": ["insufficient_metadata_for_substantive_review"],
+  "extraction_disagreements": [],
+  "hallucination_risk_notes": ["abstained_to_avoid_unsupported_conclusion"],
+  "reviewer_confidence": "low",
+  "abstentions": [
+    {
+      "abstention_id": "abstain_metadata_only_context",
+      "reason": "The candidate contains only metadata references and no reviewed source-content packet.",
+      "cited_object_refs": [],
+      "cited_provenance_refs": []
+    }
+  ],
+  "cannot_answer_reasons": ["metadata_refs_do_not_provide_reviewable_source_content"],
+  "provider_execution": false,
+  "llm_called_by_this_tool": false,
+  "model_output_present": false,
+  "evaluated_model_quality": false,
+  "benchmark_complete": false,
+  "production_claims": false,
+  "sample_only": true
+}
