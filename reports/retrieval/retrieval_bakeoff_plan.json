@@ -1,0 +1,51 @@
+{
+  "bakeoff_id": "r6_local_stub_smoke_plan",
+  "benchmark_complete": false,
+  "blockers_before_real_benchmark": [
+    "reviewed retrieval eval query set required",
+    "reviewer approval required",
+    "real provider config must remain non-committed until approved",
+    "network calls remain disabled in committed scaffold"
+  ],
+  "embeddings_generated": false,
+  "evaluated_retrieval_quality": false,
+  "manifest_path": "configs/retrieval_bakeoff.example.yml",
+  "metrics_planned": [
+    "recall@1",
+    "recall@3",
+    "recall@5",
+    "mrr",
+    "exact_evidence_id_hit_rate",
+    "citation_validity_rate",
+    "invalid_citation_rate",
+    "wrong_case_rate",
+    "wrong_ticker_rate",
+    "wrong_period_rate",
+    "abstention_correctness",
+    "fallback_overuse_rate",
+    "latency_p50",
+    "latency_p90",
+    "latency_p95",
+    "latency_max",
+    "provenance_completeness_rate"
+  ],
+  "network_calls": false,
+  "object_count": 512,
+  "object_metadata_digest": "sha256:9b6171fdc59d77e08d8b2ba53328a43a1556f749c657d0462ce3f20a1d11e779",
+  "output_root": "/tmp/signal-engine-retrieval-bakeoffs/r6_local_stub_smoke_plan",
+  "production_rag_claim": false,
+  "provider_benchmark_complete": false,
+  "provider_config_path": "configs/retrieval_providers.example.yml",
+  "provider_slots": [
+    "local_stub"
+  ],
+  "query_count": 20,
+  "query_set_digest": "sha256:f0fe1bd46f44077f6e3efacdd2c1c0cc9f8c0c3ad12bb5ad51511a9ecdc9425e",
+  "real_benchmark_allowed": false,
+  "retrieval_objects_path": "data/retrieval/retrieval_object_metadata.jsonl",
+  "reviewed_query_set": false,
+  "reviewed_query_set_path": "data/retrieval/eval_queries_hd_2025_q4.jsonl",
+  "smoke_only": true,
+  "status_label": "retrieval_bakeoff_plan_only",
+  "vector_db_generated": false
+}
