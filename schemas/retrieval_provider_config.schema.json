@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/retrieval_provider_config.schema.json",
+  "title": "Signal Engine retrieval provider scaffold config",
+  "type": "object",
+  "required": [
+    "version",
+    "status_label",
+    "default_provider",
+    "network_enabled",
+    "outputs",
+    "providers"
+  ],
+  "properties": {
+    "version": {"const": 1},
+    "status_label": {"const": "retrieval_provider_adapter_scaffold_only"},
+    "default_provider": {"const": "local_stub"},
+    "network_enabled": {"const": false},
+    "outputs": {
+      "type": "object",
+      "required": ["json_report", "markdown_report"],
+      "properties": {
+        "json_report": {"type": "string", "minLength": 1},
+        "markdown_report": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "providers": {
+      "type": "object",
+      "required": [
+        "local_stub",
+        "openai_embedding",
+        "voyage_embedding",
+        "cohere_embedding",
+        "jina_embedding",
+        "cohere_rerank",
+        "jina_rerank"
+      ],
+      "properties": {
+        "local_stub": {"$ref": "#/$defs/local_stub"},
+        "openai_embedding": {"$ref": "#/$defs/disabled_real_provider"},
+        "voyage_embedding": {"$ref": "#/$defs/disabled_real_provider"},
+        "cohere_embedding": {"$ref": "#/$defs/disabled_real_provider"},
+        "jina_embedding": {"$ref": "#/$defs/disabled_real_provider"},
+        "cohere_rerank": {"$ref": "#/$defs/disabled_real_provider"},
+        "jina_rerank": {"$ref": "#/$defs/disabled_real_provider"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "local_stub": {
+      "type": "object",
+      "required": ["provider_type", "enabled", "mode", "network_enabled", "model"],
+      "properties": {
+        "provider_type": {"const": "local_stub"},
+        "enabled": {"const": true},
+        "mode": {"const": "dry_run"},
+        "network_enabled": {"const": false},
+        "model": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "disabled_real_provider": {
+      "type": "object",
+      "required": ["provider_type", "enabled", "mode", "network_enabled", "model", "api_key_env"],
+      "properties": {
+        "provider_type": {
+          "enum": [
+            "openai_embedding",
+            "voyage_embedding",
+            "cohere_embedding",
+            "jina_embedding",
+            "cohere_rerank",
+            "jina_rerank"
+          ]
+        },
+        "enabled": {"const": false},
+        "mode": {"const": "disabled"},
+        "network_enabled": {"const": false},
+        "model": {"type": "string", "minLength": 1},
+        "api_key_env": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  }
+}
