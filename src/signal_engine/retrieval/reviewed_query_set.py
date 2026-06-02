@@ -25,6 +25,12 @@ REVIEWED_QUERY_SET_QUERY_TYPES = {
     "abstention_guardrail",
     "qna_abstention",
     "negative_control",
+    "guidance_revision_lookup",
+    "uncertainty_language_lookup",
+    "analyst_pressure_lookup",
+    "topic_lookup",
+    "evidence_object_lookup",
+    "case_comparison_lookup",
 }
 REVIEWED_QUERY_SET_REQUIRED_FIELDS = {
     "query_id",
@@ -226,15 +232,19 @@ def _reviewed_query_row_errors(
         if expected_object_types and object_row.get("object_type") not in expected_object_types:
             errors.append(f"expected_object_id {object_id} object_type is not listed in expected_object_types")
         expected_provenance_refs.add(str(object_row.get("provenance_ref", "")))
-    for provenance_ref in expected_provenance_refs:
-        if provenance_ref and provenance_ref not in provenance_refs:
-            errors.append(f"provenance_refs missing expected provenance for object_id: {provenance_ref}")
+    if set(provenance_refs) != expected_provenance_refs:
+        errors.append("provenance_refs must exactly match referenced expected object provenance refs")
     for object_id in evidence_refs:
         object_row = object_rows_by_id.get(object_id)
         if object_row is None:
             errors.append(f"unknown evidence_object_id_ref {object_id}")
         elif object_row.get("object_type") != "evidence_object_metadata":
             errors.append(f"evidence_object_id_ref {object_id} must reference evidence_object_metadata")
+        else:
+            if object_row.get("case_id") != case_id:
+                errors.append(f"evidence_object_id_ref {object_id} does not match case_id {case_id}")
+            if object_row.get("provenance_ref") not in provenance_refs:
+                errors.append(f"evidence_object_id_ref {object_id} provenance_ref must be present")
     if _placeholder_count([row]):
         errors.append("reviewed query row contains placeholder text")
     return errors
@@ -270,10 +280,15 @@ def summarize_reviewed_query_set(rows: list[dict[str, Any]], *, object_rows: lis
     )
     placeholder_count = _placeholder_count(rows)
     unknown_object_ref_count = _unknown_ref_count(rows, object_rows)
+    benchmark_threshold_met = (
+        reviewed_eligible_count >= MIN_REVIEWED_ELIGIBLE_QUERIES
+        and placeholder_count == 0
+        and unknown_object_ref_count == 0
+    )
 
     if rows and all(row.get("review_status") == "template_only" for row in rows):
         readiness_status = REVIEWED_QUERY_SET_STATUS_TEMPLATE_ONLY
-    elif reviewed_eligible_count >= MIN_REVIEWED_ELIGIBLE_QUERIES and placeholder_count == 0 and unknown_object_ref_count == 0:
+    elif benchmark_threshold_met:
         readiness_status = REVIEWED_QUERY_SET_STATUS_BENCHMARK_READY_INPUTS_ONLY
     elif reviewed_eligible_count > 0:
         readiness_status = REVIEWED_QUERY_SET_STATUS_REVIEWED_ELIGIBLE_BELOW_MINIMUM
@@ -284,17 +299,17 @@ def summarize_reviewed_query_set(rows: list[dict[str, Any]], *, object_rows: lis
     else:
         readiness_status = REVIEWED_QUERY_SET_STATUS_REVIEWED_NOT_ELIGIBLE
 
-    benchmark_ready = readiness_status == REVIEWED_QUERY_SET_STATUS_BENCHMARK_READY_INPUTS_ONLY
     return {
         "query_set_readiness_status": readiness_status,
         "query_count": len(rows),
         "query_status_counts": status_counts,
         "reviewed_eligible_query_count": reviewed_eligible_count,
         "minimum_reviewed_eligible_queries": MIN_REVIEWED_ELIGIBLE_QUERIES,
+        "benchmark_threshold_met": benchmark_threshold_met,
         "placeholder_count": placeholder_count,
         "unknown_object_ref_count": unknown_object_ref_count,
         "has_reviewed_eligible_queries": reviewed_eligible_count > 0,
-        "benchmark_ready_query_set": benchmark_ready,
+        "benchmark_ready_query_set": readiness_status == REVIEWED_QUERY_SET_STATUS_BENCHMARK_READY_INPUTS_ONLY,
         "benchmark_complete": False,
         "evaluated_retrieval_quality": False,
         "production_rag_claim": False,

@@ -1,5 +1,5 @@
 {
-  "bakeoff_id": "r7_local_stub_reviewed_query_template_plan",
+  "bakeoff_id": "r8_local_stub_first20_review_pending_plan",
   "benchmark_complete": false,
   "benchmark_ready_query_set": false,
   "benchmark_threshold_met": false,
@@ -13,7 +13,7 @@
   "embeddings_generated": false,
   "evaluated_retrieval_quality": false,
   "has_reviewed_eligible_queries": false,
-  "manifest_path": "configs/retrieval_bakeoff.example.yml",
+  "manifest_path": "configs/retrieval_bakeoff.first20_review_pending.example.yml",
   "metrics_planned": [
     "recall@1",
     "recall@3",
@@ -37,7 +37,7 @@
   "network_calls": false,
   "object_count": 512,
   "object_metadata_digest": "sha256:9b6171fdc59d77e08d8b2ba53328a43a1556f749c657d0462ce3f20a1d11e779",
-  "output_root": "/tmp/signal-engine-retrieval-bakeoffs/r7_local_stub_reviewed_query_template_plan",
+  "output_root": "/tmp/signal-engine-retrieval-bakeoffs/r8_local_stub_first20_review_pending_plan",
   "placeholder_count": 0,
   "production_rag_claim": false,
   "provider_benchmark_complete": false,
@@ -45,19 +45,19 @@
   "provider_slots": [
     "local_stub"
   ],
-  "query_count": 3,
-  "query_set_digest": "sha256:b0f646de095ded7f561dbfc5ec23fdf10077327732a4ad3c51c5b22e66ce7515",
-  "query_set_readiness_status": "template_only",
-  "query_set_review_stage": "template_only",
+  "query_count": 20,
+  "query_set_digest": "sha256:a6885bd6ad52a7b32ef5fe510dcfec8f24b427fb561cbf6a6fe18f9e9503c836",
+  "query_set_readiness_status": "review_pending_blocked",
+  "query_set_review_stage": "review_pending",
   "query_status_counts": {
-    "template_only": 3
+    "review_pending": 20
   },
   "real_benchmark_allowed": false,
   "retrieval_objects_path": "data/retrieval/retrieval_object_metadata.jsonl",
   "reviewed_eligible_query_count": 0,
   "reviewed_query_set": false,
-  "reviewed_query_set_path": "data/retrieval/retrieval_reviewed_query_set.template.jsonl",
-  "smoke_only": true,
+  "reviewed_query_set_path": "data/retrieval/retrieval_reviewed_query_set.first20.jsonl",
+  "smoke_only": false,
   "status_label": "retrieval_bakeoff_plan_only",
   "unknown_object_ref_count": 0,
   "vector_db_generated": false

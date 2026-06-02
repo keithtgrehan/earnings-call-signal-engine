@@ -20,6 +20,7 @@ from signal_engine.retrieval.providers.safety import (
 from signal_engine.retrieval.reviewed_query_set import (
     MIN_REVIEWED_ELIGIBLE_QUERIES,
     REVIEWED_QUERY_SET_STATUS_SMOKE_ONLY_BLOCKED,
+    REVIEWED_QUERY_SET_STATUSES,
     is_reviewed_query_set_rows,
     summarize_reviewed_query_set,
     validate_reviewed_query_set_rows,
@@ -112,6 +113,10 @@ class BakeoffManifest:
     @property
     def reviewed(self) -> bool:
         return bool(self.payload["reviewed_query_set"]["reviewed"])
+
+    @property
+    def review_stage(self) -> str:
+        return str(self.payload["reviewed_query_set"].get("review_stage", "reviewed" if self.reviewed else "smoke_only"))
 
 
 def repo_path(path: Path, *, root: Path) -> Path:
@@ -250,16 +255,23 @@ def validate_bakeoff_manifest_payload(payload: dict[str, Any], *, root: Path, re
     reviewed_query_set = _validate_nested_mapping(
         payload,
         "reviewed_query_set",
-        {"path", "reviewed", "smoke_only", "reviewer", "approval_id", "notes"},
+        {"path", "reviewed", "smoke_only", "review_stage", "reviewer", "approval_id", "notes"},
         errors,
     )
     if reviewed_query_set:
         if not str(reviewed_query_set.get("path", "")).strip():
             errors.append("reviewed_query_set.path must be present")
-        if reviewed_query_set.get("reviewed") is not True and reviewed_query_set.get("smoke_only") is not True:
-            errors.append("unreviewed query sets must be explicitly marked smoke_only=true")
+        review_stage = reviewed_query_set.get("review_stage")
+        if review_stage not in REVIEWED_QUERY_SET_STATUSES:
+            errors.append(f"reviewed_query_set.review_stage must be one of {sorted(REVIEWED_QUERY_SET_STATUSES)}")
+        if reviewed_query_set.get("reviewed") is not True and reviewed_query_set.get("smoke_only") is not True and review_stage != "review_pending":
+            errors.append("unreviewed query sets must be explicitly marked smoke_only=true or review_stage=review_pending")
         if reviewed_query_set.get("reviewed") is True and reviewed_query_set.get("smoke_only") is True:
             errors.append("reviewed query sets cannot also be smoke_only")
+        if review_stage == "template_only" and reviewed_query_set.get("smoke_only") is not True:
+            errors.append("template_only query sets must be marked smoke_only=true")
+        if review_stage == "reviewed" and reviewed_query_set.get("reviewed") is not True:
+            errors.append("review_stage=reviewed requires reviewed=true")
         if require_files and str(reviewed_query_set.get("path", "")).strip() and not repo_path(Path(str(reviewed_query_set["path"])), root=root).exists():
             errors.append(f"reviewed_query_set.path does not exist: {reviewed_query_set['path']}")
 
@@ -334,8 +346,6 @@ def validate_bakeoff_query_set(
         )
         if smoke_only and reviewed:
             errors.append("smoke-only query sets cannot be marked reviewed")
-        if not smoke_only and not reviewed:
-            errors.append("real benchmark query set must be reviewed")
         return queries, errors
     for index, row in enumerate(queries, start=1):
         errors.extend(f"query row {index}: {error}" for error in validate_eval_query_record(row))
@@ -352,8 +362,6 @@ def validate_bakeoff_query_set(
         errors.append("reviewed query set contains placeholder expected evidence IDs")
     if smoke_only and reviewed:
         errors.append("smoke-only query sets cannot be marked reviewed")
-    if not smoke_only and not reviewed:
-        errors.append("real benchmark query set must be reviewed")
     return queries, errors
 
 
@@ -376,6 +384,7 @@ def _legacy_query_set_readiness(queries: list[dict[str, Any]], *, smoke_only: bo
         "query_status_counts": {"legacy_eval_query": len(queries)},
         "reviewed_eligible_query_count": 0,
         "minimum_reviewed_eligible_queries": MIN_REVIEWED_ELIGIBLE_QUERIES,
+        "benchmark_threshold_met": False,
         "placeholder_count": len(placeholders),
         "unknown_object_ref_count": 0,
         "has_reviewed_eligible_queries": False,
@@ -448,10 +457,12 @@ def build_bakeoff_plan_summary(manifest: BakeoffManifest, *, root: Path) -> dict
         "query_count": len(queries),
         "smoke_only": smoke_only,
         "reviewed_query_set": bool(payload["reviewed_query_set"]["reviewed"]),
+        "query_set_review_stage": str(payload["reviewed_query_set"].get("review_stage", "")),
         "query_set_readiness_status": query_readiness["query_set_readiness_status"],
         "query_status_counts": query_readiness["query_status_counts"],
         "reviewed_eligible_query_count": query_readiness["reviewed_eligible_query_count"],
         "minimum_reviewed_eligible_queries": query_readiness["minimum_reviewed_eligible_queries"],
+        "benchmark_threshold_met": query_readiness["benchmark_threshold_met"],
         "placeholder_count": query_readiness["placeholder_count"],
         "unknown_object_ref_count": query_readiness["unknown_object_ref_count"],
         "has_reviewed_eligible_queries": query_readiness["has_reviewed_eligible_queries"],
@@ -515,9 +526,11 @@ def write_plan_markdown(path: Path, payload: dict[str, Any]) -> None:
         f"- query count: `{payload['query_count']}`",
         f"- smoke_only: `{str(payload['smoke_only']).lower()}`",
         f"- reviewed_query_set: `{str(payload['reviewed_query_set']).lower()}`",
+        f"- query_set_review_stage: `{payload['query_set_review_stage']}`",
         f"- query_set_readiness_status: `{payload['query_set_readiness_status']}`",
         f"- reviewed eligible query rows: `{payload['reviewed_eligible_query_count']}`",
         f"- minimum reviewed eligible query rows: `{payload['minimum_reviewed_eligible_queries']}`",
+        f"- benchmark_threshold_met: `{str(payload['benchmark_threshold_met']).lower()}`",
         f"- benchmark-ready inputs only: `{str(payload['benchmark_ready_query_set']).lower()}`",
         f"- real_benchmark_allowed: `{str(payload['real_benchmark_allowed']).lower()}`",
         f"- placeholder references: `{payload['placeholder_count']}`",

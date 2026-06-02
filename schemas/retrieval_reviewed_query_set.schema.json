@@ -28,7 +28,13 @@
         "metadata_category_lookup",
         "abstention_guardrail",
         "qna_abstention",
-        "negative_control"
+        "negative_control",
+        "guidance_revision_lookup",
+        "uncertainty_language_lookup",
+        "analyst_pressure_lookup",
+        "topic_lookup",
+        "evidence_object_lookup",
+        "case_comparison_lookup"
       ]
     },
     "query_text_or_safe_query_label": {"type": "string", "minLength": 1},
