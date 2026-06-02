@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/retrieval_bakeoff_manifest.schema.json",
+  "title": "Signal Engine retrieval bakeoff manifest",
+  "type": "object",
+  "required": [
+    "version",
+    "bakeoff_id",
+    "status_label",
+    "retrieval_objects_path",
+    "reviewed_query_set",
+    "provider_config_path",
+    "provider_slots",
+    "metrics_planned",
+    "output_root",
+    "plan_outputs",
+    "network_allowed",
+    "local_only_artifact_rules",
+    "no_commit_artifact_patterns",
+    "claim_flags",
+    "reviewer_approval"
+  ],
+  "properties": {
+    "version": {"const": 1},
+    "bakeoff_id": {"type": "string", "minLength": 1},
+    "status_label": {"const": "retrieval_bakeoff_plan_only"},
+    "retrieval_objects_path": {"type": "string", "minLength": 1},
+    "reviewed_query_set": {
+      "type": "object",
+      "required": ["path", "reviewed", "smoke_only", "reviewer", "approval_id", "notes"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "reviewed": {"type": "boolean"},
+        "smoke_only": {"type": "boolean"},
+        "reviewer": {"type": "string"},
+        "approval_id": {"type": "string"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "provider_config_path": {"type": "string", "minLength": 1},
+    "provider_slots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": ["local_stub", "openai_embedding", "voyage_embedding", "cohere_embedding", "jina_embedding", "cohere_rerank", "jina_rerank"]
+      }
+    },
+    "metrics_planned": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "recall@1",
+          "recall@3",
+          "recall@5",
+          "mrr",
+          "exact_evidence_id_hit_rate",
+          "citation_validity_rate",
+          "invalid_citation_rate",
+          "wrong_case_rate",
+          "wrong_ticker_rate",
+          "wrong_period_rate",
+          "abstention_correctness",
+          "fallback_overuse_rate",
+          "latency_p50",
+          "latency_p90",
+          "latency_p95",
+          "latency_max",
+          "provenance_completeness_rate"
+        ]
+      }
+    },
+    "output_root": {"type": "string", "minLength": 1},
+    "plan_outputs": {
+      "type": "object",
+      "required": ["json_report", "markdown_report"],
+      "properties": {
+        "json_report": {"type": "string", "minLength": 1},
+        "markdown_report": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "network_allowed": {"const": false},
+    "local_only_artifact_rules": {
+      "type": "object",
+      "required": ["generated_artifacts_commit_allowed", "output_root_must_be_gitignored", "cleanup_required_before_commit"],
+      "properties": {
+        "generated_artifacts_commit_allowed": {"const": false},
+        "output_root_must_be_gitignored": {"const": true},
+        "cleanup_required_before_commit": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "no_commit_artifact_patterns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "claim_flags": {
+      "type": "object",
+      "required": ["production_rag", "production_retrieval", "trading", "alpha", "significance"],
+      "properties": {
+        "production_rag": {"const": false},
+        "production_retrieval": {"const": false},
+        "trading": {"const": false},
+        "alpha": {"const": false},
+        "significance": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "reviewer_approval": {
+      "type": "object",
+      "required": ["required_for_real_run", "approved", "reviewer", "approval_date", "approval_id"],
+      "properties": {
+        "required_for_real_run": {"const": true},
+        "approved": {"const": false},
+        "reviewer": {"type": "string"},
+        "approval_date": {"type": "string"},
+        "approval_id": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
