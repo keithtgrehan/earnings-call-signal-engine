@@ -1,15 +1,56 @@
-version: retrieval_providers_v1
-defaults:
-  provider_apis_enabled: false
-  embeddings_enabled: false
-  vector_db_commit_allowed: false
-  model_training_enabled: false
-local_bm25:
-  enabled: true
-  output_root: .local/signal_engine/retrieval/indexes
-  commit_allowed: false
-faiss_optional:
-  enabled: false
-  output_root: .local/signal_engine/retrieval/faiss
-  commit_allowed: false
-provider_apis: []
+version: 1
+status_label: retrieval_provider_adapter_scaffold_only
+default_provider: local_stub
+network_enabled: false
+outputs:
+  json_report: reports/retrieval/retrieval_provider_dry_run.json
+  markdown_report: reports/retrieval/retrieval_provider_dry_run.md
+providers:
+  local_stub:
+    provider_type: local_stub
+    enabled: true
+    mode: dry_run
+    network_enabled: false
+    model: metadata-only-dry-run-v0
+  openai_embedding:
+    provider_type: openai_embedding
+    enabled: false
+    mode: disabled
+    network_enabled: false
+    model: text-embedding-placeholder
+    api_key_env: OPENAI_API_KEY
+  voyage_embedding:
+    provider_type: voyage_embedding
+    enabled: false
+    mode: disabled
+    network_enabled: false
+    model: voyage-embedding-placeholder
+    api_key_env: VOYAGE_API_KEY
+  cohere_embedding:
+    provider_type: cohere_embedding
+    enabled: false
+    mode: disabled
+    network_enabled: false
+    model: cohere-embed-placeholder
+    api_key_env: COHERE_API_KEY
+  jina_embedding:
+    provider_type: jina_embedding
+    enabled: false
+    mode: disabled
+    network_enabled: false
+    model: jina-embedding-placeholder
+    api_key_env: JINA_API_KEY
+  cohere_rerank:
+    provider_type: cohere_rerank
+    enabled: false
+    mode: disabled
+    network_enabled: false
+    model: cohere-rerank-placeholder
+    api_key_env: COHERE_API_KEY
+  jina_rerank:
+    provider_type: jina_rerank
+    enabled: false
+    mode: disabled
+    network_enabled: false
+    model: jina-rerank-placeholder
+    api_key_env: JINA_API_KEY
