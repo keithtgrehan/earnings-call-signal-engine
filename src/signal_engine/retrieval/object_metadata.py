@@ -6,6 +6,7 @@ import re
 from collections import Counter
 from typing import Any
 
+METADATA_SUMMARY_STATUS_LABEL = "retrieval_object_scaffold_only"
 RETRIEVAL_OBJECT_METADATA_TYPES = (
     "semantic_chunk_metadata",
     "event_aligned_chunk_metadata",
@@ -37,10 +38,13 @@ REQUIRED_METADATA_FIELDS = {
 }
 FORBIDDEN_METADATA_PAYLOAD_KEYS = {
     "raw_text",
+    "raw_transcript_text",
+    "raw_chunk_text",
     "transcript_text",
     "asr_text",
     "audio_text",
     "chunk_text",
+    "chunk_body_text",
     "evidence_text",
     "redacted_evidence_preview",
     "embedding",
@@ -49,8 +53,10 @@ FORBIDDEN_METADATA_PAYLOAD_KEYS = {
     "vectors",
     "vector_db",
     "payload_text",
+    "retrieval_payload_text",
 }
 SHA256_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
+OBJECT_ID_RE = re.compile(r"^rom_(semantic|event|evidence)_[0-9a-f]{16}$")
 
 _TYPE_PRIORITY = {
     "evidence_object_metadata": 1,
@@ -174,6 +180,9 @@ def validate_retrieval_object_metadata_record(row: dict[str, Any]) -> list[str]:
         errors.append(f"unexpected field {field}")
 
     object_type = row.get("object_type")
+    object_id = row.get("object_id")
+    if not isinstance(object_id, str) or not OBJECT_ID_RE.fullmatch(object_id):
+        errors.append("object_id must match rom_(semantic|event|evidence)_<16 lowercase hex>")
     if object_type not in RETRIEVAL_OBJECT_METADATA_TYPES:
         errors.append(f"invalid object_type {object_type!r}")
     elif row.get("retrieval_priority") != retrieval_object_metadata_priority(str(object_type)):
@@ -211,4 +220,61 @@ def validate_retrieval_object_metadata_rows(rows: list[dict[str, Any]]) -> list[
         errors.append(f"duplicate object_id {duplicate}")
     for index, row in enumerate(rows, start=1):
         errors.extend(f"row {index}: {error}" for error in validate_retrieval_object_metadata_record(row))
+    return errors
+
+
+def summarize_retrieval_object_metadata_rows(
+    rows: list[dict[str, Any]],
+    *,
+    source_manifest: str = "",
+    out_path: str = "",
+) -> dict[str, Any]:
+    return {
+        "status_label": METADATA_SUMMARY_STATUS_LABEL,
+        "source_manifest": source_manifest,
+        "out_path": out_path,
+        "object_count": len(rows),
+        "counts_by_object_type": dict(sorted(Counter(str(row.get("object_type", "")) for row in rows).items())),
+        "counts_by_case_id": dict(sorted(Counter(str(row.get("case_id", "")) for row in rows).items())),
+        "content_included": False,
+        "embeddings_included": False,
+        "vector_db_included": False,
+        "evaluated_retrieval_quality": False,
+        "production_rag_claim": False,
+    }
+
+
+def validate_retrieval_object_metadata_summary(summary: dict[str, Any], rows: list[dict[str, Any]]) -> list[str]:
+    errors: list[str] = []
+    expected = summarize_retrieval_object_metadata_rows(
+        rows,
+        source_manifest=str(summary.get("source_manifest", "")),
+        out_path=str(summary.get("out_path", "")),
+    )
+    if summary.get("status_label") != METADATA_SUMMARY_STATUS_LABEL:
+        errors.append(f"status_label must be {METADATA_SUMMARY_STATUS_LABEL!r}")
+    if summary.get("object_count") != expected["object_count"]:
+        errors.append(f"object_count must equal JSONL row count {expected['object_count']}")
+    for key in ("counts_by_object_type", "counts_by_case_id"):
+        counts = summary.get(key)
+        if counts != expected[key]:
+            errors.append(f"{key} must match JSONL counts")
+        if isinstance(counts, dict):
+            total = 0
+            for count_key, value in counts.items():
+                if not isinstance(value, int) or isinstance(value, bool):
+                    errors.append(f"{key}.{count_key} must be an integer count")
+                    continue
+                total += value
+            if total != expected["object_count"]:
+                errors.append(f"{key} must sum to object_count {expected['object_count']}")
+    for key in (
+        "content_included",
+        "embeddings_included",
+        "vector_db_included",
+        "evaluated_retrieval_quality",
+        "production_rag_claim",
+    ):
+        if summary.get(key) is not False:
+            errors.append(f"{key} must be false")
     return errors

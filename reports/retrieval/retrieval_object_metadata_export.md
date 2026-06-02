@@ -2,10 +2,11 @@
 
 ## Run status
 - retrieval_object_status: `retrieval_object_scaffold_only`
-- Retrieval object scaffold only.
+- Retrieval object scaffold only; this is a metadata-only export path.
+- This report does not evaluate retrieval quality and is not production RAG evidence.
 - No embeddings are created or committed.
 - No vector DB is created or committed.
-- No evaluated retrieval quality or production RAG claims are made.
+- No production retrieval or production RAG claims are made.
 
 ## Source and output
 - Source manifest: `data/retrieval/retrieval_objects_manifest.csv`
@@ -53,3 +54,4 @@
 ## Safety
 - Output records contain metadata, hashes, span coordinates, and provenance references only.
 - Raw transcript text, ASR/audio text, chunk body text, embeddings, vector payloads, vector DB files, provider artifacts, labels, adjudication rows, training data, and promotion rows are not produced by this export.
+- Later embedding or reranking experiments must consume these metadata objects without committing generated embeddings, vector stores, raw payload text, labels, adjudication rows, training data, or promotion rows.
