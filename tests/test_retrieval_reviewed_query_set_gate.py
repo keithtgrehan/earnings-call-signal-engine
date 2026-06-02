@@ -272,6 +272,7 @@ def test_bakeoff_planner_does_not_turn_ready_inputs_into_results(tmp_path: Path)
     payload["reviewed_query_set"]["path"] = str(query_set_path)
     payload["reviewed_query_set"]["reviewed"] = True
     payload["reviewed_query_set"]["smoke_only"] = False
+    payload["reviewed_query_set"]["review_stage"] = "reviewed"
     payload["reviewed_query_set"]["reviewer"] = "reviewer_r7"
     payload["reviewed_query_set"]["approval_id"] = "approval_pending_fixture"
     payload["plan_outputs"] = {

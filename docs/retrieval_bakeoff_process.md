@@ -17,8 +17,11 @@ This control plane validates and plans future retrieval bakeoffs. It does not ru
 PYENV_VERSION=3.11.3 python tools/export_retrieval_object_metadata.py --validate-jsonl data/retrieval/retrieval_object_metadata.jsonl
 PYENV_VERSION=3.11.3 python tools/run_retrieval_provider_dry_run.py --config configs/retrieval_providers.example.yml --objects data/retrieval/retrieval_object_metadata.jsonl --dry-run
 PYENV_VERSION=3.11.3 python tools/validate_retrieval_reviewed_query_set.py --query-set data/retrieval/retrieval_reviewed_query_set.template.jsonl --objects data/retrieval/retrieval_object_metadata.jsonl --allow-template
+PYENV_VERSION=3.11.3 python tools/validate_retrieval_reviewed_query_set.py --query-set data/retrieval/retrieval_reviewed_query_set.first20.jsonl --objects data/retrieval/retrieval_object_metadata.jsonl
 PYENV_VERSION=3.11.3 python tools/validate_retrieval_bakeoff_manifest.py --manifest configs/retrieval_bakeoff.example.yml
 PYENV_VERSION=3.11.3 python tools/plan_retrieval_bakeoff.py --manifest configs/retrieval_bakeoff.example.yml --dry-run
+PYENV_VERSION=3.11.3 python tools/validate_retrieval_bakeoff_manifest.py --manifest configs/retrieval_bakeoff.first20_review_pending.example.yml
+PYENV_VERSION=3.11.3 python tools/plan_retrieval_bakeoff.py --manifest configs/retrieval_bakeoff.first20_review_pending.example.yml --dry-run
 ```
 
 ## Reviewer Map
@@ -28,8 +31,11 @@ PYENV_VERSION=3.11.3 python tools/plan_retrieval_bakeoff.py --manifest configs/r
 - Provider config: `configs/retrieval_providers.example.yml`
 - Reviewed query-set schema: `schemas/retrieval_reviewed_query_set.schema.json`
 - Reviewed query-set template: `data/retrieval/retrieval_reviewed_query_set.template.jsonl`
+- First20 review-pending query set: `data/retrieval/retrieval_reviewed_query_set.first20.jsonl`
 - Reviewed query-set process: `docs/retrieval_reviewed_query_set_process.md`
 - Reviewed query-set validator: `tools/validate_retrieval_reviewed_query_set.py`
+- First20 bakeoff manifest: `configs/retrieval_bakeoff.first20_review_pending.example.yml`
+- First20 reviewer packet: `reports/retrieval/retrieval_reviewed_query_set_first20_packet.md`
 - Manifest validator: `tools/validate_retrieval_bakeoff_manifest.py`
 - Bakeoff planner: `tools/plan_retrieval_bakeoff.py`
 - Plan reports: `reports/retrieval/retrieval_bakeoff_plan.json` and `reports/retrieval/retrieval_bakeoff_plan.md`

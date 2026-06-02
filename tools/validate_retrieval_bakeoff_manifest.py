@@ -32,6 +32,7 @@ def validate_manifest(manifest_path: Path = DEFAULT_MANIFEST) -> dict[str, objec
         "reviewed_query_set_path": payload["reviewed_query_set"]["path"],
         "reviewed_query_set": payload["reviewed_query_set"]["reviewed"],
         "smoke_only": payload["reviewed_query_set"]["smoke_only"],
+        "review_stage": payload["reviewed_query_set"].get("review_stage", ""),
         "network_allowed": payload["network_allowed"],
         "benchmark_complete": False,
         "evaluated_retrieval_quality": False,

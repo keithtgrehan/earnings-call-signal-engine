@@ -67,11 +67,27 @@ PYENV_VERSION=3.11.3 python tools/validate_retrieval_reviewed_query_set.py \
   --allow-template
 ```
 
+Validate the first20 review-pending candidate:
+
+```bash
+PYENV_VERSION=3.11.3 python tools/validate_retrieval_reviewed_query_set.py \
+  --query-set data/retrieval/retrieval_reviewed_query_set.first20.jsonl \
+  --objects data/retrieval/retrieval_object_metadata.jsonl
+```
+
 Plan the current local-stub bakeoff wiring:
 
 ```bash
 PYENV_VERSION=3.11.3 python tools/plan_retrieval_bakeoff.py \
   --manifest configs/retrieval_bakeoff.example.yml \
+  --dry-run
+```
+
+Plan the first20 review-pending wiring:
+
+```bash
+PYENV_VERSION=3.11.3 python tools/plan_retrieval_bakeoff.py \
+  --manifest configs/retrieval_bakeoff.first20_review_pending.example.yml \
   --dry-run
 ```
 

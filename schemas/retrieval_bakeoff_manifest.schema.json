@@ -27,11 +27,20 @@
     "retrieval_objects_path": {"type": "string", "minLength": 1},
     "reviewed_query_set": {
       "type": "object",
-      "required": ["path", "reviewed", "smoke_only", "reviewer", "approval_id", "notes"],
+      "required": ["path", "reviewed", "smoke_only", "review_stage", "reviewer", "approval_id", "notes"],
       "properties": {
         "path": {"type": "string", "minLength": 1},
         "reviewed": {"type": "boolean"},
         "smoke_only": {"type": "boolean"},
+        "review_stage": {
+          "enum": [
+            "template_only",
+            "smoke_only",
+            "review_pending",
+            "reviewed",
+            "rejected"
+          ]
+        },
         "reviewer": {"type": "string"},
         "approval_id": {"type": "string"},
         "notes": {"type": "string"}
