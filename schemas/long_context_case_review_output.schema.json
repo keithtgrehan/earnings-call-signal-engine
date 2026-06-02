@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/long_context_case_review_output.schema.json",
+  "title": "Signal Engine long-context case review output",
+  "type": "object",
+  "required": [
+    "case_id",
+    "reviewer_model_slot",
+    "reviewed_bundle_id",
+    "summary",
+    "cited_object_refs",
+    "cited_provenance_refs",
+    "detected_issues",
+    "uncertainty_flags",
+    "extraction_disagreements",
+    "hallucination_risk_notes",
+    "reviewer_confidence",
+    "abstentions",
+    "cannot_answer_reasons",
+    "provider_execution",
+    "production_claims"
+  ],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "reviewer_model_slot": {"type": "string", "minLength": 1},
+    "reviewed_bundle_id": {"type": "string", "minLength": 1},
+    "summary": {"type": "string"},
+    "cited_object_refs": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^rom_(semantic|event|evidence)_[0-9a-f]{16}$"}
+    },
+    "cited_provenance_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "detected_issues": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "uncertainty_flags": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "extraction_disagreements": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "hallucination_risk_notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "reviewer_confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "abstentions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "cannot_answer_reasons": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "provider_execution": {"const": false},
+    "production_claims": {"const": false}
+  },
+  "additionalProperties": false
+}
