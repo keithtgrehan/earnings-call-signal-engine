@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/retrieval_object_metadata.schema.json",
+  "title": "Signal Engine retrieval object metadata",
+  "type": "object",
+  "required": [
+    "case_id",
+    "object_id",
+    "object_type",
+    "company",
+    "ticker",
+    "fiscal_period",
+    "source_type",
+    "provenance_ref",
+    "source_hash",
+    "text_hash",
+    "normalized_transcript_hash",
+    "provenance_hash",
+    "section_label",
+    "speaker_role",
+    "topic",
+    "span_start_char",
+    "span_end_char",
+    "rights_tier",
+    "retrieval_priority",
+    "content_included",
+    "embeddings_included",
+    "vector_db_included"
+  ],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "object_id": {"type": "string", "pattern": "^rom_(semantic|event|evidence)_[0-9a-f]{16}$"},
+    "object_type": {
+      "enum": [
+        "semantic_chunk_metadata",
+        "event_aligned_chunk_metadata",
+        "evidence_object_metadata"
+      ]
+    },
+    "company": {"type": "string"},
+    "ticker": {"type": "string"},
+    "fiscal_period": {"type": "string"},
+    "source_type": {"type": "string", "minLength": 1},
+    "provenance_ref": {"type": "string", "minLength": 1},
+    "source_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "text_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "normalized_transcript_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "provenance_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "section_label": {"type": "string"},
+    "speaker_role": {"type": "string"},
+    "topic": {"type": "string"},
+    "span_start_char": {"type": ["integer", "null"], "minimum": 0},
+    "span_end_char": {"type": ["integer", "null"], "minimum": 0},
+    "rights_tier": {"type": "string", "minLength": 1},
+    "retrieval_priority": {"type": "integer", "minimum": 1, "maximum": 3},
+    "content_included": {"const": false},
+    "embeddings_included": {"const": false},
+    "vector_db_included": {"const": false}
+  },
+  "additionalProperties": false
+}
