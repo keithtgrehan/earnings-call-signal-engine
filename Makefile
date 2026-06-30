@@ -16,8 +16,9 @@ MANUAL_TRANSCRIPT_FILE_MANIFEST ?= data/corpus/manual_transcript_file_manifest.c
 TIERED_TRANSCRIPT_TARGETS ?= data/corpus/tiered_transcript_targets.csv
 TIERED_TRANSCRIPT_DISCOVERY_CONFIG ?= data/corpus/transcript_source_discovery.yaml
 DISCOVERED_TRANSCRIPT_SOURCES ?= data/corpus/discovered_transcript_sources.csv
+LLM_LIVE_ARGS ?=
 
-.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check build-nyse-30-pilot validate-nyse-30-pilot build-agent5-source-queue validate-agent5-source-queue register-manual-local-batch validate-manual-local-registry report-agent5-acquisition-status agent5-acquisition-check gold-audit first-100-review-queue promotion-manifest-check first-100-review-metrics agent1-validate-sources agent1-section agent1-candidates agent1-dedupe agent1-review-queue agent1-error-analysis agent1-pilot corpus-safe-check
+.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check build-nyse-30-pilot validate-nyse-30-pilot build-agent5-source-queue validate-agent5-source-queue register-manual-local-batch validate-manual-local-registry report-agent5-acquisition-status agent5-acquisition-check gold-audit first-100-review-queue promotion-manifest-check first-100-review-metrics agent1-validate-sources agent1-section agent1-candidates agent1-dedupe agent1-review-queue agent1-error-analysis agent1-pilot llm-safe-check llm-router-check llm-claude-smoke llm-glm52-smoke llm-bakeoff promptfoo-check opik-check training-readiness corpus-safe-check
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -259,17 +260,27 @@ benchmark-sanity-check:
 	$(PYTHON) scripts/export_training_candidates.py --out /tmp/signal_engine_training_candidates.safe_check.json
 
 llm-safe-check:
-	$(PYTHON) scripts/validate_llm_config.py --path configs/llm.example.yml --require-disabled-default
-	$(PYTHON) scripts/run_llm_fixture_smoke.py --provider dry_run --fixture tests/fixtures/tiny_realistic_earnings_excerpt.txt --out artifacts/llm/dry_run_fixture_smoke.json
+	$(PYTHON) scripts/validate_llm_config.py --path configs/llm.example.yml
+	$(PYTHON) scripts/run_llm_fixture_smoke.py --provider dry_run
+	$(PYTHON) scripts/check_llm_artifacts.py --root artifacts/llm --allow-missing
+
+llm-router-check:
+	$(PYTHON) scripts/run_llm_fixture_smoke.py --provider dry_run --router litellm
 
 llm-claude-smoke:
-	$(PYTHON) scripts/run_llm_fixture_smoke.py --provider claude --fixture tests/fixtures/tiny_realistic_earnings_excerpt.txt --out artifacts/llm/claude_fixture_smoke.json $(LLM_LIVE_ARGS)
+	SIGNAL_ENGINE_LLM_PROVIDER=claude $(PYTHON) scripts/run_llm_fixture_smoke.py $(LLM_LIVE_ARGS)
 
 llm-glm52-smoke:
-	$(PYTHON) scripts/run_llm_fixture_smoke.py --provider glm52 --fixture tests/fixtures/tiny_realistic_earnings_excerpt.txt --out artifacts/llm/glm52_fixture_smoke.json $(LLM_LIVE_ARGS)
+	SIGNAL_ENGINE_LLM_PROVIDER=glm52 $(PYTHON) scripts/run_llm_fixture_smoke.py $(LLM_LIVE_ARGS)
 
 llm-bakeoff:
-	$(PYTHON) scripts/run_llm_bakeoff.py --providers dry_run,claude,glm52 --fixture tests/fixtures/tiny_realistic_earnings_excerpt.txt --report-out reports/llm/bakeoff_summary.json --outputs-out artifacts/llm/bakeoff_outputs.jsonl $(LLM_LIVE_ARGS)
+	$(PYTHON) scripts/run_llm_bakeoff.py --providers dry_run --out reports/llm/llm_bakeoff.md
+
+promptfoo-check:
+	@command -v promptfoo >/dev/null 2>&1 && promptfoo eval -c evals/promptfoo/llm_signal_extraction.yaml || echo "promptfoo unavailable; skipped"
+
+opik-check:
+	$(PYTHON) scripts/check_opik_config.py --path configs/opik.example.yml || true
 
 nyse-universe-check:
 	$(PYTHON) scripts/validate_nyse_earnings_universe.py --path configs/nyse_earnings_universe.example.yml
@@ -353,6 +364,9 @@ agent1-error-analysis:
 	$(PYTHON) scripts/agent1_error_analysis.py
 
 agent1-pilot: agent1-validate-sources agent1-section agent1-candidates agent1-dedupe agent1-review-queue agent1-error-analysis
+
+training-readiness:
+	$(PYTHON) scripts/run_training_readiness.py --json-out /tmp/signal_engine_training_readiness.json || true
 
 rights-check: registry-check claims-check restricted-artifacts-check
 

@@ -34,13 +34,16 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--task", choices=["signal_candidates", "evidence_judge"], default="signal_candidates")
     parser.add_argument("--fixture", default="tests/fixtures/tiny_realistic_earnings_excerpt.txt")
     parser.add_argument("--config", default="configs/llm.example.yml")
+    parser.add_argument("--router", choices=["direct", "litellm"], default="direct")
+    parser.add_argument("--out", help="Markdown or JSON summary output path. Kept for Makefile-friendly usage.")
     parser.add_argument("--report-out", default="reports/llm/bakeoff_summary.json")
     parser.add_argument("--outputs-out", default="artifacts/llm/bakeoff_outputs.jsonl")
     parser.add_argument("--live", action="store_true")
     args = parser.parse_args(argv)
 
     config = load_llm_config(args.config)
-    report_out = _allowed_output_path(Path(args.report_out), config.allowed_output_roots)
+    report_target = args.out or args.report_out
+    report_out = _allowed_output_path(Path(report_target), config.allowed_output_roots)
     outputs_out = _allowed_output_path(Path(args.outputs_out), config.allowed_output_roots)
     providers = [provider.strip() for provider in args.providers.split(",") if provider.strip()]
     rows: list[dict[str, Any]] = []
@@ -55,6 +58,7 @@ def main(argv: list[str] | None = None) -> int:
             out=provider_out,
             config_path=Path(args.config),
             live=args.live,
+            router=args.router,
         )
         rows.append(artifact)
         if code != 0:
@@ -77,7 +81,25 @@ def main(argv: list[str] | None = None) -> int:
             for row in rows
         ],
     }
-    _write_json(report_out, summary)
+    if report_out.suffix.lower() == ".md":
+        report_out.parent.mkdir(parents=True, exist_ok=True)
+        lines = [
+            "# LLM Bakeoff Summary",
+            "",
+            f"- status: `{summary['status']}`",
+            f"- task: `{args.task}`",
+            f"- provider_calls_performed: `{summary['provider_calls_performed']}`",
+            "",
+            "| provider | status | validation | live calls |",
+            "| --- | --- | --- | --- |",
+        ]
+        for row in summary["results"]:
+            lines.append(
+                f"| {row['provider']} | {row['status']} | {row['validation_status']} | {row['provider_calls_performed']} |"
+            )
+        report_out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    else:
+        _write_json(report_out, summary)
     _write_jsonl(outputs_out, rows)
     print(f"LLM bakeoff {summary['status']}: providers={','.join(providers)} calls={summary['provider_calls_performed']}")
     return exit_code

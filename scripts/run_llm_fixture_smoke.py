@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -11,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
-from signal_engine.llm import LLMOutputValidationError, LLMRequest, load_llm_config, parse_and_validate_output, provider_for_name
+from signal_engine.llm import LLMOutputValidationError, LLMRequest, LLMRouter, load_llm_config, parse_and_validate_output, redact_secret_values
 
 PROMPTS = {
     "signal_candidates": ROOT / "prompts" / "earnings_signal_extraction.v1.md",
@@ -70,12 +71,11 @@ def build_request(*, task: str, provider_name: str, fixture: Path) -> LLMRequest
     )
 
 
-def run_smoke(*, provider_name: str, task: str, fixture: Path, out: Path, config_path: Path, live: bool) -> tuple[int, dict[str, Any]]:
+def run_smoke(*, provider_name: str, task: str, fixture: Path, out: Path, config_path: Path, live: bool, router: str = "direct") -> tuple[int, dict[str, Any]]:
     config = load_llm_config(config_path)
     out = _allowed_output_path(out, config.allowed_output_roots)
     request_payload = build_request(task=task, provider_name=provider_name, fixture=fixture)
-    provider = provider_for_name(provider_name)
-    result = provider.complete(request_payload, live=live and config.allow_live_provider_calls)
+    result = LLMRouter(router=router, config_path=config_path).complete(request_payload, provider_name=provider_name, live=live)
 
     artifact: dict[str, Any] = {
         "schema_version": "llm_fixture_smoke.v1",
@@ -99,7 +99,7 @@ def run_smoke(*, provider_name: str, task: str, fixture: Path, out: Path, config
                 artifact["validation_status"] = "valid"
             except LLMOutputValidationError as exc:
                 artifact["status"] = "invalid"
-                artifact["message"] = str(exc)
+                artifact["message"] = redact_secret_values(str(exc))
                 artifact["validation_status"] = "invalid"
                 exit_code = 1
         else:
@@ -114,7 +114,8 @@ def run_smoke(*, provider_name: str, task: str, fixture: Path, out: Path, config
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run an LLM fixture smoke test. Live calls are skipped unless explicitly enabled.")
-    parser.add_argument("--provider", choices=["dry_run", "claude", "glm52"], default="dry_run")
+    parser.add_argument("--provider", choices=["dry_run", "claude", "glm52", "openai_compatible"], default=os.getenv("SIGNAL_ENGINE_LLM_PROVIDER", "dry_run"))
+    parser.add_argument("--router", choices=["direct", "litellm"], default="direct")
     parser.add_argument("--task", choices=["signal_candidates", "evidence_judge", "reviewer_packet_assist"], default="signal_candidates")
     parser.add_argument("--fixture", default="tests/fixtures/tiny_realistic_earnings_excerpt.txt")
     parser.add_argument("--config", default="configs/llm.example.yml")
@@ -130,9 +131,10 @@ def main(argv: list[str] | None = None) -> int:
             out=Path(args.out),
             config_path=Path(args.config),
             live=args.live,
+            router=args.router,
         )
     except Exception as exc:
-        print(f"LLM fixture smoke failed: {type(exc).__name__}: {exc}")
+        print(redact_secret_values(f"LLM fixture smoke failed: {type(exc).__name__}: {exc}"))
         return 1
 
     print(

@@ -4,9 +4,13 @@ import json
 import os
 import subprocess
 import sys
+from typing import TYPE_CHECKING
 from pathlib import Path
 
 import pytest
+
+if TYPE_CHECKING:
+    from signal_engine.llm.types import LLMRequest
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = ROOT / "tests" / "fixtures" / "tiny_realistic_earnings_excerpt.txt"
@@ -37,11 +41,19 @@ def test_default_llm_config_is_disabled() -> None:
     config = load_llm_config(ROOT / "configs" / "llm.example.yml")
 
     assert config.enabled is False
+    assert config.provider == "dry_run"
+    assert config.mode == "dry_run"
+    assert config.allow_network is False
     assert config.allow_live_provider_calls is False
     assert config.canonical_output_allowed is False
     assert config.auto_promote_gold is False
+    assert config.output_dir == "artifacts/llm"
+    assert config.report_dir == "reports/llm"
+    assert config.max_calls == 10
+    assert config.max_cost_usd == 5.00
     assert set(config.allowed_use_cases) == {"reviewer_support", "extraction_benchmark"}
     assert set(config.allowed_output_roots) == {"artifacts/llm", "reports/llm"}
+    assert "openai_compatible" in config.providers
 
 
 def test_dry_run_provider_returns_valid_signal_candidates_offline() -> None:
@@ -98,17 +110,20 @@ def test_missing_evidence_quote_fails_validation() -> None:
 
 
 def test_live_providers_skip_without_explicit_runtime_flag(monkeypatch: pytest.MonkeyPatch) -> None:
-    from signal_engine.llm.providers import ClaudeProvider, GLM52Provider
+    from signal_engine.llm.providers import ClaudeProvider, GLM52Provider, OpenAICompatibleProvider
 
     monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-test-secret")
     monkeypatch.setenv("ZAI_API_KEY", "sk-zai-test-secret")
+    monkeypatch.setenv("OPENAI_API_KEY", "sk-openai-test-secret")
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://example.invalid")
     monkeypatch.delenv("SIGNAL_ENGINE_LLM_LIVE", raising=False)
 
-    for provider in (ClaudeProvider(), GLM52Provider()):
+    for provider in (ClaudeProvider(), GLM52Provider(), OpenAICompatibleProvider()):
         result = provider.complete(_request(), live=True)
         assert result.status == "skipped"
         assert "sk-ant-test-secret" not in result.message
         assert "sk-zai-test-secret" not in result.message
+        assert "sk-openai-test-secret" not in result.message
 
 
 def test_llm_smoke_script_does_not_print_api_keys(monkeypatch: pytest.MonkeyPatch) -> None:

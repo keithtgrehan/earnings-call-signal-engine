@@ -115,6 +115,7 @@ class _LiveProviderBase:
     model_env_var = ""
     default_model = ""
     secret_env_var = ""
+    base_url_env_var = ""
 
     def complete(self, request: LLMRequest, *, live: bool = False) -> LLMProviderResult:
         model = self._model()
@@ -125,6 +126,8 @@ class _LiveProviderBase:
         api_key = os.getenv(self.secret_env_var, "")
         if not api_key:
             return self._skipped(model, f"{self.secret_env_var} is not set")
+        if self.base_url_env_var and not os.getenv(self.base_url_env_var):
+            return self._skipped(model, f"{self.base_url_env_var} is not set")
         started = time.monotonic()
         try:
             text = self._complete_live(request, api_key=api_key, model=model)
@@ -151,7 +154,7 @@ class _LiveProviderBase:
 
 class ClaudeProvider(_LiveProviderBase):
     name = "claude"
-    model_env_var = "ANTHROPIC_MODEL"
+    model_env_var = "CLAUDE_MODEL"
     default_model = "claude-sonnet-4-5"
     secret_env_var = "ANTHROPIC_API_KEY"
 
@@ -186,44 +189,61 @@ class GLM52Provider(_LiveProviderBase):
     model_env_var = "GLM_MODEL"
     default_model = "glm-5.2"
     secret_env_var = "ZAI_API_KEY"
-
-    def complete(self, request: LLMRequest, *, live: bool = False) -> LLMProviderResult:
-        if live and os.getenv(LIVE_ENV_FLAG) == "1" and not os.getenv("ZAI_BASE_URL"):
-            return self._skipped(self._model(), "ZAI_BASE_URL is not set")
-        return super().complete(request, live=live)
+    base_url_env_var = "ZAI_BASE_URL"
 
     def _complete_live(self, request: LLMRequest, *, api_key: str, model: str) -> str:
-        base_url = os.environ["ZAI_BASE_URL"].rstrip("/")
-        body = {
-            "model": model,
-            "messages": [{"role": "user", "content": request.prompt}],
-            "temperature": 0,
-            "max_tokens": 1800,
-        }
-        req = urllib_request.Request(
-            f"{base_url}/chat/completions",
-            data=json.dumps(body).encode("utf-8"),
-            headers={
-                "authorization": f"Bearer {api_key}",
-                "content-type": "application/json",
-            },
-            method="POST",
-        )
-        with urllib_request.urlopen(req, timeout=60) as response:  # noqa: S310
-            payload = json.loads(response.read().decode("utf-8"))
-        choices = payload.get("choices", [])
-        if choices and isinstance(choices[0], dict):
-            message = choices[0].get("message", {})
-            if isinstance(message, dict) and isinstance(message.get("content"), str):
-                return message["content"]
-        return json.dumps(payload)
+        base_url = os.environ[self.base_url_env_var].rstrip("/")
+        return _openai_compatible_completion(base_url=base_url, api_key=api_key, model=model, prompt=request.prompt)
 
 
-def provider_for_name(name: str) -> DryRunProvider | ClaudeProvider | GLM52Provider:
+class OpenAICompatibleProvider(_LiveProviderBase):
+    name = "openai_compatible"
+    model_env_var = "OPENAI_MODEL"
+    default_model = ""
+    secret_env_var = "OPENAI_API_KEY"
+    base_url_env_var = "OPENAI_BASE_URL"
+
+    def _model(self) -> str:
+        return os.getenv(self.model_env_var, self.default_model or "openai-compatible-model")
+
+    def _complete_live(self, request: LLMRequest, *, api_key: str, model: str) -> str:
+        base_url = os.environ[self.base_url_env_var].rstrip("/")
+        return _openai_compatible_completion(base_url=base_url, api_key=api_key, model=model, prompt=request.prompt)
+
+
+def _openai_compatible_completion(*, base_url: str, api_key: str, model: str, prompt: str) -> str:
+    body = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0,
+        "max_tokens": 1800,
+    }
+    req = urllib_request.Request(
+        f"{base_url}/chat/completions",
+        data=json.dumps(body).encode("utf-8"),
+        headers={
+            "authorization": f"Bearer {api_key}",
+            "content-type": "application/json",
+        },
+        method="POST",
+    )
+    with urllib_request.urlopen(req, timeout=60) as response:  # noqa: S310
+        payload = json.loads(response.read().decode("utf-8"))
+    choices = payload.get("choices", [])
+    if choices and isinstance(choices[0], dict):
+        message = choices[0].get("message", {})
+        if isinstance(message, dict) and isinstance(message.get("content"), str):
+            return message["content"]
+    return json.dumps(payload)
+
+
+def provider_for_name(name: str) -> DryRunProvider | ClaudeProvider | GLM52Provider | OpenAICompatibleProvider:
     if name == "dry_run":
         return DryRunProvider()
     if name == "claude":
         return ClaudeProvider()
     if name == "glm52":
         return GLM52Provider()
+    if name == "openai_compatible":
+        return OpenAICompatibleProvider()
     raise ValueError(f"unsupported LLM provider {name}")

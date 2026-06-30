@@ -29,6 +29,8 @@ data/demo_cases/nvidia_q4_fy2024/raw/video/*.mp4
 cache/
 outputs/
 artifacts/gold_review/
+artifacts/llm/
+reports/llm/
 *.wav
 *.webm
 *.mp3

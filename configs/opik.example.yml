@@ -1,0 +1,8 @@
+schema_version: opik_observability.v1
+opik:
+  enabled: false
+  allow_network: false
+  api_key_env: OPIK_API_KEY
+  workspace_env: OPIK_WORKSPACE
+  project_name: signal-engine-llm-reviewer-bakeoff
+  notes: "Optional observability scaffold. Do not call Opik unless explicitly enabled after real provider calls exist."

@@ -1,0 +1,16 @@
+description: Signal Engine LLM signal extraction dry-run scaffold
+prompts:
+  - file://../../prompts/earnings_signal_extraction.v1.md
+providers:
+  - id: echo
+tests:
+  - vars:
+      transcript_excerpt: |
+        Management: We are raising our revenue outlook for fiscal Q1 based on stronger enterprise demand.
+        Analyst: Can you explain why investors should believe the margin recovery after another spending step-up?
+    assert:
+      - type: contains
+        value: canonical_output
+defaultTest:
+  options:
+    provider: echo
