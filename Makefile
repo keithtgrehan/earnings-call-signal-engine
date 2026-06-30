@@ -258,6 +258,19 @@ benchmark-sanity-check:
 	$(PYTHON) scripts/validate_byok_reviewer_config.py --path configs/byok_reviewer.example.yml
 	$(PYTHON) scripts/export_training_candidates.py --out /tmp/signal_engine_training_candidates.safe_check.json
 
+llm-safe-check:
+	$(PYTHON) scripts/validate_llm_config.py --path configs/llm.example.yml --require-disabled-default
+	$(PYTHON) scripts/run_llm_fixture_smoke.py --provider dry_run --fixture tests/fixtures/tiny_realistic_earnings_excerpt.txt --out artifacts/llm/dry_run_fixture_smoke.json
+
+llm-claude-smoke:
+	$(PYTHON) scripts/run_llm_fixture_smoke.py --provider claude --fixture tests/fixtures/tiny_realistic_earnings_excerpt.txt --out artifacts/llm/claude_fixture_smoke.json $(LLM_LIVE_ARGS)
+
+llm-glm52-smoke:
+	$(PYTHON) scripts/run_llm_fixture_smoke.py --provider glm52 --fixture tests/fixtures/tiny_realistic_earnings_excerpt.txt --out artifacts/llm/glm52_fixture_smoke.json $(LLM_LIVE_ARGS)
+
+llm-bakeoff:
+	$(PYTHON) scripts/run_llm_bakeoff.py --providers dry_run,claude,glm52 --fixture tests/fixtures/tiny_realistic_earnings_excerpt.txt --report-out reports/llm/bakeoff_summary.json --outputs-out artifacts/llm/bakeoff_outputs.jsonl $(LLM_LIVE_ARGS)
+
 nyse-universe-check:
 	$(PYTHON) scripts/validate_nyse_earnings_universe.py --path configs/nyse_earnings_universe.example.yml
 	$(PYTHON) scripts/build_nyse_earnings_universe.py --example-config configs/nyse_earnings_universe.example.yml
@@ -343,7 +356,7 @@ agent1-pilot: agent1-validate-sources agent1-section agent1-candidates agent1-de
 
 rights-check: registry-check claims-check restricted-artifacts-check
 
-corpus-safe-check: rights-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check agent5-acquisition-check promotion-manifest-check
+corpus-safe-check: rights-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check llm-safe-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check agent5-acquisition-check promotion-manifest-check
 
 discover-tiered-transcript-sources:
 	$(PYTHON) tools/discover_transcript_sources.py --targets-csv $(TIERED_TRANSCRIPT_TARGETS) --config $(TIERED_TRANSCRIPT_DISCOVERY_CONFIG) --output-csv $(DISCOVERED_TRANSCRIPT_SOURCES) --report-path reports/transcript_source_discovery.md

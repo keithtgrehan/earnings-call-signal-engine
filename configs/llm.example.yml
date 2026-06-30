@@ -1,0 +1,37 @@
+schema_version: llm_backends.v1
+enabled: false
+allow_live_provider_calls: false
+canonical_output_allowed: false
+auto_promote_gold: false
+allowed_use_cases:
+  - reviewer_support
+  - extraction_benchmark
+allowed_output_roots:
+  - artifacts/llm
+  - reports/llm
+default_provider: dry_run
+providers:
+  dry_run:
+    provider_type: dry_run
+    enabled: true
+    default_model: dry-run-signal-engine-v1
+    model_env_var_name: ""
+    secret_env_var_name: ""
+    base_url_env_var_name: ""
+    notes: "Offline fake provider for tests and smoke checks. It never performs network calls."
+  claude:
+    provider_type: anthropic_messages_api
+    enabled: false
+    default_model: claude-sonnet-4-5
+    model_env_var_name: ANTHROPIC_MODEL
+    secret_env_var_name: ANTHROPIC_API_KEY
+    base_url_env_var_name: ANTHROPIC_BASE_URL
+    notes: "Optional reviewer-support backend only. Live calls require --live and SIGNAL_ENGINE_LLM_LIVE=1."
+  glm52:
+    provider_type: openai_compatible_chat_completions
+    enabled: false
+    default_model: glm-5.2
+    model_env_var_name: GLM_MODEL
+    secret_env_var_name: ZAI_API_KEY
+    base_url_env_var_name: ZAI_BASE_URL
+    notes: "Optional extraction-benchmark/reviewer-support backend only. Live calls require --live and SIGNAL_ENGINE_LLM_LIVE=1."
