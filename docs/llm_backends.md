@@ -1,6 +1,6 @@
 # Optional LLM Backends
 
-Status: implemented as gated reviewer-support and extraction-benchmark infrastructure.
+Status: implemented as gated reviewer-support and extraction-benchmark infrastructure with a LiteLLM router scaffold.
 
 Claude and GLM-5.2 are optional BYOK backends. They do not replace deterministic transcript analysis, do not create canonical labels, and do not promote weak labels to gold. Human-reviewed labels remain the only canonical gold source.
 
@@ -27,15 +27,15 @@ The default config is `configs/llm.example.yml`.
 Defaults:
 
 - `enabled: false`
-- `allow_live_provider_calls: false`
-- `canonical_output_allowed: false`
+- `llm.allow_network: false`
+- `llm.canonical_output: false`
 - `auto_promote_gold: false`
 - outputs restricted to `artifacts/llm/` and `reports/llm/`
 
 Validate it:
 
 ```bash
-python scripts/validate_llm_config.py --path configs/llm.example.yml --require-disabled-default
+python scripts/validate_llm_config.py --path configs/llm.example.yml
 ```
 
 ## Providers
@@ -45,7 +45,7 @@ python scripts/validate_llm_config.py --path configs/llm.example.yml --require-d
 `claude` uses Anthropic's Messages API. Required for a live smoke:
 
 - `ANTHROPIC_API_KEY`
-- optional `ANTHROPIC_MODEL`
+- optional `CLAUDE_MODEL`
 - optional `ANTHROPIC_BASE_URL`
 
 `glm52` uses an OpenAI-compatible chat-completions endpoint. Required for a live smoke:
@@ -53,6 +53,12 @@ python scripts/validate_llm_config.py --path configs/llm.example.yml --require-d
 - `ZAI_API_KEY`
 - `ZAI_BASE_URL`
 - optional `GLM_MODEL`
+
+`openai_compatible` is a generic OpenAI-compatible scaffold. Required for a live smoke:
+
+- `OPENAI_API_KEY`
+- `OPENAI_BASE_URL`
+- optional `OPENAI_MODEL`
 
 No script prints API key values. Skip reasons mention only environment variable names.
 
@@ -73,7 +79,7 @@ make llm-claude-smoke
 Claude live smoke:
 
 ```bash
-ANTHROPIC_API_KEY=... SIGNAL_ENGINE_LLM_LIVE=1 LLM_LIVE_ARGS=--live make llm-claude-smoke
+ANTHROPIC_API_KEY=... CLAUDE_MODEL=claude-opus-4-8 SIGNAL_ENGINE_LLM_LIVE=1 LLM_LIVE_ARGS=--live make llm-claude-smoke
 ```
 
 GLM-5.2 smoke, skipped by default:
@@ -92,6 +98,12 @@ Bakeoff on the fixed fixture:
 
 ```bash
 make llm-bakeoff
+```
+
+Router scaffold check:
+
+```bash
+make llm-router-check
 ```
 
 To include live providers in the bakeoff, set the provider keys, endpoint/model variables, `SIGNAL_ENGINE_LLM_LIVE=1`, and `LLM_LIVE_ARGS=--live`.
@@ -116,3 +128,5 @@ Invalid JSON, missing evidence quotes, and schema mismatches fail closed.
 Provider output is a support artifact only. It can help a reviewer inspect evidence faster, but it cannot become canonical truth without human review and the existing gold-label promotion workflow.
 
 All generated LLM artifacts must stay under `artifacts/llm/` or `reports/llm/`. Do not commit raw restricted transcript bodies, secrets, provider logs containing keys, or bulky runtime artifacts.
+
+Run `scripts/check_llm_artifacts.py` before keeping generated artifacts. Generated LLM artifact directories are ignored by git.

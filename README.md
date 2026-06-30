@@ -49,7 +49,7 @@ Optional layers include local Argilla review infrastructure, local TF-IDF/logist
 - Source-quality and fixture-excluded reporting.
 - TF-IDF + Logistic Regression benchmark, gated and benchmark-only.
 - Retrieval benchmark scaffold, gated until reviewed-label volume is sufficient.
-- Optional Claude and GLM-5.2 BYOK backend scaffolding for reviewer support and extraction benchmarking only.
+- Optional dry-run, Claude, GLM-5.2, and OpenAI-compatible LLM backend scaffolding for reviewer support and extraction benchmarking only.
 - Rights-cleared resource registry scaffold for corpus/source provenance, restricted-artifact blocking, and metadata-only source adapters.
 - Offline portfolio demo.
 
@@ -145,12 +145,13 @@ Optional LLM backend checks:
 
 ```bash
 make llm-safe-check
+make llm-router-check
 make llm-claude-smoke      # skipped unless live flags and ANTHROPIC_API_KEY are set
 make llm-glm52-smoke       # skipped unless live flags plus ZAI_API_KEY and ZAI_BASE_URL are set
 make llm-bakeoff
 ```
 
-Claude and GLM-5.2 are reviewer-support and extraction-benchmark backends only. They are disabled by default, never write gold labels, and require quote-level evidence validation. See `docs/llm_backends.md`.
+Codex remains the main implementation agent. The dry-run provider is the default LLM path, LiteLLM is an optional router scaffold, Claude is an optional second-stage reviewer/judge backend, and GLM-5.2 is an optional third-stage long-context/bulk extraction backend. promptfoo and Opik are optional scaffolds for after real provider calls exist. LLM outputs are never canonical truth, never write gold labels, and require quote-level evidence validation. See `docs/llm_backends.md` and `docs/llm_router_and_eval_stack.md`.
 
 High-signal source and intake flow:
 
@@ -207,6 +208,8 @@ Key docs:
 - `docs/nlp_benchmark_matrix.md`
 - `docs/control_room_500_call_rollout_review.md`
 - `docs/llm_backends.md`
+- `docs/llm_router_and_eval_stack.md`
+- `docs/llm_observability.md`
 
 External datasets and weak labels can support benchmarks and review, but they never become gold labels without human review. Restricted transcript-provider bodies must not be copied, committed, trained on, or used for evaluation claims without explicit rights.
 
@@ -222,7 +225,7 @@ Current scaffold split:
 
 - Built foundation: rights registry, restricted-artifact checks, NYSE target-universe metadata validation, source discovery queues, manual-local registration, retrieval/event-study/training-plan/BYOK validators, metadata-only adapters, and safe Make targets.
 - Built pilot automation: Agent 5 NYSE 30 metadata pilot targets, source queue guardrails, manual-local path/hash batch registration, Agent 4 gold-label audit and first-100 review staging, and Agent 1 deterministic candidate pilot scaffolds.
-- Scaffolded: synthetic retrieval metrics, synthetic smoke training, benchmark metadata, NLP training-source inventory, A/B and multivariate experiment design, deterministic review queues, BYOK request/response contracts, and optional Claude/GLM-5.2 reviewer-support backends.
+- Scaffolded: synthetic retrieval metrics, synthetic smoke training, benchmark metadata, NLP training-source inventory, A/B and multivariate experiment design, deterministic review queues, BYOK request/response contracts, LiteLLM routing, promptfoo/Opik scaffolds, and optional Claude/GLM-5.2 reviewer-support backends.
 - Future/gated: real 500-call acquisition, raw media ingest, canonical gold repair/promotion, real training, real retrieval indexing, live provider-backed review, market-data event studies, ASR/video review, and any model-quality claim.
 
 ## Portfolio / Technical Review Path
