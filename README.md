@@ -49,6 +49,7 @@ Optional layers include local Argilla review infrastructure, local TF-IDF/logist
 - Source-quality and fixture-excluded reporting.
 - TF-IDF + Logistic Regression benchmark, gated and benchmark-only.
 - Retrieval benchmark scaffold, gated until reviewed-label volume is sufficient.
+- Optional Claude and GLM-5.2 BYOK backend scaffolding for reviewer support and extraction benchmarking only.
 - Rights-cleared resource registry scaffold for corpus/source provenance, restricted-artifact blocking, and metadata-only source adapters.
 - Offline portfolio demo.
 
@@ -140,6 +141,17 @@ make review-priority-labels
 make review-build-queue
 ```
 
+Optional LLM backend checks:
+
+```bash
+make llm-safe-check
+make llm-claude-smoke      # skipped unless live flags and ANTHROPIC_API_KEY are set
+make llm-glm52-smoke       # skipped unless live flags plus ZAI_API_KEY and ZAI_BASE_URL are set
+make llm-bakeoff
+```
+
+Claude and GLM-5.2 are reviewer-support and extraction-benchmark backends only. They are disabled by default, never write gold labels, and require quote-level evidence validation. See `docs/llm_backends.md`.
+
 High-signal source and intake flow:
 
 ```bash
@@ -167,6 +179,7 @@ make review-after-manual-intake
 - Public transcript acquisition must respect robots, paywalls, login gates, and source terms.
 - Raw transcript bodies and generated review/runtime artifacts should stay out of commits unless explicitly provenance-backed and intentionally committed.
 - Resource registry records are required before expanding source classes, external datasets, or raw-body storage.
+- Optional LLM provider calls are skipped unless explicitly requested with live flags and BYOK environment variables.
 
 ## 10. Roadmap
 
@@ -193,6 +206,7 @@ Key docs:
 - `docs/chunking_and_retrieval_object_strategy.md`
 - `docs/nlp_benchmark_matrix.md`
 - `docs/control_room_500_call_rollout_review.md`
+- `docs/llm_backends.md`
 
 External datasets and weak labels can support benchmarks and review, but they never become gold labels without human review. Restricted transcript-provider bodies must not be copied, committed, trained on, or used for evaluation claims without explicit rights.
 
@@ -208,8 +222,8 @@ Current scaffold split:
 
 - Built foundation: rights registry, restricted-artifact checks, NYSE target-universe metadata validation, source discovery queues, manual-local registration, retrieval/event-study/training-plan/BYOK validators, metadata-only adapters, and safe Make targets.
 - Built pilot automation: Agent 5 NYSE 30 metadata pilot targets, source queue guardrails, manual-local path/hash batch registration, Agent 4 gold-label audit and first-100 review staging, and Agent 1 deterministic candidate pilot scaffolds.
-- Scaffolded: synthetic retrieval metrics, synthetic smoke training, benchmark metadata, NLP training-source inventory, A/B and multivariate experiment design, deterministic review queues, and BYOK request/response contracts.
-- Future/gated: real 500-call acquisition, raw media ingest, canonical gold repair/promotion, real training, real retrieval indexing, provider-backed review, market-data event studies, ASR/video review, and any model-quality claim.
+- Scaffolded: synthetic retrieval metrics, synthetic smoke training, benchmark metadata, NLP training-source inventory, A/B and multivariate experiment design, deterministic review queues, BYOK request/response contracts, and optional Claude/GLM-5.2 reviewer-support backends.
+- Future/gated: real 500-call acquisition, raw media ingest, canonical gold repair/promotion, real training, real retrieval indexing, live provider-backed review, market-data event studies, ASR/video review, and any model-quality claim.
 
 ## Portfolio / Technical Review Path
 
