@@ -1,0 +1,59 @@
+enabled: true
+authorization_mode: user_asserted_project_authorization
+authorization_ref: "Keith user-authorized acquisition for Signal Engine 2.0 assessment on 2026-05-24"
+workspace_root: "/Users/keith/Desktop/earnings calls 100 samples"
+
+allow_transcript_downloads: true
+allow_audio_downloads: true
+allow_video_downloads: false
+allow_youtube_audio_video: false
+allow_vendor_raw_without_license: false
+allow_paywall_login_bypass: false
+allow_drm_bypass: false
+allow_signed_session_url_bypass: false
+
+store_raw_only_on_desktop: true
+commit_raw_to_git: false
+allow_eval_use: true
+allow_training_use: false
+
+allowed_source_types:
+  - company_ir
+  - official_ir_transcript
+  - official_ir_audio
+  - official_ir_webcast
+  - official_ir_event
+  - sec_allowed_exhibit
+  - sec_edgar
+  - manual_local_transcript
+  - manual_local_audio
+  - manually_approved_public_source
+
+blocked_source_types:
+  - youtube_metadata_only
+  - licensed_vendor_blocked
+  - restricted_source_blocked
+  - paywalled
+  - login_required
+  - signed_url
+  - session_restricted
+  - drm_restricted
+
+youtube_requires:
+  youtube_written_authorization_ref: true
+
+vendor_requires:
+  license_config_ref: true
+
+asr:
+  enabled_if_local_tool_available: true
+  cloud_asr_enabled: false
+  write_asr_text_to_desktop_only: true
+  commit_asr_text_to_git: false
+
+rag:
+  chunk_transcripts: true
+  chunk_asr_text_if_generated: true
+  embeddings_enabled: false
+  vector_db_enabled: false
+  bm25_manifest_only: true

@@ -1,0 +1,72 @@
+assets:
+  - asset_id: finbert_sentiment_model
+    asset_type: model
+    name: FinBERT sentiment model
+    source_url: https://huggingface.co/ProsusAI/finbert
+    local_path: ""
+    license: unknown
+    license_status: unknown_fail_closed
+    permitted_uses: []
+    blocked_reason: license_not_verified_locally
+    requires_download: true
+    download_performed: false
+    raw_data_committed: false
+    model_weights_committed: false
+    notes: Public listing is not enough for use; license must be verified before any model-assisted review.
+  - asset_id: financial_phrasebank
+    asset_type: dataset
+    name: Financial PhraseBank
+    source_url: https://www.researchgate.net/publication/251231364_FinancialPhraseBank-v10
+    local_path: ""
+    license: unknown
+    license_status: unknown_fail_closed
+    permitted_uses: []
+    blocked_reason: license_not_verified_locally
+    requires_download: true
+    download_performed: false
+    raw_data_committed: false
+    model_weights_committed: false
+    notes: Dataset is not license-cleared locally and cannot be used for training or weak assistance.
+  - asset_id: loughran_mcdonald_lexicon
+    asset_type: lexicon
+    name: Loughran-McDonald financial sentiment lexicon
+    source_url: https://sraf.nd.edu/loughranmcdonald-master-dictionary/
+    local_path: ""
+    license: research_reference_only_not_verified_for_repo_use
+    license_status: research_only
+    permitted_uses:
+      - benchmark_only
+    blocked_reason: license_and_redistribution_terms_not_verified_locally
+    requires_download: true
+    download_performed: false
+    raw_data_committed: false
+    model_weights_committed: false
+    notes: Registered as a research reference only; not used by the default weak-assist generator.
+  - asset_id: finer_ord
+    asset_type: dataset
+    name: FinER-ORD financial named-entity dataset
+    source_url: https://huggingface.co/datasets/nlpaueb/finer-ord
+    local_path: ""
+    license: non-commercial_terms_not_training_cleared
+    license_status: blocked
+    permitted_uses: []
+    blocked_reason: non_commercial_or_unverified_terms_block_training_and_repo_use
+    requires_download: true
+    download_performed: false
+    raw_data_committed: false
+    model_weights_committed: false
+    notes: Blocked unless terms are explicitly reviewed and recorded in a future registry update.
+  - asset_id: sentence_transformer_local
+    asset_type: model
+    name: Local sentence-transformer model
+    source_url: https://www.sbert.net/
+    local_path: ""
+    license: unknown
+    license_status: unknown_fail_closed
+    permitted_uses: []
+    blocked_reason: no_local_model_path_or_license_file_registered
+    requires_download: false
+    download_performed: false
+    raw_data_committed: false
+    model_weights_committed: false
+    notes: Placeholder for a local model only; fail closed until local path and license are verified.

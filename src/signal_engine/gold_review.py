@@ -250,11 +250,13 @@ def validate_promotion_rows(rows: list[dict[str, Any]]) -> list[str]:
             "evidence_text",
             "source_file",
             "provenance_hash",
+            "adjudicator",
+            "adjudicated_at",
         ):
             if not str(row.get(field, "")).strip():
                 errors.append(f"row {index}: missing required field {field}")
-        if row.get("review_status") not in {"reviewed", "adjudicated"}:
-            errors.append(f"row {index}: review_status must be reviewed/adjudicated")
+        if row.get("review_status") != "adjudicated":
+            errors.append(f"row {index}: review_status must be adjudicated")
         if row.get("gold_status") != "promotion_candidate":
             errors.append(f"row {index}: gold_status must be promotion_candidate")
         if row.get("source_type") == "external_dataset":
@@ -267,6 +269,10 @@ def validate_promotion_rows(rows: list[dict[str, Any]]) -> list[str]:
             errors.append(f"row {index}: unresolved contamination flags {unresolved}")
         if row.get("machine_suggestion_only") is True and not str(row.get("human_final_label", "")).strip():
             errors.append(f"row {index}: machine suggestion requires human_final_label before promotion")
+        if str(row.get("suggested_label", "")).strip() == str(row.get("final_label", "")).strip() and not (
+            str(row.get("reviewer_rationale", "")).strip() or str(row.get("rationale", "")).strip()
+        ):
+            errors.append(f"row {index}: machine suggestion equals final label but reviewer rationale is missing")
         label_id = str(row.get("label_id", "")).strip()
         if label_id:
             if label_id in seen_label_ids:

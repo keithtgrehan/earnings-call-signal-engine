@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/nyse_5y_target_universe.schema.json",
+  "type": "object",
+  "required": ["targets"],
+  "properties": {
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "ticker",
+          "company_name",
+          "exchange",
+          "sector",
+          "fiscal_period",
+          "call_date_or_period",
+          "lookback_year",
+          "event_identity_status",
+          "transcript_status",
+          "audio_status",
+          "video_status",
+          "slides_status",
+          "rights_status",
+          "source_candidates_status",
+          "blocked_reason_code",
+          "manual_action",
+          "provenance_complete"
+        ],
+        "properties": {
+          "exchange": { "const": "NYSE" },
+          "provenance_complete": { "const": false }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

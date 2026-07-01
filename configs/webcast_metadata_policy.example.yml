@@ -1,0 +1,7 @@
+enabled: false
+youtube_metadata_only: true
+raw_audio_allowed: false
+raw_video_allowed: false
+raw_transcript_allowed: false
+require_authorization_for_raw_media: true
+blocked_reason_code: youtube_raw_media_blocked_without_authorization

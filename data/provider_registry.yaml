@@ -1,0 +1,121 @@
+providers:
+  earningscall:
+    name: EarningsCall API
+    provider: earningscall
+    priority: 1
+    api_key_env: EARNINGSCALL_API_KEY
+    enabled: true
+    license_config_ref: ""
+    supports_transcripts: true
+    supports_audio: true
+    supports_slides: false
+    supports_metadata_only: true
+    metadata_discovery_allowed: true
+    raw_transcript_download_allowed: false
+    raw_audio_download_allowed: false
+    raw_download_allowed: false
+    training_allowed: false
+    explicit_training_rights_ref: ""
+    raw_storage_root: "/Users/keith/Desktop/earnings calls 100 samples/provider_raw/earningscall"
+    rate_limit: "metadata-only until key/license configured"
+    notes: "Raw provider pulls require EARNINGSCALL_API_KEY, license_config_ref, raw_download_allowed=true, asset-specific raw flag, and Desktop-only storage."
+  quartr:
+    name: Quartr
+    provider: quartr
+    priority: 2
+    api_key_env: QUARTR_API_KEY
+    enabled: true
+    license_config_ref: ""
+    supports_transcripts: true
+    supports_audio: true
+    supports_slides: false
+    supports_metadata_only: true
+    metadata_discovery_allowed: true
+    raw_transcript_download_allowed: false
+    raw_audio_download_allowed: false
+    raw_download_allowed: false
+    training_allowed: false
+    explicit_training_rights_ref: ""
+    raw_storage_root: "/Users/keith/Desktop/earnings calls 100 samples/provider_raw/quartr"
+    rate_limit: "not configured"
+    notes: "Metadata/readiness placeholder only."
+  aiera:
+    name: Aiera
+    provider: aiera
+    priority: 3
+    api_key_env: AIERA_API_KEY
+    enabled: true
+    license_config_ref: ""
+    supports_transcripts: true
+    supports_audio: true
+    supports_slides: false
+    supports_metadata_only: true
+    metadata_discovery_allowed: true
+    raw_transcript_download_allowed: false
+    raw_audio_download_allowed: false
+    raw_download_allowed: false
+    training_allowed: false
+    explicit_training_rights_ref: ""
+    raw_storage_root: "/Users/keith/Desktop/earnings calls 100 samples/provider_raw/aiera"
+    rate_limit: "not configured"
+    notes: "Metadata/readiness placeholder only."
+  fmp:
+    name: Financial Modeling Prep
+    provider: fmp
+    priority: 4
+    api_key_env: FMP_API_KEY
+    enabled: true
+    license_config_ref: ""
+    supports_transcripts: true
+    supports_audio: false
+    supports_slides: false
+    supports_metadata_only: true
+    metadata_discovery_allowed: true
+    raw_transcript_download_allowed: false
+    raw_audio_download_allowed: false
+    raw_download_allowed: false
+    training_allowed: false
+    explicit_training_rights_ref: ""
+    raw_storage_root: "/Users/keith/Desktop/earnings calls 100 samples/provider_raw/fmp"
+    rate_limit: "not configured"
+    notes: "Metadata/readiness placeholder only."
+  api_ninjas:
+    name: API Ninjas
+    provider: api_ninjas
+    priority: 5
+    api_key_env: API_NINJAS_API_KEY
+    enabled: true
+    license_config_ref: ""
+    supports_transcripts: false
+    supports_audio: false
+    supports_slides: false
+    supports_metadata_only: true
+    metadata_discovery_allowed: true
+    raw_transcript_download_allowed: false
+    raw_audio_download_allowed: false
+    raw_download_allowed: false
+    training_allowed: false
+    explicit_training_rights_ref: ""
+    raw_storage_root: "/Users/keith/Desktop/earnings calls 100 samples/provider_raw/api_ninjas"
+    rate_limit: "not configured"
+    notes: "Metadata/readiness placeholder only."
+  sec_edgar:
+    name: SEC EDGAR metadata
+    provider: sec_edgar
+    priority: 6
+    api_key_env: ""
+    enabled: true
+    license_config_ref: ""
+    supports_transcripts: false
+    supports_audio: false
+    supports_slides: false
+    supports_metadata_only: true
+    metadata_discovery_allowed: true
+    raw_transcript_download_allowed: false
+    raw_audio_download_allowed: false
+    raw_download_allowed: false
+    training_allowed: false
+    explicit_training_rights_ref: ""
+    raw_storage_root: ""
+    rate_limit: "public metadata only"
+    notes: "SEC metadata is not a transcript/audio raw provider."

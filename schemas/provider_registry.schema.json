@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/provider_registry.schema.json",
+  "type": "object",
+  "required": ["providers"],
+  "properties": {
+    "providers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "api_key_env",
+          "enabled",
+          "license_config_ref",
+          "supports_transcripts",
+          "supports_audio",
+          "supports_metadata_only",
+          "raw_download_allowed",
+          "raw_transcript_download_allowed",
+          "raw_audio_download_allowed",
+          "training_allowed",
+          "raw_storage_root"
+        ],
+        "properties": {
+          "provider": {"type": "string"},
+          "name": {"type": "string"},
+          "priority": {"type": "integer"},
+          "api_key_env": {"type": "string"},
+          "enabled": {"type": "boolean"},
+          "license_config_ref": {"type": "string"},
+          "supports_transcripts": {"type": "boolean"},
+          "supports_audio": {"type": "boolean"},
+          "supports_slides": {"type": "boolean"},
+          "supports_metadata_only": {"type": "boolean"},
+          "metadata_discovery_allowed": {"type": "boolean"},
+          "raw_transcript_download_allowed": {"type": "boolean"},
+          "raw_audio_download_allowed": {"type": "boolean"},
+          "raw_download_allowed": {"type": "boolean"},
+          "training_allowed": {"type": "boolean"},
+          "explicit_training_rights_ref": {"type": "string"},
+          "raw_storage_root": {"type": "string"},
+          "rate_limit": {"type": "string"},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

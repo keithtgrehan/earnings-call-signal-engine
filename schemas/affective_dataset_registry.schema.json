@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Affective Dataset Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registry_version", "entries"],
+  "properties": {
+    "registry_version": {"type": "string", "minLength": 1},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/entry"}
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "modality",
+        "task",
+        "license",
+        "allowed_use",
+        "benchmark_only_default",
+        "training_allowed",
+        "raw_data_allowed",
+        "sensitive_biometric_risk",
+        "workplace_education_prohibited_use",
+        "signal_engine_relevance",
+        "dating_app_relevance",
+        "evidence_provenance_requirements",
+        "failure_modes",
+        "legal_notes",
+        "source_url"
+      ],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "modality": {"enum": ["text", "audio", "video", "multimodal"]},
+        "task": {"type": "string", "minLength": 1},
+        "license": {"type": "string", "minLength": 1},
+        "allowed_use": {"type": "string", "minLength": 1},
+        "benchmark_only_default": {"type": "boolean"},
+        "training_allowed": {"type": "boolean"},
+        "raw_data_allowed": {"type": "boolean"},
+        "sensitive_biometric_risk": {"type": "boolean"},
+        "workplace_education_prohibited_use": {"type": "boolean"},
+        "signal_engine_relevance": {"type": "string", "minLength": 1},
+        "dating_app_relevance": {"type": "string", "minLength": 1},
+        "evidence_provenance_requirements": {"type": "string", "minLength": 1},
+        "failure_modes": {"type": "string", "minLength": 1},
+        "legal_notes": {"type": "string", "minLength": 1},
+        "source_url": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

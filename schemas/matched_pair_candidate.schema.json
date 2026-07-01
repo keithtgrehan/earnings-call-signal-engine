@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/matched_pair_candidate.schema.json",
+  "title": "Matched transcript/audio candidate",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "case_id",
+    "ticker",
+    "exchange",
+    "transcript_url",
+    "source_type",
+    "status",
+    "blocker",
+    "review_required",
+    "approval_required",
+    "transcript_download_allowed",
+    "audio_download_allowed",
+    "commit_allowed",
+    "training_allowed"
+  ],
+  "properties": {
+    "candidate_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "pattern": "^[a-z0-9]+_20[0-9]{2}_q[1-4]$"},
+    "ticker": {"type": "string", "minLength": 1},
+    "exchange": {"const": "NYSE"},
+    "source_type": {
+      "enum": ["official_ir", "official_ir_hosted_third_party", "webcast_player", "vendor", "youtube", "manual_local", "sec_metadata"]
+    },
+    "status": {"enum": ["strong_candidate", "partial", "candidate", "blocked", "metadata_only"]},
+    "blocker": {
+      "enum": ["none", "source terms review needed", "webcast player only", "vendor license missing", "youtube media blocked", "rights unknown", "metadata only"]
+    },
+    "source_relation": {"type": "string"},
+    "review_required": {"enum": ["true", "false"]},
+    "approval_required": {"enum": ["true", "false"]},
+    "transcript_download_allowed": {"enum": ["true", "false"]},
+    "audio_download_allowed": {"enum": ["true", "false"]},
+    "commit_allowed": {"const": "false"},
+    "training_allowed": {"const": "false"}
+  },
+  "additionalProperties": true
+}

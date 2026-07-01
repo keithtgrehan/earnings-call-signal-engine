@@ -1,0 +1,22 @@
+{
+  "approved_rows": 20,
+  "benchmark_complete": false,
+  "benchmark_eligible_rows": 20,
+  "benchmark_ready_query_set": true,
+  "benchmark_threshold_met": true,
+  "candidate_output_path": "data/retrieval/retrieval_reviewed_query_set.first20.reviewed_candidate.jsonl",
+  "embeddings_generated": false,
+  "evaluated_retrieval_quality": false,
+  "minimum_benchmark_eligible_rows": 20,
+  "production_rag_claim": false,
+  "provider_execution": false,
+  "query_set_path": "data/retrieval/retrieval_reviewed_query_set.first20.jsonl",
+  "query_set_readiness_status": "benchmark_ready_inputs_only",
+  "rejected_rows": 0,
+  "review_updates_path": "reports/retrieval/retrieval_review_worksheet_first20.csv",
+  "reviewed_rows": 20,
+  "status_label": "retrieval_review_import_only",
+  "threshold_met": true,
+  "total_rows": 20,
+  "vector_db_generated": false
+}

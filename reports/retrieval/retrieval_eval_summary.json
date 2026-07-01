@@ -1,0 +1,122 @@
+{
+  "abstention_correctness": 1.0,
+  "abstention_query_count": 12,
+  "citation_validity": 1.0,
+  "eval_manifest_path": null,
+  "evaluated_rag": false,
+  "evidence_id_hit_rate": 0.0,
+  "failures": [],
+  "fallback_overuse": 0.0,
+  "guardrail_counts": {
+    "audio_unmatched": 1,
+    "no_evidence_for_signal": 1,
+    "only_semantic_fallback": 1,
+    "operator_only_suppressed": 1,
+    "qna_missing": 2,
+    "safe_harbor_suppressed": 1,
+    "trading_request": 1,
+    "unsafe_claim": 1,
+    "vendor_disclaimer_suppressed": 1,
+    "wrong_period": 1,
+    "wrong_ticker": 1
+  },
+  "invalid_citation_rate": 0.0,
+  "latency": {
+    "max": null,
+    "p50": null,
+    "p90": null,
+    "p95": null
+  },
+  "manifest_status": "not_provided",
+  "mrr": 0.0,
+  "mrr_denominator": 8,
+  "mrr_numerator": 0.0,
+  "non_abstention_query_count": 8,
+  "object_inventory_by_type": {
+    "event_aligned_chunk": 1,
+    "evidence_object": 1
+  },
+  "placeholder_expected_ids": 8,
+  "provenance_completeness": 1.0,
+  "qna_state": "missing",
+  "query_count": 20,
+  "query_file_path": "data/retrieval/eval_queries_hd_2025_q4.jsonl",
+  "rates": {
+    "abstention_correctness": {
+      "denominator": 12,
+      "numerator": 12,
+      "percentage": 100.0
+    },
+    "citation_validity_rate": {
+      "denominator": 16,
+      "numerator": 16,
+      "percentage": 100.0
+    },
+    "exact_evidence_id_hit_rate": {
+      "denominator": 8,
+      "numerator": 0,
+      "percentage": 0.0
+    },
+    "fallback_overuse_rate": {
+      "denominator": 8,
+      "numerator": 0,
+      "percentage": 0.0
+    },
+    "invalid_citation_rate": {
+      "denominator": 16,
+      "numerator": 0,
+      "percentage": 0.0
+    },
+    "provenance_completeness_rate": {
+      "denominator": 16,
+      "numerator": 16,
+      "percentage": 100.0
+    },
+    "recall_at_1": {
+      "denominator": 8,
+      "numerator": 0,
+      "percentage": 0.0
+    },
+    "recall_at_3": {
+      "denominator": 8,
+      "numerator": 0,
+      "percentage": 0.0
+    },
+    "recall_at_5": {
+      "denominator": 8,
+      "numerator": 0,
+      "percentage": 0.0
+    },
+    "wrong_case_rate": {
+      "denominator": 16,
+      "numerator": 0,
+      "percentage": 0.0
+    },
+    "wrong_period_rate": {
+      "denominator": 16,
+      "numerator": 0,
+      "percentage": 0.0
+    },
+    "wrong_ticker_rate": {
+      "denominator": 16,
+      "numerator": 0,
+      "percentage": 0.0
+    }
+  },
+  "raw_text_returned": false,
+  "recall_at_1": 0.0,
+  "recall_at_3": 0.0,
+  "recall_at_5": 0.0,
+  "result_count": 16,
+  "result_file_path": "data/retrieval/retrieval_eval_results.jsonl",
+  "smoke_metrics": true,
+  "warnings": [
+    "reviewer placeholder expected evidence IDs remain; production metrics must fail closed",
+    "smoke_metrics only; scaffold readiness check, not production RAG quality evidence",
+    "reviewer placeholder expected evidence IDs remain; smoke mode only"
+  ],
+  "wrong_case_rate": 0.0,
+  "wrong_case_ticker_period": 0,
+  "wrong_period_rate": 0.0,
+  "wrong_ticker_rate": 0.0
+}

@@ -1,0 +1,133 @@
+description: "NYSE 5-year IR/SEC metadata target universe based on the existing 30-ticker pilot list. No availability is claimed."
+exchange: NYSE
+lookback_years: 5
+year_range:
+  mode: rolling
+  start: current_year_minus_5
+  end: current_year
+  period_granularity: fiscal_quarters_to_current_quarter
+local_csv_expansion:
+  enabled: false
+  path: ""
+availability_claimed: false
+targets:
+  - ticker: JPM
+    company_name: JPMorgan Chase & Co.
+    exchange: NYSE
+    sector: Financials
+  - ticker: WMT
+    company_name: Walmart Inc.
+    exchange: NYSE
+    sector: Consumer Staples
+  - ticker: HD
+    company_name: The Home Depot, Inc.
+    exchange: NYSE
+    sector: Consumer Discretionary
+  - ticker: JNJ
+    company_name: Johnson & Johnson
+    exchange: NYSE
+    sector: Health Care
+  - ticker: XOM
+    company_name: Exxon Mobil Corporation
+    exchange: NYSE
+    sector: Energy
+  - ticker: BAC
+    company_name: Bank of America Corporation
+    exchange: NYSE
+    sector: Financials
+  - ticker: GS
+    company_name: The Goldman Sachs Group, Inc.
+    exchange: NYSE
+    sector: Financials
+  - ticker: MS
+    company_name: Morgan Stanley
+    exchange: NYSE
+    sector: Financials
+  - ticker: BLK
+    company_name: BlackRock, Inc.
+    exchange: NYSE
+    sector: Financials
+  - ticker: AXP
+    company_name: American Express Company
+    exchange: NYSE
+    sector: Financials
+  - ticker: CRM
+    company_name: Salesforce, Inc.
+    exchange: NYSE
+    sector: Information Technology
+  - ticker: ORCL
+    company_name: Oracle Corporation
+    exchange: NYSE
+    sector: Information Technology
+  - ticker: IBM
+    company_name: International Business Machines Corporation
+    exchange: NYSE
+    sector: Information Technology
+  - ticker: NOW
+    company_name: ServiceNow, Inc.
+    exchange: NYSE
+    sector: Information Technology
+  - ticker: NET
+    company_name: Cloudflare, Inc.
+    exchange: NYSE
+    sector: Information Technology
+  - ticker: LLY
+    company_name: Eli Lilly and Company
+    exchange: NYSE
+    sector: Health Care
+  - ticker: MRK
+    company_name: Merck & Co., Inc.
+    exchange: NYSE
+    sector: Health Care
+  - ticker: PFE
+    company_name: Pfizer Inc.
+    exchange: NYSE
+    sector: Health Care
+  - ticker: UNH
+    company_name: UnitedHealth Group Incorporated
+    exchange: NYSE
+    sector: Health Care
+  - ticker: CVS
+    company_name: CVS Health Corporation
+    exchange: NYSE
+    sector: Health Care
+  - ticker: BA
+    company_name: The Boeing Company
+    exchange: NYSE
+    sector: Industrials
+  - ticker: CAT
+    company_name: Caterpillar Inc.
+    exchange: NYSE
+    sector: Industrials
+  - ticker: DE
+    company_name: Deere & Company
+    exchange: NYSE
+    sector: Industrials
+  - ticker: GE
+    company_name: GE Aerospace
+    exchange: NYSE
+    sector: Industrials
+  - ticker: HON
+    company_name: Honeywell International Inc.
+    exchange: NYSE
+    sector: Industrials
+  - ticker: KO
+    company_name: The Coca-Cola Company
+    exchange: NYSE
+    sector: Consumer Staples
+  - ticker: MCD
+    company_name: McDonald's Corporation
+    exchange: NYSE
+    sector: Consumer Discretionary
+  - ticker: NKE
+    company_name: NIKE, Inc.
+    exchange: NYSE
+    sector: Consumer Discretionary
+  - ticker: DIS
+    company_name: The Walt Disney Company
+    exchange: NYSE
+    sector: Communication Services
+  - ticker: T
+    company_name: AT&T Inc.
+    exchange: NYSE
+    sector: Communication Services

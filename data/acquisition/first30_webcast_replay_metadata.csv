@@ -1,0 +1,32 @@
+case_id,ticker,company_name,webcast_url,source_domain,source_type,download_allowed,blocked_reason,metadata_only,notes
+bac_2025_q4,BAC,Bank of America Corporation,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+cat_2024_q4,CAT,Caterpillar Inc.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+cat_2025_q1,CAT,Caterpillar Inc.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+cat_2025_q2,CAT,Caterpillar Inc.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+cat_2025_q3,CAT,Caterpillar Inc.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+cat_2025_q4,CAT,Caterpillar Inc.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+f_2025_q1,F,Ford Motor Company,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+f_2025_q2,F,Ford Motor Company,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+f_2025_q3,F,Ford Motor Company,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+f_2025_q4,F,Ford Motor Company,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+hd_2024_q1,HD,The Home Depot Inc.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+hd_2024_q2,HD,The Home Depot Inc.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+hd_2024_q3,HD,The Home Depot Inc.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+hd_2024_q4,HD,The Home Depot Inc.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+hd_2025_q4,HD,"The Home Depot, Inc.",,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+jpm_2024_q1,JPM,JPMorgan Chase & Co.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+jpm_2024_q2,JPM,JPMorgan Chase & Co.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+jpm_2024_q3,JPM,JPMorgan Chase & Co.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+jpm_2024_q4,JPM,JPMorgan Chase & Co.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+jpm_2025_q1,JPM,JPMorgan Chase & Co.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+jpm_2025_q2,JPM,JPMorgan Chase & Co.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+jpm_2025_q3,JPM,JPMorgan Chase & Co.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+jpm_2025_q4,JPM,JPMorgan Chase & Co.,,,unknown,false,official_webcast_metadata_not_found,true,No official event feed mapping configured.
+lyb_2025_q1,LYB,LyondellBasell Industries N.V.,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+lyb_2025_q2,LYB,LyondellBasell Industries N.V.,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+lyb_2025_q3,LYB,LyondellBasell Industries N.V.,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+lyb_2025_q4,LYB,LyondellBasell Industries N.V.,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+rddt_2025_q2,RDDT,Reddit Inc.,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+rddt_2025_q3,RDDT,Reddit Inc.,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+rddt_2025_q4,RDDT,Reddit Inc.,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.
+uber_2025_q4,UBER,Uber Technologies Inc.,,,official_event_feed,false,direct_official_audio_not_found,true,No webcast URL found in official event feed for this case.

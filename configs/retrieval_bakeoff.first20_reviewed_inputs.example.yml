@@ -1,0 +1,65 @@
+version: 1
+bakeoff_id: r13_local_stub_first20_reviewed_inputs_plan
+status_label: retrieval_bakeoff_plan_only
+retrieval_objects_path: data/retrieval/retrieval_object_metadata.jsonl
+reviewed_query_set:
+  path: data/retrieval/retrieval_reviewed_query_set.first20.reviewed_candidate.jsonl
+  reviewed: true
+  smoke_only: false
+  review_stage: reviewed
+  reviewer: Keith Grehan
+  approval_id: first20_manual_review_2026_06_02
+  notes: Reviewed metadata-only first20 input set; input threshold met; no provider execution.
+provider_config_path: configs/retrieval_providers.example.yml
+provider_slots:
+  - local_stub
+metrics_planned:
+  - recall@1
+  - recall@3
+  - recall@5
+  - mrr
+  - exact_evidence_id_hit_rate
+  - citation_validity_rate
+  - invalid_citation_rate
+  - wrong_case_rate
+  - wrong_ticker_rate
+  - wrong_period_rate
+  - abstention_correctness
+  - fallback_overuse_rate
+  - latency_p50
+  - latency_p90
+  - latency_p95
+  - latency_max
+  - provenance_completeness_rate
+output_root: /tmp/signal-engine-retrieval-bakeoffs/r13_local_stub_first20_reviewed_inputs_plan
+plan_outputs:
+  json_report: reports/retrieval/retrieval_bakeoff_first20_reviewed_inputs_plan.json
+  markdown_report: reports/retrieval/retrieval_bakeoff_first20_reviewed_inputs_plan.md
+network_allowed: false
+local_only_artifact_rules:
+  generated_artifacts_commit_allowed: false
+  output_root_must_be_gitignored: true
+  cleanup_required_before_commit: true
+no_commit_artifact_patterns:
+  - "*.npy"
+  - "*.npz"
+  - "*.faiss"
+  - "*.index"
+  - "*.sqlite"
+  - "*.db"
+  - "*.parquet"
+  - "*embedding*"
+  - "*vector*"
+  - "*provider_response*"
+claim_flags:
+  production_rag: false
+  production_retrieval: false
+  trading: false
+  alpha: false
+  significance: false
+reviewer_approval:
+  required_for_real_run: true
+  approved: false
+  reviewer: ""
+  approval_date: ""
+  approval_id: ""

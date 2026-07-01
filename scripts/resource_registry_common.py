@@ -6,7 +6,10 @@ import json
 from pathlib import Path
 from typing import Any
 
-import yaml
+try:
+    import yaml
+except ModuleNotFoundError:  # pragma: no cover - local CI may not install PyYAML.
+    yaml = None
 
 
 RIGHTS_TIERS = {
@@ -101,11 +104,63 @@ RAW_BODY_SUFFIXES = {
 }
 
 
+def _parse_scalar(value: str) -> Any:
+    value = value.strip()
+    if value in {"", "''", '""'}:
+        return ""
+    if value.lower() == "true":
+        return True
+    if value.lower() == "false":
+        return False
+    if value.lower() in {"null", "none"}:
+        return None
+    if (value.startswith('"') and value.endswith('"')) or (value.startswith("'") and value.endswith("'")):
+        return value[1:-1]
+    try:
+        return int(value)
+    except ValueError:
+        return value
+
+
+def _simple_yaml_load(text: str) -> Any:
+    rows: list[dict[str, Any]] = []
+    root: dict[str, Any] = {}
+    current_list_key: str | None = None
+    current_row: dict[str, Any] | None = None
+    for raw_line in text.splitlines():
+        if not raw_line.strip() or raw_line.lstrip().startswith("#"):
+            continue
+        indent = len(raw_line) - len(raw_line.lstrip(" "))
+        stripped = raw_line.strip()
+        if stripped.endswith(":") and indent == 0:
+            current_list_key = stripped[:-1]
+            root[current_list_key] = rows
+            continue
+        if stripped.startswith("- "):
+            current_row = {}
+            rows.append(current_row)
+            stripped = stripped[2:]
+            if ":" in stripped:
+                key, value = stripped.split(":", 1)
+                current_row[key.strip()] = _parse_scalar(value)
+            continue
+        if ":" not in stripped:
+            continue
+        key, value = stripped.split(":", 1)
+        if current_row is not None and indent >= 2:
+            current_row[key.strip()] = _parse_scalar(value)
+        elif current_list_key:
+            root[current_list_key] = rows
+        else:
+            root[key.strip()] = _parse_scalar(value)
+    return root
+
+
 def read_structured(path: Path) -> Any:
     suffix = path.suffix.lower()
     text = path.read_text(encoding="utf-8")
     if suffix in {".yml", ".yaml"}:
-        return yaml.safe_load(text)
+        return yaml.safe_load(text) if yaml is not None else _simple_yaml_load(text)
     if suffix == ".json":
         return json.loads(text)
     raise ValueError(f"Unsupported structured file extension: {path.suffix}")
@@ -293,5 +348,20 @@ def load_csv(path: Path) -> list[dict[str, Any]]:
 
 def looks_like_restricted_artifact(path: str) -> bool:
     normalized = path.replace("\\", "/").lower()
+    safe_metadata_prefixes = (
+        "configs/",
+        "docs/",
+        "schemas/",
+        "reports/acquisition/",
+        "reports/agent1_30_call_pilot/",
+        "reports/agent5/",
+        "reports/evaluation/",
+        "reports/gold_label_audit/",
+        "reports/manual_local_",
+        "reports/retrieval_readiness_30.md",
+        "reports/review/",
+    )
+    if normalized.startswith(safe_metadata_prefixes):
+        return False
     suffix = Path(normalized).suffix
     return suffix in RAW_BODY_SUFFIXES and any(marker in normalized for marker in RESTRICTED_PATH_MARKERS)

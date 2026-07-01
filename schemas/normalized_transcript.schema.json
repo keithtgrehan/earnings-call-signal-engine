@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/normalized_transcript.schema.json",
+  "title": "Repo-safe normalized transcript metadata object",
+  "type": "object",
+  "required": [
+    "case_id",
+    "ticker",
+    "company_name",
+    "exchange",
+    "fiscal_year",
+    "fiscal_quarter",
+    "call_date",
+    "source_url",
+    "source_asset_id",
+    "source_type",
+    "rights_status",
+    "raw_sha256",
+    "source_sha256",
+    "normalizer_version",
+    "sections",
+    "speaker_turns",
+    "qa_pairs",
+    "prepared_remarks",
+    "provenance",
+    "quality_flags",
+    "raw_text_committed"
+  ],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "ticker": {"type": "string"},
+    "company_name": {"type": "string"},
+    "exchange": {"type": "string"},
+    "fiscal_year": {"type": "string"},
+    "fiscal_quarter": {"type": "string"},
+    "call_date": {"type": "string"},
+    "source_url": {"type": "string"},
+    "source_asset_id": {"type": "string"},
+    "source_type": {"type": "string"},
+    "rights_status": {"type": "string"},
+    "raw_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "source_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "normalizer_version": {"type": "string"},
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["section_id", "section_type", "start_char", "end_char"],
+        "properties": {
+          "section_id": {"type": "string"},
+          "section_type": {"type": "string"},
+          "start_char": {"type": "integer", "minimum": 0},
+          "end_char": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "speaker_turns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["turn_id", "speaker", "speaker_role", "start_char", "end_char"],
+        "properties": {
+          "turn_id": {"type": "string"},
+          "speaker": {"type": "string"},
+          "speaker_role": {"type": "string"},
+          "start_char": {"type": "integer", "minimum": 0},
+          "end_char": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "qa_pairs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["qa_pair_id", "question_turn_id", "answer_turn_id", "start_char", "end_char"],
+        "properties": {
+          "qa_pair_id": {"type": "string"},
+          "question_turn_id": {"type": "string"},
+          "answer_turn_id": {"type": "string"},
+          "start_char": {"type": "integer", "minimum": 0},
+          "end_char": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "prepared_remarks": {"type": "array", "items": {"type": "string"}},
+    "provenance": {"type": "object", "additionalProperties": true},
+    "quality_flags": {"type": "array", "items": {"type": "string"}},
+    "normalized_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "raw_text_committed": {"const": false}
+  },
+  "additionalProperties": false
+}

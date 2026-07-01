@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/chunk_quality_report.schema.json",
+  "title": "Chunk quality report",
+  "type": "object",
+  "required": [
+    "case_id",
+    "section_counts",
+    "speaker_turn_counts",
+    "qa_pair_count",
+    "chunk_count",
+    "evidence_candidate_count",
+    "unknown_section_ratio",
+    "unknown_speaker_ratio",
+    "fallback_ratio",
+    "suppression_counts",
+    "raw_text_leak_check",
+    "large_chunk_warning",
+    "evaluated_rag",
+    "bm25_smoke_ready"
+  ],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "section_counts": {"type": "object"},
+    "speaker_turn_counts": {"type": "object"},
+    "qa_pair_count": {"type": "integer", "minimum": 0},
+    "chunk_count": {"type": "integer", "minimum": 0},
+    "evidence_candidate_count": {"type": "integer", "minimum": 0},
+    "unknown_section_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "unknown_speaker_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "fallback_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "suppression_counts": {"type": "object"},
+    "raw_text_leak_check": {"const": "passed"},
+    "large_chunk_warning": {"type": "boolean"},
+    "evaluated_rag": {"const": false},
+    "bm25_smoke_ready": {"type": "boolean"}
+  },
+  "additionalProperties": false
+}

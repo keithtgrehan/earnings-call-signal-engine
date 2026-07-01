@@ -1,0 +1,11 @@
+{
+  "adjudicated_rows": 0,
+  "error_count": 0,
+  "errors": [],
+  "gold_labels_created": 0,
+  "manifest_exists": true,
+  "promotion_ready": false,
+  "status": "NOT_READY",
+  "training_ready": false,
+  "valid": false
+}

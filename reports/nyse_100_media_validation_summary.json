@@ -1,0 +1,16 @@
+{
+  "blocked_or_paywalled_cases": 0,
+  "error_count": 0,
+  "errors": [],
+  "rights_status_counts": {
+    "metadata_only": 100
+  },
+  "tier_counts": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 100
+  },
+  "total_rows": 100,
+  "valid": true
+}

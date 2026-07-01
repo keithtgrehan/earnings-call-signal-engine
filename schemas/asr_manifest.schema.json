@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/asr_manifest.schema.json",
+  "title": "Local ASR manifest",
+  "type": "object",
+  "required": ["case_id", "audio_sha256", "status", "cloud_upload", "raw_asr_text_committed"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "audio_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "engine": {"type": "string"},
+    "status": {"type": "string"},
+    "cloud_upload": {"const": false},
+    "raw_asr_text_committed": {"const": false}
+  },
+  "additionalProperties": true
+}

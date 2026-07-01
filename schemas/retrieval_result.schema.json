@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/retrieval_result.schema.json",
+  "title": "RAG v0 retrieval result",
+  "type": "object",
+  "required": [
+    "query_id",
+    "result_rank",
+    "object_id",
+    "object_type",
+    "case_id",
+    "ticker",
+    "fiscal_period",
+    "source_hash",
+    "normalized_transcript_hash",
+    "provenance_hash",
+    "section_label",
+    "speaker_role",
+    "qa_pair_id",
+    "retrieval_score",
+    "retrieval_method",
+    "citation_valid",
+    "raw_text_returned",
+    "blocked_reason",
+    "notes"
+  ],
+  "properties": {
+    "query_id": {"type": "string", "minLength": 1},
+    "result_rank": {"type": "integer", "minimum": 0},
+    "object_id": {"type": ["string", "null"]},
+    "object_type": {"enum": ["evidence_object", "event_aligned_chunk", "semantic_fallback", null]},
+    "case_id": {"type": ["string", "null"]},
+    "ticker": {"type": ["string", "null"]},
+    "fiscal_period": {"type": ["string", "null"]},
+    "source_hash": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"},
+    "normalized_transcript_hash": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"},
+    "provenance_hash": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"},
+    "section_label": {
+      "enum": ["prepared_remarks", "qa", "safe_harbor", "operator", "non_gaap", "vendor_disclaimer", "unknown"]
+    },
+    "speaker_role": {"enum": ["management", "analyst", "operator", "ir", "vendor", "unknown"]},
+    "qa_pair_id": {"type": ["string", "null"]},
+    "retrieval_score": {"type": "number"},
+    "retrieval_method": {"enum": ["bm25", "hybrid", "embedding", "rerank", "manual_fixture", "abstain"]},
+    "citation_valid": {"type": "boolean"},
+    "raw_text_returned": {"const": false},
+    "blocked_reason": {
+      "enum": [
+        "no_index",
+        "no_rights",
+        "qna_missing",
+        "object_type_unavailable",
+        "only_semantic_fallback",
+        "wrong_ticker",
+        "wrong_period",
+        "trading_request",
+        "audio_unmatched",
+        "unsafe_claim",
+        "safe_harbor_suppressed",
+        "non_gaap_suppressed",
+        "operator_only_suppressed",
+        "vendor_disclaimer_suppressed",
+        "no_evidence_for_signal",
+        "raw_text_blocked",
+        "placeholder_expected_id",
+        null
+      ]
+    },
+    "notes": {"type": "string"},
+    "latency_ms": {"type": "number"}
+  },
+  "additionalProperties": false
+}

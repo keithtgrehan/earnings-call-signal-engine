@@ -1,0 +1,9 @@
+failure_modes:
+  - missing_registered_source
+  - missing_evidence_span
+  - citation_invalid
+  - blocked_source_used
+  - weak_label_treated_as_gold
+  - event_window_without_market_data
+  - trading_claim_language
+  - significance_claim_without_power

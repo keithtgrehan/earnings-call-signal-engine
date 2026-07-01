@@ -1,0 +1,5001 @@
+queue:
+- case_id: nyse5y_jpm_2022_q1
+  ticker: JPM
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: JPM 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2022_q2
+  ticker: JPM
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: JPM 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2022_q3
+  ticker: JPM
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: JPM 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2022_q4
+  ticker: JPM
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: JPM 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2023_q1
+  ticker: JPM
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: JPM 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2023_q2
+  ticker: JPM
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: JPM 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2023_q3
+  ticker: JPM
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: JPM 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2023_q4
+  ticker: JPM
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: JPM 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2024_q1
+  ticker: JPM
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: JPM 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2024_q2
+  ticker: JPM
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: JPM 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2024_q3
+  ticker: JPM
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: JPM 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2024_q4
+  ticker: JPM
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: JPM 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2025_q1
+  ticker: JPM
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: JPM 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2025_q2
+  ticker: JPM
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: JPM 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2025_q3
+  ticker: JPM
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: JPM 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2025_q4
+  ticker: JPM
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: JPM 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2026_q1
+  ticker: JPM
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: JPM 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2026_q2
+  ticker: JPM
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: JPM 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2026_q3
+  ticker: JPM
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: JPM 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jpm_2026_q4
+  ticker: JPM
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: JPM 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2022_q1
+  ticker: WMT
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: WMT 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2022_q2
+  ticker: WMT
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: WMT 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2022_q3
+  ticker: WMT
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: WMT 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2022_q4
+  ticker: WMT
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: WMT 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2023_q1
+  ticker: WMT
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: WMT 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2023_q2
+  ticker: WMT
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: WMT 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2023_q3
+  ticker: WMT
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: WMT 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2023_q4
+  ticker: WMT
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: WMT 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2024_q1
+  ticker: WMT
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: WMT 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2024_q2
+  ticker: WMT
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: WMT 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2024_q3
+  ticker: WMT
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: WMT 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2024_q4
+  ticker: WMT
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: WMT 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2025_q1
+  ticker: WMT
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: WMT 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2025_q2
+  ticker: WMT
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: WMT 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2025_q3
+  ticker: WMT
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: WMT 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2025_q4
+  ticker: WMT
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: WMT 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2026_q1
+  ticker: WMT
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: WMT 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2026_q2
+  ticker: WMT
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: WMT 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2026_q3
+  ticker: WMT
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: WMT 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_wmt_2026_q4
+  ticker: WMT
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: WMT 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2022_q1
+  ticker: HD
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: HD 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2022_q2
+  ticker: HD
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: HD 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2022_q3
+  ticker: HD
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: HD 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2022_q4
+  ticker: HD
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: HD 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2023_q1
+  ticker: HD
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: HD 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2023_q2
+  ticker: HD
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: HD 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2023_q3
+  ticker: HD
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: HD 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2023_q4
+  ticker: HD
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: HD 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2024_q1
+  ticker: HD
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: HD 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2024_q2
+  ticker: HD
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: HD 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2024_q3
+  ticker: HD
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: HD 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2024_q4
+  ticker: HD
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: HD 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2025_q1
+  ticker: HD
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: HD 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2025_q2
+  ticker: HD
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: HD 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2025_q3
+  ticker: HD
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: HD 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2025_q4
+  ticker: HD
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: HD 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2026_q1
+  ticker: HD
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: HD 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2026_q2
+  ticker: HD
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: HD 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2026_q3
+  ticker: HD
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: HD 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hd_2026_q4
+  ticker: HD
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: HD 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2022_q1
+  ticker: JNJ
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2022_q2
+  ticker: JNJ
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2022_q3
+  ticker: JNJ
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2022_q4
+  ticker: JNJ
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2023_q1
+  ticker: JNJ
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2023_q2
+  ticker: JNJ
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2023_q3
+  ticker: JNJ
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2023_q4
+  ticker: JNJ
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2024_q1
+  ticker: JNJ
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2024_q2
+  ticker: JNJ
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2024_q3
+  ticker: JNJ
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2024_q4
+  ticker: JNJ
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2025_q1
+  ticker: JNJ
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2025_q2
+  ticker: JNJ
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2025_q3
+  ticker: JNJ
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2025_q4
+  ticker: JNJ
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2026_q1
+  ticker: JNJ
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2026_q2
+  ticker: JNJ
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2026_q3
+  ticker: JNJ
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_jnj_2026_q4
+  ticker: JNJ
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: JNJ 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2022_q1
+  ticker: XOM
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: XOM 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2022_q2
+  ticker: XOM
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: XOM 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2022_q3
+  ticker: XOM
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: XOM 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2022_q4
+  ticker: XOM
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: XOM 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2023_q1
+  ticker: XOM
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: XOM 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2023_q2
+  ticker: XOM
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: XOM 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2023_q3
+  ticker: XOM
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: XOM 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2023_q4
+  ticker: XOM
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: XOM 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2024_q1
+  ticker: XOM
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: XOM 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2024_q2
+  ticker: XOM
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: XOM 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2024_q3
+  ticker: XOM
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: XOM 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2024_q4
+  ticker: XOM
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: XOM 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2025_q1
+  ticker: XOM
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: XOM 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2025_q2
+  ticker: XOM
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: XOM 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2025_q3
+  ticker: XOM
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: XOM 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2025_q4
+  ticker: XOM
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: XOM 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2026_q1
+  ticker: XOM
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: XOM 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2026_q2
+  ticker: XOM
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: XOM 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2026_q3
+  ticker: XOM
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: XOM 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_xom_2026_q4
+  ticker: XOM
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: XOM 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2022_q1
+  ticker: BAC
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: BAC 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2022_q2
+  ticker: BAC
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: BAC 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2022_q3
+  ticker: BAC
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: BAC 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2022_q4
+  ticker: BAC
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: BAC 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2023_q1
+  ticker: BAC
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: BAC 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2023_q2
+  ticker: BAC
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: BAC 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2023_q3
+  ticker: BAC
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: BAC 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2023_q4
+  ticker: BAC
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: BAC 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2024_q1
+  ticker: BAC
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: BAC 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2024_q2
+  ticker: BAC
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: BAC 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2024_q3
+  ticker: BAC
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: BAC 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2024_q4
+  ticker: BAC
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: BAC 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2025_q1
+  ticker: BAC
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: BAC 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2025_q2
+  ticker: BAC
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: BAC 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2025_q3
+  ticker: BAC
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: BAC 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2025_q4
+  ticker: BAC
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: BAC 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2026_q1
+  ticker: BAC
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: BAC 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2026_q2
+  ticker: BAC
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: BAC 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2026_q3
+  ticker: BAC
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: BAC 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_bac_2026_q4
+  ticker: BAC
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: BAC 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2022_q1
+  ticker: GS
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: GS 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2022_q2
+  ticker: GS
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: GS 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2022_q3
+  ticker: GS
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: GS 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2022_q4
+  ticker: GS
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: GS 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2023_q1
+  ticker: GS
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: GS 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2023_q2
+  ticker: GS
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: GS 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2023_q3
+  ticker: GS
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: GS 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2023_q4
+  ticker: GS
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: GS 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2024_q1
+  ticker: GS
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: GS 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2024_q2
+  ticker: GS
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: GS 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2024_q3
+  ticker: GS
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: GS 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2024_q4
+  ticker: GS
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: GS 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2025_q1
+  ticker: GS
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: GS 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2025_q2
+  ticker: GS
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: GS 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2025_q3
+  ticker: GS
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: GS 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2025_q4
+  ticker: GS
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: GS 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2026_q1
+  ticker: GS
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: GS 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2026_q2
+  ticker: GS
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: GS 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2026_q3
+  ticker: GS
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: GS 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_gs_2026_q4
+  ticker: GS
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: GS 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2022_q1
+  ticker: MS
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: MS 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2022_q2
+  ticker: MS
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: MS 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2022_q3
+  ticker: MS
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: MS 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2022_q4
+  ticker: MS
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: MS 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2023_q1
+  ticker: MS
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: MS 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2023_q2
+  ticker: MS
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: MS 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2023_q3
+  ticker: MS
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: MS 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2023_q4
+  ticker: MS
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: MS 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2024_q1
+  ticker: MS
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: MS 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2024_q2
+  ticker: MS
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: MS 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2024_q3
+  ticker: MS
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: MS 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2024_q4
+  ticker: MS
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: MS 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2025_q1
+  ticker: MS
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: MS 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2025_q2
+  ticker: MS
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: MS 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2025_q3
+  ticker: MS
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: MS 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2025_q4
+  ticker: MS
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: MS 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2026_q1
+  ticker: MS
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: MS 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2026_q2
+  ticker: MS
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: MS 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2026_q3
+  ticker: MS
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: MS 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ms_2026_q4
+  ticker: MS
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: MS 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2022_q1
+  ticker: BLK
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: BLK 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2022_q2
+  ticker: BLK
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: BLK 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2022_q3
+  ticker: BLK
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: BLK 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2022_q4
+  ticker: BLK
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: BLK 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2023_q1
+  ticker: BLK
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: BLK 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2023_q2
+  ticker: BLK
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: BLK 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2023_q3
+  ticker: BLK
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: BLK 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2023_q4
+  ticker: BLK
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: BLK 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2024_q1
+  ticker: BLK
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: BLK 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2024_q2
+  ticker: BLK
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: BLK 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2024_q3
+  ticker: BLK
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: BLK 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2024_q4
+  ticker: BLK
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: BLK 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2025_q1
+  ticker: BLK
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: BLK 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2025_q2
+  ticker: BLK
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: BLK 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2025_q3
+  ticker: BLK
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: BLK 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2025_q4
+  ticker: BLK
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: BLK 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2026_q1
+  ticker: BLK
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: BLK 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2026_q2
+  ticker: BLK
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: BLK 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2026_q3
+  ticker: BLK
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: BLK 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_blk_2026_q4
+  ticker: BLK
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: BLK 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2022_q1
+  ticker: AXP
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: AXP 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2022_q2
+  ticker: AXP
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: AXP 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2022_q3
+  ticker: AXP
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: AXP 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2022_q4
+  ticker: AXP
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: AXP 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2023_q1
+  ticker: AXP
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: AXP 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2023_q2
+  ticker: AXP
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: AXP 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2023_q3
+  ticker: AXP
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: AXP 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2023_q4
+  ticker: AXP
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: AXP 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2024_q1
+  ticker: AXP
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: AXP 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2024_q2
+  ticker: AXP
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: AXP 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2024_q3
+  ticker: AXP
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: AXP 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2024_q4
+  ticker: AXP
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: AXP 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2025_q1
+  ticker: AXP
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: AXP 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2025_q2
+  ticker: AXP
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: AXP 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2025_q3
+  ticker: AXP
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: AXP 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2025_q4
+  ticker: AXP
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: AXP 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2026_q1
+  ticker: AXP
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: AXP 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2026_q2
+  ticker: AXP
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: AXP 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2026_q3
+  ticker: AXP
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: AXP 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_axp_2026_q4
+  ticker: AXP
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: AXP 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2022_q1
+  ticker: CRM
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: CRM 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2022_q2
+  ticker: CRM
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: CRM 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2022_q3
+  ticker: CRM
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: CRM 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2022_q4
+  ticker: CRM
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: CRM 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2023_q1
+  ticker: CRM
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: CRM 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2023_q2
+  ticker: CRM
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: CRM 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2023_q3
+  ticker: CRM
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: CRM 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2023_q4
+  ticker: CRM
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: CRM 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2024_q1
+  ticker: CRM
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: CRM 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2024_q2
+  ticker: CRM
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: CRM 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2024_q3
+  ticker: CRM
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: CRM 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2024_q4
+  ticker: CRM
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: CRM 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2025_q1
+  ticker: CRM
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: CRM 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2025_q2
+  ticker: CRM
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: CRM 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2025_q3
+  ticker: CRM
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: CRM 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2025_q4
+  ticker: CRM
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: CRM 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2026_q1
+  ticker: CRM
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: CRM 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2026_q2
+  ticker: CRM
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: CRM 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2026_q3
+  ticker: CRM
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: CRM 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_crm_2026_q4
+  ticker: CRM
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: CRM 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2022_q1
+  ticker: ORCL
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2022_q2
+  ticker: ORCL
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2022_q3
+  ticker: ORCL
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2022_q4
+  ticker: ORCL
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2023_q1
+  ticker: ORCL
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2023_q2
+  ticker: ORCL
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2023_q3
+  ticker: ORCL
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2023_q4
+  ticker: ORCL
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2024_q1
+  ticker: ORCL
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2024_q2
+  ticker: ORCL
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2024_q3
+  ticker: ORCL
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2024_q4
+  ticker: ORCL
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2025_q1
+  ticker: ORCL
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2025_q2
+  ticker: ORCL
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2025_q3
+  ticker: ORCL
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2025_q4
+  ticker: ORCL
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2026_q1
+  ticker: ORCL
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2026_q2
+  ticker: ORCL
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2026_q3
+  ticker: ORCL
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_orcl_2026_q4
+  ticker: ORCL
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: ORCL 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2022_q1
+  ticker: IBM
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: IBM 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2022_q2
+  ticker: IBM
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: IBM 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2022_q3
+  ticker: IBM
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: IBM 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2022_q4
+  ticker: IBM
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: IBM 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2023_q1
+  ticker: IBM
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: IBM 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2023_q2
+  ticker: IBM
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: IBM 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2023_q3
+  ticker: IBM
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: IBM 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2023_q4
+  ticker: IBM
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: IBM 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2024_q1
+  ticker: IBM
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: IBM 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2024_q2
+  ticker: IBM
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: IBM 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2024_q3
+  ticker: IBM
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: IBM 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2024_q4
+  ticker: IBM
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: IBM 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2025_q1
+  ticker: IBM
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: IBM 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2025_q2
+  ticker: IBM
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: IBM 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2025_q3
+  ticker: IBM
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: IBM 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2025_q4
+  ticker: IBM
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: IBM 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2026_q1
+  ticker: IBM
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: IBM 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2026_q2
+  ticker: IBM
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: IBM 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2026_q3
+  ticker: IBM
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: IBM 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ibm_2026_q4
+  ticker: IBM
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: IBM 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2022_q1
+  ticker: NOW
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: NOW 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2022_q2
+  ticker: NOW
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: NOW 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2022_q3
+  ticker: NOW
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: NOW 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2022_q4
+  ticker: NOW
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: NOW 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2023_q1
+  ticker: NOW
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: NOW 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2023_q2
+  ticker: NOW
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: NOW 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2023_q3
+  ticker: NOW
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: NOW 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2023_q4
+  ticker: NOW
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: NOW 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2024_q1
+  ticker: NOW
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: NOW 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2024_q2
+  ticker: NOW
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: NOW 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2024_q3
+  ticker: NOW
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: NOW 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2024_q4
+  ticker: NOW
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: NOW 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2025_q1
+  ticker: NOW
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: NOW 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2025_q2
+  ticker: NOW
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: NOW 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2025_q3
+  ticker: NOW
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: NOW 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2025_q4
+  ticker: NOW
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: NOW 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2026_q1
+  ticker: NOW
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: NOW 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2026_q2
+  ticker: NOW
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: NOW 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2026_q3
+  ticker: NOW
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: NOW 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_now_2026_q4
+  ticker: NOW
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: NOW 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2022_q1
+  ticker: NET
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: NET 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2022_q2
+  ticker: NET
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: NET 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2022_q3
+  ticker: NET
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: NET 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2022_q4
+  ticker: NET
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: NET 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2023_q1
+  ticker: NET
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: NET 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2023_q2
+  ticker: NET
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: NET 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2023_q3
+  ticker: NET
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: NET 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2023_q4
+  ticker: NET
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: NET 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2024_q1
+  ticker: NET
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: NET 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2024_q2
+  ticker: NET
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: NET 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2024_q3
+  ticker: NET
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: NET 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2024_q4
+  ticker: NET
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: NET 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2025_q1
+  ticker: NET
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: NET 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2025_q2
+  ticker: NET
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: NET 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2025_q3
+  ticker: NET
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: NET 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2025_q4
+  ticker: NET
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: NET 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2026_q1
+  ticker: NET
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: NET 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2026_q2
+  ticker: NET
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: NET 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2026_q3
+  ticker: NET
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: NET 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_net_2026_q4
+  ticker: NET
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: NET 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2022_q1
+  ticker: LLY
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: LLY 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2022_q2
+  ticker: LLY
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: LLY 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2022_q3
+  ticker: LLY
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: LLY 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2022_q4
+  ticker: LLY
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: LLY 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2023_q1
+  ticker: LLY
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: LLY 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2023_q2
+  ticker: LLY
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: LLY 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2023_q3
+  ticker: LLY
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: LLY 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2023_q4
+  ticker: LLY
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: LLY 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2024_q1
+  ticker: LLY
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: LLY 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2024_q2
+  ticker: LLY
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: LLY 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2024_q3
+  ticker: LLY
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: LLY 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2024_q4
+  ticker: LLY
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: LLY 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2025_q1
+  ticker: LLY
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: LLY 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2025_q2
+  ticker: LLY
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: LLY 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2025_q3
+  ticker: LLY
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: LLY 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2025_q4
+  ticker: LLY
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: LLY 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2026_q1
+  ticker: LLY
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: LLY 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2026_q2
+  ticker: LLY
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: LLY 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2026_q3
+  ticker: LLY
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: LLY 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_lly_2026_q4
+  ticker: LLY
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: LLY 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2022_q1
+  ticker: MRK
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: MRK 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2022_q2
+  ticker: MRK
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: MRK 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2022_q3
+  ticker: MRK
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: MRK 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2022_q4
+  ticker: MRK
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: MRK 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2023_q1
+  ticker: MRK
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: MRK 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2023_q2
+  ticker: MRK
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: MRK 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2023_q3
+  ticker: MRK
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: MRK 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2023_q4
+  ticker: MRK
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: MRK 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2024_q1
+  ticker: MRK
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: MRK 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2024_q2
+  ticker: MRK
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: MRK 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2024_q3
+  ticker: MRK
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: MRK 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2024_q4
+  ticker: MRK
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: MRK 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2025_q1
+  ticker: MRK
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: MRK 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2025_q2
+  ticker: MRK
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: MRK 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2025_q3
+  ticker: MRK
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: MRK 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2025_q4
+  ticker: MRK
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: MRK 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2026_q1
+  ticker: MRK
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: MRK 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2026_q2
+  ticker: MRK
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: MRK 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2026_q3
+  ticker: MRK
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: MRK 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_mrk_2026_q4
+  ticker: MRK
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: MRK 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2022_q1
+  ticker: PFE
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: PFE 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2022_q2
+  ticker: PFE
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: PFE 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2022_q3
+  ticker: PFE
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: PFE 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2022_q4
+  ticker: PFE
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: PFE 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2023_q1
+  ticker: PFE
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: PFE 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2023_q2
+  ticker: PFE
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: PFE 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2023_q3
+  ticker: PFE
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: PFE 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2023_q4
+  ticker: PFE
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: PFE 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2024_q1
+  ticker: PFE
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: PFE 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2024_q2
+  ticker: PFE
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: PFE 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2024_q3
+  ticker: PFE
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: PFE 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2024_q4
+  ticker: PFE
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: PFE 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2025_q1
+  ticker: PFE
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: PFE 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2025_q2
+  ticker: PFE
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: PFE 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2025_q3
+  ticker: PFE
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: PFE 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2025_q4
+  ticker: PFE
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: PFE 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2026_q1
+  ticker: PFE
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: PFE 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2026_q2
+  ticker: PFE
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: PFE 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2026_q3
+  ticker: PFE
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: PFE 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_pfe_2026_q4
+  ticker: PFE
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: PFE 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2022_q1
+  ticker: UNH
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: UNH 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2022_q2
+  ticker: UNH
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: UNH 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2022_q3
+  ticker: UNH
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: UNH 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2022_q4
+  ticker: UNH
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: UNH 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2023_q1
+  ticker: UNH
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: UNH 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2023_q2
+  ticker: UNH
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: UNH 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2023_q3
+  ticker: UNH
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: UNH 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2023_q4
+  ticker: UNH
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: UNH 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2024_q1
+  ticker: UNH
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: UNH 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2024_q2
+  ticker: UNH
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: UNH 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2024_q3
+  ticker: UNH
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: UNH 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2024_q4
+  ticker: UNH
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: UNH 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2025_q1
+  ticker: UNH
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: UNH 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2025_q2
+  ticker: UNH
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: UNH 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2025_q3
+  ticker: UNH
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: UNH 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2025_q4
+  ticker: UNH
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: UNH 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2026_q1
+  ticker: UNH
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: UNH 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2026_q2
+  ticker: UNH
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: UNH 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2026_q3
+  ticker: UNH
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: UNH 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_unh_2026_q4
+  ticker: UNH
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: UNH 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2022_q1
+  ticker: CVS
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: CVS 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2022_q2
+  ticker: CVS
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: CVS 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2022_q3
+  ticker: CVS
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: CVS 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2022_q4
+  ticker: CVS
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: CVS 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2023_q1
+  ticker: CVS
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: CVS 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2023_q2
+  ticker: CVS
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: CVS 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2023_q3
+  ticker: CVS
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: CVS 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2023_q4
+  ticker: CVS
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: CVS 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2024_q1
+  ticker: CVS
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: CVS 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2024_q2
+  ticker: CVS
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: CVS 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2024_q3
+  ticker: CVS
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: CVS 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2024_q4
+  ticker: CVS
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: CVS 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2025_q1
+  ticker: CVS
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: CVS 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2025_q2
+  ticker: CVS
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: CVS 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2025_q3
+  ticker: CVS
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: CVS 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2025_q4
+  ticker: CVS
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: CVS 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2026_q1
+  ticker: CVS
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: CVS 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2026_q2
+  ticker: CVS
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: CVS 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2026_q3
+  ticker: CVS
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: CVS 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cvs_2026_q4
+  ticker: CVS
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: CVS 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2022_q1
+  ticker: BA
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: BA 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2022_q2
+  ticker: BA
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: BA 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2022_q3
+  ticker: BA
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: BA 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2022_q4
+  ticker: BA
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: BA 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2023_q1
+  ticker: BA
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: BA 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2023_q2
+  ticker: BA
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: BA 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2023_q3
+  ticker: BA
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: BA 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2023_q4
+  ticker: BA
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: BA 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2024_q1
+  ticker: BA
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: BA 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2024_q2
+  ticker: BA
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: BA 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2024_q3
+  ticker: BA
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: BA 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2024_q4
+  ticker: BA
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: BA 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2025_q1
+  ticker: BA
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: BA 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2025_q2
+  ticker: BA
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: BA 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2025_q3
+  ticker: BA
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: BA 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2025_q4
+  ticker: BA
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: BA 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2026_q1
+  ticker: BA
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: BA 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2026_q2
+  ticker: BA
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: BA 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2026_q3
+  ticker: BA
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: BA 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ba_2026_q4
+  ticker: BA
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: BA 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2022_q1
+  ticker: CAT
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: CAT 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2022_q2
+  ticker: CAT
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: CAT 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2022_q3
+  ticker: CAT
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: CAT 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2022_q4
+  ticker: CAT
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: CAT 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2023_q1
+  ticker: CAT
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: CAT 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2023_q2
+  ticker: CAT
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: CAT 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2023_q3
+  ticker: CAT
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: CAT 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2023_q4
+  ticker: CAT
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: CAT 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2024_q1
+  ticker: CAT
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: CAT 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2024_q2
+  ticker: CAT
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: CAT 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2024_q3
+  ticker: CAT
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: CAT 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2024_q4
+  ticker: CAT
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: CAT 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2025_q1
+  ticker: CAT
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: CAT 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2025_q2
+  ticker: CAT
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: CAT 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2025_q3
+  ticker: CAT
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: CAT 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2025_q4
+  ticker: CAT
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: CAT 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2026_q1
+  ticker: CAT
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: CAT 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2026_q2
+  ticker: CAT
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: CAT 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2026_q3
+  ticker: CAT
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: CAT 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_cat_2026_q4
+  ticker: CAT
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: CAT 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2022_q1
+  ticker: DE
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: DE 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2022_q2
+  ticker: DE
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: DE 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2022_q3
+  ticker: DE
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: DE 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2022_q4
+  ticker: DE
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: DE 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2023_q1
+  ticker: DE
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: DE 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2023_q2
+  ticker: DE
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: DE 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2023_q3
+  ticker: DE
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: DE 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2023_q4
+  ticker: DE
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: DE 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2024_q1
+  ticker: DE
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: DE 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2024_q2
+  ticker: DE
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: DE 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2024_q3
+  ticker: DE
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: DE 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2024_q4
+  ticker: DE
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: DE 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2025_q1
+  ticker: DE
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: DE 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2025_q2
+  ticker: DE
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: DE 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2025_q3
+  ticker: DE
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: DE 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2025_q4
+  ticker: DE
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: DE 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2026_q1
+  ticker: DE
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: DE 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2026_q2
+  ticker: DE
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: DE 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2026_q3
+  ticker: DE
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: DE 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_de_2026_q4
+  ticker: DE
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: DE 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2022_q1
+  ticker: GE
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: GE 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2022_q2
+  ticker: GE
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: GE 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2022_q3
+  ticker: GE
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: GE 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2022_q4
+  ticker: GE
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: GE 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2023_q1
+  ticker: GE
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: GE 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2023_q2
+  ticker: GE
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: GE 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2023_q3
+  ticker: GE
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: GE 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2023_q4
+  ticker: GE
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: GE 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2024_q1
+  ticker: GE
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: GE 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2024_q2
+  ticker: GE
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: GE 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2024_q3
+  ticker: GE
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: GE 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2024_q4
+  ticker: GE
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: GE 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2025_q1
+  ticker: GE
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: GE 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2025_q2
+  ticker: GE
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: GE 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2025_q3
+  ticker: GE
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: GE 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2025_q4
+  ticker: GE
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: GE 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2026_q1
+  ticker: GE
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: GE 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2026_q2
+  ticker: GE
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: GE 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2026_q3
+  ticker: GE
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: GE 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_ge_2026_q4
+  ticker: GE
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: GE 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2022_q1
+  ticker: HON
+  fiscal_period: 2022_Q1
+  source_type: youtube_metadata_only
+  query_hint: HON 2022_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2022_q2
+  ticker: HON
+  fiscal_period: 2022_Q2
+  source_type: youtube_metadata_only
+  query_hint: HON 2022_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2022_q3
+  ticker: HON
+  fiscal_period: 2022_Q3
+  source_type: youtube_metadata_only
+  query_hint: HON 2022_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2022_q4
+  ticker: HON
+  fiscal_period: 2022_Q4
+  source_type: youtube_metadata_only
+  query_hint: HON 2022_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2023_q1
+  ticker: HON
+  fiscal_period: 2023_Q1
+  source_type: youtube_metadata_only
+  query_hint: HON 2023_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2023_q2
+  ticker: HON
+  fiscal_period: 2023_Q2
+  source_type: youtube_metadata_only
+  query_hint: HON 2023_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2023_q3
+  ticker: HON
+  fiscal_period: 2023_Q3
+  source_type: youtube_metadata_only
+  query_hint: HON 2023_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2023_q4
+  ticker: HON
+  fiscal_period: 2023_Q4
+  source_type: youtube_metadata_only
+  query_hint: HON 2023_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2024_q1
+  ticker: HON
+  fiscal_period: 2024_Q1
+  source_type: youtube_metadata_only
+  query_hint: HON 2024_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2024_q2
+  ticker: HON
+  fiscal_period: 2024_Q2
+  source_type: youtube_metadata_only
+  query_hint: HON 2024_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2024_q3
+  ticker: HON
+  fiscal_period: 2024_Q3
+  source_type: youtube_metadata_only
+  query_hint: HON 2024_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2024_q4
+  ticker: HON
+  fiscal_period: 2024_Q4
+  source_type: youtube_metadata_only
+  query_hint: HON 2024_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2025_q1
+  ticker: HON
+  fiscal_period: 2025_Q1
+  source_type: youtube_metadata_only
+  query_hint: HON 2025_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2025_q2
+  ticker: HON
+  fiscal_period: 2025_Q2
+  source_type: youtube_metadata_only
+  query_hint: HON 2025_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2025_q3
+  ticker: HON
+  fiscal_period: 2025_Q3
+  source_type: youtube_metadata_only
+  query_hint: HON 2025_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2025_q4
+  ticker: HON
+  fiscal_period: 2025_Q4
+  source_type: youtube_metadata_only
+  query_hint: HON 2025_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2026_q1
+  ticker: HON
+  fiscal_period: 2026_Q1
+  source_type: youtube_metadata_only
+  query_hint: HON 2026_Q1 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2026_q2
+  ticker: HON
+  fiscal_period: 2026_Q2
+  source_type: youtube_metadata_only
+  query_hint: HON 2026_Q2 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2026_q3
+  ticker: HON
+  fiscal_period: 2026_Q3
+  source_type: youtube_metadata_only
+  query_hint: HON 2026_Q3 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization
+- case_id: nyse5y_hon_2026_q4
+  ticker: HON
+  fiscal_period: 2026_Q4
+  source_type: youtube_metadata_only
+  query_hint: HON 2026_Q4 earnings call webcast
+  raw_audio_allowed: false
+  raw_video_allowed: false
+  raw_transcript_allowed: false
+  metadata_only: true
+  blocked_reason_code: youtube_raw_media_blocked_without_authorization

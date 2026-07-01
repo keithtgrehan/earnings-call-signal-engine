@@ -18,6 +18,7 @@ TIERED_TRANSCRIPT_DISCOVERY_CONFIG ?= data/corpus/transcript_source_discovery.ya
 DISCOVERED_TRANSCRIPT_SOURCES ?= data/corpus/discovered_transcript_sources.csv
 
 .PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check build-nyse-30-pilot validate-nyse-30-pilot build-agent5-source-queue validate-agent5-source-queue register-manual-local-batch validate-manual-local-registry report-agent5-acquisition-status agent5-acquisition-check gold-audit first-100-review-queue promotion-manifest-check first-100-review-metrics agent1-validate-sources agent1-section agent1-candidates agent1-dedupe agent1-review-queue agent1-error-analysis agent1-pilot readiness-canonical control-room-status training-control-room-check corpus-safe-check
+.PHONY: setup lint smoke clean portfolio-proof portfolio-demo docs-audit refresh-proof proof-freshness link-check portfolio-ci first-proof-refresh error-analysis retrieval-refresh gold-holdout-refresh resource-fit-refresh best-in-class-refresh data-growth-refresh review-summary validate-reviewed promote-gold eval-labels benchmark-report labeling-ci eval-loop next-experiment embedding-benchmark report-readiness demo review-priority-labels promote-reviewed-priority-labels eval-after-review intake-high-signal-transcripts discover-high-signal-sources-query-only discover-high-signal-sources verify-high-signal-sources intake-high-signal-from-discovered-sources prepare-manual-transcript-sources intake-manual-transcript-files review-after-manual-intake discover-tiered-transcript-sources acquire-verified-transcripts check-no-transcript-text-staged acquire-tiered-transcripts review-bootstrap review-load-transcripts review-upload-suggestions review-build-queue review-export-gold review-eval gold-review-queue rights-check registry-check claims-check restricted-artifacts-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check build-nyse-30-pilot validate-nyse-30-pilot build-agent5-source-queue validate-agent5-source-queue register-manual-local-batch validate-manual-local-registry report-agent5-acquisition-status agent5-acquisition-check build-ir-sec-universe build-official-ir-candidate-map build-sec-metadata-queue build-ir-sec-availability-matrix build-ir-sec-permitted-ingest-queue report-manual-local-vs-ir-sec-gap validate-ir-sec-acquisition-policy validate-ir-sec-source-candidates validate-ir-sec-availability-matrix validate-ir-sec-permitted-ingest ir-sec-acquisition-check gold-audit first-100-review-queue promotion-manifest-check first-100-review-metrics agent1-validate-sources agent1-section agent1-candidates agent1-dedupe agent1-review-queue agent1-error-analysis agent1-pilot corpus-safe-check acquisition-validate acquisition-prioritize acquisition-dry-run
 
 $(VENV_PY):
 	$(PYTHON) -m venv $(VENV)
@@ -266,6 +267,17 @@ source-discovery-check:
 	$(PYTHON) scripts/validate_source_discovery_queue.py --path configs/source_discovery_policy.example.yml
 	$(PYTHON) scripts/build_source_discovery_queue.py --path configs/source_discovery_policy.example.yml
 
+acquisition-validate:
+	$(PYTHON) scripts/validate_source_rights_review_queue.py
+	$(PYTHON) scripts/validate_nyse_100_source_approvals.py --input data/acquisition/nyse_100_source_rights_review_queue.csv
+	$(PYTHON) scripts/validate_nyse_100_chunk_manifest.py
+
+acquisition-prioritize:
+	$(PYTHON) tools/prioritize_source_rights_queue.py
+
+acquisition-dry-run:
+	$(PYTHON) tools/acquire_nyse_100_assets.py --run-mode dry-run --target-count 5 --workspace /tmp/signal-engine-nyse-100-acquisition-dry-run
+
 manual-local-check:
 	$(PYTHON) scripts/register_manual_local_case.py --case-id synthetic_manual_local_check --path tests/fixtures/tiny_realistic_earnings_excerpt.txt --out /tmp/signal_engine_manual_local_check.json
 
@@ -308,6 +320,32 @@ report-agent5-acquisition-status:
 	$(PYTHON) scripts/report_agent5_acquisition_status.py
 
 agent5-acquisition-check: build-nyse-30-pilot validate-nyse-30-pilot build-agent5-source-queue validate-agent5-source-queue register-manual-local-batch validate-manual-local-registry report-agent5-acquisition-status
+
+build-ir-sec-universe:
+	$(PYTHON) scripts/build_nyse_5y_ir_sec_universe.py
+
+build-ir-sec-availability-matrix:
+	$(PYTHON) scripts/build_ir_sec_availability_matrix.py
+
+build-ir-sec-permitted-ingest-queue:
+	$(PYTHON) scripts/build_ir_sec_permitted_ingest_queue.py
+
+report-manual-local-vs-ir-sec-gap:
+	$(PYTHON) scripts/report_manual_local_vs_ir_sec_gap.py
+
+validate-ir-sec-acquisition-policy:
+	$(PYTHON) scripts/validate_ir_sec_acquisition_policy.py --path configs/ir_sec_acquisition_policy.example.yml
+
+validate-ir-sec-source-candidates:
+	$(PYTHON) scripts/validate_ir_sec_source_candidates.py --path data/corpus/official_ir_candidate_map.yml --path data/corpus/sec_metadata_queue.yml
+
+validate-ir-sec-availability-matrix:
+	$(PYTHON) scripts/validate_ir_sec_availability_matrix.py --path reports/agent5/ir_sec_availability_matrix.csv
+
+validate-ir-sec-permitted-ingest:
+	$(PYTHON) scripts/validate_ir_sec_permitted_ingest_queue.py --path data/corpus/ir_sec_permitted_ingest_queue.yml
+
+ir-sec-acquisition-check: build-ir-sec-universe build-official-ir-candidate-map build-sec-metadata-queue build-ir-sec-availability-matrix build-ir-sec-permitted-ingest-queue report-manual-local-vs-ir-sec-gap validate-ir-sec-acquisition-policy validate-ir-sec-source-candidates validate-ir-sec-availability-matrix validate-ir-sec-permitted-ingest
 
 gold-audit:
 	$(PYTHON) scripts/audit_gold_labels.py
@@ -352,6 +390,139 @@ training-control-room-check: control-room-status
 	$(PYTHON) scripts/validate_training_plan.py --path configs/training_plan.example.yml
 	$(PYTHON) scripts/validate_promotion_manifest.py
 
+.PHONY: doctor artifact-manifest-check capstone-ci build-nyse-5y-universe build-official-ir-candidate-map build-sec-metadata-queue build-webcast-metadata-queue build-slides-availability-map build-source-availability-matrix build-permitted-ingest-queue validate-manual-local-sop report-rights-gated-discovery report-500-call-coverage agent5-rights-gated-discovery-check agent5-aggressive-acquisition-check review-rank-queue review-contamination-flags review-calibration-batch review-packets promotion-check training-readiness agent1-validate-registry agent1-speakers agent1-qna-pairs agent1-guidance agent1-review-queue agent1-30-call-pilot evaluation-manifest-check evaluation-sample-gates retrieval-gate-report evaluation-claims-check evaluation-gate-report agent2-evaluation-check manual-local-discovery manual-local-media-discovery retrieval-readiness-30 real-pilot-readiness-check
+
+doctor:
+	PYTHONPATH=src $(PYTHON) -m earnings_call_sentiment doctor --json
+
+artifact-manifest-check:
+	$(PYTHON) scripts/validate_artifact_manifest.py
+
+build-nyse-5y-universe:
+	$(PYTHON) scripts/build_nyse_5y_target_universe.py
+
+build-official-ir-candidate-map:
+	$(PYTHON) scripts/build_official_ir_candidate_map.py
+
+build-sec-metadata-queue:
+	$(PYTHON) scripts/build_sec_metadata_queue.py
+
+build-webcast-metadata-queue:
+	$(PYTHON) scripts/build_webcast_metadata_queue.py
+
+build-slides-availability-map:
+	$(PYTHON) scripts/build_slides_availability_map.py
+
+build-source-availability-matrix:
+	$(PYTHON) scripts/build_source_availability_matrix.py
+
+build-permitted-ingest-queue:
+	$(PYTHON) scripts/build_permitted_ingest_queue.py
+
+validate-manual-local-sop:
+	$(PYTHON) scripts/validate_manual_local_sop.py
+
+report-rights-gated-discovery:
+	$(PYTHON) scripts/report_rights_gated_discovery.py
+
+report-500-call-coverage:
+	$(PYTHON) scripts/report_500_call_coverage.py
+
+agent5-rights-gated-discovery-check: build-nyse-5y-universe build-official-ir-candidate-map build-sec-metadata-queue build-webcast-metadata-queue build-slides-availability-map build-source-availability-matrix build-permitted-ingest-queue validate-manual-local-sop report-rights-gated-discovery report-500-call-coverage
+
+agent5-aggressive-acquisition-check: agent5-rights-gated-discovery-check
+
+review-rank-queue:
+	$(PYTHON) scripts/build_first_100_review_queue.py
+
+review-contamination-flags:
+	$(PYTHON) scripts/review_flag_contamination.py
+
+review-calibration-batch:
+	$(PYTHON) scripts/build_calibration_batch.py
+
+review-packets:
+	$(PYTHON) scripts/build_reviewer_packets.py
+
+promotion-check:
+	$(PYTHON) scripts/validate_promotion_manifest.py
+
+training-readiness:
+	$(PYTHON) scripts/report_training_readiness.py
+
+agent1-validate-registry:
+	$(PYTHON) scripts/agent1_validate_manual_local_sources.py
+
+agent1-speakers:
+	$(PYTHON) scripts/agent1_assign_speakers.py
+
+agent1-qna-pairs:
+	$(PYTHON) scripts/agent1_build_qna_pairs.py
+
+agent1-guidance:
+	$(PYTHON) scripts/agent1_guidance_comparator.py
+
+agent1-30-call-pilot: agent1-validate-registry agent1-section agent1-speakers agent1-candidates agent1-dedupe agent1-qna-pairs agent1-guidance agent1-review-queue agent1-error-analysis
+
+evaluation-manifest-check:
+	$(PYTHON) scripts/eval/validate_evaluation_manifest.py
+
+evaluation-sample-gates:
+	$(PYTHON) scripts/eval/run_sample_gates.py
+
+retrieval-gate-report:
+	$(PYTHON) scripts/eval/run_retrieval_gate_report.py
+
+evaluation-claims-check:
+	$(PYTHON) scripts/eval/validate_claims.py
+
+evaluation-gate-report:
+	$(PYTHON) scripts/eval/build_evaluation_gate_report.py
+
+agent2-evaluation-check: evaluation-manifest-check evaluation-sample-gates retrieval-gate-report evaluation-claims-check evaluation-gate-report
+
+manual-local-discovery:
+	$(PYTHON) scripts/discover_manual_local_transcripts.py
+
+manual-local-media-discovery:
+	$(PYTHON) scripts/discover_manual_local_media.py
+
+retrieval-readiness-30:
+	$(PYTHON) scripts/build_agent1_retrieval_objects.py
+
+capstone-ci:
+	$(PYTHON) -m py_compile $$(find scripts src tools -name "*.py")
+	$(PYTHON) -m pytest
+	@if command -v ruff >/dev/null 2>&1; then ruff check .; elif [ -x "$(RUFF)" ]; then "$(RUFF)" check .; else echo "ruff unavailable; skipped"; fi
+	$(MAKE) corpus-safe-check
+	$(MAKE) training-plan-check
+	$(MAKE) gold-audit
+	$(MAKE) first-100-review-queue
+	$(MAKE) agent1-pilot
+	$(MAKE) restricted-artifacts-check
+	@if [ -f scripts/check_markdown_links.py ]; then $(PYTHON) scripts/check_markdown_links.py; else echo "markdown link checker unavailable; skipped"; fi
+
+real-pilot-readiness-check: doctor artifact-manifest-check agent5-rights-gated-discovery-check review-rank-queue review-contamination-flags review-calibration-batch review-packets promotion-check training-readiness agent1-30-call-pilot agent2-evaluation-check manual-local-discovery manual-local-media-discovery retrieval-readiness-30
+
+.PHONY: discover-approved-local-transcripts build-manual-local-batch build-gold-provenance-repair manual-actions-training-unlock agent1-candidate-readiness manual-local-registration-check
+
+discover-approved-local-transcripts:
+	$(PYTHON) scripts/discover_approved_local_transcripts.py
+
+build-manual-local-batch:
+	$(PYTHON) scripts/build_manual_local_batch_from_discovery.py
+
+build-gold-provenance-repair:
+	$(PYTHON) scripts/build_gold_provenance_repair_candidates.py
+
+manual-actions-training-unlock:
+	$(PYTHON) scripts/report_manual_actions_to_unlock_training.py
+
+agent1-candidate-readiness:
+	$(PYTHON) scripts/report_agent1_candidate_generation_readiness.py
+
+manual-local-registration-check: discover-approved-local-transcripts build-manual-local-batch validate-manual-local-registry build-gold-provenance-repair manual-actions-training-unlock agent1-candidate-readiness
+
 rights-check: registry-check claims-check restricted-artifacts-check
 
 corpus-safe-check: rights-check corpus-manifest-check retrieval-schema-check event-study-check training-plan-check benchmark-sanity-check nyse-universe-check source-discovery-check manual-local-check media-registration-check retrieval-build-check nlp-training-sources-check experiment-design-check event-study-join-check agent5-acquisition-check promotion-manifest-check
@@ -376,3 +547,282 @@ labeling-ci:
 
 clean:
 	rm -rf ./_smoke_out ./_smoke_cache build dist
+
+NYSE_DESKTOP_WORKSPACE ?= /Users/keith/Desktop/earnings calls 100 samples
+
+.PHONY: free-local-ingestion-check user-authorized-permitted-downloads user-authorized-download-assets register-user-authorized-assets normalize-registered-transcripts build-event-chunks validate-event-chunks export-retrieval-objects build-audio-rag retrieval-readiness operational-ingestion-summary operational-ingestion-check discover-desktop-assets first-real-ingestion resolve-official-ir-assets resolve-sec-exhibit-assets discover-provider-assets detect-direct-assets run-asset-resolution download-resolved-assets register-resolved-assets build-local-retrieval-index first-real-ingestion-check operational-asset-resolution-check discover-matched-pair-assets validate-matched-pair-assets validate-first30-transcript-candidates audio-pairing-report validate-audio-registry asr-smoke-local validate-asr audio-alignment-report evaluate-retrieval first30-ingestion-check first30-retrieval-eval-check
+
+free-local-ingestion-check:
+	$(PYTHON) tools/build_operational_ingest_baseline.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+	$(PYTHON) scripts/validate_user_authorized_ingest.py --workspace "$(NYSE_DESKTOP_WORKSPACE)" || true
+
+user-authorized-permitted-downloads:
+	$(PYTHON) tools/build_user_authorized_permitted_downloads.py --queue data/acquisition/nyse_100_source_rights_review_queue.csv --policy configs/nyse_100_user_authorized_ingest_policy.yml --out data/acquisition/nyse_100_user_authorized_permitted_downloads.csv --desktop-out "$(NYSE_DESKTOP_WORKSPACE)/_audit/user_authorized_permitted_downloads.csv" --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+user-authorized-download-assets:
+	$(PYTHON) tools/download_user_authorized_earnings_assets.py --manifest data/acquisition/nyse_100_user_authorized_permitted_downloads.csv --policy configs/nyse_100_user_authorized_ingest_policy.yml --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+discover-desktop-assets:
+	$(PYTHON) tools/discover_desktop_transcript_audio_assets.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first-real-ingestion:
+	$(PYTHON) tools/run_first_real_ingestion_pipeline.py --workspace "$(NYSE_DESKTOP_WORKSPACE)" --target-pairs 100 --start-year 2025 --years-back 5 --expand-until-exhausted --max-workers 8
+
+resolve-official-ir-assets:
+	$(PYTHON) tools/resolve_official_ir_event_assets.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+resolve-sec-exhibit-assets:
+	$(PYTHON) tools/resolve_sec_exhibit_assets.py
+
+discover-provider-assets:
+	$(PYTHON) tools/run_provider_asset_discovery.py
+
+detect-direct-assets:
+	$(PYTHON) tools/detect_direct_earnings_assets.py
+
+run-asset-resolution:
+	$(PYTHON) tools/run_nyse100_asset_resolution_pipeline.py --workspace "$(NYSE_DESKTOP_WORKSPACE)" --target-pairs 100 --start-year 2025 --years-back 5 --expand-until-exhausted --max-workers 8
+
+download-resolved-assets:
+	$(PYTHON) tools/download_resolved_earnings_assets.py --manifest data/acquisition/nyse_100_user_authorized_permitted_downloads.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+register-resolved-assets:
+	$(PYTHON) tools/register_resolved_desktop_assets.py --workspace "$(NYSE_DESKTOP_WORKSPACE)" --download-log "$(NYSE_DESKTOP_WORKSPACE)/_audit/resolved_download_log.csv"
+
+register-user-authorized-assets:
+	$(PYTHON) tools/register_user_authorized_desktop_assets.py --workspace "$(NYSE_DESKTOP_WORKSPACE)" --download-log "$(NYSE_DESKTOP_WORKSPACE)/_audit/user_authorized_download_log.csv"
+	$(PYTHON) scripts/validate_manual_local_registries.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+normalize-registered-transcripts:
+	$(PYTHON) tools/normalize_registered_transcripts.py --registry data/corpus/manual_local_transcript_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+build-event-chunks:
+	$(PYTHON) tools/build_event_chunks.py --registry data/corpus/manual_local_transcript_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+validate-event-chunks:
+	$(PYTHON) tools/validate_chunk_manifest.py
+
+export-retrieval-objects:
+	$(PYTHON) tools/export_retrieval_objects.py --chunk-manifest data/acquisition/nyse_100_chunk_manifest.csv --out data/retrieval/retrieval_objects_manifest.csv
+
+build-audio-rag:
+	$(PYTHON) tools/build_user_authorized_audio_rag.py --registry data/corpus/manual_local_audio_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+retrieval-readiness:
+	$(PYTHON) tools/build_local_retrieval_index.py --objects data/retrieval/retrieval_objects_manifest.csv --out .local/signal_engine/retrieval/indexes/nyse100_bm25
+	$(PYTHON) tools/evaluate_retrieval.py --objects data/retrieval/retrieval_objects_manifest.csv --queries data/retrieval/eval_queries_hd_2025_q4.jsonl --out reports/retrieval/retrieval_eval_summary.md
+
+build-local-retrieval-index:
+	$(PYTHON) tools/build_local_retrieval_index.py --objects data/retrieval/retrieval_objects_manifest.csv --out .local/signal_engine/retrieval/indexes/nyse100_bm25
+
+operational-ingestion-summary:
+	$(PYTHON) tools/build_operational_ingestion_summary.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+operational-ingestion-check: free-local-ingestion-check user-authorized-permitted-downloads register-user-authorized-assets normalize-registered-transcripts build-event-chunks validate-event-chunks export-retrieval-objects build-audio-rag retrieval-readiness operational-ingestion-summary
+	$(PYTHON) scripts/validate_user_authorized_ingest.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+operational-asset-resolution-check: run-asset-resolution download-resolved-assets register-resolved-assets normalize-registered-transcripts build-event-chunks validate-event-chunks export-retrieval-objects build-audio-rag build-local-retrieval-index operational-ingestion-summary
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
+
+first-real-ingestion-check: first-real-ingestion
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
+
+discover-matched-pair-assets:
+	$(PYTHON) scripts/validate_matched_pair_candidates.py data/acquisition/matched_pair_candidates.csv
+
+validate-matched-pair-assets:
+	$(PYTHON) scripts/validate_matched_pair_candidates.py data/acquisition/matched_pair_candidates.csv
+
+validate-first30-transcript-candidates:
+	$(PYTHON) scripts/validate_transcript_candidates_first30.py data/acquisition/transcript_candidates_first30.csv
+
+audio-pairing-report:
+	$(PYTHON) tools/validate_audio_registry.py --registry data/acquisition/audio_registry.csv
+
+validate-audio-registry:
+	$(PYTHON) tools/validate_audio_registry.py --registry data/acquisition/audio_registry.csv
+
+asr-smoke-local:
+	$(PYTHON) tools/run_local_asr_smoke.py
+
+validate-asr:
+	@echo "Set ASR_SEGMENTS=/path/to/asr_segments.csv to validate local ASR segment metadata."
+	@test -n "$(ASR_SEGMENTS)" || exit 2
+	$(PYTHON) tools/validate_asr_segments.py "$(ASR_SEGMENTS)"
+
+audio-alignment-report:
+	$(PYTHON) tools/align_asr_to_transcript.py --audio-registry data/acquisition/audio_registry.csv --transcript-registry data/corpus/manual_local_transcript_registry.csv
+
+evaluate-retrieval:
+	$(PYTHON) tools/evaluate_retrieval.py --objects data/retrieval/retrieval_objects_manifest.csv --queries data/retrieval/eval_queries_hd_2025_q4.jsonl --out reports/retrieval/retrieval_eval_summary.md
+
+first30-ingestion-check: validate-matched-pair-assets validate-first30-transcript-candidates validate-audio-registry
+	$(PYTHON) scripts/validate_first30_ingestion_manifest.py --path data/acquisition/first30_transcript_ingestion_manifest.csv
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
+
+first30-retrieval-eval-check: build-event-chunks validate-event-chunks export-retrieval-objects evaluate-retrieval
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
+
+.PHONY: first30-promote-transcripts first30-resolve-transcript-urls apply-agent-s1-replacements resolve-remaining-first30-transcripts replace-first30-alternates first30-download-transcripts first30-normalize first30-build-chunks first30-export-retrieval first30-evaluate-retrieval verify-vz-pair first30-resolve-audio resolve-first30-audio search-official-webcast-replay-metadata first30-download-audio first30-audio-gap-status provider-audit-licenses earningscall-provider-status provider-discover-first30 earningscall-discover-first30 provider-download-assets asr-env-check run-local-asr-smoke asr-run-batch align-audio-transcript export-audio-rag-objects first30-run-extraction first30-validate-candidates first30-build-review-packets first30-reduce-retrieval-fallback first30-materialize-retrieval-eval evaluate-first30-retrieval training-readiness-first30 corpus-status-dashboard earningscall-first30-check finish-first30-coverage-check finish-first30-check
+
+first30-promote-transcripts:
+	$(PYTHON) tools/promote_first30_transcript_candidates.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+	$(PYTHON) scripts/validate_first30_ingestion_manifest.py
+
+first30-resolve-transcript-urls:
+	$(PYTHON) tools/resolve_first30_missing_transcript_urls.py
+	$(PYTHON) tools/apply_first30_url_replacements.py
+	$(PYTHON) scripts/validate_first30_ingestion_manifest.py
+
+apply-agent-s1-replacements:
+	$(PYTHON) tools/apply_agent_s1_transcript_replacements.py
+	$(PYTHON) scripts/validate_first30_ingestion_manifest.py
+
+resolve-remaining-first30-transcripts:
+	$(PYTHON) tools/resolve_remaining_first30_transcripts.py
+	$(PYTHON) scripts/validate_first30_ingestion_manifest.py
+
+replace-first30-alternates:
+	$(PYTHON) tools/replace_first30_with_alternate_nyse_targets.py
+	$(PYTHON) scripts/validate_first30_ingestion_manifest.py
+
+first30-download-transcripts:
+	$(PYTHON) tools/download_first30_transcripts.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+verify-vz-pair:
+	$(PYTHON) tools/verify_vz_2024_q4_pair.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-resolve-audio:
+	$(PYTHON) tools/resolve_first30_audio_candidates.py
+
+resolve-first30-audio:
+	$(PYTHON) tools/resolve_audio_for_registered_transcripts.py
+	$(PYTHON) tools/search_official_webcast_replay_metadata.py
+
+search-official-webcast-replay-metadata:
+	$(PYTHON) tools/search_official_webcast_replay_metadata.py
+
+first30-download-audio:
+	$(PYTHON) tools/download_first30_audio.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-audio-gap-status:
+	@test -f data/acquisition/first30_audio_source_gap_manifest.csv
+	@test -f reports/acquisition/first30_audio_source_gap_status.md
+
+provider-audit-licenses:
+	$(PYTHON) tools/provider_license_audit.py
+
+earningscall-provider-status:
+	$(PYTHON) tools/earningscall_first30_discovery.py --status-only
+
+provider-discover-first30:
+	$(PYTHON) tools/provider_discovery_first30.py
+
+earningscall-discover-first30:
+	$(PYTHON) tools/earningscall_first30_discovery.py
+
+provider-download-assets:
+	$(PYTHON) tools/download_provider_assets.py
+
+asr-env-check:
+	$(PYTHON) tools/check_local_asr_environment.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+run-local-asr-smoke:
+	$(PYTHON) tools/run_local_asr_smoke.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+asr-run-batch:
+	$(PYTHON) tools/run_local_asr_batch.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+align-audio-transcript:
+	$(PYTHON) tools/align_asr_to_transcript.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-normalize:
+	$(PYTHON) tools/normalize_registered_transcripts.py --registry data/corpus/manual_local_transcript_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-build-chunks:
+	$(PYTHON) tools/build_event_chunks.py --registry data/corpus/manual_local_transcript_registry.csv --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-export-retrieval:
+	$(PYTHON) tools/export_retrieval_objects.py --chunk-manifest data/acquisition/nyse_100_chunk_manifest.csv --out data/retrieval/retrieval_objects_manifest.csv
+
+export-audio-rag-objects:
+	$(PYTHON) tools/export_audio_rag_objects.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+first30-run-extraction:
+	$(PYTHON) tools/run_first30_signal_extraction.py
+
+first30-validate-candidates:
+	$(PYTHON) tools/validate_first30_signal_candidates.py
+
+first30-build-review-packets:
+	$(PYTHON) tools/build_first30_review_packets.py
+
+first30-reduce-retrieval-fallback:
+	$(PYTHON) tools/reduce_retrieval_fallback_overuse.py
+
+first30-materialize-retrieval-eval:
+	$(PYTHON) tools/materialize_first30_eval_queries.py
+
+first30-evaluate-retrieval:
+	$(PYTHON) tools/materialize_first30_eval_queries.py
+	$(PYTHON) tools/evaluate_retrieval.py --objects data/retrieval/retrieval_objects_manifest.csv
+	$(PYTHON) tools/reduce_retrieval_fallback_overuse.py
+	$(PYTHON) tools/diagnose_retrieval_failures.py
+
+evaluate-first30-retrieval: first30-evaluate-retrieval
+
+training-readiness-first30:
+	$(PYTHON) tools/build_first30_training_review_bridge.py
+	$(PYTHON) tools/build_training_readiness_from_first30.py
+
+corpus-status-dashboard:
+	$(PYTHON) tools/build_corpus_status_dashboard.py --workspace "$(NYSE_DESKTOP_WORKSPACE)"
+
+earningscall-first30-check: provider-audit-licenses earningscall-discover-first30 provider-download-assets resolve-remaining-first30-transcripts replace-first30-alternates first30-download-transcripts resolve-first30-audio asr-env-check asr-run-batch align-audio-transcript export-audio-rag-objects normalize-registered-transcripts build-event-chunks export-retrieval-objects first30-run-extraction first30-validate-candidates first30-build-review-packets first30-evaluate-retrieval training-readiness-first30 corpus-status-dashboard
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
+
+finish-first30-coverage-check: resolve-remaining-first30-transcripts replace-first30-alternates first30-download-transcripts resolve-first30-audio first30-audio-gap-status provider-audit-licenses provider-discover-first30 asr-env-check asr-run-batch align-audio-transcript normalize-registered-transcripts build-event-chunks export-retrieval-objects evaluate-first30-retrieval training-readiness-first30 corpus-status-dashboard
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run
+
+finish-first30-check: finish-first30-coverage-check
+
+.PHONY: first100-candidate-expansion first100-validate-candidates first100-review-packets first100-calibration-batch first100-validate-adjudication first100-promotion-check first100-training-readiness first100-review-dashboard validate-public-model-assist-registry first100-weak-model-assist first100-review-accelerator first100-review-check
+
+first100-candidate-expansion:
+	$(PYTHON) tools/run_first100_candidate_expansion.py
+
+first100-validate-candidates:
+	$(PYTHON) tools/validate_first100_signal_candidates.py
+
+first100-review-packets:
+	$(PYTHON) tools/build_first100_review_packets.py
+
+first100-calibration-batch:
+	$(PYTHON) tools/build_first100_calibration_batch.py
+
+first100-validate-adjudication:
+	@echo "Set FIRST100_ADJUDICATION=/path/to/first100_adjudication_draft.jsonl to validate a human adjudication draft."
+	@test -n "$(FIRST100_ADJUDICATION)" || exit 2
+	$(PYTHON) tools/validate_first100_adjudication_file.py --adjudication "$(FIRST100_ADJUDICATION)"
+
+first100-promotion-check:
+	$(PYTHON) tools/validate_first100_promotion_manifest.py
+
+first100-training-readiness:
+	$(PYTHON) tools/report_first100_training_readiness.py
+
+first100-review-dashboard:
+	$(PYTHON) tools/build_review_readiness_dashboard.py
+
+validate-public-model-assist-registry:
+	$(PYTHON) tools/validate_public_model_assist_registry.py data/review/public_model_assist_registry.example.yml
+
+first100-weak-model-assist: validate-public-model-assist-registry
+	$(PYTHON) tools/build_first100_weak_model_assist.py
+
+first100-review-accelerator: first100-weak-model-assist
+	$(PYTHON) tools/build_first100_review_spreadsheet.py
+
+first100-review-check: first100-candidate-expansion first100-validate-candidates first100-review-packets first100-calibration-batch first100-promotion-check first100-training-readiness first30-materialize-retrieval-eval first30-evaluate-retrieval first100-review-dashboard
+	$(PYTHON) tools/build_first100_retrieval_support.py
+	$(PYTHON) scripts/check_restricted_artifacts.py --dry-run

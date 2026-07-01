@@ -59,11 +59,16 @@ data/external/financial_twitter_sentiment/*
 !data/external/financial_twitter_sentiment/.gitkeep
 data/processed/multimodal_engine/mlruns/
 tmp/
+.local/
 
 # local human-review runtime outputs
 data/review/runtime/
-data/review/
+data/review/*
 !data/review/.gitkeep
+!data/review/public_model_assist_registry.example.yml
+!data/review/staging/
+data/review/staging/*
+!data/review/staging/first100_adjudication_draft.jsonl
 data/review/argilla/
 data/review/exports/
 data/review/imports/
@@ -88,6 +93,8 @@ data/nlp_assets/raw/
 *.parquet
 *.arrow
 transcripts/
+!src/signal_engine/transcripts/
+!src/signal_engine/transcripts/*.py
 transcripts_backup_*/
 tools/transcript_downloader/**/raw/
 tools/transcript_downloader/**/quarantine/

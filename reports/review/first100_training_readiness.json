@@ -1,0 +1,16 @@
+{
+  "blockers": [
+    "valid adjudicated labels below training gate: 0/100",
+    "explicit training rights are not configured",
+    "promotion manifest is not valid or not present"
+  ],
+  "canonical_state": "REVIEW_READY",
+  "gold_labels_created": 0,
+  "packet_count": 5,
+  "pending_candidates": 100,
+  "provenance_complete": true,
+  "state": "REVIEW_READY",
+  "training_performed": false,
+  "training_rights_explicit": false,
+  "valid_adjudicated_labels": 0
+}

@@ -1,0 +1,10 @@
+{
+  "candidate_rows": 100,
+  "error_count": 0,
+  "errors": [],
+  "gold_labels_created": 0,
+  "raw_text_committed": false,
+  "training_performed": false,
+  "valid": true,
+  "weak_labels_promoted": 0
+}

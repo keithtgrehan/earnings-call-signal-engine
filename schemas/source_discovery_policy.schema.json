@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/source_discovery_policy.schema.json",
+  "type": "object",
+  "required": [
+    "exchange",
+    "lookback_years",
+    "allowed_source_types",
+    "raw_body_ingest_default",
+    "unknown_rights_default",
+    "require_source_terms_check",
+    "require_robots_check",
+    "require_license_config_for_vendor_raw",
+    "require_authorization_for_youtube_raw"
+  ],
+  "properties": {
+    "exchange": { "const": "NYSE" },
+    "lookback_years": { "type": "integer", "minimum": 1 },
+    "allowed_source_types": { "type": "array", "items": { "type": "string" } },
+    "raw_body_ingest_default": { "const": false },
+    "unknown_rights_default": { "const": "blocked" },
+    "require_source_terms_check": { "const": true },
+    "require_robots_check": { "const": true },
+    "require_license_config_for_vendor_raw": { "const": true },
+    "require_authorization_for_youtube_raw": { "const": true }
+  },
+  "additionalProperties": true
+}

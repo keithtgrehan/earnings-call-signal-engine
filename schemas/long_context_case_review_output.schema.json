@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/long_context_case_review_output.schema.json",
+  "title": "Signal Engine long-context case review output",
+  "type": "object",
+  "required": [
+    "review_output_id",
+    "generated_at",
+    "status_label",
+    "case_id",
+    "reviewer_model_slot",
+    "reviewed_bundle_id",
+    "source_prompt_pack_id",
+    "summary",
+    "conclusions",
+    "cited_object_refs",
+    "cited_provenance_refs",
+    "detected_issues",
+    "uncertainty_flags",
+    "extraction_disagreements",
+    "hallucination_risk_notes",
+    "reviewer_confidence",
+    "abstentions",
+    "cannot_answer_reasons",
+    "provider_execution",
+    "llm_called_by_this_tool",
+    "model_output_present",
+    "evaluated_model_quality",
+    "benchmark_complete",
+    "production_claims",
+    "sample_only"
+  ],
+  "properties": {
+    "review_output_id": {"type": "string", "minLength": 1},
+    "generated_at": {"type": "string", "minLength": 1},
+    "status_label": {"const": "long_context_review_output_candidate_metadata_only"},
+    "case_id": {"type": "string", "minLength": 1},
+    "reviewer_model_slot": {"type": "string", "minLength": 1},
+    "reviewed_bundle_id": {"type": "string", "minLength": 1},
+    "source_prompt_pack_id": {"type": "string", "minLength": 1},
+    "summary": {"type": "string", "minLength": 1},
+    "conclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "conclusion_id",
+          "statement",
+          "cited_object_refs",
+          "cited_provenance_refs",
+          "abstained"
+        ],
+        "properties": {
+          "conclusion_id": {"type": "string", "minLength": 1},
+          "statement": {"type": "string"},
+          "cited_object_refs": {
+            "type": "array",
+            "items": {"type": "string", "pattern": "^rom_(semantic|event|evidence)_[0-9a-f]{16}$"}
+          },
+          "cited_provenance_refs": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          },
+          "abstained": {"type": "boolean"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "cited_object_refs": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^rom_(semantic|event|evidence)_[0-9a-f]{16}$"}
+    },
+    "cited_provenance_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "detected_issues": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "uncertainty_flags": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "extraction_disagreements": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "hallucination_risk_notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "reviewer_confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "abstentions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["abstention_id", "reason", "cited_object_refs", "cited_provenance_refs"],
+        "properties": {
+          "abstention_id": {"type": "string", "minLength": 1},
+          "reason": {"type": "string", "minLength": 1},
+          "cited_object_refs": {
+            "type": "array",
+            "items": {"type": "string", "pattern": "^rom_(semantic|event|evidence)_[0-9a-f]{16}$"}
+          },
+          "cited_provenance_refs": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "cannot_answer_reasons": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "provider_execution": {"const": false},
+    "llm_called_by_this_tool": {"const": false},
+    "model_output_present": {"const": false},
+    "evaluated_model_quality": {"const": false},
+    "benchmark_complete": {"const": false},
+    "production_claims": {"const": false},
+    "sample_only": {"const": true}
+  },
+  "additionalProperties": false
+}

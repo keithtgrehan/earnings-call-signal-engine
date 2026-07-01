@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/retrieval_eval_query.schema.json",
+  "title": "RAG v0 retrieval eval query",
+  "type": "object",
+  "required": [
+    "query_id",
+    "query_text",
+    "query_intent",
+    "target_case_id",
+    "target_ticker",
+    "target_fiscal_period",
+    "expected_object_types",
+    "expected_signal_types",
+    "expected_sections",
+    "expected_speaker_roles",
+    "expected_evidence_ids",
+    "negative_control",
+    "abstention_expected",
+    "rights_required",
+    "notes"
+  ],
+  "properties": {
+    "query_id": {"type": "string", "minLength": 1},
+    "query_text": {"type": "string", "minLength": 1},
+    "query_intent": {"type": "string", "minLength": 1},
+    "target_case_id": {"type": "string"},
+    "target_ticker": {"type": "string"},
+    "target_fiscal_period": {"type": "string"},
+    "expected_object_types": {
+      "type": "array",
+      "items": {"enum": ["evidence_object", "event_aligned_chunk", "semantic_fallback"]}
+    },
+    "expected_signal_types": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "expected_sections": {
+      "type": "array",
+      "items": {
+        "enum": ["prepared_remarks", "qa", "safe_harbor", "operator", "non_gaap", "vendor_disclaimer", "unknown"]
+      }
+    },
+    "expected_speaker_roles": {
+      "type": "array",
+      "items": {"enum": ["management", "analyst", "operator", "ir", "vendor", "unknown"]}
+    },
+    "expected_evidence_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "negative_control": {"type": "boolean"},
+    "abstention_expected": {"type": "boolean"},
+    "rights_required": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "official_ir_transcript_metadata",
+          "normalized_transcript_manifest",
+          "retrieval_object_manifest",
+          "transcript_span_access",
+          "transcript_audio_alignment"
+        ]
+      }
+    },
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {"negative_control": {"const": true}},
+        "required": ["negative_control"]
+      },
+      "then": {
+        "properties": {
+          "abstention_expected": {"const": true},
+          "expected_evidence_ids": {"maxItems": 0}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"abstention_expected": {"const": true}},
+        "required": ["abstention_expected"]
+      },
+      "then": {
+        "properties": {
+          "expected_evidence_ids": {"maxItems": 0}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "negative_control": {"const": false},
+          "abstention_expected": {"const": false}
+        },
+        "required": ["negative_control", "abstention_expected"]
+      },
+      "then": {
+        "properties": {
+          "expected_evidence_ids": {"minItems": 1}
+        }
+      }
+    }
+  ]
+}

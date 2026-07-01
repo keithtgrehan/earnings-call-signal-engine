@@ -1,0 +1,34 @@
+enabled: false
+network_enabled: false
+exchange: NYSE
+lookback_years: 5
+default_mode: metadata_only
+unknown_rights_default: blocked
+require_source_terms_check: true
+require_robots_check: true
+require_manual_approval_for_raw: true
+allow_raw_transcript_ingest: false
+allow_raw_audio_ingest: false
+allow_raw_video_ingest: false
+allow_raw_slides_ingest: false
+commit_raw_assets: false
+sec:
+  enabled: false
+  max_requests_per_second: 10
+  user_agent: "SignalEngine/IR-SEC metadata discovery contact@example.com"
+  cache_dir: ".cache/sec_metadata"
+  raw_filing_body_downloads: false
+  target_forms:
+    - 8-K
+    - 10-Q
+    - 10-K
+official_ir:
+  enabled: false
+  max_requests_per_second_per_domain: 1
+  domain_allowlist: []
+  raw_body_allowed: false
+  source_terms_checked: false
+  robots_checked: false
+output:
+  write_metadata_reports: true
+  write_raw_assets: false

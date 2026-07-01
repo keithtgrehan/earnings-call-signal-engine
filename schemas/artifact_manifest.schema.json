@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-engine.local/schemas/artifact_manifest.schema.json",
+  "type": "object",
+  "required": [
+    "run_id",
+    "git_sha",
+    "command",
+    "timestamp",
+    "config_hash",
+    "input_hashes",
+    "output_hashes",
+    "schema_versions",
+    "environment_summary",
+    "generated_by",
+    "deterministic_core_version"
+  ],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "git_sha": { "type": "string", "minLength": 1 },
+    "command": { "type": "string", "minLength": 1 },
+    "timestamp": { "type": "string", "minLength": 1 },
+    "config_hash": { "type": "string", "pattern": "^sha256:" },
+    "input_hashes": { "type": "object", "additionalProperties": { "type": "string" } },
+    "output_hashes": { "type": "object", "additionalProperties": { "type": "string" } },
+    "schema_versions": { "type": "object", "additionalProperties": { "type": "string" } },
+    "environment_summary": { "type": "object", "additionalProperties": { "type": "string" } },
+    "generated_by": { "type": "string", "minLength": 1 },
+    "deterministic_core_version": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": true
+}
