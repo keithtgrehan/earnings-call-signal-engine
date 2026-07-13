@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Engine Control Room Status",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generated_at",
+    "status",
+    "summary",
+    "strict_valid_gold_count",
+    "minimum_strict_valid_gold_labels",
+    "training_ready",
+    "training_status",
+    "training_gate_reason",
+    "training_blockers",
+    "repair_findings",
+    "repair_status_counts",
+    "consistency_errors",
+    "canonical_truth_source",
+    "gold",
+    "training",
+    "policy",
+    "repair_manifest",
+    "operations",
+    "claims",
+    "reports",
+    "next_actions",
+    "execution_notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "control_room_status.v1"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "status": {
+      "enum": ["READY", "NOT_READY"]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "strict_valid_gold_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "minimum_strict_valid_gold_labels": {
+      "type": "integer",
+      "minimum": 100
+    },
+    "training_ready": {
+      "type": "boolean"
+    },
+    "training_status": {
+      "enum": ["READY", "BLOCKED"]
+    },
+    "training_gate_reason": {
+      "type": "string"
+    },
+    "training_blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repair_findings": {
+      "type": "object",
+      "required": [
+        "legacy_gold_count",
+        "blocked_gold_count",
+        "repair_candidates",
+        "repair_required",
+        "training_gate_impact"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "legacy_gold_count": {"type": "integer", "minimum": 0},
+        "blocked_gold_count": {"type": "integer", "minimum": 0},
+        "repair_candidates": {"type": "integer", "minimum": 0},
+        "blocked_status_counts": {
+          "type": "object",
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        },
+        "non_valid_status_counts": {
+          "type": "object",
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        },
+        "repair_status_counts": {
+          "type": "object",
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        },
+        "parse_error_count": {"type": "integer", "minimum": 0},
+        "repair_required": {"type": "boolean"},
+        "training_gate_impact": {"type": "string"}
+      }
+    },
+    "repair_status_counts": {
+      "type": "object",
+      "additionalProperties": {"type": "integer", "minimum": 0}
+    },
+    "consistency_errors": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "canonical_truth_source": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "gold": {
+      "type": "object",
+      "required": [
+        "source_path",
+        "row_count",
+        "status_counts",
+        "strict_valid_gold_count",
+        "strict_valid_adjudicated_label_count",
+        "legacy_gold_count",
+        "legacy_gold_row_count",
+        "legacy_repair_candidate_count",
+        "blocked_gold_count",
+        "training_ready_legacy_row_count"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_path": {"type": "string"},
+        "row_count": {"type": "integer", "minimum": 0},
+        "status_counts": {
+          "type": "object",
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        },
+        "strict_valid_gold_count": {"type": "integer", "minimum": 0},
+        "strict_valid_adjudicated_label_count": {"type": "integer", "minimum": 0},
+        "legacy_gold_count": {"type": "integer", "minimum": 0},
+        "legacy_gold_row_count": {"type": "integer", "minimum": 0},
+        "legacy_repair_candidate_count": {"type": "integer", "minimum": 0},
+        "blocked_gold_count": {"type": "integer", "minimum": 0},
+        "training_ready_legacy_row_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "training": {
+      "type": "object",
+      "required": [
+        "status",
+        "training_allowed",
+        "training_ready",
+        "minimum_strict_valid_gold_labels",
+        "min_strict_valid_adjudicated_labels",
+        "strict_valid_gold_count",
+        "strict_valid_adjudicated_label_count",
+        "missing_strict_valid_gold_labels",
+        "missing_strict_valid_adjudicated_labels",
+        "training_gate_reason",
+        "training_blockers",
+        "blockers",
+        "consistency_errors"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {"enum": ["READY", "BLOCKED"]},
+        "training_allowed": {"type": "boolean"},
+        "training_ready": {"type": "boolean"},
+        "minimum_strict_valid_gold_labels": {"type": "integer", "minimum": 100},
+        "min_strict_valid_adjudicated_labels": {"type": "integer", "minimum": 100},
+        "strict_valid_gold_count": {"type": "integer", "minimum": 0},
+        "strict_valid_adjudicated_label_count": {"type": "integer", "minimum": 0},
+        "missing_strict_valid_gold_labels": {"type": "integer", "minimum": 0},
+        "missing_strict_valid_adjudicated_labels": {"type": "integer", "minimum": 0},
+        "training_gate_reason": {"type": "string"},
+        "training_blockers": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "blockers": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "consistency_errors": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "repair_manifest": {
+      "type": "object",
+      "required": [
+        "path",
+        "exists",
+        "repair_manifest_rows",
+        "repair_status_counts",
+        "promotion_eligible_repair_rows"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string"},
+        "exists": {"type": "boolean"},
+        "repair_manifest_rows": {"type": "integer", "minimum": 0},
+        "repair_status_counts": {
+          "type": "object",
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        },
+        "promotion_eligible_repair_rows": {"type": "integer", "minimum": 0}
+      }
+    },
+    "operations": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": ["BLOCKED"]
+      }
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": ["BLOCKED"]
+      }
+    },
+    "reports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "exists", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "path": {"type": "string"},
+          "exists": {"type": "boolean"},
+          "status": {"type": "string"}
+        }
+      }
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "execution_notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}

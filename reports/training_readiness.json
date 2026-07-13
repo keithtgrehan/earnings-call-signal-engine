@@ -1,0 +1,47 @@
+{
+  "authoritative_source": "reports/readiness_canonical.json",
+  "canonical_authoritative": true,
+  "canonical_readiness_path": "reports/readiness_canonical.json",
+  "canonical_readiness_status": "NOT_READY",
+  "generated_at": "2026-06-30T22:25:24.640213+00:00",
+  "minimum_strict_valid_gold_labels": 100,
+  "notes": [
+    "Canonical readiness is the training-readiness authority.",
+    "Training plan validation is context only in this report.",
+    "No model training, exports, embeddings, downloads, or provider calls were run."
+  ],
+  "repair_findings": {
+    "blocked_gold_count": 57,
+    "blocked_status_counts": {
+      "BLOCKED_NO_PROVENANCE": 57
+    },
+    "legacy_gold_count": 57,
+    "non_valid_status_counts": {
+      "BLOCKED_NO_PROVENANCE": 57
+    },
+    "parse_error_count": 0,
+    "repair_candidates": 57,
+    "repair_required": true,
+    "training_gate_impact": "none"
+  },
+  "schema_version": "training_readiness_report.v2",
+  "status": "NOT_READY",
+  "strict_valid_gold_count": 0,
+  "training_attempted": false,
+  "training_blockers": [
+    "strict_valid_gold_count_below_100"
+  ],
+  "training_gate_reason": "strict_valid_gold_count_below_100",
+  "training_plan_context": {
+    "authority": "context_only",
+    "path": "configs/training_plan.example.yml",
+    "readiness_blockers": [
+      "gold labels do not pass validation",
+      "gold label count 57 is below min_gold_labels 100",
+      "training_enabled is false"
+    ],
+    "status": "not_ready"
+  },
+  "training_ready": false,
+  "training_status": "BLOCKED"
+}

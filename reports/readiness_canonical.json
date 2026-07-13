@@ -1,0 +1,132 @@
+{
+  "audit_findings": {
+    "blocked_status_counts": {
+      "BLOCKED_NO_PROVENANCE": 57
+    },
+    "non_valid_status_counts": {
+      "BLOCKED_NO_PROVENANCE": 57
+    },
+    "parse_error_count": 0,
+    "status_counts": {
+      "BLOCKED_NO_PROVENANCE": 57
+    }
+  },
+  "blocked_gold_count": 57,
+  "blockers": [
+    "strict_valid_gold_count_below_100"
+  ],
+  "canonical_gold_modified": false,
+  "canonical_truth_source": {
+    "gold_path": "data/gold/gold_labels.jsonl",
+    "training_gate": "strict_valid_gold_count >= minimum_strict_valid_gold_labels",
+    "validator": "signal_engine.gold_review.audit_gold_labels"
+  },
+  "generated_at": "2026-06-30T22:25:20.199700+00:00",
+  "gold": {
+    "blocked_gold_count": 57,
+    "legacy_gold_count": 57,
+    "legacy_gold_row_count": 57,
+    "legacy_repair_candidate_count": 57,
+    "parse_error_count": 0,
+    "row_count": 57,
+    "source_path": "data/gold/gold_labels.jsonl",
+    "status_counts": {
+      "BLOCKED_NO_PROVENANCE": 57
+    },
+    "strict_valid_adjudicated_label_count": 0,
+    "strict_valid_gold_count": 0,
+    "training_ready_legacy_row_count": 0
+  },
+  "legacy_gold_count": 57,
+  "minimum_strict_valid_gold_labels": 100,
+  "next_actions": [
+    "Repair legacy gold provenance through human-reviewed staging, not direct canonical edits.",
+    "Adjudicate enough strict-valid labels to reach the 100-label training gate.",
+    "Keep source rights, artifact policy, and claims validators in the Control Room status loop."
+  ],
+  "policy": {
+    "artifact_policy": {
+      "evidence": {},
+      "fail_closed": true,
+      "status": "PASS",
+      "summary": "No model weights, embeddings, raw transcript bodies, or provider outputs are produced."
+    },
+    "claim_safety": {
+      "evidence": {},
+      "fail_closed": true,
+      "status": "PASS",
+      "summary": "Alpha, trading performance, causal market impact, statistical significance, production ML, and production retrieval claims remain blocked."
+    },
+    "provenance": {
+      "evidence": {
+        "minimum_strict_valid_gold_labels": 100,
+        "row_count": 57,
+        "strict_valid_gold_count": 0
+      },
+      "fail_closed": true,
+      "status": "FAIL_CLOSED",
+      "summary": "Only sha256-backed strict-valid rows can contribute to readiness."
+    },
+    "source_rights": {
+      "evidence": {
+        "blocked_gold_count": 57,
+        "blocked_status_counts": {
+          "BLOCKED_NO_PROVENANCE": 57
+        },
+        "legacy_gold_count": 57,
+        "non_valid_status_counts": {
+          "BLOCKED_NO_PROVENANCE": 57
+        },
+        "parse_error_count": 0,
+        "repair_candidates": 57,
+        "repair_required": true,
+        "training_gate_impact": "none"
+      },
+      "fail_closed": true,
+      "status": "FAIL_CLOSED",
+      "summary": "Unknown or unrepaired legacy provenance is tracked separately from the strict training gate."
+    }
+  },
+  "repair_findings": {
+    "blocked_gold_count": 57,
+    "blocked_status_counts": {
+      "BLOCKED_NO_PROVENANCE": 57
+    },
+    "legacy_gold_count": 57,
+    "non_valid_status_counts": {
+      "BLOCKED_NO_PROVENANCE": 57
+    },
+    "parse_error_count": 0,
+    "repair_candidates": 57,
+    "repair_required": true,
+    "training_gate_impact": "none"
+  },
+  "repair_status_counts": {},
+  "schema_version": "canonical_readiness.v1",
+  "status": "NOT_READY",
+  "strict_valid_gold_count": 0,
+  "training": {
+    "blockers": [
+      "strict_valid_gold_count_below_100"
+    ],
+    "min_strict_valid_adjudicated_labels": 100,
+    "minimum_strict_valid_gold_labels": 100,
+    "missing_strict_valid_adjudicated_labels": 100,
+    "missing_strict_valid_gold_labels": 100,
+    "status": "BLOCKED",
+    "strict_valid_adjudicated_label_count": 0,
+    "strict_valid_gold_count": 0,
+    "training_allowed": false,
+    "training_blockers": [
+      "strict_valid_gold_count_below_100"
+    ],
+    "training_gate_reason": "strict_valid_gold_count_below_100",
+    "training_ready": false
+  },
+  "training_blockers": [
+    "strict_valid_gold_count_below_100"
+  ],
+  "training_gate_reason": "strict_valid_gold_count_below_100",
+  "training_ready": false,
+  "training_status": "BLOCKED"
+}
