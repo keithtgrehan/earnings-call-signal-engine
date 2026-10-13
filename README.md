@@ -1,275 +1,103 @@
 # Signal Engine
 
-Signal Engine is a transcript-first evaluation system for turning earnings-call and other business conversations into evidence-backed signal candidates, human-review workflows, and benchmark reports.
+**Find the passages worth reviewing in an earnings call—and keep the evidence attached.**
 
-It is not a trading system and does not claim production ML, statistical significance, or market alpha. Deterministic transcript analysis remains canonical. Weak labels, ML, retrieval, embeddings, external datasets, and multimodal work are benchmark or support layers only.
+[View the offline demo report](reports/demo/portfolio_demo_report.md) · [Follow the walkthrough](docs/demo_walkthrough.md) · [Review the architecture](docs/portfolio_architecture.md)
 
-## 1. What It Is
+Signal Engine is a portfolio prototype for structured company research. It turns earnings-call transcripts into reviewable signal candidates, supporting evidence and evaluation reports. The core uses deterministic rules to identify guidance language, uncertainty, risk and analyst-management friction; a reviewer can inspect the original passage before accepting an interpretation.
 
-Signal Engine ingests transcripts, preserves provenance, extracts deterministic signal candidates, routes reviewable evidence to humans, promotes only accepted labels into gold data, and reports quality through gated evaluation.
+The product question is simple: **how can a useful summary also be something another person can check?**
 
-The strongest proof path is earnings-call transcripts because guidance language, analyst Q&A pressure, uncertainty, and friction can be tied to concrete transcript evidence.
+## Start here: a three-minute review
 
-## 2. Why It Matters
+1. Read the [demo report](reports/demo/portfolio_demo_report.md) for the end-to-end workflow and the scope of the recorded benchmark.
+2. Open the [human-review workflow](docs/review_workflow.md) to see how candidates are reviewed, corrected and accepted.
+3. Read the [evaluation strategy](docs/evaluation_strategy.md) to see why source quality and reviewed examples matter more than a headline score.
+4. Use the [technical reviewer brief](docs/technical_reviewer_brief.md) for a deeper implementation review.
 
-Generic AI summaries are hard to trust when they lack evidence, provenance, and quality gates. Signal Engine makes signal extraction reviewable and measurable:
+These materials can be inspected directly on GitHub. The offline report can also be rebuilt locally without downloading transcripts or calling a model.
 
-- every candidate keeps a source and evidence trail
-- weak labels are suggestions, not truth
-- human-reviewed labels are the canonical truth source
-- benchmark reports are gated by reviewed-label volume and provenance quality
-- optional ML/retrieval layers compare against the deterministic baseline without replacing it
+## What works
 
-## 3. Architecture
+| Capability | Reviewer value |
+| --- | --- |
+| Transcript intake with source and provenance records | Trace an analysis back to the material it used. |
+| Deterministic signal extraction | Inspect repeatable candidates and supporting text rather than an unexplained conclusion. |
+| Human-review packets and a local Argilla workflow | Accept, reject or correct candidates before treating them as reviewed labels. |
+| Evaluation against labelled examples | Inspect precision, recall, F1 and differences between source-quality subsets. |
+| A TF-IDF/logistic-regression comparison | Compare a conventional ML baseline with the rule-based approach before adding model complexity. |
+| Offline portfolio reporting | Review committed evidence without live acquisition or paid API access. |
+
+## Why these design choices
+
+**Evidence before interpretation.** A confident summary is difficult to challenge if its sources disappear. Signal candidates retain transcript evidence so the reviewer can assess context and distinguish wording from inference.
+
+**Human review before accepted labels.** Machine suggestions can organise a review queue, but they cannot certify their own correctness. Accepted labels require a separate review step. This keeps extraction, review and evaluation from becoming a circular process.
+
+**A measurable baseline before more AI.** Deterministic extraction is the reference path. The classical ML baseline is a comparison, not an automatic replacement. Retrieval and model-assisted review are developed behind explicit readiness gates so added complexity has to earn its place.
+
+**Reproducible review before broad acquisition.** The portfolio route uses committed reports and controlled local workflows. Source registration and acquisition are separate, preserving provenance and source-use restrictions rather than assuming that every readable transcript can be redistributed.
+
+**A narrow output before a broad promise.** This project helps inspect language in business communication. It does not turn a risk phrase into a prediction of business performance or a trading recommendation.
+
+## Commercial relevance
+
+A sales or partnerships professional often has to turn a large amount of company information into a small number of useful questions. This project explores the analytical work behind that task: identify a relevant passage, preserve its context, test an interpretation and explain what would need further validation.
+
+The same review pattern is relevant to discovery, customer feedback and account research. Those are transferable applications of the design, rather than claims that all of those products are implemented here.
+
+This is Keith Grehan's portfolio work, developed with AI-assisted tooling. It demonstrates product scoping, technical learning and evaluation judgement alongside a commercial background.
+
+## Architecture
 
 ```text
-public/legal transcript source
-  -> intake + provenance
-  -> deterministic extraction
-  -> weak-label suggestions
-  -> human review
-  -> accepted gold labels
-  -> gated evaluation
-  -> benchmark, retrieval, and stakeholder reports
+Transcript + provenance → rule-based candidates → human review
+                                                   ↓
+                                      accepted labels → evaluation
 ```
 
-Optional layers include local Argilla review infrastructure, local TF-IDF/logistic-regression benchmarking, retrieval benchmark scaffolds, source-quality reporting, and multimodal research hooks. These are explicitly benchmark/support layers.
+Python provides the core tooling. Review packets, schemas and command-line workflows keep individual stages inspectable. Optional review and ML dependencies sit alongside the deterministic core.
 
-## 4. Current Proven Capabilities
+| Layer | Status in this portfolio |
+| --- | --- |
+| Intake, extraction, review workflow and offline reports | Implemented; see the linked workflow and demo evidence. |
+| Classical ML evaluation | Benchmark comparison on a small dataset. |
+| Retrieval, model review and multimodal extensions | Supporting infrastructure and experiments with separate readiness gates; not required for the core demo. |
+| Custom training at scale and broad performance claims | Reserved for sufficient rights-cleared, human-reviewed evidence. |
 
-- Transcript intake for provenance-backed public or manually supplied sources.
-- Source discovery and verification for high-signal earnings-call transcript URLs.
-- Manual-source workflow for legally usable local transcript files.
-- Safe tiered transcript acquisition workflow with robots/paywall/block safeguards.
-- Deterministic signal extraction and evidence-object generation.
-- Weak-label candidate generation.
-- Human review packets and accepted-label promotion workflow.
-- Local Argilla review workflow for transcript chunks and suggestions.
-- Gold-label evaluation loop with precision, recall, and F1 reporting.
-- Source-quality and fixture-excluded reporting.
-- TF-IDF + Logistic Regression benchmark, gated and benchmark-only.
-- Retrieval benchmark scaffold, gated until reviewed-label volume is sufficient.
-- Rights-cleared resource registry scaffold for corpus/source provenance, restricted-artifact blocking, and metadata-only source adapters.
-- Offline portfolio demo.
+## Run the offline report
 
-## 4A. Post-PR37 Real Pilot Readiness
-
-Built now:
-
-- `signal-engine doctor --json` for local environment/proof checks.
-- Artifact manifest contract and validator.
-- Rights-gated NYSE five-year metadata universe and source availability matrix.
-- Official IR, SEC, webcast/YouTube metadata, slides, and permitted-ingest queues.
-- Agent 4 ranked first-100 review queue, contamination preflags, reviewer packets, calibration batch, and stricter promotion checks.
-- Agent 1 deterministic candidate hardening with sectioning quality flags, speaker roles, Q&A pairing fields, guidance comparator reporting, and review priority.
-- Agent 2 evaluation/retrieval/event-study/BYOK/audio-video gates with explicit no-claim language.
-- Manual-local transcript/media discovery by path/hash metadata only.
-
-Scaffolded now:
-
-- 500-call metadata/readiness map.
-- Retrieval/RAG readiness over evidence objects without embeddings or vector DBs.
-- Event-study context policy without market data fetches.
-
-Not ready / blocked:
-
-- No raw transcript/audio/video/slides are downloaded or newly committed by the post-PR37 automation.
-- No canonical gold labels are auto-promoted.
-- No real training runs until valid adjudicated gold count is at least `100`.
-- No alpha, trading, causal, production ML, or statistical-significance claims are supported.
-
-Future:
-
-- Rights-cleared manual-local transcript registration for the first 30 calls.
-- Human calibration/adjudication to reach the first 100 valid gold labels.
-- Retrieval benchmark after enough registered evidence objects exist.
-
-## 5. Human Review Loop
-
-Weak labels are reviewer aids only. They are never auto-promoted.
-
-CSV/packet workflow:
-
-```bash
-make review-priority-labels
-# Review data/labeling/priority_review_packet.csv or data/labeling/priority_review_packet.md.
-make promote-reviewed-priority-labels
-make eval-after-review
-```
-
-Local Argilla workflow:
-
-```bash
-pip install -e ".[review]"
-make review-bootstrap
-make review-load-transcripts
-make review-upload-suggestions
-make review-build-queue
-REVIEWED_JSONL=/path/to/reviewed.jsonl make review-export-gold
-make review-eval
-```
-
-Important docs:
-
-- `docs/review_workflow.md`
-- `docs/argilla_setup.md`
-- `docs/human_review_guidelines.md`
-- `docs/manual_transcript_source_workflow.md`
-
-## 6. Evaluation Philosophy
-
-Current validated benchmark snapshot:
-
-- Canonical gold labels: `57`
-- Deterministic precision: `0.8399`
-- Deterministic recall: `0.8326`
-- Deterministic F1: `0.8276`
-- TF-IDF + Logistic Regression benchmark: precision `0.7332`, recall `0.7328`, F1 `0.7327`
-- Label distribution: `risk_friction=13`, `opportunity_commitment=15`, `uncertainty_hedging=18`, `neutral=11`
-
-These are promising early scores, not production claims. The label set is still small and mixed-provenance. Source-quality subset metrics and additional human-reviewed earnings-call labels matter more than the headline metric until the corpus reaches `100+` reviewed labels.
-
-Training readiness remains gated. Legacy canonical rows may exist, but strict provenance-complete valid count can be lower until sha256 provenance and adjudication state are repaired through staging.
-
-Gates:
-
-- Local ML is benchmark-only and allowed after `>=50` valid gold labels.
-- Retrieval/embedding work requires `>=100` gold labels or explicit experiment mode.
-- External datasets require verified local files or safe-local metadata.
-- Dataset adapters never merge external rows into gold labels automatically.
-- ML, retrieval, and embeddings cannot override deterministic outputs.
-
-## 7. Repo Structure
-
-- `tools/`: intake, source discovery, review, evaluation, benchmark, and report scripts.
-- `scripts/review/`: local Argilla review CLIs.
-- `src/review/`: deterministic chunking, suggestions, queueing, export, and optional DuckDB helpers.
-- `src/signal_engine/`: evaluation, datasets, deterministic baselines, and support modules.
-- `data/corpus/`: corpus manifests, source templates, and metadata-backed case folders.
-- `data/labeling/`: review packets and priority-review artifacts.
-- `data/gold/`: canonical reviewed labels.
-- `reports/`: evaluation, benchmark, review, source-quality, and demo reports.
-- `docs/`: architecture, workflow, reviewer, portfolio, and evaluation documentation.
-
-## 8. Local Setup
-
-```bash
-pip install -e .
-pip install -e ".[dev]"
-```
-
-Optional review tooling:
-
-```bash
-pip install -e ".[review]"
-```
-
-Core commands:
+Python 3.11 or newer is required. From the repository root:
 
 ```bash
 make portfolio-demo
-make eval-loop
-make next-experiment
-make review-priority-labels
-make review-build-queue
 ```
 
-High-signal source and intake flow:
+This rebuilds the portfolio report, metrics JSON and walkthrough under `reports/demo/` from **existing committed reports**. It does not run a new extraction benchmark, fetch transcripts or promote labels. The report builder uses the Python standard library.
+
+For the wider toolkit:
 
 ```bash
-make discover-high-signal-sources-query-only
-make verify-high-signal-sources
-make intake-high-signal-from-discovered-sources
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
 ```
 
-Manual-source flow:
+The [manual-source workflow](docs/manual_transcript_source_workflow.md) describes transcript intake. The [Argilla setup](docs/argilla_setup.md) documents the optional local review environment.
+
+## Evidence and technical review
+
+- [Evaluation strategy](docs/evaluation_strategy.md) — methods, subset comparisons and interpretation.
+- [Source-quality comparison](reports/source_quality_metric_comparison.md) — the evidence behind dataset-quality decisions.
+- [Architecture](docs/portfolio_architecture.md) — stage boundaries and reusable design.
+- [Review workflow](docs/review_workflow.md) — how candidate labels become accepted evidence.
+- [Data and corpus policy](docs/data_rights_and_corpus_policy.md) — source handling and provenance.
+- [Tests](tests/) — implementation checks for the repository's components.
+
+The committed benchmark is small and mixed in provenance. It supports inspection of the workflow, not a claim of production accuracy, statistical significance or trading returns. Detailed results remain linked so reviewers can assess the evidence themselves.
+
+Documentation links can be checked with:
 
 ```bash
-make prepare-manual-transcript-sources
-make intake-manual-transcript-files
-make review-after-manual-intake
+python3 scripts/check_markdown_links.py README.md
 ```
-
-## 9. Current Limitations
-
-- No trading automation or investment advice.
-- No production ML claim.
-- No statistical-significance claim.
-- No production retrieval-quality claim.
-- No validated multimodal-intelligence claim.
-- Human-reviewed label volume is still the bottleneck.
-- Public transcript acquisition must respect robots, paywalls, login gates, and source terms.
-- Raw transcript bodies and generated review/runtime artifacts should stay out of commits unless explicitly provenance-backed and intentionally committed.
-- Resource registry records are required before expanding source classes, external datasets, or raw-body storage.
-
-## 10. Roadmap
-
-1. Expand the 25-company / 100-call corpus with legally usable transcript sources.
-2. Review more earnings-call packets and grow the gold set to `100+`, then `500-1,000` labels.
-3. Validate deterministic metrics on human-reviewed-only and fixture-excluded subsets.
-4. Use disagreement analysis to reduce false positives and ambiguous guidance mappings.
-5. Run retrieval benchmarks only after the reviewed-label gate is met.
-6. Keep the public repo focused on deterministic, transcript-first evaluation rather than broad AI scope.
-
-## 11. Rights-Cleared Corpus Readiness
-
-The corpus strategy is rights-cleared and metadata-first. Use `configs/resource_registry.example.yml`, `schemas/resource_registry.schema.json`, and `scripts/validate_resource_registry.py` to record source tier, storage permission, commit permission, training/evaluation use, provenance, and blocked reasons.
-
-Key docs:
-
-- `docs/data_rights_and_corpus_policy.md`
-- `docs/public_domain_and_source_terms_playbook.md`
-- `docs/evaluation_claims_matrix.md`
-- `docs/control_room_codex_rollout_review.md`
-- `docs/corpus_500_automation_plan.md`
-- `docs/source_rights_and_media_policy.md`
-- `docs/rights_gated_ir_sec_acquisition_nyse5y.md`
-- `docs/audio_video_ingest_strategy.md`
-- `docs/chunking_and_retrieval_object_strategy.md`
-- `docs/nlp_benchmark_matrix.md`
-- `docs/control_room_500_call_rollout_review.md`
-
-External datasets and weak labels can support benchmarks and review, but they never become gold labels without human review. Restricted transcript-provider bodies must not be copied, committed, trained on, or used for evaluation claims without explicit rights.
-
-Safe scaffold checks:
-
-```bash
-make corpus-safe-check
-```
-
-The IR/SEC workflow is rights-gated source discovery, metadata-first, and permitted acquisition only. Manual-local remains the safest path for actual transcript bodies when source terms are unclear, and SEC/IR discovery does not guarantee transcript access.
-
-The rights-safe 500-call scaffold is documentation/config/validator infrastructure only: no raw acquisition, no production model training, and no BYOK reviewer execution has been performed. Training-readiness checks are now represented, but they fail closed unless human-reviewed gold labels, source rights, and artifact policies pass.
-
-Current scaffold split:
-
-- Built foundation: rights registry, restricted-artifact checks, NYSE target-universe metadata validation, source discovery queues, manual-local registration, retrieval/event-study/training-plan/BYOK validators, metadata-only adapters, and safe Make targets.
-- Built pilot automation: Agent 5 NYSE 30 metadata pilot targets, source queue guardrails, manual-local path/hash batch registration, Agent 4 gold-label audit and first-100 review staging, and Agent 1 deterministic candidate pilot scaffolds.
-- Scaffolded: synthetic retrieval metrics, synthetic smoke training, benchmark metadata, NLP training-source inventory, A/B and multivariate experiment design, deterministic review queues, and BYOK request/response contracts.
-- Future/gated: real 500-call acquisition, raw media ingest, canonical gold repair/promotion, real training, real retrieval indexing, provider-backed review, market-data event studies, ASR/video review, and any model-quality claim.
-
-## Cross-domain NLP safety/research
-
-The cross-domain NLP safety work is docs/config/tests only. It adds research guardrails for finance NLP, dating-app assistive NLP, and multimodal affective cue metadata without model implementation, raw media ingestion, emotion truth claims, trading claims, or dating manipulation.
-
-Key docs:
-
-- `docs/research/multimodal_affective_cue_research.md`
-- `docs/multimodal_audit_layer.md`
-- `docs/legal/multimodal_rights_and_ai_act_guardrails.md`
-- `docs/research/cross_domain_nlp_affective_finance_dating_memo.md`
-- `docs/architecture/cross_domain_safe_nlp_architecture.md`
-- `docs/policies/red_lines_cross_domain_nlp.md`
-- `docs/evaluation/cross_domain_metrics.md`
-
-The scope remains transcript-first and reviewer-support only: no raw audio/video ingestion, no production emotion-recognition models, no true-emotion or deception claims, no biometric identity inference, no workplace/education emotion inference, no trading/alpha/buy/sell claims, and no dating manipulation scoring.
-
-## Portfolio / Technical Review Path
-
-- `PORTFOLIO_README.md`
-- `docs/technical_reviewer_brief.md`
-- `docs/portfolio_architecture.md`
-- `docs/evaluation_strategy.md`
-- `docs/demo_walkthrough.md`
-- `reports/demo/portfolio_demo_report.md`
-- `docs/evaluation/first_50_benchmark_report.md`
