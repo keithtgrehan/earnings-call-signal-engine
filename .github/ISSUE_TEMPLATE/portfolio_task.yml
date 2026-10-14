@@ -1,0 +1,130 @@
+name: Portfolio Product V1 task
+description: One measurable outcome for one focused Codex worktree.
+title: "[Portfolio V1] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Complete every required field. One issue maps to one bounded Codex task and one managed worktree.
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Measurable outcome
+      description: Describe one customer or engineering result, not a list of activities.
+      placeholder: An invited reviewer can approve, edit, reject, or abstain on one persisted analysis.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: workstream
+    attributes:
+      label: Workstream
+      options:
+        - Evaluation and data rights
+        - AWS platform and operations
+        - API and durable jobs
+        - Product UI and UX
+        - Model review and scorecard
+        - Security and privacy
+        - Release proof
+    validations:
+      required: true
+
+  - type: input
+    id: base_branch
+    attributes:
+      label: Base branch
+      value: codex/portfolio-v1-integration
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Required context
+      description: List the repository documents the task must read first.
+      value: |
+        - AGENTS.md
+        - docs/portfolio_v1/README.md
+        - docs/portfolio_v1/STATUS.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: In scope
+      description: Name exact files, folders, or components the task may change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: non_goals
+    attributes:
+      label: Out of scope
+      description: State explicit exclusions that prevent scope drift.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Include observable behavior, validation, security/privacy/rights, and documentation.
+      value: |
+        1.
+        2.
+        3.
+        4.
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Exact validation
+      description: List commands and the expected result.
+      value: |
+        - `make portfolio-v1-check`
+        - Narrow task-specific checks:
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: gates
+    attributes:
+      label: Approval gates
+      options:
+        - label: This task does not create or change cloud credentials or paid spend unless explicitly approved in the issue.
+          required: true
+        - label: This task does not use rights-unclear third-party data unless explicitly approved in the issue.
+          required: true
+        - label: This task does not publicly deploy, publish claims, or merge to main unless explicitly approved in the issue.
+          required: true
+
+  - type: textarea
+    id: approval_evidence
+    attributes:
+      label: Keith approval evidence or not applicable
+      description: Only Keith can approve a gated action. Link or quote his dated approval, or state that this task crosses no gate.
+      placeholder: "Not applicable — this task uses no credentials/spend, rights-unclear data, public deployment/publication, or main merge."
+    validations:
+      required: true
+
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Rollback and handoff
+      description: State the rollback path and handoff evidence required from Codex.
+      value: |
+        Rollback:
+
+        Handoff must include:
+        - summary and changed files
+        - exact validation results
+        - limitations and residual risk
+        - files intentionally not touched
+        - one recommended next dependency
+    validations:
+      required: true

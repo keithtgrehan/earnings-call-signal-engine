@@ -1,20 +1,24 @@
 # Repo Workflow Guardrails
 
-## Correct Signal Engine repo
+## Correct Signal Engine repository
 
-Local path:
-
-```text
-/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa
-```
-
-Remote:
+Canonical remote:
 
 ```text
 git@github.com:keithtgrehan/earnings-call-signal-engine.git
 ```
 
-This is the only repo/worktree to use for Signal Engine Codex tasks.
+The repository identity, remote, branch base, and clean state are authoritative;
+one historical absolute path is not. For Portfolio Product V1, the clean local
+control-room checkout created on 2026-08-24 is:
+
+```text
+/Users/keith/GitHub/earnings-call-signal-engine-portfolio
+```
+
+Codex-managed worktrees derived from that checkout are also valid. The older
+`earnings-call-codex-fix`, `earnings-call-audio-fix`, and long historical
+checkout are not Portfolio V1 integration checkouts.
 
 ## Wrong workspace to avoid for Signal Engine
 
@@ -48,14 +52,21 @@ git status --short
 
 Abort unless:
 
-- `git rev-parse --show-toplevel` is `/Users/keith/Documents/New project/earnings-call-signal-engine-support-qa`
 - `git remote -v` contains `keithtgrehan/earnings-call-signal-engine`
-- the worktree is clean or the user has explicitly identified the existing changes as in scope
+- the task starts from the branch named in its contract
+- the worktree is clean or the task contract explicitly identifies the existing
+  changes as in scope
+- Portfolio V1 tasks read `docs/portfolio_v1/README.md` and
+  `docs/portfolio_v1/STATUS.md` before editing
 
 ## Future branch workflow
 
 - `main` is the stable source of truth.
 - Do not work directly on `main`.
+- Portfolio Product V1 is the exception to the generic base rule below: its
+  task branches and Codex-managed worktrees derive from
+  `codex/portfolio-v1-integration`, or the exact replacement integration branch
+  recorded in the issue contract.
 - Before new work, update `main` in its existing worktree:
 
 ```bash

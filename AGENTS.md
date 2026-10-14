@@ -2,6 +2,35 @@
 
 You are working on Signal Engine 2.0, a transcript-first earnings-call signal engine.
 
+## Portfolio Product V1 Control Room
+
+When a task names Portfolio Product V1, the customer-style case study, cloud
+deployment, model comparison, or the control room, read
+`docs/portfolio_v1/README.md` and `docs/portfolio_v1/STATUS.md` before acting.
+
+Portfolio V1 operating rules:
+
+- `main` remains stable. Portfolio implementation branches start from
+  `codex/portfolio-v1-integration` and use `codex/portfolio-v1-<task>` names.
+- One GitHub issue maps to one bounded Codex task and one Codex-managed worktree.
+- One writer owns each file area. Parallel agents may research, review, or test,
+  but must not edit the same files concurrently.
+- The task contract must state one measurable outcome, allowed scope, explicit
+  non-goals, acceptance criteria, validation, rollback, and handoff evidence.
+- Update `docs/portfolio_v1/STATUS.md` only after the task handoff has been
+  validated by the control room.
+- Deterministic extraction remains canonical. Models may review fixed evidence
+  bundles but may not silently replace, rewrite, or promote canonical outputs.
+- Cloud credentials or spend, real third-party data, public deployment,
+  publication of evaluation claims, and merge to `main` require Keith's explicit
+  approval.
+- Before handoff, run `make portfolio-v1-check` plus the narrow tests for the
+  changed area. Run `make portfolio-v1-release-check` only for a release candidate.
+
+Durable portfolio decisions belong under `docs/portfolio_v1/`, not in chat-only
+instructions. Existing repository-wide safety, evidence, and rights rules below
+still apply.
+
 This repository is not a trading system, alpha engine, or live execution platform. Build a narrow, reliable, reviewable earnings-call analysis system for capstone/demo use with deterministic extraction, evidence spans, reproducibility, human review, evaluation, retrieval, long-context review, selective multimodal audit, and future graph reasoning represented in the repo.
 
 Every major layer must have concrete repo representation:

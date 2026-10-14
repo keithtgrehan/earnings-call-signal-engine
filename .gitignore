@@ -82,6 +82,13 @@ argilla/
 argilla_data/
 reviewer_notes/
 
+# portfolio product local/cloud build outputs
+cdk.out/
+.aws-sam/
+web/node_modules/
+web/dist/
+.portfolio-local/
+
 # local transcript corpus outputs and bulky source artifacts
 data/research/ilya_reading_list/cache/
 data/nlp_assets/cache/
